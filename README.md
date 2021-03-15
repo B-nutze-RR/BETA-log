@@ -26,13 +26,12 @@ Feel free to join our DISCORD
 to ask questions and get HELP or learn about GYROflow and
 IMU based Video-Stabilization in general
 (https://discord.gg/GgeRgsD)
-*
-*
-*
-*
-*
-*
-*
+
+##
+##
+##
+##
+
 ## ORIGINAL BETAFLIGHT INTO AND CREDITS
 
 
