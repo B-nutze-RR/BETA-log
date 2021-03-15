@@ -2,9 +2,11 @@
 Gyro filtering, and highly configurable blackbox logging plus board alignment configuration are a perfect features for 3D logging/tracking applications.
 This version of Betaflight allows to select only Gyro and ACC logging and converts a lot of used/damaged 20x20 FCs into logging devices for these tools:
 
-https://github.com/ElvinC/gyroflow
-https://github.com/jaromeyer/blackbox2gpmf
-https://github.com/Cleric-K/BlackboxToGPMF
+(https://github.com/ElvinC/gyroflow)
+
+(https://github.com/jaromeyer/blackbox2gpmf)
+
+(https://github.com/Cleric-K/BlackboxToGPMF)
 
 Targets are missing motor outputs and Timers
 
