@@ -59,8 +59,8 @@ FORKNAME      = betaflight
 # Working directories
 ROOT            := $(patsubst %/,%,$(dir $(lastword $(MAKEFILE_LIST))))
 SRC_DIR         := $(ROOT)/src/main
-OBJECT_DIR      := $(ROOT)/obj/main
-BIN_DIR         := $(ROOT)/obj
+OBJECT_DIR      := $(ROOT)/BETA-log_FIRMWARE/main
+BIN_DIR         := $(ROOT)/BETA-log_FIRMWARE
 CMSIS_DIR       := $(ROOT)/lib/main/CMSIS
 INCLUDE_DIRS    := $(SRC_DIR) \
                    $(ROOT)/src/main/target \
