@@ -4,17 +4,20 @@ This version of Betaflight allows to select only Gyro and ACC logging and conver
 
 ## GYROflow ( alpha ) 
 a modular toolset to stabilize video with GYRO/ACC data
-(https://github.com/ElvinC/gyroflow)
+#
+https://github.com/ElvinC/gyroflow
 
 ## Blackbox2gpmf
 Use Betaflight/ EMUflight blackbox data to patch Gopro Session 5 / Hero 7 files
 for ReelsteadyGo
-(https://github.com/jaromeyer/blackbox2gpmf)
+#
+https://github.com/jaromeyer/blackbox2gpmf
 
 ## BlackboxTOgpmf
 Make basically any video file compatible for RSgo
 Betaflight/ EMUflight blackbox supported
-(https://github.com/Cleric-K/BlackboxToGPMF)
+#
+https://github.com/Cleric-K/BlackboxToGPMF
 
 Targets are missing motor outputs and Timers and can be found in BETA-log-FIRMWARE:
 Use (https://github.com/betaflight/betaflight-configurator/releases/tag/10.7.0) to flash and set up your FC.
