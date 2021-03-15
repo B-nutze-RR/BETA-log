@@ -199,6 +199,7 @@ LEGACY_TARGETS := MATEKF405 \
     PODIUMF4 \
     STACKX \
     VRRACE \
+    FLOWBOX_04 \
     KROOZX
 
 # Temporarily excluded to get CI coverage for USE_SPI_TRANSACTION
