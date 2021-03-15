@@ -8,9 +8,16 @@ This version of Betaflight allows to select only Gyro and ACC logging and conver
 
 (https://github.com/Cleric-K/BlackboxToGPMF)
 
-Targets are missing motor outputs and Timers
+Targets are missing motor outputs and Timers and can be found in BETA-log-FIRMWARE:
+Use (https://github.com/betaflight/betaflight-configurator/releases/tag/10.7.0) to flash and set up your FC.
+
+We provide also CLI commands for some target to set pre defined Board-Orientation and disable all Blackbox items but GYRO and ACC
 
 
+Feel free to join our DISCORD 
+to ask questions and get HELP or learn about GYROflow and
+IMU based Video-Stabilization in general
+(https://discord.gg/GgeRgsD)
 
 
 ![Betaflight](docs/assets/images/bf_logo.png)
