@@ -1,3 +1,16 @@
+!! BETA-log is a modified version of BETAFLIGHT for GYRO/ACC logging.
+Gyro filtering, and highly configurable blackbox logging plus board alignment configuration are a perfect features for 3D logging/tracking applications.
+This version of Betaflight allows to select only Gyro and ACC logging and converts a lot of used/damaged 20x20 FCs into logging devices for these tools:
+
+https://github.com/ElvinC/gyroflow
+https://github.com/jaromeyer/blackbox2gpmf
+https://github.com/Cleric-K/BlackboxToGPMF
+
+Targets are missing motor outputs and Timers
+
+
+
+
 ![Betaflight](docs/assets/images/bf_logo.png)
 
 [![Latest version](https://img.shields.io/github/v/release/betaflight/betaflight)](https://github.com/betaflight/betaflight/releases) [![Build Status](https://dev.azure.com/Betaflight/Betaflight%20Nightlies/_apis/build/status/betaflight.betaflight?branchName=master)](https://dev.azure.com/Betaflight/Betaflight%20Nightlies/_build/latest?definitionId=8&branchName=master) [![Build Status](https://dev.azure.com/Betaflight/Betaflight%20Nightlies/_apis/build/status/betaflight.betaflight?branchName=4.2-maintenance)](https://dev.azure.com/Betaflight/Betaflight%20Nightlies/_build/latest?definitionId=8&branchName=4.2-maintenance) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
