@@ -103,10 +103,6 @@
 #define BARO_CS_PIN             PB3
 #define DEFAULT_BARO_SPI_BMP280
 
-#define USE_MAX7456
-#define MAX7456_SPI_INSTANCE    SPI3
-#define MAX7456_SPI_CS_PIN      PA15
-
 #define USE_FLASHFS
 #define USE_FLASH_M25P16
 #define ENABLE_BLACKBOX_LOGGING_ON_SPIFLASH_BY_DEFAULT
@@ -136,15 +132,9 @@
 #define UART6_RX_PIN            PC7
 #define UART6_TX_PIN            PC6
 
-#define USE_SOFTSERIAL1
-//#define SOFTSERIAL1_TX_PIN      PA9   // SmartPort, shared with UART1_TX, doesn't work (timer collision)
 
-#define USE_SOFTSERIAL2
 
-#define SERIAL_PORT_COUNT       8 // VCP, UART1,2,3,4,6, SOFTSERIAL x 2
-
-#define USE_ESCSERIAL
-#define ESCSERIAL_TIMER_TX_PIN  PB8  // (PPM)
+#define SERIAL_PORT_COUNT       6 // VCP, UART1,2,3,4,6, SOFTSERIAL x 2
 
 #define USE_SPI
 #define USE_SPI_DEVICE_1
@@ -177,29 +167,7 @@
 #define I2C_DEVICE              (I2CDEV_2)
 #endif
 
-#define USE_ADC
-#define ADC_INSTANCE            ADC2
-#define ADC2_DMA_OPT            1  // DMA 2 Stream 3 Channel 1 (compat default)
-#define CURRENT_METER_ADC_PIN   PC1  // Direct from CRNT pad (part of onboard sensor for Pro)
-#define VBAT_ADC_PIN            PC2  // 11:1 (10K + 1K) divider
-#define RSSI_ADC_PIN            PA0  // Direct from RSSI pad
-
-// Allegro Systems ACS781KLRTR-150U-T
-#if !defined(OMNIBUSF4V6)
-#define CURRENT_METER_SCALE_DEFAULT  176
-#define CURRENT_METER_OFFSET_DEFAULT -18500
-#endif
-
-#define DEFAULT_VOLTAGE_METER_SOURCE VOLTAGE_METER_ADC
-#define DEFAULT_CURRENT_METER_SOURCE CURRENT_METER_ADC
-
-#define USE_TRANSPONDER
-
-#define USE_SONAR
-
 #define DEFAULT_RX_FEATURE      FEATURE_RX_SERIAL
-
-#define DEFAULT_FEATURES        (FEATURE_OSD)
 
 #define TARGET_IO_PORTA (0xffff & ~(BIT(14)|BIT(13)))
 #define TARGET_IO_PORTB (0xffff & ~(BIT(2)))
