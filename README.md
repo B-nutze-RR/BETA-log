@@ -2,16 +2,16 @@
 Gyro filtering, and highly configurable blackbox logging plus board alignment configuration are a perfect features for 3D logging/tracking applications.
 This version of Betaflight allows to select only Gyro and ACC logging and converts a lot of used/damaged 20x20 FCs into logging devices for these tools:
 
-[!GYROflow] ( alpha ) 
+![GYROflow] ( alpha ) 
 a modular toolset to stabilize video with GYRO/ACC data
 (https://github.com/ElvinC/gyroflow)
 
-[!Blackbox2gpmf]
+![Blackbox2gpmf]
 Use Betaflight/ EMUflight blackbox data to patch Gopro Session 5 / Hero 7 files
 for ReelsteadyGo
 (https://github.com/jaromeyer/blackbox2gpmf)
 
-[!BlackboxTOgpmf]
+![BlackboxTOgpmf]
 Make basically any video file compatible for RSgo
 Betaflight/ EMUflight blackbox supported
 (https://github.com/Cleric-K/BlackboxToGPMF)
