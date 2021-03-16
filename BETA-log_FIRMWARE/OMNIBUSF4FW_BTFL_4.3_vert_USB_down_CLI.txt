@@ -1,6 +1,6 @@
 # FOR LOGGING ONLY 
-# GYRO allignment : 	USB-connector = BOTTOM, Switch = TOP
-#			Flash-side-of-PCB = FRONT
+# GYRO allignment : 	USB-connector = BOTTOM
+#		OSD/8pin Connector = FRONT
 #			MCU-side-of-PCB = BACK	
 # Logging only GYRO & ACC - always logging on POWER 
 # DON'T forget to callibrate ACC !
