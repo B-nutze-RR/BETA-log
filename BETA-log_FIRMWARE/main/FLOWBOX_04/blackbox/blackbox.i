@@ -6505,7 +6505,7 @@ typedef struct controlRateConfig_s {
     uint8_t levelExpo[2];
 } controlRateConfig_t;
 
-extern controlRateConfig_t controlRateProfiles_SystemArray[6]; extern controlRateConfig_t controlRateProfiles_CopyArray[6]; static inline const controlRateConfig_t* controlRateProfiles(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t* controlRateProfilesMutable(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t (* controlRateProfiles_array(void))[6] { return &controlRateProfiles_SystemArray; } struct _dummy;
+extern controlRateConfig_t controlRateProfiles_SystemArray[1]; extern controlRateConfig_t controlRateProfiles_CopyArray[1]; static inline const controlRateConfig_t* controlRateProfiles(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t* controlRateProfilesMutable(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t (* controlRateProfiles_array(void))[1] { return &controlRateProfiles_SystemArray; } struct _dummy;
 
 extern controlRateConfig_t *currentControlRateProfile;
 extern const ratesSettingsLimits_t ratesSettingLimits[RATES_TYPE_COUNT];
@@ -7080,7 +7080,7 @@ typedef enum {
     FAILSAFE_PROCEDURE_AUTO_LANDING = 0,
     FAILSAFE_PROCEDURE_DROP_IT,
 
-    FAILSAFE_PROCEDURE_GPS_RESCUE,
+
 
     FAILSAFE_PROCEDURE_COUNT
 } failsafeProcedure_e;
@@ -7838,13 +7838,9 @@ timeMs_t motorGetMotorEnableTimeMs(void);
 void motorShutdown(void);
 
 
-struct motorDevConfig_s;
-typedef struct motorDevConfig_s motorDevConfig_t;
 
-# 102 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 102 "./src/main/drivers/motor.h"
-    isDshotBitbangActive(const motorDevConfig_t *motorConfig);
+
+
 
 
 float getDigitalIdleOffset(const motorConfig_t *motorConfig);
@@ -8189,7 +8185,7 @@ typedef struct pidProfile_s {
     uint8_t simplified_dterm_filter_multiplier;
 } pidProfile_t;
 
-extern pidProfile_t pidProfiles_SystemArray[3]; extern pidProfile_t pidProfiles_CopyArray[3]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[3] { return &pidProfiles_SystemArray; } struct _dummy;
+extern pidProfile_t pidProfiles_SystemArray[1]; extern pidProfile_t pidProfiles_CopyArray[1]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[1] { return &pidProfiles_SystemArray; } struct _dummy;
 
 typedef struct pidConfig_s {
     uint8_t pid_process_denom;
@@ -8295,37 +8291,7 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-
-
-    pt1Filter_t windupLpf[3];
-    uint8_t itermRelax;
-    uint8_t itermRelaxType;
-    uint8_t itermRelaxCutoff;
-
-
-
-    float acCutoff;
-    float acGain;
-    float acLimit;
-    float acErrorLimit;
-    pt1Filter_t acLpf[3];
-    float oldSetpointCorrection[3];
-
-
-
-    biquadFilter_t dMinRange[3];
-    pt1Filter_t dMinLowpass[3];
-    float dMinPercent[3];
-    float dMinGyroGain;
-    float dMinSetpointGain;
-
-
-
-    pt1Filter_t airmodeThrottleLpf1;
-    pt1Filter_t airmodeThrottleLpf2;
-
-
-
+# 343 "./src/main/flight/pid.h"
     pt1Filter_t setpointDerivativePt1[3];
     biquadFilter_t setpointDerivativeBiquad[3];
     
@@ -8335,53 +8301,12 @@ typedef struct pidRuntime_s {
         setpointDerivativeLpfInitialized;
     uint8_t rcSmoothingDebugAxis;
     uint8_t rcSmoothingFilterType;
-
-
-
-    float acroTrainerAngleLimit;
-    float acroTrainerLookaheadTime;
-    uint8_t acroTrainerDebugAxis;
-    float acroTrainerGain;
-    
-# 355 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 355 "./src/main/flight/pid.h"
-        acroTrainerActive;
-    int acroTrainerAxisState[2];
-
-
-
+# 360 "./src/main/flight/pid.h"
     uint8_t dynLpfFilter;
     uint16_t dynLpfMin;
     uint16_t dynLpfMax;
     uint8_t dynLpfCurveExpo;
-
-
-
-    uint8_t launchControlMode;
-    uint8_t launchControlAngleLimit;
-    float launchControlKi;
-
-
-
-    
-# 373 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 373 "./src/main/flight/pid.h"
-        useIntegratedYaw;
-    uint8_t integratedYawRelax;
-
-
-
-    float thrustLinearization;
-    float throttleCompensateAmount;
-
-
-
-    float airmodeThrottleOffsetLimit;
-
-
-
+# 387 "./src/main/flight/pid.h"
     ffInterpolationType_t ffFromInterpolatedSetpoint;
     float ffSmoothFactor;
 
@@ -8433,15 +8358,6 @@ void pidSetAntiGravityState(
 _Bool 
 # 413 "./src/main/flight/pid.h"
     pidAntiGravityEnabled(void);
-
-
-float pidApplyThrustLinearization(float motorValue);
-float pidCompensateThrustLinearization(float throttle);
-
-
-
-void pidUpdateAirmodeLpf(float currentOffset);
-float pidGetAirmodeThrottleOffset();
 # 436 "./src/main/flight/pid.h"
 void dynLpfDTermUpdate(float throttle);
 void pidSetItermReset(
@@ -14275,7 +14191,7 @@ float dynThrottle(float throttle);
 void dynLpfGyroUpdate(float throttle);
 
 
-void initYawSpinRecovery(int maxYawRate);
+
 
 
 
@@ -14512,27 +14428,7 @@ static const blackboxDeltaFieldDefinition_t blackboxMainFields[] = {
 
     {"servo", 5, FLIGHT_LOG_FIELD_UNSIGNED, .Ipredict = FLIGHT_LOG_FIELD_PREDICTOR_1500, .Iencode = FLIGHT_LOG_FIELD_ENCODING_SIGNED_VB, .Ppredict = FLIGHT_LOG_FIELD_PREDICTOR_PREVIOUS, .Pencode = FLIGHT_LOG_FIELD_ENCODING_SIGNED_VB, FLIGHT_LOG_FIELD_CONDITION_TRICOPTER}
 };
-
-
-
-static const blackboxConditionalFieldDefinition_t blackboxGpsGFields[] = {
-    {"time", -1, FLIGHT_LOG_FIELD_UNSIGNED, FLIGHT_LOG_FIELD_PREDICTOR_LAST_MAIN_FRAME_TIME, FLIGHT_LOG_FIELD_ENCODING_UNSIGNED_VB, FLIGHT_LOG_FIELD_CONDITION_NOT_LOGGING_EVERY_FRAME},
-    {"GPS_numSat", -1, FLIGHT_LOG_FIELD_UNSIGNED, FLIGHT_LOG_FIELD_PREDICTOR_0, FLIGHT_LOG_FIELD_ENCODING_UNSIGNED_VB, FLIGHT_LOG_FIELD_CONDITION_ALWAYS},
-    {"GPS_coord", 0, FLIGHT_LOG_FIELD_SIGNED, FLIGHT_LOG_FIELD_PREDICTOR_HOME_COORD, FLIGHT_LOG_FIELD_ENCODING_SIGNED_VB, FLIGHT_LOG_FIELD_CONDITION_ALWAYS},
-    {"GPS_coord", 1, FLIGHT_LOG_FIELD_SIGNED, FLIGHT_LOG_FIELD_PREDICTOR_HOME_COORD, FLIGHT_LOG_FIELD_ENCODING_SIGNED_VB, FLIGHT_LOG_FIELD_CONDITION_ALWAYS},
-    {"GPS_altitude", -1, FLIGHT_LOG_FIELD_UNSIGNED, FLIGHT_LOG_FIELD_PREDICTOR_0, FLIGHT_LOG_FIELD_ENCODING_UNSIGNED_VB, FLIGHT_LOG_FIELD_CONDITION_ALWAYS},
-    {"GPS_speed", -1, FLIGHT_LOG_FIELD_UNSIGNED, FLIGHT_LOG_FIELD_PREDICTOR_0, FLIGHT_LOG_FIELD_ENCODING_UNSIGNED_VB, FLIGHT_LOG_FIELD_CONDITION_ALWAYS},
-    {"GPS_ground_course", -1, FLIGHT_LOG_FIELD_UNSIGNED, FLIGHT_LOG_FIELD_PREDICTOR_0, FLIGHT_LOG_FIELD_ENCODING_UNSIGNED_VB, FLIGHT_LOG_FIELD_CONDITION_ALWAYS}
-};
-
-
-static const blackboxSimpleFieldDefinition_t blackboxGpsHFields[] = {
-    {"GPS_home", 0, FLIGHT_LOG_FIELD_SIGNED, FLIGHT_LOG_FIELD_PREDICTOR_0, FLIGHT_LOG_FIELD_ENCODING_SIGNED_VB},
-    {"GPS_home", 1, FLIGHT_LOG_FIELD_SIGNED, FLIGHT_LOG_FIELD_PREDICTOR_0, FLIGHT_LOG_FIELD_ENCODING_SIGNED_VB}
-};
-
-
-
+# 269 "./src/main/blackbox/blackbox.c"
 static const blackboxSimpleFieldDefinition_t blackboxSlowFields[] = {
     {"flightModeFlags", -1, FLIGHT_LOG_FIELD_UNSIGNED, FLIGHT_LOG_FIELD_PREDICTOR_0, FLIGHT_LOG_FIELD_ENCODING_UNSIGNED_VB},
     {"stateFlags", -1, FLIGHT_LOG_FIELD_UNSIGNED, FLIGHT_LOG_FIELD_PREDICTOR_0, FLIGHT_LOG_FIELD_ENCODING_UNSIGNED_VB},
@@ -15377,51 +15273,7 @@ static
 # 1006 "./src/main/blackbox/blackbox.c"
                ;
 }
-
-
-static void writeGPSHomeFrame(void)
-{
-    blackboxWrite('H');
-
-    blackboxWriteSignedVB(GPS_home[0]);
-    blackboxWriteSignedVB(GPS_home[1]);
-
-
-    gpsHistory.GPS_home[0] = GPS_home[0];
-    gpsHistory.GPS_home[1] = GPS_home[1];
-}
-
-static void writeGPSFrame(timeUs_t currentTimeUs)
-{
-    blackboxWrite('G');
-
-
-
-
-
-
-
-    if (testBlackboxCondition(FLIGHT_LOG_FIELD_CONDITION_NOT_LOGGING_EVERY_FRAME)) {
-
-        blackboxWriteUnsignedVB(currentTimeUs - blackboxHistory[1]->time);
-    }
-
-    blackboxWriteUnsignedVB(gpsSol.numSat);
-    blackboxWriteSignedVB(gpsSol.llh.lat - gpsHistory.GPS_home[0]);
-    blackboxWriteSignedVB(gpsSol.llh.lon - gpsHistory.GPS_home[1]);
-    blackboxWriteUnsignedVB(gpsSol.llh.altCm / 10);
-    blackboxWriteUnsignedVB(gpsSol.groundSpeed);
-    blackboxWriteUnsignedVB(gpsSol.groundCourse);
-
-    gpsHistory.GPS_numSat = gpsSol.numSat;
-    gpsHistory.GPS_coord[0] = gpsSol.llh.lat;
-    gpsHistory.GPS_coord[1] = gpsSol.llh.lon;
-}
-
-
-
-
-
+# 1053 "./src/main/blackbox/blackbox.c"
 static void loadMainState(timeUs_t currentTimeUs)
 {
 
@@ -15720,92 +15572,82 @@ static
                                                                                                                 ;
         case 33: blackboxPrintfHeaderLine("magPID", "%d", currentPidProfile->pid[PID_MAG].P); break;;
 
-        case 34: blackboxPrintfHeaderLine("d_min", "%d,%d,%d", currentPidProfile->d_min[ROLL], currentPidProfile->d_min[PITCH], currentPidProfile->d_min[YAW]); break;
 
-                                                                                                          ;
-        case 35: blackboxPrintfHeaderLine("d_min_gain", "%d", currentPidProfile->d_min_gain); break;;
-        case 36: blackboxPrintfHeaderLine("d_min_advance", "%d", currentPidProfile->d_min_advance); break;;
 
-        case 37: blackboxPrintfHeaderLine("dterm_filter_type", "%d", currentPidProfile->dterm_filter_type); break;;
-        case 38: blackboxPrintfHeaderLine("dterm_lowpass_hz", "%d", currentPidProfile->dterm_lowpass_hz); break;;
 
-        case 39: blackboxPrintfHeaderLine("dterm_lowpass_dyn_hz", "%d,%d", currentPidProfile->dyn_lpf_dterm_min_hz, currentPidProfile->dyn_lpf_dterm_max_hz); break;
+
+
+
+        case 34: blackboxPrintfHeaderLine("dterm_filter_type", "%d", currentPidProfile->dterm_filter_type); break;;
+        case 35: blackboxPrintfHeaderLine("dterm_lowpass_hz", "%d", currentPidProfile->dterm_lowpass_hz); break;;
+
+        case 36: blackboxPrintfHeaderLine("dterm_lowpass_dyn_hz", "%d,%d", currentPidProfile->dyn_lpf_dterm_min_hz, currentPidProfile->dyn_lpf_dterm_max_hz); break;
                                                                                                                     ;
 
-        case 40: blackboxPrintfHeaderLine("dterm_filter2_type", "%d", currentPidProfile->dterm_filter2_type); break;;
-        case 41: blackboxPrintfHeaderLine("dterm_lowpass2_hz", "%d", currentPidProfile->dterm_lowpass2_hz); break;;
-        case 42: blackboxPrintfHeaderLine("yaw_lowpass_hz", "%d", currentPidProfile->yaw_lowpass_hz); break;;
-        case 43: blackboxPrintfHeaderLine("dterm_notch_hz", "%d", currentPidProfile->dterm_notch_hz); break;;
-        case 44: blackboxPrintfHeaderLine("dterm_notch_cutoff", "%d", currentPidProfile->dterm_notch_cutoff); break;;
-        case 45: blackboxPrintfHeaderLine("iterm_windup", "%d", currentPidProfile->itermWindupPointPercent); break;;
-
-        case 46: blackboxPrintfHeaderLine("iterm_relax", "%d", currentPidProfile->iterm_relax); break;;
-        case 47: blackboxPrintfHeaderLine("iterm_relax_type", "%d", currentPidProfile->iterm_relax_type); break;;
-        case 48: blackboxPrintfHeaderLine("iterm_relax_cutoff", "%d", currentPidProfile->iterm_relax_cutoff); break;;
-
-        case 49: blackboxPrintfHeaderLine("pidAtMinThrottle", "%d", currentPidProfile->pidAtMinThrottle); break;;
+        case 37: blackboxPrintfHeaderLine("dterm_filter2_type", "%d", currentPidProfile->dterm_filter2_type); break;;
+        case 38: blackboxPrintfHeaderLine("dterm_lowpass2_hz", "%d", currentPidProfile->dterm_lowpass2_hz); break;;
+        case 39: blackboxPrintfHeaderLine("yaw_lowpass_hz", "%d", currentPidProfile->yaw_lowpass_hz); break;;
+        case 40: blackboxPrintfHeaderLine("dterm_notch_hz", "%d", currentPidProfile->dterm_notch_hz); break;;
+        case 41: blackboxPrintfHeaderLine("dterm_notch_cutoff", "%d", currentPidProfile->dterm_notch_cutoff); break;;
+        case 42: blackboxPrintfHeaderLine("iterm_windup", "%d", currentPidProfile->itermWindupPointPercent); break;;
 
 
-        case 50: blackboxPrintfHeaderLine("anti_gravity_mode", "%d", currentPidProfile->antiGravityMode); break;;
-        case 51: blackboxPrintfHeaderLine("anti_gravity_threshold", "%d", currentPidProfile->itermThrottleThreshold); break;;
-        case 52: blackboxPrintfHeaderLine("anti_gravity_gain", "%d", currentPidProfile->itermAcceleratorGain); break;;
-
-        case 53: blackboxPrintfHeaderLine("abs_control_gain", "%d", currentPidProfile->abs_control_gain); break;;
 
 
-        case 54: blackboxPrintfHeaderLine("use_integrated_yaw", "%d", currentPidProfile->use_integrated_yaw); break;;
 
-        case 55: blackboxPrintfHeaderLine("feedforward_transition", "%d", currentPidProfile->feedForwardTransition); break;;
-        case 56: blackboxPrintfHeaderLine("feedforward_weight", "%d,%d,%d", currentPidProfile->pid[PID_ROLL].F, currentPidProfile->pid[PID_PITCH].F, currentPidProfile->pid[PID_YAW].F); break;
+        case 43: blackboxPrintfHeaderLine("pidAtMinThrottle", "%d", currentPidProfile->pidAtMinThrottle); break;;
+
+
+        case 44: blackboxPrintfHeaderLine("anti_gravity_mode", "%d", currentPidProfile->antiGravityMode); break;;
+        case 45: blackboxPrintfHeaderLine("anti_gravity_threshold", "%d", currentPidProfile->itermThrottleThreshold); break;;
+        case 46: blackboxPrintfHeaderLine("anti_gravity_gain", "%d", currentPidProfile->itermAcceleratorGain); break;;
+
+
+
+
+
+
+        case 47: blackboxPrintfHeaderLine("feedforward_transition", "%d", currentPidProfile->feedForwardTransition); break;;
+        case 48: blackboxPrintfHeaderLine("feedforward_weight", "%d,%d,%d", currentPidProfile->pid[PID_ROLL].F, currentPidProfile->pid[PID_PITCH].F, currentPidProfile->pid[PID_YAW].F); break;
 
                                                                                                               ;
 
-        case 57: blackboxPrintfHeaderLine("ff_interpolate_sp", "%d", currentPidProfile->ff_interpolate_sp); break;;
-        case 58: blackboxPrintfHeaderLine("ff_max_rate_limit", "%d", currentPidProfile->ff_max_rate_limit); break;;
+        case 49: blackboxPrintfHeaderLine("ff_interpolate_sp", "%d", currentPidProfile->ff_interpolate_sp); break;;
+        case 50: blackboxPrintfHeaderLine("ff_max_rate_limit", "%d", currentPidProfile->ff_max_rate_limit); break;;
 
-        case 59: blackboxPrintfHeaderLine("ff_boost", "%d", currentPidProfile->ff_boost); break;;
+        case 51: blackboxPrintfHeaderLine("ff_boost", "%d", currentPidProfile->ff_boost); break;;
 
-        case 60: blackboxPrintfHeaderLine("acc_limit_yaw", "%d", currentPidProfile->yawRateAccelLimit); break;;
-        case 61: blackboxPrintfHeaderLine("acc_limit", "%d", currentPidProfile->rateAccelLimit); break;;
-        case 62: blackboxPrintfHeaderLine("pidsum_limit", "%d", currentPidProfile->pidSumLimit); break;;
-        case 63: blackboxPrintfHeaderLine("pidsum_limit_yaw", "%d", currentPidProfile->pidSumLimitYaw); break;;
+        case 52: blackboxPrintfHeaderLine("acc_limit_yaw", "%d", currentPidProfile->yawRateAccelLimit); break;;
+        case 53: blackboxPrintfHeaderLine("acc_limit", "%d", currentPidProfile->rateAccelLimit); break;;
+        case 54: blackboxPrintfHeaderLine("pidsum_limit", "%d", currentPidProfile->pidSumLimit); break;;
+        case 55: blackboxPrintfHeaderLine("pidsum_limit_yaw", "%d", currentPidProfile->pidSumLimitYaw); break;;
 
 
-        case 64: blackboxPrintfHeaderLine("deadband", "%d", rcControlsConfig()->deadband); break;;
-        case 65: blackboxPrintfHeaderLine("yaw_deadband", "%d", rcControlsConfig()->yaw_deadband); break;;
+        case 56: blackboxPrintfHeaderLine("deadband", "%d", rcControlsConfig()->deadband); break;;
+        case 57: blackboxPrintfHeaderLine("yaw_deadband", "%d", rcControlsConfig()->yaw_deadband); break;;
 
-        case 66: blackboxPrintfHeaderLine("gyro_hardware_lpf", "%d", gyroConfig()->gyro_hardware_lpf); break;;
-        case 67: blackboxPrintfHeaderLine("gyro_lowpass_type", "%d", gyroConfig()->gyro_lowpass_type); break;;
-        case 68: blackboxPrintfHeaderLine("gyro_lowpass_hz", "%d", gyroConfig()->gyro_lowpass_hz); break;;
+        case 58: blackboxPrintfHeaderLine("gyro_hardware_lpf", "%d", gyroConfig()->gyro_hardware_lpf); break;;
+        case 59: blackboxPrintfHeaderLine("gyro_lowpass_type", "%d", gyroConfig()->gyro_lowpass_type); break;;
+        case 60: blackboxPrintfHeaderLine("gyro_lowpass_hz", "%d", gyroConfig()->gyro_lowpass_hz); break;;
 
-        case 69: blackboxPrintfHeaderLine("gyro_lowpass_dyn_hz", "%d,%d", gyroConfig()->dyn_lpf_gyro_min_hz, gyroConfig()->dyn_lpf_gyro_max_hz); break;
+        case 61: blackboxPrintfHeaderLine("gyro_lowpass_dyn_hz", "%d,%d", gyroConfig()->dyn_lpf_gyro_min_hz, gyroConfig()->dyn_lpf_gyro_max_hz); break;
                                                                                                               ;
 
-        case 70: blackboxPrintfHeaderLine("gyro_lowpass2_type", "%d", gyroConfig()->gyro_lowpass2_type); break;;
-        case 71: blackboxPrintfHeaderLine("gyro_lowpass2_hz", "%d", gyroConfig()->gyro_lowpass2_hz); break;;
-        case 72: blackboxPrintfHeaderLine("gyro_notch_hz", "%d,%d", gyroConfig()->gyro_soft_notch_hz_1, gyroConfig()->gyro_soft_notch_hz_2); break;
+        case 62: blackboxPrintfHeaderLine("gyro_lowpass2_type", "%d", gyroConfig()->gyro_lowpass2_type); break;;
+        case 63: blackboxPrintfHeaderLine("gyro_lowpass2_hz", "%d", gyroConfig()->gyro_lowpass2_hz); break;;
+        case 64: blackboxPrintfHeaderLine("gyro_notch_hz", "%d,%d", gyroConfig()->gyro_soft_notch_hz_1, gyroConfig()->gyro_soft_notch_hz_2); break;
                                                                                                                ;
-        case 73: blackboxPrintfHeaderLine("gyro_notch_cutoff", "%d,%d", gyroConfig()->gyro_soft_notch_cutoff_1, gyroConfig()->gyro_soft_notch_cutoff_2); break;
+        case 65: blackboxPrintfHeaderLine("gyro_notch_cutoff", "%d,%d", gyroConfig()->gyro_soft_notch_cutoff_1, gyroConfig()->gyro_soft_notch_cutoff_2); break;
                                                                                                                    ;
-        case 74: blackboxPrintfHeaderLine("gyro_to_use", "%d", gyroConfig()->gyro_to_use); break;;
+        case 66: blackboxPrintfHeaderLine("gyro_to_use", "%d", gyroConfig()->gyro_to_use); break;;
 
-        case 75: blackboxPrintfHeaderLine("dyn_notch_max_hz", "%d", gyroConfig()->dyn_notch_max_hz); break;;
-        case 76: blackboxPrintfHeaderLine("dyn_notch_width_percent", "%d", gyroConfig()->dyn_notch_width_percent); break;;
-        case 77: blackboxPrintfHeaderLine("dyn_notch_q", "%d", gyroConfig()->dyn_notch_q); break;;
-        case 78: blackboxPrintfHeaderLine("dyn_notch_min_hz", "%d", gyroConfig()->dyn_notch_min_hz); break;;
-
-
-        case 79: blackboxPrintfHeaderLine("dshot_bidir", "%d", motorConfig()->dev.useDshotTelemetry); break;;
-
-
-        case 80: blackboxPrintfHeaderLine("gyro_rpm_notch_harmonics", "%d", rpmFilterConfig()->gyro_rpm_notch_harmonics); break;;
-        case 81: blackboxPrintfHeaderLine("gyro_rpm_notch_q", "%d", rpmFilterConfig()->gyro_rpm_notch_q); break;;
-        case 82: blackboxPrintfHeaderLine("gyro_rpm_notch_min", "%d", rpmFilterConfig()->gyro_rpm_notch_min); break;;
-        case 83: blackboxPrintfHeaderLine("rpm_notch_lpf", "%d", rpmFilterConfig()->rpm_lpf); break;;
-
-
-        case 84: blackboxPrintfHeaderLine("acc_lpf_hz", "%d", (int)(accelerometerConfig()->acc_lpf_hz * 100.0f)); break;;
-        case 85: blackboxPrintfHeaderLine("acc_hardware", "%d", accelerometerConfig()->acc_hardware); break;;
+        case 67: blackboxPrintfHeaderLine("dyn_notch_max_hz", "%d", gyroConfig()->dyn_notch_max_hz); break;;
+        case 68: blackboxPrintfHeaderLine("dyn_notch_width_percent", "%d", gyroConfig()->dyn_notch_width_percent); break;;
+        case 69: blackboxPrintfHeaderLine("dyn_notch_q", "%d", gyroConfig()->dyn_notch_q); break;;
+        case 70: blackboxPrintfHeaderLine("dyn_notch_min_hz", "%d", gyroConfig()->dyn_notch_min_hz); break;;
+# 1436 "./src/main/blackbox/blackbox.c"
+        case 71: blackboxPrintfHeaderLine("acc_lpf_hz", "%d", (int)(accelerometerConfig()->acc_lpf_hz * 100.0f)); break;;
+        case 72: blackboxPrintfHeaderLine("acc_hardware", "%d", accelerometerConfig()->acc_hardware); break;;
 
 
 
@@ -15813,41 +15655,41 @@ static
 
 
 
-        case 86: blackboxPrintfHeaderLine("gyro_cal_on_first_arm", "%d", armingConfig()->gyro_cal_on_first_arm); break;;
-        case 87: blackboxPrintfHeaderLine("rc_interpolation", "%d", rxConfig()->rcInterpolation); break;;
-        case 88: blackboxPrintfHeaderLine("rc_interpolation_interval", "%d", rxConfig()->rcInterpolationInterval); break;;
-        case 89: blackboxPrintfHeaderLine("rc_interpolation_channels", "%d", rxConfig()->rcInterpolationChannels); break;;
-        case 90: blackboxPrintfHeaderLine("airmode_activate_throttle", "%d", rxConfig()->airModeActivateThreshold); break;;
-        case 91: blackboxPrintfHeaderLine("serialrx_provider", "%d", rxConfig()->serialrx_provider); break;;
-        case 92: blackboxPrintfHeaderLine("use_unsynced_pwm", "%d", motorConfig()->dev.useUnsyncedPwm); break;;
-        case 93: blackboxPrintfHeaderLine("motor_pwm_protocol", "%d", motorConfig()->dev.motorPwmProtocol); break;;
-        case 94: blackboxPrintfHeaderLine("motor_pwm_rate", "%d", motorConfig()->dev.motorPwmRate); break;;
-        case 95: blackboxPrintfHeaderLine("dshot_idle_value", "%d", motorConfig()->digitalIdleOffsetValue); break;;
-        case 96: blackboxPrintfHeaderLine("debug_mode", "%d", debugMode); break;;
-        case 97: blackboxPrintfHeaderLine("features", "%d", featureConfig()->enabledFeatures); break;;
+        case 73: blackboxPrintfHeaderLine("gyro_cal_on_first_arm", "%d", armingConfig()->gyro_cal_on_first_arm); break;;
+        case 74: blackboxPrintfHeaderLine("rc_interpolation", "%d", rxConfig()->rcInterpolation); break;;
+        case 75: blackboxPrintfHeaderLine("rc_interpolation_interval", "%d", rxConfig()->rcInterpolationInterval); break;;
+        case 76: blackboxPrintfHeaderLine("rc_interpolation_channels", "%d", rxConfig()->rcInterpolationChannels); break;;
+        case 77: blackboxPrintfHeaderLine("airmode_activate_throttle", "%d", rxConfig()->airModeActivateThreshold); break;;
+        case 78: blackboxPrintfHeaderLine("serialrx_provider", "%d", rxConfig()->serialrx_provider); break;;
+        case 79: blackboxPrintfHeaderLine("use_unsynced_pwm", "%d", motorConfig()->dev.useUnsyncedPwm); break;;
+        case 80: blackboxPrintfHeaderLine("motor_pwm_protocol", "%d", motorConfig()->dev.motorPwmProtocol); break;;
+        case 81: blackboxPrintfHeaderLine("motor_pwm_rate", "%d", motorConfig()->dev.motorPwmRate); break;;
+        case 82: blackboxPrintfHeaderLine("dshot_idle_value", "%d", motorConfig()->digitalIdleOffsetValue); break;;
+        case 83: blackboxPrintfHeaderLine("debug_mode", "%d", debugMode); break;;
+        case 84: blackboxPrintfHeaderLine("features", "%d", featureConfig()->enabledFeatures); break;;
 
 
-        case 98: blackboxPrintfHeaderLine("rc_smoothing_type", "%d", rxConfig()->rc_smoothing_type); break;;
-        case 99: blackboxPrintfHeaderLine("rc_smoothing_debug_axis", "%d", rcSmoothingData->debugAxis); break;;
-        case 100: blackboxPrintfHeaderLine("rc_smoothing_cutoffs", "%d, %d", rcSmoothingData->inputCutoffSetting, rcSmoothingData->derivativeCutoffSetting); break;
+        case 85: blackboxPrintfHeaderLine("rc_smoothing_type", "%d", rxConfig()->rc_smoothing_type); break;;
+        case 86: blackboxPrintfHeaderLine("rc_smoothing_debug_axis", "%d", rcSmoothingData->debugAxis); break;;
+        case 87: blackboxPrintfHeaderLine("rc_smoothing_cutoffs", "%d, %d", rcSmoothingData->inputCutoffSetting, rcSmoothingData->derivativeCutoffSetting); break;
                                                                                                                      ;
-        case 101: blackboxPrintfHeaderLine("rc_smoothing_auto_factor", "%d", rcSmoothingData->autoSmoothnessFactor); break;;
-        case 102: blackboxPrintfHeaderLine("rc_smoothing_filter_type", "%d, %d", rcSmoothingData->inputFilterType, rcSmoothingData->derivativeFilterType); break;
+        case 88: blackboxPrintfHeaderLine("rc_smoothing_auto_factor", "%d", rcSmoothingData->autoSmoothnessFactor); break;;
+        case 89: blackboxPrintfHeaderLine("rc_smoothing_filter_type", "%d, %d", rcSmoothingData->inputFilterType, rcSmoothingData->derivativeFilterType); break;
                                                                                                                   ;
-        case 103: blackboxPrintfHeaderLine("rc_smoothing_active_cutoffs", "%d, %d", rcSmoothingData->inputCutoffFrequency, rcSmoothingData->derivativeCutoffFrequency); break;
+        case 90: blackboxPrintfHeaderLine("rc_smoothing_active_cutoffs", "%d, %d", rcSmoothingData->inputCutoffFrequency, rcSmoothingData->derivativeCutoffFrequency); break;
                                                                                                                        ;
-        case 104: blackboxPrintfHeaderLine("rc_smoothing_rx_average", "%d", rcSmoothingData->averageFrameTimeUs); break;;
+        case 91: blackboxPrintfHeaderLine("rc_smoothing_rx_average", "%d", rcSmoothingData->averageFrameTimeUs); break;;
 
-        case 105: blackboxPrintfHeaderLine("rates_type", "%d", currentControlRateProfile->rates_type); break;;
+        case 92: blackboxPrintfHeaderLine("rates_type", "%d", currentControlRateProfile->rates_type); break;;
 
-        case 106: blackboxPrintfHeaderLine("fields_disabled_mask", "%d", blackboxConfig()->fields_disabled_mask); break;;
-
-
-        case 107: blackboxPrintfHeaderLine("vbat_sag_compensation", "%d", currentPidProfile->vbat_sag_compensation); break;;
+        case 93: blackboxPrintfHeaderLine("fields_disabled_mask", "%d", blackboxConfig()->fields_disabled_mask); break;;
 
 
+        case 94: blackboxPrintfHeaderLine("vbat_sag_compensation", "%d", currentPidProfile->vbat_sag_compensation); break;;
 
-        case 108: blackboxPrintfHeaderLine("dynamic_idle_min_rpm", "%d", currentPidProfile->dyn_idle_min_rpm); break;;
+
+
+
 
 
         default:
@@ -15957,30 +15799,7 @@ static
 {
     return blackboxLoopIndex == 0;
 }
-# 1582 "./src/main/blackbox/blackbox.c"
-static 
-# 1582 "./src/main/blackbox/blackbox.c" 3 4
-                  _Bool 
-# 1582 "./src/main/blackbox/blackbox.c"
-                       blackboxShouldLogGpsHomeFrame(void)
-{
-    if ((GPS_home[0] != gpsHistory.GPS_home[0] || GPS_home[1] != gpsHistory.GPS_home[1]
-        || (blackboxPFrameIndex == blackboxIInterval / 2 && blackboxIFrameIndex % 128 == 0)) && isFieldEnabled(FLIGHT_LOG_FIELD_SELECT_GPS)) {
-        return 
-# 1586 "./src/main/blackbox/blackbox.c" 3 4
-              1
-# 1586 "./src/main/blackbox/blackbox.c"
-                  ;
-    }
-    return 
-# 1588 "./src/main/blackbox/blackbox.c" 3 4
-          0
-# 1588 "./src/main/blackbox/blackbox.c"
-               ;
-}
-
-
-
+# 1593 "./src/main/blackbox/blackbox.c"
 static void blackboxAdvanceIterationTimers(void)
 {
     ++blackboxSlowFrameIterationTimer;
@@ -16024,19 +15843,7 @@ static void blackboxLogIteration(timeUs_t currentTimeUs)
             loadMainState(currentTimeUs);
             writeInterframe();
         }
-
-        if (featureIsEnabled(FEATURE_GPS) && isFieldEnabled(FLIGHT_LOG_FIELD_SELECT_GPS)) {
-            if (blackboxShouldLogGpsHomeFrame()) {
-                writeGPSHomeFrame();
-                writeGPSFrame(currentTimeUs);
-            } else if (gpsSol.numSat != gpsHistory.GPS_numSat
-                    || gpsSol.llh.lat != gpsHistory.GPS_coord[0]
-                    || gpsSol.llh.lon != gpsHistory.GPS_coord[1]) {
-
-                writeGPSFrame(currentTimeUs);
-            }
-        }
-
+# 1649 "./src/main/blackbox/blackbox.c"
     }
 
 
@@ -16093,39 +15900,14 @@ void blackboxUpdate(timeUs_t currentTimeUs)
         if (!sendFieldDefinition('I', 'P', blackboxMainFields, blackboxMainFields + 1, (sizeof(blackboxMainFields) / sizeof((blackboxMainFields)[0])),
                 &blackboxMainFields[0].condition, &blackboxMainFields[1].condition)) {
 
-            if (featureIsEnabled(FEATURE_GPS) && isFieldEnabled(FLIGHT_LOG_FIELD_SELECT_GPS)) {
-                blackboxSetState(BLACKBOX_STATE_SEND_GPS_H_HEADER);
-            } else
+
+
+
 
                 blackboxSetState(BLACKBOX_STATE_SEND_SLOW_HEADER);
         }
         break;
-
-    case BLACKBOX_STATE_SEND_GPS_H_HEADER:
-        blackboxReplenishHeaderBudget();
-
-        if (!sendFieldDefinition('H', 0, blackboxGpsHFields, blackboxGpsHFields + 1, (sizeof(blackboxGpsHFields) / sizeof((blackboxGpsHFields)[0])),
-                
-# 1717 "./src/main/blackbox/blackbox.c" 3 4
-               ((void *)0)
-# 1717 "./src/main/blackbox/blackbox.c"
-                   , 
-# 1717 "./src/main/blackbox/blackbox.c" 3 4
-                     ((void *)0)
-# 1717 "./src/main/blackbox/blackbox.c"
-                         ) && isFieldEnabled(FLIGHT_LOG_FIELD_SELECT_GPS)) {
-            blackboxSetState(BLACKBOX_STATE_SEND_GPS_G_HEADER);
-        }
-        break;
-    case BLACKBOX_STATE_SEND_GPS_G_HEADER:
-        blackboxReplenishHeaderBudget();
-
-        if (!sendFieldDefinition('G', 0, blackboxGpsGFields, blackboxGpsGFields + 1, (sizeof(blackboxGpsGFields) / sizeof((blackboxGpsGFields)[0])),
-                &blackboxGpsGFields[0].condition, &blackboxGpsGFields[1].condition) && isFieldEnabled(FLIGHT_LOG_FIELD_SELECT_GPS)) {
-            blackboxSetState(BLACKBOX_STATE_SEND_SLOW_HEADER);
-        }
-        break;
-
+# 1730 "./src/main/blackbox/blackbox.c"
     case BLACKBOX_STATE_SEND_SLOW_HEADER:
         blackboxReplenishHeaderBudget();
 

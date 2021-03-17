@@ -9,23 +9,23 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"mco.c"
-	.section	.gnu.lto_.profile.415f3e6d,"e",%progbits
+	.section	.gnu.lto_.profile.41a3bee1,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.415f3e6d,"e",%progbits
+	.section	.gnu.lto_.icf.41a3bee1,"e",%progbits
 	.ascii	"x\234\343``d\020a@\000f\206\351;\226n\342dl\1775\347"
 	.ascii	"5\037\023\230d\000\000\\\205\010\337"
 	.text
-	.section	.gnu.lto_.jmpfuncs.415f3e6d,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41a3bee1,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.inline.415f3e6d,"e",%progbits
+	.section	.gnu.lto_.inline.41a3bee1,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.pureconst.415f3e6d,"e",%progbits
+	.section	.gnu.lto_.pureconst.41a3bee1,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_mcoConfig_Registry.415f3e6d,"e",%progbits
+	.section	.gnu.lto_mcoConfig_Registry.41a3bee1,"e",%progbits
 	.ascii	"x\234\343``d\270\306\300\300 \306\000\001\323\231\031"
 	.ascii	"_\354?\374\204\325r{C\307\202\006\201\371\314\0143\230"
 	.ascii	"\031\030\365\244A\022}\315\357\357q\3641\317gfd\004"
@@ -39,15 +39,15 @@
 	.ascii	"\201\361 \220\020\321\323/.J\326\317M\314\314\323/H"
 	.ascii	"\327\317M\316\327Kf\000\000]\360L\021"
 	.text
-	.section	.gnu.lto_.symbol_nodes.415f3e6d,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41a3bee1,"e",%progbits
 	.ascii	"x\234\343``d\320d\000\002\326\011\214\014\255J\014z"
 	.ascii	"\005\351\361E\251\351\231\305%E\225@\301^F\306F%\220"
 	.ascii	"l\037#\023\230\301\000\000\327\345\010\275"
 	.text
-	.section	.gnu.lto_.refs.415f3e6d,"e",%progbits
+	.section	.gnu.lto_.refs.41a3bee1,"e",%progbits
 	.ascii	"x\234\343``d`g```b`bdbb\000\000\001\007\000\032"
 	.text
-	.section	.gnu.lto_.decls.415f3e6d,"e",%progbits
+	.section	.gnu.lto_.decls.41a3bee1,"e",%progbits
 	.ascii	"x\234\215V]L\223W\030\376\336\357\224\266\226V\224\342"
 	.ascii	"O\206\027\232T\343\225\205\230-^l\311\026\223\315\253"
 	.ascii	"]lY\226x!aPK3-\244-\333\334\315N)\003\206\240\025\231"
@@ -139,7 +139,7 @@
 	.ascii	"l\373\301\226lq\204aK\221B\200.c\360{-\346\311y\377"
 	.ascii	"\003,\013V'"
 	.text
-	.section	.gnu.lto_.symtab.415f3e6d,"e",%progbits
+	.section	.gnu.lto_.symtab.41a3bee1,"e",%progbits
 	.ascii	"mcoConfig_Registry\000"
 	.ascii	"\000"
 	.ascii	"\000"

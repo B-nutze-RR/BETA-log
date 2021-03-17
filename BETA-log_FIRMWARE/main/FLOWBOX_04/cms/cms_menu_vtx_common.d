@@ -32,13 +32,7 @@ BETA-log_FIRMWARE/main/FLOWBOX_04/cms/cms_menu_vtx_common.o: \
  src/main/target/common_pre.h src/main/target/FLOWBOX_04/target.h \
  src/main/target/common_deprecated_post.h src/main/target/common_post.h \
  src/main/build/version.h src/main/common/utils.h \
- src/main/target/common_defaults_post.h src/main/common/printf.h \
- src/main/cms/cms.h src/main/drivers/display.h src/main/common/time.h \
- src/main/pg/pg.h src/main/build/build_config.h src/main/cms/cms_types.h \
- src/main/cms/cms_menu_vtx_rtc6705.h \
- src/main/cms/cms_menu_vtx_smartaudio.h src/main/cms/cms_menu_vtx_tramp.h \
- src/main/drivers/vtx_common.h src/main/common/streambuf.h \
- src/main/cms/cms_menu_vtx_common.h
+ src/main/target/common_defaults_post.h
 
 src/main/ctype.h:
 
@@ -115,29 +109,3 @@ src/main/build/version.h:
 src/main/common/utils.h:
 
 src/main/target/common_defaults_post.h:
-
-src/main/common/printf.h:
-
-src/main/cms/cms.h:
-
-src/main/drivers/display.h:
-
-src/main/common/time.h:
-
-src/main/pg/pg.h:
-
-src/main/build/build_config.h:
-
-src/main/cms/cms_types.h:
-
-src/main/cms/cms_menu_vtx_rtc6705.h:
-
-src/main/cms/cms_menu_vtx_smartaudio.h:
-
-src/main/cms/cms_menu_vtx_tramp.h:
-
-src/main/drivers/vtx_common.h:
-
-src/main/common/streambuf.h:
-
-src/main/cms/cms_menu_vtx_common.h:

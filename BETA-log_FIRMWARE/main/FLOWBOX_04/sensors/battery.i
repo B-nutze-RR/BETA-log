@@ -6687,13 +6687,9 @@ timeMs_t motorGetMotorEnableTimeMs(void);
 void motorShutdown(void);
 
 
-struct motorDevConfig_s;
-typedef struct motorDevConfig_s motorDevConfig_t;
 
-# 102 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 102 "./src/main/drivers/motor.h"
-    isDshotBitbangActive(const motorDevConfig_t *motorConfig);
+
+
 
 
 float getDigitalIdleOffset(const motorConfig_t *motorConfig);
@@ -7396,7 +7392,7 @@ static batteryState_e consumptionState;
 # 97 "./src/main/sensors/battery.c"
 extern const batteryConfig_t pgResetTemplate_batteryConfig; batteryConfig_t batteryConfig_System; batteryConfig_t batteryConfig_Copy; extern const pgRegistry_t batteryConfig_Registry; const pgRegistry_t batteryConfig_Registry __attribute__ ((section(".pg_registry"), used, aligned(4))) = { .pgn = 11 | (3 << 12), .length = 1, .size = sizeof(batteryConfig_t) | PGR_SIZE_SYSTEM_FLAG, .address = (uint8_t*)&batteryConfig_System, .copy = (uint8_t*)&batteryConfig_Copy, .ptr = 0, .reset = {.ptr = (void*)&pgResetTemplate_batteryConfig}, };
 
-const batteryConfig_t pgResetTemplate_batteryConfig __attribute__ ((section(".pg_resetdata"), used, aligned(2))) = { .vbatmaxcellvoltage = 430, .vbatmincellvoltage = 330, .vbatwarningcellvoltage = 350, .vbatnotpresentcellvoltage = 300, .voltageMeterSource = VOLTAGE_METER_NONE, .lvcPercentage = 100, .batteryCapacity = 0, .currentMeterSource = CURRENT_METER_VIRTUAL, .forceBatteryCellCount = 0, .useVBatAlerts = 
+const batteryConfig_t pgResetTemplate_batteryConfig __attribute__ ((section(".pg_resetdata"), used, aligned(2))) = { .vbatmaxcellvoltage = 430, .vbatmincellvoltage = 330, .vbatwarningcellvoltage = 350, .vbatnotpresentcellvoltage = 300, .voltageMeterSource = VOLTAGE_METER_NONE, .lvcPercentage = 100, .batteryCapacity = 0, .currentMeterSource = CURRENT_METER_NONE, .forceBatteryCellCount = 0, .useVBatAlerts = 
 # 99 "./src/main/sensors/battery.c" 3 4
 1
 # 99 "./src/main/sensors/battery.c"
@@ -7413,14 +7409,7 @@ void batteryUpdateVoltage(timeUs_t currentTimeUs)
     (void)(currentTimeUs);
 
     switch (batteryConfig()->voltageMeterSource) {
-
-        case VOLTAGE_METER_ESC:
-            if (featureIsEnabled(FEATURE_ESC_SENSOR)) {
-                voltageMeterESCRefresh();
-                voltageMeterESCReadCombined(&voltageMeter);
-            }
-            break;
-
+# 143 "./src/main/sensors/battery.c"
         case VOLTAGE_METER_ADC:
             voltageMeterADCRefresh();
             voltageMeterADCRead(VOLTAGE_SENSOR_ADC_VBAT, &voltageMeter);
@@ -7664,7 +7653,7 @@ void batteryInit(void)
     switch (batteryConfig()->voltageMeterSource) {
         case VOLTAGE_METER_ESC:
 
-            voltageMeterESCInit();
+
 
             break;
 
@@ -7688,7 +7677,7 @@ void batteryInit(void)
 
         case CURRENT_METER_VIRTUAL:
 
-            currentMeterVirtualInit();
+
 
             break;
 
@@ -7728,27 +7717,16 @@ void batteryUpdateCurrentMeter(timeUs_t currentTimeUs)
             break;
 
         case CURRENT_METER_VIRTUAL: {
-
-            throttleStatus_e throttleStatus = calculateThrottleStatus();
-            
-# 436 "./src/main/sensors/battery.c" 3 4
-           _Bool 
-# 436 "./src/main/sensors/battery.c"
-                throttleLowAndMotorStop = (throttleStatus == THROTTLE_LOW && featureIsEnabled(FEATURE_MOTOR_STOP));
-            const int32_t throttleOffset = lrintf(mixerGetThrottle() * 1000);
-
-            currentMeterVirtualRefresh(lastUpdateAt, (armingFlags & (ARMED)), throttleLowAndMotorStop, throttleOffset);
-            currentMeterVirtualRead(&currentMeter);
-
+# 442 "./src/main/sensors/battery.c"
             break;
         }
 
         case CURRENT_METER_ESC:
 
-            if (featureIsEnabled(FEATURE_ESC_SENSOR)) {
-                currentMeterESCRefresh(lastUpdateAt);
-                currentMeterESCReadCombined(&currentMeter);
-            }
+
+
+
+
 
             break;
         case CURRENT_METER_MSP:

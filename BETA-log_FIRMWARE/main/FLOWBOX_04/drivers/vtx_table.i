@@ -5220,226 +5220,95 @@ void vtxTableConfigClearPowerValues(struct vtxTableConfig_s *config, int start);
 void vtxTableConfigClearPowerLabels(struct vtxTableConfig_s *config, int start);
 void vtxTableConfigClearChannels(struct vtxTableConfig_s *config, int band, int channels);
 
-
+void vtxTableSetFactoryBands(
+# 62 "./src/main/drivers/vtx_table.h" 3 4
+                            _Bool 
+# 62 "./src/main/drivers/vtx_table.h"
+                                 isFactory);
 
 
 extern int vtxTableBandCount;
 extern int vtxTableChannelCount;
-extern uint16_t vtxTableFrequency[8][8];
-extern const char *vtxTableBandNames[8 + 1];
-extern char vtxTableBandLetters[8 + 1];
+extern uint16_t vtxTableFrequency[5][8];
+extern const char *vtxTableBandNames[5 + 1];
+extern char vtxTableBandLetters[5 + 1];
 extern const char *vtxTableChannelNames[8 + 1];
 extern 
 # 71 "./src/main/drivers/vtx_table.h" 3 4
       _Bool 
 # 71 "./src/main/drivers/vtx_table.h"
-                     vtxTableIsFactoryBand[8];
+                     vtxTableIsFactoryBand[5];
 extern int vtxTablePowerLevels;
-extern uint16_t vtxTablePowerValues[8];
-extern const char *vtxTablePowerLabels[8 + 1];
+extern uint16_t vtxTablePowerValues[5];
+extern const char *vtxTablePowerLabels[5 + 1];
 # 31 "./src/main/drivers/vtx_table.c" 2
+# 55 "./src/main/drivers/vtx_table.c"
+int vtxTableBandCount = 5;
+int vtxTableChannelCount = 8;
+uint16_t vtxTableFrequency[5][8] = {
+    { 5865, 5845, 5825, 5805, 5785, 5765, 5745, 5725 },
+    { 5733, 5752, 5771, 5790, 5809, 5828, 5847, 5866 },
+    { 5705, 5685, 5665, 5645, 5885, 5905, 5925, 5945 },
+    { 5740, 5760, 5780, 5800, 5820, 5840, 5860, 5880 },
+    { 5658, 5695, 5732, 5769, 5806, 5843, 5880, 5917 },
+};
+const char * vtxTableBandNames[5 + 1] = {
+        "--------",
+        "BOSCAM A",
+        "BOSCAM B",
+        "BOSCAM E",
+        "FATSHARK",
+        "RACEBAND",
+};
+char vtxTableBandLetters[5 + 1] = "-ABEFR";
+const char * vtxTableChannelNames[8 + 1] = {
+        "-", "1", "2", "3", "4", "5", "6", "7", "8",
+};
 
-
-# 1 "./src/main/common/printf.h" 1
-# 105 "./src/main/common/printf.h"
-       
-
-# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdarg.h" 1 3 4
-# 40 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdarg.h" 3 4
-
-# 40 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdarg.h" 3 4
-typedef __builtin_va_list __gnuc_va_list;
-# 99 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdarg.h" 3 4
-typedef __gnuc_va_list va_list;
-# 108 "./src/main/common/printf.h" 2
-
-
-# 109 "./src/main/common/printf.h"
-typedef void (*putcf) (void *, char);
-extern putcf stdout_putf;
-extern void *stdout_putp;
-
-void init_printf(void *putp, void (*putf) (void *, char));
-
-int tfp_sprintf(char *s, const char *fmt, ...);
-int tfp_format(void *putp, void (*putf) (void *, char), const char *fmt, va_list va);
-# 34 "./src/main/drivers/vtx_table.c" 2
-
-# 1 "./src/main/pg/vtx_table.h" 1
-# 21 "./src/main/pg/vtx_table.h"
-       
-
-
-
-
-
-
-
-# 1 "./src/main/drivers/vtx_table.h" 1
-# 54 "./src/main/drivers/vtx_table.h"
-struct vtxTableConfig_s;
-void vtxTableInit(void);
-void vtxTableStrncpyWithPad(char *dst, const char *src, int length);
-void vtxTableConfigClearBand(struct vtxTableConfig_s *config, int band);
-void vtxTableConfigClearPowerValues(struct vtxTableConfig_s *config, int start);
-void vtxTableConfigClearPowerLabels(struct vtxTableConfig_s *config, int start);
-void vtxTableConfigClearChannels(struct vtxTableConfig_s *config, int band, int channels);
-
-
-
-
-extern int vtxTableBandCount;
-extern int vtxTableChannelCount;
-extern uint16_t vtxTableFrequency[8][8];
-extern const char *vtxTableBandNames[8 + 1];
-extern char vtxTableBandLetters[8 + 1];
-extern const char *vtxTableChannelNames[8 + 1];
-extern 
-# 71 "./src/main/drivers/vtx_table.h" 3 4
-      _Bool 
-# 71 "./src/main/drivers/vtx_table.h"
-                     vtxTableIsFactoryBand[8];
-extern int vtxTablePowerLevels;
-extern uint16_t vtxTablePowerValues[8];
-extern const char *vtxTablePowerLabels[8 + 1];
-# 30 "./src/main/pg/vtx_table.h" 2
-
-typedef struct vtxTableConfig_s {
-    uint8_t bands;
-    uint8_t channels;
-    uint16_t frequency[8][8];
-    char bandNames[8][8 + 1];
-    char bandLetters[8];
-    char channelNames[8][1 + 1];
-    
-# 38 "./src/main/pg/vtx_table.h" 3 4
-   _Bool 
-# 38 "./src/main/pg/vtx_table.h"
-            isFactoryBand[8];
-
-    uint8_t powerLevels;
-    uint16_t powerValues[8];
-    char powerLabels[8][3 + 1];
-} vtxTableConfig_t;
-
-struct vtxTableConfig_s;
-extern struct vtxTableConfig_s vtxTableConfig_System; extern struct vtxTableConfig_s vtxTableConfig_Copy; static inline const struct vtxTableConfig_s* vtxTableConfig(void) { return &vtxTableConfig_System; } static inline struct vtxTableConfig_s* vtxTableConfigMutable(void) { return &vtxTableConfig_System; } struct _dummy;
-# 36 "./src/main/drivers/vtx_table.c" 2
-
-
-
-
-
-int vtxTableBandCount;
-int vtxTableChannelCount;
-uint16_t vtxTableFrequency[8][8];
-const char * vtxTableBandNames[8 + 1];
-char vtxTableBandLetters[8 + 1];
-const char * vtxTableChannelNames[8 + 1];
-
-# 47 "./src/main/drivers/vtx_table.c" 3 4
+# 76 "./src/main/drivers/vtx_table.c" 3 4
 _Bool 
-# 47 "./src/main/drivers/vtx_table.c"
-              vtxTableIsFactoryBand[8];
-
+# 76 "./src/main/drivers/vtx_table.c"
+              vtxTableIsFactoryBand[5];
 int vtxTablePowerLevels;
-uint16_t vtxTablePowerValues[8];
-const char * vtxTablePowerLabels[8 + 1];
-# 82 "./src/main/drivers/vtx_table.c"
+uint16_t vtxTablePowerValues[5];
+const char * vtxTablePowerLabels[5 + 1];
+
+
 void vtxTableInit(void)
 {
-
-    const vtxTableConfig_t *config = vtxTableConfig();
-
-    vtxTableBandCount = config->bands;
-    vtxTableChannelCount = config->channels;
-
-    for (int band = 0; band < 8; band++) {
-        for (int channel = 0; channel < 8; channel++) {
-            vtxTableFrequency[band][channel] = config->frequency[band][channel];
-        }
-        vtxTableBandNames[band + 1] = config->bandNames[band];
-        vtxTableBandLetters[band + 1] = config->bandLetters[band];
-        vtxTableIsFactoryBand[band] = config->isFactoryBand[band];
+# 115 "./src/main/drivers/vtx_table.c"
+    for (int band = 0; band < 5; band++) {
+        vtxTableIsFactoryBand[band] = 
+# 116 "./src/main/drivers/vtx_table.c" 3 4
+                                     1
+# 116 "./src/main/drivers/vtx_table.c"
+                                         ;
     }
-
-    vtxTableBandNames[0] = "--------";
-    vtxTableBandLetters[0] = '-';
-
-    for (int channel = 0; channel < 8; channel++) {
-        vtxTableChannelNames[channel + 1] = config->channelNames[channel];
+    for (int powerIndex = 0; powerIndex < 5; powerIndex++) {
+        vtxTablePowerValues[powerIndex] = 0;
+        vtxTablePowerLabels[powerIndex] = 
+# 120 "./src/main/drivers/vtx_table.c" 3 4
+                                         ((void *)0)
+# 120 "./src/main/drivers/vtx_table.c"
+                                             ;
     }
-    vtxTableChannelNames[0] = "-";
+    vtxTablePowerLevels = 5;
+    vtxTableSetFactoryBands(
+# 123 "./src/main/drivers/vtx_table.c" 3 4
+                           0
+# 123 "./src/main/drivers/vtx_table.c"
+                                );
 
-    for (int level = 0; level < 8; level++) {
-        vtxTablePowerValues[level] = config->powerValues[level];
-        vtxTablePowerLabels[level + 1] = config->powerLabels[level];
-    }
-    vtxTablePowerLabels[0] = "---";
-
-    vtxTablePowerLevels = config->powerLevels;
-# 125 "./src/main/drivers/vtx_table.c"
-}
-# 138 "./src/main/drivers/vtx_table.c"
-void vtxTableStrncpyWithPad(char *dst, const char *src, int length)
-{
-    char c;
-
-    while (length && (c = *src++)) {
-        *dst++ = c;
-        length--;
-    }
-
-    while (length--) {
-        *dst++ = ' ';
-    }
-
-    *dst = 0;
 }
 
 
-void vtxTableConfigClearChannels(vtxTableConfig_t *config, int band, int channels)
+void vtxTableSetFactoryBands(
+# 128 "./src/main/drivers/vtx_table.c" 3 4
+                            _Bool 
+# 128 "./src/main/drivers/vtx_table.c"
+                                 isFactory)
 {
-    for (int channel = channels; channel < 8; channel++) {
-        config->frequency[band][channel] = 0;
-    }
-}
-
-
-void vtxTableConfigClearChannelNames(vtxTableConfig_t *config, int channel)
-{
-    tfp_sprintf(config->channelNames[channel], "%d", channel + 1);
-}
-
-void vtxTableConfigClearBand(vtxTableConfig_t *config, int band)
-{
-    vtxTableConfigClearChannels(config, band, 0);
-    for (int channel = 0; channel < 8; channel++) {
-        vtxTableConfigClearChannelNames(config, channel);
-    }
-    char tempbuf[6];
-    tfp_sprintf(tempbuf, "BAND%d", band + 1);
-    vtxTableStrncpyWithPad(config->bandNames[band], tempbuf, 8);
-    config->bandLetters[band] = '1' + band;
-    config->isFactoryBand[band] = 
-# 178 "./src/main/drivers/vtx_table.c" 3 4
-                                 0
-# 178 "./src/main/drivers/vtx_table.c"
-                                      ;
-}
-
-void vtxTableConfigClearPowerValues(vtxTableConfig_t *config, int start)
-{
-    for (int i = start; i < 8; i++) {
-        config->powerValues[i] = 0;
-    }
-}
-
-void vtxTableConfigClearPowerLabels(vtxTableConfig_t *config, int start)
-{
-    for (int i = start; i < 8; i++) {
-        char tempbuf[4];
-        tfp_sprintf(tempbuf, "LV%d", i);
-        vtxTableStrncpyWithPad(config->powerLabels[i], tempbuf, 3);
+    for(int i = 0;i < 5; i++) {
+        vtxTableIsFactoryBand[i] = isFactory;
     }
 }

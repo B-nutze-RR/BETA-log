@@ -5240,14 +5240,7 @@ timeDelta_t ticks_diff_us(uint32_t begin, uint32_t end);
 # 1 "./src/main/fc/core.h" 1
 # 21 "./src/main/fc/core.h"
        
-
-
-
-
-
-extern int16_t magHold;
-
-
+# 30 "./src/main/fc/core.h"
 typedef struct throttleCorrectionConfig_s {
     uint16_t throttle_correction_angle;
     uint8_t throttle_correction_value;
@@ -5283,7 +5276,7 @@ typedef enum {
 
 
 
-extern const char * const osdLaunchControlModeNames[LAUNCH_CONTROL_MODE_COUNT];
+
 
 
 extern throttleCorrectionConfig_t throttleCorrectionConfig_System; extern throttleCorrectionConfig_t throttleCorrectionConfig_Copy; static inline const throttleCorrectionConfig_t* throttleCorrectionConfig(void) { return &throttleCorrectionConfig_System; } static inline throttleCorrectionConfig_t* throttleCorrectionConfigMutable(void) { return &throttleCorrectionConfig_System; } struct _dummy;
@@ -5518,40 +5511,11 @@ typedef enum {
     TASK_BATTERY_ALERTS,
 
     TASK_BEEPER,
-
-
-    TASK_GPS,
-# 100 "./src/main/scheduler/scheduler.h"
-    TASK_ALTITUDE,
-
-
-
-
-
-    TASK_TELEMETRY,
-
-
+# 109 "./src/main/scheduler/scheduler.h"
     TASK_LEDSTRIP,
 # 118 "./src/main/scheduler/scheduler.h"
     TASK_OSD,
-
-
-
-
-
-    TASK_ESC_SENSOR,
-
-
-    TASK_CMS,
-
-
-    TASK_VTXCTRL,
-
-
-    TASK_CAMCTRL,
-
-
-
+# 137 "./src/main/scheduler/scheduler.h"
     TASK_RCDEVICE,
 
 

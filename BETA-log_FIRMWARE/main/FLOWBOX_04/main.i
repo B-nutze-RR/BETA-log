@@ -4592,40 +4592,11 @@ typedef enum {
     TASK_BATTERY_ALERTS,
 
     TASK_BEEPER,
-
-
-    TASK_GPS,
-# 100 "./src/main/scheduler/scheduler.h"
-    TASK_ALTITUDE,
-
-
-
-
-
-    TASK_TELEMETRY,
-
-
+# 109 "./src/main/scheduler/scheduler.h"
     TASK_LEDSTRIP,
 # 118 "./src/main/scheduler/scheduler.h"
     TASK_OSD,
-
-
-
-
-
-    TASK_ESC_SENSOR,
-
-
-    TASK_CMS,
-
-
-    TASK_VTXCTRL,
-
-
-    TASK_CAMCTRL,
-
-
-
+# 137 "./src/main/scheduler/scheduler.h"
     TASK_RCDEVICE,
 
 

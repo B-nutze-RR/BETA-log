@@ -9,30 +9,30 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"pinio.c"
-	.section	.gnu.lto_.profile.415f53a5,"e",%progbits
+	.section	.gnu.lto_.profile.41a38d93,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.415f53a5,"e",%progbits
+	.section	.gnu.lto_.icf.41a38d93,"e",%progbits
 	.ascii	"x\234\343``d\220b@\000\026\206Kww<\341a\\veY\023'S\377"
 	.ascii	"\337\367\317y\231\301$\003\000\257\251\015\016"
 	.text
-	.section	.gnu.lto_.jmpfuncs.415f53a5,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41a38d93,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.inline.415f53a5,"e",%progbits
+	.section	.gnu.lto_.inline.41a38d93,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.pureconst.415f53a5,"e",%progbits
+	.section	.gnu.lto_.pureconst.41a38d93,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_pgResetTemplate_pinioConfig.415f53a5,"e",%progbits
+	.section	.gnu.lto_pgResetTemplate_pinioConfig.41a38d93,"e",%progbits
 	.ascii	"x\234\343``dpe``\340f\200\200\351\314\214\267^,\347"
 	.ascii	"Vd\232\337\3001\237\031\314\3770\271-O\221\035\314g"
 	.ascii	"\004\361g\277yx\213\333r{C\307\202\006\205\371\314L"
 	.ascii	"3\230\031\030w3*\316`fd\334\305\250\310\300\270\207"
 	.ascii	"\321\222\201\205\021\010X@\346\001\000A\264\026\022"
 	.text
-	.section	.gnu.lto_pinioConfig_Registry.415f53a5,"e",%progbits
+	.section	.gnu.lto_pinioConfig_Registry.41a38d93,"e",%progbits
 	.ascii	"x\234\343``d\370\310\300\300 \301\000\001\323\231\031"
 	.ascii	"w\177\331\373\212\263\205\261\251qFC\303\203\356[r\325"
 	.ascii	"\363\231\031\0263C\344\372\346-\350\347\267\334\336"
@@ -47,16 +47,16 @@
 	.ascii	"\343! !\246\247_\\\224\254\237\233\230\231\247_\220"
 	.ascii	"\256_\220\231\227\231\257\227\314\000\000o`WQ"
 	.text
-	.section	.gnu.lto_.symbol_nodes.415f53a5,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41a38d93,"e",%progbits
 	.ascii	"x\234\343``d\260g\000\002\326\211\214\014\255J\014z"
 	.ascii	"\005\351\361E\251\305\251%)\211%\211@\321~FF\270hzf"
 	.ascii	"qIQ%P\260\207\221\251Q\011\244\247\227\221\031\314`"
 	.ascii	"\000\000%\344\0172"
 	.text
-	.section	.gnu.lto_.refs.415f53a5,"e",%progbits
+	.section	.gnu.lto_.refs.41a38d93,"e",%progbits
 	.ascii	"x\234\343``d\340d```fdbbbfb`\000\000\001v\000\""
 	.text
-	.section	.gnu.lto_.decls.415f53a5,"e",%progbits
+	.section	.gnu.lto_.decls.41a38d93,"e",%progbits
 	.ascii	"x\234\215UkL\024W\024\2363w\227]\207]0\200\217\224\266"
 	.ascii	"\301\026\215\277D\333\3066M\22361i\373\253i\372\370"
 	.ascii	"\343\217\022\002\353\272\211.\204]\323\330?\035\026"
@@ -163,7 +163,7 @@
 	.ascii	"\265\252\317\267\333\354\246\255\213\325\2376\240\232"
 	.ascii	"\177\001W\320\351\004"
 	.text
-	.section	.gnu.lto_.symtab.415f53a5,"e",%progbits
+	.section	.gnu.lto_.symtab.41a38d93,"e",%progbits
 	.ascii	"pgResetTemplate_pinioConfig\000"
 	.ascii	"\000"
 	.ascii	"\000"

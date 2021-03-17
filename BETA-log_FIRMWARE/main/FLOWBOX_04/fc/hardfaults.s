@@ -9,14 +9,14 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"hardfaults.c"
-	.section	.gnu.lto_.profile.415f04be,"e",%progbits
+	.section	.gnu.lto_.profile.41a3cfa8,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.415f04be,"e",%progbits
+	.section	.gnu.lto_.icf.41a3cfa8,"e",%progbits
 	.ascii	"x\234\343``d\340`@\000F\206\307\033\232\376\3600\000"
 	.ascii	"\000\017l\0030"
 	.text
-	.section	.gnu.lto_.jmpfuncs.415f04be,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41a3cfa8,"e",%progbits
 	.ascii	"x\234\343``dpcd\200\003\020\223\211i:3c\333\321\011"
 	.ascii	"\273y\373\230\34733021\356b\224f`<\300\302\310\004\304"
 	.ascii	" yFm\010\237\021\306\327\202\360\031\240|\240\376\377"
@@ -26,16 +26,16 @@
 	.ascii	"\011\261\220\221q/#\262\005\230\026b\310\243Y\210*\317"
 	.ascii	"\000\000K\0167\011"
 	.text
-	.section	.gnu.lto_.inline.415f04be,"e",%progbits
+	.section	.gnu.lto_.inline.41a3cfa8,"e",%progbits
 	.ascii	"x\234\343``d(g@\000F\006\006\3055o\036\256e.ed`\342"
 	.ascii	"h\000\002\246T\006\006\026\206F \253\216\211\201\011"
 	.ascii	"\244\206\211\233\021\244\020+\305\314\003R\300\200A"
 	.ascii	"3r\201t\342\222e\000\000\357\320\011\347"
 	.text
-	.section	.gnu.lto_.pureconst.415f04be,"e",%progbits
+	.section	.gnu.lto_.pureconst.41a3cfa8,"e",%progbits
 	.ascii	"x\234\343``d`a`\000\222[X\000\002\006\000\307"
 	.text
-	.section	.gnu.lto_HardFault_Handler.415f04be,"e",%progbits
+	.section	.gnu.lto_HardFault_Handler.41a3cfa8,"e",%progbits
 	.ascii	"x\234}SMk\023Q\024\275\347\335\2317IM\004\027\202\022"
 	.ascii	"\304u\025\032\320?\240\277\303U\210\024\005u\321\352"
 	.ascii	"\272/M\332\030S\252`m\011\030\246\020\202V\205\342\246"
@@ -68,7 +68,7 @@
 	.ascii	"\236x\177_2~>q\366B\2747\031?\223\350;\335\233\270t"
 	.ascii	"\356b\177O\222\376\002\260\367&["
 	.text
-	.section	.gnu.lto_.symbol_nodes.415f04be,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41a3cfa8,"e",%progbits
 	.ascii	"x\234m\216\261\021\3020\020\004\357$\331\246\013\314"
 	.ascii	"\014\205\020P\012}\274\002\027@\212\015DNh\201\330C"
 	.ascii	"\350*\024\223P\000~\303\203\023mr;\277\012\264\002\361"
@@ -78,11 +78,11 @@
 	.ascii	"I\377\223A\305G%0\251\272\2576\325_\373E\207\012\023"
 	.ascii	"C7R\012"
 	.text
-	.section	.gnu.lto_.refs.415f04be,"e",%progbits
+	.section	.gnu.lto_.refs.41a3cfa8,"e",%progbits
 	.ascii	"x\234\343``d`c`\000\222\014\214,\014\000\000\327\000"
 	.ascii	"\026"
 	.text
-	.section	.gnu.lto_.decls.415f04be,"e",%progbits
+	.section	.gnu.lto_.decls.41a3cfa8,"e",%progbits
 	.ascii	"x\234uTmLSW\030>\357\275\005z/ h\266\271\010\211\304"
 	.ascii	"\304\315dJ13\231\177\226,[\262\361\307e\211\333\037"
 	.ascii	"\377\220\246\275@\223\226\232\366b\364\217\271k\221"
@@ -149,7 +149,7 @@
 	.ascii	"Cr\256\377\210_U<\373U\273\252\344\324\272j\324\275"
 	.ascii	"\025\352\213\231>]5.\025\231\377\002\240\235\032\306"
 	.text
-	.section	.gnu.lto_.symtab.415f04be,"e",%progbits
+	.section	.gnu.lto_.symtab.41a3cfa8,"e",%progbits
 	.ascii	"HardFault_Handler\000"
 	.ascii	"\000"
 	.ascii	"\000"

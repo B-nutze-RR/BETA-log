@@ -5138,13 +5138,9 @@ timeMs_t motorGetMotorEnableTimeMs(void);
 void motorShutdown(void);
 
 
-struct motorDevConfig_s;
-typedef struct motorDevConfig_s motorDevConfig_t;
 
-# 102 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 102 "./src/main/drivers/motor.h"
-    isDshotBitbangActive(const motorDevConfig_t *motorConfig);
+
+
 
 
 float getDigitalIdleOffset(const motorConfig_t *motorConfig);
@@ -5244,7 +5240,7 @@ void pgResetFn_motorConfig(motorConfig_t *motorConfig)
     motorConfig->digitalIdleOffsetValue = 550;
 
 
-    motorConfig->dev.useBurstDshot = DSHOT_DMAR_OFF;
+
 
 
 
@@ -5260,7 +5256,7 @@ void pgResetFn_motorConfig(motorConfig_t *motorConfig)
     }
 
 
-    motorConfig->dev.useDshotBitbang = DSHOT_BITBANG_AUTO;
-    motorConfig->dev.useDshotBitbangedTimer = DSHOT_BITBANGED_TIMER_AUTO;
+
+
 
 }

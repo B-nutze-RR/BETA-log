@@ -5397,7 +5397,7 @@ typedef struct pidProfile_s {
     uint8_t simplified_dterm_filter_multiplier;
 } pidProfile_t;
 
-extern pidProfile_t pidProfiles_SystemArray[3]; extern pidProfile_t pidProfiles_CopyArray[3]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[3] { return &pidProfiles_SystemArray; } struct _dummy;
+extern pidProfile_t pidProfiles_SystemArray[1]; extern pidProfile_t pidProfiles_CopyArray[1]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[1] { return &pidProfiles_SystemArray; } struct _dummy;
 
 typedef struct pidConfig_s {
     uint8_t pid_process_denom;
@@ -5503,37 +5503,7 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-
-
-    pt1Filter_t windupLpf[3];
-    uint8_t itermRelax;
-    uint8_t itermRelaxType;
-    uint8_t itermRelaxCutoff;
-
-
-
-    float acCutoff;
-    float acGain;
-    float acLimit;
-    float acErrorLimit;
-    pt1Filter_t acLpf[3];
-    float oldSetpointCorrection[3];
-
-
-
-    biquadFilter_t dMinRange[3];
-    pt1Filter_t dMinLowpass[3];
-    float dMinPercent[3];
-    float dMinGyroGain;
-    float dMinSetpointGain;
-
-
-
-    pt1Filter_t airmodeThrottleLpf1;
-    pt1Filter_t airmodeThrottleLpf2;
-
-
-
+# 343 "./src/main/flight/pid.h"
     pt1Filter_t setpointDerivativePt1[3];
     biquadFilter_t setpointDerivativeBiquad[3];
     
@@ -5543,53 +5513,12 @@ typedef struct pidRuntime_s {
         setpointDerivativeLpfInitialized;
     uint8_t rcSmoothingDebugAxis;
     uint8_t rcSmoothingFilterType;
-
-
-
-    float acroTrainerAngleLimit;
-    float acroTrainerLookaheadTime;
-    uint8_t acroTrainerDebugAxis;
-    float acroTrainerGain;
-    
-# 355 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 355 "./src/main/flight/pid.h"
-        acroTrainerActive;
-    int acroTrainerAxisState[2];
-
-
-
+# 360 "./src/main/flight/pid.h"
     uint8_t dynLpfFilter;
     uint16_t dynLpfMin;
     uint16_t dynLpfMax;
     uint8_t dynLpfCurveExpo;
-
-
-
-    uint8_t launchControlMode;
-    uint8_t launchControlAngleLimit;
-    float launchControlKi;
-
-
-
-    
-# 373 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 373 "./src/main/flight/pid.h"
-        useIntegratedYaw;
-    uint8_t integratedYawRelax;
-
-
-
-    float thrustLinearization;
-    float throttleCompensateAmount;
-
-
-
-    float airmodeThrottleOffsetLimit;
-
-
-
+# 387 "./src/main/flight/pid.h"
     ffInterpolationType_t ffFromInterpolatedSetpoint;
     float ffSmoothFactor;
 
@@ -5641,15 +5570,6 @@ void pidSetAntiGravityState(
 _Bool 
 # 413 "./src/main/flight/pid.h"
     pidAntiGravityEnabled(void);
-
-
-float pidApplyThrustLinearization(float motorValue);
-float pidCompensateThrustLinearization(float throttle);
-
-
-
-void pidUpdateAirmodeLpf(float currentOffset);
-float pidGetAirmodeThrottleOffset();
 # 436 "./src/main/flight/pid.h"
 void dynLpfDTermUpdate(float throttle);
 void pidSetItermReset(
@@ -6459,23 +6379,27 @@ void vtxTableConfigClearPowerValues(struct vtxTableConfig_s *config, int start);
 void vtxTableConfigClearPowerLabels(struct vtxTableConfig_s *config, int start);
 void vtxTableConfigClearChannels(struct vtxTableConfig_s *config, int band, int channels);
 
-
+void vtxTableSetFactoryBands(
+# 62 "./src/main/drivers/vtx_table.h" 3 4
+                            _Bool 
+# 62 "./src/main/drivers/vtx_table.h"
+                                 isFactory);
 
 
 extern int vtxTableBandCount;
 extern int vtxTableChannelCount;
-extern uint16_t vtxTableFrequency[8][8];
-extern const char *vtxTableBandNames[8 + 1];
-extern char vtxTableBandLetters[8 + 1];
+extern uint16_t vtxTableFrequency[5][8];
+extern const char *vtxTableBandNames[5 + 1];
+extern char vtxTableBandLetters[5 + 1];
 extern const char *vtxTableChannelNames[8 + 1];
 extern 
 # 71 "./src/main/drivers/vtx_table.h" 3 4
       _Bool 
 # 71 "./src/main/drivers/vtx_table.h"
-                     vtxTableIsFactoryBand[8];
+                     vtxTableIsFactoryBand[5];
 extern int vtxTablePowerLevels;
-extern uint16_t vtxTablePowerValues[8];
-extern const char *vtxTablePowerLabels[8 + 1];
+extern uint16_t vtxTablePowerValues[5];
+extern const char *vtxTablePowerLabels[5 + 1];
 # 49 "./src/main/cli/settings.c" 2
 
 # 1 "./src/main/config/config.h" 1
@@ -6638,7 +6562,7 @@ typedef struct controlRateConfig_s {
     uint8_t levelExpo[2];
 } controlRateConfig_t;
 
-extern controlRateConfig_t controlRateProfiles_SystemArray[6]; extern controlRateConfig_t controlRateProfiles_CopyArray[6]; static inline const controlRateConfig_t* controlRateProfiles(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t* controlRateProfilesMutable(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t (* controlRateProfiles_array(void))[6] { return &controlRateProfiles_SystemArray; } struct _dummy;
+extern controlRateConfig_t controlRateProfiles_SystemArray[1]; extern controlRateConfig_t controlRateProfiles_CopyArray[1]; static inline const controlRateConfig_t* controlRateProfiles(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t* controlRateProfilesMutable(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t (* controlRateProfiles_array(void))[1] { return &controlRateProfiles_SystemArray; } struct _dummy;
 
 extern controlRateConfig_t *currentControlRateProfile;
 extern const ratesSettingsLimits_t ratesSettingLimits[RATES_TYPE_COUNT];
@@ -6651,14 +6575,7 @@ void copyControlRateProfile(const uint8_t dstControlRateProfileIndex, const uint
 # 1 "./src/main/fc/core.h" 1
 # 21 "./src/main/fc/core.h"
        
-
-
-
-
-
-extern int16_t magHold;
-
-
+# 30 "./src/main/fc/core.h"
 typedef struct throttleCorrectionConfig_s {
     uint16_t throttle_correction_angle;
     uint8_t throttle_correction_value;
@@ -6694,7 +6611,7 @@ typedef enum {
 
 
 
-extern const char * const osdLaunchControlModeNames[LAUNCH_CONTROL_MODE_COUNT];
+
 
 
 extern throttleCorrectionConfig_t throttleCorrectionConfig_System; extern throttleCorrectionConfig_t throttleCorrectionConfig_Copy; static inline const throttleCorrectionConfig_t* throttleCorrectionConfig(void) { return &throttleCorrectionConfig_System; } static inline throttleCorrectionConfig_t* throttleCorrectionConfigMutable(void) { return &throttleCorrectionConfig_System; } struct _dummy;
@@ -7259,7 +7176,7 @@ typedef enum {
     FAILSAFE_PROCEDURE_AUTO_LANDING = 0,
     FAILSAFE_PROCEDURE_DROP_IT,
 
-    FAILSAFE_PROCEDURE_GPS_RESCUE,
+
 
     FAILSAFE_PROCEDURE_COUNT
 } failsafeProcedure_e;
@@ -8261,13 +8178,9 @@ timeMs_t motorGetMotorEnableTimeMs(void);
 void motorShutdown(void);
 
 
-struct motorDevConfig_s;
-typedef struct motorDevConfig_s motorDevConfig_t;
 
-# 102 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 102 "./src/main/drivers/motor.h"
-    isDshotBitbangActive(const motorDevConfig_t *motorConfig);
+
+
 
 
 float getDigitalIdleOffset(const motorConfig_t *motorConfig);
@@ -8694,7 +8607,7 @@ typedef enum {
     PAGE_TASKS,
 
 
-    PAGE_GPS,
+
 
 
     PAGE_DEBUG,
@@ -9863,7 +9776,7 @@ extern timeUs_t osdFlyTime;
 extern float osdGForce;
 
 
-extern escSensorData_t *osdEscDataCombined;
+
 
 
 void osdInit(displayPort_t *osdDisplayPort, osdDisplayPortDevice_e displayPortDevice);
@@ -16973,7 +16886,7 @@ float dynThrottle(float throttle);
 void dynLpfGyroUpdate(float throttle);
 
 
-void initYawSpinRecovery(int maxYawRate);
+
 
 
 
@@ -17151,21 +17064,13 @@ typedef enum {
 
     IBUS_SENSOR_TYPE_ALT_FLYSKY = 0xf9,
 
-    IBUS_SENSOR_TYPE_GPS_FULL = 0xfd,
-    IBUS_SENSOR_TYPE_VOLT_FULL = 0xf0,
-    IBUS_SENSOR_TYPE_ACC_FULL = 0xef,
+
+
+
 
     IBUS_SENSOR_TYPE_UNKNOWN = 0xff
 } ibusSensorType_e;
-
-
-
-uint8_t respondToIbusRequest(uint8_t const * const ibusPacket);
-void initSharedIbusTelemetry(serialPort_t * port);
-
-
-
-
+# 89 "./src/main/telemetry/ibus_shared.h"
 
 # 89 "./src/main/telemetry/ibus_shared.h" 3 4
 _Bool 
@@ -17266,16 +17171,7 @@ typedef enum {
     TABLE_OFF_ON = 0,
     TABLE_UNIT,
     TABLE_ALIGNMENT,
-
-    TABLE_GPS_PROVIDER,
-    TABLE_GPS_SBAS_MODE,
-    TABLE_GPS_UBLOX_MODE,
-
-
-    TABLE_GPS_RESCUE_SANITY_CHECK,
-    TABLE_GPS_RESCUE_ALT_MODE,
-
-
+# 42 "./src/main/cli/settings.h"
     TABLE_BLACKBOX_DEVICE,
     TABLE_BLACKBOX_MODE,
     TABLE_BLACKBOX_SAMPLE_RATE,
@@ -17310,7 +17206,7 @@ typedef enum {
     TABLE_FAILSAFE_SWITCH_MODE,
     TABLE_CRASH_RECOVERY,
 
-    TABLE_CAMERA_CONTROL_MODE,
+
 
     TABLE_BUS_TYPE,
 # 89 "./src/main/cli/settings.h"
@@ -17329,34 +17225,17 @@ typedef enum {
     TABLE_THROTTLE_LIMIT_TYPE,
 
     TABLE_VIDEO_SYSTEM,
-
-
-    TABLE_ITERM_RELAX,
-    TABLE_ITERM_RELAX_TYPE,
-
-
-    TABLE_ACRO_TRAINER_DEBUG,
-
-
+# 113 "./src/main/cli/settings.h"
     TABLE_RC_SMOOTHING_TYPE,
     TABLE_RC_SMOOTHING_DEBUG,
     TABLE_RC_SMOOTHING_INPUT_TYPE,
     TABLE_RC_SMOOTHING_DERIVATIVE_TYPE,
 
 
-    TABLE_VTX_LOW_POWER_DISARM,
+
 
     TABLE_GYRO_HARDWARE,
-
-
-
-
-    TABLE_LAUNCH_CONTROL_MODE,
-
-
-    TABLE_TPA_MODE,
-
-
+# 132 "./src/main/cli/settings.h"
     TABLE_LED_PROFILE,
     TABLE_LEDSTRIP_COLOR,
 
@@ -17562,23 +17441,7 @@ static const char * const lookupTableAlignment[] = {
 static const char * const lookupTableGyro[] = {
     "FIRST", "SECOND", "BOTH"
 };
-
-
-
-static const char * const lookupTableGPSProvider[] = {
-    "NMEA", "UBLOX", "MSP"
-};
-
-static const char * const lookupTableGPSSBASMode[] = {
-    "AUTO", "EGNOS", "WAAS", "MSAS", "GAGAN", "NONE"
-};
-
-static const char * const lookupTableGPSUBLOXMode[] = {
-    "AIRBORNE", "PEDESTRIAN", "DYNAMIC"
-};
-
-
-
+# 209 "./src/main/cli/settings.c"
 static const char * const lookupTableGimbalMode[] = {
     "NORMAL", "MIXTILT"
 };
@@ -17623,15 +17486,7 @@ static const char * const lookupTableGyroHardwareLpf[] = {
     "EXPERIMENTAL"
 
 };
-
-
-static const char * const lookupTableCameraControlMode[] = {
-    "HARDWARE_PWM",
-    "SOFTWARE_PWM",
-    "DAC"
-};
-
-
+# 288 "./src/main/cli/settings.c"
 static const char * const lookupTablePwmProtocol[] = {
     "PWM", "ONESHOT125", "ONESHOT42", "MULTISHOT", "BRUSHED",
     "DSHOT150", "DSHOT300", "DSHOT600", "PROSHOT1000",
@@ -17707,39 +17562,11 @@ static const char * const lookupOverclock[] = {
 static const char * const lookupTableThrottleLimitType[] = {
     "OFF", "SCALE", "CLIP"
 };
-
-
-
-static const char * const lookupTableRescueSanityType[] = {
-    "RESCUE_SANITY_OFF", "RESCUE_SANITY_ON", "RESCUE_SANITY_FS_ONLY"
-};
-const char * const lookupTableRescueAltitudeMode[] = {
-    "MAX_ALT", "FIXED_ALT", "CURRENT_ALT"
-};
-
-
-
+# 388 "./src/main/cli/settings.c"
 static const char * const lookupTableVideoSystem[] = {
     "AUTO", "PAL", "NTSC"
 };
-
-
-
-const char * const lookupTableItermRelax[] = {
-    "OFF", "RP", "RPY", "RP_INC", "RPY_INC"
-};
-const char * const lookupTableItermRelaxType[] = {
-    "GYRO", "SETPOINT"
-};
-
-
-
-static const char * const lookupTableAcroTrainerDebug[] = {
-    "ROLL", "PITCH"
-};
-
-
-
+# 409 "./src/main/cli/settings.c"
 static const char * const lookupTableRcSmoothingType[] = {
     "INTERPOLATION", "FILTER"
 };
@@ -17752,26 +17579,7 @@ static const char * const lookupTableRcSmoothingInputType[] = {
 static const char * const lookupTableRcSmoothingDerivativeType[] = {
     "OFF", "PT1", "BIQUAD", "AUTO"
 };
-
-
-
-static const char * const lookupTableVtxLowPowerDisarm[] = {
-    "OFF", "ON", "UNTIL_FIRST_ARM"
-};
-# 436 "./src/main/cli/settings.c"
-static const char * const lookupTableLaunchControlMode[] = {
-    "NORMAL", "PITCHONLY", "FULL"
-};
-
-
-
-static const char * const lookupTableTpaMode[] = {
-    "PD", "D"
-};
-
-
-
-
+# 449 "./src/main/cli/settings.c"
 static const char * const lookupTableLEDProfile[] = {
     "RACE", "BEACON", "STATUS"
 };
@@ -17848,16 +17656,7 @@ const lookupTableEntry_t lookupTables[] = {
     { lookupTableOffOn, (sizeof(lookupTableOffOn) / sizeof((lookupTableOffOn)[0])) },
     { lookupTableUnit, (sizeof(lookupTableUnit) / sizeof((lookupTableUnit)[0])) },
     { lookupTableAlignment, (sizeof(lookupTableAlignment) / sizeof((lookupTableAlignment)[0])) },
-
-    { lookupTableGPSProvider, (sizeof(lookupTableGPSProvider) / sizeof((lookupTableGPSProvider)[0])) },
-    { lookupTableGPSSBASMode, (sizeof(lookupTableGPSSBASMode) / sizeof((lookupTableGPSSBASMode)[0])) },
-    { lookupTableGPSUBLOXMode, (sizeof(lookupTableGPSUBLOXMode) / sizeof((lookupTableGPSUBLOXMode)[0])) },
-
-    { lookupTableRescueSanityType, (sizeof(lookupTableRescueSanityType) / sizeof((lookupTableRescueSanityType)[0])) },
-    { lookupTableRescueAltitudeMode, (sizeof(lookupTableRescueAltitudeMode) / sizeof((lookupTableRescueAltitudeMode)[0])) },
-
-
-
+# 535 "./src/main/cli/settings.c"
     { lookupTableBlackboxDevice, (sizeof(lookupTableBlackboxDevice) / sizeof((lookupTableBlackboxDevice)[0])) },
     { lookupTableBlackboxMode, (sizeof(lookupTableBlackboxMode) / sizeof((lookupTableBlackboxMode)[0])) },
     { lookupTableBlackboxSampleRate, (sizeof(lookupTableBlackboxSampleRate) / sizeof((lookupTableBlackboxSampleRate)[0])) },
@@ -17892,7 +17691,7 @@ const lookupTableEntry_t lookupTables[] = {
     { lookupTableFailsafeSwitchMode, (sizeof(lookupTableFailsafeSwitchMode) / sizeof((lookupTableFailsafeSwitchMode)[0])) },
     { lookupTableCrashRecovery, (sizeof(lookupTableCrashRecovery) / sizeof((lookupTableCrashRecovery)[0])) },
 
-    { lookupTableCameraControlMode, (sizeof(lookupTableCameraControlMode) / sizeof((lookupTableCameraControlMode)[0])) },
+
 
     { lookupTableBusType, (sizeof(lookupTableBusType) / sizeof((lookupTableBusType)[0])) },
 # 582 "./src/main/cli/settings.c"
@@ -17911,34 +17710,17 @@ const lookupTableEntry_t lookupTables[] = {
     { lookupTableThrottleLimitType, (sizeof(lookupTableThrottleLimitType) / sizeof((lookupTableThrottleLimitType)[0])) },
 
     { lookupTableVideoSystem, (sizeof(lookupTableVideoSystem) / sizeof((lookupTableVideoSystem)[0])) },
-
-
-    { lookupTableItermRelax, (sizeof(lookupTableItermRelax) / sizeof((lookupTableItermRelax)[0])) },
-    { lookupTableItermRelaxType, (sizeof(lookupTableItermRelaxType) / sizeof((lookupTableItermRelaxType)[0])) },
-
-
-    { lookupTableAcroTrainerDebug, (sizeof(lookupTableAcroTrainerDebug) / sizeof((lookupTableAcroTrainerDebug)[0])) },
-
-
+# 606 "./src/main/cli/settings.c"
     { lookupTableRcSmoothingType, (sizeof(lookupTableRcSmoothingType) / sizeof((lookupTableRcSmoothingType)[0])) },
     { lookupTableRcSmoothingDebug, (sizeof(lookupTableRcSmoothingDebug) / sizeof((lookupTableRcSmoothingDebug)[0])) },
     { lookupTableRcSmoothingInputType, (sizeof(lookupTableRcSmoothingInputType) / sizeof((lookupTableRcSmoothingInputType)[0])) },
     { lookupTableRcSmoothingDerivativeType, (sizeof(lookupTableRcSmoothingDerivativeType) / sizeof((lookupTableRcSmoothingDerivativeType)[0])) },
 
 
-    { lookupTableVtxLowPowerDisarm, (sizeof(lookupTableVtxLowPowerDisarm) / sizeof((lookupTableVtxLowPowerDisarm)[0])) },
+
 
     { lookupTableGyroHardware, (sizeof(lookupTableGyroHardware) / sizeof((lookupTableGyroHardware)[0])) },
-
-
-
-
-    { lookupTableLaunchControlMode, (sizeof(lookupTableLaunchControlMode) / sizeof((lookupTableLaunchControlMode)[0])) },
-
-
-    { lookupTableTpaMode, (sizeof(lookupTableTpaMode) / sizeof((lookupTableTpaMode)[0])) },
-
-
+# 625 "./src/main/cli/settings.c"
     { lookupTableLEDProfile, (sizeof(lookupTableLEDProfile) / sizeof((lookupTableLEDProfile)[0])) },
     { lookupTableLedstripColors, (sizeof(lookupTableLedstripColors) / sizeof((lookupTableLedstripColors)[0])) },
 
@@ -18144,32 +17926,8 @@ const clivalue_t valueTable[] = {
                                                                                                                                                                                   },
 
 
-    { "yaw_spin_recovery", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON_AUTO }, 10, 
-# 674 "./src/main/cli/settings.c" 3 4
-                                                                                                                                    __builtin_offsetof (
-# 674 "./src/main/cli/settings.c"
-                                                                                                                                    gyroConfig_t
-# 674 "./src/main/cli/settings.c" 3 4
-                                                                                                                                    , 
-# 674 "./src/main/cli/settings.c"
-                                                                                                                                    yaw_spin_recovery
-# 674 "./src/main/cli/settings.c" 3 4
-                                                                                                                                    ) 
-# 674 "./src/main/cli/settings.c"
-                                                                                                                                                                              },
-    { "yaw_spin_threshold", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 500, 1950 }, 10, 
-# 675 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                                              __builtin_offsetof (
-# 675 "./src/main/cli/settings.c"
-                                                                                                                                                                              gyroConfig_t
-# 675 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                                              , 
-# 675 "./src/main/cli/settings.c"
-                                                                                                                                                                              yaw_spin_threshold
-# 675 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                                              ) 
-# 675 "./src/main/cli/settings.c"
-                                                                                                                                                                                                                         },
+
+
 
 
 
@@ -19064,19 +18822,7 @@ const clivalue_t valueTable[] = {
 # 824 "./src/main/cli/settings.c"
                                                                                                                                                                                                    },
 
-    { "blackbox_disable_gps", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = FLIGHT_LOG_FIELD_SELECT_GPS, 5, 
-# 826 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                __builtin_offsetof (
-# 826 "./src/main/cli/settings.c"
-                                                                                                                                                blackboxConfig_t
-# 826 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                , 
-# 826 "./src/main/cli/settings.c"
-                                                                                                                                                fields_disabled_mask
-# 826 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                ) 
-# 826 "./src/main/cli/settings.c"
-                                                                                                                                                                                                 },
+
 
     { "blackbox_mode", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_BLACKBOX_MODE }, 5, 
 # 828 "./src/main/cli/settings.c" 3 4
@@ -19133,79 +18879,7 @@ const clivalue_t valueTable[] = {
                                                                                                                                           ) 
 # 834 "./src/main/cli/settings.c"
                                                                                                                                                                               },
-
-    { "dshot_idle_value", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 2000 }, 6, 
-# 836 "./src/main/cli/settings.c" 3 4
-                                                                                                                      __builtin_offsetof (
-# 836 "./src/main/cli/settings.c"
-                                                                                                                      motorConfig_t
-# 836 "./src/main/cli/settings.c" 3 4
-                                                                                                                      , 
-# 836 "./src/main/cli/settings.c"
-                                                                                                                      digitalIdleOffsetValue
-# 836 "./src/main/cli/settings.c" 3 4
-                                                                                                                      ) 
-# 836 "./src/main/cli/settings.c"
-                                                                                                                                                                      },
-
-    { "dshot_burst", VAR_UINT8 | HARDWARE_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON_AUTO }, 6, 
-# 838 "./src/main/cli/settings.c" 3 4
-                                                                                                                                       __builtin_offsetof (
-# 838 "./src/main/cli/settings.c"
-                                                                                                                                       motorConfig_t
-# 838 "./src/main/cli/settings.c" 3 4
-                                                                                                                                       , 
-# 838 "./src/main/cli/settings.c"
-                                                                                                                                       dev.useBurstDshot
-# 838 "./src/main/cli/settings.c" 3 4
-                                                                                                                                       ) 
-# 838 "./src/main/cli/settings.c"
-                                                                                                                                                                                  },
-
-
-    { "dshot_bidir", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, 6, 
-# 841 "./src/main/cli/settings.c" 3 4
-                                                                                                                            __builtin_offsetof (
-# 841 "./src/main/cli/settings.c"
-                                                                                                                            motorConfig_t
-# 841 "./src/main/cli/settings.c" 3 4
-                                                                                                                            , 
-# 841 "./src/main/cli/settings.c"
-                                                                                                                            dev.useDshotTelemetry
-# 841 "./src/main/cli/settings.c" 3 4
-                                                                                                                            ) 
-# 841 "./src/main/cli/settings.c"
-                                                                                                                                                                           },
-
-
-    { "dshot_bitbang", VAR_UINT8 | HARDWARE_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON_AUTO }, 6, 
-# 844 "./src/main/cli/settings.c" 3 4
-                                                                                                                                        __builtin_offsetof (
-# 844 "./src/main/cli/settings.c"
-                                                                                                                                        motorConfig_t
-# 844 "./src/main/cli/settings.c" 3 4
-                                                                                                                                        , 
-# 844 "./src/main/cli/settings.c"
-                                                                                                                                        dev.useDshotBitbang
-# 844 "./src/main/cli/settings.c" 3 4
-                                                                                                                                        ) 
-# 844 "./src/main/cli/settings.c"
-                                                                                                                                                                                     },
-    { "dshot_bitbang_timer", VAR_UINT8 | HARDWARE_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_DSHOT_BITBANGED_TIMER }, 6, 
-# 845 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                  __builtin_offsetof (
-# 845 "./src/main/cli/settings.c"
-                                                                                                                                                  motorConfig_t
-# 845 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                  , 
-# 845 "./src/main/cli/settings.c"
-                                                                                                                                                  dev.useDshotBitbangedTimer
-# 845 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                  ) 
-# 845 "./src/main/cli/settings.c"
-                                                                                                                                                                                                      },
-
-
+# 848 "./src/main/cli/settings.c"
     { "use_unsynced_pwm", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, 6, 
 # 848 "./src/main/cli/settings.c" 3 4
                                                                                                                                 __builtin_offsetof (
@@ -19812,38 +19486,7 @@ const clivalue_t valueTable[] = {
                                                                                                                                 ) 
 # 909 "./src/main/cli/settings.c"
                                                                                                                                                                            },
-
-
-    { "ibatv_scale", VAR_INT16 | MASTER_VALUE, .config.minmax = { -16000, 16000 }, 257, 
-# 912 "./src/main/cli/settings.c" 3 4
-                                                                                                                                    __builtin_offsetof (
-# 912 "./src/main/cli/settings.c"
-                                                                                                                                    currentSensorVirtualConfig_t
-# 912 "./src/main/cli/settings.c" 3 4
-                                                                                                                                    , 
-# 912 "./src/main/cli/settings.c"
-                                                                                                                                    scale
-# 912 "./src/main/cli/settings.c" 3 4
-                                                                                                                                    ) 
-# 912 "./src/main/cli/settings.c"
-                                                                                                                                                                                  },
-    { "ibatv_offset", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 16000 }, 257, 
-# 913 "./src/main/cli/settings.c" 3 4
-                                                                                                                                       __builtin_offsetof (
-# 913 "./src/main/cli/settings.c"
-                                                                                                                                       currentSensorVirtualConfig_t
-# 913 "./src/main/cli/settings.c" 3 4
-                                                                                                                                       , 
-# 913 "./src/main/cli/settings.c"
-                                                                                                                                       offset
-# 913 "./src/main/cli/settings.c" 3 4
-                                                                                                                                       ) 
-# 913 "./src/main/cli/settings.c"
-                                                                                                                                                                                      },
-
-
-
-
+# 918 "./src/main/cli/settings.c"
     { "beeper_inversion", VAR_UINT8 | HARDWARE_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, 503, 
 # 918 "./src/main/cli/settings.c" 3 4
                                                                                                                                        __builtin_offsetof (
@@ -19883,26 +19526,7 @@ const clivalue_t valueTable[] = {
                                                                                                                      ) 
 # 920 "./src/main/cli/settings.c"
                                                                                                                                                             },
-
-
-
-    { "beeper_dshot_beacon_tone", VAR_UINT8 | MASTER_VALUE, .config.minmaxUnsigned = {1, DSHOT_CMD_BEACON5 }, 502, 
-# 924 "./src/main/cli/settings.c" 3 4
-                                                                                                                                  __builtin_offsetof (
-# 924 "./src/main/cli/settings.c"
-                                                                                                                                  beeperConfig_t
-# 924 "./src/main/cli/settings.c" 3 4
-                                                                                                                                  , 
-# 924 "./src/main/cli/settings.c"
-                                                                                                                                  dshotBeaconTone
-# 924 "./src/main/cli/settings.c" 3 4
-                                                                                                                                  ) 
-# 924 "./src/main/cli/settings.c"
-                                                                                                                                                                            },
-
-
-
-
+# 929 "./src/main/cli/settings.c"
     { "yaw_motors_reversed", VAR_INT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, 20, 
 # 929 "./src/main/cli/settings.c" 3 4
                                                                                                                                 __builtin_offsetof (
@@ -20330,19 +19954,7 @@ const clivalue_t valueTable[] = {
 # 970 "./src/main/cli/settings.c"
                                                                                                                                                                                                        },
 
-    { "tpa_mode", VAR_UINT8 | PROFILE_RATE_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_TPA_MODE }, 12, 
-# 972 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                 __builtin_offsetof (
-# 972 "./src/main/cli/settings.c"
-                                                                                                                                                 controlRateConfig_t
-# 972 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                 , 
-# 972 "./src/main/cli/settings.c"
-                                                                                                                                                 tpaMode
-# 972 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                 ) 
-# 972 "./src/main/cli/settings.c"
-                                                                                                                                                                                        },
+
 
     { "throttle_limit_type", VAR_UINT8 | PROFILE_RATE_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_THROTTLE_LIMIT_TYPE }, 12, 
 # 974 "./src/main/cli/settings.c" 3 4
@@ -20532,449 +20144,7 @@ const clivalue_t valueTable[] = {
                                                                                                                                  ) 
 # 993 "./src/main/cli/settings.c"
                                                                                                                                                                                  },
-
-
-
-
-    { "gps_provider", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_GPS_PROVIDER }, 30, 
-# 998 "./src/main/cli/settings.c" 3 4
-                                                                                                                                    __builtin_offsetof (
-# 998 "./src/main/cli/settings.c"
-                                                                                                                                    gpsConfig_t
-# 998 "./src/main/cli/settings.c" 3 4
-                                                                                                                                    , 
-# 998 "./src/main/cli/settings.c"
-                                                                                                                                    provider
-# 998 "./src/main/cli/settings.c" 3 4
-                                                                                                                                    ) 
-# 998 "./src/main/cli/settings.c"
-                                                                                                                                                                    },
-    { "gps_sbas_mode", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_GPS_SBAS_MODE }, 30, 
-# 999 "./src/main/cli/settings.c" 3 4
-                                                                                                                                     __builtin_offsetof (
-# 999 "./src/main/cli/settings.c"
-                                                                                                                                     gpsConfig_t
-# 999 "./src/main/cli/settings.c" 3 4
-                                                                                                                                     , 
-# 999 "./src/main/cli/settings.c"
-                                                                                                                                     sbasMode
-# 999 "./src/main/cli/settings.c" 3 4
-                                                                                                                                     ) 
-# 999 "./src/main/cli/settings.c"
-                                                                                                                                                                     },
-    { "gps_sbas_integrity", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, 30, 
-# 1000 "./src/main/cli/settings.c" 3 4
-                                                                                                                              __builtin_offsetof (
-# 1000 "./src/main/cli/settings.c"
-                                                                                                                              gpsConfig_t
-# 1000 "./src/main/cli/settings.c" 3 4
-                                                                                                                              , 
-# 1000 "./src/main/cli/settings.c"
-                                                                                                                              sbas_integrity
-# 1000 "./src/main/cli/settings.c" 3 4
-                                                                                                                              ) 
-# 1000 "./src/main/cli/settings.c"
-                                                                                                                                                                    },
-    { "gps_auto_config", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, 30, 
-# 1001 "./src/main/cli/settings.c" 3 4
-                                                                                                                              __builtin_offsetof (
-# 1001 "./src/main/cli/settings.c"
-                                                                                                                              gpsConfig_t
-# 1001 "./src/main/cli/settings.c" 3 4
-                                                                                                                              , 
-# 1001 "./src/main/cli/settings.c"
-                                                                                                                              autoConfig
-# 1001 "./src/main/cli/settings.c" 3 4
-                                                                                                                              ) 
-# 1001 "./src/main/cli/settings.c"
-                                                                                                                                                                },
-    { "gps_auto_baud", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, 30, 
-# 1002 "./src/main/cli/settings.c" 3 4
-                                                                                                                              __builtin_offsetof (
-# 1002 "./src/main/cli/settings.c"
-                                                                                                                              gpsConfig_t
-# 1002 "./src/main/cli/settings.c" 3 4
-                                                                                                                              , 
-# 1002 "./src/main/cli/settings.c"
-                                                                                                                              autoBaud
-# 1002 "./src/main/cli/settings.c" 3 4
-                                                                                                                              ) 
-# 1002 "./src/main/cli/settings.c"
-                                                                                                                                                              },
-    { "gps_ublox_use_galileo", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, 30, 
-# 1003 "./src/main/cli/settings.c" 3 4
-                                                                                                                              __builtin_offsetof (
-# 1003 "./src/main/cli/settings.c"
-                                                                                                                              gpsConfig_t
-# 1003 "./src/main/cli/settings.c" 3 4
-                                                                                                                              , 
-# 1003 "./src/main/cli/settings.c"
-                                                                                                                              gps_ublox_use_galileo
-# 1003 "./src/main/cli/settings.c" 3 4
-                                                                                                                              ) 
-# 1003 "./src/main/cli/settings.c"
-                                                                                                                                                                           },
-    { "gps_ublox_mode", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_GPS_UBLOX_MODE }, 30, 
-# 1004 "./src/main/cli/settings.c" 3 4
-                                                                                                                                      __builtin_offsetof (
-# 1004 "./src/main/cli/settings.c"
-                                                                                                                                      gpsConfig_t
-# 1004 "./src/main/cli/settings.c" 3 4
-                                                                                                                                      , 
-# 1004 "./src/main/cli/settings.c"
-                                                                                                                                      gps_ublox_mode
-# 1004 "./src/main/cli/settings.c" 3 4
-                                                                                                                                      ) 
-# 1004 "./src/main/cli/settings.c"
-                                                                                                                                                                            },
-    { "gps_set_home_point_once", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, 30, 
-# 1005 "./src/main/cli/settings.c" 3 4
-                                                                                                                              __builtin_offsetof (
-# 1005 "./src/main/cli/settings.c"
-                                                                                                                              gpsConfig_t
-# 1005 "./src/main/cli/settings.c" 3 4
-                                                                                                                              , 
-# 1005 "./src/main/cli/settings.c"
-                                                                                                                              gps_set_home_point_once
-# 1005 "./src/main/cli/settings.c" 3 4
-                                                                                                                              ) 
-# 1005 "./src/main/cli/settings.c"
-                                                                                                                                                                             },
-    { "gps_use_3d_speed", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, 30, 
-# 1006 "./src/main/cli/settings.c" 3 4
-                                                                                                                              __builtin_offsetof (
-# 1006 "./src/main/cli/settings.c"
-                                                                                                                              gpsConfig_t
-# 1006 "./src/main/cli/settings.c" 3 4
-                                                                                                                              , 
-# 1006 "./src/main/cli/settings.c"
-                                                                                                                              gps_use_3d_speed
-# 1006 "./src/main/cli/settings.c" 3 4
-                                                                                                                              ) 
-# 1006 "./src/main/cli/settings.c"
-                                                                                                                                                                      },
-
-
-
-    { "gps_rescue_angle", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 200 }, 55, 
-# 1010 "./src/main/cli/settings.c" 3 4
-                                                                                                                  __builtin_offsetof (
-# 1010 "./src/main/cli/settings.c"
-                                                                                                                  gpsRescueConfig_t
-# 1010 "./src/main/cli/settings.c" 3 4
-                                                                                                                  , 
-# 1010 "./src/main/cli/settings.c"
-                                                                                                                  angle
-# 1010 "./src/main/cli/settings.c" 3 4
-                                                                                                                  ) 
-# 1010 "./src/main/cli/settings.c"
-                                                                                                                                                     },
-    { "gps_rescue_alt_buffer", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 100 }, 55, 
-# 1011 "./src/main/cli/settings.c" 3 4
-                                                                                                                  __builtin_offsetof (
-# 1011 "./src/main/cli/settings.c"
-                                                                                                                  gpsRescueConfig_t
-# 1011 "./src/main/cli/settings.c" 3 4
-                                                                                                                  , 
-# 1011 "./src/main/cli/settings.c"
-                                                                                                                  rescueAltitudeBufferM
-# 1011 "./src/main/cli/settings.c" 3 4
-                                                                                                                  ) 
-# 1011 "./src/main/cli/settings.c"
-                                                                                                                                                                     },
-    { "gps_rescue_initial_alt", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 20, 100 }, 55, 
-# 1012 "./src/main/cli/settings.c" 3 4
-                                                                                                                   __builtin_offsetof (
-# 1012 "./src/main/cli/settings.c"
-                                                                                                                   gpsRescueConfig_t
-# 1012 "./src/main/cli/settings.c" 3 4
-                                                                                                                   , 
-# 1012 "./src/main/cli/settings.c"
-                                                                                                                   initialAltitudeM
-# 1012 "./src/main/cli/settings.c" 3 4
-                                                                                                                   ) 
-# 1012 "./src/main/cli/settings.c"
-                                                                                                                                                                 },
-    { "gps_rescue_descent_dist", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 30, 500 }, 55, 
-# 1013 "./src/main/cli/settings.c" 3 4
-                                                                                                                   __builtin_offsetof (
-# 1013 "./src/main/cli/settings.c"
-                                                                                                                   gpsRescueConfig_t
-# 1013 "./src/main/cli/settings.c" 3 4
-                                                                                                                   , 
-# 1013 "./src/main/cli/settings.c"
-                                                                                                                   descentDistanceM
-# 1013 "./src/main/cli/settings.c" 3 4
-                                                                                                                   ) 
-# 1013 "./src/main/cli/settings.c"
-                                                                                                                                                                 },
-    { "gps_rescue_landing_alt", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 3, 10 }, 55, 
-# 1014 "./src/main/cli/settings.c" 3 4
-                                                                                                                 __builtin_offsetof (
-# 1014 "./src/main/cli/settings.c"
-                                                                                                                 gpsRescueConfig_t
-# 1014 "./src/main/cli/settings.c" 3 4
-                                                                                                                 , 
-# 1014 "./src/main/cli/settings.c"
-                                                                                                                 targetLandingAltitudeM
-# 1014 "./src/main/cli/settings.c" 3 4
-                                                                                                                 ) 
-# 1014 "./src/main/cli/settings.c"
-                                                                                                                                                                     },
-    { "gps_rescue_landing_dist", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 5, 15 }, 55, 
-# 1015 "./src/main/cli/settings.c" 3 4
-                                                                                                                 __builtin_offsetof (
-# 1015 "./src/main/cli/settings.c"
-                                                                                                                 gpsRescueConfig_t
-# 1015 "./src/main/cli/settings.c" 3 4
-                                                                                                                 , 
-# 1015 "./src/main/cli/settings.c"
-                                                                                                                 targetLandingDistanceM
-# 1015 "./src/main/cli/settings.c" 3 4
-                                                                                                                 ) 
-# 1015 "./src/main/cli/settings.c"
-                                                                                                                                                                     },
-    { "gps_rescue_ground_speed", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 30, 3000 }, 55, 
-# 1016 "./src/main/cli/settings.c" 3 4
-                                                                                                                    __builtin_offsetof (
-# 1016 "./src/main/cli/settings.c"
-                                                                                                                    gpsRescueConfig_t
-# 1016 "./src/main/cli/settings.c" 3 4
-                                                                                                                    , 
-# 1016 "./src/main/cli/settings.c"
-                                                                                                                    rescueGroundspeed
-# 1016 "./src/main/cli/settings.c" 3 4
-                                                                                                                    ) 
-# 1016 "./src/main/cli/settings.c"
-                                                                                                                                                                   },
-    { "gps_rescue_throttle_p", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 500 }, 55, 
-# 1017 "./src/main/cli/settings.c" 3 4
-                                                                                                                  __builtin_offsetof (
-# 1017 "./src/main/cli/settings.c"
-                                                                                                                  gpsRescueConfig_t
-# 1017 "./src/main/cli/settings.c" 3 4
-                                                                                                                  , 
-# 1017 "./src/main/cli/settings.c"
-                                                                                                                  throttleP
-# 1017 "./src/main/cli/settings.c" 3 4
-                                                                                                                  ) 
-# 1017 "./src/main/cli/settings.c"
-                                                                                                                                                         },
-    { "gps_rescue_throttle_i", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 500 }, 55, 
-# 1018 "./src/main/cli/settings.c" 3 4
-                                                                                                                  __builtin_offsetof (
-# 1018 "./src/main/cli/settings.c"
-                                                                                                                  gpsRescueConfig_t
-# 1018 "./src/main/cli/settings.c" 3 4
-                                                                                                                  , 
-# 1018 "./src/main/cli/settings.c"
-                                                                                                                  throttleI
-# 1018 "./src/main/cli/settings.c" 3 4
-                                                                                                                  ) 
-# 1018 "./src/main/cli/settings.c"
-                                                                                                                                                         },
-    { "gps_rescue_throttle_d", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 500 }, 55, 
-# 1019 "./src/main/cli/settings.c" 3 4
-                                                                                                                  __builtin_offsetof (
-# 1019 "./src/main/cli/settings.c"
-                                                                                                                  gpsRescueConfig_t
-# 1019 "./src/main/cli/settings.c" 3 4
-                                                                                                                  , 
-# 1019 "./src/main/cli/settings.c"
-                                                                                                                  throttleD
-# 1019 "./src/main/cli/settings.c" 3 4
-                                                                                                                  ) 
-# 1019 "./src/main/cli/settings.c"
-                                                                                                                                                         },
-    { "gps_rescue_velocity_p", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 500 }, 55, 
-# 1020 "./src/main/cli/settings.c" 3 4
-                                                                                                                  __builtin_offsetof (
-# 1020 "./src/main/cli/settings.c"
-                                                                                                                  gpsRescueConfig_t
-# 1020 "./src/main/cli/settings.c" 3 4
-                                                                                                                  , 
-# 1020 "./src/main/cli/settings.c"
-                                                                                                                  velP
-# 1020 "./src/main/cli/settings.c" 3 4
-                                                                                                                  ) 
-# 1020 "./src/main/cli/settings.c"
-                                                                                                                                                    },
-    { "gps_rescue_velocity_i", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 500 }, 55, 
-# 1021 "./src/main/cli/settings.c" 3 4
-                                                                                                                  __builtin_offsetof (
-# 1021 "./src/main/cli/settings.c"
-                                                                                                                  gpsRescueConfig_t
-# 1021 "./src/main/cli/settings.c" 3 4
-                                                                                                                  , 
-# 1021 "./src/main/cli/settings.c"
-                                                                                                                  velI
-# 1021 "./src/main/cli/settings.c" 3 4
-                                                                                                                  ) 
-# 1021 "./src/main/cli/settings.c"
-                                                                                                                                                    },
-    { "gps_rescue_velocity_d", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 500 }, 55, 
-# 1022 "./src/main/cli/settings.c" 3 4
-                                                                                                                  __builtin_offsetof (
-# 1022 "./src/main/cli/settings.c"
-                                                                                                                  gpsRescueConfig_t
-# 1022 "./src/main/cli/settings.c" 3 4
-                                                                                                                  , 
-# 1022 "./src/main/cli/settings.c"
-                                                                                                                  velD
-# 1022 "./src/main/cli/settings.c" 3 4
-                                                                                                                  ) 
-# 1022 "./src/main/cli/settings.c"
-                                                                                                                                                    },
-    { "gps_rescue_yaw_p", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 500 }, 55, 
-# 1023 "./src/main/cli/settings.c" 3 4
-                                                                                                                  __builtin_offsetof (
-# 1023 "./src/main/cli/settings.c"
-                                                                                                                  gpsRescueConfig_t
-# 1023 "./src/main/cli/settings.c" 3 4
-                                                                                                                  , 
-# 1023 "./src/main/cli/settings.c"
-                                                                                                                  yawP
-# 1023 "./src/main/cli/settings.c" 3 4
-                                                                                                                  ) 
-# 1023 "./src/main/cli/settings.c"
-                                                                                                                                                    },
-
-    { "gps_rescue_throttle_min", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 1000, 2000 }, 55, 
-# 1025 "./src/main/cli/settings.c" 3 4
-                                                                                                                      __builtin_offsetof (
-# 1025 "./src/main/cli/settings.c"
-                                                                                                                      gpsRescueConfig_t
-# 1025 "./src/main/cli/settings.c" 3 4
-                                                                                                                      , 
-# 1025 "./src/main/cli/settings.c"
-                                                                                                                      throttleMin
-# 1025 "./src/main/cli/settings.c" 3 4
-                                                                                                                      ) 
-# 1025 "./src/main/cli/settings.c"
-                                                                                                                                                               },
-    { "gps_rescue_throttle_max", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 1000, 2000 }, 55, 
-# 1026 "./src/main/cli/settings.c" 3 4
-                                                                                                                      __builtin_offsetof (
-# 1026 "./src/main/cli/settings.c"
-                                                                                                                      gpsRescueConfig_t
-# 1026 "./src/main/cli/settings.c" 3 4
-                                                                                                                      , 
-# 1026 "./src/main/cli/settings.c"
-                                                                                                                      throttleMax
-# 1026 "./src/main/cli/settings.c" 3 4
-                                                                                                                      ) 
-# 1026 "./src/main/cli/settings.c"
-                                                                                                                                                               },
-    { "gps_rescue_ascend_rate", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 100, 2500 }, 55, 
-# 1027 "./src/main/cli/settings.c" 3 4
-                                                                                                                     __builtin_offsetof (
-# 1027 "./src/main/cli/settings.c"
-                                                                                                                     gpsRescueConfig_t
-# 1027 "./src/main/cli/settings.c" 3 4
-                                                                                                                     , 
-# 1027 "./src/main/cli/settings.c"
-                                                                                                                     ascendRate
-# 1027 "./src/main/cli/settings.c" 3 4
-                                                                                                                     ) 
-# 1027 "./src/main/cli/settings.c"
-                                                                                                                                                             },
-    { "gps_rescue_descend_rate", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 100, 500 }, 55, 
-# 1028 "./src/main/cli/settings.c" 3 4
-                                                                                                                    __builtin_offsetof (
-# 1028 "./src/main/cli/settings.c"
-                                                                                                                    gpsRescueConfig_t
-# 1028 "./src/main/cli/settings.c" 3 4
-                                                                                                                    , 
-# 1028 "./src/main/cli/settings.c"
-                                                                                                                    descendRate
-# 1028 "./src/main/cli/settings.c" 3 4
-                                                                                                                    ) 
-# 1028 "./src/main/cli/settings.c"
-                                                                                                                                                             },
-    { "gps_rescue_throttle_hover", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 1000, 2000 }, 55, 
-# 1029 "./src/main/cli/settings.c" 3 4
-                                                                                                                      __builtin_offsetof (
-# 1029 "./src/main/cli/settings.c"
-                                                                                                                      gpsRescueConfig_t
-# 1029 "./src/main/cli/settings.c" 3 4
-                                                                                                                      , 
-# 1029 "./src/main/cli/settings.c"
-                                                                                                                      throttleHover
-# 1029 "./src/main/cli/settings.c" 3 4
-                                                                                                                      ) 
-# 1029 "./src/main/cli/settings.c"
-                                                                                                                                                                 },
-    { "gps_rescue_sanity_checks", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_GPS_RESCUE_SANITY_CHECK }, 55, 
-# 1030 "./src/main/cli/settings.c" 3 4
-                                                                                                                                               __builtin_offsetof (
-# 1030 "./src/main/cli/settings.c"
-                                                                                                                                               gpsRescueConfig_t
-# 1030 "./src/main/cli/settings.c" 3 4
-                                                                                                                                               , 
-# 1030 "./src/main/cli/settings.c"
-                                                                                                                                               sanityChecks
-# 1030 "./src/main/cli/settings.c" 3 4
-                                                                                                                                               ) 
-# 1030 "./src/main/cli/settings.c"
-                                                                                                                                                                                         },
-    { "gps_rescue_min_sats", VAR_UINT8 | MASTER_VALUE, .config.minmaxUnsigned = { 5, 50 }, 55, 
-# 1031 "./src/main/cli/settings.c" 3 4
-                                                                                                                 __builtin_offsetof (
-# 1031 "./src/main/cli/settings.c"
-                                                                                                                 gpsRescueConfig_t
-# 1031 "./src/main/cli/settings.c" 3 4
-                                                                                                                 , 
-# 1031 "./src/main/cli/settings.c"
-                                                                                                                 minSats
-# 1031 "./src/main/cli/settings.c" 3 4
-                                                                                                                 ) 
-# 1031 "./src/main/cli/settings.c"
-                                                                                                                                                      },
-    { "gps_rescue_min_dth", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 50, 1000 }, 55, 
-# 1032 "./src/main/cli/settings.c" 3 4
-                                                                                                                    __builtin_offsetof (
-# 1032 "./src/main/cli/settings.c"
-                                                                                                                    gpsRescueConfig_t
-# 1032 "./src/main/cli/settings.c" 3 4
-                                                                                                                    , 
-# 1032 "./src/main/cli/settings.c"
-                                                                                                                    minRescueDth
-# 1032 "./src/main/cli/settings.c" 3 4
-                                                                                                                    ) 
-# 1032 "./src/main/cli/settings.c"
-                                                                                                                                                              },
-    { "gps_rescue_allow_arming_without_fix", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, 55, 
-# 1033 "./src/main/cli/settings.c" 3 4
-                                                                                                                                       __builtin_offsetof (
-# 1033 "./src/main/cli/settings.c"
-                                                                                                                                       gpsRescueConfig_t
-# 1033 "./src/main/cli/settings.c" 3 4
-                                                                                                                                       , 
-# 1033 "./src/main/cli/settings.c"
-                                                                                                                                       allowArmingWithoutFix
-# 1033 "./src/main/cli/settings.c" 3 4
-                                                                                                                                       ) 
-# 1033 "./src/main/cli/settings.c"
-                                                                                                                                                                                          },
-    { "gps_rescue_alt_mode", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_GPS_RESCUE_ALT_MODE }, 55, 
-# 1034 "./src/main/cli/settings.c" 3 4
-                                                                                                                                           __builtin_offsetof (
-# 1034 "./src/main/cli/settings.c"
-                                                                                                                                           gpsRescueConfig_t
-# 1034 "./src/main/cli/settings.c" 3 4
-                                                                                                                                           , 
-# 1034 "./src/main/cli/settings.c"
-                                                                                                                                           altitudeMode
-# 1034 "./src/main/cli/settings.c" 3 4
-                                                                                                                                           ) 
-# 1034 "./src/main/cli/settings.c"
-                                                                                                                                                                                     },
-
-
-
-
-
-
+# 1041 "./src/main/cli/settings.c"
     { "deadband", VAR_UINT8 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 32 }, 25, 
 # 1041 "./src/main/cli/settings.c" 3 4
                                                                                                                          __builtin_offsetof (
@@ -21444,45 +20614,9 @@ const clivalue_t valueTable[] = {
 # 1088 "./src/main/cli/settings.c"
                                                                                                                                                                        },
 
-    { "iterm_relax", VAR_UINT8 | PROFILE_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_ITERM_RELAX }, 14, 
-# 1090 "./src/main/cli/settings.c" 3 4
-                                                                                                                                     __builtin_offsetof (
-# 1090 "./src/main/cli/settings.c"
-                                                                                                                                     pidProfile_t
-# 1090 "./src/main/cli/settings.c" 3 4
-                                                                                                                                     , 
-# 1090 "./src/main/cli/settings.c"
-                                                                                                                                     iterm_relax
-# 1090 "./src/main/cli/settings.c" 3 4
-                                                                                                                                     ) 
-# 1090 "./src/main/cli/settings.c"
-                                                                                                                                                                         },
-    { "iterm_relax_type", VAR_UINT8 | PROFILE_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_ITERM_RELAX_TYPE }, 14, 
-# 1091 "./src/main/cli/settings.c" 3 4
-                                                                                                                                          __builtin_offsetof (
-# 1091 "./src/main/cli/settings.c"
-                                                                                                                                          pidProfile_t
-# 1091 "./src/main/cli/settings.c" 3 4
-                                                                                                                                          , 
-# 1091 "./src/main/cli/settings.c"
-                                                                                                                                          iterm_relax_type
-# 1091 "./src/main/cli/settings.c" 3 4
-                                                                                                                                          ) 
-# 1091 "./src/main/cli/settings.c"
-                                                                                                                                                                                   },
-    { "iterm_relax_cutoff", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 1, 50 }, 14, 
-# 1092 "./src/main/cli/settings.c" 3 4
-                                                                                                                   __builtin_offsetof (
-# 1092 "./src/main/cli/settings.c"
-                                                                                                                   pidProfile_t
-# 1092 "./src/main/cli/settings.c" 3 4
-                                                                                                                   , 
-# 1092 "./src/main/cli/settings.c"
-                                                                                                                   iterm_relax_cutoff
-# 1092 "./src/main/cli/settings.c" 3 4
-                                                                                                                   ) 
-# 1092 "./src/main/cli/settings.c"
-                                                                                                                                                              },
+
+
+
 
     { "iterm_windup", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 30, 100 }, 14, 
 # 1094 "./src/main/cli/settings.c" 3 4
@@ -21549,91 +20683,7 @@ const clivalue_t valueTable[] = {
                                                                                                                     ) 
 # 1098 "./src/main/cli/settings.c"
                                                                                                                                                            },
-
-
-    { "throttle_boost", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 0, 100 }, 14, 
-# 1101 "./src/main/cli/settings.c" 3 4
-                                                                                                                    __builtin_offsetof (
-# 1101 "./src/main/cli/settings.c"
-                                                                                                                    pidProfile_t
-# 1101 "./src/main/cli/settings.c" 3 4
-                                                                                                                    , 
-# 1101 "./src/main/cli/settings.c"
-                                                                                                                    throttle_boost
-# 1101 "./src/main/cli/settings.c" 3 4
-                                                                                                                    ) 
-# 1101 "./src/main/cli/settings.c"
-                                                                                                                                                           },
-    { "throttle_boost_cutoff", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 5, 50 }, 14, 
-# 1102 "./src/main/cli/settings.c" 3 4
-                                                                                                                   __builtin_offsetof (
-# 1102 "./src/main/cli/settings.c"
-                                                                                                                   pidProfile_t
-# 1102 "./src/main/cli/settings.c" 3 4
-                                                                                                                   , 
-# 1102 "./src/main/cli/settings.c"
-                                                                                                                   throttle_boost_cutoff
-# 1102 "./src/main/cli/settings.c" 3 4
-                                                                                                                   ) 
-# 1102 "./src/main/cli/settings.c"
-                                                                                                                                                                 },
-
-
-
-    { "acro_trainer_angle_limit", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 10, 80 }, 14, 
-# 1106 "./src/main/cli/settings.c" 3 4
-                                                                                                                    __builtin_offsetof (
-# 1106 "./src/main/cli/settings.c"
-                                                                                                                    pidProfile_t
-# 1106 "./src/main/cli/settings.c" 3 4
-                                                                                                                    , 
-# 1106 "./src/main/cli/settings.c"
-                                                                                                                    acro_trainer_angle_limit
-# 1106 "./src/main/cli/settings.c" 3 4
-                                                                                                                    ) 
-# 1106 "./src/main/cli/settings.c"
-                                                                                                                                                                     },
-    { "acro_trainer_lookahead_ms", VAR_UINT16 | PROFILE_VALUE, .config.minmaxUnsigned = { 10, 200 }, 14, 
-# 1107 "./src/main/cli/settings.c" 3 4
-                                                                                                                     __builtin_offsetof (
-# 1107 "./src/main/cli/settings.c"
-                                                                                                                     pidProfile_t
-# 1107 "./src/main/cli/settings.c" 3 4
-                                                                                                                     , 
-# 1107 "./src/main/cli/settings.c"
-                                                                                                                     acro_trainer_lookahead_ms
-# 1107 "./src/main/cli/settings.c" 3 4
-                                                                                                                     ) 
-# 1107 "./src/main/cli/settings.c"
-                                                                                                                                                                       },
-    { "acro_trainer_debug_axis", VAR_UINT8 | PROFILE_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_ACRO_TRAINER_DEBUG }, 14, 
-# 1108 "./src/main/cli/settings.c" 3 4
-                                                                                                                                            __builtin_offsetof (
-# 1108 "./src/main/cli/settings.c"
-                                                                                                                                            pidProfile_t
-# 1108 "./src/main/cli/settings.c" 3 4
-                                                                                                                                            , 
-# 1108 "./src/main/cli/settings.c"
-                                                                                                                                            acro_trainer_debug_axis
-# 1108 "./src/main/cli/settings.c" 3 4
-                                                                                                                                            ) 
-# 1108 "./src/main/cli/settings.c"
-                                                                                                                                                                                            },
-    { "acro_trainer_gain", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 25, 255 }, 14, 
-# 1109 "./src/main/cli/settings.c" 3 4
-                                                                                                                     __builtin_offsetof (
-# 1109 "./src/main/cli/settings.c"
-                                                                                                                     pidProfile_t
-# 1109 "./src/main/cli/settings.c" 3 4
-                                                                                                                     , 
-# 1109 "./src/main/cli/settings.c"
-                                                                                                                     acro_trainer_gain
-# 1109 "./src/main/cli/settings.c" 3 4
-                                                                                                                     ) 
-# 1109 "./src/main/cli/settings.c"
-                                                                                                                                                               },
-
-
+# 1112 "./src/main/cli/settings.c"
     { "p_pitch", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 0, 200 }, 14, 
 # 1112 "./src/main/cli/settings.c" 3 4
                                                                                                                              __builtin_offsetof (
@@ -21871,159 +20921,7 @@ const clivalue_t valueTable[] = {
                                                                                                                                 ) 
 # 1132 "./src/main/cli/settings.c"
                                                                                                                                                                                  },
-
-
-    { "abs_control_gain", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 0, 20 }, 14, 
-# 1135 "./src/main/cli/settings.c" 3 4
-                                                                                                                   __builtin_offsetof (
-# 1135 "./src/main/cli/settings.c"
-                                                                                                                   pidProfile_t
-# 1135 "./src/main/cli/settings.c" 3 4
-                                                                                                                   , 
-# 1135 "./src/main/cli/settings.c"
-                                                                                                                   abs_control_gain
-# 1135 "./src/main/cli/settings.c" 3 4
-                                                                                                                   ) 
-# 1135 "./src/main/cli/settings.c"
-                                                                                                                                                            },
-    { "abs_control_limit", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 10, 255 }, 14, 
-# 1136 "./src/main/cli/settings.c" 3 4
-                                                                                                                     __builtin_offsetof (
-# 1136 "./src/main/cli/settings.c"
-                                                                                                                     pidProfile_t
-# 1136 "./src/main/cli/settings.c" 3 4
-                                                                                                                     , 
-# 1136 "./src/main/cli/settings.c"
-                                                                                                                     abs_control_limit
-# 1136 "./src/main/cli/settings.c" 3 4
-                                                                                                                     ) 
-# 1136 "./src/main/cli/settings.c"
-                                                                                                                                                               },
-    { "abs_control_error_limit", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 1, 45 }, 14, 
-# 1137 "./src/main/cli/settings.c" 3 4
-                                                                                                                   __builtin_offsetof (
-# 1137 "./src/main/cli/settings.c"
-                                                                                                                   pidProfile_t
-# 1137 "./src/main/cli/settings.c" 3 4
-                                                                                                                   , 
-# 1137 "./src/main/cli/settings.c"
-                                                                                                                   abs_control_error_limit
-# 1137 "./src/main/cli/settings.c" 3 4
-                                                                                                                   ) 
-# 1137 "./src/main/cli/settings.c"
-                                                                                                                                                                   },
-    { "abs_control_cutoff", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 1, 45 }, 14, 
-# 1138 "./src/main/cli/settings.c" 3 4
-                                                                                                                   __builtin_offsetof (
-# 1138 "./src/main/cli/settings.c"
-                                                                                                                   pidProfile_t
-# 1138 "./src/main/cli/settings.c" 3 4
-                                                                                                                   , 
-# 1138 "./src/main/cli/settings.c"
-                                                                                                                   abs_control_cutoff
-# 1138 "./src/main/cli/settings.c" 3 4
-                                                                                                                   ) 
-# 1138 "./src/main/cli/settings.c"
-                                                                                                                                                              },
-
-
-
-    { "use_integrated_yaw", VAR_UINT8 | PROFILE_VALUE | MODE_LOOKUP, .config.lookup = {TABLE_OFF_ON }, 14, 
-# 1142 "./src/main/cli/settings.c" 3 4
-                                                                                                                               __builtin_offsetof (
-# 1142 "./src/main/cli/settings.c"
-                                                                                                                               pidProfile_t
-# 1142 "./src/main/cli/settings.c" 3 4
-                                                                                                                               , 
-# 1142 "./src/main/cli/settings.c"
-                                                                                                                               use_integrated_yaw
-# 1142 "./src/main/cli/settings.c" 3 4
-                                                                                                                               ) 
-# 1142 "./src/main/cli/settings.c"
-                                                                                                                                                                          },
-    { "integrated_yaw_relax", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 0, 255 }, 14, 
-# 1143 "./src/main/cli/settings.c" 3 4
-                                                                                                                    __builtin_offsetof (
-# 1143 "./src/main/cli/settings.c"
-                                                                                                                    pidProfile_t
-# 1143 "./src/main/cli/settings.c" 3 4
-                                                                                                                    , 
-# 1143 "./src/main/cli/settings.c"
-                                                                                                                    integrated_yaw_relax
-# 1143 "./src/main/cli/settings.c" 3 4
-                                                                                                                    ) 
-# 1143 "./src/main/cli/settings.c"
-                                                                                                                                                                 },
-
-
-
-    { "d_min_roll", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 0, 100 }, 14, 
-# 1147 "./src/main/cli/settings.c" 3 4
-                                                                                                                               __builtin_offsetof (
-# 1147 "./src/main/cli/settings.c"
-                                                                                                                               pidProfile_t
-# 1147 "./src/main/cli/settings.c" 3 4
-                                                                                                                               , 
-# 1147 "./src/main/cli/settings.c"
-                                                                                                                               d_min[FD_ROLL]
-# 1147 "./src/main/cli/settings.c" 3 4
-                                                                                                                               ) 
-# 1147 "./src/main/cli/settings.c"
-                                                                                                                                                                      },
-    { "d_min_pitch", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 0, 100 }, 14, 
-# 1148 "./src/main/cli/settings.c" 3 4
-                                                                                                                               __builtin_offsetof (
-# 1148 "./src/main/cli/settings.c"
-                                                                                                                               pidProfile_t
-# 1148 "./src/main/cli/settings.c" 3 4
-                                                                                                                               , 
-# 1148 "./src/main/cli/settings.c"
-                                                                                                                               d_min[FD_PITCH]
-# 1148 "./src/main/cli/settings.c" 3 4
-                                                                                                                               ) 
-# 1148 "./src/main/cli/settings.c"
-                                                                                                                                                                       },
-    { "d_min_yaw", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 0, 100 }, 14, 
-# 1149 "./src/main/cli/settings.c" 3 4
-                                                                                                                               __builtin_offsetof (
-# 1149 "./src/main/cli/settings.c"
-                                                                                                                               pidProfile_t
-# 1149 "./src/main/cli/settings.c" 3 4
-                                                                                                                               , 
-# 1149 "./src/main/cli/settings.c"
-                                                                                                                               d_min[FD_YAW]
-# 1149 "./src/main/cli/settings.c" 3 4
-                                                                                                                               ) 
-# 1149 "./src/main/cli/settings.c"
-                                                                                                                                                                     },
-    { "d_min_boost_gain", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 0, 100 }, 14, 
-# 1150 "./src/main/cli/settings.c" 3 4
-                                                                                                                    __builtin_offsetof (
-# 1150 "./src/main/cli/settings.c"
-                                                                                                                    pidProfile_t
-# 1150 "./src/main/cli/settings.c" 3 4
-                                                                                                                    , 
-# 1150 "./src/main/cli/settings.c"
-                                                                                                                    d_min_gain
-# 1150 "./src/main/cli/settings.c" 3 4
-                                                                                                                    ) 
-# 1150 "./src/main/cli/settings.c"
-                                                                                                                                                       },
-    { "d_min_advance", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 0, 200 }, 14, 
-# 1151 "./src/main/cli/settings.c" 3 4
-                                                                                                                    __builtin_offsetof (
-# 1151 "./src/main/cli/settings.c"
-                                                                                                                    pidProfile_t
-# 1151 "./src/main/cli/settings.c" 3 4
-                                                                                                                    , 
-# 1151 "./src/main/cli/settings.c"
-                                                                                                                    d_min_advance
-# 1151 "./src/main/cli/settings.c" 3 4
-                                                                                                                    ) 
-# 1151 "./src/main/cli/settings.c"
-                                                                                                                                                          },
-
-
+# 1154 "./src/main/cli/settings.c"
     { "motor_output_limit", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 1, 100 }, 14, 
 # 1154 "./src/main/cli/settings.c" 3 4
                                                                                                                                                                             __builtin_offsetof (
@@ -22050,108 +20948,7 @@ const clivalue_t valueTable[] = {
                                                                                                                                                                ) 
 # 1155 "./src/main/cli/settings.c"
                                                                                                                                                                                                                },
-
-
-    { "launch_control_mode", VAR_UINT8 | PROFILE_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_LAUNCH_CONTROL_MODE }, 14, 
-# 1158 "./src/main/cli/settings.c" 3 4
-                                                                                                                                             __builtin_offsetof (
-# 1158 "./src/main/cli/settings.c"
-                                                                                                                                             pidProfile_t
-# 1158 "./src/main/cli/settings.c" 3 4
-                                                                                                                                             , 
-# 1158 "./src/main/cli/settings.c"
-                                                                                                                                             launchControlMode
-# 1158 "./src/main/cli/settings.c" 3 4
-                                                                                                                                             ) 
-# 1158 "./src/main/cli/settings.c"
-                                                                                                                                                                                       },
-    { "launch_trigger_allow_reset", VAR_UINT8 | PROFILE_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, 14, 
-# 1159 "./src/main/cli/settings.c" 3 4
-                                                                                                                                __builtin_offsetof (
-# 1159 "./src/main/cli/settings.c"
-                                                                                                                                pidProfile_t
-# 1159 "./src/main/cli/settings.c" 3 4
-                                                                                                                                , 
-# 1159 "./src/main/cli/settings.c"
-                                                                                                                                launchControlAllowTriggerReset
-# 1159 "./src/main/cli/settings.c" 3 4
-                                                                                                                                ) 
-# 1159 "./src/main/cli/settings.c"
-                                                                                                                                                                                       },
-    { "launch_trigger_throttle_percent", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 0, 90 }, 14, 
-# 1160 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1160 "./src/main/cli/settings.c"
-                                                                                                                                                         pidProfile_t
-# 1160 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1160 "./src/main/cli/settings.c"
-                                                                                                                                                         launchControlThrottlePercent
-# 1160 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         ) 
-# 1160 "./src/main/cli/settings.c"
-                                                                                                                                                                                                              },
-    { "launch_angle_limit", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 0, 80 }, 14, 
-# 1161 "./src/main/cli/settings.c" 3 4
-                                                                                                                   __builtin_offsetof (
-# 1161 "./src/main/cli/settings.c"
-                                                                                                                   pidProfile_t
-# 1161 "./src/main/cli/settings.c" 3 4
-                                                                                                                   , 
-# 1161 "./src/main/cli/settings.c"
-                                                                                                                   launchControlAngleLimit
-# 1161 "./src/main/cli/settings.c" 3 4
-                                                                                                                   ) 
-# 1161 "./src/main/cli/settings.c"
-                                                                                                                                                                   },
-    { "launch_control_gain", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 0, 200 }, 14, 
-# 1162 "./src/main/cli/settings.c" 3 4
-                                                                                                                    __builtin_offsetof (
-# 1162 "./src/main/cli/settings.c"
-                                                                                                                    pidProfile_t
-# 1162 "./src/main/cli/settings.c" 3 4
-                                                                                                                    , 
-# 1162 "./src/main/cli/settings.c"
-                                                                                                                    launchControlGain
-# 1162 "./src/main/cli/settings.c" 3 4
-                                                                                                                    ) 
-# 1162 "./src/main/cli/settings.c"
-                                                                                                                                                              },
-
-
-
-    { "thrust_linear", VAR_UINT8 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 150 }, 14, 
-# 1166 "./src/main/cli/settings.c" 3 4
-                                                                                                                  __builtin_offsetof (
-# 1166 "./src/main/cli/settings.c"
-                                                                                                                  pidProfile_t
-# 1166 "./src/main/cli/settings.c" 3 4
-                                                                                                                  , 
-# 1166 "./src/main/cli/settings.c"
-                                                                                                                  thrustLinearization
-# 1166 "./src/main/cli/settings.c" 3 4
-                                                                                                                  ) 
-# 1166 "./src/main/cli/settings.c"
-                                                                                                                                                              },
-
-
-
-    { "transient_throttle_limit", VAR_UINT8 | MASTER_VALUE, .config.minmax = { 0, 30 }, 14, 
-# 1170 "./src/main/cli/settings.c" 3 4
-                                                                                                         __builtin_offsetof (
-# 1170 "./src/main/cli/settings.c"
-                                                                                                         pidProfile_t
-# 1170 "./src/main/cli/settings.c" 3 4
-                                                                                                         , 
-# 1170 "./src/main/cli/settings.c"
-                                                                                                         transient_throttle_limit
-# 1170 "./src/main/cli/settings.c" 3 4
-                                                                                                         ) 
-# 1170 "./src/main/cli/settings.c"
-                                                                                                                                                          },
-
-
-
+# 1174 "./src/main/cli/settings.c"
     { "ff_interpolate_sp", VAR_UINT8 | PROFILE_VALUE | MODE_LOOKUP, .config.lookup = {TABLE_INTERPOLATED_SP}, 14, 
 # 1174 "./src/main/cli/settings.c" 3 4
                                                                                                                                       __builtin_offsetof (
@@ -22205,74 +21002,7 @@ const clivalue_t valueTable[] = {
                                                                                                                    ) 
 # 1178 "./src/main/cli/settings.c"
                                                                                                                                                     },
-
-
-    { "dyn_idle_min_rpm", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 0, 100 }, 14, 
-# 1181 "./src/main/cli/settings.c" 3 4
-                                                                                                                   __builtin_offsetof (
-# 1181 "./src/main/cli/settings.c"
-                                                                                                                   pidProfile_t
-# 1181 "./src/main/cli/settings.c" 3 4
-                                                                                                                   , 
-# 1181 "./src/main/cli/settings.c"
-                                                                                                                   dyn_idle_min_rpm
-# 1181 "./src/main/cli/settings.c" 3 4
-                                                                                                                   ) 
-# 1181 "./src/main/cli/settings.c"
-                                                                                                                                                            },
-    { "dyn_idle_p_gain", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 1, 250 }, 14, 
-# 1182 "./src/main/cli/settings.c" 3 4
-                                                                                                                   __builtin_offsetof (
-# 1182 "./src/main/cli/settings.c"
-                                                                                                                   pidProfile_t
-# 1182 "./src/main/cli/settings.c" 3 4
-                                                                                                                   , 
-# 1182 "./src/main/cli/settings.c"
-                                                                                                                   dyn_idle_p_gain
-# 1182 "./src/main/cli/settings.c" 3 4
-                                                                                                                   ) 
-# 1182 "./src/main/cli/settings.c"
-                                                                                                                                                           },
-    { "dyn_idle_i_gain", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 1, 250 }, 14, 
-# 1183 "./src/main/cli/settings.c" 3 4
-                                                                                                                   __builtin_offsetof (
-# 1183 "./src/main/cli/settings.c"
-                                                                                                                   pidProfile_t
-# 1183 "./src/main/cli/settings.c" 3 4
-                                                                                                                   , 
-# 1183 "./src/main/cli/settings.c"
-                                                                                                                   dyn_idle_i_gain
-# 1183 "./src/main/cli/settings.c" 3 4
-                                                                                                                   ) 
-# 1183 "./src/main/cli/settings.c"
-                                                                                                                                                           },
-    { "dyn_idle_d_gain", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 0, 250 }, 14, 
-# 1184 "./src/main/cli/settings.c" 3 4
-                                                                                                                   __builtin_offsetof (
-# 1184 "./src/main/cli/settings.c"
-                                                                                                                   pidProfile_t
-# 1184 "./src/main/cli/settings.c" 3 4
-                                                                                                                   , 
-# 1184 "./src/main/cli/settings.c"
-                                                                                                                   dyn_idle_d_gain
-# 1184 "./src/main/cli/settings.c" 3 4
-                                                                                                                   ) 
-# 1184 "./src/main/cli/settings.c"
-                                                                                                                                                           },
-    { "dyn_idle_max_increase", VAR_UINT8 | PROFILE_VALUE, .config.minmaxUnsigned = { 10, 255 }, 14, 
-# 1185 "./src/main/cli/settings.c" 3 4
-                                                                                                                    __builtin_offsetof (
-# 1185 "./src/main/cli/settings.c"
-                                                                                                                    pidProfile_t
-# 1185 "./src/main/cli/settings.c" 3 4
-                                                                                                                    , 
-# 1185 "./src/main/cli/settings.c"
-                                                                                                                    dyn_idle_max_increase
-# 1185 "./src/main/cli/settings.c" 3 4
-                                                                                                                    ) 
-# 1185 "./src/main/cli/settings.c"
-                                                                                                                                                                  },
-
+# 1187 "./src/main/cli/settings.c"
     { "level_race_mode", VAR_UINT8 | PROFILE_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, 14, 
 # 1187 "./src/main/cli/settings.c" 3 4
                                                                                                                                __builtin_offsetof (
@@ -22446,458 +21176,7 @@ const clivalue_t valueTable[] = {
                                                                                                                                                                 ) 
 # 1203 "./src/main/cli/settings.c"
                                                                                                                                                                                                                           },
-
-
-
-
-    { "tlm_inverted", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, 31, 
-# 1208 "./src/main/cli/settings.c" 3 4
-                                                                                                                                    __builtin_offsetof (
-# 1208 "./src/main/cli/settings.c"
-                                                                                                                                    telemetryConfig_t
-# 1208 "./src/main/cli/settings.c" 3 4
-                                                                                                                                    , 
-# 1208 "./src/main/cli/settings.c"
-                                                                                                                                    telemetry_inverted
-# 1208 "./src/main/cli/settings.c" 3 4
-                                                                                                                                    ) 
-# 1208 "./src/main/cli/settings.c"
-                                                                                                                                                                                    },
-    { "tlm_halfduplex", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, 31, 
-# 1209 "./src/main/cli/settings.c" 3 4
-                                                                                                                                    __builtin_offsetof (
-# 1209 "./src/main/cli/settings.c"
-                                                                                                                                    telemetryConfig_t
-# 1209 "./src/main/cli/settings.c" 3 4
-                                                                                                                                    , 
-# 1209 "./src/main/cli/settings.c"
-                                                                                                                                    halfDuplex
-# 1209 "./src/main/cli/settings.c" 3 4
-                                                                                                                                    ) 
-# 1209 "./src/main/cli/settings.c"
-                                                                                                                                                                            },
-
-
-    { "frsky_default_lat", VAR_INT16 | MASTER_VALUE, .config.minmax = { -9000, 9000 }, 31, 
-# 1212 "./src/main/cli/settings.c" 3 4
-                                                                                                                     __builtin_offsetof (
-# 1212 "./src/main/cli/settings.c"
-                                                                                                                     telemetryConfig_t
-# 1212 "./src/main/cli/settings.c" 3 4
-                                                                                                                     , 
-# 1212 "./src/main/cli/settings.c"
-                                                                                                                     gpsNoFixLatitude
-# 1212 "./src/main/cli/settings.c" 3 4
-                                                                                                                     ) 
-# 1212 "./src/main/cli/settings.c"
-                                                                                                                                                                   },
-    { "frsky_default_long", VAR_INT16 | MASTER_VALUE, .config.minmax = { -18000, 18000 }, 31, 
-# 1213 "./src/main/cli/settings.c" 3 4
-                                                                                                                       __builtin_offsetof (
-# 1213 "./src/main/cli/settings.c"
-                                                                                                                       telemetryConfig_t
-# 1213 "./src/main/cli/settings.c" 3 4
-                                                                                                                       , 
-# 1213 "./src/main/cli/settings.c"
-                                                                                                                       gpsNoFixLongitude
-# 1213 "./src/main/cli/settings.c" 3 4
-                                                                                                                       ) 
-# 1213 "./src/main/cli/settings.c"
-                                                                                                                                                                      },
-    { "frsky_gps_format", VAR_UINT8 | MASTER_VALUE, .config.minmaxUnsigned = { 0, FRSKY_FORMAT_NMEA }, 31, 
-# 1214 "./src/main/cli/settings.c" 3 4
-                                                                                                                                      __builtin_offsetof (
-# 1214 "./src/main/cli/settings.c"
-                                                                                                                                      telemetryConfig_t
-# 1214 "./src/main/cli/settings.c" 3 4
-                                                                                                                                      , 
-# 1214 "./src/main/cli/settings.c"
-                                                                                                                                      frsky_coordinate_format
-# 1214 "./src/main/cli/settings.c" 3 4
-                                                                                                                                      ) 
-# 1214 "./src/main/cli/settings.c"
-                                                                                                                                                                                           },
-    { "frsky_unit", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_UNIT }, 31, 
-# 1215 "./src/main/cli/settings.c" 3 4
-                                                                                                                                  __builtin_offsetof (
-# 1215 "./src/main/cli/settings.c"
-                                                                                                                                  telemetryConfig_t
-# 1215 "./src/main/cli/settings.c" 3 4
-                                                                                                                                  , 
-# 1215 "./src/main/cli/settings.c"
-                                                                                                                                  frsky_unit
-# 1215 "./src/main/cli/settings.c" 3 4
-                                                                                                                                  ) 
-# 1215 "./src/main/cli/settings.c"
-                                                                                                                                                                          },
-
-    { "frsky_vfas_precision", VAR_UINT8 | MASTER_VALUE, .config.minmaxUnsigned = { FRSKY_VFAS_PRECISION_LOW, FRSKY_VFAS_PRECISION_HIGH }, 31, 
-# 1217 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                                      __builtin_offsetof (
-# 1217 "./src/main/cli/settings.c"
-                                                                                                                                                                      telemetryConfig_t
-# 1217 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                                      , 
-# 1217 "./src/main/cli/settings.c"
-                                                                                                                                                                      frsky_vfas_precision
-# 1217 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                                      ) 
-# 1217 "./src/main/cli/settings.c"
-                                                                                                                                                                                                                        },
-
-    { "hott_alarm_int", VAR_UINT8 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 120 }, 31, 
-# 1219 "./src/main/cli/settings.c" 3 4
-                                                                                                                        __builtin_offsetof (
-# 1219 "./src/main/cli/settings.c"
-                                                                                                                        telemetryConfig_t
-# 1219 "./src/main/cli/settings.c" 3 4
-                                                                                                                        , 
-# 1219 "./src/main/cli/settings.c"
-                                                                                                                        hottAlarmSoundInterval
-# 1219 "./src/main/cli/settings.c" 3 4
-                                                                                                                        ) 
-# 1219 "./src/main/cli/settings.c"
-                                                                                                                                                                            },
-    { "pid_in_tlm", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, 31, 
-# 1220 "./src/main/cli/settings.c" 3 4
-                                                                                                                                    __builtin_offsetof (
-# 1220 "./src/main/cli/settings.c"
-                                                                                                                                    telemetryConfig_t
-# 1220 "./src/main/cli/settings.c" 3 4
-                                                                                                                                    , 
-# 1220 "./src/main/cli/settings.c"
-                                                                                                                                    pidValuesAsTelemetry
-# 1220 "./src/main/cli/settings.c" 3 4
-                                                                                                                                    ) 
-# 1220 "./src/main/cli/settings.c"
-                                                                                                                                                                                      },
-    { "report_cell_voltage", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, 31, 
-# 1221 "./src/main/cli/settings.c" 3 4
-                                                                                                                                    __builtin_offsetof (
-# 1221 "./src/main/cli/settings.c"
-                                                                                                                                    telemetryConfig_t
-# 1221 "./src/main/cli/settings.c" 3 4
-                                                                                                                                    , 
-# 1221 "./src/main/cli/settings.c"
-                                                                                                                                    report_cell_voltage
-# 1221 "./src/main/cli/settings.c" 3 4
-                                                                                                                                    ) 
-# 1221 "./src/main/cli/settings.c"
-                                                                                                                                                                                     },
-
-    { "ibus_sensor", VAR_UINT8 | MASTER_VALUE | MODE_ARRAY, .config.array.length = 15, 31, 
-# 1223 "./src/main/cli/settings.c" 3 4
-                                                                                                                                          __builtin_offsetof (
-# 1223 "./src/main/cli/settings.c"
-                                                                                                                                          telemetryConfig_t
-# 1223 "./src/main/cli/settings.c" 3 4
-                                                                                                                                          , 
-# 1223 "./src/main/cli/settings.c"
-                                                                                                                                          flysky_sensors
-# 1223 "./src/main/cli/settings.c" 3 4
-                                                                                                                                          )
-# 1223 "./src/main/cli/settings.c"
-                                                                                                                                                                                     },
-
-
-
-
-
-    { "mavlink_mah_as_heading_divisor", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 30000 }, 31, 
-# 1229 "./src/main/cli/settings.c" 3 4
-                                                                                                                              __builtin_offsetof (
-# 1229 "./src/main/cli/settings.c"
-                                                                                                                              telemetryConfig_t
-# 1229 "./src/main/cli/settings.c" 3 4
-                                                                                                                              , 
-# 1229 "./src/main/cli/settings.c"
-                                                                                                                              mavlink_mah_as_heading_divisor
-# 1229 "./src/main/cli/settings.c" 3 4
-                                                                                                                              ) 
-# 1229 "./src/main/cli/settings.c"
-                                                                                                                                                                                          },
-
-
-    { "telemetry_disabled_voltage", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = (32*((SENSOR_VOLTAGE)/2L>>31 > 0) + (16*(((SENSOR_VOLTAGE)*1L >>16*((SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((SENSOR_VOLTAGE)/2L>>31 > 0))>65535L) + (8*((((SENSOR_VOLTAGE)*1L >>16*((SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((SENSOR_VOLTAGE)/2L>>31 > 0))*1L >>16*(((SENSOR_VOLTAGE)*1L >>16*((SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((SENSOR_VOLTAGE)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((SENSOR_VOLTAGE)*1L >>16*((SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((SENSOR_VOLTAGE)/2L>>31 > 0))*1L >>16*(((SENSOR_VOLTAGE)*1L >>16*((SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((SENSOR_VOLTAGE)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_VOLTAGE)*1L >>16*((SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((SENSOR_VOLTAGE)/2L>>31 > 0))*1L >>16*(((SENSOR_VOLTAGE)*1L >>16*((SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((SENSOR_VOLTAGE)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((SENSOR_VOLTAGE)*1L >>16*((SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((SENSOR_VOLTAGE)/2L>>31 > 0))*1L >>16*(((SENSOR_VOLTAGE)*1L >>16*((SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((SENSOR_VOLTAGE)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_VOLTAGE)*1L >>16*((SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((SENSOR_VOLTAGE)/2L>>31 > 0))*1L >>16*(((SENSOR_VOLTAGE)*1L >>16*((SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((SENSOR_VOLTAGE)/2L>>31 > 0))>65535L))>255))/2+1))))), 31, 
-# 1232 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1232 "./src/main/cli/settings.c"
-                                                                                                                                                         telemetryConfig_t
-# 1232 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1232 "./src/main/cli/settings.c"
-                                                                                                                                                         disabledSensors
-# 1232 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         )
-# 1232 "./src/main/cli/settings.c"
-                                                                                                                                                                                                     },
-    { "telemetry_disabled_current", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = (32*((SENSOR_CURRENT)/2L>>31 > 0) + (16*(((SENSOR_CURRENT)*1L >>16*((SENSOR_CURRENT)/2L>>31 > 0) >>16*((SENSOR_CURRENT)/2L>>31 > 0))>65535L) + (8*((((SENSOR_CURRENT)*1L >>16*((SENSOR_CURRENT)/2L>>31 > 0) >>16*((SENSOR_CURRENT)/2L>>31 > 0))*1L >>16*(((SENSOR_CURRENT)*1L >>16*((SENSOR_CURRENT)/2L>>31 > 0) >>16*((SENSOR_CURRENT)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((SENSOR_CURRENT)*1L >>16*((SENSOR_CURRENT)/2L>>31 > 0) >>16*((SENSOR_CURRENT)/2L>>31 > 0))*1L >>16*(((SENSOR_CURRENT)*1L >>16*((SENSOR_CURRENT)/2L>>31 > 0) >>16*((SENSOR_CURRENT)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_CURRENT)*1L >>16*((SENSOR_CURRENT)/2L>>31 > 0) >>16*((SENSOR_CURRENT)/2L>>31 > 0))*1L >>16*(((SENSOR_CURRENT)*1L >>16*((SENSOR_CURRENT)/2L>>31 > 0) >>16*((SENSOR_CURRENT)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((SENSOR_CURRENT)*1L >>16*((SENSOR_CURRENT)/2L>>31 > 0) >>16*((SENSOR_CURRENT)/2L>>31 > 0))*1L >>16*(((SENSOR_CURRENT)*1L >>16*((SENSOR_CURRENT)/2L>>31 > 0) >>16*((SENSOR_CURRENT)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_CURRENT)*1L >>16*((SENSOR_CURRENT)/2L>>31 > 0) >>16*((SENSOR_CURRENT)/2L>>31 > 0))*1L >>16*(((SENSOR_CURRENT)*1L >>16*((SENSOR_CURRENT)/2L>>31 > 0) >>16*((SENSOR_CURRENT)/2L>>31 > 0))>65535L))>255))/2+1))))), 31, 
-# 1233 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1233 "./src/main/cli/settings.c"
-                                                                                                                                                         telemetryConfig_t
-# 1233 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1233 "./src/main/cli/settings.c"
-                                                                                                                                                         disabledSensors
-# 1233 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         )
-# 1233 "./src/main/cli/settings.c"
-                                                                                                                                                                                                     },
-    { "telemetry_disabled_fuel", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = (32*((SENSOR_FUEL)/2L>>31 > 0) + (16*(((SENSOR_FUEL)*1L >>16*((SENSOR_FUEL)/2L>>31 > 0) >>16*((SENSOR_FUEL)/2L>>31 > 0))>65535L) + (8*((((SENSOR_FUEL)*1L >>16*((SENSOR_FUEL)/2L>>31 > 0) >>16*((SENSOR_FUEL)/2L>>31 > 0))*1L >>16*(((SENSOR_FUEL)*1L >>16*((SENSOR_FUEL)/2L>>31 > 0) >>16*((SENSOR_FUEL)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((SENSOR_FUEL)*1L >>16*((SENSOR_FUEL)/2L>>31 > 0) >>16*((SENSOR_FUEL)/2L>>31 > 0))*1L >>16*(((SENSOR_FUEL)*1L >>16*((SENSOR_FUEL)/2L>>31 > 0) >>16*((SENSOR_FUEL)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_FUEL)*1L >>16*((SENSOR_FUEL)/2L>>31 > 0) >>16*((SENSOR_FUEL)/2L>>31 > 0))*1L >>16*(((SENSOR_FUEL)*1L >>16*((SENSOR_FUEL)/2L>>31 > 0) >>16*((SENSOR_FUEL)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((SENSOR_FUEL)*1L >>16*((SENSOR_FUEL)/2L>>31 > 0) >>16*((SENSOR_FUEL)/2L>>31 > 0))*1L >>16*(((SENSOR_FUEL)*1L >>16*((SENSOR_FUEL)/2L>>31 > 0) >>16*((SENSOR_FUEL)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_FUEL)*1L >>16*((SENSOR_FUEL)/2L>>31 > 0) >>16*((SENSOR_FUEL)/2L>>31 > 0))*1L >>16*(((SENSOR_FUEL)*1L >>16*((SENSOR_FUEL)/2L>>31 > 0) >>16*((SENSOR_FUEL)/2L>>31 > 0))>65535L))>255))/2+1))))), 31, 
-# 1234 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1234 "./src/main/cli/settings.c"
-                                                                                                                                                         telemetryConfig_t
-# 1234 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1234 "./src/main/cli/settings.c"
-                                                                                                                                                         disabledSensors
-# 1234 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         )
-# 1234 "./src/main/cli/settings.c"
-                                                                                                                                                                                                     },
-    { "telemetry_disabled_mode", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = (32*((SENSOR_MODE)/2L>>31 > 0) + (16*(((SENSOR_MODE)*1L >>16*((SENSOR_MODE)/2L>>31 > 0) >>16*((SENSOR_MODE)/2L>>31 > 0))>65535L) + (8*((((SENSOR_MODE)*1L >>16*((SENSOR_MODE)/2L>>31 > 0) >>16*((SENSOR_MODE)/2L>>31 > 0))*1L >>16*(((SENSOR_MODE)*1L >>16*((SENSOR_MODE)/2L>>31 > 0) >>16*((SENSOR_MODE)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((SENSOR_MODE)*1L >>16*((SENSOR_MODE)/2L>>31 > 0) >>16*((SENSOR_MODE)/2L>>31 > 0))*1L >>16*(((SENSOR_MODE)*1L >>16*((SENSOR_MODE)/2L>>31 > 0) >>16*((SENSOR_MODE)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_MODE)*1L >>16*((SENSOR_MODE)/2L>>31 > 0) >>16*((SENSOR_MODE)/2L>>31 > 0))*1L >>16*(((SENSOR_MODE)*1L >>16*((SENSOR_MODE)/2L>>31 > 0) >>16*((SENSOR_MODE)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((SENSOR_MODE)*1L >>16*((SENSOR_MODE)/2L>>31 > 0) >>16*((SENSOR_MODE)/2L>>31 > 0))*1L >>16*(((SENSOR_MODE)*1L >>16*((SENSOR_MODE)/2L>>31 > 0) >>16*((SENSOR_MODE)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_MODE)*1L >>16*((SENSOR_MODE)/2L>>31 > 0) >>16*((SENSOR_MODE)/2L>>31 > 0))*1L >>16*(((SENSOR_MODE)*1L >>16*((SENSOR_MODE)/2L>>31 > 0) >>16*((SENSOR_MODE)/2L>>31 > 0))>65535L))>255))/2+1))))), 31, 
-# 1235 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1235 "./src/main/cli/settings.c"
-                                                                                                                                                         telemetryConfig_t
-# 1235 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1235 "./src/main/cli/settings.c"
-                                                                                                                                                         disabledSensors
-# 1235 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         )
-# 1235 "./src/main/cli/settings.c"
-                                                                                                                                                                                                     },
-    { "telemetry_disabled_acc_x", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = (32*((SENSOR_ACC_X)/2L>>31 > 0) + (16*(((SENSOR_ACC_X)*1L >>16*((SENSOR_ACC_X)/2L>>31 > 0) >>16*((SENSOR_ACC_X)/2L>>31 > 0))>65535L) + (8*((((SENSOR_ACC_X)*1L >>16*((SENSOR_ACC_X)/2L>>31 > 0) >>16*((SENSOR_ACC_X)/2L>>31 > 0))*1L >>16*(((SENSOR_ACC_X)*1L >>16*((SENSOR_ACC_X)/2L>>31 > 0) >>16*((SENSOR_ACC_X)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((SENSOR_ACC_X)*1L >>16*((SENSOR_ACC_X)/2L>>31 > 0) >>16*((SENSOR_ACC_X)/2L>>31 > 0))*1L >>16*(((SENSOR_ACC_X)*1L >>16*((SENSOR_ACC_X)/2L>>31 > 0) >>16*((SENSOR_ACC_X)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_ACC_X)*1L >>16*((SENSOR_ACC_X)/2L>>31 > 0) >>16*((SENSOR_ACC_X)/2L>>31 > 0))*1L >>16*(((SENSOR_ACC_X)*1L >>16*((SENSOR_ACC_X)/2L>>31 > 0) >>16*((SENSOR_ACC_X)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((SENSOR_ACC_X)*1L >>16*((SENSOR_ACC_X)/2L>>31 > 0) >>16*((SENSOR_ACC_X)/2L>>31 > 0))*1L >>16*(((SENSOR_ACC_X)*1L >>16*((SENSOR_ACC_X)/2L>>31 > 0) >>16*((SENSOR_ACC_X)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_ACC_X)*1L >>16*((SENSOR_ACC_X)/2L>>31 > 0) >>16*((SENSOR_ACC_X)/2L>>31 > 0))*1L >>16*(((SENSOR_ACC_X)*1L >>16*((SENSOR_ACC_X)/2L>>31 > 0) >>16*((SENSOR_ACC_X)/2L>>31 > 0))>65535L))>255))/2+1))))), 31, 
-# 1236 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1236 "./src/main/cli/settings.c"
-                                                                                                                                                         telemetryConfig_t
-# 1236 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1236 "./src/main/cli/settings.c"
-                                                                                                                                                         disabledSensors
-# 1236 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         )
-# 1236 "./src/main/cli/settings.c"
-                                                                                                                                                                                                     },
-    { "telemetry_disabled_acc_y", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = (32*((SENSOR_ACC_Y)/2L>>31 > 0) + (16*(((SENSOR_ACC_Y)*1L >>16*((SENSOR_ACC_Y)/2L>>31 > 0) >>16*((SENSOR_ACC_Y)/2L>>31 > 0))>65535L) + (8*((((SENSOR_ACC_Y)*1L >>16*((SENSOR_ACC_Y)/2L>>31 > 0) >>16*((SENSOR_ACC_Y)/2L>>31 > 0))*1L >>16*(((SENSOR_ACC_Y)*1L >>16*((SENSOR_ACC_Y)/2L>>31 > 0) >>16*((SENSOR_ACC_Y)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((SENSOR_ACC_Y)*1L >>16*((SENSOR_ACC_Y)/2L>>31 > 0) >>16*((SENSOR_ACC_Y)/2L>>31 > 0))*1L >>16*(((SENSOR_ACC_Y)*1L >>16*((SENSOR_ACC_Y)/2L>>31 > 0) >>16*((SENSOR_ACC_Y)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_ACC_Y)*1L >>16*((SENSOR_ACC_Y)/2L>>31 > 0) >>16*((SENSOR_ACC_Y)/2L>>31 > 0))*1L >>16*(((SENSOR_ACC_Y)*1L >>16*((SENSOR_ACC_Y)/2L>>31 > 0) >>16*((SENSOR_ACC_Y)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((SENSOR_ACC_Y)*1L >>16*((SENSOR_ACC_Y)/2L>>31 > 0) >>16*((SENSOR_ACC_Y)/2L>>31 > 0))*1L >>16*(((SENSOR_ACC_Y)*1L >>16*((SENSOR_ACC_Y)/2L>>31 > 0) >>16*((SENSOR_ACC_Y)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_ACC_Y)*1L >>16*((SENSOR_ACC_Y)/2L>>31 > 0) >>16*((SENSOR_ACC_Y)/2L>>31 > 0))*1L >>16*(((SENSOR_ACC_Y)*1L >>16*((SENSOR_ACC_Y)/2L>>31 > 0) >>16*((SENSOR_ACC_Y)/2L>>31 > 0))>65535L))>255))/2+1))))), 31, 
-# 1237 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1237 "./src/main/cli/settings.c"
-                                                                                                                                                         telemetryConfig_t
-# 1237 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1237 "./src/main/cli/settings.c"
-                                                                                                                                                         disabledSensors
-# 1237 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         )
-# 1237 "./src/main/cli/settings.c"
-                                                                                                                                                                                                     },
-    { "telemetry_disabled_acc_z", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = (32*((SENSOR_ACC_Z)/2L>>31 > 0) + (16*(((SENSOR_ACC_Z)*1L >>16*((SENSOR_ACC_Z)/2L>>31 > 0) >>16*((SENSOR_ACC_Z)/2L>>31 > 0))>65535L) + (8*((((SENSOR_ACC_Z)*1L >>16*((SENSOR_ACC_Z)/2L>>31 > 0) >>16*((SENSOR_ACC_Z)/2L>>31 > 0))*1L >>16*(((SENSOR_ACC_Z)*1L >>16*((SENSOR_ACC_Z)/2L>>31 > 0) >>16*((SENSOR_ACC_Z)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((SENSOR_ACC_Z)*1L >>16*((SENSOR_ACC_Z)/2L>>31 > 0) >>16*((SENSOR_ACC_Z)/2L>>31 > 0))*1L >>16*(((SENSOR_ACC_Z)*1L >>16*((SENSOR_ACC_Z)/2L>>31 > 0) >>16*((SENSOR_ACC_Z)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_ACC_Z)*1L >>16*((SENSOR_ACC_Z)/2L>>31 > 0) >>16*((SENSOR_ACC_Z)/2L>>31 > 0))*1L >>16*(((SENSOR_ACC_Z)*1L >>16*((SENSOR_ACC_Z)/2L>>31 > 0) >>16*((SENSOR_ACC_Z)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((SENSOR_ACC_Z)*1L >>16*((SENSOR_ACC_Z)/2L>>31 > 0) >>16*((SENSOR_ACC_Z)/2L>>31 > 0))*1L >>16*(((SENSOR_ACC_Z)*1L >>16*((SENSOR_ACC_Z)/2L>>31 > 0) >>16*((SENSOR_ACC_Z)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_ACC_Z)*1L >>16*((SENSOR_ACC_Z)/2L>>31 > 0) >>16*((SENSOR_ACC_Z)/2L>>31 > 0))*1L >>16*(((SENSOR_ACC_Z)*1L >>16*((SENSOR_ACC_Z)/2L>>31 > 0) >>16*((SENSOR_ACC_Z)/2L>>31 > 0))>65535L))>255))/2+1))))), 31, 
-# 1238 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1238 "./src/main/cli/settings.c"
-                                                                                                                                                         telemetryConfig_t
-# 1238 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1238 "./src/main/cli/settings.c"
-                                                                                                                                                         disabledSensors
-# 1238 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         )
-# 1238 "./src/main/cli/settings.c"
-                                                                                                                                                                                                     },
-    { "telemetry_disabled_pitch", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = (32*((SENSOR_PITCH)/2L>>31 > 0) + (16*(((SENSOR_PITCH)*1L >>16*((SENSOR_PITCH)/2L>>31 > 0) >>16*((SENSOR_PITCH)/2L>>31 > 0))>65535L) + (8*((((SENSOR_PITCH)*1L >>16*((SENSOR_PITCH)/2L>>31 > 0) >>16*((SENSOR_PITCH)/2L>>31 > 0))*1L >>16*(((SENSOR_PITCH)*1L >>16*((SENSOR_PITCH)/2L>>31 > 0) >>16*((SENSOR_PITCH)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((SENSOR_PITCH)*1L >>16*((SENSOR_PITCH)/2L>>31 > 0) >>16*((SENSOR_PITCH)/2L>>31 > 0))*1L >>16*(((SENSOR_PITCH)*1L >>16*((SENSOR_PITCH)/2L>>31 > 0) >>16*((SENSOR_PITCH)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_PITCH)*1L >>16*((SENSOR_PITCH)/2L>>31 > 0) >>16*((SENSOR_PITCH)/2L>>31 > 0))*1L >>16*(((SENSOR_PITCH)*1L >>16*((SENSOR_PITCH)/2L>>31 > 0) >>16*((SENSOR_PITCH)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((SENSOR_PITCH)*1L >>16*((SENSOR_PITCH)/2L>>31 > 0) >>16*((SENSOR_PITCH)/2L>>31 > 0))*1L >>16*(((SENSOR_PITCH)*1L >>16*((SENSOR_PITCH)/2L>>31 > 0) >>16*((SENSOR_PITCH)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_PITCH)*1L >>16*((SENSOR_PITCH)/2L>>31 > 0) >>16*((SENSOR_PITCH)/2L>>31 > 0))*1L >>16*(((SENSOR_PITCH)*1L >>16*((SENSOR_PITCH)/2L>>31 > 0) >>16*((SENSOR_PITCH)/2L>>31 > 0))>65535L))>255))/2+1))))), 31, 
-# 1239 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1239 "./src/main/cli/settings.c"
-                                                                                                                                                         telemetryConfig_t
-# 1239 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1239 "./src/main/cli/settings.c"
-                                                                                                                                                         disabledSensors
-# 1239 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         )
-# 1239 "./src/main/cli/settings.c"
-                                                                                                                                                                                                     },
-    { "telemetry_disabled_roll", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = (32*((SENSOR_ROLL)/2L>>31 > 0) + (16*(((SENSOR_ROLL)*1L >>16*((SENSOR_ROLL)/2L>>31 > 0) >>16*((SENSOR_ROLL)/2L>>31 > 0))>65535L) + (8*((((SENSOR_ROLL)*1L >>16*((SENSOR_ROLL)/2L>>31 > 0) >>16*((SENSOR_ROLL)/2L>>31 > 0))*1L >>16*(((SENSOR_ROLL)*1L >>16*((SENSOR_ROLL)/2L>>31 > 0) >>16*((SENSOR_ROLL)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((SENSOR_ROLL)*1L >>16*((SENSOR_ROLL)/2L>>31 > 0) >>16*((SENSOR_ROLL)/2L>>31 > 0))*1L >>16*(((SENSOR_ROLL)*1L >>16*((SENSOR_ROLL)/2L>>31 > 0) >>16*((SENSOR_ROLL)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_ROLL)*1L >>16*((SENSOR_ROLL)/2L>>31 > 0) >>16*((SENSOR_ROLL)/2L>>31 > 0))*1L >>16*(((SENSOR_ROLL)*1L >>16*((SENSOR_ROLL)/2L>>31 > 0) >>16*((SENSOR_ROLL)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((SENSOR_ROLL)*1L >>16*((SENSOR_ROLL)/2L>>31 > 0) >>16*((SENSOR_ROLL)/2L>>31 > 0))*1L >>16*(((SENSOR_ROLL)*1L >>16*((SENSOR_ROLL)/2L>>31 > 0) >>16*((SENSOR_ROLL)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_ROLL)*1L >>16*((SENSOR_ROLL)/2L>>31 > 0) >>16*((SENSOR_ROLL)/2L>>31 > 0))*1L >>16*(((SENSOR_ROLL)*1L >>16*((SENSOR_ROLL)/2L>>31 > 0) >>16*((SENSOR_ROLL)/2L>>31 > 0))>65535L))>255))/2+1))))), 31, 
-# 1240 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1240 "./src/main/cli/settings.c"
-                                                                                                                                                         telemetryConfig_t
-# 1240 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1240 "./src/main/cli/settings.c"
-                                                                                                                                                         disabledSensors
-# 1240 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         )
-# 1240 "./src/main/cli/settings.c"
-                                                                                                                                                                                                     },
-    { "telemetry_disabled_heading", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = (32*((SENSOR_HEADING)/2L>>31 > 0) + (16*(((SENSOR_HEADING)*1L >>16*((SENSOR_HEADING)/2L>>31 > 0) >>16*((SENSOR_HEADING)/2L>>31 > 0))>65535L) + (8*((((SENSOR_HEADING)*1L >>16*((SENSOR_HEADING)/2L>>31 > 0) >>16*((SENSOR_HEADING)/2L>>31 > 0))*1L >>16*(((SENSOR_HEADING)*1L >>16*((SENSOR_HEADING)/2L>>31 > 0) >>16*((SENSOR_HEADING)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((SENSOR_HEADING)*1L >>16*((SENSOR_HEADING)/2L>>31 > 0) >>16*((SENSOR_HEADING)/2L>>31 > 0))*1L >>16*(((SENSOR_HEADING)*1L >>16*((SENSOR_HEADING)/2L>>31 > 0) >>16*((SENSOR_HEADING)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_HEADING)*1L >>16*((SENSOR_HEADING)/2L>>31 > 0) >>16*((SENSOR_HEADING)/2L>>31 > 0))*1L >>16*(((SENSOR_HEADING)*1L >>16*((SENSOR_HEADING)/2L>>31 > 0) >>16*((SENSOR_HEADING)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((SENSOR_HEADING)*1L >>16*((SENSOR_HEADING)/2L>>31 > 0) >>16*((SENSOR_HEADING)/2L>>31 > 0))*1L >>16*(((SENSOR_HEADING)*1L >>16*((SENSOR_HEADING)/2L>>31 > 0) >>16*((SENSOR_HEADING)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_HEADING)*1L >>16*((SENSOR_HEADING)/2L>>31 > 0) >>16*((SENSOR_HEADING)/2L>>31 > 0))*1L >>16*(((SENSOR_HEADING)*1L >>16*((SENSOR_HEADING)/2L>>31 > 0) >>16*((SENSOR_HEADING)/2L>>31 > 0))>65535L))>255))/2+1))))), 31, 
-# 1241 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1241 "./src/main/cli/settings.c"
-                                                                                                                                                         telemetryConfig_t
-# 1241 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1241 "./src/main/cli/settings.c"
-                                                                                                                                                         disabledSensors
-# 1241 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         )
-# 1241 "./src/main/cli/settings.c"
-                                                                                                                                                                                                     },
-    { "telemetry_disabled_altitude", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = (32*((SENSOR_ALTITUDE)/2L>>31 > 0) + (16*(((SENSOR_ALTITUDE)*1L >>16*((SENSOR_ALTITUDE)/2L>>31 > 0) >>16*((SENSOR_ALTITUDE)/2L>>31 > 0))>65535L) + (8*((((SENSOR_ALTITUDE)*1L >>16*((SENSOR_ALTITUDE)/2L>>31 > 0) >>16*((SENSOR_ALTITUDE)/2L>>31 > 0))*1L >>16*(((SENSOR_ALTITUDE)*1L >>16*((SENSOR_ALTITUDE)/2L>>31 > 0) >>16*((SENSOR_ALTITUDE)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((SENSOR_ALTITUDE)*1L >>16*((SENSOR_ALTITUDE)/2L>>31 > 0) >>16*((SENSOR_ALTITUDE)/2L>>31 > 0))*1L >>16*(((SENSOR_ALTITUDE)*1L >>16*((SENSOR_ALTITUDE)/2L>>31 > 0) >>16*((SENSOR_ALTITUDE)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_ALTITUDE)*1L >>16*((SENSOR_ALTITUDE)/2L>>31 > 0) >>16*((SENSOR_ALTITUDE)/2L>>31 > 0))*1L >>16*(((SENSOR_ALTITUDE)*1L >>16*((SENSOR_ALTITUDE)/2L>>31 > 0) >>16*((SENSOR_ALTITUDE)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((SENSOR_ALTITUDE)*1L >>16*((SENSOR_ALTITUDE)/2L>>31 > 0) >>16*((SENSOR_ALTITUDE)/2L>>31 > 0))*1L >>16*(((SENSOR_ALTITUDE)*1L >>16*((SENSOR_ALTITUDE)/2L>>31 > 0) >>16*((SENSOR_ALTITUDE)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_ALTITUDE)*1L >>16*((SENSOR_ALTITUDE)/2L>>31 > 0) >>16*((SENSOR_ALTITUDE)/2L>>31 > 0))*1L >>16*(((SENSOR_ALTITUDE)*1L >>16*((SENSOR_ALTITUDE)/2L>>31 > 0) >>16*((SENSOR_ALTITUDE)/2L>>31 > 0))>65535L))>255))/2+1))))), 31, 
-# 1242 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1242 "./src/main/cli/settings.c"
-                                                                                                                                                         telemetryConfig_t
-# 1242 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1242 "./src/main/cli/settings.c"
-                                                                                                                                                         disabledSensors
-# 1242 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         )
-# 1242 "./src/main/cli/settings.c"
-                                                                                                                                                                                                     },
-    { "telemetry_disabled_vario", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = (32*((SENSOR_VARIO)/2L>>31 > 0) + (16*(((SENSOR_VARIO)*1L >>16*((SENSOR_VARIO)/2L>>31 > 0) >>16*((SENSOR_VARIO)/2L>>31 > 0))>65535L) + (8*((((SENSOR_VARIO)*1L >>16*((SENSOR_VARIO)/2L>>31 > 0) >>16*((SENSOR_VARIO)/2L>>31 > 0))*1L >>16*(((SENSOR_VARIO)*1L >>16*((SENSOR_VARIO)/2L>>31 > 0) >>16*((SENSOR_VARIO)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((SENSOR_VARIO)*1L >>16*((SENSOR_VARIO)/2L>>31 > 0) >>16*((SENSOR_VARIO)/2L>>31 > 0))*1L >>16*(((SENSOR_VARIO)*1L >>16*((SENSOR_VARIO)/2L>>31 > 0) >>16*((SENSOR_VARIO)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_VARIO)*1L >>16*((SENSOR_VARIO)/2L>>31 > 0) >>16*((SENSOR_VARIO)/2L>>31 > 0))*1L >>16*(((SENSOR_VARIO)*1L >>16*((SENSOR_VARIO)/2L>>31 > 0) >>16*((SENSOR_VARIO)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((SENSOR_VARIO)*1L >>16*((SENSOR_VARIO)/2L>>31 > 0) >>16*((SENSOR_VARIO)/2L>>31 > 0))*1L >>16*(((SENSOR_VARIO)*1L >>16*((SENSOR_VARIO)/2L>>31 > 0) >>16*((SENSOR_VARIO)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_VARIO)*1L >>16*((SENSOR_VARIO)/2L>>31 > 0) >>16*((SENSOR_VARIO)/2L>>31 > 0))*1L >>16*(((SENSOR_VARIO)*1L >>16*((SENSOR_VARIO)/2L>>31 > 0) >>16*((SENSOR_VARIO)/2L>>31 > 0))>65535L))>255))/2+1))))), 31, 
-# 1243 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1243 "./src/main/cli/settings.c"
-                                                                                                                                                         telemetryConfig_t
-# 1243 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1243 "./src/main/cli/settings.c"
-                                                                                                                                                         disabledSensors
-# 1243 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         )
-# 1243 "./src/main/cli/settings.c"
-                                                                                                                                                                                                     },
-    { "telemetry_disabled_lat_long", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = (32*((SENSOR_LAT_LONG)/2L>>31 > 0) + (16*(((SENSOR_LAT_LONG)*1L >>16*((SENSOR_LAT_LONG)/2L>>31 > 0) >>16*((SENSOR_LAT_LONG)/2L>>31 > 0))>65535L) + (8*((((SENSOR_LAT_LONG)*1L >>16*((SENSOR_LAT_LONG)/2L>>31 > 0) >>16*((SENSOR_LAT_LONG)/2L>>31 > 0))*1L >>16*(((SENSOR_LAT_LONG)*1L >>16*((SENSOR_LAT_LONG)/2L>>31 > 0) >>16*((SENSOR_LAT_LONG)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((SENSOR_LAT_LONG)*1L >>16*((SENSOR_LAT_LONG)/2L>>31 > 0) >>16*((SENSOR_LAT_LONG)/2L>>31 > 0))*1L >>16*(((SENSOR_LAT_LONG)*1L >>16*((SENSOR_LAT_LONG)/2L>>31 > 0) >>16*((SENSOR_LAT_LONG)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_LAT_LONG)*1L >>16*((SENSOR_LAT_LONG)/2L>>31 > 0) >>16*((SENSOR_LAT_LONG)/2L>>31 > 0))*1L >>16*(((SENSOR_LAT_LONG)*1L >>16*((SENSOR_LAT_LONG)/2L>>31 > 0) >>16*((SENSOR_LAT_LONG)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((SENSOR_LAT_LONG)*1L >>16*((SENSOR_LAT_LONG)/2L>>31 > 0) >>16*((SENSOR_LAT_LONG)/2L>>31 > 0))*1L >>16*(((SENSOR_LAT_LONG)*1L >>16*((SENSOR_LAT_LONG)/2L>>31 > 0) >>16*((SENSOR_LAT_LONG)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_LAT_LONG)*1L >>16*((SENSOR_LAT_LONG)/2L>>31 > 0) >>16*((SENSOR_LAT_LONG)/2L>>31 > 0))*1L >>16*(((SENSOR_LAT_LONG)*1L >>16*((SENSOR_LAT_LONG)/2L>>31 > 0) >>16*((SENSOR_LAT_LONG)/2L>>31 > 0))>65535L))>255))/2+1))))), 31, 
-# 1244 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1244 "./src/main/cli/settings.c"
-                                                                                                                                                         telemetryConfig_t
-# 1244 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1244 "./src/main/cli/settings.c"
-                                                                                                                                                         disabledSensors
-# 1244 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         )
-# 1244 "./src/main/cli/settings.c"
-                                                                                                                                                                                                     },
-    { "telemetry_disabled_ground_speed", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = (32*((SENSOR_GROUND_SPEED)/2L>>31 > 0) + (16*(((SENSOR_GROUND_SPEED)*1L >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0) >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0))>65535L) + (8*((((SENSOR_GROUND_SPEED)*1L >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0) >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0))*1L >>16*(((SENSOR_GROUND_SPEED)*1L >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0) >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((SENSOR_GROUND_SPEED)*1L >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0) >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0))*1L >>16*(((SENSOR_GROUND_SPEED)*1L >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0) >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_GROUND_SPEED)*1L >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0) >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0))*1L >>16*(((SENSOR_GROUND_SPEED)*1L >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0) >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((SENSOR_GROUND_SPEED)*1L >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0) >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0))*1L >>16*(((SENSOR_GROUND_SPEED)*1L >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0) >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_GROUND_SPEED)*1L >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0) >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0))*1L >>16*(((SENSOR_GROUND_SPEED)*1L >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0) >>16*((SENSOR_GROUND_SPEED)/2L>>31 > 0))>65535L))>255))/2+1))))), 31, 
-# 1245 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1245 "./src/main/cli/settings.c"
-                                                                                                                                                         telemetryConfig_t
-# 1245 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1245 "./src/main/cli/settings.c"
-                                                                                                                                                         disabledSensors
-# 1245 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         )
-# 1245 "./src/main/cli/settings.c"
-                                                                                                                                                                                                     },
-    { "telemetry_disabled_distance", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = (32*((SENSOR_DISTANCE)/2L>>31 > 0) + (16*(((SENSOR_DISTANCE)*1L >>16*((SENSOR_DISTANCE)/2L>>31 > 0) >>16*((SENSOR_DISTANCE)/2L>>31 > 0))>65535L) + (8*((((SENSOR_DISTANCE)*1L >>16*((SENSOR_DISTANCE)/2L>>31 > 0) >>16*((SENSOR_DISTANCE)/2L>>31 > 0))*1L >>16*(((SENSOR_DISTANCE)*1L >>16*((SENSOR_DISTANCE)/2L>>31 > 0) >>16*((SENSOR_DISTANCE)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((SENSOR_DISTANCE)*1L >>16*((SENSOR_DISTANCE)/2L>>31 > 0) >>16*((SENSOR_DISTANCE)/2L>>31 > 0))*1L >>16*(((SENSOR_DISTANCE)*1L >>16*((SENSOR_DISTANCE)/2L>>31 > 0) >>16*((SENSOR_DISTANCE)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_DISTANCE)*1L >>16*((SENSOR_DISTANCE)/2L>>31 > 0) >>16*((SENSOR_DISTANCE)/2L>>31 > 0))*1L >>16*(((SENSOR_DISTANCE)*1L >>16*((SENSOR_DISTANCE)/2L>>31 > 0) >>16*((SENSOR_DISTANCE)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((SENSOR_DISTANCE)*1L >>16*((SENSOR_DISTANCE)/2L>>31 > 0) >>16*((SENSOR_DISTANCE)/2L>>31 > 0))*1L >>16*(((SENSOR_DISTANCE)*1L >>16*((SENSOR_DISTANCE)/2L>>31 > 0) >>16*((SENSOR_DISTANCE)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_DISTANCE)*1L >>16*((SENSOR_DISTANCE)/2L>>31 > 0) >>16*((SENSOR_DISTANCE)/2L>>31 > 0))*1L >>16*(((SENSOR_DISTANCE)*1L >>16*((SENSOR_DISTANCE)/2L>>31 > 0) >>16*((SENSOR_DISTANCE)/2L>>31 > 0))>65535L))>255))/2+1))))), 31, 
-# 1246 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1246 "./src/main/cli/settings.c"
-                                                                                                                                                         telemetryConfig_t
-# 1246 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1246 "./src/main/cli/settings.c"
-                                                                                                                                                         disabledSensors
-# 1246 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         )
-# 1246 "./src/main/cli/settings.c"
-                                                                                                                                                                                                     },
-    { "telemetry_disabled_esc_current", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = (32*((ESC_SENSOR_CURRENT)/2L>>31 > 0) + (16*(((ESC_SENSOR_CURRENT)*1L >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0) >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0))>65535L) + (8*((((ESC_SENSOR_CURRENT)*1L >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0) >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0))*1L >>16*(((ESC_SENSOR_CURRENT)*1L >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0) >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((ESC_SENSOR_CURRENT)*1L >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0) >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0))*1L >>16*(((ESC_SENSOR_CURRENT)*1L >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0) >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0))>65535L)) >>8*((((ESC_SENSOR_CURRENT)*1L >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0) >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0))*1L >>16*(((ESC_SENSOR_CURRENT)*1L >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0) >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((ESC_SENSOR_CURRENT)*1L >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0) >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0))*1L >>16*(((ESC_SENSOR_CURRENT)*1L >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0) >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0))>65535L)) >>8*((((ESC_SENSOR_CURRENT)*1L >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0) >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0))*1L >>16*(((ESC_SENSOR_CURRENT)*1L >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0) >>16*((ESC_SENSOR_CURRENT)/2L>>31 > 0))>65535L))>255))/2+1))))), 31, 
-# 1247 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1247 "./src/main/cli/settings.c"
-                                                                                                                                                         telemetryConfig_t
-# 1247 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1247 "./src/main/cli/settings.c"
-                                                                                                                                                         disabledSensors
-# 1247 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         )
-# 1247 "./src/main/cli/settings.c"
-                                                                                                                                                                                                     },
-    { "telemetry_disabled_esc_voltage", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = (32*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0) + (16*(((ESC_SENSOR_VOLTAGE)*1L >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0))>65535L) + (8*((((ESC_SENSOR_VOLTAGE)*1L >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0))*1L >>16*(((ESC_SENSOR_VOLTAGE)*1L >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((ESC_SENSOR_VOLTAGE)*1L >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0))*1L >>16*(((ESC_SENSOR_VOLTAGE)*1L >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0))>65535L)) >>8*((((ESC_SENSOR_VOLTAGE)*1L >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0))*1L >>16*(((ESC_SENSOR_VOLTAGE)*1L >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((ESC_SENSOR_VOLTAGE)*1L >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0))*1L >>16*(((ESC_SENSOR_VOLTAGE)*1L >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0))>65535L)) >>8*((((ESC_SENSOR_VOLTAGE)*1L >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0))*1L >>16*(((ESC_SENSOR_VOLTAGE)*1L >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0) >>16*((ESC_SENSOR_VOLTAGE)/2L>>31 > 0))>65535L))>255))/2+1))))), 31, 
-# 1248 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1248 "./src/main/cli/settings.c"
-                                                                                                                                                         telemetryConfig_t
-# 1248 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1248 "./src/main/cli/settings.c"
-                                                                                                                                                         disabledSensors
-# 1248 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         )
-# 1248 "./src/main/cli/settings.c"
-                                                                                                                                                                                                     },
-    { "telemetry_disabled_esc_rpm", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = (32*((ESC_SENSOR_RPM)/2L>>31 > 0) + (16*(((ESC_SENSOR_RPM)*1L >>16*((ESC_SENSOR_RPM)/2L>>31 > 0) >>16*((ESC_SENSOR_RPM)/2L>>31 > 0))>65535L) + (8*((((ESC_SENSOR_RPM)*1L >>16*((ESC_SENSOR_RPM)/2L>>31 > 0) >>16*((ESC_SENSOR_RPM)/2L>>31 > 0))*1L >>16*(((ESC_SENSOR_RPM)*1L >>16*((ESC_SENSOR_RPM)/2L>>31 > 0) >>16*((ESC_SENSOR_RPM)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((ESC_SENSOR_RPM)*1L >>16*((ESC_SENSOR_RPM)/2L>>31 > 0) >>16*((ESC_SENSOR_RPM)/2L>>31 > 0))*1L >>16*(((ESC_SENSOR_RPM)*1L >>16*((ESC_SENSOR_RPM)/2L>>31 > 0) >>16*((ESC_SENSOR_RPM)/2L>>31 > 0))>65535L)) >>8*((((ESC_SENSOR_RPM)*1L >>16*((ESC_SENSOR_RPM)/2L>>31 > 0) >>16*((ESC_SENSOR_RPM)/2L>>31 > 0))*1L >>16*(((ESC_SENSOR_RPM)*1L >>16*((ESC_SENSOR_RPM)/2L>>31 > 0) >>16*((ESC_SENSOR_RPM)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((ESC_SENSOR_RPM)*1L >>16*((ESC_SENSOR_RPM)/2L>>31 > 0) >>16*((ESC_SENSOR_RPM)/2L>>31 > 0))*1L >>16*(((ESC_SENSOR_RPM)*1L >>16*((ESC_SENSOR_RPM)/2L>>31 > 0) >>16*((ESC_SENSOR_RPM)/2L>>31 > 0))>65535L)) >>8*((((ESC_SENSOR_RPM)*1L >>16*((ESC_SENSOR_RPM)/2L>>31 > 0) >>16*((ESC_SENSOR_RPM)/2L>>31 > 0))*1L >>16*(((ESC_SENSOR_RPM)*1L >>16*((ESC_SENSOR_RPM)/2L>>31 > 0) >>16*((ESC_SENSOR_RPM)/2L>>31 > 0))>65535L))>255))/2+1))))), 31, 
-# 1249 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1249 "./src/main/cli/settings.c"
-                                                                                                                                                         telemetryConfig_t
-# 1249 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1249 "./src/main/cli/settings.c"
-                                                                                                                                                         disabledSensors
-# 1249 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         )
-# 1249 "./src/main/cli/settings.c"
-                                                                                                                                                                                                     },
-    { "telemetry_disabled_esc_temperature", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = (32*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0) + (16*(((ESC_SENSOR_TEMPERATURE)*1L >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0))>65535L) + (8*((((ESC_SENSOR_TEMPERATURE)*1L >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0))*1L >>16*(((ESC_SENSOR_TEMPERATURE)*1L >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((ESC_SENSOR_TEMPERATURE)*1L >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0))*1L >>16*(((ESC_SENSOR_TEMPERATURE)*1L >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0))>65535L)) >>8*((((ESC_SENSOR_TEMPERATURE)*1L >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0))*1L >>16*(((ESC_SENSOR_TEMPERATURE)*1L >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((ESC_SENSOR_TEMPERATURE)*1L >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0))*1L >>16*(((ESC_SENSOR_TEMPERATURE)*1L >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0))>65535L)) >>8*((((ESC_SENSOR_TEMPERATURE)*1L >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0))*1L >>16*(((ESC_SENSOR_TEMPERATURE)*1L >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((ESC_SENSOR_TEMPERATURE)/2L>>31 > 0))>65535L))>255))/2+1))))), 31, 
-# 1250 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1250 "./src/main/cli/settings.c"
-                                                                                                                                                         telemetryConfig_t
-# 1250 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1250 "./src/main/cli/settings.c"
-                                                                                                                                                         disabledSensors
-# 1250 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         )
-# 1250 "./src/main/cli/settings.c"
-                                                                                                                                                                                                     },
-    { "telemetry_disabled_temperature", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = (32*((SENSOR_TEMPERATURE)/2L>>31 > 0) + (16*(((SENSOR_TEMPERATURE)*1L >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0))>65535L) + (8*((((SENSOR_TEMPERATURE)*1L >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0))*1L >>16*(((SENSOR_TEMPERATURE)*1L >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((SENSOR_TEMPERATURE)*1L >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0))*1L >>16*(((SENSOR_TEMPERATURE)*1L >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_TEMPERATURE)*1L >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0))*1L >>16*(((SENSOR_TEMPERATURE)*1L >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((SENSOR_TEMPERATURE)*1L >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0))*1L >>16*(((SENSOR_TEMPERATURE)*1L >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_TEMPERATURE)*1L >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0))*1L >>16*(((SENSOR_TEMPERATURE)*1L >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0) >>16*((SENSOR_TEMPERATURE)/2L>>31 > 0))>65535L))>255))/2+1))))), 31, 
-# 1251 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1251 "./src/main/cli/settings.c"
-                                                                                                                                                         telemetryConfig_t
-# 1251 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1251 "./src/main/cli/settings.c"
-                                                                                                                                                         disabledSensors
-# 1251 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         )
-# 1251 "./src/main/cli/settings.c"
-                                                                                                                                                                                                     },
-    { "telemetry_disabled_cap_used", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = (32*((SENSOR_CAP_USED)/2L>>31 > 0) + (16*(((SENSOR_CAP_USED)*1L >>16*((SENSOR_CAP_USED)/2L>>31 > 0) >>16*((SENSOR_CAP_USED)/2L>>31 > 0))>65535L) + (8*((((SENSOR_CAP_USED)*1L >>16*((SENSOR_CAP_USED)/2L>>31 > 0) >>16*((SENSOR_CAP_USED)/2L>>31 > 0))*1L >>16*(((SENSOR_CAP_USED)*1L >>16*((SENSOR_CAP_USED)/2L>>31 > 0) >>16*((SENSOR_CAP_USED)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((SENSOR_CAP_USED)*1L >>16*((SENSOR_CAP_USED)/2L>>31 > 0) >>16*((SENSOR_CAP_USED)/2L>>31 > 0))*1L >>16*(((SENSOR_CAP_USED)*1L >>16*((SENSOR_CAP_USED)/2L>>31 > 0) >>16*((SENSOR_CAP_USED)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_CAP_USED)*1L >>16*((SENSOR_CAP_USED)/2L>>31 > 0) >>16*((SENSOR_CAP_USED)/2L>>31 > 0))*1L >>16*(((SENSOR_CAP_USED)*1L >>16*((SENSOR_CAP_USED)/2L>>31 > 0) >>16*((SENSOR_CAP_USED)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((SENSOR_CAP_USED)*1L >>16*((SENSOR_CAP_USED)/2L>>31 > 0) >>16*((SENSOR_CAP_USED)/2L>>31 > 0))*1L >>16*(((SENSOR_CAP_USED)*1L >>16*((SENSOR_CAP_USED)/2L>>31 > 0) >>16*((SENSOR_CAP_USED)/2L>>31 > 0))>65535L)) >>8*((((SENSOR_CAP_USED)*1L >>16*((SENSOR_CAP_USED)/2L>>31 > 0) >>16*((SENSOR_CAP_USED)/2L>>31 > 0))*1L >>16*(((SENSOR_CAP_USED)*1L >>16*((SENSOR_CAP_USED)/2L>>31 > 0) >>16*((SENSOR_CAP_USED)/2L>>31 > 0))>65535L))>255))/2+1))))), 31, 
-# 1252 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         __builtin_offsetof (
-# 1252 "./src/main/cli/settings.c"
-                                                                                                                                                         telemetryConfig_t
-# 1252 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         , 
-# 1252 "./src/main/cli/settings.c"
-                                                                                                                                                         disabledSensors
-# 1252 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                         )
-# 1252 "./src/main/cli/settings.c"
-                                                                                                                                                                                                     },
-
-
-
-
-
-
-
+# 1260 "./src/main/cli/settings.c"
     { "ledstrip_visual_beeper", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, 27, 
 # 1260 "./src/main/cli/settings.c" 3 4
                                                                                                                                     __builtin_offsetof (
@@ -23168,19 +21447,7 @@ const clivalue_t valueTable[] = {
 # 1309 "./src/main/cli/settings.c"
                                                                                                                                                                             },
 
-    { "osd_warn_launch_control", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = OSD_WARNING_LAUNCH_CONTROL, 501, 
-# 1311 "./src/main/cli/settings.c" 3 4
-                                                                                                                                           __builtin_offsetof (
-# 1311 "./src/main/cli/settings.c"
-                                                                                                                                           osdConfig_t
-# 1311 "./src/main/cli/settings.c" 3 4
-                                                                                                                                           , 
-# 1311 "./src/main/cli/settings.c"
-                                                                                                                                           enabledWarnings
-# 1311 "./src/main/cli/settings.c" 3 4
-                                                                                                                                           )
-# 1311 "./src/main/cli/settings.c"
-                                                                                                                                                                                 },
+
 
     { "osd_warn_no_gps_rescue", VAR_UINT32 | MASTER_VALUE | MODE_BITSET, .config.bitpos = OSD_WARNING_GPS_RESCUE_UNAVAILABLE, 501, 
 # 1313 "./src/main/cli/settings.c" 3 4
@@ -24263,23 +22530,7 @@ const clivalue_t valueTable[] = {
 # 1396 "./src/main/cli/settings.c"
                                                                                                                                                                                                     },
 
-    { "osd_nvario_pos", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 
-# 1398 "./src/main/cli/settings.c" 3 4
-                                                                                             (0xffff) 
-# 1398 "./src/main/cli/settings.c"
-                                                                                                            }, 2045, 
-# 1398 "./src/main/cli/settings.c" 3 4
-                                                                                                                                      __builtin_offsetof (
-# 1398 "./src/main/cli/settings.c"
-                                                                                                                                      osdElementConfig_t
-# 1398 "./src/main/cli/settings.c" 3 4
-                                                                                                                                      , 
-# 1398 "./src/main/cli/settings.c"
-                                                                                                                                      item_pos[OSD_NUMERICAL_VARIO]
-# 1398 "./src/main/cli/settings.c" 3 4
-                                                                                                                                      ) 
-# 1398 "./src/main/cli/settings.c"
-                                                                                                                                                                                                  },
+
 
     { "osd_esc_tmp_pos", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 
 # 1400 "./src/main/cli/settings.c" 3 4
@@ -25192,106 +23443,6 @@ const clivalue_t valueTable[] = {
                                                                                                                                  ) 
 # 1498 "./src/main/cli/settings.c"
                                                                                                                                                                              },
-
-
-
-    { "vtx_band", VAR_UINT8 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 8 }, 259, 
-# 1502 "./src/main/cli/settings.c" 3 4
-                                                                                                                                           __builtin_offsetof (
-# 1502 "./src/main/cli/settings.c"
-                                                                                                                                           vtxSettingsConfig_t
-# 1502 "./src/main/cli/settings.c" 3 4
-                                                                                                                                           , 
-# 1502 "./src/main/cli/settings.c"
-                                                                                                                                           band
-# 1502 "./src/main/cli/settings.c" 3 4
-                                                                                                                                           ) 
-# 1502 "./src/main/cli/settings.c"
-                                                                                                                                                                               },
-    { "vtx_channel", VAR_UINT8 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 8 }, 259, 
-# 1503 "./src/main/cli/settings.c" 3 4
-                                                                                                                                              __builtin_offsetof (
-# 1503 "./src/main/cli/settings.c"
-                                                                                                                                              vtxSettingsConfig_t
-# 1503 "./src/main/cli/settings.c" 3 4
-                                                                                                                                              , 
-# 1503 "./src/main/cli/settings.c"
-                                                                                                                                              channel
-# 1503 "./src/main/cli/settings.c" 3 4
-                                                                                                                                              ) 
-# 1503 "./src/main/cli/settings.c"
-                                                                                                                                                                                     },
-    { "vtx_power", VAR_UINT8 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 8 - 1 }, 259, 
-# 1504 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                      __builtin_offsetof (
-# 1504 "./src/main/cli/settings.c"
-                                                                                                                                                      vtxSettingsConfig_t
-# 1504 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                      , 
-# 1504 "./src/main/cli/settings.c"
-                                                                                                                                                      power
-# 1504 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                      ) 
-# 1504 "./src/main/cli/settings.c"
-                                                                                                                                                                                           },
-    { "vtx_low_power_disarm", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_VTX_LOW_POWER_DISARM }, 259, 
-# 1505 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                     __builtin_offsetof (
-# 1505 "./src/main/cli/settings.c"
-                                                                                                                                                     vtxSettingsConfig_t
-# 1505 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                     , 
-# 1505 "./src/main/cli/settings.c"
-                                                                                                                                                     lowPowerDisarm
-# 1505 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                     ) 
-# 1505 "./src/main/cli/settings.c"
-                                                                                                                                                                                                   },
-
-    { "vtx_freq", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 5999 }, 259, 
-# 1507 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                      __builtin_offsetof (
-# 1507 "./src/main/cli/settings.c"
-                                                                                                                                                      vtxSettingsConfig_t
-# 1507 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                      , 
-# 1507 "./src/main/cli/settings.c"
-                                                                                                                                                      freq
-# 1507 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                      ) 
-# 1507 "./src/main/cli/settings.c"
-                                                                                                                                                                                          },
-    { "vtx_pit_mode_freq", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 5999 }, 259, 
-# 1508 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                      __builtin_offsetof (
-# 1508 "./src/main/cli/settings.c"
-                                                                                                                                                      vtxSettingsConfig_t
-# 1508 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                      , 
-# 1508 "./src/main/cli/settings.c"
-                                                                                                                                                      pitModeFreq
-# 1508 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                      ) 
-# 1508 "./src/main/cli/settings.c"
-                                                                                                                                                                                                 },
-
-
-
-
-
-    { "vtx_halfduplex", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, 515, 
-# 1514 "./src/main/cli/settings.c" 3 4
-                                                                                                                              __builtin_offsetof (
-# 1514 "./src/main/cli/settings.c"
-                                                                                                                              vtxConfig_t
-# 1514 "./src/main/cli/settings.c" 3 4
-                                                                                                                              , 
-# 1514 "./src/main/cli/settings.c"
-                                                                                                                              halfDuplex
-# 1514 "./src/main/cli/settings.c" 3 4
-                                                                                                                              ) 
-# 1514 "./src/main/cli/settings.c"
-                                                                                                                                                                },
 # 1524 "./src/main/cli/settings.c"
     { "vcd_video_system", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_VIDEO_SYSTEM }, 514, 
 # 1524 "./src/main/cli/settings.c" 3 4
@@ -25372,33 +23523,6 @@ const clivalue_t valueTable[] = {
                                                                                                                                                     ) 
 # 1544 "./src/main/cli/settings.c"
                                                                                                                                                                                                    },
-# 1557 "./src/main/cli/settings.c"
-    { "esc_sensor_halfduplex", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, 517, 
-# 1557 "./src/main/cli/settings.c" 3 4
-                                                                                                                                          __builtin_offsetof (
-# 1557 "./src/main/cli/settings.c"
-                                                                                                                                          escSensorConfig_t
-# 1557 "./src/main/cli/settings.c" 3 4
-                                                                                                                                          , 
-# 1557 "./src/main/cli/settings.c"
-                                                                                                                                          halfDuplex
-# 1557 "./src/main/cli/settings.c" 3 4
-                                                                                                                                          ) 
-# 1557 "./src/main/cli/settings.c"
-                                                                                                                                                                                  },
-    { "esc_sensor_current_offset", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 16000 }, 517, 
-# 1558 "./src/main/cli/settings.c" 3 4
-                                                                                                                                __builtin_offsetof (
-# 1558 "./src/main/cli/settings.c"
-                                                                                                                                escSensorConfig_t
-# 1558 "./src/main/cli/settings.c" 3 4
-                                                                                                                                , 
-# 1558 "./src/main/cli/settings.c"
-                                                                                                                                offset
-# 1558 "./src/main/cli/settings.c" 3 4
-                                                                                                                                ) 
-# 1558 "./src/main/cli/settings.c"
-                                                                                                                                                                    },
 # 1570 "./src/main/cli/settings.c"
     { "led_inversion", VAR_UINT8 | HARDWARE_VALUE, .config.minmaxUnsigned = { 0, ((1 << 3) - 1) }, 505, 
 # 1570 "./src/main/cli/settings.c" 3 4
@@ -25413,91 +23537,6 @@ const clivalue_t valueTable[] = {
                                                                                                                                                           ) 
 # 1570 "./src/main/cli/settings.c"
                                                                                                                                                                                                  },
-
-
-
-
-
-
-
-    { "camera_control_mode", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_CAMERA_CONTROL_MODE }, 522, 
-# 1578 "./src/main/cli/settings.c" 3 4
-                                                                                                                                              __builtin_offsetof (
-# 1578 "./src/main/cli/settings.c"
-                                                                                                                                              cameraControlConfig_t
-# 1578 "./src/main/cli/settings.c" 3 4
-                                                                                                                                              , 
-# 1578 "./src/main/cli/settings.c"
-                                                                                                                                              mode
-# 1578 "./src/main/cli/settings.c" 3 4
-                                                                                                                                              ) 
-# 1578 "./src/main/cli/settings.c"
-                                                                                                                                                                                    },
-    { "camera_control_ref_voltage", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 200, 400 }, 522, 
-# 1579 "./src/main/cli/settings.c" 3 4
-                                                                                                                               __builtin_offsetof (
-# 1579 "./src/main/cli/settings.c"
-                                                                                                                               cameraControlConfig_t
-# 1579 "./src/main/cli/settings.c" 3 4
-                                                                                                                               , 
-# 1579 "./src/main/cli/settings.c"
-                                                                                                                               refVoltage
-# 1579 "./src/main/cli/settings.c" 3 4
-                                                                                                                               ) 
-# 1579 "./src/main/cli/settings.c"
-                                                                                                                                                                           },
-    { "camera_control_key_delay", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 100, 500 }, 522, 
-# 1580 "./src/main/cli/settings.c" 3 4
-                                                                                                                             __builtin_offsetof (
-# 1580 "./src/main/cli/settings.c"
-                                                                                                                             cameraControlConfig_t
-# 1580 "./src/main/cli/settings.c" 3 4
-                                                                                                                             , 
-# 1580 "./src/main/cli/settings.c"
-                                                                                                                             keyDelayMs
-# 1580 "./src/main/cli/settings.c" 3 4
-                                                                                                                             ) 
-# 1580 "./src/main/cli/settings.c"
-                                                                                                                                                                         },
-    { "camera_control_internal_resistance", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 10, 1000 }, 522, 
-# 1581 "./src/main/cli/settings.c" 3 4
-                                                                                                                                       __builtin_offsetof (
-# 1581 "./src/main/cli/settings.c"
-                                                                                                                                       cameraControlConfig_t
-# 1581 "./src/main/cli/settings.c" 3 4
-                                                                                                                                       , 
-# 1581 "./src/main/cli/settings.c"
-                                                                                                                                       internalResistance
-# 1581 "./src/main/cli/settings.c" 3 4
-                                                                                                                                       ) 
-# 1581 "./src/main/cli/settings.c"
-                                                                                                                                                                                           },
-    { "camera_control_button_resistance", VAR_UINT16 | MASTER_VALUE | MODE_ARRAY, .config.array.length = CAMERA_CONTROL_KEYS_COUNT, 522, 
-# 1582 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                               __builtin_offsetof (
-# 1582 "./src/main/cli/settings.c"
-                                                                                                                                                               cameraControlConfig_t
-# 1582 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                               , 
-# 1582 "./src/main/cli/settings.c"
-                                                                                                                                                               buttonResistanceValues
-# 1582 "./src/main/cli/settings.c" 3 4
-                                                                                                                                                               ) 
-# 1582 "./src/main/cli/settings.c"
-                                                                                                                                                                                                                       },
-    { "camera_control_inverted", VAR_UINT8 | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, 522, 
-# 1583 "./src/main/cli/settings.c" 3 4
-                                                                                                                                     __builtin_offsetof (
-# 1583 "./src/main/cli/settings.c"
-                                                                                                                                     cameraControlConfig_t
-# 1583 "./src/main/cli/settings.c" 3 4
-                                                                                                                                     , 
-# 1583 "./src/main/cli/settings.c"
-                                                                                                                                     inverted
-# 1583 "./src/main/cli/settings.c" 3 4
-                                                                                                                                     ) 
-# 1583 "./src/main/cli/settings.c"
-                                                                                                                                                                               },
 # 1593 "./src/main/cli/settings.c"
     { "pinio_config", VAR_UINT8 | HARDWARE_VALUE | MODE_ARRAY, .config.array.length = 4, 529, 
 # 1593 "./src/main/cli/settings.c" 3 4
@@ -25870,61 +23909,6 @@ const clivalue_t valueTable[] = {
                                                                                                                                                           ) 
 # 1672 "./src/main/cli/settings.c"
                                                                                                                                                                                                    },
-
-
-
-    { "gyro_rpm_notch_harmonics", VAR_UINT8 | MASTER_VALUE, .config.minmaxUnsigned = { 0, 3 }, 544, 
-# 1676 "./src/main/cli/settings.c" 3 4
-                                                                                                                     __builtin_offsetof (
-# 1676 "./src/main/cli/settings.c"
-                                                                                                                     rpmFilterConfig_t
-# 1676 "./src/main/cli/settings.c" 3 4
-                                                                                                                     , 
-# 1676 "./src/main/cli/settings.c"
-                                                                                                                     gyro_rpm_notch_harmonics
-# 1676 "./src/main/cli/settings.c" 3 4
-                                                                                                                     ) 
-# 1676 "./src/main/cli/settings.c"
-                                                                                                                                                                           },
-    { "gyro_rpm_notch_q", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 250, 3000 }, 544, 
-# 1677 "./src/main/cli/settings.c" 3 4
-                                                                                                                   __builtin_offsetof (
-# 1677 "./src/main/cli/settings.c"
-                                                                                                                   rpmFilterConfig_t
-# 1677 "./src/main/cli/settings.c" 3 4
-                                                                                                                   , 
-# 1677 "./src/main/cli/settings.c"
-                                                                                                                   gyro_rpm_notch_q
-# 1677 "./src/main/cli/settings.c" 3 4
-                                                                                                                   ) 
-# 1677 "./src/main/cli/settings.c"
-                                                                                                                                                                 },
-    { "gyro_rpm_notch_min", VAR_UINT8 | MASTER_VALUE, .config.minmaxUnsigned = { 50, 200 }, 544, 
-# 1678 "./src/main/cli/settings.c" 3 4
-                                                                                                                  __builtin_offsetof (
-# 1678 "./src/main/cli/settings.c"
-                                                                                                                  rpmFilterConfig_t
-# 1678 "./src/main/cli/settings.c" 3 4
-                                                                                                                  , 
-# 1678 "./src/main/cli/settings.c"
-                                                                                                                  gyro_rpm_notch_min
-# 1678 "./src/main/cli/settings.c" 3 4
-                                                                                                                  ) 
-# 1678 "./src/main/cli/settings.c"
-                                                                                                                                                                  },
-    { "rpm_notch_lpf", VAR_UINT16 | MASTER_VALUE, .config.minmaxUnsigned = { 100, 500 }, 544, 
-# 1679 "./src/main/cli/settings.c" 3 4
-                                                                                                               __builtin_offsetof (
-# 1679 "./src/main/cli/settings.c"
-                                                                                                               rpmFilterConfig_t
-# 1679 "./src/main/cli/settings.c" 3 4
-                                                                                                               , 
-# 1679 "./src/main/cli/settings.c"
-                                                                                                               rpm_lpf
-# 1679 "./src/main/cli/settings.c" 3 4
-                                                                                                               ) 
-# 1679 "./src/main/cli/settings.c"
-                                                                                                                                                    },
 # 1688 "./src/main/cli/settings.c"
     { "stats_min_armed_time_s", VAR_INT8 | MASTER_VALUE, .config.minmax = { (-1), 
 # 1688 "./src/main/cli/settings.c" 3 4

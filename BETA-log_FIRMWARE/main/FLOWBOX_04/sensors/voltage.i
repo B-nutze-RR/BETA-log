@@ -5614,7 +5614,7 @@ typedef struct pidProfile_s {
     uint8_t simplified_dterm_filter_multiplier;
 } pidProfile_t;
 
-extern pidProfile_t pidProfiles_SystemArray[3]; extern pidProfile_t pidProfiles_CopyArray[3]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[3] { return &pidProfiles_SystemArray; } struct _dummy;
+extern pidProfile_t pidProfiles_SystemArray[1]; extern pidProfile_t pidProfiles_CopyArray[1]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[1] { return &pidProfiles_SystemArray; } struct _dummy;
 
 typedef struct pidConfig_s {
     uint8_t pid_process_denom;
@@ -5720,37 +5720,7 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-
-
-    pt1Filter_t windupLpf[3];
-    uint8_t itermRelax;
-    uint8_t itermRelaxType;
-    uint8_t itermRelaxCutoff;
-
-
-
-    float acCutoff;
-    float acGain;
-    float acLimit;
-    float acErrorLimit;
-    pt1Filter_t acLpf[3];
-    float oldSetpointCorrection[3];
-
-
-
-    biquadFilter_t dMinRange[3];
-    pt1Filter_t dMinLowpass[3];
-    float dMinPercent[3];
-    float dMinGyroGain;
-    float dMinSetpointGain;
-
-
-
-    pt1Filter_t airmodeThrottleLpf1;
-    pt1Filter_t airmodeThrottleLpf2;
-
-
-
+# 343 "./src/main/flight/pid.h"
     pt1Filter_t setpointDerivativePt1[3];
     biquadFilter_t setpointDerivativeBiquad[3];
     
@@ -5760,53 +5730,12 @@ typedef struct pidRuntime_s {
         setpointDerivativeLpfInitialized;
     uint8_t rcSmoothingDebugAxis;
     uint8_t rcSmoothingFilterType;
-
-
-
-    float acroTrainerAngleLimit;
-    float acroTrainerLookaheadTime;
-    uint8_t acroTrainerDebugAxis;
-    float acroTrainerGain;
-    
-# 355 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 355 "./src/main/flight/pid.h"
-        acroTrainerActive;
-    int acroTrainerAxisState[2];
-
-
-
+# 360 "./src/main/flight/pid.h"
     uint8_t dynLpfFilter;
     uint16_t dynLpfMin;
     uint16_t dynLpfMax;
     uint8_t dynLpfCurveExpo;
-
-
-
-    uint8_t launchControlMode;
-    uint8_t launchControlAngleLimit;
-    float launchControlKi;
-
-
-
-    
-# 373 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 373 "./src/main/flight/pid.h"
-        useIntegratedYaw;
-    uint8_t integratedYawRelax;
-
-
-
-    float thrustLinearization;
-    float throttleCompensateAmount;
-
-
-
-    float airmodeThrottleOffsetLimit;
-
-
-
+# 387 "./src/main/flight/pid.h"
     ffInterpolationType_t ffFromInterpolatedSetpoint;
     float ffSmoothFactor;
 
@@ -5858,15 +5787,6 @@ void pidSetAntiGravityState(
 _Bool 
 # 413 "./src/main/flight/pid.h"
     pidAntiGravityEnabled(void);
-
-
-float pidApplyThrustLinearization(float motorValue);
-float pidCompensateThrustLinearization(float throttle);
-
-
-
-void pidUpdateAirmodeLpf(float currentOffset);
-float pidGetAirmodeThrottleOffset();
 # 436 "./src/main/flight/pid.h"
 void dynLpfDTermUpdate(float throttle);
 void pidSetItermReset(
@@ -6400,21 +6320,7 @@ const char * const voltageMeterSourceNames[VOLTAGE_METER_COUNT] = {
 
 const uint8_t voltageMeterIds[] = {
     VOLTAGE_METER_ID_BATTERY_1,
-# 65 "./src/main/sensors/voltage.c"
-    VOLTAGE_METER_ID_ESC_COMBINED_1,
-    VOLTAGE_METER_ID_ESC_MOTOR_1,
-    VOLTAGE_METER_ID_ESC_MOTOR_2,
-    VOLTAGE_METER_ID_ESC_MOTOR_3,
-    VOLTAGE_METER_ID_ESC_MOTOR_4,
-    VOLTAGE_METER_ID_ESC_MOTOR_5,
-    VOLTAGE_METER_ID_ESC_MOTOR_6,
-    VOLTAGE_METER_ID_ESC_MOTOR_7,
-    VOLTAGE_METER_ID_ESC_MOTOR_8,
-    VOLTAGE_METER_ID_ESC_MOTOR_9,
-    VOLTAGE_METER_ID_ESC_MOTOR_10,
-    VOLTAGE_METER_ID_ESC_MOTOR_11,
-    VOLTAGE_METER_ID_ESC_MOTOR_12,
-
+# 79 "./src/main/sensors/voltage.c"
 };
 
 const uint8_t supportedVoltageMeterCount = (sizeof(voltageMeterIds) / sizeof((voltageMeterIds)[0]));
@@ -6553,7 +6459,7 @@ void voltageMeterGenericInit(void)
 # 235 "./src/main/sensors/voltage.c"
                                     ;
 
-    for (unsigned i = 0; i < 3; i++) {
+    for (unsigned i = 0; i < 1; i++) {
         if (pidProfiles(i)->vbat_sag_compensation > 0) {
             sagCompensationConfigured = 
 # 239 "./src/main/sensors/voltage.c" 3 4
@@ -6564,66 +6470,41 @@ void voltageMeterGenericInit(void)
     }
 
 }
-
-
-
-
-
-
-typedef struct voltageMeterESCState_s {
-    uint16_t voltageDisplayFiltered;
-    uint16_t voltageUnfiltered;
-    pt1Filter_t displayFilter;
-} voltageMeterESCState_t;
-
-static voltageMeterESCState_t voltageMeterESCState;
-
-
-
-
+# 261 "./src/main/sensors/voltage.c"
 void voltageMeterESCInit(void)
 {
 
-    memset(&voltageMeterESCState, 0, sizeof(voltageMeterESCState_t));
-    pt1FilterInit(&voltageMeterESCState.displayFilter, pt1FilterGain((1 / (batteryConfig()->vbatDisplayLpfPeriod / 10.0f)), (1.0f / (isSagCompensationConfigured() ? 200 : 50))));
+
+
 
 }
 
 void voltageMeterESCRefresh(void)
 {
 
-    escSensorData_t *escData = getEscSensorData(255);
-    if (escData) {
-        voltageMeterESCState.voltageUnfiltered = escData->dataAge <= 10 ? escData->voltage : 0;
-        voltageMeterESCState.voltageDisplayFiltered = pt1FilterApply(&voltageMeterESCState.displayFilter, voltageMeterESCState.voltageUnfiltered);
-    }
+
+
+
+
+
 
 }
 
 void voltageMeterESCReadMotor(uint8_t motorNumber, voltageMeter_t *voltageMeter)
 {
 
-
-
-
-    escSensorData_t *escData = getEscSensorData(motorNumber);
-    if (escData) {
-        voltageMeter->unfiltered = escData->dataAge <= 10 ? escData->voltage : 0;
-        voltageMeter->displayFiltered = voltageMeter->unfiltered;
-    } else {
-        voltageMeterReset(voltageMeter);
-    }
-
-
+    (void)(motorNumber);
+    voltageMeterReset(voltageMeter);
+# 295 "./src/main/sensors/voltage.c"
 }
 
 void voltageMeterESCReadCombined(voltageMeter_t *voltageMeter)
 {
 
+    voltageMeterReset(voltageMeter);
 
 
-    voltageMeter->displayFiltered = voltageMeterESCState.voltageDisplayFiltered;
-    voltageMeter->unfiltered = voltageMeterESCState.voltageUnfiltered;
+
 
 }
 # 315 "./src/main/sensors/voltage.c"
@@ -6637,15 +6518,7 @@ void voltageMeterRead(voltageMeterId_e id, voltageMeter_t *meter)
     if (id == VOLTAGE_METER_ID_BATTERY_1) {
         voltageMeterADCRead(VOLTAGE_SENSOR_ADC_VBAT, meter);
     } else
-# 349 "./src/main/sensors/voltage.c"
-    if (id == VOLTAGE_METER_ID_ESC_COMBINED_1) {
-        voltageMeterESCReadCombined(meter);
-    } else
-    if (id >= VOLTAGE_METER_ID_ESC_MOTOR_1 && id <= VOLTAGE_METER_ID_ESC_MOTOR_20 ) {
-        int motor = id - VOLTAGE_METER_ID_ESC_MOTOR_1;
-        voltageMeterESCReadMotor(motor, meter);
-    } else
-
+# 357 "./src/main/sensors/voltage.c"
     {
         voltageMeterReset(meter);
     }

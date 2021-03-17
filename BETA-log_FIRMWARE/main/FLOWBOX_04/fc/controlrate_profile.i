@@ -5092,7 +5092,7 @@ typedef struct controlRateConfig_s {
     uint8_t levelExpo[2];
 } controlRateConfig_t;
 
-extern controlRateConfig_t controlRateProfiles_SystemArray[6]; extern controlRateConfig_t controlRateProfiles_CopyArray[6]; static inline const controlRateConfig_t* controlRateProfiles(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t* controlRateProfilesMutable(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t (* controlRateProfiles_array(void))[6] { return &controlRateProfiles_SystemArray; } struct _dummy;
+extern controlRateConfig_t controlRateProfiles_SystemArray[1]; extern controlRateConfig_t controlRateProfiles_CopyArray[1]; static inline const controlRateConfig_t* controlRateProfiles(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t* controlRateProfilesMutable(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t (* controlRateProfiles_array(void))[1] { return &controlRateProfiles_SystemArray; } struct _dummy;
 
 extern controlRateConfig_t *currentControlRateProfile;
 extern const ratesSettingsLimits_t ratesSettingLimits[RATES_TYPE_COUNT];
@@ -5523,11 +5523,11 @@ uint16_t getCurrentRxRefreshRate(void);
 
 controlRateConfig_t *currentControlRateProfile;
 
-extern void pgResetFn_controlRateProfiles(controlRateConfig_t *); controlRateConfig_t controlRateProfiles_SystemArray[6]; controlRateConfig_t controlRateProfiles_CopyArray[6]; extern const pgRegistry_t controlRateProfiles_Registry; const pgRegistry_t controlRateProfiles_Registry __attribute__ ((section(".pg_registry"), used, aligned(4))) = { .pgn = 12 | (4 << 12), .length = 6, .size = (sizeof(controlRateConfig_t) * 6) | PGR_SIZE_SYSTEM_FLAG, .address = (uint8_t*)&controlRateProfiles_SystemArray, .copy = (uint8_t*)&controlRateProfiles_CopyArray, .ptr = 0, .reset = {.fn = (pgResetFunc*)&pgResetFn_controlRateProfiles}, };
+extern void pgResetFn_controlRateProfiles(controlRateConfig_t *); controlRateConfig_t controlRateProfiles_SystemArray[1]; controlRateConfig_t controlRateProfiles_CopyArray[1]; extern const pgRegistry_t controlRateProfiles_Registry; const pgRegistry_t controlRateProfiles_Registry __attribute__ ((section(".pg_registry"), used, aligned(4))) = { .pgn = 12 | (4 << 12), .length = 1, .size = (sizeof(controlRateConfig_t) * 1) | PGR_SIZE_SYSTEM_FLAG, .address = (uint8_t*)&controlRateProfiles_SystemArray, .copy = (uint8_t*)&controlRateProfiles_CopyArray, .ptr = 0, .reset = {.fn = (pgResetFunc*)&pgResetFn_controlRateProfiles}, };
 
 void pgResetFn_controlRateProfiles(controlRateConfig_t *controlRateConfig)
 {
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 1; i++) {
         static const controlRateConfig_t _reset_template_45 = { .thrMid8 = 50, .thrExpo8 = 0, .dynThrPID = 65, .tpa_breakpoint = 1350, .rates_type = RATES_TYPE_BETAFLIGHT, .rcRates[FD_ROLL] = 100, .rcRates[FD_PITCH] = 100, .rcRates[FD_YAW] = 100, .rcExpo[FD_ROLL] = 0, .rcExpo[FD_PITCH] = 0, .rcExpo[FD_YAW] = 0, .rates[FD_ROLL] = 70, .rates[FD_PITCH] = 70, .rates[FD_YAW] = 70, .throttle_limit_type = THROTTLE_LIMIT_TYPE_OFF, .throttle_limit_percent = 100, .rate_limit[FD_ROLL] = 1998, .rate_limit[FD_PITCH] = 1998, .rate_limit[FD_YAW] = 1998, .tpaMode = TPA_MODE_D, .profileName = { 0 }, .quickRatesRcExpo = 0, .levelExpo[FD_ROLL] = 0, .levelExpo[FD_PITCH] = 0, }; memcpy((&controlRateConfig[i]), &_reset_template_45, sizeof(*(&controlRateConfig[i])));
 # 70 "./src/main/fc/controlrate_profile.c"
          ;
@@ -5549,7 +5549,7 @@ void loadControlRateProfile(void)
 
 void changeControlRateProfile(uint8_t controlRateProfileIndex)
 {
-    if (controlRateProfileIndex < 6) {
+    if (controlRateProfileIndex < 1) {
         systemConfigMutable()->activeRateProfile = controlRateProfileIndex;
     }
 
@@ -5558,7 +5558,7 @@ void changeControlRateProfile(uint8_t controlRateProfileIndex)
 }
 
 void copyControlRateProfile(const uint8_t dstControlRateProfileIndex, const uint8_t srcControlRateProfileIndex) {
-    if ((dstControlRateProfileIndex < 6 && srcControlRateProfileIndex < 6)
+    if ((dstControlRateProfileIndex < 1 && srcControlRateProfileIndex < 1)
         && dstControlRateProfileIndex != srcControlRateProfileIndex
     ) {
         memcpy(controlRateProfilesMutable(dstControlRateProfileIndex), controlRateProfiles(srcControlRateProfileIndex), sizeof(controlRateConfig_t));

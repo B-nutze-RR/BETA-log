@@ -6634,14 +6634,7 @@ _Bool
 # 1 "./src/main/fc/core.h" 1
 # 21 "./src/main/fc/core.h"
        
-
-
-
-
-
-extern int16_t magHold;
-
-
+# 30 "./src/main/fc/core.h"
 typedef struct throttleCorrectionConfig_s {
     uint16_t throttle_correction_angle;
     uint8_t throttle_correction_value;
@@ -6677,7 +6670,7 @@ typedef enum {
 
 
 
-extern const char * const osdLaunchControlModeNames[LAUNCH_CONTROL_MODE_COUNT];
+
 
 
 extern throttleCorrectionConfig_t throttleCorrectionConfig_System; extern throttleCorrectionConfig_t throttleCorrectionConfig_Copy; static inline const throttleCorrectionConfig_t* throttleCorrectionConfig(void) { return &throttleCorrectionConfig_System; } static inline throttleCorrectionConfig_t* throttleCorrectionConfigMutable(void) { return &throttleCorrectionConfig_System; } struct _dummy;
@@ -7252,7 +7245,7 @@ typedef enum {
     FAILSAFE_PROCEDURE_AUTO_LANDING = 0,
     FAILSAFE_PROCEDURE_DROP_IT,
 
-    FAILSAFE_PROCEDURE_GPS_RESCUE,
+
 
     FAILSAFE_PROCEDURE_COUNT
 } failsafeProcedure_e;
@@ -7948,13 +7941,9 @@ timeMs_t motorGetMotorEnableTimeMs(void);
 void motorShutdown(void);
 
 
-struct motorDevConfig_s;
-typedef struct motorDevConfig_s motorDevConfig_t;
 
-# 102 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 102 "./src/main/drivers/motor.h"
-    isDshotBitbangActive(const motorDevConfig_t *motorConfig);
+
+
 
 
 float getDigitalIdleOffset(const motorConfig_t *motorConfig);
@@ -8299,7 +8288,7 @@ typedef struct pidProfile_s {
     uint8_t simplified_dterm_filter_multiplier;
 } pidProfile_t;
 
-extern pidProfile_t pidProfiles_SystemArray[3]; extern pidProfile_t pidProfiles_CopyArray[3]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[3] { return &pidProfiles_SystemArray; } struct _dummy;
+extern pidProfile_t pidProfiles_SystemArray[1]; extern pidProfile_t pidProfiles_CopyArray[1]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[1] { return &pidProfiles_SystemArray; } struct _dummy;
 
 typedef struct pidConfig_s {
     uint8_t pid_process_denom;
@@ -8405,37 +8394,7 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-
-
-    pt1Filter_t windupLpf[3];
-    uint8_t itermRelax;
-    uint8_t itermRelaxType;
-    uint8_t itermRelaxCutoff;
-
-
-
-    float acCutoff;
-    float acGain;
-    float acLimit;
-    float acErrorLimit;
-    pt1Filter_t acLpf[3];
-    float oldSetpointCorrection[3];
-
-
-
-    biquadFilter_t dMinRange[3];
-    pt1Filter_t dMinLowpass[3];
-    float dMinPercent[3];
-    float dMinGyroGain;
-    float dMinSetpointGain;
-
-
-
-    pt1Filter_t airmodeThrottleLpf1;
-    pt1Filter_t airmodeThrottleLpf2;
-
-
-
+# 343 "./src/main/flight/pid.h"
     pt1Filter_t setpointDerivativePt1[3];
     biquadFilter_t setpointDerivativeBiquad[3];
     
@@ -8445,53 +8404,12 @@ typedef struct pidRuntime_s {
         setpointDerivativeLpfInitialized;
     uint8_t rcSmoothingDebugAxis;
     uint8_t rcSmoothingFilterType;
-
-
-
-    float acroTrainerAngleLimit;
-    float acroTrainerLookaheadTime;
-    uint8_t acroTrainerDebugAxis;
-    float acroTrainerGain;
-    
-# 355 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 355 "./src/main/flight/pid.h"
-        acroTrainerActive;
-    int acroTrainerAxisState[2];
-
-
-
+# 360 "./src/main/flight/pid.h"
     uint8_t dynLpfFilter;
     uint16_t dynLpfMin;
     uint16_t dynLpfMax;
     uint8_t dynLpfCurveExpo;
-
-
-
-    uint8_t launchControlMode;
-    uint8_t launchControlAngleLimit;
-    float launchControlKi;
-
-
-
-    
-# 373 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 373 "./src/main/flight/pid.h"
-        useIntegratedYaw;
-    uint8_t integratedYawRelax;
-
-
-
-    float thrustLinearization;
-    float throttleCompensateAmount;
-
-
-
-    float airmodeThrottleOffsetLimit;
-
-
-
+# 387 "./src/main/flight/pid.h"
     ffInterpolationType_t ffFromInterpolatedSetpoint;
     float ffSmoothFactor;
 
@@ -8543,15 +8461,6 @@ void pidSetAntiGravityState(
 _Bool 
 # 413 "./src/main/flight/pid.h"
     pidAntiGravityEnabled(void);
-
-
-float pidApplyThrustLinearization(float motorValue);
-float pidCompensateThrustLinearization(float throttle);
-
-
-
-void pidUpdateAirmodeLpf(float currentOffset);
-float pidGetAirmodeThrottleOffset();
 # 436 "./src/main/flight/pid.h"
 void dynLpfDTermUpdate(float throttle);
 void pidSetItermReset(
@@ -14623,7 +14532,7 @@ float dynThrottle(float throttle);
 void dynLpfGyroUpdate(float throttle);
 
 
-void initYawSpinRecovery(int maxYawRate);
+
 
 
 
@@ -14702,21 +14611,13 @@ typedef enum {
 
     IBUS_SENSOR_TYPE_ALT_FLYSKY = 0xf9,
 
-    IBUS_SENSOR_TYPE_GPS_FULL = 0xfd,
-    IBUS_SENSOR_TYPE_VOLT_FULL = 0xf0,
-    IBUS_SENSOR_TYPE_ACC_FULL = 0xef,
+
+
+
 
     IBUS_SENSOR_TYPE_UNKNOWN = 0xff
 } ibusSensorType_e;
-
-
-
-uint8_t respondToIbusRequest(uint8_t const * const ibusPacket);
-void initSharedIbusTelemetry(serialPort_t * port);
-
-
-
-
+# 89 "./src/main/telemetry/ibus_shared.h"
 
 # 89 "./src/main/telemetry/ibus_shared.h" 3 4
 _Bool 
@@ -15369,121 +15270,7 @@ static void applyLedWarningLayer(
         applyLedHsv((((1 << (LED_OVERLAY_WARNING))) << 12), warningColor);
     }
 }
-
-
-static void applyLedVtxLayer(
-# 617 "./src/main/io/ledstrip.c" 3 4
-                            _Bool 
-# 617 "./src/main/io/ledstrip.c"
-                                 updateNow, timeUs_t *timer)
-{
-    static uint16_t frequency = 0;
-    static uint8_t power = 255;
-    static unsigned vtxStatus = 
-# 621 "./src/main/io/ledstrip.c" 3 4
-                               (0xffffffffUL)
-# 621 "./src/main/io/ledstrip.c"
-                                         ;
-    static uint8_t showSettings = 
-# 622 "./src/main/io/ledstrip.c" 3 4
-                                 0
-# 622 "./src/main/io/ledstrip.c"
-                                      ;
-    static uint16_t lastCheck = 0;
-    static 
-# 624 "./src/main/io/ledstrip.c" 3 4
-          _Bool 
-# 624 "./src/main/io/ledstrip.c"
-               blink = 
-# 624 "./src/main/io/ledstrip.c" 3 4
-                       0
-# 624 "./src/main/io/ledstrip.c"
-                            ;
-
-    const vtxDevice_t *vtxDevice = vtxCommonDevice();
-    if (!vtxDevice) {
-        return;
-    }
-
-    uint8_t band = 255, channel = 255;
-    uint16_t check = 0;
-
-    if (updateNow) {
-
-        vtxCommonGetBandAndChannel(vtxDevice, &band, &channel);
-        vtxCommonGetPowerIndex(vtxDevice, &power);
-        vtxCommonGetStatus(vtxDevice, &vtxStatus);
-
-        frequency = vtxCommonLookupFrequency(vtxDevice, band, channel);
-
-
-        check = ((vtxStatus & VTX_STATUS_PIT_MODE) ? 1 : 0) + (power << 1) + (band << 4) + (channel << 8);
-        if (!showSettings && check != lastCheck) {
-
-            showSettings = 15;
-        }
-        lastCheck = check;
-
-        if (showSettings) {
-            showSettings--;
-        }
-        blink = !blink;
-        *timer += ((int32_t)((1000 * 1000) / (5)));
-    }
-
-    hsvColor_t color = {0, 0, 0};
-    if (showSettings) {
-        uint8_t vtxLedCount = 0;
-        for (int i = 0; i < ledCounts.count && vtxLedCount < 6; ++i) {
-            const ledConfig_t *ledConfig = &ledStripStatusModeConfig()->ledConfigs[i];
-            if (ledGetOverlayBit(ledConfig, LED_OVERLAY_VTX)) {
-                if (vtxLedCount == 0) {
-                    color.h = (hsv[COLOR_GREEN]).h;
-                    color.s = (hsv[COLOR_GREEN]).s;
-                    color.v = blink ? 15 : 0;
-                }
-                else if (vtxLedCount > 0 && power >= vtxLedCount && !(vtxStatus & VTX_STATUS_PIT_MODE)) {
-                    color.h = (hsv[COLOR_ORANGE]).h;
-                    color.s = (hsv[COLOR_ORANGE]).s;
-                    color.v = blink ? 15 : 0;
-                }
-                else {
-                    color.h = (hsv[COLOR_BLACK]).h;
-                    color.s = (hsv[COLOR_BLACK]).s;
-                    color.v = (hsv[COLOR_BLACK]).v;
-                }
-                setLedHsv(i, &color);
-                ++vtxLedCount;
-            }
-        }
-    }
-    else {
-
-        int colorIndex = 0;
-        if (frequency <= 5672) {
-            colorIndex = COLOR_WHITE;
-        } else if (frequency <= 5711) {
-            colorIndex = COLOR_RED;
-        } else if (frequency <= 5750) {
-            colorIndex = COLOR_ORANGE;
-        } else if (frequency <= 5789) {
-            colorIndex = COLOR_YELLOW;
-        } else if (frequency <= 5829) {
-            colorIndex = COLOR_GREEN;
-        } else if (frequency <= 5867) {
-            colorIndex = COLOR_BLUE;
-        } else if (frequency <= 5906) {
-            colorIndex = COLOR_DARK_VIOLET;
-        } else {
-            colorIndex = COLOR_DEEP_PINK;
-        }
-        hsvColor_t color = ledStripStatusModeConfig()->colors[colorIndex];
-        color.v = (vtxStatus & VTX_STATUS_PIT_MODE) ? (blink ? 15 : 0) : 255;
-        applyLedHsv((((1 << (LED_OVERLAY_VTX))) << 12), &color);
-    }
-}
-
-
+# 710 "./src/main/io/ledstrip.c"
 static void applyLedBatteryLayer(
 # 710 "./src/main/io/ledstrip.c" 3 4
                                 _Bool 
@@ -15579,55 +15366,7 @@ static void applyLedRssiLayer(
         applyLedHsv(((LED_FUNCTION_RSSI) << 8), bgc);
     }
 }
-
-
-static void applyLedGpsLayer(
-# 775 "./src/main/io/ledstrip.c" 3 4
-                            _Bool 
-# 775 "./src/main/io/ledstrip.c"
-                                 updateNow, timeUs_t *timer)
-{
-
-    static uint8_t gpsPauseCounter = 0;
-    const uint8_t blinkPauseLength = 4;
-
-    if (updateNow) {
-        static uint8_t gpsFlashCounter = 0;
-        if (gpsPauseCounter > 0) {
-            gpsPauseCounter--;
-        } else if (gpsFlashCounter >= gpsSol.numSat) {
-            gpsFlashCounter = 0;
-            gpsPauseCounter = blinkPauseLength;
-        } else {
-            gpsFlashCounter++;
-            gpsPauseCounter = 1;
-        }
-        *timer += ((int32_t)((1000 * 1000) / (2.5f)));
-    }
-
-    const hsvColor_t *gpsColor;
-
-    if (gpsSol.numSat == 0 || !sensors(SENSOR_GPS)) {
-        gpsColor = getSC(LED_SCOLOR_GPSNOSATS);
-    } else {
-        
-# 800 "./src/main/io/ledstrip.c" 3 4
-       _Bool 
-# 800 "./src/main/io/ledstrip.c"
-            colorOn = gpsPauseCounter == 0;
-        if ((stateFlags & (GPS_FIX))) {
-            gpsColor = colorOn ? getSC(LED_SCOLOR_GPSLOCKED) : getSC(LED_SCOLOR_BACKGROUND);
-        } else {
-            gpsColor = colorOn ? getSC(LED_SCOLOR_GPSNOLOCK) : getSC(LED_SCOLOR_GPSNOSATS);
-        }
-    }
-
-    applyLedHsv(((LED_FUNCTION_GPS) << 8), gpsColor);
-}
-
-
-
-
+# 814 "./src/main/io/ledstrip.c"
 static void applyLedIndicatorLayer(
 # 814 "./src/main/io/ledstrip.c" 3 4
                                   _Bool 
@@ -15827,10 +15566,10 @@ typedef enum {
     timRing,
     timIndicator,
 
-    timVtx,
 
 
-    timGps,
+
+
 
     timBattery,
     timRssi,
@@ -15860,11 +15599,11 @@ static applyLayerFn_timed* layerTable[] = {
     [timBattery] = &applyLedBatteryLayer,
     [timRssi] = &applyLedRssiLayer,
 
-    [timGps] = &applyLedGpsLayer,
+
 
     [timWarning] = &applyLedWarningLayer,
 
-    [timVtx] = &applyLedVtxLayer,
+
 
     [timIndicator] = &applyLedIndicatorLayer,
     [timRing] = &applyLedThrustRingLayer
@@ -15900,7 +15639,7 @@ void updateRequiredOverlay(void)
     disabledTimerMask |= !isOverlayTypeUsed(LED_OVERLAY_LARSON_SCANNER) << timLarson;
     disabledTimerMask |= !isOverlayTypeUsed(LED_OVERLAY_WARNING) << timWarning;
 
-    disabledTimerMask |= !isOverlayTypeUsed(LED_OVERLAY_VTX) << timVtx;
+
 
     disabledTimerMask |= !isOverlayTypeUsed(LED_OVERLAY_INDICATOR) << timIndicator;
 }

@@ -4900,9 +4900,9 @@ const resourceOwner_t *timerGetOwner(int8_t timerNumber, uint16_t timerChannel)
     }
 
 
-    if (!timerOwner->owner) {
-        timerOwner = dshotBitbangTimerGetOwner(timerNumber, timerChannel);
-    }
+
+
+
 
 
     return timerOwner;

@@ -6567,13 +6567,9 @@ timeMs_t motorGetMotorEnableTimeMs(void);
 void motorShutdown(void);
 
 
-struct motorDevConfig_s;
-typedef struct motorDevConfig_s motorDevConfig_t;
 
-# 102 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 102 "./src/main/drivers/motor.h"
-    isDshotBitbangActive(const motorDevConfig_t *motorConfig);
+
+
 
 
 float getDigitalIdleOffset(const motorConfig_t *motorConfig);
@@ -6706,7 +6702,7 @@ typedef struct controlRateConfig_s {
     uint8_t levelExpo[2];
 } controlRateConfig_t;
 
-extern controlRateConfig_t controlRateProfiles_SystemArray[6]; extern controlRateConfig_t controlRateProfiles_CopyArray[6]; static inline const controlRateConfig_t* controlRateProfiles(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t* controlRateProfilesMutable(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t (* controlRateProfiles_array(void))[6] { return &controlRateProfiles_SystemArray; } struct _dummy;
+extern controlRateConfig_t controlRateProfiles_SystemArray[1]; extern controlRateConfig_t controlRateProfiles_CopyArray[1]; static inline const controlRateConfig_t* controlRateProfiles(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t* controlRateProfilesMutable(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t (* controlRateProfiles_array(void))[1] { return &controlRateProfiles_SystemArray; } struct _dummy;
 
 extern controlRateConfig_t *currentControlRateProfile;
 extern const ratesSettingsLimits_t ratesSettingLimits[RATES_TYPE_COUNT];
@@ -6719,14 +6715,7 @@ void copyControlRateProfile(const uint8_t dstControlRateProfileIndex, const uint
 # 1 "./src/main/fc/core.h" 1
 # 21 "./src/main/fc/core.h"
        
-
-
-
-
-
-extern int16_t magHold;
-
-
+# 30 "./src/main/fc/core.h"
 typedef struct throttleCorrectionConfig_s {
     uint16_t throttle_correction_angle;
     uint8_t throttle_correction_value;
@@ -6762,7 +6751,7 @@ typedef enum {
 
 
 
-extern const char * const osdLaunchControlModeNames[LAUNCH_CONTROL_MODE_COUNT];
+
 
 
 extern throttleCorrectionConfig_t throttleCorrectionConfig_System; extern throttleCorrectionConfig_t throttleCorrectionConfig_Copy; static inline const throttleCorrectionConfig_t* throttleCorrectionConfig(void) { return &throttleCorrectionConfig_System; } static inline throttleCorrectionConfig_t* throttleCorrectionConfigMutable(void) { return &throttleCorrectionConfig_System; } struct _dummy;
@@ -7514,7 +7503,7 @@ typedef enum {
     FAILSAFE_PROCEDURE_AUTO_LANDING = 0,
     FAILSAFE_PROCEDURE_DROP_IT,
 
-    FAILSAFE_PROCEDURE_GPS_RESCUE,
+
 
     FAILSAFE_PROCEDURE_COUNT
 } failsafeProcedure_e;
@@ -8010,7 +7999,7 @@ typedef struct pidProfile_s {
     uint8_t simplified_dterm_filter_multiplier;
 } pidProfile_t;
 
-extern pidProfile_t pidProfiles_SystemArray[3]; extern pidProfile_t pidProfiles_CopyArray[3]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[3] { return &pidProfiles_SystemArray; } struct _dummy;
+extern pidProfile_t pidProfiles_SystemArray[1]; extern pidProfile_t pidProfiles_CopyArray[1]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[1] { return &pidProfiles_SystemArray; } struct _dummy;
 
 typedef struct pidConfig_s {
     uint8_t pid_process_denom;
@@ -8116,37 +8105,7 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-
-
-    pt1Filter_t windupLpf[3];
-    uint8_t itermRelax;
-    uint8_t itermRelaxType;
-    uint8_t itermRelaxCutoff;
-
-
-
-    float acCutoff;
-    float acGain;
-    float acLimit;
-    float acErrorLimit;
-    pt1Filter_t acLpf[3];
-    float oldSetpointCorrection[3];
-
-
-
-    biquadFilter_t dMinRange[3];
-    pt1Filter_t dMinLowpass[3];
-    float dMinPercent[3];
-    float dMinGyroGain;
-    float dMinSetpointGain;
-
-
-
-    pt1Filter_t airmodeThrottleLpf1;
-    pt1Filter_t airmodeThrottleLpf2;
-
-
-
+# 343 "./src/main/flight/pid.h"
     pt1Filter_t setpointDerivativePt1[3];
     biquadFilter_t setpointDerivativeBiquad[3];
     
@@ -8156,53 +8115,12 @@ typedef struct pidRuntime_s {
         setpointDerivativeLpfInitialized;
     uint8_t rcSmoothingDebugAxis;
     uint8_t rcSmoothingFilterType;
-
-
-
-    float acroTrainerAngleLimit;
-    float acroTrainerLookaheadTime;
-    uint8_t acroTrainerDebugAxis;
-    float acroTrainerGain;
-    
-# 355 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 355 "./src/main/flight/pid.h"
-        acroTrainerActive;
-    int acroTrainerAxisState[2];
-
-
-
+# 360 "./src/main/flight/pid.h"
     uint8_t dynLpfFilter;
     uint16_t dynLpfMin;
     uint16_t dynLpfMax;
     uint8_t dynLpfCurveExpo;
-
-
-
-    uint8_t launchControlMode;
-    uint8_t launchControlAngleLimit;
-    float launchControlKi;
-
-
-
-    
-# 373 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 373 "./src/main/flight/pid.h"
-        useIntegratedYaw;
-    uint8_t integratedYawRelax;
-
-
-
-    float thrustLinearization;
-    float throttleCompensateAmount;
-
-
-
-    float airmodeThrottleOffsetLimit;
-
-
-
+# 387 "./src/main/flight/pid.h"
     ffInterpolationType_t ffFromInterpolatedSetpoint;
     float ffSmoothFactor;
 
@@ -8254,15 +8172,6 @@ void pidSetAntiGravityState(
 _Bool 
 # 413 "./src/main/flight/pid.h"
     pidAntiGravityEnabled(void);
-
-
-float pidApplyThrustLinearization(float motorValue);
-float pidCompensateThrustLinearization(float throttle);
-
-
-
-void pidUpdateAirmodeLpf(float currentOffset);
-float pidGetAirmodeThrottleOffset();
 # 436 "./src/main/flight/pid.h"
 void dynLpfDTermUpdate(float throttle);
 void pidSetItermReset(
@@ -9814,7 +9723,7 @@ extern timeUs_t osdFlyTime;
 extern float osdGForce;
 
 
-extern escSensorData_t *osdEscDataCombined;
+
 
 
 void osdInit(displayPort_t *osdDisplayPort, osdDisplayPortDevice_e displayPortDevice);
@@ -10173,232 +10082,6 @@ extern sdcardConfig_t sdcardConfig_System; extern sdcardConfig_t sdcardConfig_Co
 # 1 "./src/main/pg/vtx_table.h" 1
 # 21 "./src/main/pg/vtx_table.h"
        
-
-
-
-
-
-
-
-# 1 "./src/main/drivers/vtx_table.h" 1
-# 27 "./src/main/drivers/vtx_table.h"
-# 1 "./src/main/drivers/vtx_common.h" 1
-# 23 "./src/main/drivers/vtx_common.h"
-       
-
-
-
-
-
-# 1 "./src/main/common/streambuf.h" 1
-# 21 "./src/main/common/streambuf.h"
-       
-
-
-
-
-
-typedef struct sbuf_s {
-    uint8_t *ptr;
-    uint8_t *end;
-} sbuf_t;
-
-sbuf_t *sbufInit(sbuf_t *sbuf, uint8_t *ptr, uint8_t *end);
-
-void sbufWriteU8(sbuf_t *dst, uint8_t val);
-void sbufWriteU16(sbuf_t *dst, uint16_t val);
-void sbufWriteU32(sbuf_t *dst, uint32_t val);
-void sbufWriteU16BigEndian(sbuf_t *dst, uint16_t val);
-void sbufWriteU32BigEndian(sbuf_t *dst, uint32_t val);
-void sbufFill(sbuf_t *dst, uint8_t data, int len);
-void sbufWriteData(sbuf_t *dst, const void *data, int len);
-void sbufWriteString(sbuf_t *dst, const char *string);
-void sbufWriteStringWithZeroTerminator(sbuf_t *dst, const char *string);
-
-uint8_t sbufReadU8(sbuf_t *src);
-uint16_t sbufReadU16(sbuf_t *src);
-uint32_t sbufReadU32(sbuf_t *src);
-void sbufReadData(sbuf_t *dst, void *data, int len);
-
-int sbufBytesRemaining(sbuf_t *buf);
-uint8_t* sbufPtr(sbuf_t *buf);
-const uint8_t* sbufConstPtr(const sbuf_t *buf);
-void sbufAdvance(sbuf_t *buf, int size);
-
-void sbufSwitchToReader(sbuf_t *buf, uint8_t * base);
-# 30 "./src/main/drivers/vtx_common.h" 2
-# 49 "./src/main/drivers/vtx_common.h"
-typedef enum {
-    VTXDEV_UNSUPPORTED = 0,
-    VTXDEV_RTC6705 = 1,
-
-    VTXDEV_SMARTAUDIO = 3,
-    VTXDEV_TRAMP = 4,
-    VTXDEV_UNKNOWN = 0xFF,
-} vtxDevType_e;
-# 86 "./src/main/drivers/vtx_common.h"
-enum {
-    VTX_STATUS_PIT_MODE = 1 << 0,
-    VTX_STATUS_LOCKED = 1 << 1,
-};
-
-struct vtxVTable_s;
-typedef struct vtxDevice_s {
-    const struct vtxVTable_s *const vTable;
-} vtxDevice_t;
-
-
-
-
-
-
-typedef struct vtxVTable_s {
-    void (*process)(vtxDevice_t *vtxDevice, timeUs_t currentTimeUs);
-    vtxDevType_e (*getDeviceType)(const vtxDevice_t *vtxDevice);
-    
-# 104 "./src/main/drivers/vtx_common.h" 3 4
-   _Bool 
-# 104 "./src/main/drivers/vtx_common.h"
-        (*isReady)(const vtxDevice_t *vtxDevice);
-
-    void (*setBandAndChannel)(vtxDevice_t *vtxDevice, uint8_t band, uint8_t channel);
-    void (*setPowerByIndex)(vtxDevice_t *vtxDevice, uint8_t level);
-    void (*setPitMode)(vtxDevice_t *vtxDevice, uint8_t onoff);
-    void (*setFrequency)(vtxDevice_t *vtxDevice, uint16_t freq);
-
-    
-# 111 "./src/main/drivers/vtx_common.h" 3 4
-   _Bool 
-# 111 "./src/main/drivers/vtx_common.h"
-        (*getBandAndChannel)(const vtxDevice_t *vtxDevice, uint8_t *pBand, uint8_t *pChannel);
-    
-# 112 "./src/main/drivers/vtx_common.h" 3 4
-   _Bool 
-# 112 "./src/main/drivers/vtx_common.h"
-        (*getPowerIndex)(const vtxDevice_t *vtxDevice, uint8_t *pIndex);
-    
-# 113 "./src/main/drivers/vtx_common.h" 3 4
-   _Bool 
-# 113 "./src/main/drivers/vtx_common.h"
-        (*getFrequency)(const vtxDevice_t *vtxDevice, uint16_t *pFreq);
-    
-# 114 "./src/main/drivers/vtx_common.h" 3 4
-   _Bool 
-# 114 "./src/main/drivers/vtx_common.h"
-        (*getStatus)(const vtxDevice_t *vtxDevice, unsigned *status);
-    uint8_t (*getPowerLevels)(const vtxDevice_t *vtxDevice, uint16_t *levels, uint16_t *powers);
-
-    void (*serializeCustomDeviceStatus)(const vtxDevice_t *vtxDevice, sbuf_t *dst);
-} vtxVTable_t;
-
-
-
-
-
-
-void vtxCommonInit(void);
-void vtxCommonSetDevice(vtxDevice_t *vtxDevice);
-vtxDevice_t *vtxCommonDevice(void);
-
-
-void vtxCommonProcess(vtxDevice_t *vtxDevice, timeUs_t currentTimeUs);
-vtxDevType_e vtxCommonGetDeviceType(const vtxDevice_t *vtxDevice);
-
-# 132 "./src/main/drivers/vtx_common.h" 3 4
-_Bool 
-# 132 "./src/main/drivers/vtx_common.h"
-    vtxCommonDeviceIsReady(const vtxDevice_t *vtxDevice);
-
-void vtxCommonSetBandAndChannel(vtxDevice_t *vtxDevice, uint8_t band, uint8_t channel);
-void vtxCommonSetPowerByIndex(vtxDevice_t *vtxDevice, uint8_t level);
-void vtxCommonSetPitMode(vtxDevice_t *vtxDevice, uint8_t onoff);
-void vtxCommonSetFrequency(vtxDevice_t *vtxDevice, uint16_t freq);
-
-
-# 139 "./src/main/drivers/vtx_common.h" 3 4
-_Bool 
-# 139 "./src/main/drivers/vtx_common.h"
-    vtxCommonGetBandAndChannel(const vtxDevice_t *vtxDevice, uint8_t *pBand, uint8_t *pChannel);
-
-# 140 "./src/main/drivers/vtx_common.h" 3 4
-_Bool 
-# 140 "./src/main/drivers/vtx_common.h"
-    vtxCommonGetPowerIndex(const vtxDevice_t *vtxDevice, uint8_t *pIndex);
-
-# 141 "./src/main/drivers/vtx_common.h" 3 4
-_Bool 
-# 141 "./src/main/drivers/vtx_common.h"
-    vtxCommonGetFrequency(const vtxDevice_t *vtxDevice, uint16_t *pFreq);
-
-# 142 "./src/main/drivers/vtx_common.h" 3 4
-_Bool 
-# 142 "./src/main/drivers/vtx_common.h"
-    vtxCommonGetStatus(const vtxDevice_t *vtxDevice, unsigned *status);
-uint8_t vtxCommonGetVTXPowerLevels(const vtxDevice_t *vtxDevice, uint16_t *levels, uint16_t *powers);
-
-
-const char *vtxCommonLookupBandName(const vtxDevice_t *vtxDevice, int band);
-char vtxCommonLookupBandLetter(const vtxDevice_t *vtxDevice, int band);
-char vtxCommonGetBandLetter(const vtxDevice_t *vtxDevice, int band);
-const char *vtxCommonLookupChannelName(const vtxDevice_t *vtxDevice, int channel);
-uint16_t vtxCommonLookupFrequency(const vtxDevice_t *vtxDevice, int band, int channel);
-void vtxCommonLookupBandChan(const vtxDevice_t *vtxDevice, uint16_t freq, uint8_t *pBand, uint8_t *pChannel);
-const char *vtxCommonLookupPowerName(const vtxDevice_t *vtxDevice, int index);
-
-# 153 "./src/main/drivers/vtx_common.h" 3 4
-_Bool 
-# 153 "./src/main/drivers/vtx_common.h"
-    vtxCommonLookupPowerValue(const vtxDevice_t *vtxDevice, int index, uint16_t *pPowerValue);
-void vtxCommonSerializeDeviceStatus(const vtxDevice_t *vtxDevice, sbuf_t *dst);
-# 28 "./src/main/drivers/vtx_table.h" 2
-# 54 "./src/main/drivers/vtx_table.h"
-struct vtxTableConfig_s;
-void vtxTableInit(void);
-void vtxTableStrncpyWithPad(char *dst, const char *src, int length);
-void vtxTableConfigClearBand(struct vtxTableConfig_s *config, int band);
-void vtxTableConfigClearPowerValues(struct vtxTableConfig_s *config, int start);
-void vtxTableConfigClearPowerLabels(struct vtxTableConfig_s *config, int start);
-void vtxTableConfigClearChannels(struct vtxTableConfig_s *config, int band, int channels);
-
-
-
-
-extern int vtxTableBandCount;
-extern int vtxTableChannelCount;
-extern uint16_t vtxTableFrequency[8][8];
-extern const char *vtxTableBandNames[8 + 1];
-extern char vtxTableBandLetters[8 + 1];
-extern const char *vtxTableChannelNames[8 + 1];
-extern 
-# 71 "./src/main/drivers/vtx_table.h" 3 4
-      _Bool 
-# 71 "./src/main/drivers/vtx_table.h"
-                     vtxTableIsFactoryBand[8];
-extern int vtxTablePowerLevels;
-extern uint16_t vtxTablePowerValues[8];
-extern const char *vtxTablePowerLabels[8 + 1];
-# 30 "./src/main/pg/vtx_table.h" 2
-
-typedef struct vtxTableConfig_s {
-    uint8_t bands;
-    uint8_t channels;
-    uint16_t frequency[8][8];
-    char bandNames[8][8 + 1];
-    char bandLetters[8];
-    char channelNames[8][1 + 1];
-    
-# 38 "./src/main/pg/vtx_table.h" 3 4
-   _Bool 
-# 38 "./src/main/pg/vtx_table.h"
-            isFactoryBand[8];
-
-    uint8_t powerLevels;
-    uint16_t powerValues[8];
-    char powerLabels[8][3 + 1];
-} vtxTableConfig_t;
-
-struct vtxTableConfig_s;
-extern struct vtxTableConfig_s vtxTableConfig_System; extern struct vtxTableConfig_s vtxTableConfig_Copy; static inline const struct vtxTableConfig_s* vtxTableConfig(void) { return &vtxTableConfig_System; } static inline struct vtxTableConfig_s* vtxTableConfigMutable(void) { return &vtxTableConfig_System; } struct _dummy;
 # 80 "./src/main/config/config.c" 2
 
 # 1 "./src/main/rx/rx.h" 1
@@ -10856,40 +10539,11 @@ typedef enum {
     TASK_BATTERY_ALERTS,
 
     TASK_BEEPER,
-
-
-    TASK_GPS,
-# 100 "./src/main/scheduler/scheduler.h"
-    TASK_ALTITUDE,
-
-
-
-
-
-    TASK_TELEMETRY,
-
-
+# 109 "./src/main/scheduler/scheduler.h"
     TASK_LEDSTRIP,
 # 118 "./src/main/scheduler/scheduler.h"
     TASK_OSD,
-
-
-
-
-
-    TASK_ESC_SENSOR,
-
-
-    TASK_CMS,
-
-
-    TASK_VTXCTRL,
-
-
-    TASK_CAMCTRL,
-
-
-
+# 137 "./src/main/scheduler/scheduler.h"
     TASK_RCDEVICE,
 
 
@@ -15971,7 +15625,7 @@ float dynThrottle(float throttle);
 void dynLpfGyroUpdate(float throttle);
 
 
-void initYawSpinRecovery(int maxYawRate);
+
 
 
 
@@ -15986,18 +15640,7 @@ _Bool
 # 1 "./src/main/drivers/dshot.h" 1
 # 21 "./src/main/drivers/dshot.h"
        
-# 43 "./src/main/drivers/dshot.h"
-typedef struct dshotTelemetryQuality_s {
-    uint32_t packetCountSum;
-    uint32_t invalidCountSum;
-    uint32_t packetCountArray[(1 * 1000 / 100)];
-    uint32_t invalidCountArray[(1 * 1000 / 100)];
-    uint8_t lastBucketIndex;
-} dshotTelemetryQuality_t;
-
-extern dshotTelemetryQuality_t dshotTelemetryQuality[8];
-
-
+# 54 "./src/main/drivers/dshot.h"
 typedef struct dshotProtocolControl_s {
     uint16_t value;
     
@@ -16012,47 +15655,7 @@ float dshotConvertFromExternal(uint16_t externalValue);
 uint16_t dshotConvertToExternal(float motorValue);
 
 uint16_t prepareDshotPacket(dshotProtocolControl_t *pcb);
-
-
-extern 
-# 66 "./src/main/drivers/dshot.h" 3 4
-      _Bool 
-# 66 "./src/main/drivers/dshot.h"
-           useDshotTelemetry;
-
-typedef struct dshotTelemetryMotorState_s {
-    uint16_t telemetryValue;
-    
-# 70 "./src/main/drivers/dshot.h" 3 4
-   _Bool 
-# 70 "./src/main/drivers/dshot.h"
-        telemetryActive;
-} dshotTelemetryMotorState_t;
-
-
-typedef struct dshotTelemetryState_s {
-    
-# 75 "./src/main/drivers/dshot.h" 3 4
-   _Bool 
-# 75 "./src/main/drivers/dshot.h"
-        useDshotTelemetry;
-    uint32_t invalidPacketCount;
-    uint32_t readCount;
-    dshotTelemetryMotorState_t motorState[8];
-    uint32_t inputBuffer[22];
-} dshotTelemetryState_t;
-
-extern dshotTelemetryState_t dshotTelemetryState;
-
-
-void updateDshotTelemetryQuality(dshotTelemetryQuality_t *qualityStats, 
-# 85 "./src/main/drivers/dshot.h" 3 4
-                                                                       _Bool 
-# 85 "./src/main/drivers/dshot.h"
-                                                                            packetValid, timeMs_t currentTimeMs);
-
-
-
+# 89 "./src/main/drivers/dshot.h"
 uint16_t getDshotTelemetry(uint8_t index);
 
 # 90 "./src/main/drivers/dshot.h" 3 4
@@ -16186,7 +15789,7 @@ static void adjustFilterLimit(uint16_t *parm, uint16_t resetValue)
 
 static void validateAndFixRatesSettings(void)
 {
-    for (unsigned profileIndex = 0; profileIndex < 6; profileIndex++) {
+    for (unsigned profileIndex = 0; profileIndex < 1; profileIndex++) {
         const ratesType_e ratesType = controlRateProfilesMutable(profileIndex)->rates_type;
         for (unsigned axis = FD_ROLL; axis <= FD_YAW; axis++) {
             controlRateProfilesMutable(profileIndex)->rcRates[axis] = constrain(controlRateProfilesMutable(profileIndex)->rcRates[axis], 0, ratesSettingLimits[ratesType].rc_rate_limit);
@@ -16224,14 +15827,14 @@ static void validateAndFixConfig(void)
     }
 
 
-    const serialPortConfig_t *gpsSerial = findSerialPortConfig(FUNCTION_GPS);
-    if (gpsConfig()->provider == GPS_MSP && gpsSerial) {
-        serialRemovePort(gpsSerial->identifier);
-    }
+
+
+
+
 
     if (
 
-        gpsConfig()->provider != GPS_MSP && !gpsSerial &&
+
 
         
 # 241 "./src/main/config/config.c" 3 4
@@ -16241,7 +15844,7 @@ static void validateAndFixConfig(void)
         featureDisableImmediate(FEATURE_GPS);
     }
 
-    for (unsigned i = 0; i < 3; i++) {
+    for (unsigned i = 0; i < 1; i++) {
 
 
         adjustFilterLimit(&pidProfilesMutable(i)->dterm_lowpass_hz, 4000);
@@ -16362,7 +15965,7 @@ static void validateAndFixConfig(void)
     }
 
     if (!rcSmoothingIsEnabled() || rxConfig()->rcInterpolationChannels == INTERPOLATION_CHANNELS_T) {
-        for (unsigned i = 0; i < 3; i++) {
+        for (unsigned i = 0; i < 1; i++) {
             pidProfilesMutable(i)->pid[PID_ROLL].F = 0;
             pidProfilesMutable(i)->pid[PID_PITCH].F = 0;
         }
@@ -16372,33 +15975,26 @@ static void validateAndFixConfig(void)
         (rxConfig()->rcInterpolationChannels != INTERPOLATION_CHANNELS_RPY &&
          rxConfig()->rcInterpolationChannels != INTERPOLATION_CHANNELS_RPYT)) {
 
-        for (unsigned i = 0; i < 3; i++) {
+        for (unsigned i = 0; i < 1; i++) {
             pidProfilesMutable(i)->pid[PID_YAW].F = 0;
         }
     }
-
-
-    if (!rcSmoothingIsEnabled() ||
-        !(rxConfig()->rcInterpolationChannels == INTERPOLATION_CHANNELS_RPYT
-        || rxConfig()->rcInterpolationChannels == INTERPOLATION_CHANNELS_T
-        || rxConfig()->rcInterpolationChannels == INTERPOLATION_CHANNELS_RPT)) {
-        for (unsigned i = 0; i < 3; i++) {
-            pidProfilesMutable(i)->throttle_boost = 0;
-        }
-    }
-
-
+# 384 "./src/main/config/config.c"
     if (
         featureIsConfigured(FEATURE_3D) || !featureIsConfigured(FEATURE_GPS) || mixerModeIsFixedWing(mixerConfig()->mixerMode)
 
+        || 
+# 387 "./src/main/config/config.c" 3 4
+          1
+
+        
+# 389 "./src/main/config/config.c"
+       ) {
 
 
-        ) {
 
 
-        if (failsafeConfig()->failsafe_procedure == FAILSAFE_PROCEDURE_GPS_RESCUE) {
-            failsafeConfigMutable()->failsafe_procedure = FAILSAFE_PROCEDURE_DROP_IT;
-        }
+
 
 
         if (isModeActivationConditionPresent(BOXGPSRESCUE)) {
@@ -16407,9 +16003,9 @@ static void validateAndFixConfig(void)
     }
 
 
-    if (!findSerialPortConfig(FUNCTION_ESC_SENSOR)) {
-        featureDisableImmediate(FEATURE_ESC_SENSOR);
-    }
+
+
+
 
 
     for (int i = 0; i < 20; i++) {
@@ -16421,15 +16017,7 @@ static void validateAndFixConfig(void)
             }
         }
     }
-
-
-    if (motorConfig()->dev.motorPwmProtocol == PWM_TYPE_PROSHOT1000 && motorConfig()->dev.useDshotTelemetry &&
-        motorConfig()->dev.useDshotBitbang == DSHOT_BITBANG_ON) {
-        motorConfigMutable()->dev.useDshotBitbang = DSHOT_BITBANG_AUTO;
-    }
-
-
-
+# 426 "./src/main/config/config.c"
     adcConfigMutable()->vbat.enabled = (batteryConfig()->voltageMeterSource == VOLTAGE_METER_ADC);
     adcConfigMutable()->current.enabled = (batteryConfig()->currentMeterSource == CURRENT_METER_ADC);
 
@@ -16441,6 +16029,10 @@ static void validateAndFixConfig(void)
 
 
     featureDisableImmediate(FEATURE_RANGEFINDER);
+
+
+
+    featureDisableImmediate(FEATURE_TELEMETRY);
 # 473 "./src/main/config/config.c"
     featureDisableImmediate(FEATURE_DASHBOARD);
 # 485 "./src/main/config/config.c"
@@ -16449,6 +16041,10 @@ static void validateAndFixConfig(void)
 
 
     featureDisableImmediate(FEATURE_RX_SPI);
+
+
+
+    featureDisableImmediate(FEATURE_ESC_SENSOR);
 # 506 "./src/main/config/config.c"
     if (beeperDevConfig()->frequency && !timerGetByTag(beeperDevConfig()->ioTag)) {
         beeperDevConfigMutable()->frequency = 0;
@@ -16458,19 +16054,7 @@ static void validateAndFixConfig(void)
     if (beeperConfig()->beeper_off_flags & ~( (1 << (BEEPER_GYRO_CALIBRATED - 1)) | (1 << (BEEPER_RX_LOST - 1)) | (1 << (BEEPER_RX_LOST_LANDING - 1)) | (1 << (BEEPER_DISARMING - 1)) | (1 << (BEEPER_ARMING - 1)) | (1 << (BEEPER_ARMING_GPS_FIX - 1)) | (1 << (BEEPER_BAT_CRIT_LOW - 1)) | (1 << (BEEPER_BAT_LOW - 1)) | (1 << (BEEPER_GPS_STATUS - 1)) | (1 << (BEEPER_RX_SET - 1)) | (1 << (BEEPER_ACC_CALIBRATION - 1)) | (1 << (BEEPER_ACC_CALIBRATION_FAIL - 1)) | (1 << (BEEPER_READY_BEEP - 1)) | (1 << (BEEPER_MULTI_BEEPS - 1)) | (1 << (BEEPER_DISARM_REPEAT - 1)) | (1 << (BEEPER_ARMED - 1)) | (1 << (BEEPER_SYSTEM_INIT - 1)) | (1 << (BEEPER_USB - 1)) | (1 << (BEEPER_BLACKBOX_ERASE - 1)) | (1 << (BEEPER_CRASH_FLIP_MODE - 1)) | (1 << (BEEPER_CAM_CONNECTION_OPEN - 1)) | (1 << (BEEPER_CAM_CONNECTION_CLOSE - 1)) | (1 << (BEEPER_RC_SMOOTHING_INIT_FAIL - 1)) | (1 << (BEEPER_ARMING_GPS_NO_FIX - 1)) )) {
         beeperConfigMutable()->beeper_off_flags = 0;
     }
-
-
-    if (beeperConfig()->dshotBeaconOffFlags & ~( (1 << (BEEPER_RX_LOST - 1)) | (1 << (BEEPER_RX_SET - 1)) )) {
-        beeperConfigMutable()->dshotBeaconOffFlags = 0;
-    }
-
-    if (beeperConfig()->dshotBeaconTone < DSHOT_CMD_BEACON1
-        || beeperConfig()->dshotBeaconTone > DSHOT_CMD_BEACON5) {
-        beeperConfigMutable()->dshotBeaconTone = DSHOT_CMD_BEACON1;
-    }
-
-
-
+# 527 "./src/main/config/config.c"
     
 # 527 "./src/main/config/config.c" 3 4
    _Bool 
@@ -16481,37 +16065,7 @@ static void validateAndFixConfig(void)
 # 527 "./src/main/config/config.c"
                                             ;
     checkMotorProtocolEnabled(&motorConfig()->dev, &configuredMotorProtocolDshot);
-
-
-    if (configuredMotorProtocolDshot) {
-        motorConfigMutable()->dev.useUnsyncedPwm = 
-# 532 "./src/main/config/config.c" 3 4
-                                                  0
-# 532 "./src/main/config/config.c"
-                                                       ;
-    }
-
-
-    if ((!configuredMotorProtocolDshot || (motorConfig()->dev.useDshotBitbang == DSHOT_BITBANG_OFF && motorConfig()->dev.useBurstDshot == DSHOT_DMAR_ON) || systemConfig()->schedulerOptimizeRate == SCHEDULER_OPTIMIZE_RATE_OFF)
-        && motorConfig()->dev.useDshotTelemetry) {
-        motorConfigMutable()->dev.useDshotTelemetry = 
-# 538 "./src/main/config/config.c" 3 4
-                                                     0
-# 538 "./src/main/config/config.c"
-                                                          ;
-    }
-
-
-    if (!isRpmFilterEnabled()) {
-        for (unsigned i = 0; i < 3; i++) {
-            pidProfilesMutable(i)->dyn_idle_min_rpm = 0;
-        }
-    }
-
-
-
-
-
+# 552 "./src/main/config/config.c"
     for (int i = 0; i < OSD_TIMER_COUNT; i++) {
          const uint16_t t = osdConfig()->timers[i];
          if ((t & 0x0F) >= OSD_TIMER_SRC_COUNT ||
@@ -16519,25 +16073,7 @@ static void validateAndFixConfig(void)
              osdConfigMutable()->timers[i] = osdTimerDefault[i];
          }
      }
-
-
-
-
-    if (vtxSettingsConfig()->channel > vtxTableConfig()->channels) {
-        vtxSettingsConfigMutable()->channel = 0;
-        if (vtxSettingsConfig()->band > 0) {
-            vtxSettingsConfigMutable()->freq = 0;
-        }
-    }
-    if (vtxSettingsConfig()->band > vtxTableConfig()->bands) {
-        vtxSettingsConfigMutable()->band = 0;
-        vtxSettingsConfigMutable()->freq = 0;
-    }
-    if (vtxSettingsConfig()->power > vtxTableConfig()->powerLevels) {
-        vtxSettingsConfigMutable()->power = 0;
-    }
-
-
+# 578 "./src/main/config/config.c"
     validateAndFixRatesSettings();
 
 
@@ -16620,14 +16156,7 @@ void validateAndFixGyroConfig(void)
         case PWM_TYPE_ONESHOT42:
                 motorUpdateRestriction = 0.0001f;
                 break;
-
-        case PWM_TYPE_DSHOT150:
-                motorUpdateRestriction = 0.000250f;
-                break;
-        case PWM_TYPE_DSHOT300:
-                motorUpdateRestriction = 0.0001f;
-                break;
-
+# 668 "./src/main/config/config.c"
         default:
             motorUpdateRestriction = 0.00003125f;
             break;
@@ -16683,12 +16212,12 @@ void validateAndFixGyroConfig(void)
     }
 
 
-    if (systemConfig()->activeRateProfile >= 6) {
+    if (systemConfig()->activeRateProfile >= 1) {
         systemConfigMutable()->activeRateProfile = 0;
     }
     loadControlRateProfile();
 
-    if (systemConfig()->pidProfileIndex >= 3) {
+    if (systemConfig()->pidProfileIndex >= 1) {
         systemConfigMutable()->pidProfileIndex = 0;
     }
     loadPidProfile();
@@ -16818,7 +16347,7 @@ void changePidProfileFromCellCount(uint8_t cellCount)
         return;
     }
 
-    unsigned profileIndex = (systemConfig()->pidProfileIndex + 1) % 3;
+    unsigned profileIndex = (systemConfig()->pidProfileIndex + 1) % 1;
     int matchingProfileIndex = -1;
     while (profileIndex != systemConfig()->pidProfileIndex) {
         if (pidProfiles(profileIndex)->auto_profile_cell_count == cellCount) {
@@ -16829,7 +16358,7 @@ void changePidProfileFromCellCount(uint8_t cellCount)
             matchingProfileIndex = profileIndex;
         }
 
-        profileIndex = (profileIndex + 1) % 3;
+        profileIndex = (profileIndex + 1) % 1;
     }
 
     if (matchingProfileIndex >= 0) {
@@ -16839,7 +16368,7 @@ void changePidProfileFromCellCount(uint8_t cellCount)
 
 void changePidProfile(uint8_t pidProfileIndex)
 {
-    if (pidProfileIndex < 3) {
+    if (pidProfileIndex < 1) {
         systemConfigMutable()->pidProfileIndex = pidProfileIndex;
         loadPidProfile();
 

@@ -22387,7 +22387,7 @@ typedef struct voltageMeter_s {
     uint16_t displayFiltered;
     uint16_t unfiltered;
 
-
+    uint16_t sagFiltered;
 
     
 # 49 "./src/main/sensors/voltage.h" 3 4
@@ -22611,8 +22611,6 @@ const char * const currentMeterSourceNames[CURRENT_METER_COUNT] = {
 
 const uint8_t currentMeterIds[] = {
     CURRENT_METER_ID_BATTERY_1,
-
-    CURRENT_METER_ID_VIRTUAL_1,
 # 72 "./src/main/sensors/current.c"
 };
 
@@ -22643,7 +22641,7 @@ const currentSensorADCConfig_t pgResetTemplate_currentSensorADCConfig __attribut
  ;
 
 
-currentSensorVirtualConfig_t currentSensorVirtualConfig_System; currentSensorVirtualConfig_t currentSensorVirtualConfig_Copy; extern const pgRegistry_t currentSensorVirtualConfig_Registry; const pgRegistry_t currentSensorVirtualConfig_Registry __attribute__ ((section(".pg_registry"), used, aligned(4))) = { .pgn = 257 | (0 << 12), .length = 1, .size = sizeof(currentSensorVirtualConfig_t) | PGR_SIZE_SYSTEM_FLAG, .address = (uint8_t*)&currentSensorVirtualConfig_System, .copy = (uint8_t*)&currentSensorVirtualConfig_Copy, .ptr = 0, .reset = {.ptr = 0}, };
+
 
 
 static int32_t currentMeterADCToCentiamps(const uint16_t src)
@@ -22707,56 +22705,11 @@ void currentMeterADCRead(currentMeter_t *meter)
     {if (debugMode == (DEBUG_CURRENT_SENSOR)) {debug[(2)] = (meter->amperageLatest);}};
     {if (debugMode == (DEBUG_CURRENT_SENSOR)) {debug[(3)] = (meter->mAhDrawn);}};
 }
-
-
-
-
-
-
-currentSensorVirtualState_t currentMeterVirtualState;
-
-void currentMeterVirtualInit(void)
-{
-    memset(&currentMeterVirtualState, 0, sizeof(currentSensorVirtualState_t));
-}
-
-void currentMeterVirtualRefresh(int32_t lastUpdateAt, 
-# 186 "./src/main/sensors/current.c" 3 4
-                                                     _Bool 
-# 186 "./src/main/sensors/current.c"
-                                                          armed, 
-# 186 "./src/main/sensors/current.c" 3 4
-                                                                 _Bool 
-# 186 "./src/main/sensors/current.c"
-                                                                      throttleLowAndMotorStop, int32_t throttleOffset)
-{
-    currentMeterVirtualState.amperage = (int32_t)currentSensorVirtualConfig()->offset;
-    if (armed) {
-        if (throttleLowAndMotorStop) {
-            throttleOffset = 0;
-        }
-
-        int throttleFactor = throttleOffset + (throttleOffset * throttleOffset / 50);
-        currentMeterVirtualState.amperage += throttleFactor * (int32_t)currentSensorVirtualConfig()->scale / 1000;
-    }
-    updateCurrentmAhDrawnState(&currentMeterVirtualState.mahDrawnState, currentMeterVirtualState.amperage, lastUpdateAt);
-}
-
-void currentMeterVirtualRead(currentMeter_t *meter)
-{
-    meter->amperageLatest = currentMeterVirtualState.amperage;
-    meter->amperage = currentMeterVirtualState.amperage;
-    meter->mAhDrawn = currentMeterVirtualState.mahDrawnState.mAhDrawn;
-}
 # 300 "./src/main/sensors/current.c"
 void currentMeterRead(currentMeterId_e id, currentMeter_t *meter)
 {
     if (id == CURRENT_METER_ID_BATTERY_1) {
         currentMeterADCRead(meter);
-    }
-
-    else if (id == CURRENT_METER_ID_VIRTUAL_1) {
-        currentMeterVirtualRead(meter);
     }
 # 324 "./src/main/sensors/current.c"
     else {

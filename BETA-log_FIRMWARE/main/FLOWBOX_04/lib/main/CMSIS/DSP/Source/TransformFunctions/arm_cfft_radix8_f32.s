@@ -9,26 +9,26 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"arm_cfft_radix8_f32.c"
-	.section	.gnu.lto_.profile.4107409e,"e",%progbits
+	.section	.gnu.lto_.profile.41a39daf,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4107409e,"e",%progbits
+	.section	.gnu.lto_.icf.41a39daf,"e",%progbits
 	.ascii	"x\234\343``d\340`@\000F\206\213\237'\\cd\000\000\017"
 	.ascii	"\377\003>"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4107409e,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41a39daf,"e",%progbits
 	.ascii	"x\234\343``d\220d@\000F\006\026F \340\257\237\317\314"
 	.ascii	"\000\304\214@\314\004\242\031\0006:\004\303"
 	.text
-	.section	.gnu.lto_.inline.4107409e,"e",%progbits
+	.section	.gnu.lto_.inline.41a39daf,"e",%progbits
 	.ascii	"x\234\343``d\320a@\000F\006\206\037L]\307\036t0\225"
 	.ascii	"\26022\012\000\271L\257X\273\332@|\006\006\266\006 "
 	.ascii	"`Jab`\002\253\005\000\036~\012\306"
 	.text
-	.section	.gnu.lto_.pureconst.4107409e,"e",%progbits
+	.section	.gnu.lto_.pureconst.41a39daf,"e",%progbits
 	.ascii	"x\234\343``d`a`\000\222\263X\000\001\322\000\255"
 	.text
-	.section	.gnu.lto_arm_radix8_butterfly_f32.4107409e,"e",%progbits
+	.section	.gnu.lto_arm_radix8_butterfly_f32.41a39daf,"e",%progbits
 	.ascii	"x\234\335ZyXV\307\365\376f.\373\246\335\2226&m\272X"
 	.ascii	"\2336\215u7M\323$5M\233&i\323\2304I\323\324\032\227"
 	.ascii	"\2064.\001m\222\246i>\020>TD$\210\212\212\200\210(n"
@@ -394,15 +394,15 @@
 	.ascii	"\352\017\251\037\244\276\220\372@\352\365\177\341\372"
 	.ascii	"\366\225"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4107409e,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41a39daf,"e",%progbits
 	.ascii	"x\234\343``d\220a\000\002\246v\306z\206\331\215\217"
 	.ascii	"\030\030'\234c`\250g`\330\325\340\010\224\003\001\000"
 	.ascii	"s)\006\207"
 	.text
-	.section	.gnu.lto_.refs.4107409e,"e",%progbits
+	.section	.gnu.lto_.refs.41a39daf,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.4107409e,"e",%progbits
+	.section	.gnu.lto_.decls.41a39daf,"e",%progbits
 	.ascii	"x\234\245R_H\223Q\024\277\347\373fn\337\226\023\221"
 	.ascii	"\014|\021\0372\010\373\360\017\325sF\177\036\224`\005"
 	.ascii	"\3654\346\332p\340\266\230\337\302\240\207/\255\261"
@@ -448,7 +448,7 @@
 	.ascii	"\311nJ\026\343)\367*\212\315c\257\274H\031K\376?%\302"
 	.ascii	"\022\240\231\374\006\275\214VX"
 	.text
-	.section	.gnu.lto_.symtab.4107409e,"e",%progbits
+	.section	.gnu.lto_.symtab.41a39daf,"e",%progbits
 	.ascii	"arm_radix8_butterfly_f32\000"
 	.ascii	"\000"
 	.ascii	"\000"

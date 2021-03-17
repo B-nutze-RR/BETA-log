@@ -5855,18 +5855,7 @@ typedef struct motorConfig_s {
 
 extern motorConfig_t motorConfig_System; extern motorConfig_t motorConfig_Copy; static inline const motorConfig_t* motorConfig(void) { return &motorConfig_System; } static inline motorConfig_t* motorConfigMutable(void) { return &motorConfig_System; } struct _dummy;
 # 26 "./src/main/drivers/dshot.h" 2
-# 43 "./src/main/drivers/dshot.h"
-typedef struct dshotTelemetryQuality_s {
-    uint32_t packetCountSum;
-    uint32_t invalidCountSum;
-    uint32_t packetCountArray[(1 * 1000 / 100)];
-    uint32_t invalidCountArray[(1 * 1000 / 100)];
-    uint8_t lastBucketIndex;
-} dshotTelemetryQuality_t;
-
-extern dshotTelemetryQuality_t dshotTelemetryQuality[8];
-
-
+# 54 "./src/main/drivers/dshot.h"
 typedef struct dshotProtocolControl_s {
     uint16_t value;
     
@@ -5881,47 +5870,7 @@ float dshotConvertFromExternal(uint16_t externalValue);
 uint16_t dshotConvertToExternal(float motorValue);
 
 uint16_t prepareDshotPacket(dshotProtocolControl_t *pcb);
-
-
-extern 
-# 66 "./src/main/drivers/dshot.h" 3 4
-      _Bool 
-# 66 "./src/main/drivers/dshot.h"
-           useDshotTelemetry;
-
-typedef struct dshotTelemetryMotorState_s {
-    uint16_t telemetryValue;
-    
-# 70 "./src/main/drivers/dshot.h" 3 4
-   _Bool 
-# 70 "./src/main/drivers/dshot.h"
-        telemetryActive;
-} dshotTelemetryMotorState_t;
-
-
-typedef struct dshotTelemetryState_s {
-    
-# 75 "./src/main/drivers/dshot.h" 3 4
-   _Bool 
-# 75 "./src/main/drivers/dshot.h"
-        useDshotTelemetry;
-    uint32_t invalidPacketCount;
-    uint32_t readCount;
-    dshotTelemetryMotorState_t motorState[8];
-    uint32_t inputBuffer[22];
-} dshotTelemetryState_t;
-
-extern dshotTelemetryState_t dshotTelemetryState;
-
-
-void updateDshotTelemetryQuality(dshotTelemetryQuality_t *qualityStats, 
-# 85 "./src/main/drivers/dshot.h" 3 4
-                                                                       _Bool 
-# 85 "./src/main/drivers/dshot.h"
-                                                                            packetValid, timeMs_t currentTimeMs);
-
-
-
+# 89 "./src/main/drivers/dshot.h"
 uint16_t getDshotTelemetry(uint8_t index);
 
 # 90 "./src/main/drivers/dshot.h" 3 4
@@ -5994,7 +5943,7 @@ typedef struct controlRateConfig_s {
     uint8_t levelExpo[2];
 } controlRateConfig_t;
 
-extern controlRateConfig_t controlRateProfiles_SystemArray[6]; extern controlRateConfig_t controlRateProfiles_CopyArray[6]; static inline const controlRateConfig_t* controlRateProfiles(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t* controlRateProfilesMutable(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t (* controlRateProfiles_array(void))[6] { return &controlRateProfiles_SystemArray; } struct _dummy;
+extern controlRateConfig_t controlRateProfiles_SystemArray[1]; extern controlRateConfig_t controlRateProfiles_CopyArray[1]; static inline const controlRateConfig_t* controlRateProfiles(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t* controlRateProfilesMutable(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t (* controlRateProfiles_array(void))[1] { return &controlRateProfiles_SystemArray; } struct _dummy;
 
 extern controlRateConfig_t *currentControlRateProfile;
 extern const ratesSettingsLimits_t ratesSettingLimits[RATES_TYPE_COUNT];
@@ -6392,7 +6341,7 @@ typedef struct pidProfile_s {
     uint8_t simplified_dterm_filter_multiplier;
 } pidProfile_t;
 
-extern pidProfile_t pidProfiles_SystemArray[3]; extern pidProfile_t pidProfiles_CopyArray[3]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[3] { return &pidProfiles_SystemArray; } struct _dummy;
+extern pidProfile_t pidProfiles_SystemArray[1]; extern pidProfile_t pidProfiles_CopyArray[1]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[1] { return &pidProfiles_SystemArray; } struct _dummy;
 
 typedef struct pidConfig_s {
     uint8_t pid_process_denom;
@@ -6498,37 +6447,7 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-
-
-    pt1Filter_t windupLpf[3];
-    uint8_t itermRelax;
-    uint8_t itermRelaxType;
-    uint8_t itermRelaxCutoff;
-
-
-
-    float acCutoff;
-    float acGain;
-    float acLimit;
-    float acErrorLimit;
-    pt1Filter_t acLpf[3];
-    float oldSetpointCorrection[3];
-
-
-
-    biquadFilter_t dMinRange[3];
-    pt1Filter_t dMinLowpass[3];
-    float dMinPercent[3];
-    float dMinGyroGain;
-    float dMinSetpointGain;
-
-
-
-    pt1Filter_t airmodeThrottleLpf1;
-    pt1Filter_t airmodeThrottleLpf2;
-
-
-
+# 343 "./src/main/flight/pid.h"
     pt1Filter_t setpointDerivativePt1[3];
     biquadFilter_t setpointDerivativeBiquad[3];
     
@@ -6538,53 +6457,12 @@ typedef struct pidRuntime_s {
         setpointDerivativeLpfInitialized;
     uint8_t rcSmoothingDebugAxis;
     uint8_t rcSmoothingFilterType;
-
-
-
-    float acroTrainerAngleLimit;
-    float acroTrainerLookaheadTime;
-    uint8_t acroTrainerDebugAxis;
-    float acroTrainerGain;
-    
-# 355 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 355 "./src/main/flight/pid.h"
-        acroTrainerActive;
-    int acroTrainerAxisState[2];
-
-
-
+# 360 "./src/main/flight/pid.h"
     uint8_t dynLpfFilter;
     uint16_t dynLpfMin;
     uint16_t dynLpfMax;
     uint8_t dynLpfCurveExpo;
-
-
-
-    uint8_t launchControlMode;
-    uint8_t launchControlAngleLimit;
-    float launchControlKi;
-
-
-
-    
-# 373 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 373 "./src/main/flight/pid.h"
-        useIntegratedYaw;
-    uint8_t integratedYawRelax;
-
-
-
-    float thrustLinearization;
-    float throttleCompensateAmount;
-
-
-
-    float airmodeThrottleOffsetLimit;
-
-
-
+# 387 "./src/main/flight/pid.h"
     ffInterpolationType_t ffFromInterpolatedSetpoint;
     float ffSmoothFactor;
 
@@ -6636,15 +6514,6 @@ void pidSetAntiGravityState(
 _Bool 
 # 413 "./src/main/flight/pid.h"
     pidAntiGravityEnabled(void);
-
-
-float pidApplyThrustLinearization(float motorValue);
-float pidCompensateThrustLinearization(float throttle);
-
-
-
-void pidUpdateAirmodeLpf(float currentOffset);
-float pidGetAirmodeThrottleOffset();
 # 436 "./src/main/flight/pid.h"
 void dynLpfDTermUpdate(float throttle);
 void pidSetItermReset(
@@ -7499,13 +7368,9 @@ timeMs_t motorGetMotorEnableTimeMs(void);
 void motorShutdown(void);
 
 
-struct motorDevConfig_s;
-typedef struct motorDevConfig_s motorDevConfig_t;
 
-# 102 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 102 "./src/main/drivers/motor.h"
-    isDshotBitbangActive(const motorDevConfig_t *motorConfig);
+
+
 
 
 float getDigitalIdleOffset(const motorConfig_t *motorConfig);
@@ -7692,7 +7557,7 @@ typedef struct mixerRuntime_s {
     uint8_t motorCount;
     motorMixer_t currentMixer[8];
 
-    motorMixer_t launchControlMixer[8];
+
 
     
 # 34 "./src/main/flight/mixer_init.h" 3 4
@@ -7704,18 +7569,7 @@ typedef struct mixerRuntime_s {
     float disarmMotorOutput;
     float deadbandMotor3dHigh;
     float deadbandMotor3dLow;
-
-    float dynIdleMaxIncrease;
-    float idleThrottleOffset;
-    float dynIdleMinRps;
-    float dynIdlePGain;
-    float prevMinRps;
-    float dynIdleIGain;
-    float dynIdleDGain;
-    float dynIdleI;
-    float minRpsDelayK;
-
-
+# 52 "./src/main/flight/mixer_init.h"
     float vbatSagCompensationFactor;
     float vbatFull;
     float vbatRangeToCompensate;
@@ -8139,16 +7993,7 @@ void initEscEndpoints(void)
 
 void mixerInitProfile(void)
 {
-
-    mixerRuntime.dynIdleMinRps = currentPidProfile->dyn_idle_min_rpm * 100.0f / 60.0f;
-    mixerRuntime.dynIdlePGain = currentPidProfile->dyn_idle_p_gain * 0.00015f;
-    mixerRuntime.dynIdleIGain = currentPidProfile->dyn_idle_i_gain * 0.01f * pidGetDT();
-    mixerRuntime.dynIdleDGain = currentPidProfile->dyn_idle_d_gain * 0.0000003f * pidGetPidFrequency();
-    mixerRuntime.dynIdleMaxIncrease = currentPidProfile->dyn_idle_max_increase * 0.001f;
-    mixerRuntime.minRpsDelayK = 800 * pidGetDT() / 20.0f;
-
-
-
+# 312 "./src/main/flight/mixer_init.c"
     mixerRuntime.vbatSagCompensationFactor = 0.0f;
     if (currentPidProfile->vbat_sag_compensation > 0) {
 
@@ -8160,26 +8005,7 @@ void mixerInitProfile(void)
     }
 
 }
-
-
-
-
-
-void loadLaunchControlMixer(void)
-{
-    for (int i = 0; i < 8; i++) {
-        mixerRuntime.launchControlMixer[i] = mixerRuntime.currentMixer[i];
-
-        if (mixerRuntime.launchControlMixer[i].pitch < 0.0f) {
-            mixerRuntime.launchControlMixer[i].pitch = 0.0f;
-            mixerRuntime.launchControlMixer[i].throttle = 0.0f;
-        }
-    }
-}
-
-
-
-
+# 343 "./src/main/flight/mixer_init.c"
 static void mixerConfigureOutput(void)
 {
     mixerRuntime.motorCount = 0;
@@ -8206,7 +8032,7 @@ static void mixerConfigureOutput(void)
         }
     }
 
-    loadLaunchControlMixer();
+
 
     mixerResetDisarmedMotors();
 }
@@ -8242,14 +8068,7 @@ void mixerInit(mixerMode_e mixerMode)
     if (mixerIsTricopter()) {
         mixerTricopterInit();
     }
-
-
-
-    mixerRuntime.idleThrottleOffset = getDigitalIdleOffset(motorConfig());
-    mixerRuntime.dynIdleI = 0.0f;
-    mixerRuntime.prevMinRps = 0.0f;
-
-
+# 422 "./src/main/flight/mixer_init.c"
     mixerConfigureOutput();
 }
 

@@ -6046,13 +6046,9 @@ timeMs_t motorGetMotorEnableTimeMs(void);
 void motorShutdown(void);
 
 
-struct motorDevConfig_s;
-typedef struct motorDevConfig_s motorDevConfig_t;
 
-# 102 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 102 "./src/main/drivers/motor.h"
-    isDshotBitbangActive(const motorDevConfig_t *motorConfig);
+
+
 
 
 float getDigitalIdleOffset(const motorConfig_t *motorConfig);
@@ -6498,7 +6494,7 @@ typedef struct pidProfile_s {
     uint8_t simplified_dterm_filter_multiplier;
 } pidProfile_t;
 
-extern pidProfile_t pidProfiles_SystemArray[3]; extern pidProfile_t pidProfiles_CopyArray[3]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[3] { return &pidProfiles_SystemArray; } struct _dummy;
+extern pidProfile_t pidProfiles_SystemArray[1]; extern pidProfile_t pidProfiles_CopyArray[1]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[1] { return &pidProfiles_SystemArray; } struct _dummy;
 
 typedef struct pidConfig_s {
     uint8_t pid_process_denom;
@@ -6604,37 +6600,7 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-
-
-    pt1Filter_t windupLpf[3];
-    uint8_t itermRelax;
-    uint8_t itermRelaxType;
-    uint8_t itermRelaxCutoff;
-
-
-
-    float acCutoff;
-    float acGain;
-    float acLimit;
-    float acErrorLimit;
-    pt1Filter_t acLpf[3];
-    float oldSetpointCorrection[3];
-
-
-
-    biquadFilter_t dMinRange[3];
-    pt1Filter_t dMinLowpass[3];
-    float dMinPercent[3];
-    float dMinGyroGain;
-    float dMinSetpointGain;
-
-
-
-    pt1Filter_t airmodeThrottleLpf1;
-    pt1Filter_t airmodeThrottleLpf2;
-
-
-
+# 343 "./src/main/flight/pid.h"
     pt1Filter_t setpointDerivativePt1[3];
     biquadFilter_t setpointDerivativeBiquad[3];
     
@@ -6644,53 +6610,12 @@ typedef struct pidRuntime_s {
         setpointDerivativeLpfInitialized;
     uint8_t rcSmoothingDebugAxis;
     uint8_t rcSmoothingFilterType;
-
-
-
-    float acroTrainerAngleLimit;
-    float acroTrainerLookaheadTime;
-    uint8_t acroTrainerDebugAxis;
-    float acroTrainerGain;
-    
-# 355 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 355 "./src/main/flight/pid.h"
-        acroTrainerActive;
-    int acroTrainerAxisState[2];
-
-
-
+# 360 "./src/main/flight/pid.h"
     uint8_t dynLpfFilter;
     uint16_t dynLpfMin;
     uint16_t dynLpfMax;
     uint8_t dynLpfCurveExpo;
-
-
-
-    uint8_t launchControlMode;
-    uint8_t launchControlAngleLimit;
-    float launchControlKi;
-
-
-
-    
-# 373 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 373 "./src/main/flight/pid.h"
-        useIntegratedYaw;
-    uint8_t integratedYawRelax;
-
-
-
-    float thrustLinearization;
-    float throttleCompensateAmount;
-
-
-
-    float airmodeThrottleOffsetLimit;
-
-
-
+# 387 "./src/main/flight/pid.h"
     ffInterpolationType_t ffFromInterpolatedSetpoint;
     float ffSmoothFactor;
 
@@ -6742,15 +6667,6 @@ void pidSetAntiGravityState(
 _Bool 
 # 413 "./src/main/flight/pid.h"
     pidAntiGravityEnabled(void);
-
-
-float pidApplyThrustLinearization(float motorValue);
-float pidCompensateThrustLinearization(float throttle);
-
-
-
-void pidUpdateAirmodeLpf(float currentOffset);
-float pidGetAirmodeThrottleOffset();
 # 436 "./src/main/flight/pid.h"
 void dynLpfDTermUpdate(float throttle);
 void pidSetItermReset(
@@ -7405,21 +7321,13 @@ typedef enum {
 
     IBUS_SENSOR_TYPE_ALT_FLYSKY = 0xf9,
 
-    IBUS_SENSOR_TYPE_GPS_FULL = 0xfd,
-    IBUS_SENSOR_TYPE_VOLT_FULL = 0xf0,
-    IBUS_SENSOR_TYPE_ACC_FULL = 0xef,
+
+
+
 
     IBUS_SENSOR_TYPE_UNKNOWN = 0xff
 } ibusSensorType_e;
-
-
-
-uint8_t respondToIbusRequest(uint8_t const * const ibusPacket);
-void initSharedIbusTelemetry(serialPort_t * port);
-
-
-
-
+# 89 "./src/main/telemetry/ibus_shared.h"
 
 # 89 "./src/main/telemetry/ibus_shared.h" 3 4
 _Bool 
@@ -7877,7 +7785,7 @@ void initActiveBoxIds(void)
                                   0
 # 193 "./src/main/msp/msp_box.c"
                                        ;
-    for (unsigned i = 0; i < 3; i++) {
+    for (unsigned i = 0; i < 1; i++) {
         if (pidProfiles(i)->itermAcceleratorGain != 0) {
             acceleratorGainsEnabled = 
 # 196 "./src/main/msp/msp_box.c" 3 4
@@ -7896,17 +7804,7 @@ void initActiveBoxIds(void)
         do { bitArraySet(&ena, BOXHEADFREE); } while (0);
         do { bitArraySet(&ena, BOXHEADADJ); } while (0);
     }
-# 217 "./src/main/msp/msp_box.c"
-    if (featureIsEnabled(FEATURE_GPS)) {
-
-        if (!featureIsEnabled(FEATURE_3D) && !isFixedWing()) {
-            do { bitArraySet(&ena, BOXGPSRESCUE); } while (0);
-        }
-
-        do { bitArraySet(&ena, BOXBEEPGPSCOUNT); } while (0);
-    }
-
-
+# 227 "./src/main/msp/msp_box.c"
     do { bitArraySet(&ena, BOXFAILSAFE); } while (0);
 
     if (mixerConfig()->mixerMode == MIXER_FLYING_WING || mixerConfig()->mixerMode == MIXER_AIRPLANE || mixerConfig()->mixerMode == MIXER_CUSTOM_AIRPLANE) {
@@ -7934,19 +7832,7 @@ void initActiveBoxIds(void)
     if (featureIsEnabled(FEATURE_3D)) {
         do { bitArraySet(&ena, BOX3D); } while (0);
     }
-
-
-    
-# 256 "./src/main/msp/msp_box.c" 3 4
-   _Bool 
-# 256 "./src/main/msp/msp_box.c"
-        configuredMotorProtocolDshot;
-    checkMotorProtocolEnabled(&motorConfig()->dev, &configuredMotorProtocolDshot);
-    if (configuredMotorProtocolDshot) {
-        do { bitArraySet(&ena, BOXFLIPOVERAFTERCRASH); } while (0);
-    }
-
-
+# 263 "./src/main/msp/msp_box.c"
     if (featureIsEnabled(FEATURE_SERVO_TILT)) {
         do { bitArraySet(&ena, BOXCAMSTAB); } while (0);
     }
@@ -7956,14 +7842,7 @@ void initActiveBoxIds(void)
     }
 
     do { bitArraySet(&ena, BOXOSD); } while (0);
-
-
-    if (featureIsEnabled(FEATURE_TELEMETRY)) {
-        do { bitArraySet(&ena, BOXTELEMETRY); } while (0);
-    }
-
-
-
+# 280 "./src/main/msp/msp_box.c"
     if (mixerConfig()->mixerMode == MIXER_CUSTOM_AIRPLANE) {
         do { bitArraySet(&ena, BOXSERVO1); } while (0);
         do { bitArraySet(&ena, BOXSERVO2); } while (0);
@@ -7978,8 +7857,8 @@ void initActiveBoxIds(void)
 
 
 
-    do { bitArraySet(&ena, BOXVTXPITMODE); } while (0);
-    do { bitArraySet(&ena, BOXVTXCONTROLDISABLE); } while (0);
+
+
 
 
     do { bitArraySet(&ena, BOXPARALYZE); } while (0);
@@ -8004,23 +7883,7 @@ void initActiveBoxIds(void)
             }
         }
     }
-
-
-
-
-
-
-
-    if (sensors(SENSOR_ACC)) {
-        do { bitArraySet(&ena, BOXACROTRAINER); } while (0);
-    }
-
-
-
-    do { bitArraySet(&ena, BOXLAUNCHCONTROL); } while (0);
-
-
-
+# 337 "./src/main/msp/msp_box.c"
     if (rxConfig()->msp_override_channels_mask) {
         do { bitArraySet(&ena, BOXMSPOVERRIDE); } while (0);
     }

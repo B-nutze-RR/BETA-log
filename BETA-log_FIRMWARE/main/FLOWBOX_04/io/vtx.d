@@ -32,13 +32,7 @@ BETA-log_FIRMWARE/main/FLOWBOX_04/io/vtx.o: src/main/io/vtx.c \
  src/main/target/common_pre.h src/main/target/FLOWBOX_04/target.h \
  src/main/target/common_deprecated_post.h src/main/target/common_post.h \
  src/main/build/version.h src/main/common/utils.h \
- src/main/target/common_defaults_post.h src/main/cli/cli.h \
- src/main/common/maths.h src/main/common/time.h src/main/pg/pg.h \
- src/main/build/build_config.h src/main/drivers/vtx_common.h \
- src/main/common/streambuf.h src/main/drivers/vtx_table.h \
- src/main/config/config.h src/main/fc/rc_modes.h \
- src/main/fc/runtime_config.h src/main/flight/failsafe.h \
- src/main/io/vtx_control.h src/main/pg/pg_ids.h src/main/io/vtx.h
+ src/main/target/common_defaults_post.h
 
 src/main/platform.h:
 
@@ -113,33 +107,3 @@ src/main/build/version.h:
 src/main/common/utils.h:
 
 src/main/target/common_defaults_post.h:
-
-src/main/cli/cli.h:
-
-src/main/common/maths.h:
-
-src/main/common/time.h:
-
-src/main/pg/pg.h:
-
-src/main/build/build_config.h:
-
-src/main/drivers/vtx_common.h:
-
-src/main/common/streambuf.h:
-
-src/main/drivers/vtx_table.h:
-
-src/main/config/config.h:
-
-src/main/fc/rc_modes.h:
-
-src/main/fc/runtime_config.h:
-
-src/main/flight/failsafe.h:
-
-src/main/io/vtx_control.h:
-
-src/main/pg/pg_ids.h:
-
-src/main/io/vtx.h:

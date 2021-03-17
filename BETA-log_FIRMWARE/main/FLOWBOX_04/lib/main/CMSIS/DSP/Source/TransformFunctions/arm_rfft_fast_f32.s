@@ -9,14 +9,14 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"arm_rfft_fast_f32.c"
-	.section	.gnu.lto_.profile.410761e4,"e",%progbits
+	.section	.gnu.lto_.profile.41a390aa,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.410761e4,"e",%progbits
+	.section	.gnu.lto_.icf.41a390aa,"e",%progbits
 	.ascii	"x\234\343``d\020a@\000f\206\313[V\365\2632\236xvi%7"
 	.ascii	"\323\361\351K\036\3622\000\000`\367\011\015"
 	.text
-	.section	.gnu.lto_.jmpfuncs.410761e4,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41a390aa,"e",%progbits
 	.ascii	"x\234\235\217\273\015\302@\020D\347\355\236\314\021"
 	.ascii	"\271\000j\243\225# \"qJHL\003\004\220P\011\035 J\200"
 	.ascii	"\265\215,\344\023\022b\245\011\366\315~\263\320\032"
@@ -26,7 +26,7 @@
 	.ascii	"\335\375\270\034m\270\274\355\241\344\313\222\352\226"
 	.ascii	"T\374\003!\233\215\371\377K\275\000M\202Z\275"
 	.text
-	.section	.gnu.lto_.inline.410761e4,"e",%progbits
+	.section	.gnu.lto_.inline.41a390aa,"e",%progbits
 	.ascii	"x\234\215O1n\0021\020\234\335\265\205\211\004\272\032"
 	.ascii	"\232\373\000yCP\032\252<\002\256@P\220'XD\021\335\211"
 	.ascii	"\216\022J*\036@\205\304\007R\"\212|!\015\022-k\243\273"
@@ -41,11 +41,11 @@
 	.ascii	"\3154S\3074\240\3212\377\010\3076\0031\001\352F%\346"
 	.ascii	"J\224\006\237)|\270\000\024\307b!"
 	.text
-	.section	.gnu.lto_.pureconst.410761e4,"e",%progbits
+	.section	.gnu.lto_.pureconst.41a390aa,"e",%progbits
 	.ascii	"x\234\343``d\340b```f\230\305\3028\213\205i\026\013"
 	.ascii	"\000\012\236\001\364"
 	.text
-	.section	.gnu.lto_stage_rfft_f32.410761e4,"e",%progbits
+	.section	.gnu.lto_stage_rfft_f32.41a390aa,"e",%progbits
 	.ascii	"x\234\245\227}PT\345\032\300\337\347}\317\331]\226\345"
 	.ascii	"KqF#\015\247\220,u\371\310\021\273\377\\\252i\25635"
 	.ascii	"5r\247\251;s\247\310\221\271\334R7\304[\367\237:,\013"
@@ -158,7 +158,7 @@
 	.ascii	">u=E]\331\026\327\323K\026\346\345\261\302\267\347\341"
 	.ascii	"\232\017o\374\0068\236\0049"
 	.text
-	.section	.gnu.lto_merge_rfft_f32.410761e4,"e",%progbits
+	.section	.gnu.lto_merge_rfft_f32.41a390aa,"e",%progbits
 	.ascii	"x\234\245\227{PTU\030\300\317w\317\335\007\313\202\200"
 	.ascii	"\332\030\250\350(\242\246.f\251\375\227\32549ScINcM"
 	.ascii	"Sh2Q>\030\300^\177\324e\027\226\022\037\323\344\013"
@@ -265,7 +265,7 @@
 	.ascii	"\351J\3523J\352\024s\352\263\013\346$'\323\214\017\247"
 	.ascii	"\242L\207\367\377\001O_\323\255"
 	.text
-	.section	.gnu.lto_arm_rfft_fast_f32.410761e4,"e",%progbits
+	.section	.gnu.lto_arm_rfft_fast_f32.41a390aa,"e",%progbits
 	.ascii	"x\234}\223\335K\024Q\030\306\3173gf\235U3\250\033i\273"
 	.ascii	"\360\242Z\"h\245\376\201\242\020\203\242`\243\213nb"
 	.ascii	"\223\214\205\\c\325\353\316\256\246\230a]\024\266\321"
@@ -311,7 +311,7 @@
 	.ascii	"[*#5\364\263|\331\322\012\2010v\232;\327\327\325\332"
 	.ascii	"QZ)\333\021\331n\206\243\261\332\237`j\213j"
 	.text
-	.section	.gnu.lto_.symbol_nodes.410761e4,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41a390aa,"e",%progbits
 	.ascii	"x\234\343``d\230\316\000\004L\355\214\365\014\037~\255"
 	.ascii	"\260`\234p\216\201\241\236\201aW\203#P\016$\323\301"
 	.ascii	"X\317\210]\246\223\261\236\251\001\010X0\244\030\273"
@@ -319,10 +319,10 @@
 	.ascii	"\201\231\211\261\021\250\205\211\361\020#3\0233\204"
 	.ascii	"\371\004\301lacfb\2000\027\2611\000\000\211\351,1"
 	.text
-	.section	.gnu.lto_.refs.410761e4,"e",%progbits
+	.section	.gnu.lto_.refs.41a390aa,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.410761e4,"e",%progbits
+	.section	.gnu.lto_.decls.41a390aa,"e",%progbits
 	.ascii	"x\234\265VkLTG\024\236s\357]d\227\013k\325VS\374A\214"
 	.ascii	"U\223FW\224\264\375\321\037mm\254&\265i\212M\223\376"
 	.ascii	"\241\210\213\220\300b`\261M\372\347\312K\236\026*(\217"
@@ -419,7 +419,7 @@
 	.ascii	"\352\277r\305\307\377\225$\342\023i\216\326\004|c\222"
 	.ascii	"\215\354,\011\027\214J\312\322?\203[\276q"
 	.text
-	.section	.gnu.lto_.symtab.410761e4,"e",%progbits
+	.section	.gnu.lto_.symtab.41a390aa,"e",%progbits
 	.ascii	"stage_rfft_f32\000"
 	.ascii	"\000"
 	.ascii	"\000"

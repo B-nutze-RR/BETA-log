@@ -9,23 +9,23 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"dma_reqmap.c"
-	.section	.gnu.lto_.profile.415f03d8,"e",%progbits
+	.section	.gnu.lto_.profile.41a3ed02,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.415f03d8,"e",%progbits
+	.section	.gnu.lto_.icf.41a3ed02,"e",%progbits
 	.ascii	"x\234\343``d\260`@\000N\206)\007\036\255\346b<t\354"
 	.ascii	"\330\033v\246E+?wr2\0379\365v./\313\203\307\237\372"
 	.ascii	"\231X\327\2778\263\200\217}\362\2769\347Y9:\356?\337"
 	.ascii	"\316\315\371\340@\347=V\006\000\"\205\033\307"
 	.text
-	.section	.gnu.lto_.jmpfuncs.415f03d8,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41a3ed02,"e",%progbits
 	.ascii	"x\234\205\214\313\015\2000\014C\355&\375pb\343v\024"
 	.ascii	"Va#F\200\000\251\012\\\210\344C,\277W@l\030\227!$s["
 	.ascii	"\004\026ZB\350\215x\243z5\264\015}\223\264\032\314U"
 	.ascii	"\011\313Nh\345\347\017\343o\210&0.\346n\0227\351i\342"
 	.ascii	" \355\346?Y\271e)\341\303\275\240'19\201\003kX/\031"
 	.text
-	.section	.gnu.lto_.inline.415f03d8,"e",%progbits
+	.section	.gnu.lto_.inline.41a3ed02,"e",%progbits
 	.ascii	"x\234\205\222\277J\303P\024\306\277sN\377\304\014mq"
 	.ascii	"\020\305%\203\203\217\321'\020\037\301\242\224\332E"
 	.ascii	"\237@\256\210 \016E\007\333\261BADj\273\224\202\035"
@@ -46,11 +46,11 @@
 	.ascii	"\237;\324~\253\315\223\333o^dd8\324\376\224\307\203"
 	.ascii	"\346\245\344tH\0165\274\340\177\372\001\3262\216\246"
 	.text
-	.section	.gnu.lto_.pureconst.415f03d8,"e",%progbits
+	.section	.gnu.lto_.pureconst.41a3ed02,"e",%progbits
 	.ascii	"x\234\343``d\020f```gheajeaaameag\341`\345le\001\000"
 	.ascii	"\032\374\002x"
 	.text
-	.section	.gnu.lto_dmaGetChannelSpecByPeripheral.part.0.415f03d8,"e",%progbits
+	.section	.gnu.lto_dmaGetChannelSpecByPeripheral.part.0.41a3ed02,"e",%progbits
 	.ascii	"x\234\215UkOTG\030\236\347\314\331s\316\036v\301\326"
 	.ascii	"\264\322\322\017FC\010j\204\320&mR\233\370\321\177a"
 	.ascii	"\010l\322\375\200\245\320\230~s\270\255\001V\205\200"
@@ -115,7 +115,7 @@
 	.ascii	"\357\3517\205\337i\205\236\"o\341\327\360\376\007\242"
 	.ascii	"\222\216\256"
 	.text
-	.section	.gnu.lto_dmaPeripheralMapping.415f03d8,"e",%progbits
+	.section	.gnu.lto_dmaPeripheralMapping.41a3ed02,"e",%progbits
 	.ascii	"x\234mWYSZY\020\366\036dq\303d\266\027_RSSSSSSS\231"
 	.ascii	"\231\247<L\336\346\207\314?A@\203\373\232\200[p\337"
 	.ascii	"c4\0327$(*\242\022\304\015\214\212Q\011b\\\242\011\256"
@@ -225,7 +225,7 @@
 	.ascii	"\375T\316Q\351\245r\222\312\011\272\015\013\357)\233"
 	.ascii	"\377\001'\035\233\242"
 	.text
-	.section	.gnu.lto_dmaGetChannelSpecByTimerValue.part.0.415f03d8,"e",%progbits
+	.section	.gnu.lto_dmaGetChannelSpecByTimerValue.part.0.41a3ed02,"e",%progbits
 	.ascii	"x\234\215UmO\024W\024\276\317\334\331\231\331a\001k"
 	.ascii	"\323J\273ibb(\261!Bh\322\244i\233\230\264\037\374\322"
 	.ascii	"\337\320\020%-I\241\270\232~\365\202\270\244\262Z\250"
@@ -293,7 +293,7 @@
 	.ascii	"\314ge;}\024*\012|XXVV\\\3721\212\377\001\326\245\225"
 	.ascii	"\234"
 	.text
-	.section	.gnu.lto_dmaTimerMapping.415f03d8,"e",%progbits
+	.section	.gnu.lto_dmaTimerMapping.41a3ed02,"e",%progbits
 	.ascii	"x\234\235\227IS[G\020\307\231'\004\002\204\344\254\027"
 	.ascii	".\256T*\225J\245R\216s\362%\337%\307|\200\334\205@\013"
 	.ascii	"fu\330\204\004\010\261I,\306\030\007\304jV\011\001B"
@@ -395,7 +395,7 @@
 	.ascii	"Ju\221j\220\3524U?\325\021\252\303\364\201G\026i4\377"
 	.ascii	"\001\203\375g\004"
 	.text
-	.section	.gnu.lto_dmaGetChannelSpecByPeripheral.415f03d8,"e",%progbits
+	.section	.gnu.lto_dmaGetChannelSpecByPeripheral.41a3ed02,"e",%progbits
 	.ascii	"x\234]\222\317KTQ\024\307\317\367\236\367f\336\014\223"
 	.ascii	"m\245\011\022C\304\026\216Q\255\332\364\237\2048\263"
 	.ascii	"\230\305\230\215!\355\274\216\323X\243\230\222f.\246"
@@ -430,7 +430,7 @@
 	.ascii	"\315x\344v\254\276\251\266\201<\341HK\264!bG\033\303"
 	.ascii	"\221\273|\253\351\016\242\377\001\206\315\352\274"
 	.text
-	.section	.gnu.lto_dmaoptByTag.415f03d8,"e",%progbits
+	.section	.gnu.lto_dmaoptByTag.41a3ed02,"e",%progbits
 	.ascii	"x\234\205S[HTQ\024=\353\356{\347\336\031'\241@\210\246"
 	.ascii	"@\010\011!\034\261\337\002\241\337>\373\0171\261\371"
 	.ascii	"0k\012\373\3644\016F9\232\201\366\262a\022\261\007E"
@@ -474,7 +474,7 @@
 	.ascii	"\213\366\226\024\354\311)\024V\250t{A1B\253\377\000"
 	.ascii	"\356)\016\356\017\225\024\205C\2459\273\304On\232c\307"
 	.text
-	.section	.gnu.lto_dmaGetChannelSpecByTimerValue.415f03d8,"e",%progbits
+	.section	.gnu.lto_dmaGetChannelSpecByTimerValue.41a3ed02,"e",%progbits
 	.ascii	"x\234]\222\317KTQ\024\307\357\367\236\373f\336\214\332"
 	.ascii	"2\244A\020\304\0067NP\324\242M\377I\014*4\320L6J[\257"
 	.ascii	"\3230B\2323\202\371#xM%b\013A\304\026\2255\276i\264"
@@ -510,7 +510,7 @@
 	.ascii	"\345Z4\221h\273\356\343\235\033\355\235\210\375\005"
 	.ascii	"\211\001\353V"
 	.text
-	.section	.gnu.lto_dmaGetChannelSpecByTimer.415f03d8,"e",%progbits
+	.section	.gnu.lto_dmaGetChannelSpecByTimer.41a3ed02,"e",%progbits
 	.ascii	"x\234\215T\337OTG\024\236\357\316\275{\357\336\375\201"
 	.ascii	"Hi\332b\023\023C\015I\003\2064}h4i\322\327\376\017\015"
 	.ascii	"Q\322\362@kW\343+\227e\203\211l\000\023Z\004\273\256"
@@ -575,7 +575,7 @@
 	.ascii	"\322b\037J\336Iq<\376e\201<-\371&\377+\366\017\024\023"
 	.ascii	"`\231"
 	.text
-	.section	.gnu.lto_dmaGetOptionByTimer.415f03d8,"e",%progbits
+	.section	.gnu.lto_dmaGetOptionByTimer.41a3ed02,"e",%progbits
 	.ascii	"x\234\225U\373O\034U\024\276g\316\354\316\354\354\003"
 	.ascii	"(\244h0\206D\261!b\331\324\370[M\372\027\350_`\014i"
 	.ascii	"\371\001\023\032\245\306\237L\030\036.\261]\021\002"
@@ -645,7 +645,7 @@
 	.ascii	"\324c\231i\357g\245\177\224\231\366\341\301\243\314"
 	.ascii	"\366qFfz\026d\300\007\177\003\233A\315\204"
 	.text
-	.section	.gnu.lto_.symbol_nodes.415f03d8,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41a3ed02,"e",%progbits
 	.ascii	"x\234\343``d\370\302\000\004L\263\030\353\031\256L\336"
 	.ascii	"#\3018\341\034\003C=\003\343\316\226\203\015\012@Y "
 	.ascii	"`\235\304\310\320\240\304\300\300\3144\207\261\236\361"
@@ -656,12 +656,12 @@
 	.ascii	"\242\226\335b\0302\314,\020\037512\2633\201\235\015"
 	.ascii	"dq0M\234\262K\223\261\211\213\001\000CO=l"
 	.text
-	.section	.gnu.lto_.refs.415f03d8,"e",%progbits
+	.section	.gnu.lto_.refs.41a3ed02,"e",%progbits
 	.ascii	"x\234\035\311\301\021\2000\020\003\261\265}qBZ\242\377"
 	.ascii	"\276\230A_\035\304\013\014H(\250\326\035\023\221\220"
 	.ascii	":\327\213\232.\037:t\317\363\357\220M.\037#m\000\365"
 	.text
-	.section	.gnu.lto_.decls.415f03d8,"e",%progbits
+	.section	.gnu.lto_.decls.41a3ed02,"e",%progbits
 	.ascii	"x\234\315ZkTT\307\226\356:\325\274\232F\022\365&\316"
 	.ascii	"5\263&+c\036\353&WD\275\367f\326\374\2301\230\327]\313"
 	.ascii	"$\013Mf%?.\227\321\326\260\226 \201&\223\374\230\311"
@@ -955,7 +955,7 @@
 	.ascii	"\273\215\245\217\327\216\205\004Z\2207:)\370\377\005"
 	.ascii	"\311\005\205\205"
 	.text
-	.section	.gnu.lto_.symtab.415f03d8,"e",%progbits
+	.section	.gnu.lto_.symtab.41a3ed02,"e",%progbits
 	.ascii	"dmaGetChannelSpecByPeripheral\000"
 	.ascii	"\000"
 	.ascii	"\000"

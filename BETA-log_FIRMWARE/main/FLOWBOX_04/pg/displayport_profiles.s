@@ -9,27 +9,27 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"displayport_profiles.c"
-	.section	.gnu.lto_.profile.415f3da9,"e",%progbits
+	.section	.gnu.lto_.profile.41a3e521,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.415f3da9,"e",%progbits
+	.section	.gnu.lto_.icf.41a3e521,"e",%progbits
 	.ascii	"x\234\343``d\220b@\000\026\206\351k\033\037\2611>\235"
 	.ascii	"\371\363#\037\323\217\336\037\233\031\231\301$\003\000"
 	.ascii	"\252\347\014\263"
 	.text
-	.section	.gnu.lto_.jmpfuncs.415f3da9,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41a3e521,"e",%progbits
 	.ascii	"x\234\343``d\340b@\000F\006FF\306\372\371\314\014\014"
 	.ascii	"\000\006\375\0019"
 	.text
-	.section	.gnu.lto_.inline.415f3da9,"e",%progbits
+	.section	.gnu.lto_.inline.41a3e521,"e",%progbits
 	.ascii	"x\234\343``dPe@\000F\006\006\226\006 `Nad`b\004\261"
 	.ascii	"\230\222\030\030\330\201\364\001\246\024&\006&\260\""
 	.ascii	"\000\246e\007\264"
 	.text
-	.section	.gnu.lto_.pureconst.415f3da9,"e",%progbits
+	.section	.gnu.lto_.pureconst.41a3e521,"e",%progbits
 	.ascii	"x\234\343``d`a`\000\222\263X\000\001\322\000\255"
 	.text
-	.section	.gnu.lto_pgResetFn_displayPortProfileMsp.415f3da9,"e",%progbits
+	.section	.gnu.lto_pgResetFn_displayPortProfileMsp.41a3e521,"e",%progbits
 	.ascii	"x\234E\2209KCA\024\205\357y\363\262 j\2416\"\202\205"
 	.ascii	"\022m\022k+\177\202\277@\011q!\240\346\221\330X9y\026"
 	.ascii	")\224\330\270\026\341E$(\010. \342\356$\202`\300\306"
@@ -53,7 +53,7 @@
 	.ascii	"GG\207\022\301\0105\374\345\3738\337WM\377\002d\333"
 	.ascii	"\2109"
 	.text
-	.section	.gnu.lto_displayPortProfileMsp_Registry.415f3da9,"e",%progbits
+	.section	.gnu.lto_displayPortProfileMsp_Registry.41a3e521,"e",%progbits
 	.ascii	"x\234\343``d\370\314\300\300\240\316\000\001\323\231"
 	.ascii	"\031\347\2568\363\237\263\205\261\251\261\243\241\341"
 	.ascii	"A\367I\261\031\314\363\231\031f2C$\037\034\232\277\204"
@@ -69,17 +69,17 @@
 	.ascii	"\202\234\304\312\202\374\242\222\370\202\242\374\264"
 	.ascii	"\314\234\324b\275d\006\000\377(_e"
 	.text
-	.section	.gnu.lto_.symbol_nodes.415f3da9,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41a3e521,"e",%progbits
 	.ascii	"x\234\343``dpa\000\002\246i\214\365\014\015@\300\302"
 	.ascii	"8\341\034\003C=\003\303\256\005\216@I `\235\312\310"
 	.ascii	"\320\252\304\240W\220\036_\224\232\236Y\\RT\011\024"
 	.ascii	"\234\304\310\330\250\004\222\235\314\310\004f0\000\000"
 	.ascii	"Z\336\017}"
 	.text
-	.section	.gnu.lto_.refs.415f3da9,"e",%progbits
+	.section	.gnu.lto_.refs.41a3e521,"e",%progbits
 	.ascii	"x\234\343``d\340d```fdbbbfb`\000\000\001v\000\""
 	.text
-	.section	.gnu.lto_.decls.415f3da9,"e",%progbits
+	.section	.gnu.lto_.decls.41a3e521,"e",%progbits
 	.ascii	"x\234\225W{PT\327\031\277\337=\013\273{a\301\"\255\231"
 	.ascii	"\342\264\232AkZ\025h2mf\232\316\264\332i\373O3\231d"
 	.ascii	"\322?\332N)]V\330d]vv\027\255\235\316\344\362\020\220"
@@ -208,7 +208,7 @@
 	.ascii	"s\261\177\345\357lr8M\353\277\357\277r-*\374\037\343"
 	.ascii	"E\332\""
 	.text
-	.section	.gnu.lto_.symtab.415f3da9,"e",%progbits
+	.section	.gnu.lto_.symtab.41a3e521,"e",%progbits
 	.ascii	"pgResetFn_displayPortProfileMsp\000"
 	.ascii	"\000"
 	.ascii	"\000"

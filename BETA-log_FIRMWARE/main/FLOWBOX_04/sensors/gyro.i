@@ -6175,7 +6175,7 @@ typedef struct pidProfile_s {
     uint8_t simplified_dterm_filter_multiplier;
 } pidProfile_t;
 
-extern pidProfile_t pidProfiles_SystemArray[3]; extern pidProfile_t pidProfiles_CopyArray[3]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[3] { return &pidProfiles_SystemArray; } struct _dummy;
+extern pidProfile_t pidProfiles_SystemArray[1]; extern pidProfile_t pidProfiles_CopyArray[1]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[1] { return &pidProfiles_SystemArray; } struct _dummy;
 
 typedef struct pidConfig_s {
     uint8_t pid_process_denom;
@@ -6281,37 +6281,7 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-
-
-    pt1Filter_t windupLpf[3];
-    uint8_t itermRelax;
-    uint8_t itermRelaxType;
-    uint8_t itermRelaxCutoff;
-
-
-
-    float acCutoff;
-    float acGain;
-    float acLimit;
-    float acErrorLimit;
-    pt1Filter_t acLpf[3];
-    float oldSetpointCorrection[3];
-
-
-
-    biquadFilter_t dMinRange[3];
-    pt1Filter_t dMinLowpass[3];
-    float dMinPercent[3];
-    float dMinGyroGain;
-    float dMinSetpointGain;
-
-
-
-    pt1Filter_t airmodeThrottleLpf1;
-    pt1Filter_t airmodeThrottleLpf2;
-
-
-
+# 343 "./src/main/flight/pid.h"
     pt1Filter_t setpointDerivativePt1[3];
     biquadFilter_t setpointDerivativeBiquad[3];
     
@@ -6321,53 +6291,12 @@ typedef struct pidRuntime_s {
         setpointDerivativeLpfInitialized;
     uint8_t rcSmoothingDebugAxis;
     uint8_t rcSmoothingFilterType;
-
-
-
-    float acroTrainerAngleLimit;
-    float acroTrainerLookaheadTime;
-    uint8_t acroTrainerDebugAxis;
-    float acroTrainerGain;
-    
-# 355 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 355 "./src/main/flight/pid.h"
-        acroTrainerActive;
-    int acroTrainerAxisState[2];
-
-
-
+# 360 "./src/main/flight/pid.h"
     uint8_t dynLpfFilter;
     uint16_t dynLpfMin;
     uint16_t dynLpfMax;
     uint8_t dynLpfCurveExpo;
-
-
-
-    uint8_t launchControlMode;
-    uint8_t launchControlAngleLimit;
-    float launchControlKi;
-
-
-
-    
-# 373 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 373 "./src/main/flight/pid.h"
-        useIntegratedYaw;
-    uint8_t integratedYawRelax;
-
-
-
-    float thrustLinearization;
-    float throttleCompensateAmount;
-
-
-
-    float airmodeThrottleOffsetLimit;
-
-
-
+# 387 "./src/main/flight/pid.h"
     ffInterpolationType_t ffFromInterpolatedSetpoint;
     float ffSmoothFactor;
 
@@ -6419,15 +6348,6 @@ void pidSetAntiGravityState(
 _Bool 
 # 413 "./src/main/flight/pid.h"
     pidAntiGravityEnabled(void);
-
-
-float pidApplyThrustLinearization(float motorValue);
-float pidCompensateThrustLinearization(float throttle);
-
-
-
-void pidUpdateAirmodeLpf(float currentOffset);
-float pidGetAirmodeThrottleOffset();
 # 436 "./src/main/flight/pid.h"
 void dynLpfDTermUpdate(float throttle);
 void pidSetItermReset(
@@ -11030,40 +10950,11 @@ typedef enum {
     TASK_BATTERY_ALERTS,
 
     TASK_BEEPER,
-
-
-    TASK_GPS,
-# 100 "./src/main/scheduler/scheduler.h"
-    TASK_ALTITUDE,
-
-
-
-
-
-    TASK_TELEMETRY,
-
-
+# 109 "./src/main/scheduler/scheduler.h"
     TASK_LEDSTRIP,
 # 118 "./src/main/scheduler/scheduler.h"
     TASK_OSD,
-
-
-
-
-
-    TASK_ESC_SENSOR,
-
-
-    TASK_CMS,
-
-
-    TASK_VTXCTRL,
-
-
-    TASK_CAMCTRL,
-
-
-
+# 137 "./src/main/scheduler/scheduler.h"
     TASK_RCDEVICE,
 
 
@@ -11739,7 +11630,7 @@ float dynThrottle(float throttle);
 void dynLpfGyroUpdate(float throttle);
 
 
-void initYawSpinRecovery(int maxYawRate);
+
 
 
 
@@ -11785,23 +11676,7 @@ static
                                overflowDetected;
 
 static timeUs_t overflowTimeUs;
-
-
-
-static 
-# 74 "./src/main/sensors/gyro.c" 3 4
-                          _Bool 
-# 74 "./src/main/sensors/gyro.c"
-                               yawSpinRecoveryEnabled;
-static int yawSpinRecoveryThreshold;
-static 
-# 76 "./src/main/sensors/gyro.c" 3 4
-                          _Bool 
-# 76 "./src/main/sensors/gyro.c"
-                               yawSpinDetected;
-static timeUs_t yawSpinTimeUs;
-
-
+# 80 "./src/main/sensors/gyro.c"
 static float accumulatedMeasurements[3];
 static float gyroPrevious[3];
 static int accumulatedMeasurementCount;
@@ -12086,69 +11961,13 @@ static void checkForOverflow(timeUs_t currentTimeUs)
                                   ;
             overflowTimeUs = currentTimeUs;
 
-            yawSpinDetected = 
-# 338 "./src/main/sensors/gyro.c" 3 4
-                             0
-# 338 "./src/main/sensors/gyro.c"
-                                  ;
+
 
         }
 
     }
 }
-
-
-
-static void handleYawSpin(timeUs_t currentTimeUs)
-{
-    const float yawSpinResetRate = yawSpinRecoveryThreshold - 100.0f;
-    if (fabsf(gyro.gyroADCf[Z]) < yawSpinResetRate) {
-
-        if (cmpTimeUs(currentTimeUs, yawSpinTimeUs) > 20000) {
-            yawSpinDetected = 
-# 353 "./src/main/sensors/gyro.c" 3 4
-                             0
-# 353 "./src/main/sensors/gyro.c"
-                                  ;
-        }
-    } else {
-
-        yawSpinTimeUs = currentTimeUs;
-    }
-}
-
-static void checkForYawSpin(timeUs_t currentTimeUs)
-{
-
-
-    if (overflowDetected) {
-        yawSpinDetected = 
-# 366 "./src/main/sensors/gyro.c" 3 4
-                         0
-# 366 "./src/main/sensors/gyro.c"
-                              ;
-        return;
-    }
-
-
-    if (yawSpinDetected) {
-        handleYawSpin(currentTimeUs);
-    } else {
-
-
-         if (abs((int)gyro.gyroADCf[Z]) > yawSpinRecoveryThreshold) {
-            yawSpinDetected = 
-# 377 "./src/main/sensors/gyro.c" 3 4
-                             1
-# 377 "./src/main/sensors/gyro.c"
-                                 ;
-            yawSpinTimeUs = currentTimeUs;
-        }
-
-    }
-}
-
-
+# 385 "./src/main/sensors/gyro.c"
 static void gyroUpdateSensor(gyroSensor_t *gyroSensor)
 {
     if (!gyroSensor->gyroDev.readFn(&gyroSensor->gyroDev)) {
@@ -12274,7 +12093,7 @@ static void filterGyro(void)
 
 
 
-        gyroADCf = rpmFilterGyro(axis, gyroADCf);
+
 
 
 
@@ -12358,7 +12177,7 @@ static void filterGyroDebug(void)
 
 
 
-        gyroADCf = rpmFilterGyro(axis, gyroADCf);
+
 
 
 
@@ -12449,14 +12268,7 @@ static void filterGyroDebug(void)
     if (gyroConfig()->checkOverflow && !gyro.gyroHasOverflowProtection) {
         checkForOverflow(currentTimeUs);
     }
-
-
-
-    if (yawSpinRecoveryEnabled) {
-        checkForYawSpin(currentTimeUs);
-    }
-
-
+# 537 "./src/main/sensors/gyro.c"
     if (!overflowDetected) {
         for (int axis = 0; axis < 3; axis++) {
 
@@ -12546,18 +12358,7 @@ _Bool
 
 
 }
-
-
-
-# 612 "./src/main/sensors/gyro.c" 3 4
-_Bool 
-# 612 "./src/main/sensors/gyro.c"
-    gyroYawSpinDetected(void)
-{
-    return yawSpinDetected;
-}
-
-
+# 618 "./src/main/sensors/gyro.c"
 uint16_t gyroAbsRateDps(int axis)
 {
     return fabsf(gyro.gyroADCf[axis]);
@@ -12591,48 +12392,4 @@ void dynLpfGyroUpdate(float throttle)
             }
         }
     }
-}
-
-
-
-void initYawSpinRecovery(int maxYawRate)
-{
-    
-# 657 "./src/main/sensors/gyro.c" 3 4
-   _Bool 
-# 657 "./src/main/sensors/gyro.c"
-        enabledFlag;
-    int threshold;
-
-    switch (gyroConfig()->yaw_spin_recovery) {
-    case YAW_SPIN_RECOVERY_ON:
-        enabledFlag = 
-# 662 "./src/main/sensors/gyro.c" 3 4
-                     1
-# 662 "./src/main/sensors/gyro.c"
-                         ;
-        threshold = gyroConfig()->yaw_spin_threshold;
-        break;
-    case YAW_SPIN_RECOVERY_AUTO:
-        enabledFlag = 
-# 666 "./src/main/sensors/gyro.c" 3 4
-                     1
-# 666 "./src/main/sensors/gyro.c"
-                         ;
-        const int overshootAllowance = __extension__ ({ __typeof__ (maxYawRate / 4) _a = (maxYawRate / 4); __typeof__ (200) _b = (200); _a > _b ? _a : _b; });
-        threshold = constrain(maxYawRate + overshootAllowance, 500, 1950);
-        break;
-    case YAW_SPIN_RECOVERY_OFF:
-    default:
-        enabledFlag = 
-# 672 "./src/main/sensors/gyro.c" 3 4
-                     0
-# 672 "./src/main/sensors/gyro.c"
-                          ;
-        threshold = 1950;
-        break;
-    }
-
-    yawSpinRecoveryEnabled = enabledFlag;
-    yawSpinRecoveryThreshold = threshold;
 }

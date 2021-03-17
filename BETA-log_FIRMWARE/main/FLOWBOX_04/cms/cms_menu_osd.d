@@ -32,17 +32,7 @@ BETA-log_FIRMWARE/main/FLOWBOX_04/cms/cms_menu_osd.o: \
  src/main/target/common_pre.h src/main/target/FLOWBOX_04/target.h \
  src/main/target/common_deprecated_post.h src/main/target/common_post.h \
  src/main/build/version.h src/main/common/utils.h \
- src/main/target/common_defaults_post.h src/main/cli/settings.h \
- src/main/pg/pg.h src/main/build/build_config.h src/main/cms/cms.h \
- src/main/drivers/display.h src/main/common/time.h \
- src/main/cms/cms_types.h src/main/cms/cms_menu_osd.h \
- src/main/config/feature.h src/main/io/displayport_max7456.h \
- src/main/pg/displayport_profiles.h src/main/osd/osd.h \
- src/main/common/unit.h src/main/sensors/esc_sensor.h \
- src/main/osd/osd_elements.h src/main/pg/pg_ids.h \
- src/main/sensors/battery.h src/main/common/filter.h \
- src/main/sensors/current.h src/main/sensors/current_ids.h \
- src/main/sensors/voltage.h src/main/sensors/voltage_ids.h
+ src/main/target/common_defaults_post.h
 
 src/main/ctype.h:
 
@@ -119,47 +109,3 @@ src/main/build/version.h:
 src/main/common/utils.h:
 
 src/main/target/common_defaults_post.h:
-
-src/main/cli/settings.h:
-
-src/main/pg/pg.h:
-
-src/main/build/build_config.h:
-
-src/main/cms/cms.h:
-
-src/main/drivers/display.h:
-
-src/main/common/time.h:
-
-src/main/cms/cms_types.h:
-
-src/main/cms/cms_menu_osd.h:
-
-src/main/config/feature.h:
-
-src/main/io/displayport_max7456.h:
-
-src/main/pg/displayport_profiles.h:
-
-src/main/osd/osd.h:
-
-src/main/common/unit.h:
-
-src/main/sensors/esc_sensor.h:
-
-src/main/osd/osd_elements.h:
-
-src/main/pg/pg_ids.h:
-
-src/main/sensors/battery.h:
-
-src/main/common/filter.h:
-
-src/main/sensors/current.h:
-
-src/main/sensors/current_ids.h:
-
-src/main/sensors/voltage.h:
-
-src/main/sensors/voltage_ids.h:

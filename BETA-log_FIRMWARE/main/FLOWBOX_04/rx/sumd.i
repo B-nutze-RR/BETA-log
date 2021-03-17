@@ -5786,29 +5786,6 @@ void serialPassthrough(serialPort_t *left, serialPort_t *right, serialConsumer *
 # 36 "./src/main/rx/sumd.c" 2
 
 
-# 1 "./src/main/telemetry/telemetry.h" 1
-# 28 "./src/main/telemetry/telemetry.h"
-       
-
-# 1 "./src/main/common/unit.h" 1
-# 21 "./src/main/common/unit.h"
-       
-
-typedef enum {
-    UNIT_IMPERIAL = 0,
-    UNIT_METRIC,
-    UNIT_BRITISH
-} unit_e;
-# 31 "./src/main/telemetry/telemetry.h" 2
-
-
-
-
-
-# 1 "./src/main/rx/rx.h" 1
-# 21 "./src/main/rx/rx.h"
-       
-
 
 
 
@@ -5860,7 +5837,11 @@ typedef struct rxConfig_s {
 } rxConfig_t;
 
 extern rxConfig_t rxConfig_System; extern rxConfig_t rxConfig_Copy; static inline const rxConfig_t* rxConfig(void) { return &rxConfig_System; } static inline rxConfig_t* rxConfigMutable(void) { return &rxConfig_System; } struct _dummy;
-# 27 "./src/main/rx/rx.h" 2
+# 42 "./src/main/rx/sumd.c" 2
+
+# 1 "./src/main/rx/rx.h" 1
+# 21 "./src/main/rx/rx.h"
+       
 # 48 "./src/main/rx/rx.h"
 typedef enum {
     RX_FRAME_PENDING = 0,
@@ -6042,158 +6023,7 @@ void resumeRxPwmPpmSignal(void);
 uint16_t rxGetRefreshRate(void);
 
 timeDelta_t rxGetFrameDelta(timeDelta_t *frameAgeUs);
-# 37 "./src/main/telemetry/telemetry.h" 2
-
-# 1 "./src/main/telemetry/ibus_shared.h" 1
-# 29 "./src/main/telemetry/ibus_shared.h"
-       
-
-
-
-
-
-
-
-typedef enum {
-    IBUS_SENSOR_TYPE_NONE = 0x00,
-    IBUS_SENSOR_TYPE_TEMPERATURE = 0x01,
-    IBUS_SENSOR_TYPE_RPM_FLYSKY = 0x02,
-    IBUS_SENSOR_TYPE_EXTERNAL_VOLTAGE = 0x03,
-    IBUS_SENSOR_TYPE_CELL = 0x04,
-    IBUS_SENSOR_TYPE_BAT_CURR = 0x05,
-    IBUS_SENSOR_TYPE_FUEL = 0x06,
-    IBUS_SENSOR_TYPE_RPM = 0x07,
-    IBUS_SENSOR_TYPE_CMP_HEAD = 0x08,
-    IBUS_SENSOR_TYPE_CLIMB_RATE = 0x09,
-    IBUS_SENSOR_TYPE_COG = 0x0a,
-    IBUS_SENSOR_TYPE_GPS_STATUS = 0x0b,
-    IBUS_SENSOR_TYPE_ACC_X = 0x0c,
-    IBUS_SENSOR_TYPE_ACC_Y = 0x0d,
-    IBUS_SENSOR_TYPE_ACC_Z = 0x0e,
-    IBUS_SENSOR_TYPE_ROLL = 0x0f,
-    IBUS_SENSOR_TYPE_PITCH = 0x10,
-    IBUS_SENSOR_TYPE_YAW = 0x11,
-    IBUS_SENSOR_TYPE_VERTICAL_SPEED = 0x12,
-    IBUS_SENSOR_TYPE_GROUND_SPEED = 0x13,
-    IBUS_SENSOR_TYPE_GPS_DIST = 0x14,
-    IBUS_SENSOR_TYPE_ARMED = 0x15,
-    IBUS_SENSOR_TYPE_FLIGHT_MODE = 0x16,
-    IBUS_SENSOR_TYPE_PRES = 0x41,
-    IBUS_SENSOR_TYPE_ODO1 = 0x7c,
-    IBUS_SENSOR_TYPE_ODO2 = 0x7d,
-    IBUS_SENSOR_TYPE_SPE = 0x7e,
-
-    IBUS_SENSOR_TYPE_GPS_LAT = 0x80,
-    IBUS_SENSOR_TYPE_GPS_LON = 0x81,
-    IBUS_SENSOR_TYPE_GPS_ALT = 0x82,
-    IBUS_SENSOR_TYPE_ALT = 0x83,
-    IBUS_SENSOR_TYPE_ALT_MAX = 0x84,
-
-    IBUS_SENSOR_TYPE_ALT_FLYSKY = 0xf9,
-
-    IBUS_SENSOR_TYPE_GPS_FULL = 0xfd,
-    IBUS_SENSOR_TYPE_VOLT_FULL = 0xf0,
-    IBUS_SENSOR_TYPE_ACC_FULL = 0xef,
-
-    IBUS_SENSOR_TYPE_UNKNOWN = 0xff
-} ibusSensorType_e;
-
-
-
-uint8_t respondToIbusRequest(uint8_t const * const ibusPacket);
-void initSharedIbusTelemetry(serialPort_t * port);
-
-
-
-
-
-# 89 "./src/main/telemetry/ibus_shared.h" 3 4
-_Bool 
-# 89 "./src/main/telemetry/ibus_shared.h"
-    isChecksumOkIa6b(const uint8_t *ibusPacket, const uint8_t length);
-# 39 "./src/main/telemetry/telemetry.h" 2
-
-typedef enum {
-    FRSKY_FORMAT_DMS = 0,
-    FRSKY_FORMAT_NMEA
-} frskyGpsCoordFormat_e;
-
-typedef enum {
-    SENSOR_VOLTAGE = 1 << 0,
-    SENSOR_CURRENT = 1 << 1,
-    SENSOR_FUEL = 1 << 2,
-    SENSOR_MODE = 1 << 3,
-    SENSOR_ACC_X = 1 << 4,
-    SENSOR_ACC_Y = 1 << 5,
-    SENSOR_ACC_Z = 1 << 6,
-    SENSOR_PITCH = 1 << 7,
-    SENSOR_ROLL = 1 << 8,
-    SENSOR_HEADING = 1 << 9,
-    SENSOR_ALTITUDE = 1 << 10,
-    SENSOR_VARIO = 1 << 11,
-    SENSOR_LAT_LONG = 1 << 12,
-    SENSOR_GROUND_SPEED = 1 << 13,
-    SENSOR_DISTANCE = 1 << 14,
-    ESC_SENSOR_CURRENT = 1 << 15,
-    ESC_SENSOR_VOLTAGE = 1 << 16,
-    ESC_SENSOR_RPM = 1 << 17,
-    ESC_SENSOR_TEMPERATURE = 1 << 18,
-    ESC_SENSOR_ALL = ESC_SENSOR_CURRENT
-                            | ESC_SENSOR_VOLTAGE
-                            | ESC_SENSOR_RPM
-                            | ESC_SENSOR_TEMPERATURE,
-    SENSOR_TEMPERATURE = 1 << 19,
-    SENSOR_CAP_USED = 1 << 20,
-    SENSOR_ALL = (1 << 21) - 1,
-} sensor_e;
-
-typedef struct telemetryConfig_s {
-    int16_t gpsNoFixLatitude;
-    int16_t gpsNoFixLongitude;
-    uint8_t telemetry_inverted;
-    uint8_t halfDuplex;
-    uint8_t frsky_coordinate_format;
-    uint8_t frsky_unit;
-    uint8_t frsky_vfas_precision;
-    uint8_t hottAlarmSoundInterval;
-    uint8_t pidValuesAsTelemetry;
-    uint8_t report_cell_voltage;
-    uint8_t flysky_sensors[15];
-    uint16_t mavlink_mah_as_heading_divisor;
-    uint32_t disabledSensors;
-} telemetryConfig_t;
-
-extern telemetryConfig_t telemetryConfig_System; extern telemetryConfig_t telemetryConfig_Copy; static inline const telemetryConfig_t* telemetryConfig(void) { return &telemetryConfig_System; } static inline telemetryConfig_t* telemetryConfigMutable(void) { return &telemetryConfig_System; } struct _dummy;
-
-extern serialPort_t *telemetrySharedPort;
-
-void telemetryInit(void);
-
-# 95 "./src/main/telemetry/telemetry.h" 3 4
-_Bool 
-# 95 "./src/main/telemetry/telemetry.h"
-    telemetryCheckRxPortShared(const serialPortConfig_t *portConfig, const SerialRXType serialrxProvider);
-
-void telemetryCheckState(void);
-void telemetryProcess(uint32_t currentTime);
-
-
-# 100 "./src/main/telemetry/telemetry.h" 3 4
-_Bool 
-# 100 "./src/main/telemetry/telemetry.h"
-    telemetryDetermineEnabledState(portSharing_e portSharing);
-
-
-# 102 "./src/main/telemetry/telemetry.h" 3 4
-_Bool 
-# 102 "./src/main/telemetry/telemetry.h"
-    telemetryIsSensorEnabled(sensor_e sensor);
-# 39 "./src/main/rx/sumd.c" 2
-
-
-
-
-
+# 44 "./src/main/rx/sumd.c" 2
 # 1 "./src/main/rx/sumd.h" 1
 # 21 "./src/main/rx/sumd.h"
        
@@ -6354,13 +6184,17 @@ _Bool
     }
 
 
+
+
     
-# 193 "./src/main/rx/sumd.c" 3 4
+# 195 "./src/main/rx/sumd.c" 3 4
    _Bool 
-# 193 "./src/main/rx/sumd.c"
-        portShared = telemetryCheckRxPortShared(portConfig, rxRuntimeState->serialrxProvider);
-
-
+# 195 "./src/main/rx/sumd.c"
+        portShared = 
+# 195 "./src/main/rx/sumd.c" 3 4
+                     0
+# 195 "./src/main/rx/sumd.c"
+                          ;
 
 
     serialPort_t *sumdPort = openSerialPort(portConfig->identifier,
@@ -6377,9 +6211,9 @@ _Bool
         );
 
 
-    if (portShared) {
-        telemetrySharedPort = sumdPort;
-    }
+
+
+
 
 
     return sumdPort != 

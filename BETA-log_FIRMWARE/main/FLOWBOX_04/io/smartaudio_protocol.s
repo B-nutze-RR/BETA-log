@@ -9,17 +9,17 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"smartaudio_protocol.c"
-	.section	.gnu.lto_.profile.415f71d8,"e",%progbits
+	.section	.gnu.lto_.profile.41a3ef96,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.415f71d8,"e",%progbits
+	.section	.gnu.lto_.icf.41a3ef96,"e",%progbits
 	.ascii	"x\234\343``d\260c@\000.\206\011s\257\36422^~~\260\203"
 	.ascii	"\207\351\327\303\345\217\030\231\177\254\377\333\311"
 	.ascii	"\301\362\343\350\251%|\254g\017\\\273\314\307\366\267"
 	.ascii	"o\346Mf\366G\377\216o\344\341x\335\262y!\017\347\277"
 	.ascii	"\356}\037y\031\000\347\027\037\254"
 	.text
-	.section	.gnu.lto_.jmpfuncs.415f71d8,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41a3ef96,"e",%progbits
 	.ascii	"x\234\235\222=\012\302@\020\205\347\355n6?\205\036 "
 	.ascii	"w\325\302>`\025,$\235\2157\320\370Sz\006A\013\321\306"
 	.ascii	"&`/:\233\304\260\321 \253\003\3032\303{\0373\313\004"
@@ -34,7 +34,7 @@
 	.ascii	":\015\315\3225bn\335w\363}T\265X\264\341\241\236\035"
 	.ascii	"\352\261\372"
 	.text
-	.section	.gnu.lto_.inline.415f71d8,"e",%progbits
+	.section	.gnu.lto_.inline.41a3ef96,"e",%progbits
 	.ascii	"x\234\225T\275k\024Q\020\237\231\367\366\362\356+>\024"
 	.ascii	"\364 \012[Z\212\225\205\305\225V\207\245\235\361\022"
 	.ascii	"\2232\376\005\262\236\020\020$,6V\232\210i.\250\004"
@@ -69,12 +69,12 @@
 	.ascii	"l\354\273W\\m\350f\337\360u3\374\215\370\014\242q\222"
 	.ascii	"\277\231%\"1"
 	.text
-	.section	.gnu.lto_.pureconst.415f71d8,"e",%progbits
+	.section	.gnu.lto_.pureconst.41a3ef96,"e",%progbits
 	.ascii	"x\234\005\301\211\001\000\020\000\304\260C\275K\230"
 	.ascii	"[\247\225\254\224\334$'R\244J\023\244\313\220)K\366"
 	.ascii	"\343\003hf\006\213"
 	.text
-	.section	.gnu.lto_smartaudioUnpackOperationMode.part.0.415f71d8,"e",%progbits
+	.section	.gnu.lto_smartaudioUnpackOperationMode.part.0.41a3ef96,"e",%progbits
 	.ascii	"x\234\225\223\337K\024Q\024\307\357w\356\354\316\354"
 	.ascii	"nJ\364$-D\017\305\342K\032\321K\017\341c/\365\320?\020"
 	.ascii	"\242K,\244#\356\366\354\250\304\222Z\032dj\270\254$"
@@ -119,7 +119,7 @@
 	.ascii	"z\277S\031\335\230K\037\214\306k\234\352x\364\017\220"
 	.ascii	":\244\004"
 	.text
-	.section	.gnu.lto_smartaudioUnpackSettings.415f71d8,"e",%progbits
+	.section	.gnu.lto_smartaudioUnpackSettings.41a3ef96,"e",%progbits
 	.ascii	"x\234\225T[O\023Q\020>\263\263\273]\332\002\361A\037"
 	.ascii	"$&$\222\020^\240/\276\373\344\3370\004/!\021jh\365\325"
 	.ascii	"\323\226\204 \0065A\020c)\201 \352\003j\320\310MY\360"
@@ -166,7 +166,7 @@
 	.ascii	"@X\201\275\301`a\361\376\200\261\257$\277h\357oa#\264"
 	.ascii	"\353"
 	.text
-	.section	.gnu.lto_smartaudioParseResponseBuffer.part.0.415f71d8,"e",%progbits
+	.section	.gnu.lto_smartaudioParseResponseBuffer.part.0.41a3ef96,"e",%progbits
 	.ascii	"x\234\255\230kP\024W\026\307\373\364\235\351\351\236"
 	.ascii	"\007\250\270\254\011_\254\212\026EmE\250\332\252$\237"
 	.ascii	"\266R\265U[\373a?X\373a\277n\021\305\204*\225\024`\325"
@@ -292,7 +292,7 @@
 	.ascii	"\375K\332\306\217\263?\211]\267i\375\372?e\246nH\023"
 	.ascii	"\317\212\260\261e\246e}\372_\214\277\034\313"
 	.text
-	.section	.gnu.lto_smartaudioFrameGetSettings.415f71d8,"e",%progbits
+	.section	.gnu.lto_smartaudioFrameGetSettings.41a3ef96,"e",%progbits
 	.ascii	"x\234\225\222\313k\023Q\024\306\3577w2\231\304&\356"
 	.ascii	"t\221\012]\024B7IV\256]\3717\210\033\011\321E\3044\222"
 	.ascii	"\326uo\246A\321H\244\240\244-\304I\221TQ\360\001Y\370"
@@ -326,7 +326,7 @@
 	.ascii	"\037=u4\236<r2\225\354O\306\222'B1\266\373O\372`*\232"
 	.ascii	"8\366\013\355\355\030("
 	.text
-	.section	.gnu.lto_smartaudioFrameGetPitmodeFrequency.415f71d8,"e",%progbits
+	.section	.gnu.lto_smartaudioFrameGetPitmodeFrequency.41a3ef96,"e",%progbits
 	.ascii	"x\234\225\223\337K\223Q\030\307\317\367\234\355\335"
 	.ascii	"\273\345\364\256.\226\340\2050\354\302y\325uW\375\015"
 	.ascii	"\321M\214\325\205\321\\L\273\366\354u$\266pA\205\032"
@@ -362,7 +362,7 @@
 	.ascii	"i\215G\223m\321\013\247\233\023\247\316'\023m\211X\342"
 	.ascii	"\\c\214\325\374]>\236\214\306\317\374\006Xg8\273"
 	.text
-	.section	.gnu.lto_smartaudioFrameSetPower.415f71d8,"e",%progbits
+	.section	.gnu.lto_smartaudioFrameSetPower.41a3ef96,"e",%progbits
 	.ascii	"x\234\225S\313O\023A\030\237\337\316v\331\002\205\233"
 	.ascii	"&V\015\007\222\006\017\264\211\007/\036<\3717\030/\246"
 	.ascii	"A\0165BI\301xd\272T\015b\2501\032\012I\335\032\255h"
@@ -400,7 +400,7 @@
 	.ascii	"8\032\211\036\251\213E\033\242U\321\343\225U\254\364"
 	.ascii	"o\373`,\\S\355\251\213\236\254\216\375\006\226tII"
 	.text
-	.section	.gnu.lto_smartaudioFrameSetBandChannel.415f71d8,"e",%progbits
+	.section	.gnu.lto_smartaudioFrameSetBandChannel.41a3ef96,"e",%progbits
 	.ascii	"x\234\225SKO\023Q\024\276\337\334\351\264E\212\033\243"
 	.ascii	"\213J\302\202\244\342\2026q\341\306\205\211\306\370"
 	.ascii	"\023\214\033S\013\211\030hM\3015\323\322@\000E\0275"
@@ -442,7 +442,7 @@
 	.ascii	"\225\026z\330\316?\355c~wY\261z\332\355-2{\316\270\275"
 	.ascii	"\336\342\322\337\250\277p\313"
 	.text
-	.section	.gnu.lto_smartaudioFrameSetFrequency.415f71d8,"e",%progbits
+	.section	.gnu.lto_smartaudioFrameSetFrequency.41a3ef96,"e",%progbits
 	.ascii	"x\234\225RMLTW\024\276\337\275\357\275y\363\203\242"
 	.ascii	"1m\322qAR\023B\027B\342\302\205\033\273q\337t\323t\323"
 	.ascii	"\020\304\204\2460v\304EW^\206\211D\307X\322`\001\233"
@@ -493,7 +493,7 @@
 	.ascii	"\323\353\262\365\315\215\361\015\331\306o77\2664|W\271"
 	.ascii	"\261\251\2659\263\276q\335\\\342\035],\300s"
 	.text
-	.section	.gnu.lto_smartaudioFrameSetOperationMode.415f71d8,"e",%progbits
+	.section	.gnu.lto_smartaudioFrameSetOperationMode.41a3ef96,"e",%progbits
 	.ascii	"x\234\225\225]L\024W\024\307\357\177\356\314\260_\303"
 	.ascii	"\362%h\266$<H\210\225\300&}\350[\303S\337|o\372\322"
 	.ascii	"l\2204\333\024\326\300\366\331a!\030KcI#\021L\267CB"
@@ -552,7 +552,7 @@
 	.ascii	"\267Y\211]M\255\261d<\321\262#\261\263\351?\214\037"
 	.ascii	"Th"
 	.text
-	.section	.gnu.lto_smartaudioParseResponseBuffer.415f71d8,"e",%progbits
+	.section	.gnu.lto_smartaudioParseResponseBuffer.41a3ef96,"e",%progbits
 	.ascii	"x\234\225T]L\\E\024\236\357\236{\357\336\205]\360'\032"
 	.ascii	"\224\027\222\226\220\332\244\220\370\340[\343\223O5"
 	.ascii	"i|\361\321\254\354\322\222\000k\226\345\301\247\316"
@@ -607,7 +607,7 @@
 	.ascii	"\350\256X\323\236\344\336\322\272\226\206\206\327\022"
 	.ascii	"\221\306\230\211\377\005\372\240\246\255"
 	.text
-	.section	.gnu.lto_.symbol_nodes.415f71d8,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41a3ef96,"e",%progbits
 	.ascii	"x\234u\320=\216\302@\014\005\340\367\306a&\011\207\200"
 	.ascii	"\243\300\311\034\241\364\260\374\323\006\212]\211\013"
 	.ascii	"\260]\3124\013'\240\242\334\003\354V\374\016\011\024"
@@ -621,10 +621,10 @@
 	.ascii	"\217\253r+\211\331\037\377>\311\201\303\005\240\025"
 	.ascii	"u\231"
 	.text
-	.section	.gnu.lto_.refs.415f71d8,"e",%progbits
+	.section	.gnu.lto_.refs.41a3ef96,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.415f71d8,"e",%progbits
+	.section	.gnu.lto_.decls.41a3ef96,"e",%progbits
 	.ascii	"x\234\265Z{TTG\232\277u\253\273\241[\004\023\315\304"
 	.ascii	"\211f\342:\356$\273;\343c\222I\234srv\262\311\311Lr"
 	.ascii	"\316\354\304\311\236\2349\263\363\007K\240\215\234\225"
@@ -883,7 +883,7 @@
 	.ascii	"e\001_\344\232\2013\334\263\314\325\004\370ep ok\225"
 	.ascii	"\266P\376\027\2109LJ"
 	.text
-	.section	.gnu.lto_.symtab.415f71d8,"e",%progbits
+	.section	.gnu.lto_.symtab.41a3ef96,"e",%progbits
 	.ascii	"smartaudioFrameGetSettings\000"
 	.ascii	"\000"
 	.ascii	"\000"

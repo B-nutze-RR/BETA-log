@@ -6215,14 +6215,7 @@ timeDelta_t ticks_diff_us(uint32_t begin, uint32_t end);
 # 1 "./src/main/fc/core.h" 1
 # 21 "./src/main/fc/core.h"
        
-
-
-
-
-
-extern int16_t magHold;
-
-
+# 30 "./src/main/fc/core.h"
 typedef struct throttleCorrectionConfig_s {
     uint16_t throttle_correction_angle;
     uint8_t throttle_correction_value;
@@ -6258,7 +6251,7 @@ typedef enum {
 
 
 
-extern const char * const osdLaunchControlModeNames[LAUNCH_CONTROL_MODE_COUNT];
+
 
 
 extern throttleCorrectionConfig_t throttleCorrectionConfig_System; extern throttleCorrectionConfig_t throttleCorrectionConfig_Copy; static inline const throttleCorrectionConfig_t* throttleCorrectionConfig(void) { return &throttleCorrectionConfig_System; } static inline throttleCorrectionConfig_t* throttleCorrectionConfigMutable(void) { return &throttleCorrectionConfig_System; } struct _dummy;
@@ -6890,7 +6883,7 @@ typedef enum {
     FAILSAFE_PROCEDURE_AUTO_LANDING = 0,
     FAILSAFE_PROCEDURE_DROP_IT,
 
-    FAILSAFE_PROCEDURE_GPS_RESCUE,
+
 
     FAILSAFE_PROCEDURE_COUNT
 } failsafeProcedure_e;
@@ -7841,13 +7834,9 @@ timeMs_t motorGetMotorEnableTimeMs(void);
 void motorShutdown(void);
 
 
-struct motorDevConfig_s;
-typedef struct motorDevConfig_s motorDevConfig_t;
 
-# 102 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 102 "./src/main/drivers/motor.h"
-    isDshotBitbangActive(const motorDevConfig_t *motorConfig);
+
+
 
 
 float getDigitalIdleOffset(const motorConfig_t *motorConfig);
@@ -8192,7 +8181,7 @@ typedef struct pidProfile_s {
     uint8_t simplified_dterm_filter_multiplier;
 } pidProfile_t;
 
-extern pidProfile_t pidProfiles_SystemArray[3]; extern pidProfile_t pidProfiles_CopyArray[3]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[3] { return &pidProfiles_SystemArray; } struct _dummy;
+extern pidProfile_t pidProfiles_SystemArray[1]; extern pidProfile_t pidProfiles_CopyArray[1]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[1] { return &pidProfiles_SystemArray; } struct _dummy;
 
 typedef struct pidConfig_s {
     uint8_t pid_process_denom;
@@ -8298,37 +8287,7 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-
-
-    pt1Filter_t windupLpf[3];
-    uint8_t itermRelax;
-    uint8_t itermRelaxType;
-    uint8_t itermRelaxCutoff;
-
-
-
-    float acCutoff;
-    float acGain;
-    float acLimit;
-    float acErrorLimit;
-    pt1Filter_t acLpf[3];
-    float oldSetpointCorrection[3];
-
-
-
-    biquadFilter_t dMinRange[3];
-    pt1Filter_t dMinLowpass[3];
-    float dMinPercent[3];
-    float dMinGyroGain;
-    float dMinSetpointGain;
-
-
-
-    pt1Filter_t airmodeThrottleLpf1;
-    pt1Filter_t airmodeThrottleLpf2;
-
-
-
+# 343 "./src/main/flight/pid.h"
     pt1Filter_t setpointDerivativePt1[3];
     biquadFilter_t setpointDerivativeBiquad[3];
     
@@ -8338,53 +8297,12 @@ typedef struct pidRuntime_s {
         setpointDerivativeLpfInitialized;
     uint8_t rcSmoothingDebugAxis;
     uint8_t rcSmoothingFilterType;
-
-
-
-    float acroTrainerAngleLimit;
-    float acroTrainerLookaheadTime;
-    uint8_t acroTrainerDebugAxis;
-    float acroTrainerGain;
-    
-# 355 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 355 "./src/main/flight/pid.h"
-        acroTrainerActive;
-    int acroTrainerAxisState[2];
-
-
-
+# 360 "./src/main/flight/pid.h"
     uint8_t dynLpfFilter;
     uint16_t dynLpfMin;
     uint16_t dynLpfMax;
     uint8_t dynLpfCurveExpo;
-
-
-
-    uint8_t launchControlMode;
-    uint8_t launchControlAngleLimit;
-    float launchControlKi;
-
-
-
-    
-# 373 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 373 "./src/main/flight/pid.h"
-        useIntegratedYaw;
-    uint8_t integratedYawRelax;
-
-
-
-    float thrustLinearization;
-    float throttleCompensateAmount;
-
-
-
-    float airmodeThrottleOffsetLimit;
-
-
-
+# 387 "./src/main/flight/pid.h"
     ffInterpolationType_t ffFromInterpolatedSetpoint;
     float ffSmoothFactor;
 
@@ -8436,15 +8354,6 @@ void pidSetAntiGravityState(
 _Bool 
 # 413 "./src/main/flight/pid.h"
     pidAntiGravityEnabled(void);
-
-
-float pidApplyThrustLinearization(float motorValue);
-float pidCompensateThrustLinearization(float throttle);
-
-
-
-void pidUpdateAirmodeLpf(float currentOffset);
-float pidGetAirmodeThrottleOffset();
 # 436 "./src/main/flight/pid.h"
 void dynLpfDTermUpdate(float throttle);
 void pidSetItermReset(
@@ -8808,7 +8717,7 @@ extern timeUs_t osdFlyTime;
 extern float osdGForce;
 
 
-extern escSensorData_t *osdEscDataCombined;
+
 
 
 void osdInit(displayPort_t *osdDisplayPort, osdDisplayPortDevice_e displayPortDevice);
@@ -10375,22 +10284,7 @@ void renderOsdWarning(char *warningText,
             armingDisabledUpdateTimeUs = 0;
         }
     }
-
-
-    if (isTryingToArm() && !(armingFlags & (ARMED))) {
-        int armingDelayTime = (getLastDshotBeaconCommandTimeUs() + 1200000 - currentTimeUs) / 1e5;
-        if (armingDelayTime < 0) {
-            armingDelayTime = 0;
-        }
-        if (armingDelayTime >= (1200000 / 1e5 - 5)) {
-            tfp_sprintf(warningText, " BEACON ON");
-        } else {
-            tfp_sprintf(warningText, "ARM IN %d.%d", armingDelayTime / 10, armingDelayTime % 10);
-        }
-        *displayAttr = DISPLAYPORT_ATTR_INFO;
-        return;
-    }
-
+# 127 "./src/main/osd/osd_warnings.c"
     if (osdWarnGetState(OSD_WARNING_FAIL_SAFE) && failsafeIsActive()) {
         tfp_sprintf(warningText, "FAIL SAFE");
         *displayAttr = DISPLAYPORT_ATTR_CRITICAL;
@@ -10408,35 +10302,7 @@ void renderOsdWarning(char *warningText,
         *displayAttr = DISPLAYPORT_ATTR_INFO;
         return;
     }
-
-
-
-    if (osdWarnGetState(OSD_WARNING_LAUNCH_CONTROL) && isLaunchControlActive()) {
-
-        if (sensors(SENSOR_ACC)) {
-            const int pitchAngle = constrain((attitude.raw[FD_PITCH] - accelerometerConfig()->accelerometerTrims.raw[FD_PITCH]) / 10, -90, 90);
-            tfp_sprintf(warningText, "LAUNCH %d", pitchAngle);
-        } else
-
-        {
-            tfp_sprintf(warningText, "LAUNCH");
-        }
-
-
-        if ( calculateThrottlePercent() >= __extension__ ({ __typeof__ (currentPidProfile->launchControlThrottlePercent - 10) _a = (currentPidProfile->launchControlThrottlePercent - 10); __typeof__ (0) _b = (0); _a > _b ? _a : _b; })) {
-            *blinking = 
-# 156 "./src/main/osd/osd_warnings.c" 3 4
-                       1
-# 156 "./src/main/osd/osd_warnings.c"
-                           ;;
-        }
-
-        *displayAttr = DISPLAYPORT_ATTR_INFO;
-        return;
-    }
-
-
-
+# 165 "./src/main/osd/osd_warnings.c"
     if (osdWarnGetState(OSD_WARNING_RSSI) && (getRssiPercent() < osdConfig()->rssi_alarm)) {
         tfp_sprintf(warningText, "RSSI LOW");
         *displayAttr = DISPLAYPORT_ATTR_WARNING;
@@ -10485,44 +10351,7 @@ void renderOsdWarning(char *warningText,
                        ;;
         return;
     }
-
-
-    if (osdWarnGetState(OSD_WARNING_GPS_RESCUE_UNAVAILABLE) &&
-       (armingFlags & (ARMED)) &&
-       gpsRescueIsConfigured() &&
-       !gpsRescueIsDisabled() &&
-       !gpsRescueIsAvailable()) {
-        tfp_sprintf(warningText, "RESCUE N/A");
-        *displayAttr = DISPLAYPORT_ATTR_WARNING;
-        *blinking = 
-# 206 "./src/main/osd/osd_warnings.c" 3 4
-                   1
-# 206 "./src/main/osd/osd_warnings.c"
-                       ;;
-        return;
-    }
-
-    if (osdWarnGetState(OSD_WARNING_GPS_RESCUE_DISABLED) &&
-       (armingFlags & (ARMED)) &&
-       gpsRescueIsConfigured() &&
-       gpsRescueIsDisabled()) {
-
-        statistic_t *stats = osdGetStats();
-        if (cmpTimeUs(stats->armed_time, 3000000) < 0) {
-            tfp_sprintf(warningText, "RESCUE OFF");
-            *displayAttr = DISPLAYPORT_ATTR_WARNING;
-            *blinking = 
-# 219 "./src/main/osd/osd_warnings.c" 3 4
-                       1
-# 219 "./src/main/osd/osd_warnings.c"
-                           ;;
-            return;
-        }
-    }
-
-
-
-
+# 227 "./src/main/osd/osd_warnings.c"
     if ((flightModeFlags & (HEADFREE_MODE))) {
         tfp_sprintf(warningText, "HEADFREE");
         *displayAttr = DISPLAYPORT_ATTR_WARNING;
@@ -10546,69 +10375,7 @@ void renderOsdWarning(char *warningText,
                        ;;
         return;
     }
-
-
-
-
-    if (featureIsEnabled(FEATURE_ESC_SENSOR) && osdWarnGetState(OSD_WARNING_ESC_FAIL)) {
-        char escWarningMsg[(12 + 1)];
-        unsigned pos = 0;
-
-        const char *title = "ESC";
-
-
-        while (pos < (12 - (strlen(title) + getMotorCount())) / 2) {
-            escWarningMsg[pos++] = ' ';
-        }
-
-        strcpy(escWarningMsg + pos, title);
-        pos += strlen(title);
-
-        unsigned i = 0;
-        unsigned escWarningCount = 0;
-        while (i < getMotorCount() && pos < (12 + 1) - 1) {
-            escSensorData_t *escData = getEscSensorData(i);
-            const char motorNumber = '1' + i;
-
-            char warnFlag = motorNumber;
-            if ((armingFlags & (ARMED)) && osdConfig()->esc_rpm_alarm != -1 && calcEscRpm(escData->rpm) <= osdConfig()->esc_rpm_alarm) {
-                warnFlag = 'R';
-            }
-            if (osdConfig()->esc_temp_alarm != 
-# 270 "./src/main/osd/osd_warnings.c" 3 4
-                                              (-0x7f - 1) 
-# 270 "./src/main/osd/osd_warnings.c"
-                                                                 && escData->temperature >= osdConfig()->esc_temp_alarm) {
-                warnFlag = 'T';
-            }
-            if ((armingFlags & (ARMED)) && osdConfig()->esc_current_alarm != -1 && escData->current >= osdConfig()->esc_current_alarm) {
-                warnFlag = 'C';
-            }
-
-            escWarningMsg[pos++] = warnFlag;
-
-            if (warnFlag != motorNumber) {
-                escWarningCount++;
-            }
-
-            i++;
-        }
-
-        escWarningMsg[pos] = '\0';
-
-        if (escWarningCount > 0) {
-            tfp_sprintf(warningText, "%s", escWarningMsg);
-            *displayAttr = DISPLAYPORT_ATTR_WARNING;
-            *blinking = 
-# 291 "./src/main/osd/osd_warnings.c" 3 4
-                       1
-# 291 "./src/main/osd/osd_warnings.c"
-                           ;;
-            return;
-        }
-    }
-
-
+# 297 "./src/main/osd/osd_warnings.c"
     if (osdWarnGetState(OSD_WARNING_BATTERY_WARNING) && batteryState == BATTERY_WARNING) {
         tfp_sprintf(warningText, "LOW BATTERY");
         *displayAttr = DISPLAYPORT_ATTR_WARNING;

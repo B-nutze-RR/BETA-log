@@ -32,23 +32,7 @@ BETA-log_FIRMWARE/main/FLOWBOX_04/cms/cms_menu_firmware.o: \
  src/main/target/common_pre.h src/main/target/FLOWBOX_04/target.h \
  src/main/target/common_deprecated_post.h src/main/target/common_post.h \
  src/main/build/version.h src/main/common/utils.h \
- src/main/target/common_defaults_post.h src/main/cms/cms.h \
- src/main/drivers/display.h src/main/common/time.h src/main/pg/pg.h \
- src/main/build/build_config.h src/main/cms/cms_types.h \
- src/main/common/printf.h src/main/config/config.h \
- src/main/drivers/system.h src/main/fc/board_info.h \
- src/main/fc/runtime_config.h src/main/pg/board.h \
- src/main/sensors/acceleration.h src/main/drivers/accgyro/accgyro.h \
- src/main/common/axis.h src/main/common/maths.h \
- src/main/common/sensor_alignment.h src/main/drivers/exti.h \
- src/main/drivers/io_types.h src/main/drivers/bus.h \
- src/main/drivers/bus_i2c.h src/main/drivers/rcc_types.h \
- src/main/drivers/sensor.h src/main/drivers/accgyro/accgyro_mpu.h \
- src/main/sensors/sensors.h src/main/sensors/barometer.h \
- src/main/drivers/barometer/barometer.h src/main/sensors/gyro.h \
- src/main/common/filter.h src/main/flight/gyroanalyse.h \
- lib/main/CMSIS/DSP/Include/arm_math.h src/main/flight/pid.h \
- src/main/cms/cms_menu_firmware.h
+ src/main/target/common_defaults_post.h
 
 src/main/ctype.h:
 
@@ -125,69 +109,3 @@ src/main/build/version.h:
 src/main/common/utils.h:
 
 src/main/target/common_defaults_post.h:
-
-src/main/cms/cms.h:
-
-src/main/drivers/display.h:
-
-src/main/common/time.h:
-
-src/main/pg/pg.h:
-
-src/main/build/build_config.h:
-
-src/main/cms/cms_types.h:
-
-src/main/common/printf.h:
-
-src/main/config/config.h:
-
-src/main/drivers/system.h:
-
-src/main/fc/board_info.h:
-
-src/main/fc/runtime_config.h:
-
-src/main/pg/board.h:
-
-src/main/sensors/acceleration.h:
-
-src/main/drivers/accgyro/accgyro.h:
-
-src/main/common/axis.h:
-
-src/main/common/maths.h:
-
-src/main/common/sensor_alignment.h:
-
-src/main/drivers/exti.h:
-
-src/main/drivers/io_types.h:
-
-src/main/drivers/bus.h:
-
-src/main/drivers/bus_i2c.h:
-
-src/main/drivers/rcc_types.h:
-
-src/main/drivers/sensor.h:
-
-src/main/drivers/accgyro/accgyro_mpu.h:
-
-src/main/sensors/sensors.h:
-
-src/main/sensors/barometer.h:
-
-src/main/drivers/barometer/barometer.h:
-
-src/main/sensors/gyro.h:
-
-src/main/common/filter.h:
-
-src/main/flight/gyroanalyse.h:
-
-lib/main/CMSIS/DSP/Include/arm_math.h:
-
-src/main/flight/pid.h:
-
-src/main/cms/cms_menu_firmware.h:

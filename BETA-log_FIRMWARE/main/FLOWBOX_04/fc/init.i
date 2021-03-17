@@ -8226,13 +8226,9 @@ timeMs_t motorGetMotorEnableTimeMs(void);
 void motorShutdown(void);
 
 
-struct motorDevConfig_s;
-typedef struct motorDevConfig_s motorDevConfig_t;
 
-# 102 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 102 "./src/main/drivers/motor.h"
-    isDshotBitbangActive(const motorDevConfig_t *motorConfig);
+
+
 
 
 float getDigitalIdleOffset(const motorConfig_t *motorConfig);
@@ -8927,23 +8923,27 @@ void vtxTableConfigClearPowerValues(struct vtxTableConfig_s *config, int start);
 void vtxTableConfigClearPowerLabels(struct vtxTableConfig_s *config, int start);
 void vtxTableConfigClearChannels(struct vtxTableConfig_s *config, int band, int channels);
 
-
+void vtxTableSetFactoryBands(
+# 62 "./src/main/drivers/vtx_table.h" 3 4
+                            _Bool 
+# 62 "./src/main/drivers/vtx_table.h"
+                                 isFactory);
 
 
 extern int vtxTableBandCount;
 extern int vtxTableChannelCount;
-extern uint16_t vtxTableFrequency[8][8];
-extern const char *vtxTableBandNames[8 + 1];
-extern char vtxTableBandLetters[8 + 1];
+extern uint16_t vtxTableFrequency[5][8];
+extern const char *vtxTableBandNames[5 + 1];
+extern char vtxTableBandLetters[5 + 1];
 extern const char *vtxTableChannelNames[8 + 1];
 extern 
 # 71 "./src/main/drivers/vtx_table.h" 3 4
       _Bool 
 # 71 "./src/main/drivers/vtx_table.h"
-                     vtxTableIsFactoryBand[8];
+                     vtxTableIsFactoryBand[5];
 extern int vtxTablePowerLevels;
-extern uint16_t vtxTablePowerValues[8];
-extern const char *vtxTablePowerLabels[8 + 1];
+extern uint16_t vtxTablePowerValues[5];
+extern const char *vtxTablePowerLabels[5 + 1];
 # 85 "./src/main/fc/init.c" 2
 
 # 1 "./src/main/fc/board_info.h" 1
@@ -9434,40 +9434,11 @@ typedef enum {
     TASK_BATTERY_ALERTS,
 
     TASK_BEEPER,
-
-
-    TASK_GPS,
-# 100 "./src/main/scheduler/scheduler.h"
-    TASK_ALTITUDE,
-
-
-
-
-
-    TASK_TELEMETRY,
-
-
+# 109 "./src/main/scheduler/scheduler.h"
     TASK_LEDSTRIP,
 # 118 "./src/main/scheduler/scheduler.h"
     TASK_OSD,
-
-
-
-
-
-    TASK_ESC_SENSOR,
-
-
-    TASK_CMS,
-
-
-    TASK_VTXCTRL,
-
-
-    TASK_CAMCTRL,
-
-
-
+# 137 "./src/main/scheduler/scheduler.h"
     TASK_RCDEVICE,
 
 
@@ -9591,7 +9562,7 @@ typedef enum {
     FAILSAFE_PROCEDURE_AUTO_LANDING = 0,
     FAILSAFE_PROCEDURE_DROP_IT,
 
-    FAILSAFE_PROCEDURE_GPS_RESCUE,
+
 
     FAILSAFE_PROCEDURE_COUNT
 } failsafeProcedure_e;
@@ -10019,7 +9990,7 @@ typedef struct pidProfile_s {
     uint8_t simplified_dterm_filter_multiplier;
 } pidProfile_t;
 
-extern pidProfile_t pidProfiles_SystemArray[3]; extern pidProfile_t pidProfiles_CopyArray[3]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[3] { return &pidProfiles_SystemArray; } struct _dummy;
+extern pidProfile_t pidProfiles_SystemArray[1]; extern pidProfile_t pidProfiles_CopyArray[1]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[1] { return &pidProfiles_SystemArray; } struct _dummy;
 
 typedef struct pidConfig_s {
     uint8_t pid_process_denom;
@@ -10125,37 +10096,7 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-
-
-    pt1Filter_t windupLpf[3];
-    uint8_t itermRelax;
-    uint8_t itermRelaxType;
-    uint8_t itermRelaxCutoff;
-
-
-
-    float acCutoff;
-    float acGain;
-    float acLimit;
-    float acErrorLimit;
-    pt1Filter_t acLpf[3];
-    float oldSetpointCorrection[3];
-
-
-
-    biquadFilter_t dMinRange[3];
-    pt1Filter_t dMinLowpass[3];
-    float dMinPercent[3];
-    float dMinGyroGain;
-    float dMinSetpointGain;
-
-
-
-    pt1Filter_t airmodeThrottleLpf1;
-    pt1Filter_t airmodeThrottleLpf2;
-
-
-
+# 343 "./src/main/flight/pid.h"
     pt1Filter_t setpointDerivativePt1[3];
     biquadFilter_t setpointDerivativeBiquad[3];
     
@@ -10165,53 +10106,12 @@ typedef struct pidRuntime_s {
         setpointDerivativeLpfInitialized;
     uint8_t rcSmoothingDebugAxis;
     uint8_t rcSmoothingFilterType;
-
-
-
-    float acroTrainerAngleLimit;
-    float acroTrainerLookaheadTime;
-    uint8_t acroTrainerDebugAxis;
-    float acroTrainerGain;
-    
-# 355 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 355 "./src/main/flight/pid.h"
-        acroTrainerActive;
-    int acroTrainerAxisState[2];
-
-
-
+# 360 "./src/main/flight/pid.h"
     uint8_t dynLpfFilter;
     uint16_t dynLpfMin;
     uint16_t dynLpfMax;
     uint8_t dynLpfCurveExpo;
-
-
-
-    uint8_t launchControlMode;
-    uint8_t launchControlAngleLimit;
-    float launchControlKi;
-
-
-
-    
-# 373 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 373 "./src/main/flight/pid.h"
-        useIntegratedYaw;
-    uint8_t integratedYawRelax;
-
-
-
-    float thrustLinearization;
-    float throttleCompensateAmount;
-
-
-
-    float airmodeThrottleOffsetLimit;
-
-
-
+# 387 "./src/main/flight/pid.h"
     ffInterpolationType_t ffFromInterpolatedSetpoint;
     float ffSmoothFactor;
 
@@ -10263,15 +10163,6 @@ void pidSetAntiGravityState(
 _Bool 
 # 413 "./src/main/flight/pid.h"
     pidAntiGravityEnabled(void);
-
-
-float pidApplyThrustLinearization(float motorValue);
-float pidCompensateThrustLinearization(float throttle);
-
-
-
-void pidUpdateAirmodeLpf(float currentOffset);
-float pidGetAirmodeThrottleOffset();
 # 436 "./src/main/flight/pid.h"
 void dynLpfDTermUpdate(float throttle);
 void pidSetItermReset(
@@ -10737,7 +10628,7 @@ typedef enum {
     PAGE_TASKS,
 
 
-    PAGE_GPS,
+
 
 
     PAGE_DEBUG,
@@ -14024,7 +13915,7 @@ extern timeUs_t osdFlyTime;
 extern float osdGForce;
 
 
-extern escSensorData_t *osdEscDataCombined;
+
 
 
 void osdInit(displayPort_t *osdDisplayPort, osdDisplayPortDevice_e displayPortDevice);
@@ -19235,7 +19126,7 @@ float dynThrottle(float throttle);
 void dynLpfGyroUpdate(float throttle);
 
 
-void initYawSpinRecovery(int maxYawRate);
+
 
 
 
@@ -19347,21 +19238,13 @@ typedef enum {
 
     IBUS_SENSOR_TYPE_ALT_FLYSKY = 0xf9,
 
-    IBUS_SENSOR_TYPE_GPS_FULL = 0xfd,
-    IBUS_SENSOR_TYPE_VOLT_FULL = 0xf0,
-    IBUS_SENSOR_TYPE_ACC_FULL = 0xef,
+
+
+
 
     IBUS_SENSOR_TYPE_UNKNOWN = 0xff
 } ibusSensorType_e;
-
-
-
-uint8_t respondToIbusRequest(uint8_t const * const ibusPacket);
-void initSharedIbusTelemetry(serialPort_t * port);
-
-
-
-
+# 89 "./src/main/telemetry/ibus_shared.h"
 
 # 89 "./src/main/telemetry/ibus_shared.h" 3 4
 _Bool 
@@ -19681,11 +19564,7 @@ void init(void)
 
     persistentObjectWrite(PERSISTENT_OBJECT_RTC_HIGH, 0);
     persistentObjectWrite(PERSISTENT_OBJECT_RTC_LOW, 0);
-# 703 "./src/main/fc/init.c"
-    cameraControlInit();
-
-
-
+# 707 "./src/main/fc/init.c"
     adcInit(adcConfig());
 
 
@@ -19804,30 +19683,11 @@ void init(void)
     failsafeInit();
 
     rxInit();
-
-
-    if (featureIsEnabled(FEATURE_GPS)) {
-        gpsInit();
-    }
-
-
-
+# 801 "./src/main/fc/init.c"
     ledStripInit();
 
     if (featureIsEnabled(FEATURE_LED_STRIP)) {
         ledStripEnable();
-    }
-
-
-
-    if (featureIsEnabled(FEATURE_TELEMETRY)) {
-        telemetryInit();
-    }
-
-
-
-    if (featureIsEnabled(FEATURE_ESC_SENSOR)) {
-        escSensorInit();
     }
 # 833 "./src/main/fc/init.c"
     if (!(initFlags & FLASH_INIT_ATTEMPTED)) {
@@ -19851,27 +19711,6 @@ void init(void)
                         0
 # 861 "./src/main/fc/init.c"
                              );
-
-
-
-
-
-    vtxTableInit();
-
-
-
-    vtxControlInit();
-
-
-    vtxCommonInit();
-
-
-
-    vtxSmartAudioInit();
-
-
-
-    vtxTrampInit();
 # 896 "./src/main/fc/init.c"
     timerStart();
 # 908 "./src/main/fc/init.c"
@@ -19888,15 +19727,7 @@ void init(void)
 
     mspInit();
     mspSerialInit();
-
-
-
-
-
-    cmsInit();
-
-
-
+# 930 "./src/main/fc/init.c"
     displayPort_t *osdDisplayPort = 
 # 930 "./src/main/fc/init.c" 3 4
                                    ((void *)0)
@@ -19927,18 +19758,7 @@ void init(void)
                 break;
             }
             __attribute__ ((fallthrough));
-# 969 "./src/main/fc/init.c"
-        case OSD_DISPLAYPORT_DEVICE_MSP:
-            osdDisplayPort = displayPortMspInit();
-            if (osdDisplayPort || device == OSD_DISPLAYPORT_DEVICE_MSP) {
-                osdDisplayPortDevice = OSD_DISPLAYPORT_DEVICE_MSP;
-                break;
-            }
-            __attribute__ ((fallthrough));
-
-
-
-
+# 980 "./src/main/fc/init.c"
         case OSD_DISPLAYPORT_DEVICE_NONE:
         default:
             break;
@@ -19951,21 +19771,7 @@ void init(void)
             featureDisableImmediate(FEATURE_OSD);
         }
     }
-
-
-
-
-    if (!osdDisplayPort) {
-        cmsDisplayPortRegister(displayPortMspInit());
-    }
-# 1016 "./src/main/fc/init.c"
-    cmsDisplayPortRegister(displayPortSrxlInit());
-
-
-
-    cmsDisplayPortRegister(displayPortCrsfInit());
-
-
+# 1023 "./src/main/fc/init.c"
     setArmingDisabled(ARMING_DISABLED_BOOT_GRACE_TIME);
 
 

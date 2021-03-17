@@ -6507,9 +6507,9 @@ static void rcdevice5KeySimulationProcess(timeUs_t currentTimeUs)
     (void)(currentTimeUs);
 
 
-    if (cmsInMenu) {
-        return;
-    }
+
+
+
 
 
     if ((armingFlags & (ARMED)) || IS_RC_MODE_ACTIVE(BOXSTICKCOMMANDDISABLE) || (getArmingDisableFlags() & (ARMING_DISABLED_RUNAWAY_TAKEOFF | ARMING_DISABLED_CRASH_DETECTED))) {

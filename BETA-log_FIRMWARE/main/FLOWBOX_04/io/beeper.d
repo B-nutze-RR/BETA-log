@@ -46,11 +46,11 @@ BETA-log_FIRMWARE/main/FLOWBOX_04/io/beeper.o: src/main/io/beeper.c \
  src/main/drivers/time.h src/main/flight/mixer.h src/main/config/config.h \
  src/main/fc/core.h src/main/fc/runtime_config.h \
  src/main/io/statusindicator.h src/main/io/vtx_control.h \
- src/main/fc/rc_modes.h src/main/io/gps.h src/main/common/axis.h \
- src/main/pg/beeper.h src/main/sensors/battery.h src/main/common/filter.h \
- src/main/sensors/current.h src/main/sensors/current_ids.h \
- src/main/sensors/voltage.h src/main/sensors/voltage_ids.h \
- src/main/sensors/sensors.h src/main/io/beeper.h
+ src/main/fc/rc_modes.h src/main/pg/beeper.h src/main/sensors/battery.h \
+ src/main/common/filter.h src/main/sensors/current.h \
+ src/main/sensors/current_ids.h src/main/sensors/voltage.h \
+ src/main/sensors/voltage_ids.h src/main/sensors/sensors.h \
+ src/main/io/beeper.h
 
 src/main/platform.h:
 
@@ -187,10 +187,6 @@ src/main/io/statusindicator.h:
 src/main/io/vtx_control.h:
 
 src/main/fc/rc_modes.h:
-
-src/main/io/gps.h:
-
-src/main/common/axis.h:
 
 src/main/pg/beeper.h:
 

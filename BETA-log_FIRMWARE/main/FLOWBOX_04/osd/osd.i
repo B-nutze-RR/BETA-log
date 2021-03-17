@@ -7062,18 +7062,7 @@ typedef struct motorConfig_s {
 
 extern motorConfig_t motorConfig_System; extern motorConfig_t motorConfig_Copy; static inline const motorConfig_t* motorConfig(void) { return &motorConfig_System; } static inline motorConfig_t* motorConfigMutable(void) { return &motorConfig_System; } struct _dummy;
 # 26 "./src/main/drivers/dshot.h" 2
-# 43 "./src/main/drivers/dshot.h"
-typedef struct dshotTelemetryQuality_s {
-    uint32_t packetCountSum;
-    uint32_t invalidCountSum;
-    uint32_t packetCountArray[(1 * 1000 / 100)];
-    uint32_t invalidCountArray[(1 * 1000 / 100)];
-    uint8_t lastBucketIndex;
-} dshotTelemetryQuality_t;
-
-extern dshotTelemetryQuality_t dshotTelemetryQuality[8];
-
-
+# 54 "./src/main/drivers/dshot.h"
 typedef struct dshotProtocolControl_s {
     uint16_t value;
     
@@ -7088,47 +7077,7 @@ float dshotConvertFromExternal(uint16_t externalValue);
 uint16_t dshotConvertToExternal(float motorValue);
 
 uint16_t prepareDshotPacket(dshotProtocolControl_t *pcb);
-
-
-extern 
-# 66 "./src/main/drivers/dshot.h" 3 4
-      _Bool 
-# 66 "./src/main/drivers/dshot.h"
-           useDshotTelemetry;
-
-typedef struct dshotTelemetryMotorState_s {
-    uint16_t telemetryValue;
-    
-# 70 "./src/main/drivers/dshot.h" 3 4
-   _Bool 
-# 70 "./src/main/drivers/dshot.h"
-        telemetryActive;
-} dshotTelemetryMotorState_t;
-
-
-typedef struct dshotTelemetryState_s {
-    
-# 75 "./src/main/drivers/dshot.h" 3 4
-   _Bool 
-# 75 "./src/main/drivers/dshot.h"
-        useDshotTelemetry;
-    uint32_t invalidPacketCount;
-    uint32_t readCount;
-    dshotTelemetryMotorState_t motorState[8];
-    uint32_t inputBuffer[22];
-} dshotTelemetryState_t;
-
-extern dshotTelemetryState_t dshotTelemetryState;
-
-
-void updateDshotTelemetryQuality(dshotTelemetryQuality_t *qualityStats, 
-# 85 "./src/main/drivers/dshot.h" 3 4
-                                                                       _Bool 
-# 85 "./src/main/drivers/dshot.h"
-                                                                            packetValid, timeMs_t currentTimeMs);
-
-
-
+# 89 "./src/main/drivers/dshot.h"
 uint16_t getDshotTelemetry(uint8_t index);
 
 # 90 "./src/main/drivers/dshot.h" 3 4
@@ -11750,13 +11699,9 @@ timeMs_t motorGetMotorEnableTimeMs(void);
 void motorShutdown(void);
 
 
-struct motorDevConfig_s;
-typedef struct motorDevConfig_s motorDevConfig_t;
 
-# 102 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 102 "./src/main/drivers/motor.h"
-    isDshotBitbangActive(const motorDevConfig_t *motorConfig);
+
+
 
 
 float getDigitalIdleOffset(const motorConfig_t *motorConfig);
@@ -12768,7 +12713,7 @@ extern timeUs_t osdFlyTime;
 extern float osdGForce;
 
 
-extern escSensorData_t *osdEscDataCombined;
+
 
 
 void osdInit(displayPort_t *osdDisplayPort, osdDisplayPortDevice_e displayPortDevice);
@@ -14479,7 +14424,7 @@ static
                                            ;
 
 
-escSensorData_t *osdEscDataCombined;
+
 
 
 _Static_assert((0x3FF == ((31 & ((1 << 5) - 1)) | ((31 & ((1 << 5) - 1)) << 5))), "OSD_POS_MAX_incorrect");
@@ -14853,9 +14798,9 @@ static void osdCompleteInitialization(void)
     tfp_sprintf(string_buffer, "V%s", "4" "." "3" "." "0");
     displayWrite(osdDisplayPort, 20, 6, DISPLAYPORT_ATTR_NONE, string_buffer);
 
-    displayWrite(osdDisplayPort, 7, 8, DISPLAYPORT_ATTR_NONE, "MENU:THR MID");
-    displayWrite(osdDisplayPort, 11, 9, DISPLAYPORT_ATTR_NONE, "+ YAW LEFT");
-    displayWrite(osdDisplayPort, 11, 10, DISPLAYPORT_ATTR_NONE, "+ PITCH UP");
+
+
+
 
 
 
@@ -14891,7 +14836,7 @@ void osdInit(displayPort_t *osdDisplayPortToUse, osdDisplayPortDevice_e displayP
 
     osdDisplayPort = osdDisplayPortToUse;
 
-    cmsDisplayPortRegister(osdDisplayPort);
+
 
 
     if (displayCheckReady(osdDisplayPort, 
@@ -14919,29 +14864,7 @@ static void osdResetStats(void)
     stats.min_link_quality = (linkQualitySource == LQ_SOURCE_NONE) ? 99 : 100;
     stats.min_rssi_dbm = 20;
 }
-
-
-static int32_t getAverageEscRpm(void)
-{
-
-    if (motorConfig()->dev.useDshotTelemetry) {
-        uint32_t rpm = 0;
-        for (int i = 0; i < getMotorCount(); i++) {
-            rpm += getDshotTelemetry(i);
-        }
-        rpm = rpm / getMotorCount();
-        return rpm * 100 * 2 / motorConfig()->motorPoleCount;
-    }
-
-
-    if (featureIsEnabled(FEATURE_ESC_SENSOR)) {
-        return calcEscRpm(osdEscDataCombined->rpm);
-    }
-
-    return 0;
-}
-
-
+# 520 "./src/main/osd/osd.c"
 static uint16_t getStatsVoltage(void)
 {
     return osdConfig()->stat_show_cell_value ? getBatteryAverageCellVoltage() : getBatteryVoltage();
@@ -14950,18 +14873,7 @@ static uint16_t getStatsVoltage(void)
 static void osdUpdateStats(void)
 {
     int16_t value = 0;
-
-
-    if (gpsConfig()->gps_use_3d_speed) {
-        value = gpsSol.speed3d;
-    } else {
-        value = gpsSol.groundSpeed;
-    }
-    if (stats.max_speed < value) {
-        stats.max_speed = value;
-    }
-
-
+# 540 "./src/main/osd/osd.c"
     value = getStatsVoltage();
     if (stats.min_voltage > value) {
         stats.min_voltage = value;
@@ -15000,31 +14912,7 @@ static void osdUpdateStats(void)
     if (stats.min_rssi_dbm > value) {
         stats.min_rssi_dbm = value;
     }
-
-
-
-    if ((stateFlags & (GPS_FIX)) && (stateFlags & (GPS_FIX_HOME))) {
-        if (stats.max_distance < GPS_distanceToHome) {
-            stats.max_distance = GPS_distanceToHome;
-        }
-    }
-
-
-
-    if (featureIsEnabled(FEATURE_ESC_SENSOR)) {
-        value = osdEscDataCombined->temperature;
-        if (stats.max_esc_temp < value) {
-            stats.max_esc_temp = value;
-        }
-    }
-
-
-
-    int32_t rpm = getAverageEscRpm();
-    if (stats.max_esc_rpm < rpm) {
-        stats.max_esc_rpm = rpm;
-    }
-
+# 603 "./src/main/osd/osd.c"
 }
 
 
@@ -15174,46 +15062,7 @@ static
 # 702 "./src/main/osd/osd.c"
                   ;
     }
-
-
-    case OSD_STAT_MAX_SPEED:
-        if (featureIsEnabled(FEATURE_GPS)) {
-            tfp_sprintf(buff, "%d%c", osdGetSpeedToSelectedUnit(stats.max_speed), osdGetSpeedToSelectedUnitSymbol());
-            osdDisplayStatisticLabel(displayRow, "MAX SPEED", buff);
-            return 
-# 710 "./src/main/osd/osd.c" 3 4
-                  1
-# 710 "./src/main/osd/osd.c"
-                      ;
-        }
-        break;
-
-    case OSD_STAT_MAX_DISTANCE:
-        if (featureIsEnabled(FEATURE_GPS)) {
-            osdFormatDistanceString(buff, stats.max_distance, 0x00);
-            osdDisplayStatisticLabel(displayRow, "MAX DISTANCE", buff);
-            return 
-# 718 "./src/main/osd/osd.c" 3 4
-                  1
-# 718 "./src/main/osd/osd.c"
-                      ;
-        }
-        break;
-
-    case OSD_STAT_FLIGHT_DISTANCE:
-        if (featureIsEnabled(FEATURE_GPS)) {
-            const int distanceFlown = GPS_distanceFlownInCm / 100;
-            osdFormatDistanceString(buff, distanceFlown, 0x00);
-            osdDisplayStatisticLabel(displayRow, "FLIGHT DISTANCE", buff);
-            return 
-# 727 "./src/main/osd/osd.c" 3 4
-                  1
-# 727 "./src/main/osd/osd.c"
-                      ;
-        }
-        break;
-
-
+# 732 "./src/main/osd/osd.c"
     case OSD_STAT_MIN_BATTERY:
         osdPrintFloat(buff, 0x00, stats.min_voltage / 100.0f, "", 2, 
 # 733 "./src/main/osd/osd.c" 3 4
@@ -15336,31 +15185,7 @@ static
                       ;
         }
         break;
-
-
-
-    case OSD_STAT_MAX_ESC_TEMP:
-        tfp_sprintf(buff, "%d%c", osdConvertTemperatureToSelectedUnit(stats.max_esc_temp), osdGetTemperatureSymbolForSelectedUnit());
-        osdDisplayStatisticLabel(displayRow, "MAX ESC TEMP", buff);
-        return 
-# 808 "./src/main/osd/osd.c" 3 4
-              1
-# 808 "./src/main/osd/osd.c"
-                  ;
-
-
-
-    case OSD_STAT_MAX_ESC_RPM:
-        itoa(stats.max_esc_rpm, buff, 10);
-        osdDisplayStatisticLabel(displayRow, "MAX ESC RPM", buff);
-        return 
-# 815 "./src/main/osd/osd.c" 3 4
-              1
-# 815 "./src/main/osd/osd.c"
-                  ;
-
-
-
+# 819 "./src/main/osd/osd.c"
     case OSD_STAT_MIN_LINK_QUALITY:
         tfp_sprintf(buff, "%d", stats.min_link_quality);
         strcat(buff, "%");
@@ -15636,14 +15461,7 @@ static void osdRefresh(timeUs_t currentTimeUs)
             stats.armed_time = 0;
         }
     }
-
-
-    if (featureIsEnabled(FEATURE_ESC_SENSOR)) {
-        osdEscDataCombined = getEscSensorData(255);
-    }
-
-
-
+# 1018 "./src/main/osd/osd.c"
     if (sensors(SENSOR_ACC)
        && (osdElementVisible(osdElementConfig()->item_pos[OSD_G_FORCE]) || osdStatGetState(OSD_STAT_MAX_G_FORCE))) {
 
@@ -15656,7 +15474,7 @@ static void osdRefresh(timeUs_t currentTimeUs)
 
 
 
-    if (!displayIsGrabbed(osdDisplayPort))
+
 
     {
         osdUpdateAlarms();
@@ -15710,14 +15528,7 @@ void osdUpdate(timeUs_t currentTimeUs)
                            1
 # 1080 "./src/main/osd/osd.c"
                                ;
-
-
-
-        if (osdDisplayPortDeviceType == OSD_DISPLAYPORT_DEVICE_MSP) {
-            doDrawScreen = (counter % 10 == 1);
-        }
-
-
+# 1089 "./src/main/osd/osd.c"
         if (doDrawScreen) {
             displayDrawScreen(osdDisplayPort);
         }

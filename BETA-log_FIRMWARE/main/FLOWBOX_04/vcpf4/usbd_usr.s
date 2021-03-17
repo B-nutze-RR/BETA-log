@@ -9,31 +9,31 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"usbd_usr.c"
-	.section	.gnu.lto_.profile.415f402d,"e",%progbits
+	.section	.gnu.lto_.profile.41a43069,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.415f402d,"e",%progbits
+	.section	.gnu.lto_.icf.41a43069,"e",%progbits
 	.ascii	"x\234\343``d0b@\000\016\206\253\333\277\336\343e\274"
 	.ascii	"\260\376\306&6&0\233\031L\262\200IV0\311\006&\331\257"
 	.ascii	"n\233\326\307\311\000\000\271?\032\257"
 	.text
-	.section	.gnu.lto_.jmpfuncs.415f402d,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41a43069,"e",%progbits
 	.ascii	"x\234E\310\271\021\000 \014\3000\205\360\015\301\356"
 	.ascii	"\254J:|\247\306[8~\253D\00475\222\316`\326\177\023\314"
 	.ascii	"\000\346"
 	.text
-	.section	.gnu.lto_.inline.415f402d,"e",%progbits
+	.section	.gnu.lto_.inline.41a43069,"e",%progbits
 	.ascii	"x\234\205\313\271\015\000 \020\003\301\345x\013\245"
 	.ascii	"\016\004U\223r\210\200\320\216,k\334\010l~*\304\351"
 	.ascii	"\261\0360X^\007\2247\331\235\360\207$\246I\324$i\222"
 	.ascii	"5)\232p\000g}4\232"
 	.text
-	.section	.gnu.lto_.pureconst.415f402d,"e",%progbits
+	.section	.gnu.lto_.pureconst.41a43069,"e",%progbits
 	.ascii	"x\234\005\301\011\001\0000\010\304\260ct\217\002\364"
 	.ascii	"V\372\222\227\312$\271\221\222%-\310\226#\037,@\003"
 	.ascii	"\330"
 	.text
-	.section	.gnu.lto_USBD_USR_Init.415f402d,"e",%progbits
+	.section	.gnu.lto_USBD_USR_Init.41a43069,"e",%progbits
 	.ascii	"x\234\343``d\350a``\220\003bY fdf`djhhp`o\344`bd\004"
 	.ascii	"\263\0328\030\031\352\231\030\353\031\373\231\24733"
 	.ascii	"\036j\177\266\223Is9P\246\341\300\364=\222\015+\016"
@@ -45,7 +45,7 @@
 	.ascii	"O\277\270(Y?713O\277,\271 \315D\277\2648)%\276\264\270"
 	.ascii	"H/\231\001\000\366\"8\330"
 	.text
-	.section	.gnu.lto_USBD_USR_DeviceReset.415f402d,"e",%progbits
+	.section	.gnu.lto_USBD_USR_DeviceReset.41a43069,"e",%progbits
 	.ascii	"x\234\343``d8\313\300\300\240\002\304\262@\314\310\314"
 	.ascii	"\300\310\324\320\320\340\300\336\310\301\304\310\010"
 	.ascii	"f5p02\32431\3263\3663Ogf<\324\376l'\223\346r\240L\303"
@@ -61,7 +61,7 @@
 	.ascii	"~nbf\236~YrA\232\211~iqRJ|iq\221^2\003kqAjj\012\000"
 	.ascii	"\302\323NJ"
 	.text
-	.section	.gnu.lto_USBD_USR_DeviceConfigured.415f402d,"e",%progbits
+	.section	.gnu.lto_USBD_USR_DeviceConfigured.41a43069,"e",%progbits
 	.ascii	"x\234\343``d\350e``\220\003bY fdf`djhhp`o\344`bd\004"
 	.ascii	"\263\0328\030\031\352\231\030\353\031\373\231\24733"
 	.ascii	"\036j\177\266\223Is9P\246\341\300\364}lm\015\255\022"
@@ -73,7 +73,7 @@
 	.ascii	"\\\224\254\237\233\230\231\247_\226\\\220f\242_Z\234"
 	.ascii	"\224\022_Z\\\244\227\314\000\000\004 8\336"
 	.text
-	.section	.gnu.lto_USBD_USR_DeviceConnected.415f402d,"e",%progbits
+	.section	.gnu.lto_USBD_USR_DeviceConnected.41a43069,"e",%progbits
 	.ascii	"x\234\343``d\350e``\220\003bY fdf`djhhp`o\344`bd\004"
 	.ascii	"\263\0328\030\031\352\231\030\353\031\373\231\24733"
 	.ascii	"\036j\177\266\223Is9P\246\341\300\364/lm\015\255\022"
@@ -85,7 +85,7 @@
 	.ascii	"_\\\224\254\237\233\230\231\247_\226\\\220f\242_Z\234"
 	.ascii	"\224\022_Z\\\244\227\314\000\000Gh9y"
 	.text
-	.section	.gnu.lto_USBD_USR_DeviceDisconnected.415f402d,"e",%progbits
+	.section	.gnu.lto_USBD_USR_DeviceDisconnected.41a43069,"e",%progbits
 	.ascii	"x\234\343``d\350e``\220\003bY fdf`djhhp`o\344`bd\004"
 	.ascii	"\263\0328\030\031\352\231\030\353\031\373\231\24733"
 	.ascii	"\036j\177\266\223Is9P\246\341\300\364Y\354m\015\255"
@@ -97,7 +97,7 @@
 	.ascii	"\247_\\\224\254\237\233\230\231\247_\226\\\220f\242"
 	.ascii	"_Z\234\224\022_Z\\\244\227\314\000\000\011\2179\006"
 	.text
-	.section	.gnu.lto_USBD_USR_DeviceSuspended.415f402d,"e",%progbits
+	.section	.gnu.lto_USBD_USR_DeviceSuspended.41a43069,"e",%progbits
 	.ascii	"x\234\343``d\350e``\220\003bY fdf`djhhp`o\344`bd\004"
 	.ascii	"\263\0328\030\031\352\231\030\353\031\373\231\24733"
 	.ascii	"\036j\177\266\223Is9P\246\341\300\364}\354m\015\255"
@@ -109,7 +109,7 @@
 	.ascii	"\247_\\\224\254\237\233\230\231\247_\226\\\220f\242"
 	.ascii	"_Z\234\224\022_Z\\\244\227\314\000\000\010.8\351"
 	.text
-	.section	.gnu.lto_USBD_USR_DeviceResumed.415f402d,"e",%progbits
+	.section	.gnu.lto_USBD_USR_DeviceResumed.41a43069,"e",%progbits
 	.ascii	"x\234\343``d\350e``\220\003bY fdf`djhhp`o\344`bd\004"
 	.ascii	"\263\0328\030\031\352\231\030\353\031\373\231\24733"
 	.ascii	"\036j\177\266\223Is9P\246\341\300\364o\354m\015\255"
@@ -121,7 +121,7 @@
 	.ascii	"\247_\\\224\254\237\233\230\231\247_\226\\\220f\242"
 	.ascii	"_Z\234\224\022_Z\\\244\227\314\000\000P\3409\222"
 	.text
-	.section	.gnu.lto_USR_cb.415f402d,"e",%progbits
+	.section	.gnu.lto_USR_cb.41a43069,"e",%progbits
 	.ascii	"x\234e\313\275\012\202P\030\306\361\367\361\325C\335"
 	.ascii	"Ct\011\272\264t5QF\320P\210b\363)\034\004/ \035B\033"
 	.ascii	"\202\226\346\240\357v\347\246\206n\242\241!J\216\343"
@@ -133,19 +133,19 @@
 	.ascii	"\252\300\241*\341\216.\265l'\360]g\322\037O\235\231"
 	.ascii	"\353\215:N\030\014\206\2750\360m\227\376d\267b\274"
 	.text
-	.section	.gnu.lto_.symbol_nodes.415f402d,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41a43069,"e",%progbits
 	.ascii	"x\234u\311\273\015\2000\020\004\321]c#\352p'T\266\220"
 	.ascii	"\3603H\224@\035T@DM\234sn\242\221^\007\342\201\025f"
 	.ascii	"\012\203\025y\276\200\200\373\352\015+-\024\035Z\251"
 	.ascii	"\340\320F5\016\025*:\264S\311\241\203j\377)M\304\230"
 	.ascii	"\353}\355\237/\334"
 	.text
-	.section	.gnu.lto_.refs.415f402d,"e",%progbits
+	.section	.gnu.lto_.refs.41a43069,"e",%progbits
 	.ascii	"x\234\005\301\301\001\000 \010\304\260R\321\343\353"
 	.ascii	"\376\313\222\014\305\007\022\261\324\353\363\330,\004"
 	.ascii	"B\000L"
 	.text
-	.section	.gnu.lto_.decls.415f402d,"e",%progbits
+	.section	.gnu.lto_.decls.41a43069,"e",%progbits
 	.ascii	"x\234\215TkLTG\024\236\263\263\205\335\205U\002Fi\240"
 	.ascii	")1\2306\251\262\245\222\324&\255?*\211m\223V#\372\267"
 	.ascii	"\033Y.u\223\262\222]\226\330\177W(ViUl\304\306R\013"
@@ -223,7 +223,7 @@
 	.ascii	"F\342\004\241\307\215j\355\233\277\310\225\322\245\354"
 	.ascii	"\177\001\203\014\355\275"
 	.text
-	.section	.gnu.lto_.symtab.415f402d,"e",%progbits
+	.section	.gnu.lto_.symtab.41a43069,"e",%progbits
 	.ascii	"USBD_USR_Init\000"
 	.ascii	"\000"
 	.ascii	"\000"

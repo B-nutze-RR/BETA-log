@@ -9,10 +9,10 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"display_canvas.c"
-	.section	.gnu.lto_.profile.415f2c8e,"e",%progbits
+	.section	.gnu.lto_.profile.41a3843e,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.415f2c8e,"e",%progbits
+	.section	.gnu.lto_.icf.41a3843e,"e",%progbits
 	.ascii	"x\234\343``d\270\305\200\000*\014\037\237m\231\303\312"
 	.ascii	"\370\373\336\257+\034L`\222\371\360\337_S\331X\276\267"
 	.ascii	"~\376\301\310zb\347\201\363ll\367?>\276\316\316\016"
@@ -24,7 +24,7 @@
 	.ascii	"6_\356\302\242;k\331\345\027uv\256cV\000\223\212\037"
 	.ascii	".\177\335\312\253\004\226U\006\223\014\000\021^y7"
 	.text
-	.section	.gnu.lto_.jmpfuncs.415f2c8e,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41a3843e,"e",%progbits
 	.ascii	"x\234\315V\013r\203 \020\335\005\374%i\354\377\337\206"
 	.ascii	"\264\275Go&G\311Uz\245\236\300\202\230\024\010\376\""
 	.ascii	"\303\304\231\035\007\341}vq\321\034\020~\227p\270\276"
@@ -46,7 +46,7 @@
 	.ascii	"\347'\241\266\306\017O\321\371\303\243V~\364V\346\263"
 	.ascii	"w\026\376\0006\206o\022"
 	.text
-	.section	.gnu.lto_.inline.415f2c8e,"e",%progbits
+	.section	.gnu.lto_.inline.41a3843e,"e",%progbits
 	.ascii	"x\234\255\325KN\3030\020\006\340\337\217\244i\232\266"
 	.ascii	"I\237\274)\224\363\370\020\250\022\327\0107\260\304"
 	.ascii	"\252B\2025\353\366\000\210\015\013*\226\025'(\007\340"
@@ -65,14 +65,14 @@
 	.ascii	"\232\213h5w]\365m\030y\330\267\023\036uS=\203aT\375"
 	.ascii	"\014\336r6~\312a\260\005\344\377V\256"
 	.text
-	.section	.gnu.lto_.pureconst.415f2c8e,"e",%progbits
+	.section	.gnu.lto_.pureconst.41a3843e,"e",%progbits
 	.ascii	"x\234\005\301\001\002B\000\020\000\301S\233\250\220"
 	.ascii	"JD(\371\236\007\355o\233\311\"\211-\"\326\220Dv\262"
 	.ascii	"\027\344 \251\034%\223\\Nr\226\213\024RJ%W\251\345&"
 	.ascii	"wyH#Oi\245\223\227\3642\310[F\231d\226\217|e\221\237"
 	.ascii	"\374\001R\014\031%"
 	.text
-	.section	.gnu.lto_displayCanvasSetStrokeAndFillColor.part.0.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasSetStrokeAndFillColor.part.0.41a3843e,"e",%progbits
 	.ascii	"x\234mQ\317KTQ\024\276\337=\367=\237?\246M\033c\026"
 	.ascii	"\271\020\006!\034!\332\264\210\242\026\375\021A\014"
 	.ascii	"c\013\3014f@h\345\235\311p\241X\213B\015\206'\3040\255"
@@ -106,7 +106,7 @@
 	.ascii	"t\274\263+}\251;q\371|2\321\323\227H\267'E\244\0329"
 	.ascii	"m\003N\262\267\2737\365\017J(\015\323"
 	.text
-	.section	.gnu.lto_displayCanvasSetStrokeColor.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasSetStrokeColor.41a3843e,"e",%progbits
 	.ascii	"x\234m\220\317kSA\020\307\347\373f\337k\022\033/\365"
 	.ascii	" \346\322C!\024\244\011\210\027\005\251x\364_\020$\244"
 	.ascii	"\036\002\265\225\004\012\236\272\211J\301J\365`i#\204"
@@ -137,7 +137,7 @@
 	.ascii	"Bj$W\2700\232\271x6\233\031\233\310\024\206\262\024"
 	.ascii	"\357\336\234\262\027nv|t<\377\017\013\221\324\021"
 	.text
-	.section	.gnu.lto_displayCanvasSetFillColor.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasSetFillColor.41a3843e,"e",%progbits
 	.ascii	"x\234m\220\317kSA\020\307\347\373f\337k\022\033/\212"
 	.ascii	"\240\271\364P\010\205\322\004\304\213\202(\036\375\027"
 	.ascii	"\004\011\251\207@m%\201\202\247n\242\322CK\365\240\264"
@@ -169,7 +169,7 @@
 	.ascii	"\231\341\321La K\361\316\315\031{\341fG\206F\362\377"
 	.ascii	"\000\035:\324\262"
 	.text
-	.section	.gnu.lto_displayCanvasSetStrokeAndFillColor.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasSetStrokeAndFillColor.41a3843e,"e",%progbits
 	.ascii	"x\234uR\317KTQ\024>\337\273\357\275y\243c\233h\021\263"
 	.ascii	"q!\014B8B\264i\021E\377F\020\303\330b\3004f@\010\002"
 	.ascii	"\357\214\023.\014kQ\350\004\303\033\020\031I\320\312"
@@ -207,7 +207,7 @@
 	.ascii	"\216T\346Rg\342\362\371d\242\253'\221iKRS\2209\253\023"
 	.ascii	"V\262\273\263;\375\007H%5\""
 	.text
-	.section	.gnu.lto_displayCanvasSetColorInversion.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasSetColorInversion.41a3843e,"e",%progbits
 	.ascii	"x\234m\220\317kSA\020\307\347\373f\337k\2226z\360 \222"
 	.ascii	"\203=\024BA\232\200x\022E\361\352\237 Hhz\010h\220D"
 	.ascii	"\012\236\272\211J\301J\365`i#\204W\220XO\255\032\301"
@@ -238,7 +238,7 @@
 	.ascii	"\370`&?\234)\016\014R\274ss\304^Dryi;=\224\375\007\007"
 	.ascii	"\237\326p"
 	.text
-	.section	.gnu.lto_displayCanvasSetPixel.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasSetPixel.41a3843e,"e",%progbits
 	.ascii	"x\234m\221\315k\023Q\024\305\337\231;3\231\246\211\033"
 	.ascii	"\027Z\262\351\242\020\012\322\004DD\204\242\370\207"
 	.ascii	"HL]\004j+\011\024\273\352K\024\2426T\027J\233B\230\202"
@@ -273,7 +273,7 @@
 	.ascii	"\321\363\311\304\320H\"\323\227\024\341\366\3169\275"
 	.ascii	"\201+\030\265\222\303\203\303\351?&i\377\344"
 	.text
-	.section	.gnu.lto_displayCanvasSetPixelToStrokeColor.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasSetPixelToStrokeColor.41a3843e,"e",%progbits
 	.ascii	"x\234m\220\337K\223Q\030\307\317\367}\316\373\356\335"
 	.ascii	"\332\272\351F\363\306\013a\010\341\274\211\202 \212"
 	.ascii	"\376\220\030\263\213AIl y\345\331*G)\332E\2616\030\257"
@@ -304,7 +304,7 @@
 	.ascii	"tl \231>\1776>|:\021\037\034\212\247\373\022\"\322\272"
 	.ascii	"9e.p\001\303\177\000l\243\351\233"
 	.text
-	.section	.gnu.lto_displayCanvasSetPixelToFillColor.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasSetPixelToFillColor.41a3843e,"e",%progbits
 	.ascii	"x\234m\220\317k\023A\024\307\347\273o6\331\304\304\213"
 	.ascii	"\027c/=\024BA\232^DA\020\305?DB\352!\240E\022(\366\324"
 	.ascii	"I\324\006m\255\036\224\232@\334\212\204\340\245\265"
@@ -336,7 +336,7 @@
 	.ascii	"\251\344\340P2\333\227\022\321\366\315is\201\213\030"
 	.ascii	"\376\003\351\002\351'"
 	.text
-	.section	.gnu.lto_displayCanvasSetStrokeWidth.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasSetStrokeWidth.41a3843e,"e",%progbits
 	.ascii	"x\234m\220MKTa\024\307\317\3779\317\275\316L\216-\332"
 	.ascii	"dn\\\010\203\020\216\233\332\004Q\364\005\372\0061\214"
 	.ascii	"-\006Jb\006\214V>s\313\\LZ\213\302F\030\256\021\223"
@@ -367,7 +367,7 @@
 	.ascii	"L\377@\246\320\223\245d3r\304\006p\372\017\314_\324"
 	.ascii	"p"
 	.text
-	.section	.gnu.lto_displayCanvasSetLineOutlineType.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasSetLineOutlineType.41a3843e,"e",%progbits
 	.ascii	"x\234m\220Mh\023Q\020\307\347\277\263\273\371h\343\305"
 	.ascii	"\213\022\017=\024BA\232\200x\022\244\342\335\223w\011"
 	.ascii	"i\016\201\032K\242\205\236\372\022\255=\324V\017J\033"
@@ -399,7 +399,7 @@
 	.ascii	"X\2209\251\023\035\347.\234\037\310\345\263\247\207"
 	.ascii	"\007\263\377\000\002i\330\203"
 	.text
-	.section	.gnu.lto_displayCanvasSetLineOutlineColor.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasSetLineOutlineColor.41a3843e,"e",%progbits
 	.ascii	"x\234m\220\317k\023Q\020\307\347\273\263\233_Mz\361"
 	.ascii	"\242\304C\017\205P\220& \236\004\261\364\356\277 !\355"
 	.ascii	"!\020\023I\264\340\251/\321Z\2415\212(m\204\260\025"
@@ -431,7 +431,7 @@
 	.ascii	"Jf\247\222\205\321\024E\372\231q\235\010\347\316\236"
 	.ascii	"\311\244\263\223\343\271L.\377\017\347\021\327\223"
 	.text
-	.section	.gnu.lto_displayCanvasClipToRect.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasClipToRect.41a3843e,"e",%progbits
 	.ascii	"x\234m\221\337K\223Q\030\307\317\367}\336w{\267\251"
 	.ascii	"7\335X\022x!\015!\2347\021aD\321\037\022C\203\204\222"
 	.ascii	"p`y\345\331,\305V\253 \323\011\343-jH\027\351\304\240"
@@ -468,7 +468,7 @@
 	.ascii	"\322\311Q}\200\263\350\304\031\234\370\003\330\263\024"
 	.ascii	"r"
 	.text
-	.section	.gnu.lto_displayCanvasClearRect.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasClearRect.41a3843e,"e",%progbits
 	.ascii	"x\234m\221\317KTQ\024\307\357\367\235\367f\336\214?"
 	.ascii	"Z\264\261\204p!\015B8n\"\302\210\242?$\006\015\032("
 	.ascii	"\011\007,W\336\031\253\301,-\310t\204\341\0255H\213"
@@ -503,7 +503,7 @@
 	.ascii	"?\333\024ji\013E\352\233DE\361\344\214>\300\025\264"
 	.ascii	"\3432\316\377\001\2220\023\341"
 	.text
-	.section	.gnu.lto_displayCanvasResetDrawingState.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasResetDrawingState.41a3843e,"e",%progbits
 	.ascii	"x\234m\221\313K\324Q\024\307\317\367\236\373\233\371"
 	.ascii	"\2159\265hS\010\342B\030\204p\\\264\013\242\350\017"
 	.ascii	"\211al1\220\0223 \264\362\316h\2710\034\027\206M ?#"
@@ -531,7 +531,7 @@
 	.ascii	"|n\350V\276\220\356\317\025\356\334\316\334\275\231"
 	.ascii	"\315\014\016e\012\275YJ\266,7\234\341?7\202\300:"
 	.text
-	.section	.gnu.lto_displayCanvasDrawCharacter.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasDrawCharacter.41a3843e,"e",%progbits
 	.ascii	"x\234m\221\337K\024Q\024\307\357w\316\354\356\354\272"
 	.ascii	"+A=\030\373\240\017\302\"\204+DDD\221\365\207\304\262"
 	.ascii	"\006\011e\262\033\222O\336\335J)E%\014]c\231$L,\362"
@@ -570,7 +570,7 @@
 	.ascii	"\3379\2416p\001\365\024=\035\323\317\325\236\217\377"
 	.ascii	"\001m\035\037P"
 	.text
-	.section	.gnu.lto_displayCanvasDrawCharacterMask.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasDrawCharacterMask.41a3843e,"e",%progbits
 	.ascii	"x\234m\222\337K\024Q\024\307\357\2313\263;;\356JP\017"
 	.ascii	"\325B\370 lR\270BDD\024\205\017\375\031\261\254A\202"
 	.ascii	"\251\354\206\344\223w\267r)E%\014]c\230$L\014\362GJ"
@@ -609,7 +609,7 @@
 	.ascii	"\332\206P\264<\314|\316L\245\230\200\313\320\210\341"
 	.ascii	"\013\021%\\WS\027\221\353\352/E\377\000H\3475\271"
 	.text
-	.section	.gnu.lto_displayCanvasDrawString.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasDrawString.41a3843e,"e",%progbits
 	.ascii	"x\234m\221\337K\024Q\024\307\357w\316\354\316\354\272"
 	.ascii	"\372\022\201\261\020>\010\213\020\256\020\021!\364\203"
 	.ascii	"\376\220X\264\007\241L\334\220|\362\356\366CJ\261\210"
@@ -646,7 +646,7 @@
 	.ascii	"\210\342\302\311E}\200\033hF\322\274\326p=\371\017\350"
 	.ascii	"}\024\033"
 	.text
-	.section	.gnu.lto_displayCanvasDrawStringMask.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasDrawStringMask.41a3843e,"e",%progbits
 	.ascii	"x\234m\222\337K\024Q\024\307\357w\316\354\356\354\272"
 	.ascii	"\366\022\201\261\020>\010\213\022\256\020\021!D\022"
 	.ascii	"\375\035\261\254=,\230\312nH>yw\373!\245XD\242\253l"
@@ -686,7 +686,7 @@
 	.ascii	"\214\270+\322P\327\020\323\033\032\317\307\377\002A"
 	.ascii	"\261+b"
 	.text
-	.section	.gnu.lto_displayCanvasMoveToPoint.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasMoveToPoint.41a3843e,"e",%progbits
 	.ascii	"x\234m\220\337K\223Q\030\307\317\367}\316\273\275[["
 	.ascii	"7\021(\336x!\014)\2347Q\020D\321\037\022cv1(\211\015"
 	.ascii	"$\257<[\345(\303\272h\254\011\3435bI7\232\030T:\353"
@@ -719,7 +719,7 @@
 	.ascii	"@\"\323\223\024\321\346\315qs\201\263\030\374\003a3"
 	.ascii	"\3520"
 	.text
-	.section	.gnu.lto_displayCanvasStrokeLineToPoint.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasStrokeLineToPoint.41a3843e,"e",%progbits
 	.ascii	"x\234m\220\337K\223Q\030\307\317\367}\316\273\275\233"
 	.ascii	"[7Ad\336x!\014A\2347Q\020D\321\037\022cv1(\211\015$"
 	.ascii	"\257<[\345(\303\274(m\203\361\032\261\244\033\227XX"
@@ -752,7 +752,7 @@
 	.ascii	"l<62\032K\015\306E\270}s\306\\\340\022\306\376\000\362"
 	.ascii	"\\\351 "
 	.text
-	.section	.gnu.lto_displayCanvasStrokeTriangle.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasStrokeTriangle.41a3843e,"e",%progbits
 	.ascii	"x\234m\222[KTQ\024\307\367\332\353\234\2319g\034{\010"
 	.ascii	"\302\262\300\007a\020\312\361B\020\010\222\024}\200"
 	.ascii	"\276@\014\332\203P\022\016\210C\017\356\231.B\212Z\224"
@@ -791,7 +791,7 @@
 	.ascii	"\314\223\366\234Q\016^_\314\203\305\274\276\204\007"
 	.ascii	"Kx})\017\226\376\005w\035B\365"
 	.text
-	.section	.gnu.lto_displayCanvasFillTriangle.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasFillTriangle.41a3843e,"e",%progbits
 	.ascii	"x\234m\222[KTQ\024\307\367\332\353\234q\316\214c\017"
 	.ascii	"=dY\340\2030\010\345x!\010\004I\212>@_ \006\355A(\011"
 	.ascii	"\007\304\241\207\366L\027!E-\252\311\241\351\024a>\345"
@@ -830,7 +830,7 @@
 	.ascii	"\341Su\301\306\346`\250\254\216\371r\236c\312\301[*"
 	.ascii	"x\270\202\267T\362p%o\251\342\341\252\277\276\374B\253"
 	.text
-	.section	.gnu.lto_displayCanvasFillStrokeTriangle.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasFillStrokeTriangle.41a3843e,"e",%progbits
 	.ascii	"x\234m\222[KTQ\024\307\367\332\353\234q\316\214c\017"
 	.ascii	"=t\261\302\007a\020\302\361B\020\010\222\024}\200\276"
 	.ascii	"@\014\332\203P\022\016\210C\017\355\231.B\212ZT\223"
@@ -869,7 +869,7 @@
 	.ascii	"\305\363\301\360\331\352`]C0T\\\315|Y\317I\345\340\215"
 	.ascii	"\245<\\\312\033\313x\270\2147\226\363p\371_J$B\337"
 	.text
-	.section	.gnu.lto_displayCanvasStrokeRect.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasStrokeRect.41a3843e,"e",%progbits
 	.ascii	"x\234m\221\317KTQ\024\307\357\367\235\367\30673\352"
 	.ascii	"\246\215e\013\027\322 \204\343&\"\214(\372Cb\030\203"
 	.ascii	"\204\222p\300r\345\235\261\022\263,\"\323\031\032^Q"
@@ -906,7 +906,7 @@
 	.ascii	"P\347\251p\250\255#\024i\014\213\252\322\311I}\200\213"
 	.ascii	"\350\304\005\234\371\003\343\305\024\245"
 	.text
-	.section	.gnu.lto_displayCanvasFillRect.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasFillRect.41a3843e,"e",%progbits
 	.ascii	"x\234m\221\317KTQ\024\307\357\367\235\367\3067\343\350"
 	.ascii	"\246\215e\013\027\322 \204\343&*\214(\372Cb\030\203"
 	.ascii	"\204\222p\300r\345\235\261\0223-(\177\314\320\360\212"
@@ -942,7 +942,7 @@
 	.ascii	"\261\345Ls$\330\320\030\271p.\324z:\034jj\011Ej\303"
 	.ascii	"\242\254prJ\037\340\022Zq\021g\377\000\254j\024\007"
 	.text
-	.section	.gnu.lto_displayCanvasFillStrokeRect.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasFillStrokeRect.41a3843e,"e",%progbits
 	.ascii	"x\234m\221\317KTQ\024\307\357\367\235\367\3067\343\217"
 	.ascii	"M\033kZ\270\220\006!\0347\021bD\321\037\022\203\006"
 	.ascii	"\011%\341\200\345\312;c%fYP\24638\274\242LZ\344\017"
@@ -978,7 +978,7 @@
 	.ascii	"s\241\326\323\365\241\246\226P\270\272^\224\346NN\351"
 	.ascii	"\003\\B+.\342\354_jT\024\240"
 	.text
-	.section	.gnu.lto_displayCanvasStrokeEllipseInRect.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasStrokeEllipseInRect.41a3843e,"e",%progbits
 	.ascii	"x\234m\221\337KTA\024\307\347{\317\275\353\335\365\307"
 	.ascii	"K/\325\026\370 -B\270\276D\224\021E\177H,k\220P\022"
 	.ascii	".X>9\273V\213Y\026\224\351\012\313-J$\"\177\240P\352"
@@ -1013,7 +1013,7 @@
 	.ascii	"\344\322\205P\313\331p\250\2619\024\251\011\213\362"
 	.ascii	"\374\311\031}\200+h\301e\234\377\013\014[\023\225"
 	.text
-	.section	.gnu.lto_displayCanvasFillEllipseInRect.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasFillEllipseInRect.41a3843e,"e",%progbits
 	.ascii	"x\234m\221\337K\223Q\030\307\317\367}\336w\276\333\324"
 	.ascii	"\233n*\011\274\220\206\020\316\233\2100\242\350\017"
 	.ascii	"\211\241A\203\222p`y\345\331,\305,\013\312t\203\361"
@@ -1050,7 +1050,7 @@
 	.ascii	"\036\21244\213\252\322\311\021}\2003\350\300i\034\377"
 	.ascii	"\003\036\326\024\347"
 	.text
-	.section	.gnu.lto_displayCanvasFillStrokeEllipseInRect.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasFillStrokeEllipseInRect.41a3843e,"e",%progbits
 	.ascii	"x\234m\221\317KTQ\024\307\357\367\235\367f\336\214?"
 	.ascii	"6m*#\\H\203\020\216\233\210P\242\350\017\211a\014\032"
 	.ascii	"(\011\007,W\336\031+1\313\2022\035azE\311\320\"\177"
@@ -1084,7 +1084,7 @@
 	.ascii	"\321`S$z\351B\250\355l8\324\334\032\212\326\205EE\341"
 	.ascii	"\344\214>\300\025\264\3412\316\377\005=f\024r"
 	.text
-	.section	.gnu.lto_displayCanvasCtmReset.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasCtmReset.41a3843e,"e",%progbits
 	.ascii	"x\234m\221\317KTQ\024\307\317\367\236\373f\336\230S"
 	.ascii	"\0137\212\020.\204A\010\307E\273B\014\377\020\031\306"
 	.ascii	"\026\003)1\003B+\357L\226\013\303\\$6\222>#\006wj(X"
@@ -1112,7 +1112,7 @@
 	.ascii	"`\256p\365J\346\332@63<\222)tg)\331\260\364;\303?\330"
 	.ascii	"\372\300("
 	.text
-	.section	.gnu.lto_displayCanvasCtmSet.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasCtmSet.41a3843e,"e",%progbits
 	.ascii	"x\234m\222\337KTA\024\307\347\334s\357\376^}\350\305"
 	.ascii	"\262\037>\010\213\020\256\256\364\020a$\321C\320\377"
 	.ascii	"\020\213\366 \244\204\013BO\316\256\325B\206\012Y\246"
@@ -1152,7 +1152,7 @@
 	.ascii	"\316i\271\201\015\225\2254\002\330\020\2409@s\025\315"
 	.ascii	"U\201\277\224$C\234"
 	.text
-	.section	.gnu.lto_displayCanvasCtmTranslate.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasCtmTranslate.41a3843e,"e",%progbits
 	.ascii	"x\234m\220\337K\223Q\030\307\317\367<\357\273\275\233"
 	.ascii	"\256.\272\261\274\310\013a\010\341\274\011\242@\212"
 	.ascii	"\376\220\030\263\213AIl\"y\345\331J\2750\254\240X+\306"
@@ -1184,7 +1184,7 @@
 	.ascii	"\336?\030Ow'D\244qs\332\\\310\201\213r`\350\017\376"
 	.ascii	"\230\354T"
 	.text
-	.section	.gnu.lto_displayCanvasCtmScale.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasCtmScale.41a3843e,"e",%progbits
 	.ascii	"x\234m\220\317KTQ\024\307\357\367\236\373\346WN.\332"
 	.ascii	"(n\\\014\014B8n\202(\350\007\355\372'b\030[\014\224"
 	.ascii	"\304<\220\\yg*](\326\242\322\011\206\247\330 m\264P"
@@ -1217,7 +1217,7 @@
 	.ascii	"I%\273\272\223v{JDk'\247\314\201\264/J\273\347\0171"
 	.ascii	"\247\354\347"
 	.text
-	.section	.gnu.lto_displayCanvasCtmRotate.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasCtmRotate.41a3843e,"e",%progbits
 	.ascii	"x\234m\220\317KTQ\024\307\317\367\235\373\2363\243\323"
 	.ascii	"\2426\206\033\027\003\203\020\216\233\332\004Q\264i"
 	.ascii	"\331\177\020\303\330b\240$f@h\345\235)s\241X\013\303"
@@ -1248,7 +1248,7 @@
 	.ascii	"\247\006\263\371+\227\322W/d\322C\303\351|\177\206\342"
 	.ascii	"\355\310Y\033@\356/\354%\325\013"
 	.text
-	.section	.gnu.lto_displayCanvasContextPush.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasContextPush.41a3843e,"e",%progbits
 	.ascii	"x\234m\221\317KTQ\024\307\317\367\236\373f\336\230\323"
 	.ascii	"\"7\211\033\027\003\203 \216\213vA\024\255\374+d\030"
 	.ascii	"[\014\224\304\014\010\255\2743Z.\014ka\330\024\362\224"
@@ -1276,7 +1276,7 @@
 	.ascii	"\012\371\241\013\205bf _\274|1{\245?\227\035\034\312"
 	.ascii	"\026{r\224lZ\316;\303\001u\272\277\372"
 	.text
-	.section	.gnu.lto_displayCanvasContextPop.415f2c8e,"e",%progbits
+	.section	.gnu.lto_displayCanvasContextPop.41a3843e,"e",%progbits
 	.ascii	"x\234m\221\317KTQ\024\307\317\367\236\373f\336\230\323"
 	.ascii	"\2426\211\033\027\306 \204\343\242] E;\377\011\031\306"
 	.ascii	"\026\003&1\003B+\357L\232\013\303Z$6\201<E\036B\013"
@@ -1304,7 +1304,7 @@
 	.ascii	"\035*\026F\257\025K\331\241B\351\306p\356\346`>72\232"
 	.ascii	"+\365\346)\335\262\\u\206\177\212\267\277\216"
 	.text
-	.section	.gnu.lto_.symbol_nodes.415f2c8e,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41a3843e,"e",%progbits
 	.ascii	"x\234u\312\2712\203q\030\305\341\377\311\367e\025\373"
 	.ascii	"\232\004\011\271\022\267\344\006N\306\030\373\022\273"
 	.ascii	"\330wftTt4\032\223\326\035h\324z1c\034\205\363V\277"
@@ -1324,10 +1324,10 @@
 	.ascii	"\262\250,)\207\225#\312QeYYQ\216)\307\225\325\337\014"
 	.ascii	"_i\305yZ"
 	.text
-	.section	.gnu.lto_.refs.415f2c8e,"e",%progbits
+	.section	.gnu.lto_.refs.41a3843e,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.415f2c8e,"e",%progbits
+	.section	.gnu.lto_.decls.41a3843e,"e",%progbits
 	.ascii	"x\234\325\232yTTW\236\307\353\326e)\212\002\\\222hB"
 	.ascii	"\246u\022:'\335\235\2509\235\231\311Lg\246\247\333\316"
 	.ascii	"L2\247\235\344$v&\361\234\031\017\203e\244\033\301\003"
@@ -1641,7 +1641,7 @@
 	.ascii	"\210\265\213\003\254\316\305\000\245sZ\027\300\235\254"
 	.ascii	"\226aiQ\353e^\002\377\013\346qx)"
 	.text
-	.section	.gnu.lto_.symtab.415f2c8e,"e",%progbits
+	.section	.gnu.lto_.symtab.41a3843e,"e",%progbits
 	.ascii	"displayCanvasSetStrokeColor\000"
 	.ascii	"\000"
 	.ascii	"\000"

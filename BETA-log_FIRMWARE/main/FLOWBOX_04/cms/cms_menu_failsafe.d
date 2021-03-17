@@ -32,13 +32,7 @@ BETA-log_FIRMWARE/main/FLOWBOX_04/cms/cms_menu_failsafe.o: \
  src/main/target/common_pre.h src/main/target/FLOWBOX_04/target.h \
  src/main/target/common_deprecated_post.h src/main/target/common_post.h \
  src/main/build/version.h src/main/common/utils.h \
- src/main/target/common_defaults_post.h src/main/cms/cms.h \
- src/main/drivers/display.h src/main/common/time.h src/main/pg/pg.h \
- src/main/build/build_config.h src/main/cms/cms_types.h \
- src/main/cms/cms_menu_failsafe.h src/main/cms/cms_menu_gps_rescue.h \
- src/main/config/feature.h src/main/config/config.h \
- src/main/flight/failsafe.h src/main/rx/rx.h src/main/pg/rx.h \
- src/main/drivers/io_types.h
+ src/main/target/common_defaults_post.h
 
 src/main/ctype.h:
 
@@ -115,31 +109,3 @@ src/main/build/version.h:
 src/main/common/utils.h:
 
 src/main/target/common_defaults_post.h:
-
-src/main/cms/cms.h:
-
-src/main/drivers/display.h:
-
-src/main/common/time.h:
-
-src/main/pg/pg.h:
-
-src/main/build/build_config.h:
-
-src/main/cms/cms_types.h:
-
-src/main/cms/cms_menu_failsafe.h:
-
-src/main/cms/cms_menu_gps_rescue.h:
-
-src/main/config/feature.h:
-
-src/main/config/config.h:
-
-src/main/flight/failsafe.h:
-
-src/main/rx/rx.h:
-
-src/main/pg/rx.h:
-
-src/main/drivers/io_types.h:

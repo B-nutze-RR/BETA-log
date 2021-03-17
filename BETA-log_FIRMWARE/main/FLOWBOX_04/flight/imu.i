@@ -6383,13 +6383,9 @@ timeMs_t motorGetMotorEnableTimeMs(void);
 void motorShutdown(void);
 
 
-struct motorDevConfig_s;
-typedef struct motorDevConfig_s motorDevConfig_t;
 
-# 102 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 102 "./src/main/drivers/motor.h"
-    isDshotBitbangActive(const motorDevConfig_t *motorConfig);
+
+
 
 
 float getDigitalIdleOffset(const motorConfig_t *motorConfig);
@@ -6809,7 +6805,7 @@ typedef struct pidProfile_s {
     uint8_t simplified_dterm_filter_multiplier;
 } pidProfile_t;
 
-extern pidProfile_t pidProfiles_SystemArray[3]; extern pidProfile_t pidProfiles_CopyArray[3]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[3] { return &pidProfiles_SystemArray; } struct _dummy;
+extern pidProfile_t pidProfiles_SystemArray[1]; extern pidProfile_t pidProfiles_CopyArray[1]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[1] { return &pidProfiles_SystemArray; } struct _dummy;
 
 typedef struct pidConfig_s {
     uint8_t pid_process_denom;
@@ -6915,37 +6911,7 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-
-
-    pt1Filter_t windupLpf[3];
-    uint8_t itermRelax;
-    uint8_t itermRelaxType;
-    uint8_t itermRelaxCutoff;
-
-
-
-    float acCutoff;
-    float acGain;
-    float acLimit;
-    float acErrorLimit;
-    pt1Filter_t acLpf[3];
-    float oldSetpointCorrection[3];
-
-
-
-    biquadFilter_t dMinRange[3];
-    pt1Filter_t dMinLowpass[3];
-    float dMinPercent[3];
-    float dMinGyroGain;
-    float dMinSetpointGain;
-
-
-
-    pt1Filter_t airmodeThrottleLpf1;
-    pt1Filter_t airmodeThrottleLpf2;
-
-
-
+# 343 "./src/main/flight/pid.h"
     pt1Filter_t setpointDerivativePt1[3];
     biquadFilter_t setpointDerivativeBiquad[3];
     
@@ -6955,53 +6921,12 @@ typedef struct pidRuntime_s {
         setpointDerivativeLpfInitialized;
     uint8_t rcSmoothingDebugAxis;
     uint8_t rcSmoothingFilterType;
-
-
-
-    float acroTrainerAngleLimit;
-    float acroTrainerLookaheadTime;
-    uint8_t acroTrainerDebugAxis;
-    float acroTrainerGain;
-    
-# 355 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 355 "./src/main/flight/pid.h"
-        acroTrainerActive;
-    int acroTrainerAxisState[2];
-
-
-
+# 360 "./src/main/flight/pid.h"
     uint8_t dynLpfFilter;
     uint16_t dynLpfMin;
     uint16_t dynLpfMax;
     uint8_t dynLpfCurveExpo;
-
-
-
-    uint8_t launchControlMode;
-    uint8_t launchControlAngleLimit;
-    float launchControlKi;
-
-
-
-    
-# 373 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 373 "./src/main/flight/pid.h"
-        useIntegratedYaw;
-    uint8_t integratedYawRelax;
-
-
-
-    float thrustLinearization;
-    float throttleCompensateAmount;
-
-
-
-    float airmodeThrottleOffsetLimit;
-
-
-
+# 387 "./src/main/flight/pid.h"
     ffInterpolationType_t ffFromInterpolatedSetpoint;
     float ffSmoothFactor;
 
@@ -7053,15 +6978,6 @@ void pidSetAntiGravityState(
 _Bool 
 # 413 "./src/main/flight/pid.h"
     pidAntiGravityEnabled(void);
-
-
-float pidApplyThrustLinearization(float motorValue);
-float pidCompensateThrustLinearization(float throttle);
-
-
-
-void pidUpdateAirmodeLpf(float currentOffset);
-float pidGetAirmodeThrottleOffset();
 # 436 "./src/main/flight/pid.h"
 void dynLpfDTermUpdate(float throttle);
 void pidSetItermReset(
@@ -12142,7 +12058,7 @@ float dynThrottle(float throttle);
 void dynLpfGyroUpdate(float throttle);
 
 
-void initYawSpinRecovery(int maxYawRate);
+
 
 
 
@@ -12265,13 +12181,13 @@ void imuConfigure(uint16_t throttle_correction_angle, uint8_t throttle_correctio
 void imuInit(void)
 {
 
+
+
     canUseGPSHeading = 
-# 185 "./src/main/flight/imu.c" 3 4
-                      1
-# 185 "./src/main/flight/imu.c"
-                          ;
-
-
+# 187 "./src/main/flight/imu.c" 3 4
+                      0
+# 187 "./src/main/flight/imu.c"
+                           ;
 
 
     imuComputeRotationMatrix();
@@ -12547,58 +12463,7 @@ static float imuCalcKpGain(timeUs_t currentTimeUs,
 
     return ret;
 }
-
-
-static void imuComputeQuaternionFromRPY(quaternionProducts *quatProd, int16_t initialRoll, int16_t initialPitch, int16_t initialYaw)
-{
-    if (initialRoll > 1800) {
-        initialRoll -= 3600;
-    }
-
-    if (initialPitch > 1800) {
-        initialPitch -= 3600;
-    }
-
-    if (initialYaw > 1800) {
-        initialYaw -= 3600;
-    }
-
-    const float cosRoll = cos_approx(((initialRoll) / 10.0f * 0.0174532925f) * 0.5f);
-    const float sinRoll = sin_approx(((initialRoll) / 10.0f * 0.0174532925f) * 0.5f);
-
-    const float cosPitch = cos_approx(((initialPitch) / 10.0f * 0.0174532925f) * 0.5f);
-    const float sinPitch = sin_approx(((initialPitch) / 10.0f * 0.0174532925f) * 0.5f);
-
-    const float cosYaw = cos_approx(((-initialYaw) / 10.0f * 0.0174532925f) * 0.5f);
-    const float sinYaw = sin_approx(((-initialYaw) / 10.0f * 0.0174532925f) * 0.5f);
-
-    const float q0 = cosRoll * cosPitch * cosYaw + sinRoll * sinPitch * sinYaw;
-    const float q1 = sinRoll * cosPitch * cosYaw - cosRoll * sinPitch * sinYaw;
-    const float q2 = cosRoll * sinPitch * cosYaw + sinRoll * cosPitch * sinYaw;
-    const float q3 = cosRoll * cosPitch * sinYaw - sinRoll * sinPitch * cosYaw;
-
-    quatProd->xx = ((q1)*(q1));
-    quatProd->yy = ((q2)*(q2));
-    quatProd->zz = ((q3)*(q3));
-
-    quatProd->xy = q1 * q2;
-    quatProd->xz = q1 * q3;
-    quatProd->yz = q2 * q3;
-
-    quatProd->wx = q0 * q1;
-    quatProd->wy = q0 * q2;
-    quatProd->wz = q0 * q3;
-
-    imuComputeRotationMatrix();
-
-    attitudeIsEstablished = 
-# 474 "./src/main/flight/imu.c" 3 4
-                           1
-# 474 "./src/main/flight/imu.c"
-                               ;
-}
-
-
+# 478 "./src/main/flight/imu.c"
 static void imuCalculateEstimatedAttitude(timeUs_t currentTimeUs)
 {
     static timeUs_t previousIMUUpdateTime;
@@ -12633,38 +12498,6 @@ static void imuCalculateEstimatedAttitude(timeUs_t currentTimeUs)
 
     const timeDelta_t deltaT = currentTimeUs - previousIMUUpdateTime;
     previousIMUUpdateTime = currentTimeUs;
-# 499 "./src/main/flight/imu.c"
-    if (!useMag && sensors(SENSOR_GPS) && (stateFlags & (GPS_FIX)) && gpsSol.numSat >= 5 && gpsSol.groundSpeed >= 500) {
-
-        if (isFixedWing()) {
-            courseOverGround = ((gpsSol.groundCourse) / 10.0f * 0.0174532925f);
-            useCOG = 
-# 503 "./src/main/flight/imu.c" 3 4
-                    1
-# 503 "./src/main/flight/imu.c"
-                        ;
-        } else {
-            courseOverGround = ((gpsSol.groundCourse) / 10.0f * 0.0174532925f);
-
-            useCOG = 
-# 507 "./src/main/flight/imu.c" 3 4
-                    1
-# 507 "./src/main/flight/imu.c"
-                        ;
-        }
-
-        if (useCOG && shouldInitializeGPSHeading()) {
-
-
-            imuComputeQuaternionFromRPY(&qP, attitude.values.roll, attitude.values.pitch, gpsSol.groundCourse);
-
-            useCOG = 
-# 515 "./src/main/flight/imu.c" 3 4
-                    0
-# 515 "./src/main/flight/imu.c"
-                         ;
-        }
-    }
 # 536 "./src/main/flight/imu.c"
     float gyroAverage[3];
     gyroGetAccumulationAverage(gyroAverage);

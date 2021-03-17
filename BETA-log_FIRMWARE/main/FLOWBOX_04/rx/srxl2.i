@@ -6381,25 +6381,7 @@ _Bool
     } break;
 
     case VTXData: {
-
-        Srxl2VtxData *vtxData = (Srxl2VtxData*)(controlData + 1);
-        ;
-        ;
-        ;
-        ;
-        ;
-        ;
-        ;
-
-
-        uint32_t vtxControl = (0xE0 << 24) | (0xE0 << 8) |
-                                ((vtxData->band & 0x07) << 21) |
-                                ((vtxData->channel & 0x0F) << 16) |
-                                ((vtxData->pit & 0x01) << 4) |
-                                ((vtxData->region & 0x01) << 3) |
-                                ((vtxData->power & 0x07));
-        spektrumHandleVtxControl(vtxControl);
-
+# 238 "./src/main/rx/srxl2.c"
     } break;
     }
 

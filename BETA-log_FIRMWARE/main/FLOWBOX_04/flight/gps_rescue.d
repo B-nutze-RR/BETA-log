@@ -32,21 +32,7 @@ BETA-log_FIRMWARE/main/FLOWBOX_04/flight/gps_rescue.o: \
  src/main/target/common_pre.h src/main/target/FLOWBOX_04/target.h \
  src/main/target/common_deprecated_post.h src/main/target/common_post.h \
  src/main/build/version.h src/main/common/utils.h \
- src/main/target/common_defaults_post.h src/main/build/debug.h \
- src/main/common/axis.h src/main/common/maths.h src/main/drivers/time.h \
- src/main/common/time.h src/main/pg/pg.h src/main/build/build_config.h \
- src/main/io/gps.h src/main/config/config.h src/main/fc/core.h \
- src/main/fc/rc_controls.h src/main/common/filter.h \
- src/main/fc/rc_modes.h src/main/fc/runtime_config.h \
- src/main/flight/failsafe.h src/main/flight/imu.h src/main/flight/pid.h \
- src/main/flight/position.h src/main/pg/pg_ids.h src/main/rx/rx.h \
- src/main/pg/rx.h src/main/drivers/io_types.h \
- src/main/sensors/acceleration.h src/main/drivers/accgyro/accgyro.h \
- src/main/common/sensor_alignment.h src/main/drivers/exti.h \
- src/main/drivers/bus.h src/main/drivers/bus_i2c.h \
- src/main/drivers/rcc_types.h src/main/drivers/sensor.h \
- src/main/drivers/accgyro/accgyro_mpu.h src/main/sensors/sensors.h \
- src/main/flight/gps_rescue.h
+ src/main/target/common_defaults_post.h
 
 src/main/platform.h:
 
@@ -121,69 +107,3 @@ src/main/build/version.h:
 src/main/common/utils.h:
 
 src/main/target/common_defaults_post.h:
-
-src/main/build/debug.h:
-
-src/main/common/axis.h:
-
-src/main/common/maths.h:
-
-src/main/drivers/time.h:
-
-src/main/common/time.h:
-
-src/main/pg/pg.h:
-
-src/main/build/build_config.h:
-
-src/main/io/gps.h:
-
-src/main/config/config.h:
-
-src/main/fc/core.h:
-
-src/main/fc/rc_controls.h:
-
-src/main/common/filter.h:
-
-src/main/fc/rc_modes.h:
-
-src/main/fc/runtime_config.h:
-
-src/main/flight/failsafe.h:
-
-src/main/flight/imu.h:
-
-src/main/flight/pid.h:
-
-src/main/flight/position.h:
-
-src/main/pg/pg_ids.h:
-
-src/main/rx/rx.h:
-
-src/main/pg/rx.h:
-
-src/main/drivers/io_types.h:
-
-src/main/sensors/acceleration.h:
-
-src/main/drivers/accgyro/accgyro.h:
-
-src/main/common/sensor_alignment.h:
-
-src/main/drivers/exti.h:
-
-src/main/drivers/bus.h:
-
-src/main/drivers/bus_i2c.h:
-
-src/main/drivers/rcc_types.h:
-
-src/main/drivers/sensor.h:
-
-src/main/drivers/accgyro/accgyro_mpu.h:
-
-src/main/sensors/sensors.h:
-
-src/main/flight/gps_rescue.h:

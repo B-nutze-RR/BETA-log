@@ -9,10 +9,10 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"ghst.c"
-	.section	.gnu.lto_.profile.415f7949,"e",%progbits
+	.section	.gnu.lto_.profile.41a3aaf2,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.415f7949,"e",%progbits
+	.section	.gnu.lto_.icf.41a3aaf2,"e",%progbits
 	.ascii	"x\234\343``dX\302\200\000\322\014'Wv,\342aljm?\305\306"
 	.ascii	"\264t\346\233u<\314\237~\234\277\316\315\322<\267\271"
 	.ascii	"\215\227m\367\205\246;<\354`\021\216\256\346#'Y9W~y"
@@ -24,7 +24,7 @@
 	.ascii	"\257_ws\033\277\302\336\237;\2360*\036ool`a\000\000"
 	.ascii	"\003\223T\035"
 	.text
-	.section	.gnu.lto_.jmpfuncs.415f7949,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41a3aaf2,"e",%progbits
 	.ascii	"x\234}R]+\004a\024>\317{\306\354\007vs\203m\022n)\277"
 	.ascii	"b\177\327n\222R\033)$\245\326G\271\300\255\222\2175"
 	.ascii	"\326\327\"\027\224\013\222$)\271p!E\3218\357;\263\263"
@@ -51,7 +51,7 @@
 	.ascii	"\247\306\302\320\325\214`\316D\207jV\335/4\277\246\354"
 	.ascii	"\340\331"
 	.text
-	.section	.gnu.lto_.inline.415f7949,"e",%progbits
+	.section	.gnu.lto_.inline.41a3aaf2,"e",%progbits
 	.ascii	"x\234uR]+DQ\024]g\237;_\327\014c\036\010\311x\221\027"
 	.ascii	"\177\345\376\010f\306\307\257\270J\210\344\276\010\221"
 	.ascii	"\361dj\212\224\227iDJ\362 \017\276R$\222\362 %)\345"
@@ -76,13 +76,13 @@
 	.ascii	"G|\265\261\224X\341\273\300\032*~\367\"d\372\312Oi\371"
 	.ascii	"\012\202R\360\003\206\300\234\370"
 	.text
-	.section	.gnu.lto_.pureconst.415f7949,"e",%progbits
+	.section	.gnu.lto_.pureconst.41a3aaf2,"e",%progbits
 	.ascii	"x\234\005\301\261\015\2000\020\004\3013ZY@b\221\340"
 	.ascii	"\300B@\003T\371E\274\257ZfV\025}\222\232\202%\300\324"
 	.ascii	"d\233\354\246%\2079M\237\214\344Jn\363\2307\370\001"
 	.ascii	"\352\004\012A"
 	.text
-	.section	.gnu.lto_ghstReadRawRC.415f7949,"e",%progbits
+	.section	.gnu.lto_ghstReadRawRC.41a3aaf2,"e",%progbits
 	.ascii	"x\234ERMk\023Q\024}g\336\314d&&E\020A\011B\026B(J#\365"
 	.ascii	"\017\370\003\\\351/\010\241\330.\232E\032\241\273\276"
 	.ascii	"L\313\224\222R\273\260\266\202c\224\020?\026\322(\202"
@@ -113,7 +113,7 @@
 	.ascii	"+/:\212\203\027.\027J}\375=\027K\271R\217\231\357\315"
 	.ascii	"\025\376\002 T\325E"
 	.text
-	.section	.gnu.lto_ghstFrameTimeUs.415f7949,"e",%progbits
+	.section	.gnu.lto_ghstFrameTimeUs.41a3aaf2,"e",%progbits
 	.ascii	"x\234E\216\277J\003A\030\304gn\317\344\"\261\022\261"
 	.ascii	"\010B:I\223{\005\237\300w\220\024j\241Eba\227\357\316"
 	.ascii	"\003\221Hl\324`\021\203\004Q+\021\322\370'z\225\240"
@@ -131,7 +131,7 @@
 	.ascii	"\212~\245\\\362W\026\226W\375\362\272\277\270TY+\226"
 	.ascii	"\360\015[\224^V"
 	.text
-	.section	.gnu.lto_ghstIdle.415f7949,"e",%progbits
+	.section	.gnu.lto_ghstIdle.41a3aaf2,"e",%progbits
 	.ascii	"x\234\215P\275N\202Q\014\355\271\275\300\207\321Ec\034"
 	.ascii	"\\\\Y\370\036\300\3057\360\031\014\203:\350\000\016"
 	.ascii	"n\334\0171\304@\320E\211\0032\020\242\233q\364\227O"
@@ -151,7 +151,7 @@
 	.ascii	"\262\214\301]\210\306\243n\"\036s\227\346\026\227\335"
 	.ascii	"\370\252;\277\220X\211\306\350\033\012c\215I"
 	.text
-	.section	.gnu.lto_shouldSendTelemetryFrame.415f7949,"e",%progbits
+	.section	.gnu.lto_shouldSendTelemetryFrame.41a3aaf2,"e",%progbits
 	.ascii	"x\234m\222\317KTQ\024\307\317\367\236\367kt\304Uh\314"
 	.ascii	"\306\215\013\013f\202p\323\252\177E$\322\305(\250P;"
 	.ascii	"\2573\232\204b-2\021\232&\035\244VZ\020\004N\3313\315"
@@ -186,7 +186,7 @@
 	.ascii	"\334\236N\267\267\245\272Z\323\227\222-\364\007\366"
 	.ascii	"\003\005\021"
 	.text
-	.section	.gnu.lto_ghstFrameCRC.415f7949,"e",%progbits
+	.section	.gnu.lto_ghstFrameCRC.41a3aaf2,"e",%progbits
 	.ascii	"x\234\205\223\333K\324A\024\307\347;g\366\342\262\253"
 	.ascii	"\005\005\321J\010%vC\227z\361\261\247\372\037z\023\211"
 	.ascii	"2(B{\350IgW-\242\313R\030i\264\254!kFa\006\335-\335"
@@ -232,7 +232,7 @@
 	.ascii	"v\226U\357)\333\272\255fwi\245\012\355\332\304\203\215"
 	.ascii	"\325\025;\266Peu%\252~\002\250\373vg"
 	.text
-	.section	.gnu.lto_ghstDataReceive.part.0.415f7949,"e",%progbits
+	.section	.gnu.lto_ghstDataReceive.part.0.41a3aaf2,"e",%progbits
 	.ascii	"x\234}TMOSA\024\235\363\356+\264UD1F\214\306\270\020"
 	.ascii	"\225\2054\376\003W\256\\\270P\367\244\242\230XHJM\334"
 	.ascii	"9-\240\"\250\220T\011\011\265B%\210\032\215\0371Q\224"
@@ -279,7 +279,7 @@
 	.ascii	"\263w\356\335\263g\223\267\320S\264\271\250d\227\257"
 	.ascii	"xYJ\251\273\324\343)-q\371\030_P,~\003\317s\316\271"
 	.text
-	.section	.gnu.lto_ghstDataReceive.415f7949,"e",%progbits
+	.section	.gnu.lto_ghstDataReceive.41a3aaf2,"e",%progbits
 	.ascii	"x\234\215U[O\\U\024\336k\357s\316\2349gF\300\202-\362"
 	.ascii	"`\037$\244}`\260\277\300'\177\201\376\000\202\215\355"
 	.ascii	"\0034\001L|\353af\004\313`[\014\226\222t\234\312dB\321"
@@ -342,7 +342,7 @@
 	.ascii	"x\277\272\372hU\355\333\307+\217\276SS\230\265\265\342"
 	.ascii	"De\345\211\252P-\006J\217\261\177\000i\250U\242"
 	.text
-	.section	.gnu.lto_ghstFrameStatus.part.0.415f7949,"e",%progbits
+	.section	.gnu.lto_ghstFrameStatus.part.0.41a3aaf2,"e",%progbits
 	.ascii	"x\234\215\225_L\024W\024\306\357\231;;;;\273\013V\013"
 	.ascii	"!\331\244\365\241\204`\023!\370\320\246O>\365\251O\366"
 	.ascii	"\265/\204P5\021\322\"&\276yYV\021!\324V\024h\0134l)"
@@ -411,7 +411,7 @@
 	.ascii	"<?3?;\376\313C\007\016|\232\227\231\223\375Yv\356\336"
 	.ascii	"\374}<+/\353\177T|\307\312"
 	.text
-	.section	.gnu.lto_ghstFrameStatus.415f7949,"e",%progbits
+	.section	.gnu.lto_ghstFrameStatus.41a3aaf2,"e",%progbits
 	.ascii	"x\234mR\317KTQ\024>\337=\367\275y3:\263\013\202\331"
 	.ascii	"\270\210\304\215\023\265h\333\337P\2336.D\244\\\350"
 	.ascii	"b\234\300\235\367\215\003!3XA:L0\316Bf\264M\031\264"
@@ -443,7 +443,7 @@
 	.ascii	"!J\244'.\337\030\313\214\214\016_\311\014f\206\177\003"
 	.ascii	"\227\257\324o"
 	.text
-	.section	.gnu.lto_ghstProcessFrame.part.0.415f7949,"e",%progbits
+	.section	.gnu.lto_ghstProcessFrame.part.0.41a3aaf2,"e",%progbits
 	.ascii	"x\234\225\231iPTW\026\307\337\271\257\367nh\032\334"
 	.ascii	"\333\005ET\324\210K\324\250\211\246*SS5_\246R\223\232"
 	.ascii	"\371N\031*q*\372\001\231*\277\371@\026\021\203\216\013"
@@ -596,7 +596,7 @@
 	.ascii	"\266\264\271_|\233\262`A\352w\013-\013\323S\322\322"
 	.ascii	"\377\364\365\242\377\001\241\3062\216"
 	.text
-	.section	.gnu.lto_ghstRxWriteTelemetryData.415f7949,"e",%progbits
+	.section	.gnu.lto_ghstRxWriteTelemetryData.41a3aaf2,"e",%progbits
 	.ascii	"x\234e\221\321K\024Q\024\306\3177\347\356\356\254\032"
 	.ascii	"\275\030,\210\261\017\301\342\213\373/\364\257,\026"
 	.ascii	"\026\224\017\253\017\275yw\264\335(S\202b\021\033\306"
@@ -626,7 +626,7 @@
 	.ascii	"\235\036\310\346\317e\373O\015\016\365\366\2219\221"
 	.ascii	"\033\312\361\231\223\003;J3\321\346"
 	.text
-	.section	.gnu.lto_ghstRxSendTelemetryData.415f7949,"e",%progbits
+	.section	.gnu.lto_ghstRxSendTelemetryData.41a3aaf2,"e",%progbits
 	.ascii	"x\234\215\221\275/dQ\030\306\337\347\274g\356\\\302"
 	.ascii	"V+$\012Z\012\363\007h\374+\033\305\256\302\026(\266"
 	.ascii	"sf\014#Kh0Q\310\265{3A6!t\354.\3277\211\002\205F\242"
@@ -652,7 +652,7 @@
 	.ascii	"\363S\307\327D\327\267\304\347/\335=-\355\364\002\247"
 	.ascii	"Y\322("
 	.text
-	.section	.gnu.lto_ghstProcessFrame.415f7949,"e",%progbits
+	.section	.gnu.lto_ghstProcessFrame.41a3aaf2,"e",%progbits
 	.ascii	"x\234mR\275OSQ\024?\277{^\337{-\245\203\011\211I\027"
 	.ascii	"\006#\301\201\2328\272\3707\350\342J\010Q\006\030JM"
 	.ascii	"\330\270-ML-\001\007\2014\261v \025X\024\023\343\000"
@@ -685,7 +685,7 @@
 	.ascii	"H|\342\354\245\261\304\310\350\360\271\304`bx\037S\250"
 	.ascii	"\371_"
 	.text
-	.section	.gnu.lto_ghstRxInit.415f7949,"e",%progbits
+	.section	.gnu.lto_ghstRxInit.41a3aaf2,"e",%progbits
 	.ascii	"x\234\235V\355STU\030\277\3179ww\357\356\336]L\302\260"
 	.ascii	"%\323\320\010_\200\261\276\3258\316\370\037T\037\372"
 	.ascii	"\3204\3438\246|\020\033\304\031?\345eA\004!u\024\321"
@@ -774,7 +774,7 @@
 	.ascii	"U\313\337\311Z\232\265\334\361\321\352\314,ybI_\262"
 	.ascii	"ri\306?^~\326\351"
 	.text
-	.section	.gnu.lto_ghstRxIsActive.415f7949,"e",%progbits
+	.section	.gnu.lto_ghstRxIsActive.41a3aaf2,"e",%progbits
 	.ascii	"x\234]\216\261KBQ\030\305\317\271\367e/\302\261\024"
 	.ascii	"$hu\361\005\375\003\375#\015\341P\0155hC\233\367\275"
 	.ascii	"\247\210\0246\2314\310\203$j\213\026\207\314zSS\203"
@@ -791,7 +791,7 @@
 	.ascii	"X\337\031,\376:0.\310\277\202\300\\\316+\026\362\336"
 	.ascii	"\326\332\346\266W\330\365\3267\212;\271<~\000yb_h"
 	.text
-	.section	.gnu.lto_.symbol_nodes.415f7949,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41a3aaf2,"e",%progbits
 	.ascii	"x\234u\223\315O\023Q\024\305\337y\2673\264S\240\024"
 	.ascii	"\260\203\022lS*\337;6\256\010\030\377\022\343\377qG"
 	.ascii	"S\227D\023\335\020PP\213\026P\276?Z\020\025l\304\005"
@@ -819,7 +819,7 @@
 	.ascii	"\345{LQ%\346}\323\346\014T\030y\032\256B\305\243\302"
 	.ascii	"\360\324\326i\027~\246\305%\272mJ^"
 	.text
-	.section	.gnu.lto_.refs.415f7949,"e",%progbits
+	.section	.gnu.lto_.refs.41a3aaf2,"e",%progbits
 	.ascii	"x\234\025\317\273N\303P\024D\321\331\307\257\233\370"
 	.ascii	"\330\016~$\2661q@ *\032D\201(\340\347i\240\201\006\012"
 	.ascii	"\276\206\033i\244\325L\263\203\320\210t\236aJ\260T\031"
@@ -834,7 +834,7 @@
 	.ascii	"8\216\226N\032g\306E\323\025\323\312\265\216\350\037"
 	.ascii	"ay\021\032"
 	.text
-	.section	.gnu.lto_.decls.415f7949,"e",%progbits
+	.section	.gnu.lto_.decls.41a3aaf2,"e",%progbits
 	.ascii	"x\234\315|y\\TW\232h\235:U\005\024\005\0304\321\304"
 	.ascii	"Lw\246'\275\274y\235\250I\246\323\357\375\372\275Iw"
 	.ascii	"\322=\235\351\231\236\264\311\314\274\316/\277\241\021"
@@ -1461,7 +1461,7 @@
 	.ascii	"\323@_\030g\267\005\033\255j\310 *\253\321m\025F\302"
 	.ascii	"\277\207\201t\255\245\231\311\221\376/\332Pt\265"
 	.text
-	.section	.gnu.lto_.symtab.415f7949,"e",%progbits
+	.section	.gnu.lto_.symtab.41a3aaf2,"e",%progbits
 	.ascii	"ghstRxWriteTelemetryData\000"
 	.ascii	"\000"
 	.ascii	"\000"

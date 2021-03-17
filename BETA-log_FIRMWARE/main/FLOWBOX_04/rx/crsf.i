@@ -6586,16 +6586,6 @@ _Bool
 void handleCrsfTelemetry(timeUs_t currentTimeUs);
 void crsfScheduleDeviceInfoResponse(void);
 void crsfScheduleMspResponse(void);
-
-void crsfProcessDisplayPortCmd(uint8_t *frameStart);
-
-
-void initCrsfMspBuffer(void);
-
-# 43 "./src/main/telemetry/crsf.h" 3 4
-_Bool 
-# 43 "./src/main/telemetry/crsf.h"
-    bufferCrsfMspFrame(uint8_t *frameStart, int frameLength);
 # 50 "./src/main/rx/crsf.c" 2
 # 61 "./src/main/rx/crsf.c"
 static 
@@ -6777,29 +6767,7 @@ static void crsfDataReceive(uint16_t c, void *data)
                             memcpy(&crsfChannelDataFrame, &crsfFrame, sizeof(crsfFrame));
                         }
                         break;
-
-
-                    case CRSF_FRAMETYPE_MSP_REQ:
-                    case CRSF_FRAMETYPE_MSP_WRITE: {
-                        uint8_t *frameStart = (uint8_t *)&crsfFrame.frame.payload + CRSF_FRAME_ORIGIN_DEST_SIZE;
-                        if (bufferCrsfMspFrame(frameStart, CRSF_FRAME_RX_MSP_FRAME_SIZE)) {
-                            crsfScheduleMspResponse();
-                        }
-                        break;
-                    }
-
-
-                    case CRSF_FRAMETYPE_DEVICE_PING:
-                        crsfScheduleDeviceInfoResponse();
-                        break;
-                    case CRSF_FRAMETYPE_DISPLAYPORT_CMD: {
-                        uint8_t *frameStart = (uint8_t *)&crsfFrame.frame.payload + CRSF_FRAME_ORIGIN_DEST_SIZE;
-                        crsfProcessDisplayPortCmd(frameStart);
-                        break;
-                    }
-
-
-
+# 296 "./src/main/rx/crsf.c"
                     case CRSF_FRAMETYPE_LINK_STATISTICS: {
 
                          if ((rssiSource == RSSI_SOURCE_RX_PROTOCOL_CRSF) &&

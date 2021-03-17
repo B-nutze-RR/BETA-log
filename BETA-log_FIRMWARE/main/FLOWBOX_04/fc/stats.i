@@ -5017,7 +5017,7 @@ dispatchEntry_t writeStatsEntry =
 void statsOnArm(void)
 {
     arm_millis = millis();
-    arm_distance_cm = (GPS_distanceFlownInCm);
+    arm_distance_cm = (0);
 }
 
 void statsOnDisarm(void)
@@ -5028,7 +5028,7 @@ void statsOnDisarm(void)
         if (dtS >= (uint8_t)minArmedTimeS) {
             statsConfigMutable()->stats_total_flights += 1;
             statsConfigMutable()->stats_total_time_s += dtS;
-            statsConfigMutable()->stats_total_dist_m += ((GPS_distanceFlownInCm) - arm_distance_cm) / 100;
+            statsConfigMutable()->stats_total_dist_m += ((0) - arm_distance_cm) / 100;
 
             saveRequired = 
 # 95 "./src/main/fc/stats.c" 3 4

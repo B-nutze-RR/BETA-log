@@ -6189,7 +6189,7 @@ typedef struct pidProfile_s {
     uint8_t simplified_dterm_filter_multiplier;
 } pidProfile_t;
 
-extern pidProfile_t pidProfiles_SystemArray[3]; extern pidProfile_t pidProfiles_CopyArray[3]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[3] { return &pidProfiles_SystemArray; } struct _dummy;
+extern pidProfile_t pidProfiles_SystemArray[1]; extern pidProfile_t pidProfiles_CopyArray[1]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[1] { return &pidProfiles_SystemArray; } struct _dummy;
 
 typedef struct pidConfig_s {
     uint8_t pid_process_denom;
@@ -6295,37 +6295,7 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-
-
-    pt1Filter_t windupLpf[3];
-    uint8_t itermRelax;
-    uint8_t itermRelaxType;
-    uint8_t itermRelaxCutoff;
-
-
-
-    float acCutoff;
-    float acGain;
-    float acLimit;
-    float acErrorLimit;
-    pt1Filter_t acLpf[3];
-    float oldSetpointCorrection[3];
-
-
-
-    biquadFilter_t dMinRange[3];
-    pt1Filter_t dMinLowpass[3];
-    float dMinPercent[3];
-    float dMinGyroGain;
-    float dMinSetpointGain;
-
-
-
-    pt1Filter_t airmodeThrottleLpf1;
-    pt1Filter_t airmodeThrottleLpf2;
-
-
-
+# 343 "./src/main/flight/pid.h"
     pt1Filter_t setpointDerivativePt1[3];
     biquadFilter_t setpointDerivativeBiquad[3];
     
@@ -6335,53 +6305,12 @@ typedef struct pidRuntime_s {
         setpointDerivativeLpfInitialized;
     uint8_t rcSmoothingDebugAxis;
     uint8_t rcSmoothingFilterType;
-
-
-
-    float acroTrainerAngleLimit;
-    float acroTrainerLookaheadTime;
-    uint8_t acroTrainerDebugAxis;
-    float acroTrainerGain;
-    
-# 355 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 355 "./src/main/flight/pid.h"
-        acroTrainerActive;
-    int acroTrainerAxisState[2];
-
-
-
+# 360 "./src/main/flight/pid.h"
     uint8_t dynLpfFilter;
     uint16_t dynLpfMin;
     uint16_t dynLpfMax;
     uint8_t dynLpfCurveExpo;
-
-
-
-    uint8_t launchControlMode;
-    uint8_t launchControlAngleLimit;
-    float launchControlKi;
-
-
-
-    
-# 373 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 373 "./src/main/flight/pid.h"
-        useIntegratedYaw;
-    uint8_t integratedYawRelax;
-
-
-
-    float thrustLinearization;
-    float throttleCompensateAmount;
-
-
-
-    float airmodeThrottleOffsetLimit;
-
-
-
+# 387 "./src/main/flight/pid.h"
     ffInterpolationType_t ffFromInterpolatedSetpoint;
     float ffSmoothFactor;
 
@@ -6433,15 +6362,6 @@ void pidSetAntiGravityState(
 _Bool 
 # 413 "./src/main/flight/pid.h"
     pidAntiGravityEnabled(void);
-
-
-float pidApplyThrustLinearization(float motorValue);
-float pidCompensateThrustLinearization(float throttle);
-
-
-
-void pidUpdateAirmodeLpf(float currentOffset);
-float pidGetAirmodeThrottleOffset();
 # 436 "./src/main/flight/pid.h"
 void dynLpfDTermUpdate(float throttle);
 void pidSetItermReset(
@@ -6999,172 +6919,8 @@ const positionConfig_t pgResetTemplate_positionConfig __attribute__ ((section(".
  ;
 
 static int32_t estimatedAltitudeCm = 0;
-
-
-
-
-static int16_t estimatedVario = 0;
-
-int16_t calculateEstimatedVario(int32_t baroAlt, const uint32_t dTime) {
-    static float vel = 0;
-    static int32_t lastBaroAlt = 0;
-
-    int32_t baroVel = 0;
-
-    baroVel = (baroAlt - lastBaroAlt) * 1000000.0f / dTime;
-    lastBaroAlt = baroAlt;
-
-    baroVel = constrain(baroVel, -1500.0f, 1500.0f);
-    baroVel = applyDeadband(baroVel, 10.0f);
-
-    vel = vel * (0.001f * barometerConfig()->baro_cf_vel) + baroVel * (1.0f - (0.001f * barometerConfig()->baro_cf_vel));
-    int32_t vel_tmp = lrintf(vel);
-    vel_tmp = applyDeadband(vel_tmp, 5.0f);
-
-    return constrain(vel_tmp, 
-# 82 "./src/main/flight/position.c" 3 4
-                             (-0x7fff - 1)
-# 82 "./src/main/flight/position.c"
-                                     , 0x7fff);
-}
-
-
-
-static 
-# 87 "./src/main/flight/position.c" 3 4
-      _Bool 
-# 87 "./src/main/flight/position.c"
-           altitudeOffsetSet = 
-# 87 "./src/main/flight/position.c" 3 4
-                               0
-# 87 "./src/main/flight/position.c"
-                                    ;
-
-void calculateEstimatedAltitude(timeUs_t currentTimeUs)
-{
-    static timeUs_t previousTimeUs = 0;
-    static int32_t baroAltOffset = 0;
-    static int32_t gpsAltOffset = 0;
-
-    const uint32_t dTime = currentTimeUs - previousTimeUs;
-    if (dTime < (1000 * 25)) {
-        return;
-    }
-    previousTimeUs = currentTimeUs;
-
-    int32_t baroAlt = 0;
-    int32_t gpsAlt = 0;
-
-
-    int16_t gpsVertSpeed = 0;
-
-    float gpsTrust = 0.3;
-    
-# 108 "./src/main/flight/position.c" 3 4
-   _Bool 
-# 108 "./src/main/flight/position.c"
-        haveBaroAlt = 
-# 108 "./src/main/flight/position.c" 3 4
-                      0
-# 108 "./src/main/flight/position.c"
-                           ;
-    
-# 109 "./src/main/flight/position.c" 3 4
-   _Bool 
-# 109 "./src/main/flight/position.c"
-        haveGpsAlt = 
-# 109 "./src/main/flight/position.c" 3 4
-                     0
-# 109 "./src/main/flight/position.c"
-                          ;
-# 122 "./src/main/flight/position.c"
-    if (sensors(SENSOR_GPS) && (stateFlags & (GPS_FIX))) {
-        gpsAlt = gpsSol.llh.altCm;
-
-        gpsVertSpeed = GPS_verticalSpeedInCmS;
-
-        haveGpsAlt = 
-# 127 "./src/main/flight/position.c" 3 4
-                    1
-# 127 "./src/main/flight/position.c"
-                        ;
-
-        if (gpsSol.hdop != 0) {
-            gpsTrust = 100.0 / gpsSol.hdop;
-        }
-
-        gpsTrust = __extension__ ({ __typeof__ (gpsTrust) _a = (gpsTrust); __typeof__ (0.9f) _b = (0.9f); _a < _b ? _a : _b; });
-    }
-
-
-    if ((armingFlags & (ARMED)) && !altitudeOffsetSet) {
-        baroAltOffset = baroAlt;
-        gpsAltOffset = gpsAlt;
-        altitudeOffsetSet = 
-# 140 "./src/main/flight/position.c" 3 4
-                           1
-# 140 "./src/main/flight/position.c"
-                               ;
-    } else if (!(armingFlags & (ARMED)) && altitudeOffsetSet) {
-        altitudeOffsetSet = 
-# 142 "./src/main/flight/position.c" 3 4
-                           0
-# 142 "./src/main/flight/position.c"
-                                ;
-    }
-    baroAlt -= baroAltOffset;
-    gpsAlt -= gpsAltOffset;
-
-
-    if (haveGpsAlt && haveBaroAlt && positionConfig()->altSource == DEFAULT) {
-        if ((armingFlags & (ARMED))) {
-            estimatedAltitudeCm = gpsAlt * gpsTrust + baroAlt * (1 - gpsTrust);
-        } else {
-            estimatedAltitudeCm = gpsAlt;
-        }
-
-
-        estimatedVario = calculateEstimatedVario(baroAlt, dTime);
-
-    } else if (haveGpsAlt && (positionConfig()->altSource == GPS_ONLY || positionConfig()->altSource == DEFAULT )) {
-        estimatedAltitudeCm = gpsAlt;
-
-        estimatedVario = gpsVertSpeed;
-
-    } else if (haveBaroAlt && (positionConfig()->altSource == BARO_ONLY || positionConfig()->altSource == DEFAULT)) {
-        estimatedAltitudeCm = baroAlt;
-
-        estimatedVario = calculateEstimatedVario(baroAlt, dTime);
-
-    }
-
-
-
-    {if (debugMode == (DEBUG_ALTITUDE)) {debug[(0)] = ((int32_t)(100 * gpsTrust));}};
-    {if (debugMode == (DEBUG_ALTITUDE)) {debug[(1)] = (baroAlt);}};
-    {if (debugMode == (DEBUG_ALTITUDE)) {debug[(2)] = (gpsAlt);}};
-
-    {if (debugMode == (DEBUG_ALTITUDE)) {debug[(3)] = (estimatedVario);}};
-
-}
-
-
-# 180 "./src/main/flight/position.c" 3 4
-_Bool 
-# 180 "./src/main/flight/position.c"
-    isAltitudeOffset(void)
-{
-    return altitudeOffsetSet;
-}
-
-
+# 186 "./src/main/flight/position.c"
 int32_t getEstimatedAltitudeCm(void)
 {
     return estimatedAltitudeCm;
-}
-
-
-int16_t getEstimatedVario(void)
-{
-    return estimatedVario;
 }

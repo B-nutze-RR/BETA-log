@@ -9,15 +9,15 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"usb_bsp.c"
-	.section	.gnu.lto_.profile.415f2b59,"e",%progbits
+	.section	.gnu.lto_.profile.41a40c89,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.415f2b59,"e",%progbits
+	.section	.gnu.lto_.icf.41a40c89,"e",%progbits
 	.ascii	"x\234\343``dPc@\0006\206\013\353olbc\354\233\370h\035"
 	.ascii	"\017S\313\2035\257\371\231\333\026\254\357df\001\213"
 	.ascii	"\263\202I\006\000[ \021\230"
 	.text
-	.section	.gnu.lto_.jmpfuncs.415f2b59,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41a40c89,"e",%progbits
 	.ascii	"x\234}R\317K\002A\024~\337\316\252\353\256b\335\202"
 	.ascii	"\271t\354\024\036\373\3636<\364\303\360\020AP\007\311"
 	.ascii	"\350\220(\010A\207,\323,\313\354 \035:v\012\202 :$Q"
@@ -41,7 +41,7 @@
 	.ascii	"\300\265Jn\321\254\227\213\273\341v\231\011\204\272"
 	.ascii	"\351\230\371\323\017\332\030\275\343"
 	.text
-	.section	.gnu.lto_.inline.415f2b59,"e",%progbits
+	.section	.gnu.lto_.inline.41a40c89,"e",%progbits
 	.ascii	"x\234\343``dPbd\200\0036\006\006\346\006 `Jad`b`h\004"
 	.ascii	"2\353\200\242\020!&\220\020\003P\007A%L<*@\356\032\346"
 	.ascii	"L\240\022! k\001S\032\206\022n\210Q< 6\003\234f\341"
@@ -49,11 +49,11 @@
 	.ascii	"\255\340\000\233\234\212\303\012(\305B\330\331\254\204"
 	.ascii	"\2250\000\000\366\246-\302"
 	.text
-	.section	.gnu.lto_.pureconst.415f2b59,"e",%progbits
+	.section	.gnu.lto_.pureconst.41a40c89,"e",%progbits
 	.ascii	"x\234\343``d\020f```ch`al`a\232\301\302<\203\205\245"
 	.ascii	"\201\205\265\201\005\000\"\260\003z"
 	.text
-	.section	.gnu.lto_USB_OTG_BSP_ConfigVBUS.415f2b59,"e",%progbits
+	.section	.gnu.lto_USB_OTG_BSP_ConfigVBUS.41a40c89,"e",%progbits
 	.ascii	"x\234E\217=K\303`\020\307\357\377\\\332\006\251\037"
 	.ascii	"@\202RD(]\232\305\017\3407\021\033\025\034\224`\260"
 	.ascii	"k\257Y:T,\210\022\034J&\255\202 \205.\276?\210\213\216"
@@ -70,7 +70,7 @@
 	.ascii	"\370\233+\033[~=\010\327\027\375\235\250\266\\\213\302"
 	.ascii	"j@N\270\272V\377\005\034\332V\012"
 	.text
-	.section	.gnu.lto_USB_OTG_BSP_DriveVBUS.415f2b59,"e",%progbits
+	.section	.gnu.lto_USB_OTG_BSP_DriveVBUS.41a40c89,"e",%progbits
 	.ascii	"x\234E\220=K\003A\020\206\347\335\331| \261W\016%\250"
 	.ascii	"\020\323\344\004\375\001\376\012[Ib\004\013%x1m6i\256"
 	.ascii	"\210\230F\011\006\302U\361\003\004\021\322\304\317\325"
@@ -89,7 +89,7 @@
 	.ascii	"G\225\361\337Fd\245lg=k\257\246W\326\354b6\277<go8\231"
 	.ascii	"\305\214\223OeI\346\227r\305\220SH\027r\177\265ch\364"
 	.text
-	.section	.gnu.lto_USB_OTG_BSP_Init.415f2b59,"e",%progbits
+	.section	.gnu.lto_USB_OTG_BSP_Init.41a40c89,"e",%progbits
 	.ascii	"x\234}\224[lTE\030\307\347\177\346\354\245\355.\205"
 	.ascii	"\005\252\260JH\264!\274\320>\020\223\276\231\370\240"
 	.ascii	"}Q\023\023_\211TLx\2204\275\2752\273\335\332Jo\011\367"
@@ -145,7 +145,7 @@
 	.ascii	"m[\353\336\253\253\251\257\252\253\257\331\022x\363"
 	.ascii	"\335\312w\262]\377\000\326\344+U"
 	.text
-	.section	.gnu.lto_USB_OTG_BSP_EnableInterrupt.415f2b59,"e",%progbits
+	.section	.gnu.lto_USB_OTG_BSP_EnableInterrupt.41a40c89,"e",%progbits
 	.ascii	"x\234}\221MHTQ\024\307\317\377\3357\316\233\321!h\021"
 	.ascii	"\321\230\010&\342\306qQ\013wA+7m\202\266\222\223\201"
 	.ascii	"\213d\030\035\267\336\031\247L&F\220\302&\262'cV\302"
@@ -179,7 +179,7 @@
 	.ascii	"\364\320\361\266\356\235\207\2176\037ji\356h\357:\322"
 	.ascii	"\025\216\004\273\"\341\266\337\035\241\006\313"
 	.text
-	.section	.gnu.lto_USB_OTG_BSP_uDelay.415f2b59,"e",%progbits
+	.section	.gnu.lto_USB_OTG_BSP_uDelay.41a40c89,"e",%progbits
 	.ascii	"x\234-\217\277K\303P\020\307\357\373.6!\350(\010\205"
 	.ascii	"\"\"\224,\315\342\037\340\177\"6(8(\305P\327<#\332\241"
 	.ascii	"\242\202\226\342 Q\244t\324\202\213?\373t\263\210\202"
@@ -196,7 +196,7 @@
 	.ascii	"\310!\215:#+\306&\305|\311\017\327\003\177uqe\315\337"
 	.ascii	"\010*\313s~5,/\224\303J) \253\032.\005\177L\375Z;"
 	.text
-	.section	.gnu.lto_USB_OTG_BSP_mDelay.415f2b59,"e",%progbits
+	.section	.gnu.lto_USB_OTG_BSP_mDelay.41a40c89,"e",%progbits
 	.ascii	"x\234-\217\275J\003Q\020\205\347\334Y\343\032\264\025"
 	.ascii	"!(A\204\020\204l\343\003\370&b\026\005\213Hp\3216\343"
 	.ascii	"\212\246\210\250\205\262X\310\022C\020+\021l\374\277"
@@ -214,7 +214,7 @@
 	.ascii	"_\235\237\362\226\203\362L9\250\226|r*\301\234\377\007"
 	.ascii	"d\372W\322"
 	.text
-	.section	.gnu.lto_.symbol_nodes.415f2b59,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41a40c89,"e",%progbits
 	.ascii	"x\234u\317\313\015\3020\014\306q\177v\351#mg\340\302"
 	.ascii	" 0\231{@\274\037\005V`\012\316=\263\003\022{@ A\\\034"
 	.ascii	"\237\376\322\317\262\222\222@\017\020\021/\240\324\371"
@@ -226,10 +226,10 @@
 	.ascii	"\3172\344\323g\021w\235p\036w\235H\033r\"\322\374\316"
 	.ascii	"\322\0337;\2410"
 	.text
-	.section	.gnu.lto_.refs.415f2b59,"e",%progbits
+	.section	.gnu.lto_.refs.41a40c89,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.415f2b59,"e",%progbits
+	.section	.gnu.lto_.decls.41a40c89,"e",%progbits
 	.ascii	"x\234\255ZyTTG\272\357\352\352\206\356\246Y\"&\361D"
 	.ascii	"\347\235L\216o23\231\204\230d\336\233\311d\316K\002"
 	.ascii	"\270\2341\221\007d&\363\316y\323\203\320&\234\310r\240"
@@ -612,7 +612,7 @@
 	.ascii	"\361\032\352\212\246\027\273\244\271\307\252\"y\251"
 	.ascii	"\022\033\303\212H\326\375? \020\017J"
 	.text
-	.section	.gnu.lto_.symtab.415f2b59,"e",%progbits
+	.section	.gnu.lto_.symtab.41a40c89,"e",%progbits
 	.ascii	"USB_OTG_BSP_ConfigVBUS\000"
 	.ascii	"\000"
 	.ascii	"\000"

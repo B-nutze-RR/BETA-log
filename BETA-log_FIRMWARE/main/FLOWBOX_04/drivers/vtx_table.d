@@ -34,8 +34,7 @@ BETA-log_FIRMWARE/main/FLOWBOX_04/drivers/vtx_table.o: \
  src/main/build/version.h src/main/common/utils.h \
  src/main/target/common_defaults_post.h src/main/drivers/vtx_table.h \
  src/main/drivers/vtx_common.h src/main/common/time.h src/main/pg/pg.h \
- src/main/build/build_config.h src/main/common/streambuf.h \
- src/main/common/printf.h src/main/pg/vtx_table.h
+ src/main/build/build_config.h src/main/common/streambuf.h
 
 src/main/ctype.h:
 
@@ -124,7 +123,3 @@ src/main/pg/pg.h:
 src/main/build/build_config.h:
 
 src/main/common/streambuf.h:
-
-src/main/common/printf.h:
-
-src/main/pg/vtx_table.h:

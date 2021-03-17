@@ -5916,27 +5916,7 @@ const char * const currentMeterSourceNames[CURRENT_METER_COUNT] = {
 
 const uint8_t currentMeterIds[] = {
     CURRENT_METER_ID_BATTERY_1,
-
-    CURRENT_METER_ID_VIRTUAL_1,
-
-
-    CURRENT_METER_ID_ESC_COMBINED_1,
-    CURRENT_METER_ID_ESC_MOTOR_1,
-    CURRENT_METER_ID_ESC_MOTOR_2,
-    CURRENT_METER_ID_ESC_MOTOR_3,
-    CURRENT_METER_ID_ESC_MOTOR_4,
-    CURRENT_METER_ID_ESC_MOTOR_5,
-    CURRENT_METER_ID_ESC_MOTOR_6,
-    CURRENT_METER_ID_ESC_MOTOR_7,
-    CURRENT_METER_ID_ESC_MOTOR_8,
-    CURRENT_METER_ID_ESC_MOTOR_9,
-    CURRENT_METER_ID_ESC_MOTOR_10,
-    CURRENT_METER_ID_ESC_MOTOR_11,
-    CURRENT_METER_ID_ESC_MOTOR_12,
-
-
-
-
+# 72 "./src/main/sensors/current.c"
 };
 
 const uint8_t supportedCurrentMeterCount = (sizeof(currentMeterIds) / sizeof((currentMeterIds)[0]));
@@ -5966,7 +5946,7 @@ const currentSensorADCConfig_t pgResetTemplate_currentSensorADCConfig __attribut
  ;
 
 
-currentSensorVirtualConfig_t currentSensorVirtualConfig_System; currentSensorVirtualConfig_t currentSensorVirtualConfig_Copy; extern const pgRegistry_t currentSensorVirtualConfig_Registry; const pgRegistry_t currentSensorVirtualConfig_Registry __attribute__ ((section(".pg_registry"), used, aligned(4))) = { .pgn = 257 | (0 << 12), .length = 1, .size = sizeof(currentSensorVirtualConfig_t) | PGR_SIZE_SYSTEM_FLAG, .address = (uint8_t*)&currentSensorVirtualConfig_System, .copy = (uint8_t*)&currentSensorVirtualConfig_Copy, .ptr = 0, .reset = {.ptr = 0}, };
+
 
 
 static int32_t currentMeterADCToCentiamps(const uint16_t src)
@@ -6030,118 +6010,13 @@ void currentMeterADCRead(currentMeter_t *meter)
     {if (debugMode == (DEBUG_CURRENT_SENSOR)) {debug[(2)] = (meter->amperageLatest);}};
     {if (debugMode == (DEBUG_CURRENT_SENSOR)) {debug[(3)] = (meter->mAhDrawn);}};
 }
-
-
-
-
-
-
-currentSensorVirtualState_t currentMeterVirtualState;
-
-void currentMeterVirtualInit(void)
-{
-    memset(&currentMeterVirtualState, 0, sizeof(currentSensorVirtualState_t));
-}
-
-void currentMeterVirtualRefresh(int32_t lastUpdateAt, 
-# 186 "./src/main/sensors/current.c" 3 4
-                                                     _Bool 
-# 186 "./src/main/sensors/current.c"
-                                                          armed, 
-# 186 "./src/main/sensors/current.c" 3 4
-                                                                 _Bool 
-# 186 "./src/main/sensors/current.c"
-                                                                      throttleLowAndMotorStop, int32_t throttleOffset)
-{
-    currentMeterVirtualState.amperage = (int32_t)currentSensorVirtualConfig()->offset;
-    if (armed) {
-        if (throttleLowAndMotorStop) {
-            throttleOffset = 0;
-        }
-
-        int throttleFactor = throttleOffset + (throttleOffset * throttleOffset / 50);
-        currentMeterVirtualState.amperage += throttleFactor * (int32_t)currentSensorVirtualConfig()->scale / 1000;
-    }
-    updateCurrentmAhDrawnState(&currentMeterVirtualState.mahDrawnState, currentMeterVirtualState.amperage, lastUpdateAt);
-}
-
-void currentMeterVirtualRead(currentMeter_t *meter)
-{
-    meter->amperageLatest = currentMeterVirtualState.amperage;
-    meter->amperage = currentMeterVirtualState.amperage;
-    meter->mAhDrawn = currentMeterVirtualState.mahDrawnState.mAhDrawn;
-}
-
-
-
-
-
-
-
-currentMeterESCState_t currentMeterESCState;
-
-void currentMeterESCInit(void)
-{
-    memset(&currentMeterESCState, 0, sizeof(currentMeterESCState_t));
-}
-
-void currentMeterESCRefresh(int32_t lastUpdateAt)
-{
-    (void)(lastUpdateAt);
-
-    escSensorData_t *escData = getEscSensorData(255);
-    if (escData && escData->dataAge <= 10) {
-        currentMeterESCState.amperage = escData->current + escSensorConfig()->offset / 10;
-        currentMeterESCState.mAhDrawn = escData->consumption + escSensorConfig()->offset * millis() / (1000.0f * 3600);
-    } else {
-        currentMeterESCState.amperage = 0;
-        currentMeterESCState.mAhDrawn = 0;
-    }
-}
-
-void currentMeterESCReadCombined(currentMeter_t *meter)
-{
-    meter->amperageLatest = currentMeterESCState.amperage;
-    meter->amperage = currentMeterESCState.amperage;
-    meter->mAhDrawn = currentMeterESCState.mAhDrawn;
-}
-
-void currentMeterESCReadMotor(uint8_t motorNumber, currentMeter_t *meter)
-{
-    escSensorData_t *escData = getEscSensorData(motorNumber);
-    if (escData && escData->dataAge <= 10) {
-        meter->amperage = escData->current;
-        meter->amperageLatest = escData->current;
-        meter->mAhDrawn = escData->consumption;
-    } else {
-        currentMeterReset(meter);
-    }
-}
 # 300 "./src/main/sensors/current.c"
 void currentMeterRead(currentMeterId_e id, currentMeter_t *meter)
 {
     if (id == CURRENT_METER_ID_BATTERY_1) {
         currentMeterADCRead(meter);
     }
-
-    else if (id == CURRENT_METER_ID_VIRTUAL_1) {
-        currentMeterVirtualRead(meter);
-    }
-
-
-
-
-
-
-
-    else if (id == CURRENT_METER_ID_ESC_COMBINED_1) {
-        currentMeterESCReadCombined(meter);
-    }
-    else if (id >= CURRENT_METER_ID_ESC_MOTOR_1 && id <= CURRENT_METER_ID_ESC_MOTOR_20 ) {
-        int motor = id - CURRENT_METER_ID_ESC_MOTOR_1;
-        currentMeterESCReadMotor(motor, meter);
-    }
-
+# 324 "./src/main/sensors/current.c"
     else {
         currentMeterReset(meter);
     }

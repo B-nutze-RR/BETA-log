@@ -9,10 +9,10 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"stm32f4xx_dac.c"
-	.section	.gnu.lto_.profile.415f6d98,"e",%progbits
+	.section	.gnu.lto_.profile.41a44556,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.415f6d98,"e",%progbits
+	.section	.gnu.lto_.icf.41a44556,"e",%progbits
 	.ascii	"x\234\343``d\350f@\000q\206\366\013G/31.\332\377\353"
 	.ascii	";\007\323\307\253}7y\231\217OY\323\301\304r\341\313"
 	.ascii	"\303Y\374\254`6[\327\317v9\366\215\027\026\335\345\341"
@@ -23,7 +23,7 @@
 	.ascii	"\254\375w\342\015\237\350\216YO~\263\210\201\331\014"
 	.ascii	"\000\363ME\256"
 	.text
-	.section	.gnu.lto_.jmpfuncs.415f6d98,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41a44556,"e",%progbits
 	.ascii	"x\234\235Q\273\016\3020\014\3649\206\266\274Z\336\003"
 	.ascii	"\377Z\220\230X\2722v\346\007\030\200\201/afA,\354\220"
 	.ascii	"4)\262\020\250\022\226,\347.\347W\022\023(cz\333\234"
@@ -36,7 +36,7 @@
 	.ascii	"\353\260i\254\321\277\323\214\365\217M4\230j0\323\200"
 	.ascii	"^\310`vs"
 	.text
-	.section	.gnu.lto_.inline.415f6d98,"e",%progbits
+	.section	.gnu.lto_.inline.41a44556,"e",%progbits
 	.ascii	"x\234\275T\275n\023A\020\376fv\317^\333\007\271\360"
 	.ascii	"\023\220\322\334cP\372\011\374\014N\034\2232))\020r"
 	.ascii	"H\037\271@\242L\232\360\014\010\204\224G\200\216\002"
@@ -66,13 +66,13 @@
 	.ascii	"\354!\362\212'\177\233\0251\202\213\315\326\226C\303"
 	.ascii	"\037\031 NH"
 	.text
-	.section	.gnu.lto_.pureconst.415f6d98,"e",%progbits
+	.section	.gnu.lto_.pureconst.41a44556,"e",%progbits
 	.ascii	"x\234\005\301\211\025@0\024\000\301\037\026q\306\255"
 	.ascii	"#5z[\255\231\034)\336\210xB\222TR\013\322H\373\321I"
 	.ascii	"\226^\006\031e\222Y\026)\262\312&\273\034r\312%\267"
 	.ascii	"\374%|\017\224"
 	.text
-	.section	.gnu.lto_DAC_Cmd.part.0.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_Cmd.part.0.41a44556,"e",%progbits
 	.ascii	"x\234\215S_HSQ\030?\277\373\335m\327R\214\350A\330C"
 	.ascii	"=$\303\02775\350\265P\"\002#X/=\2155\027\016Tb\016\363"
 	.ascii	"\315\343\324-t\350\213\245>\214\033\215\021+(\202=\224"
@@ -108,7 +108,7 @@
 	.ascii	"xk\240\2653\330\323\023\3562N\207/\371c\301X\370\017"
 	.ascii	"\315=\001X"
 	.text
-	.section	.gnu.lto_DAC_SoftwareTriggerCmd.part.0.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_SoftwareTriggerCmd.part.0.41a44556,"e",%progbits
 	.ascii	"x\234\215ROHTa\020\377~o\336\256o++\250\203\260\227"
 	.ascii	"\016\211xqW\355\022\021\024JD`\004\333\245\223\254\272"
 	.ascii	"\341\202J\254Ky\363s\325\335\320E/\226\012\311\006\333"
@@ -145,7 +145,7 @@
 	.ascii	"\325'\253j\253\032\203--\241&\353l\350J \032\214\206"
 	.ascii	"\376\002L\026\016)"
 	.text
-	.section	.gnu.lto_DAC_DualSoftwareTriggerCmd.part.0.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_DualSoftwareTriggerCmd.part.0.41a44556,"e",%progbits
 	.ascii	"x\234\215Q\317kSA\020\236o\347\245}\005\253\202\010"
 	.ascii	"\205\334\204\022z\351\213\215\177\200\007\361 T\204"
 	.ascii	"\350\271\244i\304\200\025I\202\366\326i\372#\322\226"
@@ -175,7 +175,7 @@
 	.ascii	",d\275bi<5t\322\246\3072\331\301,\271Gs\347\323\245"
 	.ascii	"L)\367\033\216M\302g"
 	.text
-	.section	.gnu.lto_DAC_WaveGenerationCmd.part.0.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_WaveGenerationCmd.part.0.41a44556,"e",%progbits
 	.ascii	"x\234\215\223_HSQ\034\307\317\367\236\273\355Z\212\275"
 	.ascii	"\024\322\036\352!\031{q\323\005\275\026ZD`\004\006\321"
 	.ascii	"\223L]\270P\2119\3147\217\363\317J\207\353\301\322\210"
@@ -214,7 +214,7 @@
 	.ascii	"\352\372\352fo[\233\257\305\220\366\005o\207\3178\353"
 	.ascii	"\273Z\027\364\006}\177\000\250\225 ?"
 	.text
-	.section	.gnu.lto_DAC_DMACmd.part.0.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_DMACmd.part.0.41a44556,"e",%progbits
 	.ascii	"x\234\215S_HSQ\034>\337\375\335;\257\245Xo\302\036\362"
 	.ascii	"!\031\276\270\251A\257\205\022\021\030\201\275\3644"
 	.ascii	"\326\\8P\211m\224o\036\347\237\205\212\276X*4n0F\250"
@@ -249,7 +249,7 @@
 	.ascii	"h\250\277\244\332\255\201`mP\034l:\331\350ol\013tv\206"
 	.ascii	"\332\315\263\241\253-\261@,\364\0071\350\003\272"
 	.text
-	.section	.gnu.lto_DAC_ITConfig.part.0.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_ITConfig.part.0.41a44556,"e",%progbits
 	.ascii	"x\234\215\222_HSQ\034\307\317\367\236\273y-\305z3|\011"
 	.ascii	"J\206/n\272z\256P\244?\030\201\276\364dK\027\016Tb\216"
 	.ascii	"\362\315\343\264\026:\364\305r\022c\301XaQ!X\220\315"
@@ -286,7 +286,7 @@
 	.ascii	"v\266\217\324\033\307\275\347\353\002\236\200\367\017"
 	.ascii	"\272c!\241"
 	.text
-	.section	.gnu.lto_DAC_DeInit.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_DeInit.41a44556,"e",%progbits
 	.ascii	"x\234\343``dPcd`\360a``\220\005bFf\006F\246\206\206"
 	.ascii	"\006\007\366F\016&FF0\253\201\203\221\241\236\211\261"
 	.ascii	"\236\261\237y:3\343\241\366g;\2314\227\003e\032\016"
@@ -307,7 +307,7 @@
 	.ascii	"\344\364\213\213\222\365\213Kr\215\215\322@\322)\211"
 	.ascii	"\311z\311\014\000\206Sw\016"
 	.text
-	.section	.gnu.lto_DAC_Init.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_Init.41a44556,"e",%progbits
 	.ascii	"x\234\225S]HTA\024\236s\347\356\335\273\355\237\370"
 	.ascii	"\024H\346C\"\276\270\246\275\364V\024A\201\020\330K"
 	.ascii	"Obj\271\240\"\353V\322\213\263k\272P\242\020\246\366"
@@ -354,7 +354,7 @@
 	.ascii	"\212l\270\336[\342tg\273]G\363\334Fwq\251\253\340HF"
 	.ascii	"\364w\353or\316\251\244"
 	.text
-	.section	.gnu.lto_DAC_StructInit.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_StructInit.41a44556,"e",%progbits
 	.ascii	"x\234\235\221OHTQ\024\306\317\367\356s\034\244\234\205"
 	.ascii	"\233`\210\\\010\342\3067hkQ\222@A\010\306\235\213\301"
 	.ascii	"F\305\007*\361\346%\356\2743R\263Pl\243X\013y\206\216"
@@ -383,7 +383,7 @@
 	.ascii	"\322\034-\217Ram\315\275H]\227i\207m\353q\324\376\013"
 	.ascii	"\031H\344_"
 	.text
-	.section	.gnu.lto_DAC_Cmd.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_Cmd.41a44556,"e",%progbits
 	.ascii	"x\234\225\222OH\024q\024\307\337w\336\354:\273\255\004"
 	.ascii	"\235\202=\344\241\020/\356\242A\327B\013\012\214\300"
 	.ascii	".\235d\323\015\027Tb]\312\233\277]W\267T\024\3020\017"
@@ -420,7 +420,7 @@
 	.ascii	"\206\366HWW\264\303:\033\275\332\234\210$\242\177\000"
 	.ascii	"\201\027\373\332"
 	.text
-	.section	.gnu.lto_DAC_SoftwareTriggerCmd.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_SoftwareTriggerCmd.41a44556,"e",%progbits
 	.ascii	"x\234\225\222MHTQ\024\307\357\377\235;3o\374X\265\021"
 	.ascii	"f\343\"\030\3348\223\006-\332\024Z\213\310\010l\323"
 	.ascii	"JF\235p@%\306\241\334yg\034\235PQ\010C\205\206W\230"
@@ -457,7 +457,7 @@
 	.ascii	"(\256=]\323P\323\022io\217\266\232\027\242\327\353\023"
 	.ascii	"\221D\364/\260\233\012["
 	.text
-	.section	.gnu.lto_DAC_DualSoftwareTriggerCmd.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_DualSoftwareTriggerCmd.41a44556,"e",%progbits
 	.ascii	"x\234\225Q\317k\023A\024\236of6\331H\212\007/B.\275"
 	.ascii	"\225\202tC\323?\300\203z\020\252B\364\\\3224b\300\212"
 	.ascii	"$A{\353l\2326\322\206\364\242F\221\260J\011\212\212"
@@ -489,7 +489,7 @@
 	.ascii	"\362L*=\226f\366\261\314\305d!U\310\374\006\243N\325"
 	.ascii	"\332"
 	.text
-	.section	.gnu.lto_DAC_WaveGenerationCmd.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_WaveGenerationCmd.41a44556,"e",%progbits
 	.ascii	"x\234\225\222\317K\024a\030\307\337\357<\263\353\254"
 	.ascii	"\256x\213\310C\036\002\361\342.n\177@\241u\010\214\300"
 	.ascii	" \242\203\254\353\206\033*\261\273\2307\337]W7T\334"
@@ -527,7 +527,7 @@
 	.ascii	"p\253\241\344\013\301\216\260q6|\255!\036\214\207\377"
 	.ascii	"\000E\340\017\260"
 	.text
-	.section	.gnu.lto_DAC_SetChannel1Data.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_SetChannel1Data.41a44556,"e",%progbits
 	.ascii	"x\234]\221\321K\323Q\024\307\357\371\235\337o[s\223"
 	.ascii	"\036\202\"\011zH\206/\016\324? i\364\020\010\201A/\301"
 	.ascii	"X\323j\340D\266\021\276y\367\233m\261\325\352\241&E"
@@ -564,7 +564,7 @@
 	.ascii	"g{<\275\307\274\275C\201\363\303\252\307\027\361a$8"
 	.ascii	"\362\033\262\310\002\234"
 	.text
-	.section	.gnu.lto_DAC_SetChannel2Data.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_SetChannel2Data.41a44556,"e",%progbits
 	.ascii	"x\234]\221QH\223Q\024\307\357\371\316\367mkn\243\007"
 	.ascii	"\037B\011zH\206/\0164zN\032=\004B`\320K0\326\264Z8\221"
 	.ascii	"m\204o\336m\266\205\226\365PJ\321\230k\216\210\220\030"
@@ -600,7 +600,7 @@
 	.ascii	"~Z\034\367x}m>\266\313\335y\330\323\331\347?\323\257"
 	.ascii	"\272\275a/\206\003\003\277\001X%\003X"
 	.text
-	.section	.gnu.lto_DAC_SetDualChannelData.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_SetDualChannelData.41a44556,"e",%progbits
 	.ascii	"x\234m\222]HTA\024\307\347\3343w\367\272\037fPPX\320"
 	.ascii	"C\"\366\320\222\366X\220$>\004BP\320S\210\251\325R\212"
 	.ascii	"\250\205o\316\256\266\033%\025a\211\320\272\232-QF!"
@@ -649,7 +649,7 @@
 	.ascii	"zV^y^\272\262[\260\274\250\204\027\320\3527\206\245"
 	.ascii	"i%"
 	.text
-	.section	.gnu.lto_DAC_GetDataOutputValue.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_GetDataOutputValue.41a44556,"e",%progbits
 	.ascii	"x\234]Q_HSa\024?\347~\367\336\015\257\213\236\223b\017"
 	.ascii	"\211\010\341\005\3555(\224\036\002!\260\227 \030k.\034"
 	.ascii	"\270!\333\010\351\305o\233\314ha>TR4\206\215\021\026"
@@ -684,7 +684,7 @@
 	.ascii	"\007\272\002`\364\235\352\365\365\016\371#\221\340\260"
 	.ascii	"\210\207G~\001\235\217\375\230"
 	.text
-	.section	.gnu.lto_DAC_DMACmd.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_DMACmd.41a44556,"e",%progbits
 	.ascii	"x\234\225\222MHTQ\024\307\317\377\235\367\3067\223\022"
 	.ascii	"\355\202Y4\213@\3348\203\006m\013\255E`\004\266i%\223"
 	.ascii	"N8\240\022\343P\356\2743\216\216\251(\204a.\206W\210"
@@ -720,7 +720,7 @@
 	.ascii	"\233\242\215\225\215\264\257\366xMCMs\264\255-\326b"
 	.ascii	"\237\216]\256OF\223\261?\262b\377Z"
 	.text
-	.section	.gnu.lto_DAC_ITConfig.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_ITConfig.41a44556,"e",%progbits
 	.ascii	"x\234\225\222\317KTQ\024\307\357\367\2357\3177\376 "
 	.ascii	"\332\025n\204\002q\343\014N\177@\241\005\025F\240\233"
 	.ascii	"V6\351\204\003*1\016\345\316;\343\324\224\332Ha\250"
@@ -759,7 +759,7 @@
 	.ascii	"\330\326\026j1\224|\264\336<\021\272P\027\015FC\177"
 	.ascii	"\000\373\373\021\240"
 	.text
-	.section	.gnu.lto_DAC_GetFlagStatus.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_GetFlagStatus.41a44556,"e",%progbits
 	.ascii	"x\234mR\317KTa\024\275\347\33573O\323? f\221\213L\334"
 	.ascii	"8\223\343\256\215\242\030DB`\233V2\376\010\207Tbf\012"
 	.ascii	"w~\343\230\342\017\224@3\003\233\304d\260\302\212\242"
@@ -797,7 +797,7 @@
 	.ascii	"Z,\035W\237\2578\233S\037\212F\242\301\350\265\310\037"
 	.ascii	"\200\371\376:"
 	.text
-	.section	.gnu.lto_DAC_ClearFlag.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_ClearFlag.41a44556,"e",%progbits
 	.ascii	"x\234mP\317KTa\024\275\347\3357\317\327\017\021\227"
 	.ascii	"!\201\213`p\343\023\355\017H\024\203H\010l\323j\230"
 	.ascii	"\306\011\007t\210\031\011w~o,\007\264\224\3000\027\323"
@@ -826,7 +826,7 @@
 	.ascii	"\326K\232\356\015G\232#t\244\263\275#\324\321\027\216"
 	.ascii	"\307\243\375\266\316\273\316\266\237>\000-]\264\265"
 	.text
-	.section	.gnu.lto_DAC_GetITStatus.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_GetITStatus.41a44556,"e",%progbits
 	.ascii	"x\234\225R\335K\223Q\030?\317\373\274\357\276\232\377"
 	.ascii	"@\203\362\"\021\273pK\355\336P\202\012#\320\233\256"
 	.ascii	"l\352\302\201\216\330\226x\347\231S\307\324\224\300"
@@ -868,7 +868,7 @@
 	.ascii	"\225N\217\307Ue\240\375\271\022\253\313\343,\253r\371"
 	.ascii	"\374N\377u\237\271\314\355\327v\177\001\010\204K\352"
 	.text
-	.section	.gnu.lto_DAC_ClearITPendingBit.415f6d98,"e",%progbits
+	.section	.gnu.lto_DAC_ClearITPendingBit.41a44556,"e",%progbits
 	.ascii	"x\234mP\337KTa\020\235s\347z\275\225\022\275&\201\017"
 	.ascii	"\301\"\201W\264?\240P\202\012!\320\227\236\226m\335"
 	.ascii	"pA\227\330\225\360\315\271k\265\240\241\004\033\026"
@@ -897,7 +897,7 @@
 	.ascii	"\256\343\235\341\316\376H\"\021\033pL~\262\367\017\350"
 	.ascii	"k\263T"
 	.text
-	.section	.gnu.lto_.symbol_nodes.415f6d98,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41a44556,"e",%progbits
 	.ascii	"x\234u\322;R\002Q\024\204\341\323\367\0160<\224\227"
 	.ascii	"@\250\201\013\021\313}\365\004\274Q\001\305\027\254"
 	.ascii	"D2]\000\213 d\023008e@w\364W}u\262\023\032l\353\314"
@@ -911,10 +911,10 @@
 	.ascii	"\301\347\217O\352\360\013_@\222\033\370\242K\362\336"
 	.ascii	"\227|\352\325 \315Z\346/m\017\032\330\276\020"
 	.text
-	.section	.gnu.lto_.refs.415f6d98,"e",%progbits
+	.section	.gnu.lto_.refs.41a44556,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.415f6d98,"e",%progbits
+	.section	.gnu.lto_.decls.41a44556,"e",%progbits
 	.ascii	"x\234\255X{P\024G\032\237\236^`Y\026I\324\250\025\223"
 	.ascii	"\212\261\250hU\022\021\364\356\254\272Gb\3404\336%g"
 	.ascii	"\012\364R\227\252;k\017W\344\002\253Y\027/\367\327\015"
@@ -1109,7 +1109,7 @@
 	.ascii	"\222\300E\013\003y\377@>(p\376/\223\010\362\330\375"
 	.ascii	"\312\356\241\377\001\345I\013$"
 	.text
-	.section	.gnu.lto_.symtab.415f6d98,"e",%progbits
+	.section	.gnu.lto_.symtab.41a44556,"e",%progbits
 	.ascii	"DAC_DeInit\000"
 	.ascii	"\000"
 	.ascii	"\000"

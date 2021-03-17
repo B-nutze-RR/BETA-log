@@ -35,9 +35,7 @@ BETA-log_FIRMWARE/main/FLOWBOX_04/cms/cms_menu_vtx_tramp.o: \
  src/main/build/version.h src/main/common/utils.h \
  src/main/target/common_defaults_post.h src/main/drivers/vtx_common.h \
  src/main/common/time.h src/main/pg/pg.h src/main/build/build_config.h \
- src/main/common/streambuf.h src/main/common/printf.h src/main/cms/cms.h \
- src/main/drivers/display.h src/main/cms/cms_types.h \
- src/main/config/config.h src/main/io/vtx_tramp.h src/main/io/vtx.h
+ src/main/common/streambuf.h
 
 src/main/ctype.h:
 
@@ -126,17 +124,3 @@ src/main/pg/pg.h:
 src/main/build/build_config.h:
 
 src/main/common/streambuf.h:
-
-src/main/common/printf.h:
-
-src/main/cms/cms.h:
-
-src/main/drivers/display.h:
-
-src/main/cms/cms_types.h:
-
-src/main/config/config.h:
-
-src/main/io/vtx_tramp.h:
-
-src/main/io/vtx.h:

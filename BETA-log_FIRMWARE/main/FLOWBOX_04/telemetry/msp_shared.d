@@ -32,11 +32,7 @@ BETA-log_FIRMWARE/main/FLOWBOX_04/telemetry/msp_shared.o: \
  src/main/target/common_pre.h src/main/target/FLOWBOX_04/target.h \
  src/main/target/common_deprecated_post.h src/main/target/common_post.h \
  src/main/build/version.h src/main/common/utils.h \
- src/main/target/common_defaults_post.h src/main/build/build_config.h \
- src/main/msp/msp.h src/main/common/streambuf.h \
- src/main/msp/msp_protocol.h src/main/telemetry/crsf.h \
- src/main/common/time.h src/main/pg/pg.h src/main/rx/crsf_protocol.h \
- src/main/telemetry/msp_shared.h src/main/telemetry/smartport.h
+ src/main/target/common_defaults_post.h
 
 src/main/platform.h:
 
@@ -111,23 +107,3 @@ src/main/build/version.h:
 src/main/common/utils.h:
 
 src/main/target/common_defaults_post.h:
-
-src/main/build/build_config.h:
-
-src/main/msp/msp.h:
-
-src/main/common/streambuf.h:
-
-src/main/msp/msp_protocol.h:
-
-src/main/telemetry/crsf.h:
-
-src/main/common/time.h:
-
-src/main/pg/pg.h:
-
-src/main/rx/crsf_protocol.h:
-
-src/main/telemetry/msp_shared.h:
-
-src/main/telemetry/smartport.h:

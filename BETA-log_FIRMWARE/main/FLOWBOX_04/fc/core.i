@@ -7052,18 +7052,7 @@ typedef struct motorConfig_s {
 
 extern motorConfig_t motorConfig_System; extern motorConfig_t motorConfig_Copy; static inline const motorConfig_t* motorConfig(void) { return &motorConfig_System; } static inline motorConfig_t* motorConfigMutable(void) { return &motorConfig_System; } struct _dummy;
 # 26 "./src/main/drivers/dshot.h" 2
-# 43 "./src/main/drivers/dshot.h"
-typedef struct dshotTelemetryQuality_s {
-    uint32_t packetCountSum;
-    uint32_t invalidCountSum;
-    uint32_t packetCountArray[(1 * 1000 / 100)];
-    uint32_t invalidCountArray[(1 * 1000 / 100)];
-    uint8_t lastBucketIndex;
-} dshotTelemetryQuality_t;
-
-extern dshotTelemetryQuality_t dshotTelemetryQuality[8];
-
-
+# 54 "./src/main/drivers/dshot.h"
 typedef struct dshotProtocolControl_s {
     uint16_t value;
     
@@ -7078,47 +7067,7 @@ float dshotConvertFromExternal(uint16_t externalValue);
 uint16_t dshotConvertToExternal(float motorValue);
 
 uint16_t prepareDshotPacket(dshotProtocolControl_t *pcb);
-
-
-extern 
-# 66 "./src/main/drivers/dshot.h" 3 4
-      _Bool 
-# 66 "./src/main/drivers/dshot.h"
-           useDshotTelemetry;
-
-typedef struct dshotTelemetryMotorState_s {
-    uint16_t telemetryValue;
-    
-# 70 "./src/main/drivers/dshot.h" 3 4
-   _Bool 
-# 70 "./src/main/drivers/dshot.h"
-        telemetryActive;
-} dshotTelemetryMotorState_t;
-
-
-typedef struct dshotTelemetryState_s {
-    
-# 75 "./src/main/drivers/dshot.h" 3 4
-   _Bool 
-# 75 "./src/main/drivers/dshot.h"
-        useDshotTelemetry;
-    uint32_t invalidPacketCount;
-    uint32_t readCount;
-    dshotTelemetryMotorState_t motorState[8];
-    uint32_t inputBuffer[22];
-} dshotTelemetryState_t;
-
-extern dshotTelemetryState_t dshotTelemetryState;
-
-
-void updateDshotTelemetryQuality(dshotTelemetryQuality_t *qualityStats, 
-# 85 "./src/main/drivers/dshot.h" 3 4
-                                                                       _Bool 
-# 85 "./src/main/drivers/dshot.h"
-                                                                            packetValid, timeMs_t currentTimeMs);
-
-
-
+# 89 "./src/main/drivers/dshot.h"
 uint16_t getDshotTelemetry(uint8_t index);
 
 # 90 "./src/main/drivers/dshot.h" 3 4
@@ -7349,13 +7298,9 @@ timeMs_t motorGetMotorEnableTimeMs(void);
 void motorShutdown(void);
 
 
-struct motorDevConfig_s;
-typedef struct motorDevConfig_s motorDevConfig_t;
 
-# 102 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 102 "./src/main/drivers/motor.h"
-    isDshotBitbangActive(const motorDevConfig_t *motorConfig);
+
+
 
 
 float getDigitalIdleOffset(const motorConfig_t *motorConfig);
@@ -7580,7 +7525,7 @@ typedef struct controlRateConfig_s {
     uint8_t levelExpo[2];
 } controlRateConfig_t;
 
-extern controlRateConfig_t controlRateProfiles_SystemArray[6]; extern controlRateConfig_t controlRateProfiles_CopyArray[6]; static inline const controlRateConfig_t* controlRateProfiles(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t* controlRateProfilesMutable(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t (* controlRateProfiles_array(void))[6] { return &controlRateProfiles_SystemArray; } struct _dummy;
+extern controlRateConfig_t controlRateProfiles_SystemArray[1]; extern controlRateConfig_t controlRateProfiles_CopyArray[1]; static inline const controlRateConfig_t* controlRateProfiles(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t* controlRateProfilesMutable(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t (* controlRateProfiles_array(void))[1] { return &controlRateProfiles_SystemArray; } struct _dummy;
 
 extern controlRateConfig_t *currentControlRateProfile;
 extern const ratesSettingsLimits_t ratesSettingLimits[RATES_TYPE_COUNT];
@@ -8195,7 +8140,7 @@ typedef enum {
     FAILSAFE_PROCEDURE_AUTO_LANDING = 0,
     FAILSAFE_PROCEDURE_DROP_IT,
 
-    FAILSAFE_PROCEDURE_GPS_RESCUE,
+
 
     FAILSAFE_PROCEDURE_COUNT
 } failsafeProcedure_e;
@@ -12434,7 +12379,7 @@ typedef struct pidProfile_s {
     uint8_t simplified_dterm_filter_multiplier;
 } pidProfile_t;
 
-extern pidProfile_t pidProfiles_SystemArray[3]; extern pidProfile_t pidProfiles_CopyArray[3]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[3] { return &pidProfiles_SystemArray; } struct _dummy;
+extern pidProfile_t pidProfiles_SystemArray[1]; extern pidProfile_t pidProfiles_CopyArray[1]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[1] { return &pidProfiles_SystemArray; } struct _dummy;
 
 typedef struct pidConfig_s {
     uint8_t pid_process_denom;
@@ -12540,37 +12485,7 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-
-
-    pt1Filter_t windupLpf[3];
-    uint8_t itermRelax;
-    uint8_t itermRelaxType;
-    uint8_t itermRelaxCutoff;
-
-
-
-    float acCutoff;
-    float acGain;
-    float acLimit;
-    float acErrorLimit;
-    pt1Filter_t acLpf[3];
-    float oldSetpointCorrection[3];
-
-
-
-    biquadFilter_t dMinRange[3];
-    pt1Filter_t dMinLowpass[3];
-    float dMinPercent[3];
-    float dMinGyroGain;
-    float dMinSetpointGain;
-
-
-
-    pt1Filter_t airmodeThrottleLpf1;
-    pt1Filter_t airmodeThrottleLpf2;
-
-
-
+# 343 "./src/main/flight/pid.h"
     pt1Filter_t setpointDerivativePt1[3];
     biquadFilter_t setpointDerivativeBiquad[3];
     
@@ -12580,53 +12495,12 @@ typedef struct pidRuntime_s {
         setpointDerivativeLpfInitialized;
     uint8_t rcSmoothingDebugAxis;
     uint8_t rcSmoothingFilterType;
-
-
-
-    float acroTrainerAngleLimit;
-    float acroTrainerLookaheadTime;
-    uint8_t acroTrainerDebugAxis;
-    float acroTrainerGain;
-    
-# 355 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 355 "./src/main/flight/pid.h"
-        acroTrainerActive;
-    int acroTrainerAxisState[2];
-
-
-
+# 360 "./src/main/flight/pid.h"
     uint8_t dynLpfFilter;
     uint16_t dynLpfMin;
     uint16_t dynLpfMax;
     uint8_t dynLpfCurveExpo;
-
-
-
-    uint8_t launchControlMode;
-    uint8_t launchControlAngleLimit;
-    float launchControlKi;
-
-
-
-    
-# 373 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 373 "./src/main/flight/pid.h"
-        useIntegratedYaw;
-    uint8_t integratedYawRelax;
-
-
-
-    float thrustLinearization;
-    float throttleCompensateAmount;
-
-
-
-    float airmodeThrottleOffsetLimit;
-
-
-
+# 387 "./src/main/flight/pid.h"
     ffInterpolationType_t ffFromInterpolatedSetpoint;
     float ffSmoothFactor;
 
@@ -12678,15 +12552,6 @@ void pidSetAntiGravityState(
 _Bool 
 # 413 "./src/main/flight/pid.h"
     pidAntiGravityEnabled(void);
-
-
-float pidApplyThrustLinearization(float motorValue);
-float pidCompensateThrustLinearization(float throttle);
-
-
-
-void pidUpdateAirmodeLpf(float currentOffset);
-float pidGetAirmodeThrottleOffset();
 # 436 "./src/main/flight/pid.h"
 void dynLpfDTermUpdate(float throttle);
 void pidSetItermReset(
@@ -13996,7 +13861,7 @@ extern timeUs_t osdFlyTime;
 extern float osdGForce;
 
 
-extern escSensorData_t *osdEscDataCombined;
+
 
 
 void osdInit(displayPort_t *osdDisplayPort, osdDisplayPortDevice_e displayPortDevice);
@@ -14350,40 +14215,11 @@ typedef enum {
     TASK_BATTERY_ALERTS,
 
     TASK_BEEPER,
-
-
-    TASK_GPS,
-# 100 "./src/main/scheduler/scheduler.h"
-    TASK_ALTITUDE,
-
-
-
-
-
-    TASK_TELEMETRY,
-
-
+# 109 "./src/main/scheduler/scheduler.h"
     TASK_LEDSTRIP,
 # 118 "./src/main/scheduler/scheduler.h"
     TASK_OSD,
-
-
-
-
-
-    TASK_ESC_SENSOR,
-
-
-    TASK_CMS,
-
-
-    TASK_VTXCTRL,
-
-
-    TASK_CAMCTRL,
-
-
-
+# 137 "./src/main/scheduler/scheduler.h"
     TASK_RCDEVICE,
 
 
@@ -15986,7 +15822,7 @@ float dynThrottle(float throttle);
 void dynLpfGyroUpdate(float throttle);
 
 
-void initYawSpinRecovery(int maxYawRate);
+
 
 
 
@@ -16047,21 +15883,13 @@ typedef enum {
 
     IBUS_SENSOR_TYPE_ALT_FLYSKY = 0xf9,
 
-    IBUS_SENSOR_TYPE_GPS_FULL = 0xfd,
-    IBUS_SENSOR_TYPE_VOLT_FULL = 0xf0,
-    IBUS_SENSOR_TYPE_ACC_FULL = 0xef,
+
+
+
 
     IBUS_SENSOR_TYPE_UNKNOWN = 0xff
 } ibusSensorType_e;
-
-
-
-uint8_t respondToIbusRequest(uint8_t const * const ibusPacket);
-void initSharedIbusTelemetry(serialPort_t * port);
-
-
-
-
+# 89 "./src/main/telemetry/ibus_shared.h"
 
 # 89 "./src/main/telemetry/ibus_shared.h" 3 4
 _Bool 
@@ -16149,14 +15977,7 @@ _Bool
 # 1 "./src/main/fc/core.h" 1
 # 21 "./src/main/fc/core.h"
        
-
-
-
-
-
-extern int16_t magHold;
-
-
+# 30 "./src/main/fc/core.h"
 typedef struct throttleCorrectionConfig_s {
     uint16_t throttle_correction_angle;
     uint8_t throttle_correction_value;
@@ -16192,7 +16013,7 @@ typedef enum {
 
 
 
-extern const char * const osdLaunchControlModeNames[LAUNCH_CONTROL_MODE_COUNT];
+
 
 
 extern throttleCorrectionConfig_t throttleCorrectionConfig_System; extern throttleCorrectionConfig_t throttleCorrectionConfig_Copy; static inline const throttleCorrectionConfig_t* throttleCorrectionConfig(void) { return &throttleCorrectionConfig_System; } static inline throttleCorrectionConfig_t* throttleCorrectionConfigMutable(void) { return &throttleCorrectionConfig_System; } struct _dummy;
@@ -16274,10 +16095,7 @@ enum {
     ARMING_DELAYED_CRASHFLIP = 2,
     ARMING_DELAYED_LAUNCH_CONTROL = 3,
 };
-# 144 "./src/main/fc/core.c"
-int16_t magHold;
-
-
+# 147 "./src/main/fc/core.c"
 static uint8_t pidUpdateCounter;
 
 static 
@@ -16318,18 +16136,7 @@ static
                                                0
 # 162 "./src/main/fc/core.c"
                                                     ;
-
-
-
-static launchControlState_e launchControlState = LAUNCH_CONTROL_DISABLED;
-
-const char * const osdLaunchControlModeNames[] = {
-    "NORMAL",
-    "PITCHONLY",
-    "FULL"
-};
-
-
+# 175 "./src/main/fc/core.c"
 extern const throttleCorrectionConfig_t pgResetTemplate_throttleCorrectionConfig; throttleCorrectionConfig_t throttleCorrectionConfig_System; throttleCorrectionConfig_t throttleCorrectionConfig_Copy; extern const pgRegistry_t throttleCorrectionConfig_Registry; const pgRegistry_t throttleCorrectionConfig_Registry __attribute__ ((section(".pg_registry"), used, aligned(4))) = { .pgn = 39 | (0 << 12), .length = 1, .size = sizeof(throttleCorrectionConfig_t) | PGR_SIZE_SYSTEM_FLAG, .address = (uint8_t*)&throttleCorrectionConfig_System, .copy = (uint8_t*)&throttleCorrectionConfig_Copy, .ptr = 0, .reset = {.ptr = (void*)&pgResetTemplate_throttleCorrectionConfig}, };
 
 const throttleCorrectionConfig_t pgResetTemplate_throttleCorrectionConfig __attribute__ ((section(".pg_resetdata"), used, aligned(2))) = { .throttle_correction_value = 0, .throttle_correction_angle = 800 }
@@ -16355,34 +16162,7 @@ static
 
         ;
 }
-
-
-
-# 198 "./src/main/fc/core.c" 3 4
-_Bool 
-# 198 "./src/main/fc/core.c"
-    canUseLaunchControl(void)
-{
-    if (!isFixedWing()
-        && !isUsingSticksForArming()
-        && IS_RC_MODE_ACTIVE(BOXLAUNCHCONTROL)
-        && (!featureIsEnabled(FEATURE_MOTOR_STOP) || airmodeIsEnabled())
-        && !featureIsEnabled(FEATURE_3D)
-        && (flightModeFlags == 0)) {
-        return 
-# 206 "./src/main/fc/core.c" 3 4
-              1
-# 206 "./src/main/fc/core.c"
-                  ;
-    }
-    return 
-# 208 "./src/main/fc/core.c" 3 4
-          0
-# 208 "./src/main/fc/core.c"
-               ;
-}
-
-
+# 212 "./src/main/fc/core.c"
 void resetArmingDisabled(void)
 {
     lastArmingDisabledReason = 0;
@@ -16445,18 +16225,7 @@ static
                           ;
             }
         }
-
-
-
-
-        if (failsafeConfig()->failsafe_procedure == FAILSAFE_PROCEDURE_GPS_RESCUE) {
-            return 
-# 259 "./src/main/fc/core.c" 3 4
-                  1
-# 259 "./src/main/fc/core.c"
-                      ;
-        }
-
+# 262 "./src/main/fc/core.c"
     }
 
     return 
@@ -16482,7 +16251,7 @@ void updateArmingStatus(void)
 
 
 
-            && (!isMotorProtocolDshot() || dshotStreamingCommandsAreEnabled())
+
 
         ) {
 
@@ -16567,40 +16336,7 @@ void updateArmingStatus(void)
                 setArmingDisabled(ARMING_DISABLED_NOPREARM);
             }
         }
-
-
-        if (gpsRescueIsConfigured()) {
-            if (gpsRescueConfig()->allowArmingWithoutFix || (stateFlags & (GPS_FIX)) || (armingFlags & (WAS_EVER_ARMED)) || IS_RC_MODE_ACTIVE(BOXFLIPOVERAFTERCRASH)) {
-                unsetArmingDisabled(ARMING_DISABLED_GPS);
-            } else {
-                setArmingDisabled(ARMING_DISABLED_GPS);
-            }
-            if (IS_RC_MODE_ACTIVE(BOXGPSRESCUE)) {
-                setArmingDisabled(ARMING_DISABLED_RESC);
-            } else {
-                unsetArmingDisabled(ARMING_DISABLED_RESC);
-            }
-        }
-
-
-
-
-
-        if (isRpmFilterEnabled() && !isDshotTelemetryActive()) {
-            setArmingDisabled(ARMING_DISABLED_RPMFILTER);
-        } else {
-            unsetArmingDisabled(ARMING_DISABLED_RPMFILTER);
-        }
-
-
-
-        if (isDshotBitbangActive(&motorConfig()->dev) && dshotBitbangGetStatus() != DSHOT_BITBANG_STATUS_OK) {
-            setArmingDisabled(ARMING_DISABLED_DSHOT_BITBANG);
-        } else {
-            unsetArmingDisabled(ARMING_DISABLED_DSHOT_BITBANG);
-        }
-
-
+# 378 "./src/main/fc/core.c"
         if (IS_RC_MODE_ACTIVE(BOXPARALYZE)) {
             setArmingDisabled(ARMING_DISABLED_PARALYZE);
         }
@@ -16700,9 +16436,9 @@ void disarm(flightLogDisarmReason_e reason)
 # 459 "./src/main/fc/core.c"
        );
 
-        if (isMotorProtocolDshot() && flipOverAfterCrashActive && !featureIsEnabled(FEATURE_3D)) {
-            dshotCommandWrite(255, getMotorCount(), DSHOT_CMD_SPIN_DIRECTION_NORMAL, DSHOT_CMD_TYPE_INLINE);
-        }
+
+
+
 
 
         if (!flipOverAfterCrashActive) {
@@ -16741,62 +16477,7 @@ void tryArm(void)
         }
 
         const timeUs_t currentTimeUs = micros();
-
-
-        if (currentTimeUs - getLastDshotBeaconCommandTimeUs() < 1200000) {
-            if (tryingToArm == ARMING_DELAYED_DISARMED) {
-                if (IS_RC_MODE_ACTIVE(BOXFLIPOVERAFTERCRASH)) {
-                    tryingToArm = ARMING_DELAYED_CRASHFLIP;
-
-                } else if (canUseLaunchControl()) {
-                    tryingToArm = ARMING_DELAYED_LAUNCH_CONTROL;
-
-                } else {
-                    tryingToArm = ARMING_DELAYED_NORMAL;
-                }
-            }
-            return;
-        }
-
-        if (isMotorProtocolDshot() && isModeActivationConditionPresent(BOXFLIPOVERAFTERCRASH)) {
-            if (!(IS_RC_MODE_ACTIVE(BOXFLIPOVERAFTERCRASH) || (tryingToArm == ARMING_DELAYED_CRASHFLIP))) {
-                flipOverAfterCrashActive = 
-# 513 "./src/main/fc/core.c" 3 4
-                                          0
-# 513 "./src/main/fc/core.c"
-                                               ;
-                if (!featureIsEnabled(FEATURE_3D)) {
-                    dshotCommandWrite(255, getMotorCount(), DSHOT_CMD_SPIN_DIRECTION_NORMAL, DSHOT_CMD_TYPE_INLINE);
-                }
-            } else {
-                flipOverAfterCrashActive = 
-# 518 "./src/main/fc/core.c" 3 4
-                                          1
-# 518 "./src/main/fc/core.c"
-                                              ;
-
-                runawayTakeoffCheckDisabled = 
-# 520 "./src/main/fc/core.c" 3 4
-                                             0
-# 520 "./src/main/fc/core.c"
-                                                  ;
-
-                if (!featureIsEnabled(FEATURE_3D)) {
-                    dshotCommandWrite(255, getMotorCount(), DSHOT_CMD_SPIN_DIRECTION_REVERSED, DSHOT_CMD_TYPE_INLINE);
-                }
-            }
-        }
-
-
-
-        if (!flipOverAfterCrashActive && (canUseLaunchControl() || (tryingToArm == ARMING_DELAYED_LAUNCH_CONTROL))) {
-            if (launchControlState == LAUNCH_CONTROL_DISABLED) {
-                launchControlState = LAUNCH_CONTROL_ACTIVE;
-            }
-        }
-
-
-
+# 538 "./src/main/fc/core.c"
         osdSuppressStats(
 # 538 "./src/main/fc/core.c" 3 4
                         0
@@ -16808,7 +16489,7 @@ void tryArm(void)
         resetTryingToArm();
 
 
-        pidAcroTrainerInit();
+
 
 
         if (isModeActivationConditionPresent(BOXPREARM)) {
@@ -16823,22 +16504,8 @@ void tryArm(void)
         disarmAt = currentTimeUs + armingConfig()->auto_disarm_delay * 1e6;
 
         lastArmingDisabledReason = 0;
-
-
-        GPS_reset_home_position();
-
-
-        if (featureIsEnabled(FEATURE_GPS)) {
-            if ((stateFlags & (GPS_FIX)) && gpsSol.numSat >= 5) {
-                beeper(BEEPER_ARMING_GPS_FIX);
-            } else {
-                beeper(BEEPER_ARMING_GPS_NO_FIX);
-            }
-        } else {
-            beeper(BEEPER_ARMING);
-        }
-
-
+# 575 "./src/main/fc/core.c"
+        beeper(BEEPER_ARMING);
 
 
 
@@ -16957,45 +16624,7 @@ static void updateInflightCalibrationState(void)
                                                 ;
     }
 }
-
-
-static void updateMagHold(void)
-{
-    if (fabsf(rcCommand[YAW]) < 15 && (flightModeFlags & (MAG_MODE))) {
-        int16_t dif = ((attitude.values.yaw) / 10) - magHold;
-        if (dif <= -180)
-            dif += 360;
-        if (dif >= +180)
-            dif -= 360;
-        dif *= -((rcControlsConfig()->yaw_control_reversed) ? -1 : 1);
-        if (isUpright()) {
-            rcCommand[YAW] -= dif * currentPidProfile->pid[PID_MAG].P / 30;
-        }
-    } else
-        magHold = ((attitude.values.yaw) / 10);
-}
-
-
-
-static 
-# 658 "./src/main/fc/core.c" 3 4
-      _Bool 
-# 658 "./src/main/fc/core.c"
-           canUpdateVTX(void)
-{
-
-
-
-    return 
-# 663 "./src/main/fc/core.c" 3 4
-          1
-# 663 "./src/main/fc/core.c"
-              ;
-}
-
-
-
-
+# 669 "./src/main/fc/core.c"
 
 # 669 "./src/main/fc/core.c" 3 4
 _Bool 
@@ -17108,15 +16737,7 @@ _Bool
 # 747 "./src/main/fc/core.c"
                                     ;
 
-    static 
-# 749 "./src/main/fc/core.c" 3 4
-          _Bool 
-# 749 "./src/main/fc/core.c"
-               sharedPortTelemetryEnabled = 
-# 749 "./src/main/fc/core.c" 3 4
-                                            0
-# 749 "./src/main/fc/core.c"
-                                                 ;
+
 
 
     timeDelta_t frameAgeUs;
@@ -17285,34 +16906,7 @@ _Bool
         {if (debugMode == (DEBUG_RUNAWAY_TAKEOFF)) {debug[(2)] = (0);}};
         {if (debugMode == (DEBUG_RUNAWAY_TAKEOFF)) {debug[(3)] = (0);}};
     }
-
-
-
-    if ((armingFlags & (ARMED))) {
-        if (launchControlActive && (throttlePercent > currentPidProfile->launchControlThrottlePercent)) {
-
-
-            launchControlState = LAUNCH_CONTROL_TRIGGERED;
-            pidResetIterm();
-        }
-    } else {
-        if (launchControlState == LAUNCH_CONTROL_TRIGGERED) {
-
-
-
-
-            if (currentPidProfile->launchControlAllowTriggerReset && !IS_RC_MODE_ACTIVE(BOXLAUNCHCONTROL)) {
-                launchControlState = LAUNCH_CONTROL_DISABLED;
-            }
-        } else {
-            launchControlState = LAUNCH_CONTROL_DISABLED;
-        }
-    }
-
-
-
-
-
+# 897 "./src/main/fc/core.c"
     const timeUs_t autoDisarmDelayUs = armingConfig()->auto_disarm_delay * 1e6;
     if ((armingFlags & (ARMED))
         && featureIsEnabled(FEATURE_MOTOR_STOP)
@@ -17377,7 +16971,7 @@ _Bool
 
     if (!(IS_RC_MODE_ACTIVE(BOXPARALYZE) && !(armingFlags & (ARMED)))
 
-        && !cmsInMenu
+
 
         ) {
         processRcStickPositions();
@@ -17388,14 +16982,7 @@ _Bool
     }
 
     updateActivatedModes();
-
-
-
-    if (flipOverAfterCrashActive) {
-        beeper(BEEPER_CRASH_FLIP_MODE);
-    }
-
-
+# 960 "./src/main/fc/core.c"
     if (!cliMode && !(IS_RC_MODE_ACTIVE(BOXPARALYZE) && !(armingFlags & (ARMED)))) {
         processRcAdjustments(currentControlRateProfile);
     }
@@ -17435,17 +17022,7 @@ _Bool
     } else {
         disableFlightMode(HORIZON_MODE);
     }
-
-
-    if ((armingFlags & (ARMED)) && (IS_RC_MODE_ACTIVE(BOXGPSRESCUE) || (failsafeIsActive() && failsafeConfig()->failsafe_procedure == FAILSAFE_PROCEDURE_GPS_RESCUE))) {
-        if (!(flightModeFlags & (GPS_RESCUE_MODE))) {
-            enableFlightMode(GPS_RESCUE_MODE);
-        }
-    } else {
-        disableFlightMode(GPS_RESCUE_MODE);
-    }
-
-
+# 998 "./src/main/fc/core.c"
     if ((flightModeFlags & (ANGLE_MODE)) || (flightModeFlags & (HORIZON_MODE))) {
         ledSet(1, 
 # 999 "./src/main/fc/core.c" 3 4
@@ -17469,16 +17046,7 @@ _Bool
 
 
     if (sensors(SENSOR_ACC) || sensors(SENSOR_MAG)) {
-
-        if (IS_RC_MODE_ACTIVE(BOXMAG)) {
-            if (!(flightModeFlags & (MAG_MODE))) {
-                enableFlightMode(MAG_MODE);
-                magHold = ((attitude.values.yaw) / 10);
-            }
-        } else {
-            disableFlightMode(MAG_MODE);
-        }
-
+# 1023 "./src/main/fc/core.c"
         if (IS_RC_MODE_ACTIVE(BOXHEADFREE) && !(flightModeFlags & (GPS_RESCUE_MODE))) {
             if (!(flightModeFlags & (HEADFREE_MODE))) {
                 enableFlightMode(HEADFREE_MODE);
@@ -17503,50 +17071,7 @@ _Bool
     if (mixerConfig()->mixerMode == MIXER_FLYING_WING || mixerConfig()->mixerMode == MIXER_AIRPLANE) {
         disableFlightMode(HEADFREE_MODE);
     }
-
-
-    if (featureIsEnabled(FEATURE_TELEMETRY)) {
-        
-# 1050 "./src/main/fc/core.c" 3 4
-       _Bool 
-# 1050 "./src/main/fc/core.c"
-            enableSharedPortTelemetry = (!isModeActivationConditionPresent(BOXTELEMETRY) && (armingFlags & (ARMED))) || (isModeActivationConditionPresent(BOXTELEMETRY) && IS_RC_MODE_ACTIVE(BOXTELEMETRY));
-        if (enableSharedPortTelemetry && !sharedPortTelemetryEnabled) {
-            mspSerialReleaseSharedTelemetryPorts();
-            telemetryCheckState();
-
-            sharedPortTelemetryEnabled = 
-# 1055 "./src/main/fc/core.c" 3 4
-                                        1
-# 1055 "./src/main/fc/core.c"
-                                            ;
-        } else if (!enableSharedPortTelemetry && sharedPortTelemetryEnabled) {
-
-            telemetryCheckState();
-            mspSerialAllocatePorts();
-
-            sharedPortTelemetryEnabled = 
-# 1061 "./src/main/fc/core.c" 3 4
-                                        0
-# 1061 "./src/main/fc/core.c"
-                                             ;
-        }
-    }
-
-
-
-    vtxUpdateActivatedChannel();
-
-    if (canUpdateVTX()) {
-        handleVTXControlButton();
-    }
-
-
-
-    pidSetAcroTrainerState(IS_RC_MODE_ACTIVE(BOXACROTRAINER) && sensors(SENSOR_ACC));
-
-
-
+# 1079 "./src/main/fc/core.c"
     if ((armingFlags & (ARMED)) && !rcSmoothingInitializationComplete()) {
         beeper(BEEPER_RC_SMOOTHING_INIT_FAIL);
     }
@@ -17614,14 +17139,7 @@ static void subTaskPidSubprocesses(timeUs_t currentTimeUs)
     if (debugMode == DEBUG_PIDLOOP) {
         startTime = micros();
     }
-
-
-    if (sensors(SENSOR_GPS) || sensors(SENSOR_MAG)) {
-        updateMagHold();
-    }
-
-
-
+# 1157 "./src/main/fc/core.c"
     if (!cliMode && blackboxConfig()->device) {
         blackboxUpdate(currentTimeUs);
     }
@@ -17631,21 +17149,7 @@ static void subTaskPidSubprocesses(timeUs_t currentTimeUs)
 
     {if (debugMode == (DEBUG_PIDLOOP)) {debug[(3)] = (micros() - startTime);}};
 }
-
-
-
-void subTaskTelemetryPollSensors(timeUs_t currentTimeUs)
-{
-    static timeUs_t lastGyroTempTimeUs = 0;
-
-    if (cmpTimeUs(currentTimeUs, lastGyroTempTimeUs) >= 3e6) {
-
-        gyroReadTemperature();
-        lastGyroTempTimeUs = currentTimeUs;
-    }
-}
-
-
+# 1181 "./src/main/fc/core.c"
 static void subTaskMotorUpdate(timeUs_t currentTimeUs)
 {
     uint32_t startTime = 0;
@@ -17670,16 +17174,7 @@ static void subTaskMotorUpdate(timeUs_t currentTimeUs)
 
 
     writeMotors();
-
-
-    if (debugMode == DEBUG_DSHOT_RPM_ERRORS && useDshotTelemetry) {
-        const uint8_t motorCount = __extension__ ({ __typeof__ (getMotorCount()) _a = (getMotorCount()); __typeof__ (4) _b = (4); _a < _b ? _a : _b; });
-        for (uint8_t i = 0; i < motorCount; i++) {
-            debug[i] = getDshotTelemetryMotorInvalidPercent(i);
-        }
-    }
-
-
+# 1215 "./src/main/fc/core.c"
     {if (debugMode == (DEBUG_PIDLOOP)) {debug[(2)] = (micros() - startTime);}};
 }
 
@@ -17815,8 +17310,12 @@ _Bool
     isLaunchControlActive(void)
 {
 
-    return launchControlState == LAUNCH_CONTROL_ACTIVE;
 
 
+    return 
+# 1325 "./src/main/fc/core.c" 3 4
+          0
+# 1325 "./src/main/fc/core.c"
+               ;
 
 }

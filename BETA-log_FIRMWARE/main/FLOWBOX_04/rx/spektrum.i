@@ -6400,21 +6400,13 @@ typedef enum {
 
     IBUS_SENSOR_TYPE_ALT_FLYSKY = 0xf9,
 
-    IBUS_SENSOR_TYPE_GPS_FULL = 0xfd,
-    IBUS_SENSOR_TYPE_VOLT_FULL = 0xf0,
-    IBUS_SENSOR_TYPE_ACC_FULL = 0xef,
+
+
+
 
     IBUS_SENSOR_TYPE_UNKNOWN = 0xff
 } ibusSensorType_e;
-
-
-
-uint8_t respondToIbusRequest(uint8_t const * const ibusPacket);
-void initSharedIbusTelemetry(serialPort_t * port);
-
-
-
-
+# 89 "./src/main/telemetry/ibus_shared.h"
 
 # 89 "./src/main/telemetry/ibus_shared.h" 3 4
 _Bool 
@@ -6656,8 +6648,8 @@ static rxRuntimeState_t *rxRuntimeStatePtr;
 static serialPort_t *serialPort;
 
 
-static uint8_t telemetryBuf[(16 + 5)];
-static uint8_t telemetryBufLen = 0;
+
+
 
 
 static timeUs_t lastRcFrameTimeUs = 0;
@@ -6705,9 +6697,9 @@ static uint8_t spektrumFrameStatus(rxRuntimeState_t *rxRuntimeState)
     (void)(rxRuntimeState);
 
 
-    static timeUs_t telemetryFrameRequestedUs = 0;
 
-    timeUs_t currentTimeUs = micros();
+
+
 
 
     uint8_t result = RX_FRAME_PENDING;
@@ -6734,7 +6726,7 @@ static uint8_t spektrumFrameStatus(rxRuntimeState_t *rxRuntimeState)
         if ((vtxControl & 0xf000f000) == 0xe000e000 &&
             (spekFrame[2] & 0x80) == 0 ) {
 
-            spektrumHandleVtxControl(vtxControl);
+
 
             spektrumRcDataSize = 16 - 4;
         } else {
@@ -6752,21 +6744,13 @@ static uint8_t spektrumFrameStatus(rxRuntimeState_t *rxRuntimeState)
         }
 
 
-        if (srxlEnabled && (spekFrame[2] & 0x80) == 0) {
-                    telemetryFrameRequestedUs = currentTimeUs;
-        }
+
+
+
 
         result = RX_FRAME_COMPLETE;
     }
-
-
-    if (telemetryBufLen && telemetryFrameRequestedUs && cmpTimeUs(currentTimeUs, telemetryFrameRequestedUs) >= 1000) {
-        telemetryFrameRequestedUs = 0;
-
-        result = (result & ~RX_FRAME_PENDING) | RX_FRAME_PROCESSING_REQUIRED;
-    }
-
-
+# 174 "./src/main/rx/spektrum.c"
     return result;
 }
 
@@ -6851,10 +6835,10 @@ void spektrumBind(rxConfig_t *rxConfig)
         switch (rxRuntimeState.serialrxProvider) {
         case SERIALRX_SRXL:
 
-            if (featureIsEnabled(FEATURE_TELEMETRY) && !telemetryCheckRxPortShared(portConfig, rxRuntimeState.serialrxProvider)) {
-                bindPin = txPin;
-            }
-            break;
+
+
+
+
 
 
         default:
@@ -6950,59 +6934,7 @@ void spektrumBind(rxConfig_t *rxConfig)
         saveConfigAndNotify();
     }
 }
-
-
-
-static 
-# 316 "./src/main/rx/spektrum.c" 3 4
-      _Bool 
-# 316 "./src/main/rx/spektrum.c"
-           spektrumProcessFrame(const rxRuntimeState_t *rxRuntimeState)
-{
-    (void)(rxRuntimeState);
-
-
-    if (telemetryBufLen > 0) {
-        serialWriteBuf(serialPort, telemetryBuf, telemetryBufLen);
-        telemetryBufLen = 0;
-    }
-
-    return 
-# 326 "./src/main/rx/spektrum.c" 3 4
-          1
-# 326 "./src/main/rx/spektrum.c"
-              ;
-}
-
-
-# 329 "./src/main/rx/spektrum.c" 3 4
-_Bool 
-# 329 "./src/main/rx/spektrum.c"
-    srxlTelemetryBufferEmpty()
-{
-  if (telemetryBufLen == 0) {
-      return 
-# 332 "./src/main/rx/spektrum.c" 3 4
-            1
-# 332 "./src/main/rx/spektrum.c"
-                ;
-  } else {
-      return 
-# 334 "./src/main/rx/spektrum.c" 3 4
-            0
-# 334 "./src/main/rx/spektrum.c"
-                 ;
-  }
-}
-
-void srxlRxWriteTelemetryData(const void *data, int len)
-{
-    len = __extension__ ({ __typeof__ (len) _a = (len); __typeof__ ((int)sizeof(telemetryBuf)) _b = ((int)sizeof(telemetryBuf)); _a < _b ? _a : _b; });
-    memcpy(telemetryBuf, data, len);
-    telemetryBufLen = len;
-}
-
-
+# 346 "./src/main/rx/spektrum.c"
 static timeUs_t spektrumFrameTimeUsFn(void)
 {
     return lastRcFrameTimeUs;
@@ -7031,13 +6963,17 @@ _Bool
 # 360 "./src/main/rx/spektrum.c"
                       ;
 
+
+
     
-# 362 "./src/main/rx/spektrum.c" 3 4
+# 364 "./src/main/rx/spektrum.c" 3 4
    _Bool 
-# 362 "./src/main/rx/spektrum.c"
-        portShared = telemetryCheckRxPortShared(portConfig, rxRuntimeState->serialrxProvider);
-
-
+# 364 "./src/main/rx/spektrum.c"
+        portShared = 
+# 364 "./src/main/rx/spektrum.c" 3 4
+                     0
+# 364 "./src/main/rx/spektrum.c"
+                          ;
 
 
     switch (rxRuntimeState->serialrxProvider) {
@@ -7046,8 +6982,8 @@ _Bool
         break;
     case SERIALRX_SRXL:
 
-        srxlEnabled = (featureIsEnabled(FEATURE_TELEMETRY) && !portShared);
-        __attribute__ ((fallthrough));
+
+
 
     case SERIALRX_SPEKTRUM2048:
 
@@ -7081,7 +7017,7 @@ _Bool
     rxRuntimeState->rcFrameStatusFn = spektrumFrameStatus;
     rxRuntimeState->rcFrameTimeUsFn = spektrumFrameTimeUsFn;
 
-    rxRuntimeState->rcProcessFrameFn = spektrumProcessFrame;
+
 
 
     serialPort = openSerialPort(portConfig->identifier,
@@ -7099,9 +7035,9 @@ _Bool
         );
 
 
-    if (portShared) {
-        telemetrySharedPort = serialPort;
-    }
+
+
+
 
 
     rssi_channel = rxConfig->rssi_channel - 1;

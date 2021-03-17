@@ -35,14 +35,7 @@ BETA-log_FIRMWARE/main/FLOWBOX_04/io/vtx_control.o: \
  src/main/build/version.h src/main/common/utils.h \
  src/main/target/common_defaults_post.h src/main/drivers/vtx_common.h \
  src/main/common/time.h src/main/pg/pg.h src/main/build/build_config.h \
- src/main/common/streambuf.h src/main/common/maths.h \
- src/main/config/config_eeprom.h src/main/drivers/buttons.h \
- src/main/drivers/light_led.h src/main/drivers/io_types.h \
- src/main/drivers/time.h src/main/config/config.h \
- src/main/fc/runtime_config.h src/main/io/spektrum_vtx_control.h \
- src/main/io/vtx.h src/main/io/vtx_control.h src/main/fc/rc_modes.h \
- src/main/osd/osd.h src/main/common/unit.h src/main/drivers/display.h \
- src/main/sensors/esc_sensor.h src/main/pg/pg_ids.h
+ src/main/common/streambuf.h
 
 src/main/drivers/vtx_table.h:
 
@@ -129,37 +122,3 @@ src/main/pg/pg.h:
 src/main/build/build_config.h:
 
 src/main/common/streambuf.h:
-
-src/main/common/maths.h:
-
-src/main/config/config_eeprom.h:
-
-src/main/drivers/buttons.h:
-
-src/main/drivers/light_led.h:
-
-src/main/drivers/io_types.h:
-
-src/main/drivers/time.h:
-
-src/main/config/config.h:
-
-src/main/fc/runtime_config.h:
-
-src/main/io/spektrum_vtx_control.h:
-
-src/main/io/vtx.h:
-
-src/main/io/vtx_control.h:
-
-src/main/fc/rc_modes.h:
-
-src/main/osd/osd.h:
-
-src/main/common/unit.h:
-
-src/main/drivers/display.h:
-
-src/main/sensors/esc_sensor.h:
-
-src/main/pg/pg_ids.h:

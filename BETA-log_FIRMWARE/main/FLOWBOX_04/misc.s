@@ -9,22 +9,22 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"misc.c"
-	.section	.gnu.lto_.profile.415f7f8c,"e",%progbits
+	.section	.gnu.lto_.profile.41a41da4,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.415f7f8c,"e",%progbits
+	.section	.gnu.lto_.icf.41a41da4,"e",%progbits
 	.ascii	"x\234\343``d0`@\000\016\206]w\316p2\256\352\270:\205"
 	.ascii	"\205\351\332\304\315'8\230\337/\271:\205\235e\362\307"
 	.ascii	"\256#\374\254\213\236\357\335\317\302v\277\365\317\003"
 	.ascii	"F\366\007\275K\331\031\000.\010\026\231"
 	.text
-	.section	.gnu.lto_.jmpfuncs.415f7f8c,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41a41da4,"e",%progbits
 	.ascii	"x\234E\214\321\015\200@\010C_\001\365\376\234\324\025"
 	.ascii	"t\024Wq3\205HrM\232Bxe \016\246\006\222\256\333+*e\340"
 	.ascii	"\377h\321'\2133[zB\244\337\324\316b\222\027T^{)\332"
 	.ascii	"\213f\322b\353w\360\001<I\024\030"
 	.text
-	.section	.gnu.lto_.inline.415f7f8c,"e",%progbits
+	.section	.gnu.lto_.inline.41a41da4,"e",%progbits
 	.ascii	"x\234\215R1N\0031\020\234\335u\356\226\004\3205H\221"
 	.ascii	"h\356E\374\201\\\022\312\334\013\220!}\004\022(%TT\274"
 	.ascii	"\200\010)_\340\003\210\206\032JD\305\256/\271\244\010"
@@ -44,12 +44,12 @@
 	.ascii	"\277\236\037\272ald\013c@Y\257\346\177\220|\275|~\273"
 	.ascii	"\033\356\000\250\233.\340\007\333>\203\311"
 	.text
-	.section	.gnu.lto_.pureconst.415f7f8c,"e",%progbits
+	.section	.gnu.lto_.pureconst.41a41da4,"e",%progbits
 	.ascii	"x\234\005\301\201\001\000 \010\303\260\241Ux\301\327"
 	.ascii	"{\255\311\244\362\222L\244d\311\026\344\310\225\226"
 	.ascii	"\017Cy\0057"
 	.text
-	.section	.gnu.lto_NVIC_Init.part.0.415f7f8c,"e",%progbits
+	.section	.gnu.lto_NVIC_Init.part.0.41a41da4,"e",%progbits
 	.ascii	"x\234\225T[L\\U\024=\373\236;s\007\346\005\364\301\313"
 	.ascii	"(&\022\302O\207Rc\242_\032\033c?4&4\372\341\007\021"
 	.ascii	"\3048\211T2LM\375\352\201\021&\332\241F+\257\230q\250"
@@ -117,7 +117,7 @@
 	.ascii	"\242O\235\257\306.?\336\227}^\377\253\377\002\207\030"
 	.ascii	"u\267"
 	.text
-	.section	.gnu.lto_NVIC_SystemLPConfig.part.0.415f7f8c,"e",%progbits
+	.section	.gnu.lto_NVIC_SystemLPConfig.part.0.41a41da4,"e",%progbits
 	.ascii	"x\234\215RMh\023A\024\236o\337&]\241?\202\227@\316%"
 	.ascii	"\004\241\233ZO\236\024\212'+\225x\361Tj\272`\300\032"
 	.ascii	"I\202\351\255\323$\032\261!z\251M\017q\013%x\020+\212"
@@ -149,7 +149,7 @@
 	.ascii	"\032ssf\"\0361'\243\211\310@Dt\037\211\245Fc)+>\022"
 	.ascii	"\233\260\214\243V*\234\034OZ\177\000\322\332\354\347"
 	.text
-	.section	.gnu.lto_SysTick_CLKSourceConfig.part.0.415f7f8c,"e",%progbits
+	.section	.gnu.lto_SysTick_CLKSourceConfig.part.0.41a41da4,"e",%progbits
 	.ascii	"x\234\215RMh\023A\024\236o\336\346\007\321V\361\"\026"
 	.ascii	"\304\203\245\364\322\215?xni\361\242\202\220z\016\272"
 	.ascii	"\006\\\264*\033+\365\324qc\015\330\320jUj\017m\0125"
@@ -181,7 +181,7 @@
 	.ascii	"\351w\235s\251\336cG\223\027\007='\275\011\301$\320"
 	.ascii	"\265"
 	.text
-	.section	.gnu.lto_NVIC_PriorityGroupConfig.415f7f8c,"e",%progbits
+	.section	.gnu.lto_NVIC_PriorityGroupConfig.41a41da4,"e",%progbits
 	.ascii	"x\234EOOHTq\020\236\3577ow\037\245\005\236\004)<\004"
 	.ascii	"\342\305'\325\251S\221\024\035\012\301\360\272\324&"
 	.ascii	"\364 S\336Z\330\311\331\335t!E)Z\254\303\262F-\035\202"
@@ -208,7 +208,7 @@
 	.ascii	"~:\325\225\242\226#\375\207\366'{\003\177(\360G\316"
 	.ascii	"\035\014\206\316\014o\000W\232\242\241"
 	.text
-	.section	.gnu.lto_NVIC_Init.415f7f8c,"e",%progbits
+	.section	.gnu.lto_NVIC_Init.41a41da4,"e",%progbits
 	.ascii	"x\234\225RKOSQ\020>\337=\367\266\267oW\304\204\205,"
 	.ascii	"L\010\033J\220\037\240\021MXhLj\334\270 ZIl\"\304\224"
 	.ascii	"j\330qn)\020\005q\241\200,\232\226`\0217Z\023\027\240"
@@ -249,7 +249,7 @@
 	.ascii	"\017\226\006\231\357\360\261\252\375\325Uu\241H \022"
 	.ascii	">\027\214\374\006#!1T"
 	.text
-	.section	.gnu.lto_NVIC_SetVectorTable.415f7f8c,"e",%progbits
+	.section	.gnu.lto_NVIC_SetVectorTable.41a41da4,"e",%progbits
 	.ascii	"x\234m\220Mh\023A\024\307\337\177g\223,\232\352Q\241"
 	.ascii	"\024z\020B/\331\372q\362\244X\004\017\375\220\226z\014"
 	.ascii	"mLq\301\212$Az\353l\242.\230\322Bi\032=\204Tl\350IE"
@@ -279,7 +279,7 @@
 	.ascii	"p\"\236\036\032\031\015\366\217\215\245\022\351?\250"
 	.ascii	"7\275\333"
 	.text
-	.section	.gnu.lto_NVIC_SystemLPConfig.415f7f8c,"e",%progbits
+	.section	.gnu.lto_NVIC_SystemLPConfig.41a41da4,"e",%progbits
 	.ascii	"x\234\225R=hSQ\024>\337;/\311k\211\235\013A\350\026"
 	.ascii	"\2724\301\272\350\244P\235\254T\342\342Tj\0320`\215"
 	.ascii	"$\305\024\227\336\374h\304\206(Bi;\304W\221\240\213"
@@ -311,7 +311,7 @@
 	.ascii	"X*;\224\312&\322\203\251\321\204u<\221\215\215\217\214"
 	.ascii	"'\376\000'\015\347Q"
 	.text
-	.section	.gnu.lto_SysTick_CLKSourceConfig.415f7f8c,"e",%progbits
+	.section	.gnu.lto_SysTick_CLKSourceConfig.41a41da4,"e",%progbits
 	.ascii	"x\234\225QMh\023Q\020~\363\346m\262-1\305\203 \024J"
 	.ascii	"\017B\251\207nP\217\036\024\253\027\025\204\324s\320"
 	.ascii	"\030p\321\252$Z\352\251/?\032hKk\245\032sHV\251QO\025"
@@ -345,7 +345,7 @@
 	.ascii	"\347\023}f\364Dd\317\201\375\341\323\347\342\321\330"
 	.ascii	"_+\347\346R"
 	.text
-	.section	.gnu.lto_.symbol_nodes.415f7f8c,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41a41da4,"e",%progbits
 	.ascii	"x\234u\317\275\025\202@\030D\321\231\335\205\245\014"
 	.ascii	"Z\301Rhd6@\021H\254\300\022\314%\223\002\250\301Np\375"
 	.ascii	"\011\010\374^4\347\334h*\020\033rn\240\220r\201\227"
@@ -354,10 +354,10 @@
 	.ascii	"\240\236*\015:S\361?\371\360\371\346\330\372\222\337"
 	.ascii	"\265\320G\367\274\2167\362\200\027L\263@\017"
 	.text
-	.section	.gnu.lto_.refs.415f7f8c,"e",%progbits
+	.section	.gnu.lto_.refs.41a41da4,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.415f7f8c,"e",%progbits
+	.section	.gnu.lto_.decls.41a41da4,"e",%progbits
 	.ascii	"x\234\265Y{PTg\226\277\337\375\032\350\206\0062\340"
 	.ascii	"\032+d\266\234\224U\356\324N\202\211n%S\273U\033lc\244"
 	.ascii	"\306$lc\254\332\371\207\030\322\211l\004,\202\251\344"
@@ -575,7 +575,7 @@
 	.ascii	"\333x\253\317f\325\346O|6\250t[\364\233\035t>\233}\327"
 	.ascii	"kMI%\200\377\005\025\342\203\361"
 	.text
-	.section	.gnu.lto_.symtab.415f7f8c,"e",%progbits
+	.section	.gnu.lto_.symtab.41a41da4,"e",%progbits
 	.ascii	"NVIC_PriorityGroupConfig\000"
 	.ascii	"\000"
 	.ascii	"\000"

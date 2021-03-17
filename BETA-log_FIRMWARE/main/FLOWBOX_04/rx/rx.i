@@ -6242,7 +6242,7 @@ typedef enum {
     FAILSAFE_PROCEDURE_AUTO_LANDING = 0,
     FAILSAFE_PROCEDURE_DROP_IT,
 
-    FAILSAFE_PROCEDURE_GPS_RESCUE,
+
 
     FAILSAFE_PROCEDURE_COUNT
 } failsafeProcedure_e;
@@ -7781,17 +7781,7 @@ static
     case SERIALRX_GHST:
         enabled = ghstRxInit(rxConfig, rxRuntimeState);
         break;
-
-
-
-
-
-
-
-    case SERIALRX_FPORT:
-        enabled = fportRxInit(rxConfig, rxRuntimeState);
-        break;
-
+# 252 "./src/main/rx/rx.c"
     default:
         enabled = 
 # 253 "./src/main/rx/rx.c" 3 4

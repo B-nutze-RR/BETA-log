@@ -9,14 +9,14 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"pwm_esc_detect.c"
-	.section	.gnu.lto_.profile.415f2fc3,"e",%progbits
+	.section	.gnu.lto_.profile.41a3c391,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.415f2fc3,"e",%progbits
+	.section	.gnu.lto_.icf.41a3c391,"e",%progbits
 	.ascii	"x\234\343``d\020a@\000f\206\023gO]\344`\354j>r\222\225"
 	.ascii	"i\366\303\243[Y\031\000aw\010\366"
 	.text
-	.section	.gnu.lto_.jmpfuncs.415f2fc3,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41a3c391,"e",%progbits
 	.ascii	"x\234\343``d\270\317\200\000L\014\214@0\237\031\310"
 	.ascii	"``<\300\302\310\000\304\377\201\200\037\213\000\323"
 	.ascii	"tf\306\231\323\347^d\353c\236\317\314\310\310\305\270"
@@ -27,7 +27,7 @@
 	.ascii	"\322\014\020i\226:\006$\023\031A\036`\000\000L\2718"
 	.ascii	"+"
 	.text
-	.section	.gnu.lto_.inline.415f2fc3,"e",%progbits
+	.section	.gnu.lto_.inline.41a3c391,"e",%progbits
 	.ascii	"x\234\343``d\250b@\000&\006\006\211\206\206\206\015"
 	.ascii	"L\231\214\014L\034@V\003s\012\003\003\033\210\301\224"
 	.ascii	"\302\004\222\006\252\341\006\022\214\023\374\230y 4"
@@ -35,11 +35,11 @@
 	.ascii	"\012\006\026\210Q@C\231\300f%\243\033\312\000\000\037"
 	.ascii	"\375\024\031"
 	.text
-	.section	.gnu.lto_.pureconst.415f2fc3,"e",%progbits
+	.section	.gnu.lto_.pureconst.41a3c391,"e",%progbits
 	.ascii	"x\234\343``d`g```b\230\301\302\324\302\002\000\005\011"
 	.ascii	"\0019"
 	.text
-	.section	.gnu.lto_detectBrushedESC.415f2fc3,"e",%progbits
+	.section	.gnu.lto_detectBrushedESC.41a3c391,"e",%progbits
 	.ascii	"x\234\205R\335K\024Q\024\277\27793\353\356\272\256Y"
 	.ascii	"\032\304\276\354C\"\026\270Q\377\200\017\021\364\326"
 	.ascii	"C\357\"\353\022\022j\254b\217^\3275)\305^R\233`\233"
@@ -78,7 +78,7 @@
 	.ascii	"\213\266TE\205\277\241\251\245)~\276\351b\355\245\240"
 	.ascii	"\023\236uN.\3247\376\003\206,9\334"
 	.text
-	.section	.gnu.lto_getDetectedMotorType.415f2fc3,"e",%progbits
+	.section	.gnu.lto_getDetectedMotorType.41a3c391,"e",%progbits
 	.ascii	"x\234E\2161K\003A\020\205\337\333\215\361,R+\004\305"
 	.ascii	"B\20549\301\306\322\177\022\344rE\212\210\334\005-\263"
 	.ascii	"w\211\210(\261\212\301\"\244\010b:\2615*WY\211\210\205"
@@ -95,7 +95,7 @@
 	.ascii	"\224w\303\300s\313\233\245-\267\030\224v\374 t\267w"
 	.ascii	"\313\005?\364\012E\277\342{\225\274\207\037B\334X\235"
 	.text
-	.section	.gnu.lto_.symbol_nodes.415f2fc3,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41a3c391,"e",%progbits
 	.ascii	"x\234m\316\313\015\0021\014E\321\373\342$3E !!\012\001"
 	.ascii	"\211R\350\303YP\300\360\247\000\252\240\010Z\202@f\031"
 	.ascii	"\257\256t,\313#b! \034\345\224:Q\323\033\034^e\313O"
@@ -104,11 +104,11 @@
 	.ascii	"1\306\366\364\332\030Z\355\214\334jo\244V\007\031\261"
 	.ascii	"\345\263\246\315\231\371\00246d\035"
 	.text
-	.section	.gnu.lto_.refs.415f2fc3,"e",%progbits
+	.section	.gnu.lto_.refs.41a3c391,"e",%progbits
 	.ascii	"x\234\343``d\340c```b`ddgd\344`\0041\030\000\002\255"
 	.ascii	"\0002"
 	.text
-	.section	.gnu.lto_.decls.415f2fc3,"e",%progbits
+	.section	.gnu.lto_.decls.41a3c391,"e",%progbits
 	.ascii	"x\234\215\225mL\223W\024\307\357\351S\350\013\345Ec"
 	.ascii	"\246\031\373@\334\214&\233\242\231\211~\360\303\242"
 	.ascii	"[\034Y\024\263\351'?4M\373(M\204\232\266\350\374\262"
@@ -201,7 +201,7 @@
 	.ascii	"+\226\272qKL,\206\211I0\333\2651\261\033y\373\372}\270"
 	.ascii	")\363\342\014V\323^\203\225\367\"\375\013i\376L\210"
 	.text
-	.section	.gnu.lto_.symtab.415f2fc3,"e",%progbits
+	.section	.gnu.lto_.symtab.41a3c391,"e",%progbits
 	.ascii	"detectBrushedESC\000"
 	.ascii	"\000"
 	.ascii	"\000"

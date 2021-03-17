@@ -9,17 +9,17 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"usbd_storage_emfat.c"
-	.section	.gnu.lto_.profile.415f233d,"e",%progbits
+	.section	.gnu.lto_.profile.41a3a19a,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.415f233d,"e",%progbits
+	.section	.gnu.lto_.icf.41a3a19a,"e",%progbits
 	.ascii	"x\234\343``d\260`@\000N\206\251\233O\034\347ez\332\326"
 	.ascii	"\322\303\317\274\373\350\313\231\334,+\016\2646\362"
 	.ascii	"\260\276|\360\367\025\007\333\247\376\035;\271\330\317"
 	.ascii	"<9\326\315\303q\376\340\206Y\034\234\257^\274Z\315\303"
 	.ascii	"\000\000\004\301\033\202"
 	.text
-	.section	.gnu.lto_.jmpfuncs.415f233d,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41a3a19a,"e",%progbits
 	.ascii	"x\234]\2161\026\3020\014C\245\330M;\321\003\364\006"
 	.ascii	"\034\022\006\366\256\214\035\272\2600\262\000\003'\341"
 	.ascii	"\012\254lA.P\372\310{\377%\266\024\331\015\210L\314"
@@ -30,7 +30,7 @@
 	.ascii	";\305\215\247\343\241\215\270<u/\354P\177W\016\313\374"
 	.ascii	"\007H\313\351\265\246_\271\224\361\002\033\0147\351"
 	.text
-	.section	.gnu.lto_.inline.415f233d,"e",%progbits
+	.section	.gnu.lto_.inline.41a3a19a,"e",%progbits
 	.ascii	"x\234\205\217\301\015\2000\010E?Pk5\306xs+\247\250\272"
 	.ascii	"\205\251\0338\202\2438\232\2645\336\264p\371\300\003"
 	.ascii	"\362\035\010#\341\215\032\260!\204\213g\002\033U\201"
@@ -39,12 +39,12 @@
 	.ascii	"\372\364\362\230bR\233\255&\247\262\374\330\350\222"
 	.ascii	"]\340\006$\3747E"
 	.text
-	.section	.gnu.lto_.pureconst.415f233d,"e",%progbits
+	.section	.gnu.lto_.pureconst.41a3a19a,"e",%progbits
 	.ascii	"x\234\343``d\020c```g\230\305\302\324\300\302\334\300"
 	.ascii	"\302\322\300\302\332\300\3026\203\205}\006\013\000/"
 	.ascii	"/\004("
 	.text
-	.section	.gnu.lto_STORAGE_GetCapacity.415f233d,"e",%progbits
+	.section	.gnu.lto_STORAGE_GetCapacity.41a3a19a,"e",%progbits
 	.ascii	"x\234m\222\357KSa\024\307\317\367>wwwk\352\273@V\340"
 	.ascii	"\013aH\340\006\321\353\372O\306\\+$7\301\2717\275\310"
 	.ascii	"gK\351\2072!*+[\327\030cQ\221+\204\300\037u3\263iK$"
@@ -77,7 +77,7 @@
 	.ascii	"Jxz\372\372\243\247\302\211T\334\333\270%{O\307\376"
 	.ascii	"\002\316\222\342\007"
 	.text
-	.section	.gnu.lto_STORAGE_IsReady.415f233d,"e",%progbits
+	.section	.gnu.lto_STORAGE_IsReady.41a3a19a,"e",%progbits
 	.ascii	"x\234M\216\261J\303p\020\306\357\313\305\232\301\352"
 	.ascii	"nu\023B\035\032\301\027\360MJ\214U\004S\241i\347^\253"
 	.ascii	"\342P\255\223\024\247\350 \016\012\261\223`U28\270("
@@ -95,7 +95,7 @@
 	.ascii	"W\212Qu\263\342\257\225\212\245p\325\257\026\002\342"
 	.ascii	"\215Z\371\007\337\345X~"
 	.text
-	.section	.gnu.lto_STORAGE_IsWriteProtected.415f233d,"e",%progbits
+	.section	.gnu.lto_STORAGE_IsWriteProtected.41a3a19a,"e",%progbits
 	.ascii	"x\234\343``dx\304\300\300\240\005\304\262@\314\310\314"
 	.ascii	"\300\310\324\320\320\340\300\336\310\301\304\310\010"
 	.ascii	"f5p02\32431\3263\3663Ogf\334\275f\375\007>\315\345@"
@@ -113,7 +113,7 @@
 	.ascii	"\254_Z\234\224\022_\\\222_\224\230\236\032\237\232\233"
 	.ascii	"\226X\242\227\314\300\234S\232\007\000\005\300X\355"
 	.text
-	.section	.gnu.lto_STORAGE_Write.415f233d,"e",%progbits
+	.section	.gnu.lto_STORAGE_Write.41a3a19a,"e",%progbits
 	.ascii	"x\234e\221\317KTQ\024\307\317\367\23573\257p\264\375"
 	.ascii	"8\320\"\030$\360\005m\332\325\262\377b\230\237\021\315"
 	.ascii	"L0\343\254=NV\224\221-\012Q\220\347,\242\302D\007\244"
@@ -141,7 +141,7 @@
 	.ascii	"\346L!](\0273\003\3759\342R\275\302\331z\321\311\226"
 	.ascii	"\316\2453\371|5f\212R\241\262\003\352\353\255\211"
 	.text
-	.section	.gnu.lto_STORAGE_GetMaxLun.415f233d,"e",%progbits
+	.section	.gnu.lto_STORAGE_GetMaxLun.41a3a19a,"e",%progbits
 	.ascii	"x\234\343``dX\316\300\300\240\006\304\262@\314\310\314"
 	.ascii	"\300\310\324\320\320\340\300\336\310\301\304\310\010"
 	.ascii	"f5p02\32431\3263\3663Ogf\334\275f\375\007>\315\345@"
@@ -156,7 +156,7 @@
 	.ascii	"\245\305I)\361\305%\371E\211\351\251\361\251\271i\211"
 	.ascii	"%z\311\014\000\206BF8"
 	.text
-	.section	.gnu.lto_STORAGE_Read.415f233d,"e",%progbits
+	.section	.gnu.lto_STORAGE_Read.41a3a19a,"e",%progbits
 	.ascii	"x\234m\222\317k\023Q\020\307gvv7\333\037\211\036\305"
 	.ascii	"D\310A\010Eh\004/z\322\243\377EH\232D\304$B\322\236"
 	.ascii	"\373\262\251F\254D\017J\211%lk)\026Tb\241Pj\324\254"
@@ -190,7 +190,7 @@
 	.ascii	"}9\033\275\220\210$\322\311hwg\027P\252'C\261\236\244"
 	.ascii	"\021K]\212D\343\361\254G.R\211\314/\331y\360s"
 	.text
-	.section	.gnu.lto_STORAGE_Init.415f233d,"e",%progbits
+	.section	.gnu.lto_STORAGE_Init.41a3a19a,"e",%progbits
 	.ascii	"x\234M\217;K\003Q\020\205\347\354\254\311*>J\003\213"
 	.ascii	"\225BH\212\254`-\370O$\306(\202\211\220M\352\334\315"
 	.ascii	"\003\221\225XIH![\211\202B\260\022\214\217-,,T\304R"
@@ -210,7 +210,7 @@
 	.ascii	"K\313\213vq\243\220^\315.fs+\351b*C\274^\312\377\002"
 	.ascii	"y5j\356"
 	.text
-	.section	.gnu.lto_USBD_MSC_EMFAT_fops.415f233d,"e",%progbits
+	.section	.gnu.lto_USBD_MSC_EMFAT_fops.41a3a19a,"e",%progbits
 	.ascii	"x\234m\3131O\302P\030\205\341\357\364\353\255\260\273"
 	.ascii	"\263\030\027\023:\363kH)\2258T\222\026\367\253a a5\261"
 	.ascii	"\035\240M\032\023\031\030\030\214\321R\013\316\214\376"
@@ -224,13 +224,13 @@
 	.ascii	"\357\206\336\315\255\033\306\276{\027\017\206\375x2"
 	.ascii	"\216\274Q\320\017\302ko\322\365\351\037h\217r|"
 	.text
-	.section	.gnu.lto_STORAGE_Inquirydata.415f233d,"e",%progbits
+	.section	.gnu.lto_STORAGE_Inquirydata.41a3a19a,"e",%progbits
 	.ascii	"x\234\343``d\020e``Pc\200\200\351\314\214\373\346]\331"
 	.ascii	"\310\244\3104\277\201c>3\003\003\343.FE\006\025\206"
 	.ascii	"\006&&y\240\264\223k\210\243\233O\210\202\177^R~bQ\212"
 	.ascii	"\202[Nbq\206\002\004\000\000\351{\017("
 	.text
-	.section	.gnu.lto_.symbol_nodes.415f233d,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41a3a19a,"e",%progbits
 	.ascii	"x\234u\217\313\021\3020\020C%;q\302\247\007\030\206"
 	.ascii	"B\350\201\026\350C\246\203\360\017\237\003ep\245\001"
 	.ascii	"Z\002\233\344\230\325I\263O;\253\255A\254\011\300\355"
@@ -241,12 +241,12 @@
 	.ascii	"\015\022\037&\335\351\245\017\343\316m|5\355g\370\001"
 	.ascii	"q\226c_"
 	.text
-	.section	.gnu.lto_.refs.415f233d,"e",%progbits
+	.section	.gnu.lto_.refs.41a3a19a,"e",%progbits
 	.ascii	"x\234\015\304\307\001\000 \014\3040\237C\011C\260\377"
 	.ascii	"\232\240\207\232p\341O\3142\325\355\026\265\\\016\247"
 	.ascii	"\207\007\011\221\000|"
 	.text
-	.section	.gnu.lto_.decls.415f233d,"e",%progbits
+	.section	.gnu.lto_.decls.41a3a19a,"e",%progbits
 	.ascii	"x\234\225XiT\024W\026\256W\257\201\356\246\001\003q"
 	.ascii	"pB\234\361$$\232\223\205\230\230\230s&s\022\307l\236"
 	.ascii	"\211I&\230IN\346\234\3514\320\304\236aq\272\033'\316"
@@ -437,7 +437,7 @@
 	.ascii	"r\277\332\340 \355\222\025\313\364\357\350C}l\205\245"
 	.ascii	"\221Btf\335\177\001\032We#"
 	.text
-	.section	.gnu.lto_.symtab.415f233d,"e",%progbits
+	.section	.gnu.lto_.symtab.41a3a19a,"e",%progbits
 	.ascii	"USBD_MSC_EMFAT_fops\000"
 	.ascii	"\000"
 	.ascii	"\000"

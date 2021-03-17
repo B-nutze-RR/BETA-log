@@ -9,25 +9,25 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"stack_check.c"
-	.section	.gnu.lto_.profile.415f14e0,"e",%progbits
+	.section	.gnu.lto_.profile.41a3d979,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.415f14e0,"e",%progbits
+	.section	.gnu.lto_.icf.41a3d979,"e",%progbits
 	.ascii	"x\234\343``d\340c@\000&\206\246\335\333^\3603\201I\006"
 	.ascii	"\000,\376\005\360"
 	.text
-	.section	.gnu.lto_.jmpfuncs.415f14e0,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41a3d979,"e",%progbits
 	.ascii	"x\234\343``d\340`@\000&(\006\000\001\246\000\026"
 	.text
-	.section	.gnu.lto_.inline.415f14e0,"e",%progbits
+	.section	.gnu.lto_.inline.41a3d979,"e",%progbits
 	.ascii	"x\234\343``d\360`@\000&\006\006\346\006 `Ja\004\261"
 	.ascii	"\033\201\314:\006\0066\210\020\023H\010\244\206\240"
 	.ascii	"\022\006\000Q/\017\014"
 	.text
-	.section	.gnu.lto_.pureconst.415f14e0,"e",%progbits
+	.section	.gnu.lto_.pureconst.41a3d979,"e",%progbits
 	.ascii	"x\234\343``d`g```bh`aj`\001\000\004\211\001\035"
 	.text
-	.section	.gnu.lto_stackTotalSize.415f14e0,"e",%progbits
+	.section	.gnu.lto_stackTotalSize.41a3d979,"e",%progbits
 	.ascii	"x\234E\216?K\303P\024\305\357\311\2135\025\365\013T"
 	.ascii	"Aq\352\322|\005\277\211\224X\260\024E\022q\355M\014"
 	.ascii	"T\250\324E)\012\261\265E\324I\204.\365o\\\012\212Cq"
@@ -46,7 +46,7 @@
 	.ascii	"\227\006/+\374\203\021\315gl\317u\354\325l~\315^v\363"
 	.ascii	"\2339\327\263\275\215\254SXrVrN!\343\320\017uIm\264"
 	.text
-	.section	.gnu.lto_stackHighMem.415f14e0,"e",%progbits
+	.section	.gnu.lto_stackHighMem.41a3d979,"e",%progbits
 	.ascii	"x\234E\216AK\002Q\024\205\357\2317\351\030\325\037\260"
 	.ascii	"\240h\345\306\371\013\375\223\220IH\244\210\231h\353"
 	.ascii	"u\022\014\014\333\024V0i\212\324.\0027V\326\264\011"
@@ -66,17 +66,17 @@
 	.ascii	"{-\225Y\267W\334\314V\332\365lo3\345d\227\235\325\264"
 	.ascii	"\223M:\364\003l\324m\333"
 	.text
-	.section	.gnu.lto_.symbol_nodes.415f14e0,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41a3d979,"e",%progbits
 	.ascii	"x\234\343``d\360`\000\002\246^\306z\206\006 `a\234p"
 	.ascii	"\216\201\241\236\201aW\203#P\022\010X\373\031\031\024"
 	.ascii	"@J\372\030\353\031q(\231\300\310\010R\302\000\000gQ"
 	.ascii	"\016\232"
 	.text
-	.section	.gnu.lto_.refs.415f14e0,"e",%progbits
+	.section	.gnu.lto_.refs.41a3d979,"e",%progbits
 	.ascii	"x\234\343``d\340f`\000\222L\214\214\214LL\314\214\014"
 	.ascii	"\000\001\260\000#"
 	.text
-	.section	.gnu.lto_.decls.415f14e0,"e",%progbits
+	.section	.gnu.lto_.decls.41a3d979,"e",%progbits
 	.ascii	"x\234\215QKL\023Q\024\275w\246H\031\206B\010\011&US"
 	.ascii	"I\210\013\205\202\220\270q\347B6\270\001\3356M\255\322"
 	.ascii	"`\301\224B\214\033\037E\033\203\221\224D$@P\260&F\321"
@@ -120,7 +120,7 @@
 	.ascii	"r\2733\323R\356\250\261T\360\006\345F\235\255\312\352"
 	.ascii	"J\265\330y\317\037'\354<I"
 	.text
-	.section	.gnu.lto_.symtab.415f14e0,"e",%progbits
+	.section	.gnu.lto_.symtab.41a3d979,"e",%progbits
 	.ascii	"stackTotalSize\000"
 	.ascii	"\000"
 	.ascii	"\000"

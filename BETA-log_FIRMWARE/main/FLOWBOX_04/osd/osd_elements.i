@@ -7064,18 +7064,7 @@ typedef struct motorConfig_s {
 
 extern motorConfig_t motorConfig_System; extern motorConfig_t motorConfig_Copy; static inline const motorConfig_t* motorConfig(void) { return &motorConfig_System; } static inline motorConfig_t* motorConfigMutable(void) { return &motorConfig_System; } struct _dummy;
 # 26 "./src/main/drivers/dshot.h" 2
-# 43 "./src/main/drivers/dshot.h"
-typedef struct dshotTelemetryQuality_s {
-    uint32_t packetCountSum;
-    uint32_t invalidCountSum;
-    uint32_t packetCountArray[(1 * 1000 / 100)];
-    uint32_t invalidCountArray[(1 * 1000 / 100)];
-    uint8_t lastBucketIndex;
-} dshotTelemetryQuality_t;
-
-extern dshotTelemetryQuality_t dshotTelemetryQuality[8];
-
-
+# 54 "./src/main/drivers/dshot.h"
 typedef struct dshotProtocolControl_s {
     uint16_t value;
     
@@ -7090,47 +7079,7 @@ float dshotConvertFromExternal(uint16_t externalValue);
 uint16_t dshotConvertToExternal(float motorValue);
 
 uint16_t prepareDshotPacket(dshotProtocolControl_t *pcb);
-
-
-extern 
-# 66 "./src/main/drivers/dshot.h" 3 4
-      _Bool 
-# 66 "./src/main/drivers/dshot.h"
-           useDshotTelemetry;
-
-typedef struct dshotTelemetryMotorState_s {
-    uint16_t telemetryValue;
-    
-# 70 "./src/main/drivers/dshot.h" 3 4
-   _Bool 
-# 70 "./src/main/drivers/dshot.h"
-        telemetryActive;
-} dshotTelemetryMotorState_t;
-
-
-typedef struct dshotTelemetryState_s {
-    
-# 75 "./src/main/drivers/dshot.h" 3 4
-   _Bool 
-# 75 "./src/main/drivers/dshot.h"
-        useDshotTelemetry;
-    uint32_t invalidPacketCount;
-    uint32_t readCount;
-    dshotTelemetryMotorState_t motorState[8];
-    uint32_t inputBuffer[22];
-} dshotTelemetryState_t;
-
-extern dshotTelemetryState_t dshotTelemetryState;
-
-
-void updateDshotTelemetryQuality(dshotTelemetryQuality_t *qualityStats, 
-# 85 "./src/main/drivers/dshot.h" 3 4
-                                                                       _Bool 
-# 85 "./src/main/drivers/dshot.h"
-                                                                            packetValid, timeMs_t currentTimeMs);
-
-
-
+# 89 "./src/main/drivers/dshot.h"
 uint16_t getDshotTelemetry(uint8_t index);
 
 # 90 "./src/main/drivers/dshot.h" 3 4
@@ -7394,7 +7343,7 @@ typedef struct controlRateConfig_s {
     uint8_t levelExpo[2];
 } controlRateConfig_t;
 
-extern controlRateConfig_t controlRateProfiles_SystemArray[6]; extern controlRateConfig_t controlRateProfiles_CopyArray[6]; static inline const controlRateConfig_t* controlRateProfiles(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t* controlRateProfilesMutable(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t (* controlRateProfiles_array(void))[6] { return &controlRateProfiles_SystemArray; } struct _dummy;
+extern controlRateConfig_t controlRateProfiles_SystemArray[1]; extern controlRateConfig_t controlRateProfiles_CopyArray[1]; static inline const controlRateConfig_t* controlRateProfiles(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t* controlRateProfilesMutable(int _index) { return &controlRateProfiles_SystemArray[_index]; } static inline controlRateConfig_t (* controlRateProfiles_array(void))[1] { return &controlRateProfiles_SystemArray; } struct _dummy;
 
 extern controlRateConfig_t *currentControlRateProfile;
 extern const ratesSettingsLimits_t ratesSettingLimits[RATES_TYPE_COUNT];
@@ -7407,14 +7356,7 @@ void copyControlRateProfile(const uint8_t dstControlRateProfileIndex, const uint
 # 1 "./src/main/fc/core.h" 1
 # 21 "./src/main/fc/core.h"
        
-
-
-
-
-
-extern int16_t magHold;
-
-
+# 30 "./src/main/fc/core.h"
 typedef struct throttleCorrectionConfig_s {
     uint16_t throttle_correction_angle;
     uint8_t throttle_correction_value;
@@ -7450,7 +7392,7 @@ typedef enum {
 
 
 
-extern const char * const osdLaunchControlModeNames[LAUNCH_CONTROL_MODE_COUNT];
+
 
 
 extern throttleCorrectionConfig_t throttleCorrectionConfig_System; extern throttleCorrectionConfig_t throttleCorrectionConfig_Copy; static inline const throttleCorrectionConfig_t* throttleCorrectionConfig(void) { return &throttleCorrectionConfig_System; } static inline throttleCorrectionConfig_t* throttleCorrectionConfigMutable(void) { return &throttleCorrectionConfig_System; } struct _dummy;
@@ -8399,13 +8341,9 @@ timeMs_t motorGetMotorEnableTimeMs(void);
 void motorShutdown(void);
 
 
-struct motorDevConfig_s;
-typedef struct motorDevConfig_s motorDevConfig_t;
 
-# 102 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 102 "./src/main/drivers/motor.h"
-    isDshotBitbangActive(const motorDevConfig_t *motorConfig);
+
+
 
 
 float getDigitalIdleOffset(const motorConfig_t *motorConfig);
@@ -8750,7 +8688,7 @@ typedef struct pidProfile_s {
     uint8_t simplified_dterm_filter_multiplier;
 } pidProfile_t;
 
-extern pidProfile_t pidProfiles_SystemArray[3]; extern pidProfile_t pidProfiles_CopyArray[3]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[3] { return &pidProfiles_SystemArray; } struct _dummy;
+extern pidProfile_t pidProfiles_SystemArray[1]; extern pidProfile_t pidProfiles_CopyArray[1]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[1] { return &pidProfiles_SystemArray; } struct _dummy;
 
 typedef struct pidConfig_s {
     uint8_t pid_process_denom;
@@ -8856,37 +8794,7 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-
-
-    pt1Filter_t windupLpf[3];
-    uint8_t itermRelax;
-    uint8_t itermRelaxType;
-    uint8_t itermRelaxCutoff;
-
-
-
-    float acCutoff;
-    float acGain;
-    float acLimit;
-    float acErrorLimit;
-    pt1Filter_t acLpf[3];
-    float oldSetpointCorrection[3];
-
-
-
-    biquadFilter_t dMinRange[3];
-    pt1Filter_t dMinLowpass[3];
-    float dMinPercent[3];
-    float dMinGyroGain;
-    float dMinSetpointGain;
-
-
-
-    pt1Filter_t airmodeThrottleLpf1;
-    pt1Filter_t airmodeThrottleLpf2;
-
-
-
+# 343 "./src/main/flight/pid.h"
     pt1Filter_t setpointDerivativePt1[3];
     biquadFilter_t setpointDerivativeBiquad[3];
     
@@ -8896,53 +8804,12 @@ typedef struct pidRuntime_s {
         setpointDerivativeLpfInitialized;
     uint8_t rcSmoothingDebugAxis;
     uint8_t rcSmoothingFilterType;
-
-
-
-    float acroTrainerAngleLimit;
-    float acroTrainerLookaheadTime;
-    uint8_t acroTrainerDebugAxis;
-    float acroTrainerGain;
-    
-# 355 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 355 "./src/main/flight/pid.h"
-        acroTrainerActive;
-    int acroTrainerAxisState[2];
-
-
-
+# 360 "./src/main/flight/pid.h"
     uint8_t dynLpfFilter;
     uint16_t dynLpfMin;
     uint16_t dynLpfMax;
     uint8_t dynLpfCurveExpo;
-
-
-
-    uint8_t launchControlMode;
-    uint8_t launchControlAngleLimit;
-    float launchControlKi;
-
-
-
-    
-# 373 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 373 "./src/main/flight/pid.h"
-        useIntegratedYaw;
-    uint8_t integratedYawRelax;
-
-
-
-    float thrustLinearization;
-    float throttleCompensateAmount;
-
-
-
-    float airmodeThrottleOffsetLimit;
-
-
-
+# 387 "./src/main/flight/pid.h"
     ffInterpolationType_t ffFromInterpolatedSetpoint;
     float ffSmoothFactor;
 
@@ -8994,15 +8861,6 @@ void pidSetAntiGravityState(
 _Bool 
 # 413 "./src/main/flight/pid.h"
     pidAntiGravityEnabled(void);
-
-
-float pidApplyThrustLinearization(float motorValue);
-float pidCompensateThrustLinearization(float throttle);
-
-
-
-void pidUpdateAirmodeLpf(float currentOffset);
-float pidGetAirmodeThrottleOffset();
 # 436 "./src/main/flight/pid.h"
 void dynLpfDTermUpdate(float throttle);
 void pidSetItermReset(
@@ -9496,7 +9354,7 @@ extern timeUs_t osdFlyTime;
 extern float osdGForce;
 
 
-extern escSensorData_t *osdEscDataCombined;
+
 
 
 void osdInit(displayPort_t *osdDisplayPort, osdDisplayPortDevice_e displayPortDevice);
@@ -10760,50 +10618,7 @@ static int osdDisplayWriteChar(osdElementParms_t *element, uint8_t x, uint8_t y,
 
     return osdDisplayWrite(element, x, y, attr, buf);
 }
-
-
-typedef int (*getEscRpmOrFreqFnPtr)(int i);
-
-static int getEscRpm(int i)
-{
-
-    if (motorConfig()->dev.useDshotTelemetry) {
-        return 100.0f / (motorConfig()->motorPoleCount / 2.0f) * getDshotTelemetry(i);
-    }
-
-
-    if (featureIsEnabled(FEATURE_ESC_SENSOR)) {
-        return calcEscRpm(getEscSensorData(i)->rpm);
-    }
-
-    return 0;
-}
-
-static int getEscRpmFreq(int i)
-{
-    return getEscRpm(i) / 60;
-}
-
-static void renderOsdEscRpmOrFreq(getEscRpmOrFreqFnPtr escFnPtr, osdElementParms_t *element)
-{
-    int x = element->elemPosX;
-    int y = element->elemPosY;
-    for (int i=0; i < getMotorCount(); i++) {
-        char rpmStr[6];
-        const int rpm = __extension__ ({ __typeof__ ((*escFnPtr)(i)) _a = ((*escFnPtr)(i)); __typeof__ (99999) _b = (99999); _a < _b ? _a : _b; });
-        const int len = tfp_sprintf(rpmStr, "%d", rpm);
-        rpmStr[len] = '\0';
-        osdDisplayWrite(element, x, y + i, DISPLAYPORT_ATTR_NONE, rpmStr);
-    }
-    element->drawElement = 
-# 242 "./src/main/osd/osd_elements.c" 3 4
-                          0
-# 242 "./src/main/osd/osd_elements.c"
-                               ;
-}
-
-
-
+# 247 "./src/main/osd/osd_elements.c"
 int osdConvertTemperatureToSelectedUnit(int tempInDegreesCelcius)
 {
     switch (osdConfig()->units) {
@@ -10835,27 +10650,7 @@ static void osdFormatAltitudeString(char * buff, int32_t altitudeCm, osdElementT
 # 272 "./src/main/osd/osd_elements.c"
                                                                                                              , unitSymbol);
 }
-
-
-static void osdFormatCoordinate(char *buff, char sym, int32_t val)
-{
-
-
-
-
-
-
-
-    int pos = 0;
-    buff[pos++] = sym;
-    if (val < 0) {
-        buff[pos++] = '-';
-        val = -val;
-    }
-    tfp_sprintf(buff + pos, "%d.%07d", val / 10000000L, val % 10000000L);
-}
-
-
+# 295 "./src/main/osd/osd_elements.c"
 void osdFormatDistanceString(char *ptr, int distance, char leadingSymbol)
 {
     const float convertedDistance = osdGetMetersToSelectedUnit(distance);
@@ -11166,7 +10961,7 @@ static void osdElementAltitude(osdElementParms_t *element)
 
 
 
-    haveGps = sensors(SENSOR_GPS) && (stateFlags & (GPS_FIX));
+
 
     if (haveBaro || haveGps) {
         osdFormatAltitudeString(element->buff, getEstimatedAltitudeCm(), element->type);
@@ -11482,29 +11277,7 @@ static void osdElementOsdProfileName(osdElementParms_t *element)
         element->buff[i] = '\0';
     }
 }
-
-
-
-static void osdElementEscTemperature(osdElementParms_t *element)
-{
-    if (featureIsEnabled(FEATURE_ESC_SENSOR)) {
-        tfp_sprintf(element->buff, "E%c%3d%c", 0x7A, osdConvertTemperatureToSelectedUnit(osdEscDataCombined->temperature), osdGetTemperatureSymbolForSelectedUnit());
-    }
-}
-
-
-
-static void osdElementEscRpm(osdElementParms_t *element)
-{
-    renderOsdEscRpmOrFreq(&getEscRpm,element);
-}
-
-static void osdElementEscRpmFreq(osdElementParms_t *element)
-{
-    renderOsdEscRpmOrFreq(&getEscRpmFreq,element);
-}
-
-
+# 880 "./src/main/osd/osd_elements.c"
 static void osdElementFlymode(osdElementParms_t *element)
 {
 
@@ -11542,98 +11315,7 @@ static void osdElementGForce(osdElementParms_t *element)
 # 911 "./src/main/osd/osd_elements.c"
                                                                 , 'G');
 }
-
-
-
-static void osdElementGpsFlightDistance(osdElementParms_t *element)
-{
-    if ((stateFlags & (GPS_FIX)) && (stateFlags & (GPS_FIX_HOME))) {
-        osdFormatDistanceString(element->buff, GPS_distanceFlownInCm / 100, 0x71);
-    } else {
-
-        tfp_sprintf(element->buff, "%c%c", 0x71, 0x2D);
-    }
-}
-
-static void osdElementGpsHomeDirection(osdElementParms_t *element)
-{
-    if ((stateFlags & (GPS_FIX)) && (stateFlags & (GPS_FIX_HOME))) {
-        if (GPS_distanceToHome > 0) {
-            const int h = GPS_directionToHome - ((attitude.values.yaw) / 10);
-            element->buff[0] = osdGetDirectionSymbolFromHeading(h);
-        } else {
-            element->buff[0] = 0x05;
-        }
-
-    } else {
-
-        element->buff[0] = 0x2D;
-    }
-
-    element->buff[1] = 0;
-}
-
-static void osdElementGpsHomeDistance(osdElementParms_t *element)
-{
-    if ((stateFlags & (GPS_FIX)) && (stateFlags & (GPS_FIX_HOME))) {
-        osdFormatDistanceString(element->buff, GPS_distanceToHome, 0x11);
-    } else {
-        element->buff[0] = 0x11;
-
-        element->buff[1] = 0x2D;
-        element->buff[2] = '\0';
-    }
-}
-
-static void osdElementGpsLatitude(osdElementParms_t *element)
-{
-    osdFormatCoordinate(element->buff, 0x89, gpsSol.llh.lat);
-}
-
-static void osdElementGpsLongitude(osdElementParms_t *element)
-{
-    osdFormatCoordinate(element->buff, 0x98, gpsSol.llh.lon);
-}
-
-static void osdElementGpsSats(osdElementParms_t *element)
-{
-    int pos = tfp_sprintf(element->buff, "%c%c%2d", 0x1E, 0x1F, gpsSol.numSat);
-    if (osdConfig()->gps_sats_show_hdop) {
-        element->buff[pos++] = ' ';
-        osdPrintFloat(element->buff + pos, 0x00, gpsSol.hdop / 100.0f, "", 1, 
-# 971 "./src/main/osd/osd_elements.c" 3 4
-                                                                                 1
-# 971 "./src/main/osd/osd_elements.c"
-                                                                                     , 0x00);
-    }
-}
-
-static void osdElementGpsSpeed(osdElementParms_t *element)
-{
-    tfp_sprintf(element->buff, "%c%3d%c", 0x70, osdGetSpeedToSelectedUnit(gpsConfig()->gps_use_3d_speed ? gpsSol.speed3d : gpsSol.groundSpeed), osdGetSpeedToSelectedUnitSymbol());
-}
-
-static void osdElementEfficiency(osdElementParms_t *element)
-{
-    int efficiency = 0;
-    if (sensors(SENSOR_GPS) && (armingFlags & (ARMED)) && (stateFlags & (GPS_FIX)) && gpsSol.groundSpeed >= 100) {
-        const int speedX100 = osdGetSpeedToSelectedUnit(gpsSol.groundSpeed * 100);
-
-        if (speedX100 > 0) {
-            const int mAmperage = getAmperage() * 10;
-            efficiency = mAmperage * 100 / speedX100;
-        }
-    }
-
-    const char unitSymbol = osdConfig()->units == UNIT_IMPERIAL ? 0x7E : 0x7D;
-    if (efficiency > 0 && efficiency <= 9999) {
-        tfp_sprintf(element->buff, "%4d%c/%c", efficiency, 0x07, unitSymbol);
-    } else {
-        tfp_sprintf(element->buff, "----%c/%c", 0x07, unitSymbol);
-    }
-}
-
-
+# 1001 "./src/main/osd/osd_elements.c"
 static void osdBackgroundHorizonSidebars(osdElementParms_t *element)
 {
 
@@ -11782,10 +11464,10 @@ static void osdElementMotorDiagnostics(osdElementParms_t *element)
         if (motorsRunning) {
             element->buff[i] = 0x88 - scaleRange(motor[i], getMotorOutputLow(), getMotorOutputHigh(), 0, 8);
 
-            if (getEscRpm(i) < 1000) {
 
-                element->buff[i] = 'S';
-            }
+
+
+
 
         } else {
             element->buff[i] = 0x88;
@@ -11799,50 +11481,7 @@ static void osdElementNumericalHeading(osdElementParms_t *element)
     const int heading = ((attitude.values.yaw) / 10);
     tfp_sprintf(element->buff, "%c%03d", osdGetDirectionSymbolFromHeading(heading), heading);
 }
-
-
-static void osdElementNumericalVario(osdElementParms_t *element)
-{
-    
-# 1158 "./src/main/osd/osd_elements.c" 3 4
-   _Bool 
-# 1158 "./src/main/osd/osd_elements.c"
-        haveBaro = 
-# 1158 "./src/main/osd/osd_elements.c" 3 4
-                   0
-# 1158 "./src/main/osd/osd_elements.c"
-                        ;
-    
-# 1159 "./src/main/osd/osd_elements.c" 3 4
-   _Bool 
-# 1159 "./src/main/osd/osd_elements.c"
-        haveGps = 
-# 1159 "./src/main/osd/osd_elements.c" 3 4
-                  0
-# 1159 "./src/main/osd/osd_elements.c"
-                       ;
-
-
-
-
-    haveGps = sensors(SENSOR_GPS) && (stateFlags & (GPS_FIX));
-
-    if (haveBaro || haveGps) {
-        const float verticalSpeed = osdGetMetersToSelectedUnit(getEstimatedVario()) / 100.0f;
-        const char directionSymbol = verticalSpeed < 0 ? 0x76 : 0x75;
-        osdPrintFloat(element->buff, directionSymbol, fabsf(verticalSpeed), "", 1, 
-# 1169 "./src/main/osd/osd_elements.c" 3 4
-                                                                                  1
-# 1169 "./src/main/osd/osd_elements.c"
-                                                                                      , osdGetVarioToSelectedUnitSymbol());
-    } else {
-
-        element->buff[0] = 0x2D;
-        element->buff[1] = '\0';
-    }
-}
-
-
+# 1178 "./src/main/osd/osd_elements.c"
 static void osdElementPidRateProfile(osdElementParms_t *element)
 {
     tfp_sprintf(element->buff, "%d-%d", getCurrentPidProfileIndex() + 1, getCurrentControlRateProfileIndex() + 1);
@@ -12004,41 +11643,7 @@ static void osdElementTimer(osdElementParms_t *element)
 # 1317 "./src/main/osd/osd_elements.c"
                                            , element->item - OSD_ITEM_TIMER_1);
 }
-
-
-static void osdElementVtxChannel(osdElementParms_t *element)
-{
-    const vtxDevice_t *vtxDevice = vtxCommonDevice();
-    const char vtxBandLetter = vtxCommonLookupBandLetter(vtxDevice, vtxSettingsConfig()->band);
-    const char *vtxChannelName = vtxCommonLookupChannelName(vtxDevice, vtxSettingsConfig()->channel);
-    unsigned vtxStatus = 0;
-    uint8_t vtxPower = vtxSettingsConfig()->power;
-    if (vtxDevice) {
-        vtxCommonGetStatus(vtxDevice, &vtxStatus);
-
-        if (vtxSettingsConfig()->lowPowerDisarm) {
-            vtxCommonGetPowerIndex(vtxDevice, &vtxPower);
-        }
-    }
-    const char *vtxPowerLabel = vtxCommonLookupPowerName(vtxDevice, vtxPower);
-
-    char vtxStatusIndicator = '\0';
-    if (IS_RC_MODE_ACTIVE(BOXVTXCONTROLDISABLE)) {
-        vtxStatusIndicator = 'D';
-    } else if (vtxStatus & VTX_STATUS_PIT_MODE) {
-        vtxStatusIndicator = 'P';
-    }
-
-    if (vtxStatus & VTX_STATUS_LOCKED) {
-        tfp_sprintf(element->buff, "-:-:-:L");
-    } else if (vtxStatusIndicator) {
-        tfp_sprintf(element->buff, "%c:%s:%s:%c", vtxBandLetter, vtxChannelName, vtxPowerLabel, vtxStatusIndicator);
-    } else {
-        tfp_sprintf(element->buff, "%c:%s:%s", vtxBandLetter, vtxChannelName, vtxPowerLabel);
-    }
-}
-
-
+# 1354 "./src/main/osd/osd_elements.c"
 static void osdElementWarnings(osdElementParms_t *element)
 {
     
@@ -12094,7 +11699,7 @@ static const uint8_t osdElementDisplayOrder[] = {
     OSD_DISARMED,
     OSD_NUMERICAL_HEADING,
 
-    OSD_NUMERICAL_VARIO,
+
 
     OSD_COMPASS_BAR,
     OSD_ANTI_GRAVITY,
@@ -12169,13 +11774,13 @@ const osdElementDrawFn osdElementDrawFunction[OSD_ITEM_COUNT] = {
                                        ,
     [OSD_THROTTLE_POS] = osdElementThrottlePosition,
 
-    [OSD_VTX_CHANNEL] = osdElementVtxChannel,
+
 
     [OSD_CURRENT_DRAW] = osdElementCurrentDraw,
     [OSD_MAH_DRAWN] = osdElementMahDrawn,
 
-    [OSD_GPS_SPEED] = osdElementGpsSpeed,
-    [OSD_GPS_SATS] = osdElementGpsSats,
+
+
 
     [OSD_ALTITUDE] = osdElementAltitude,
     [OSD_ROLL_PIDS] = osdElementPidsRoll,
@@ -12186,8 +11791,8 @@ const osdElementDrawFn osdElementDrawFunction[OSD_ITEM_COUNT] = {
     [OSD_WARNINGS] = osdElementWarnings,
     [OSD_AVG_CELL_VOLTAGE] = osdElementAverageCellVoltage,
 
-    [OSD_GPS_LON] = osdElementGpsLongitude,
-    [OSD_GPS_LAT] = osdElementGpsLatitude,
+
+
 
     [OSD_DEBUG] = osdElementDebug,
 
@@ -12197,19 +11802,19 @@ const osdElementDrawFn osdElementDrawFunction[OSD_ITEM_COUNT] = {
     [OSD_MAIN_BATT_USAGE] = osdElementMainBatteryUsage,
     [OSD_DISARMED] = osdElementDisarmed,
 
-    [OSD_HOME_DIR] = osdElementGpsHomeDirection,
-    [OSD_HOME_DIST] = osdElementGpsHomeDistance,
+
+
 
     [OSD_NUMERICAL_HEADING] = osdElementNumericalHeading,
 
-    [OSD_NUMERICAL_VARIO] = osdElementNumericalVario,
+
 
     [OSD_COMPASS_BAR] = osdElementCompassBar,
 
-    [OSD_ESC_TMP] = osdElementEscTemperature,
 
 
-    [OSD_ESC_RPM] = osdElementEscRpm,
+
+
 
     [OSD_REMAINING_TIME_ESTIMATE] = osdElementRemainingTimeEstimate,
 
@@ -12236,7 +11841,7 @@ const osdElementDrawFn osdElementDrawFunction[OSD_ITEM_COUNT] = {
     [OSD_LINK_QUALITY] = osdElementLinkQuality,
 
 
-    [OSD_FLIGHT_DIST] = osdElementGpsFlightDistance,
+
 
 
     [OSD_STICK_OVERLAY_LEFT] = osdElementStickOverlay,
@@ -12248,7 +11853,7 @@ const osdElementDrawFn osdElementDrawFunction[OSD_ITEM_COUNT] = {
 # 1537 "./src/main/osd/osd_elements.c"
                                        ,
 
-    [OSD_ESC_RPM_FREQ] = osdElementEscRpmFreq,
+
 
 
     [OSD_RATE_PROFILE_NAME] = osdElementRateProfileName,
@@ -12262,7 +11867,7 @@ const osdElementDrawFn osdElementDrawFunction[OSD_ITEM_COUNT] = {
 
     [OSD_RC_CHANNELS] = osdElementRcChannels,
 
-    [OSD_EFFICIENCY] = osdElementEfficiency,
+
 
 
     [OSD_TOTAL_FLIGHTS] = osdElementTotalFlights,
@@ -12308,33 +11913,7 @@ void osdAddActiveElements(void)
     for (unsigned i = 0; i < sizeof(osdElementDisplayOrder); i++) {
         osdAddActiveElement(osdElementDisplayOrder[i]);
     }
-
-
-    if (sensors(SENSOR_GPS)) {
-        osdAddActiveElement(OSD_GPS_SATS);
-        osdAddActiveElement(OSD_GPS_SPEED);
-        osdAddActiveElement(OSD_GPS_LAT);
-        osdAddActiveElement(OSD_GPS_LON);
-        osdAddActiveElement(OSD_HOME_DIST);
-        osdAddActiveElement(OSD_HOME_DIR);
-        osdAddActiveElement(OSD_FLIGHT_DIST);
-        osdAddActiveElement(OSD_EFFICIENCY);
-    }
-
-
-    if (featureIsEnabled(FEATURE_ESC_SENSOR)) {
-        osdAddActiveElement(OSD_ESC_TMP);
-    }
-
-
-
-    if ((featureIsEnabled(FEATURE_ESC_SENSOR)) || (motorConfig()->dev.useDshotTelemetry)) {
-        osdAddActiveElement(OSD_ESC_RPM);
-        osdAddActiveElement(OSD_ESC_RPM_FREQ);
-    }
-
-
-
+# 1626 "./src/main/osd/osd_elements.c"
     osdAddActiveElement(OSD_TOTAL_FLIGHTS);
 
 }
@@ -12410,27 +11989,7 @@ static void osdDrawSingleElementBackground(displayPort_t *osdDisplayPort, uint8_
 void osdDrawActiveElements(displayPort_t *osdDisplayPort)
 {
     static unsigned blinkLoopCounter = 0;
-
-
-    static 
-# 1695 "./src/main/osd/osd_elements.c" 3 4
-          _Bool 
-# 1695 "./src/main/osd/osd_elements.c"
-               lastGpsSensorState;
-
-
-    const 
-# 1698 "./src/main/osd/osd_elements.c" 3 4
-         _Bool 
-# 1698 "./src/main/osd/osd_elements.c"
-              currentGpsSensorState = sensors(SENSOR_GPS);
-    if (lastGpsSensorState != currentGpsSensorState) {
-        lastGpsSensorState = currentGpsSensorState;
-        osdAnalyzeActiveElements();
-    }
-
-
-
+# 1706 "./src/main/osd/osd_elements.c"
     if (++blinkLoopCounter >= lrintf(osdConfig()->task_frequency / 10 / (2.5f * 2))) {
         blinkState = !blinkState;
         blinkLoopCounter = 0;
@@ -12500,19 +12059,7 @@ void osdUpdateAlarms(void)
         (blinkBits[(OSD_MAIN_BATT_VOLTAGE) / 32] |= (1 << ((OSD_MAIN_BATT_VOLTAGE) % 32)));
         (blinkBits[(OSD_AVG_CELL_VOLTAGE) / 32] |= (1 << ((OSD_AVG_CELL_VOLTAGE) % 32)));
     }
-
-
-    if (((stateFlags & (GPS_FIX)) == 0) || (gpsSol.numSat < 5)
-
-            || ((gpsSol.numSat < gpsRescueConfig()->minSats) && gpsRescueIsConfigured())
-
-            ) {
-        (blinkBits[(OSD_GPS_SATS) / 32] |= (1 << ((OSD_GPS_SATS) % 32)));
-    } else {
-        (blinkBits[(OSD_GPS_SATS) / 32] &= ~(1 << ((OSD_GPS_SATS) % 32)));
-    }
-
-
+# 1784 "./src/main/osd/osd_elements.c"
     for (int i = 0; i < OSD_TIMER_COUNT; i++) {
         const uint16_t timer = osdConfig()->timers[i];
         const timeUs_t time = osdGetTimerValue((timer & 0x0F));
@@ -12539,33 +12086,7 @@ void osdUpdateAlarms(void)
     } else {
         (blinkBits[(OSD_ALTITUDE) / 32] &= ~(1 << ((OSD_ALTITUDE) % 32)));
     }
-
-
-    if (sensors(SENSOR_GPS) && (armingFlags & (ARMED)) && (stateFlags & (GPS_FIX)) && (stateFlags & (GPS_FIX_HOME))) {
-        if (osdConfig()->distance_alarm && GPS_distanceToHome >= osdConfig()->distance_alarm) {
-            (blinkBits[(OSD_HOME_DIST) / 32] |= (1 << ((OSD_HOME_DIST) % 32)));
-        } else {
-            (blinkBits[(OSD_HOME_DIST) / 32] &= ~(1 << ((OSD_HOME_DIST) % 32)));
-        }
-    } else {
-        (blinkBits[(OSD_HOME_DIST) / 32] &= ~(1 << ((OSD_HOME_DIST) % 32)));;
-    }
-
-
-
-    if (featureIsEnabled(FEATURE_ESC_SENSOR)) {
-
-        if (osdConfig()->esc_temp_alarm != 
-# 1826 "./src/main/osd/osd_elements.c" 3 4
-                                          (-0x7f - 1) 
-# 1826 "./src/main/osd/osd_elements.c"
-                                                             && osdEscDataCombined->temperature >= osdConfig()->esc_temp_alarm) {
-            (blinkBits[(OSD_ESC_TMP) / 32] |= (1 << ((OSD_ESC_TMP) % 32)));
-        } else {
-            (blinkBits[(OSD_ESC_TMP) / 32] &= ~(1 << ((OSD_ESC_TMP) % 32)));
-        }
-    }
-
+# 1833 "./src/main/osd/osd_elements.c"
 }
 
 

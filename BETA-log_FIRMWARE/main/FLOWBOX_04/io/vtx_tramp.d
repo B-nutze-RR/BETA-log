@@ -32,17 +32,7 @@ BETA-log_FIRMWARE/main/FLOWBOX_04/io/vtx_tramp.o: src/main/io/vtx_tramp.c \
  src/main/target/common_pre.h src/main/target/FLOWBOX_04/target.h \
  src/main/target/common_deprecated_post.h src/main/target/common_post.h \
  src/main/build/version.h src/main/common/utils.h \
- src/main/target/common_defaults_post.h src/main/build/debug.h \
- src/main/common/maths.h src/main/cms/cms_menu_vtx_tramp.h \
- src/main/cms/cms.h src/main/drivers/display.h src/main/common/time.h \
- src/main/pg/pg.h src/main/build/build_config.h src/main/cms/cms_types.h \
- src/main/drivers/vtx_common.h src/main/common/streambuf.h \
- src/main/drivers/vtx_table.h src/main/io/serial.h \
- src/main/drivers/serial.h src/main/drivers/io.h \
- src/main/drivers/resource.h src/main/drivers/io_types.h \
- src/main/drivers/io_def.h src/main/drivers/io_def_generated.h \
- src/main/io/vtx_tramp.h src/main/io/vtx_control.h src/main/fc/rc_modes.h \
- src/main/io/vtx.h
+ src/main/target/common_defaults_post.h
 
 src/main/ctype.h:
 
@@ -119,49 +109,3 @@ src/main/build/version.h:
 src/main/common/utils.h:
 
 src/main/target/common_defaults_post.h:
-
-src/main/build/debug.h:
-
-src/main/common/maths.h:
-
-src/main/cms/cms_menu_vtx_tramp.h:
-
-src/main/cms/cms.h:
-
-src/main/drivers/display.h:
-
-src/main/common/time.h:
-
-src/main/pg/pg.h:
-
-src/main/build/build_config.h:
-
-src/main/cms/cms_types.h:
-
-src/main/drivers/vtx_common.h:
-
-src/main/common/streambuf.h:
-
-src/main/drivers/vtx_table.h:
-
-src/main/io/serial.h:
-
-src/main/drivers/serial.h:
-
-src/main/drivers/io.h:
-
-src/main/drivers/resource.h:
-
-src/main/drivers/io_types.h:
-
-src/main/drivers/io_def.h:
-
-src/main/drivers/io_def_generated.h:
-
-src/main/io/vtx_tramp.h:
-
-src/main/io/vtx_control.h:
-
-src/main/fc/rc_modes.h:
-
-src/main/io/vtx.h:

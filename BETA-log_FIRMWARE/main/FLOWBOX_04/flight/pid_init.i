@@ -6135,7 +6135,7 @@ typedef struct pidProfile_s {
     uint8_t simplified_dterm_filter_multiplier;
 } pidProfile_t;
 
-extern pidProfile_t pidProfiles_SystemArray[3]; extern pidProfile_t pidProfiles_CopyArray[3]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[3] { return &pidProfiles_SystemArray; } struct _dummy;
+extern pidProfile_t pidProfiles_SystemArray[1]; extern pidProfile_t pidProfiles_CopyArray[1]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[1] { return &pidProfiles_SystemArray; } struct _dummy;
 
 typedef struct pidConfig_s {
     uint8_t pid_process_denom;
@@ -6241,37 +6241,7 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-
-
-    pt1Filter_t windupLpf[3];
-    uint8_t itermRelax;
-    uint8_t itermRelaxType;
-    uint8_t itermRelaxCutoff;
-
-
-
-    float acCutoff;
-    float acGain;
-    float acLimit;
-    float acErrorLimit;
-    pt1Filter_t acLpf[3];
-    float oldSetpointCorrection[3];
-
-
-
-    biquadFilter_t dMinRange[3];
-    pt1Filter_t dMinLowpass[3];
-    float dMinPercent[3];
-    float dMinGyroGain;
-    float dMinSetpointGain;
-
-
-
-    pt1Filter_t airmodeThrottleLpf1;
-    pt1Filter_t airmodeThrottleLpf2;
-
-
-
+# 343 "./src/main/flight/pid.h"
     pt1Filter_t setpointDerivativePt1[3];
     biquadFilter_t setpointDerivativeBiquad[3];
     
@@ -6281,53 +6251,12 @@ typedef struct pidRuntime_s {
         setpointDerivativeLpfInitialized;
     uint8_t rcSmoothingDebugAxis;
     uint8_t rcSmoothingFilterType;
-
-
-
-    float acroTrainerAngleLimit;
-    float acroTrainerLookaheadTime;
-    uint8_t acroTrainerDebugAxis;
-    float acroTrainerGain;
-    
-# 355 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 355 "./src/main/flight/pid.h"
-        acroTrainerActive;
-    int acroTrainerAxisState[2];
-
-
-
+# 360 "./src/main/flight/pid.h"
     uint8_t dynLpfFilter;
     uint16_t dynLpfMin;
     uint16_t dynLpfMax;
     uint8_t dynLpfCurveExpo;
-
-
-
-    uint8_t launchControlMode;
-    uint8_t launchControlAngleLimit;
-    float launchControlKi;
-
-
-
-    
-# 373 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 373 "./src/main/flight/pid.h"
-        useIntegratedYaw;
-    uint8_t integratedYawRelax;
-
-
-
-    float thrustLinearization;
-    float throttleCompensateAmount;
-
-
-
-    float airmodeThrottleOffsetLimit;
-
-
-
+# 387 "./src/main/flight/pid.h"
     ffInterpolationType_t ffFromInterpolatedSetpoint;
     float ffSmoothFactor;
 
@@ -6379,15 +6308,6 @@ void pidSetAntiGravityState(
 _Bool 
 # 413 "./src/main/flight/pid.h"
     pidAntiGravityEnabled(void);
-
-
-float pidApplyThrustLinearization(float motorValue);
-float pidCompensateThrustLinearization(float throttle);
-
-
-
-void pidUpdateAirmodeLpf(float currentOffset);
-float pidGetAirmodeThrottleOffset();
 # 436 "./src/main/flight/pid.h"
 void dynLpfDTermUpdate(float throttle);
 void pidSetItermReset(
@@ -10913,7 +10833,7 @@ float dynThrottle(float throttle);
 void dynLpfGyroUpdate(float throttle);
 
 
-void initYawSpinRecovery(int maxYawRate);
+
 
 
 
@@ -10981,7 +10901,7 @@ static void pidSetTargetLooptime(uint32_t pidLooptime)
     pidRuntime.dT = targetPidLooptime * 1e-6f;
     pidRuntime.pidFrequency = 1.0f / pidRuntime.dT;
 
-    dshotSetPidLoopTime(targetPidLooptime);
+
 
 }
 
@@ -11085,45 +11005,7 @@ void pidInitFilters(const pidProfile_t *pidProfile)
         pidRuntime.ptermYawLowpassApplyFn = (filterApplyFnPtr)pt1FilterApply;
         pt1FilterInit(&pidRuntime.ptermYawLowpass, pt1FilterGain(pidProfile->yaw_lowpass_hz, pidRuntime.dT));
     }
-
-
-    pt1FilterInit(&throttleLpf, pt1FilterGain(pidProfile->throttle_boost_cutoff, pidRuntime.dT));
-
-
-
-    if (pidRuntime.itermRelax) {
-        for (int i = 0; i < 3; i++) {
-            pt1FilterInit(&pidRuntime.windupLpf[i], pt1FilterGain(pidRuntime.itermRelaxCutoff, pidRuntime.dT));
-        }
-    }
-
-
-
-    if (pidRuntime.itermRelax) {
-        for (int i = 0; i < 3; i++) {
-            pt1FilterInit(&pidRuntime.acLpf[i], pt1FilterGain(pidRuntime.acCutoff, pidRuntime.dT));
-        }
-    }
-
-
-
-
-
-
-
-    for (int axis = FD_ROLL; axis <= FD_YAW; axis++) {
-        biquadFilterInitLPF(&pidRuntime.dMinRange[axis], 80, targetPidLooptime);
-        pt1FilterInit(&pidRuntime.dMinLowpass[axis], pt1FilterGain(10, pidRuntime.dT));
-     }
-
-
-
-    if (pidProfile->transient_throttle_limit) {
-        pt1FilterInit(&pidRuntime.airmodeThrottleLpf1, pt1FilterGain(7.0f, pidRuntime.dT));
-        pt1FilterInit(&pidRuntime.airmodeThrottleLpf2, pt1FilterGain(20.0f, pidRuntime.dT));
-    }
-
-
+# 208 "./src/main/flight/pid_init.c"
     pt1FilterInit(&pidRuntime.antiGravityThrottleLpf, pt1FilterGain(15, pidRuntime.dT));
     pt1FilterInit(&pidRuntime.antiGravitySmoothLpf, pt1FilterGain(3, pidRuntime.dT));
 
@@ -11136,7 +11018,7 @@ void pidInit(const pidProfile_t *pidProfile)
     pidInitFilters(pidProfile);
     pidInitConfig(pidProfile);
 
-    rpmFilterInit(rpmFilterConfig());
+
 
 }
 
@@ -11195,7 +11077,7 @@ void pidInitConfig(const pidProfile_t *pidProfile)
         pidRuntime.pidCoefficient[axis].Kf = 0.013754f * (pidProfile->pid[axis].F / 100.0f);
     }
 
-    if (!pidProfile->use_integrated_yaw)
+
 
     {
         pidRuntime.pidCoefficient[FD_YAW].Ki *= 2.5f;
@@ -11224,7 +11106,7 @@ void pidInitConfig(const pidProfile_t *pidProfile)
     pidRuntime.crashLimitYaw = pidProfile->crash_limit_yaw;
     pidRuntime.itermLimit = pidProfile->itermLimit;
 
-    throttleBoost = pidProfile->throttle_boost * 0.1f;
+
 
     pidRuntime.itermRotation = pidProfile->iterm_rotation;
     pidRuntime.antiGravityMode = pidProfile->antiGravityMode;
@@ -11238,32 +11120,7 @@ void pidInitConfig(const pidProfile_t *pidProfile)
     if (pidRuntime.antiGravityMode == ANTI_GRAVITY_SMOOTH) {
         pidRuntime.antiGravityOsdCutoff += (pidRuntime.itermAcceleratorGain / 1000.0f) * 0.25f;
     }
-
-
-    pidRuntime.itermRelax = pidProfile->iterm_relax;
-    pidRuntime.itermRelaxType = pidProfile->iterm_relax_type;
-    pidRuntime.itermRelaxCutoff = pidProfile->iterm_relax_cutoff;
-
-
-
-    pidRuntime.acroTrainerAngleLimit = pidProfile->acro_trainer_angle_limit;
-    pidRuntime.acroTrainerLookaheadTime = (float)pidProfile->acro_trainer_lookahead_ms / 1000.0f;
-    pidRuntime.acroTrainerDebugAxis = pidProfile->acro_trainer_debug_axis;
-    pidRuntime.acroTrainerGain = (float)pidProfile->acro_trainer_gain / 10.0f;
-
-
-
-    pidRuntime.acGain = (float)pidProfile->abs_control_gain;
-    pidRuntime.acLimit = (float)pidProfile->abs_control_limit;
-    pidRuntime.acErrorLimit = (float)pidProfile->abs_control_error_limit;
-    pidRuntime.acCutoff = (float)pidProfile->abs_control_cutoff;
-    for (int axis = FD_ROLL; axis <= FD_YAW; axis++) {
-        float iCorrection = -pidRuntime.acGain * 0.032029f / 0.244381f * pidRuntime.pidCoefficient[axis].Kp;
-        pidRuntime.pidCoefficient[axis].Ki = __extension__ ({ __typeof__ (0.0f) _a = (0.0f); __typeof__ (pidRuntime.pidCoefficient[axis].Ki + iCorrection) _b = (pidRuntime.pidCoefficient[axis].Ki + iCorrection); _a > _b ? _a : _b; });
-    }
-
-
-
+# 344 "./src/main/flight/pid_init.c"
     if (pidProfile->dyn_lpf_dterm_min_hz > 0) {
         switch (pidProfile->dterm_filter_type) {
         case FILTER_PT1:
@@ -11282,47 +11139,7 @@ void pidInitConfig(const pidProfile_t *pidProfile)
     pidRuntime.dynLpfMin = pidProfile->dyn_lpf_dterm_min_hz;
     pidRuntime.dynLpfMax = pidProfile->dyn_lpf_dterm_max_hz;
     pidRuntime.dynLpfCurveExpo = pidProfile->dyn_lpf_curve_expo;
-
-
-
-    pidRuntime.launchControlMode = pidProfile->launchControlMode;
-    if (sensors(SENSOR_ACC)) {
-        pidRuntime.launchControlAngleLimit = pidProfile->launchControlAngleLimit;
-    } else {
-        pidRuntime.launchControlAngleLimit = 0;
-    }
-    pidRuntime.launchControlKi = 0.244381f * pidProfile->launchControlGain;
-
-
-
-    pidRuntime.useIntegratedYaw = pidProfile->use_integrated_yaw;
-    pidRuntime.integratedYawRelax = pidProfile->integrated_yaw_relax;
-
-
-
-    pidRuntime.thrustLinearization = pidProfile->thrustLinearization / 100.0f;
-    pidRuntime.throttleCompensateAmount = pidRuntime.thrustLinearization - 0.5f * powerf(pidRuntime.thrustLinearization, 2);
-
-
-
-    for (int axis = FD_ROLL; axis <= FD_YAW; ++axis) {
-        const uint8_t dMin = pidProfile->d_min[axis];
-        if ((dMin > 0) && (dMin < pidProfile->pid[axis].D)) {
-            pidRuntime.dMinPercent[axis] = dMin / (float)(pidProfile->pid[axis].D);
-        } else {
-            pidRuntime.dMinPercent[axis] = 0;
-        }
-    }
-    pidRuntime.dMinGyroGain = pidProfile->d_min_gain * 0.00005f / 10;
-    pidRuntime.dMinSetpointGain = pidProfile->d_min_gain * 0.00005f * pidProfile->d_min_advance * pidRuntime.pidFrequency / (100 * 10);
-
-
-
-
-    pidRuntime.airmodeThrottleOffsetLimit = pidProfile->transient_throttle_limit / 100.0f;
-
-
-
+# 403 "./src/main/flight/pid_init.c"
     pidRuntime.ffFromInterpolatedSetpoint = pidProfile->ff_interpolate_sp;
     pidRuntime.ffSmoothFactor = 1.0f - ((float)pidProfile->ff_smooth_factor) / 100.0f;
     interpolatedSpInit(pidProfile);
@@ -11333,7 +11150,7 @@ void pidInitConfig(const pidProfile_t *pidProfile)
 
 void pidCopyProfile(uint8_t dstPidProfileIndex, uint8_t srcPidProfileIndex)
 {
-    if (dstPidProfileIndex < 3 && srcPidProfileIndex < 3
+    if (dstPidProfileIndex < 1 && srcPidProfileIndex < 1
         && dstPidProfileIndex != srcPidProfileIndex) {
         memcpy(pidProfilesMutable(dstPidProfileIndex), pidProfilesMutable(srcPidProfileIndex), sizeof(pidProfile_t));
     }

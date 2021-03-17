@@ -4606,21 +4606,25 @@ void vtxTableConfigClearPowerValues(struct vtxTableConfig_s *config, int start);
 void vtxTableConfigClearPowerLabels(struct vtxTableConfig_s *config, int start);
 void vtxTableConfigClearChannels(struct vtxTableConfig_s *config, int band, int channels);
 
-
+void vtxTableSetFactoryBands(
+# 62 "./src/main/drivers/vtx_table.h" 3 4
+                            _Bool 
+# 62 "./src/main/drivers/vtx_table.h"
+                                 isFactory);
 
 
 extern int vtxTableBandCount;
 extern int vtxTableChannelCount;
-extern uint16_t vtxTableFrequency[8][8];
-extern const char *vtxTableBandNames[8 + 1];
-extern char vtxTableBandLetters[8 + 1];
+extern uint16_t vtxTableFrequency[5][8];
+extern const char *vtxTableBandNames[5 + 1];
+extern char vtxTableBandLetters[5 + 1];
 extern const char *vtxTableChannelNames[8 + 1];
 extern 
 # 71 "./src/main/drivers/vtx_table.h" 3 4
       _Bool 
 # 71 "./src/main/drivers/vtx_table.h"
-                     vtxTableIsFactoryBand[8];
+                     vtxTableIsFactoryBand[5];
 extern int vtxTablePowerLevels;
-extern uint16_t vtxTablePowerValues[8];
-extern const char *vtxTablePowerLabels[8 + 1];
+extern uint16_t vtxTablePowerValues[5];
+extern const char *vtxTablePowerLabels[5 + 1];
 # 25 "./src/main/cms/cms_menu_vtx_rtc6705.c" 2

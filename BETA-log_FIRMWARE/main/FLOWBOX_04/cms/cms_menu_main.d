@@ -32,24 +32,7 @@ BETA-log_FIRMWARE/main/FLOWBOX_04/cms/cms_menu_main.o: \
  src/main/target/common_pre.h src/main/target/FLOWBOX_04/target.h \
  src/main/target/common_deprecated_post.h src/main/target/common_post.h \
  src/main/build/version.h src/main/common/utils.h \
- src/main/target/common_defaults_post.h src/main/cms/cms.h \
- src/main/drivers/display.h src/main/common/time.h src/main/pg/pg.h \
- src/main/build/build_config.h src/main/cms/cms_types.h \
- src/main/cms/cms_menu_imu.h src/main/cms/cms_menu_blackbox.h \
- src/main/cms/cms_menu_failsafe.h src/main/cms/cms_menu_firmware.h \
- src/main/cms/cms_menu_ledstrip.h src/main/cms/cms_menu_misc.h \
- src/main/cms/cms_menu_osd.h src/main/cms/cms_menu_power.h \
- src/main/cms/cms_menu_saveexit.h \
- src/main/cms/cms_menu_persistent_stats.h \
- src/main/cms/cms_menu_vtx_common.h src/main/common/printf.h \
- src/main/config/config.h src/main/fc/core.h src/main/fc/runtime_config.h \
- src/main/sensors/acceleration.h src/main/drivers/accgyro/accgyro.h \
- src/main/common/axis.h src/main/common/maths.h \
- src/main/common/sensor_alignment.h src/main/drivers/exti.h \
- src/main/drivers/io_types.h src/main/drivers/bus.h \
- src/main/drivers/bus_i2c.h src/main/drivers/rcc_types.h \
- src/main/drivers/sensor.h src/main/drivers/accgyro/accgyro_mpu.h \
- src/main/sensors/sensors.h src/main/cms/cms_menu_main.h
+ src/main/target/common_defaults_post.h
 
 src/main/platform.h:
 
@@ -124,73 +107,3 @@ src/main/build/version.h:
 src/main/common/utils.h:
 
 src/main/target/common_defaults_post.h:
-
-src/main/cms/cms.h:
-
-src/main/drivers/display.h:
-
-src/main/common/time.h:
-
-src/main/pg/pg.h:
-
-src/main/build/build_config.h:
-
-src/main/cms/cms_types.h:
-
-src/main/cms/cms_menu_imu.h:
-
-src/main/cms/cms_menu_blackbox.h:
-
-src/main/cms/cms_menu_failsafe.h:
-
-src/main/cms/cms_menu_firmware.h:
-
-src/main/cms/cms_menu_ledstrip.h:
-
-src/main/cms/cms_menu_misc.h:
-
-src/main/cms/cms_menu_osd.h:
-
-src/main/cms/cms_menu_power.h:
-
-src/main/cms/cms_menu_saveexit.h:
-
-src/main/cms/cms_menu_persistent_stats.h:
-
-src/main/cms/cms_menu_vtx_common.h:
-
-src/main/common/printf.h:
-
-src/main/config/config.h:
-
-src/main/fc/core.h:
-
-src/main/fc/runtime_config.h:
-
-src/main/sensors/acceleration.h:
-
-src/main/drivers/accgyro/accgyro.h:
-
-src/main/common/axis.h:
-
-src/main/common/maths.h:
-
-src/main/common/sensor_alignment.h:
-
-src/main/drivers/exti.h:
-
-src/main/drivers/io_types.h:
-
-src/main/drivers/bus.h:
-
-src/main/drivers/bus_i2c.h:
-
-src/main/drivers/rcc_types.h:
-
-src/main/drivers/sensor.h:
-
-src/main/drivers/accgyro/accgyro_mpu.h:
-
-src/main/sensors/sensors.h:
-
-src/main/cms/cms_menu_main.h:
