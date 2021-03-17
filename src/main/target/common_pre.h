@@ -42,7 +42,7 @@
 
 #ifdef STM32F3
 #define MINIMAL_CLI
-#define USE_DSHOT
+//#define USE_DSHOT
 #define USE_GYRO_DATA_ANALYSE
 #define USE_CCM_CODE
 #endif
@@ -51,12 +51,12 @@
 #if defined(STM32F40_41xxx)
 #define USE_FAST_DATA
 #endif
-#define USE_DSHOT
-#define USE_DSHOT_BITBANG
-#define USE_DSHOT_TELEMETRY
-#define USE_DSHOT_TELEMETRY_STATS
-#define USE_RPM_FILTER
-#define USE_DYN_IDLE
+//#define USE_DSHOT
+//#define USE_DSHOT_BITBANG
+//#define USE_DSHOT_TELEMETRY
+//#define USE_DSHOT_TELEMETRY_STATS
+//#define USE_RPM_FILTER
+//#define USE_DYN_IDLE
 #define I2C3_OVERCLOCK true
 #define USE_GYRO_DATA_ANALYSE
 #define USE_ADC
@@ -80,12 +80,12 @@
 #ifdef STM32F7
 #define USE_ITCM_RAM
 #define USE_FAST_DATA
-#define USE_DSHOT
-#define USE_DSHOT_BITBANG
-#define USE_DSHOT_TELEMETRY
-#define USE_DSHOT_TELEMETRY_STATS
-#define USE_RPM_FILTER
-#define USE_DYN_IDLE
+//#define USE_DSHOT
+//#define USE_DSHOT_BITBANG
+//#define USE_DSHOT_TELEMETRY
+//#define USE_DSHOT_TELEMETRY_STATS
+//#define USE_RPM_FILTER
+//#define USE_DYN_IDLE
 #define I2C3_OVERCLOCK true
 #define I2C4_OVERCLOCK true
 #define USE_GYRO_DATA_ANALYSE
@@ -105,12 +105,12 @@
 #ifdef STM32H7
 #define USE_ITCM_RAM
 #define USE_FAST_DATA
-#define USE_DSHOT
-#define USE_DSHOT_BITBANG
-#define USE_DSHOT_TELEMETRY
-#define USE_DSHOT_TELEMETRY_STATS
-#define USE_RPM_FILTER
-#define USE_DYN_IDLE
+//#define USE_DSHOT
+//#define USE_DSHOT_BITBANG
+//#define USE_DSHOT_TELEMETRY
+//#define USE_DSHOT_TELEMETRY_STATS
+//#define USE_RPM_FILTER
+//#define USE_DYN_IDLE
 #define I2C3_OVERCLOCK true
 #define I2C4_OVERCLOCK true
 #define USE_GYRO_DATA_ANALYSE
@@ -123,17 +123,17 @@
 #define USE_USB_MSC
 #define USE_RTC_TIME
 #define USE_PERSISTENT_MSC_RTC
-#define USE_DSHOT_CACHE_MGMT
+//#define USE_DSHOT_CACHE_MGMT
 #endif
 
 #ifdef STM32G4
 #define USE_FAST_RAM
-#define USE_DSHOT
-#define USE_DSHOT_BITBANG
-#define USE_DSHOT_TELEMETRY
-#define USE_DSHOT_TELEMETRY_STATS
-#define USE_RPM_FILTER
-#define USE_DYN_IDLE
+//#define USE_DSHOT
+//#define USE_DSHOT_BITBANG
+//#define USE_DSHOT_TELEMETRY
+//#define USE_DSHOT_TELEMETRY_STATS
+//#define USE_RPM_FILTER
+//#define USE_DYN_IDLE
 #define I2C3_OVERCLOCK true
 #define I2C4_OVERCLOCK true
 #define USE_OVERCLOCK
