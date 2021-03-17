@@ -32,7 +32,7 @@ IMU based Video-Stabilization in general
 
 ##
 
-## ORIGINAL BETAFLIGHT INTO AND CREDITS
+## ORIGINAL BETAFLIGHT INTRO AND CREDITS
 
 
 ![Betaflight](docs/assets/images/bf_logo.png)
