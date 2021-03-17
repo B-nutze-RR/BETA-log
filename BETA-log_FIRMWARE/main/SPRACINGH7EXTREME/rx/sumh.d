@@ -67,7 +67,8 @@ BETA-log_FIRMWARE/main/SPRACINGH7EXTREME/rx/sumh.o: src/main/rx/sumh.c \
  src/main/drivers/serial.h src/main/drivers/io.h \
  src/main/drivers/resource.h src/main/drivers/io_types.h \
  src/main/drivers/io_def.h src/main/drivers/io_def_generated.h \
- src/main/pg/rx.h src/main/rx/rx.h src/main/rx/sumh.h
+ src/main/telemetry/telemetry.h src/main/common/unit.h src/main/rx/rx.h \
+ src/main/pg/rx.h src/main/telemetry/ibus_shared.h src/main/rx/sumh.h
 
 src/main/platform.h:
 
@@ -225,8 +226,14 @@ src/main/drivers/io_def.h:
 
 src/main/drivers/io_def_generated.h:
 
-src/main/pg/rx.h:
+src/main/telemetry/telemetry.h:
+
+src/main/common/unit.h:
 
 src/main/rx/rx.h:
+
+src/main/pg/rx.h:
+
+src/main/telemetry/ibus_shared.h:
 
 src/main/rx/sumh.h:

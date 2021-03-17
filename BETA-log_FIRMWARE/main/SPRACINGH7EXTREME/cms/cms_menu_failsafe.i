@@ -21512,3 +21512,1266 @@ extern uint8_t eepromData[4096];
 # 1 "./src/main/target/common_defaults_post.h" 1
 # 153 "./src/main/platform.h" 2
 # 27 "./src/main/cms/cms_menu_failsafe.c" 2
+
+
+
+# 1 "./src/main/cms/cms.h" 1
+# 21 "./src/main/cms/cms.h"
+       
+
+# 1 "./src/main/drivers/display.h" 1
+# 21 "./src/main/drivers/display.h"
+       
+
+typedef enum {
+    DISPLAYPORT_DEVICE_TYPE_MAX7456 = 0,
+    DISPLAYPORT_DEVICE_TYPE_OLED,
+    DISPLAYPORT_DEVICE_TYPE_MSP,
+    DISPLAYPORT_DEVICE_TYPE_FRSKYOSD,
+    DISPLAYPORT_DEVICE_TYPE_CRSF,
+    DISPLAYPORT_DEVICE_TYPE_HOTT,
+    DISPLAYPORT_DEVICE_TYPE_SRXL,
+} displayPortDeviceType_e;
+
+typedef enum {
+    DISPLAYPORT_ATTR_NONE = 0,
+    DISPLAYPORT_ATTR_INFO,
+    DISPLAYPORT_ATTR_WARNING,
+    DISPLAYPORT_ATTR_CRITICAL,
+} displayPortAttr_e;
+
+
+
+typedef enum {
+    DISPLAYPORT_LAYER_FOREGROUND,
+    DISPLAYPORT_LAYER_BACKGROUND,
+    DISPLAYPORT_LAYER_COUNT,
+} displayPortLayer_e;
+
+typedef enum {
+    DISPLAY_TRANSACTION_OPT_NONE = 0,
+    DISPLAY_TRANSACTION_OPT_PROFILED = 1 << 0,
+    DISPLAY_TRANSACTION_OPT_RESET_DRAWING = 1 << 1,
+} displayTransactionOption_e;
+
+typedef enum {
+    DISPLAY_BACKGROUND_TRANSPARENT,
+    DISPLAY_BACKGROUND_BLACK,
+    DISPLAY_BACKGROUND_GRAY,
+    DISPLAY_BACKGROUND_LTGRAY,
+    DISPLAY_BACKGROUND_COUNT
+} displayPortBackground_e;
+
+struct displayCanvas_s;
+struct osdCharacter_s;
+struct displayPortVTable_s;
+
+typedef struct displayPort_s {
+    const struct displayPortVTable_s *vTable;
+    void *device;
+    uint8_t rows;
+    uint8_t cols;
+    uint8_t posX;
+    uint8_t posY;
+
+
+    
+# 75 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 75 "./src/main/drivers/display.h"
+        useFullscreen;
+    
+# 76 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 76 "./src/main/drivers/display.h"
+        cleared;
+    int8_t cursorRow;
+    int8_t grabCount;
+
+
+    
+# 81 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 81 "./src/main/drivers/display.h"
+        useDeviceBlink;
+
+
+    displayPortDeviceType_e deviceType;
+} displayPort_t;
+
+typedef struct displayPortVTable_s {
+    int (*grab)(displayPort_t *displayPort);
+    int (*release)(displayPort_t *displayPort);
+    int (*clearScreen)(displayPort_t *displayPort);
+    int (*drawScreen)(displayPort_t *displayPort);
+    int (*screenSize)(const displayPort_t *displayPort);
+    int (*writeString)(displayPort_t *displayPort, uint8_t x, uint8_t y, uint8_t attr, const char *text);
+    int (*writeChar)(displayPort_t *displayPort, uint8_t x, uint8_t y, uint8_t attr, uint8_t c);
+    
+# 95 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 95 "./src/main/drivers/display.h"
+        (*isTransferInProgress)(const displayPort_t *displayPort);
+    int (*heartbeat)(displayPort_t *displayPort);
+    void (*redraw)(displayPort_t *displayPort);
+    
+# 98 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 98 "./src/main/drivers/display.h"
+        (*isSynced)(const displayPort_t *displayPort);
+    uint32_t (*txBytesFree)(const displayPort_t *displayPort);
+    
+# 100 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 100 "./src/main/drivers/display.h"
+        (*layerSupported)(displayPort_t *displayPort, displayPortLayer_e layer);
+    
+# 101 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 101 "./src/main/drivers/display.h"
+        (*layerSelect)(displayPort_t *displayPort, displayPortLayer_e layer);
+    
+# 102 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 102 "./src/main/drivers/display.h"
+        (*layerCopy)(displayPort_t *displayPort, displayPortLayer_e destLayer, displayPortLayer_e sourceLayer);
+    
+# 103 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 103 "./src/main/drivers/display.h"
+        (*writeFontCharacter)(displayPort_t *instance, uint16_t addr, const struct osdCharacter_s *chr);
+    
+# 104 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 104 "./src/main/drivers/display.h"
+        (*checkReady)(displayPort_t *displayPort, 
+# 104 "./src/main/drivers/display.h" 3 4
+                                                  _Bool 
+# 104 "./src/main/drivers/display.h"
+                                                       rescan);
+    void (*beginTransaction)(displayPort_t *displayPort, displayTransactionOption_e opts);
+    void (*commitTransaction)(displayPort_t *displayPort);
+    
+# 107 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 107 "./src/main/drivers/display.h"
+        (*getCanvas)(struct displayCanvas_s *canvas, const displayPort_t *displayPort);
+    void (*setBackgroundType)(displayPort_t *displayPort, displayPortBackground_e backgroundType);
+} displayPortVTable_t;
+
+void displayGrab(displayPort_t *instance);
+void displayRelease(displayPort_t *instance);
+void displayReleaseAll(displayPort_t *instance);
+
+# 114 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 114 "./src/main/drivers/display.h"
+    displayIsGrabbed(const displayPort_t *instance);
+void displayClearScreen(displayPort_t *instance);
+void displayDrawScreen(displayPort_t *instance);
+int displayScreenSize(const displayPort_t *instance);
+void displaySetXY(displayPort_t *instance, uint8_t x, uint8_t y);
+int displayWrite(displayPort_t *instance, uint8_t x, uint8_t y, uint8_t attr, const char *s);
+int displayWriteChar(displayPort_t *instance, uint8_t x, uint8_t y, uint8_t attr, uint8_t c);
+
+# 121 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 121 "./src/main/drivers/display.h"
+    displayIsTransferInProgress(const displayPort_t *instance);
+void displayHeartbeat(displayPort_t *instance);
+void displayRedraw(displayPort_t *instance);
+
+# 124 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 124 "./src/main/drivers/display.h"
+    displayIsSynced(const displayPort_t *instance);
+uint16_t displayTxBytesFree(const displayPort_t *instance);
+
+# 126 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 126 "./src/main/drivers/display.h"
+    displayWriteFontCharacter(displayPort_t *instance, uint16_t addr, const struct osdCharacter_s *chr);
+
+# 127 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 127 "./src/main/drivers/display.h"
+    displayCheckReady(displayPort_t *instance, 
+# 127 "./src/main/drivers/display.h" 3 4
+                                               _Bool 
+# 127 "./src/main/drivers/display.h"
+                                                    rescan);
+void displayBeginTransaction(displayPort_t *instance, displayTransactionOption_e opts);
+void displayCommitTransaction(displayPort_t *instance);
+
+# 130 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 130 "./src/main/drivers/display.h"
+    displayGetCanvas(struct displayCanvas_s *canvas, const displayPort_t *instance);
+void displayInit(displayPort_t *instance, const displayPortVTable_t *vTable, displayPortDeviceType_e deviceType);
+
+# 132 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 132 "./src/main/drivers/display.h"
+    displayLayerSupported(displayPort_t *instance, displayPortLayer_e layer);
+
+# 133 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 133 "./src/main/drivers/display.h"
+    displayLayerSelect(displayPort_t *instance, displayPortLayer_e layer);
+
+# 134 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 134 "./src/main/drivers/display.h"
+    displayLayerCopy(displayPort_t *instance, displayPortLayer_e destLayer, displayPortLayer_e sourceLayer);
+void displaySetBackgroundType(displayPort_t *instance, displayPortBackground_e backgroundType);
+
+# 136 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 136 "./src/main/drivers/display.h"
+    displaySupportsOsdSymbols(displayPort_t *instance);
+# 24 "./src/main/cms/cms.h" 2
+
+# 1 "./src/main/common/time.h" 1
+# 21 "./src/main/common/time.h"
+       
+
+
+
+
+
+
+# 1 "./src/main/pg/pg.h" 1
+# 21 "./src/main/pg/pg.h"
+       
+
+
+
+
+# 1 "./src/main/build/build_config.h" 1
+# 21 "./src/main/build/build_config.h"
+       
+# 44 "./src/main/build/build_config.h"
+typedef enum {
+    MCU_TYPE_SIMULATOR = 0,
+    MCU_TYPE_F103,
+    MCU_TYPE_F303,
+    MCU_TYPE_F40X,
+    MCU_TYPE_F411,
+    MCU_TYPE_F446,
+    MCU_TYPE_F722,
+    MCU_TYPE_F745,
+    MCU_TYPE_F746,
+    MCU_TYPE_F765,
+    MCU_TYPE_H750,
+    MCU_TYPE_H743_REV_UNKNOWN,
+    MCU_TYPE_H743_REV_Y,
+    MCU_TYPE_H743_REV_X,
+    MCU_TYPE_H743_REV_V,
+    MCU_TYPE_H7A3,
+    MCU_TYPE_H723_725,
+    MCU_TYPE_UNKNOWN = 255,
+} mcuTypeId_e;
+
+mcuTypeId_e getMcuTypeId(void);
+# 27 "./src/main/pg/pg.h" 2
+
+typedef uint16_t pgn_t;
+
+
+typedef enum {
+    PGRF_NONE = 0,
+    PGRF_CLASSIFICATON_BIT = (1 << 0)
+} pgRegistryFlags_e;
+
+typedef enum {
+    PGR_PGN_MASK = 0x0fff,
+    PGR_PGN_VERSION_MASK = 0xf000,
+    PGR_SIZE_MASK = 0x0fff,
+    PGR_SIZE_SYSTEM_FLAG = 0x0000
+} pgRegistryInternal_e;
+
+
+typedef void (pgResetFunc)(void * );
+
+typedef struct pgRegistry_s {
+    pgn_t pgn;
+    uint8_t length;
+    uint16_t size;
+    uint8_t *address;
+    uint8_t *copy;
+    uint8_t **ptr;
+    union {
+        void *ptr;
+        pgResetFunc *fn;
+    } reset;
+} pgRegistry_t;
+
+static inline uint16_t pgN(const pgRegistry_t* reg) {return reg->pgn & PGR_PGN_MASK;}
+static inline uint8_t pgVersion(const pgRegistry_t* reg) {return (uint8_t)(reg->pgn >> 12);}
+static inline uint16_t pgSize(const pgRegistry_t* reg) {return reg->size & PGR_SIZE_MASK;}
+static inline uint16_t pgElementSize(const pgRegistry_t* reg) {return (reg->size & PGR_SIZE_MASK) / reg->length;}
+# 75 "./src/main/pg/pg.h"
+extern const pgRegistry_t __pg_registry_start[];
+extern const pgRegistry_t __pg_registry_end[];
+
+
+extern const uint8_t __pg_resetdata_start[];
+extern const uint8_t __pg_resetdata_end[];
+# 194 "./src/main/pg/pg.h"
+const pgRegistry_t* pgFind(pgn_t pgn);
+
+
+# 196 "./src/main/pg/pg.h" 3 4
+_Bool 
+# 196 "./src/main/pg/pg.h"
+    pgLoad(const pgRegistry_t* reg, const void *from, int size, int version);
+int pgStore(const pgRegistry_t* reg, void *to, int size);
+void pgResetAll(void);
+void pgResetInstance(const pgRegistry_t *reg, uint8_t *base);
+
+# 200 "./src/main/pg/pg.h" 3 4
+_Bool 
+# 200 "./src/main/pg/pg.h"
+    pgResetCopy(void *copy, pgn_t pgn);
+void pgReset(const pgRegistry_t* reg);
+# 29 "./src/main/common/time.h" 2
+
+
+typedef int32_t timeDelta_t;
+
+typedef uint32_t timeMs_t ;
+
+
+
+
+
+typedef uint32_t timeUs_t;
+
+
+
+
+
+
+static inline timeDelta_t cmpTimeUs(timeUs_t a, timeUs_t b) { return (timeDelta_t)(a - b); }
+
+
+
+
+
+typedef struct timeConfig_s {
+    int16_t tz_offsetMinutes;
+} timeConfig_t;
+
+extern timeConfig_t timeConfig_System; extern timeConfig_t timeConfig_Copy; static inline const timeConfig_t* timeConfig(void) { return &timeConfig_System; } static inline timeConfig_t* timeConfigMutable(void) { return &timeConfig_System; } struct _dummy;
+
+
+typedef int64_t rtcTime_t;
+
+rtcTime_t rtcTimeMake(int32_t secs, uint16_t millis);
+int32_t rtcTimeGetSeconds(rtcTime_t *t);
+uint16_t rtcTimeGetMillis(rtcTime_t *t);
+
+typedef struct _dateTime_s {
+
+    uint16_t year;
+
+    uint8_t month;
+
+    uint8_t day;
+
+    uint8_t hours;
+
+    uint8_t minutes;
+
+    uint8_t seconds;
+
+    uint16_t millis;
+} dateTime_t;
+
+
+
+# 83 "./src/main/common/time.h" 3 4
+_Bool 
+# 83 "./src/main/common/time.h"
+    dateTimeFormatUTC(char *buf, dateTime_t *dt);
+
+# 84 "./src/main/common/time.h" 3 4
+_Bool 
+# 84 "./src/main/common/time.h"
+    dateTimeFormatLocal(char *buf, dateTime_t *dt);
+
+# 85 "./src/main/common/time.h" 3 4
+_Bool 
+# 85 "./src/main/common/time.h"
+    dateTimeFormatLocalShort(char *buf, dateTime_t *dt);
+
+void dateTimeUTCToLocal(dateTime_t *utcDateTime, dateTime_t *localDateTime);
+
+
+
+
+# 91 "./src/main/common/time.h" 3 4
+_Bool 
+# 91 "./src/main/common/time.h"
+    dateTimeSplitFormatted(char *formatted, char **date, char **time);
+
+
+# 93 "./src/main/common/time.h" 3 4
+_Bool 
+# 93 "./src/main/common/time.h"
+    rtcHasTime(void);
+
+
+# 95 "./src/main/common/time.h" 3 4
+_Bool 
+# 95 "./src/main/common/time.h"
+    rtcGet(rtcTime_t *t);
+
+# 96 "./src/main/common/time.h" 3 4
+_Bool 
+# 96 "./src/main/common/time.h"
+    rtcSet(rtcTime_t *t);
+
+
+# 98 "./src/main/common/time.h" 3 4
+_Bool 
+# 98 "./src/main/common/time.h"
+    rtcGetDateTime(dateTime_t *dt);
+
+# 99 "./src/main/common/time.h" 3 4
+_Bool 
+# 99 "./src/main/common/time.h"
+    rtcSetDateTime(dateTime_t *dt);
+
+void rtcPersistWrite(int16_t offsetMinutes);
+
+# 102 "./src/main/common/time.h" 3 4
+_Bool 
+# 102 "./src/main/common/time.h"
+    rtcPersistRead(rtcTime_t *t);
+# 26 "./src/main/cms/cms.h" 2
+
+# 1 "./src/main/cms/cms_types.h" 1
+# 26 "./src/main/cms/cms_types.h"
+       
+
+
+
+typedef enum
+{
+    OME_Label,
+    OME_Back,
+    OME_OSD_Exit,
+    OME_Submenu,
+    OME_Funcall,
+    OME_Bool,
+    OME_INT8,
+    OME_UINT8,
+    OME_UINT16,
+    OME_INT16,
+    OME_UINT32,
+    OME_INT32,
+    OME_String,
+    OME_FLOAT,
+
+
+    OME_VISIBLE,
+
+    OME_TAB,
+    OME_END,
+
+
+    OME_MENU,
+
+    OME_MAX = OME_MENU
+} OSD_MenuElement;
+
+typedef const void *(*CMSEntryFuncPtr)(displayPort_t *displayPort, const void *ptr);
+
+typedef struct
+{
+    const char * text;
+    OSD_MenuElement type;
+    CMSEntryFuncPtr func;
+    void *data;
+    uint8_t flags;
+} __attribute__((packed)) OSD_Entry;
+# 92 "./src/main/cms/cms_types.h"
+typedef const void *(*CMSMenuFuncPtr)(displayPort_t *pDisp);
+
+
+extern int menuChainBack;
+# 105 "./src/main/cms/cms_types.h"
+typedef const void *(*CMSMenuOnExitPtr)(displayPort_t *pDisp, const OSD_Entry *self);
+
+typedef const void *(*CMSMenuOnDisplayUpdatePtr)(displayPort_t *pDisp, const OSD_Entry *selected);
+
+typedef struct
+{
+
+
+
+
+
+    const CMSMenuFuncPtr onEnter;
+    const CMSMenuOnExitPtr onExit;
+    const CMSMenuOnDisplayUpdatePtr onDisplayUpdate;
+    const OSD_Entry *entries;
+} CMS_Menu;
+
+typedef struct
+{
+    uint8_t *val;
+    uint8_t min;
+    uint8_t max;
+    uint8_t step;
+} OSD_UINT8_t;
+
+typedef struct
+{
+    int8_t *val;
+    int8_t min;
+    int8_t max;
+    int8_t step;
+} OSD_INT8_t;
+
+typedef struct
+{
+    int16_t *val;
+    int16_t min;
+    int16_t max;
+    int16_t step;
+} OSD_INT16_t;
+
+typedef struct
+{
+    uint16_t *val;
+    uint16_t min;
+    uint16_t max;
+    uint16_t step;
+} OSD_UINT16_t;
+
+typedef struct
+{
+    int32_t *val;
+    int32_t min;
+    int32_t max;
+    int32_t step;
+} OSD_INT32_t;
+
+typedef struct
+{
+    uint32_t *val;
+    uint32_t min;
+    uint32_t max;
+    uint32_t step;
+} OSD_UINT32_t;
+
+typedef struct
+{
+    uint8_t *val;
+    uint8_t min;
+    uint8_t max;
+    uint8_t step;
+    uint16_t multipler;
+} OSD_FLOAT_t;
+
+typedef struct
+{
+    uint8_t *val;
+    uint8_t max;
+    const char * const *names;
+} OSD_TAB_t;
+
+typedef struct
+{
+    char *val;
+} OSD_String_t;
+# 28 "./src/main/cms/cms.h" 2
+
+typedef enum {
+    CMS_KEY_NONE,
+    CMS_KEY_UP,
+    CMS_KEY_DOWN,
+    CMS_KEY_LEFT,
+    CMS_KEY_RIGHT,
+    CMS_KEY_ESC,
+    CMS_KEY_MENU,
+    CMS_KEY_SAVEMENU,
+} cms_key_e;
+
+extern 
+# 40 "./src/main/cms/cms.h" 3 4
+      _Bool 
+# 40 "./src/main/cms/cms.h"
+           cmsInMenu;
+
+
+
+# 43 "./src/main/cms/cms.h" 3 4
+_Bool 
+# 43 "./src/main/cms/cms.h"
+    cmsDisplayPortRegister(displayPort_t *pDisplay);
+
+extern displayPort_t *pCurrentDisplay;
+
+
+void cmsInit(void);
+void cmsHandler(timeUs_t currentTimeUs);
+
+
+# 51 "./src/main/cms/cms.h" 3 4
+_Bool 
+# 51 "./src/main/cms/cms.h"
+    cmsDisplayPortSelect(displayPort_t *instance);
+void cmsMenuOpen(void);
+const void *cmsMenuChange(displayPort_t *pPort, const void *ptr);
+const void *cmsMenuExit(displayPort_t *pPort, const void *ptr);
+void cmsSetExternKey(cms_key_e extKey);
+void inhibitSaveMenu(void);
+void cmsAddMenuEntry(OSD_Entry *menuEntry, char *text, OSD_MenuElement type, CMSEntryFuncPtr func, void *data, uint8_t flags);
+# 31 "./src/main/cms/cms_menu_failsafe.c" 2
+
+# 1 "./src/main/cms/cms_menu_failsafe.h" 1
+# 21 "./src/main/cms/cms_menu_failsafe.h"
+       
+
+extern CMS_Menu cmsx_menuFailsafe;
+# 33 "./src/main/cms/cms_menu_failsafe.c" 2
+
+
+
+
+
+# 1 "./src/main/config/feature.h" 1
+# 21 "./src/main/config/feature.h"
+       
+# 32 "./src/main/config/feature.h"
+typedef enum {
+    FEATURE_RX_PPM = 1 << 0,
+    FEATURE_INFLIGHT_ACC_CAL = 1 << 2,
+    FEATURE_RX_SERIAL = 1 << 3,
+    FEATURE_MOTOR_STOP = 1 << 4,
+    FEATURE_SERVO_TILT = 1 << 5,
+    FEATURE_SOFTSERIAL = 1 << 6,
+    FEATURE_GPS = 1 << 7,
+    FEATURE_RANGEFINDER = 1 << 9,
+    FEATURE_TELEMETRY = 1 << 10,
+    FEATURE_3D = 1 << 12,
+    FEATURE_RX_PARALLEL_PWM = 1 << 13,
+    FEATURE_RX_MSP = 1 << 14,
+    FEATURE_RSSI_ADC = 1 << 15,
+    FEATURE_LED_STRIP = 1 << 16,
+    FEATURE_DASHBOARD = 1 << 17,
+    FEATURE_OSD = 1 << 18,
+    FEATURE_CHANNEL_FORWARDING = 1 << 20,
+    FEATURE_TRANSPONDER = 1 << 21,
+    FEATURE_AIRMODE = 1 << 22,
+    FEATURE_RX_SPI = 1 << 25,
+
+    FEATURE_ESC_SENSOR = 1 << 27,
+    FEATURE_ANTI_GRAVITY = 1 << 28,
+    FEATURE_DYNAMIC_FILTER = 1 << 29,
+} features_e;
+
+typedef struct featureConfig_s {
+    uint32_t enabledFeatures;
+} featureConfig_t;
+
+extern featureConfig_t featureConfig_System; extern featureConfig_t featureConfig_Copy; static inline const featureConfig_t* featureConfig(void) { return &featureConfig_System; } static inline featureConfig_t* featureConfigMutable(void) { return &featureConfig_System; } struct _dummy;
+
+void featureInit(void);
+
+# 66 "./src/main/config/feature.h" 3 4
+_Bool 
+# 66 "./src/main/config/feature.h"
+    featureIsEnabled(const uint32_t mask);
+
+# 67 "./src/main/config/feature.h" 3 4
+_Bool 
+# 67 "./src/main/config/feature.h"
+    featureIsConfigured(const uint32_t mask);
+void featureEnableImmediate(const uint32_t mask);
+void featureDisableImmediate(const uint32_t mask);
+void featureConfigSet(const uint32_t mask);
+void featureConfigClear(const uint32_t mask);
+void featureConfigReplace(const uint32_t mask);
+# 39 "./src/main/cms/cms_menu_failsafe.c" 2
+
+# 1 "./src/main/config/config.h" 1
+# 21 "./src/main/config/config.h"
+       
+# 30 "./src/main/config/config.h"
+typedef enum {
+    CONFIGURATION_STATE_DEFAULTS_BARE = 0,
+    CONFIGURATION_STATE_DEFAULTS_CUSTOM,
+    CONFIGURATION_STATE_CONFIGURED,
+} configurationState_e;
+
+typedef enum {
+    SCHEDULER_OPTIMIZE_RATE_OFF = 0,
+    SCHEDULER_OPTIMIZE_RATE_ON,
+    SCHEDULER_OPTIMIZE_RATE_AUTO,
+} schedulerOptimizeRate_e;
+
+typedef struct pilotConfig_s {
+    char name[16u + 1];
+    char displayName[16u + 1];
+} pilotConfig_t;
+
+extern pilotConfig_t pilotConfig_System; extern pilotConfig_t pilotConfig_Copy; static inline const pilotConfig_t* pilotConfig(void) { return &pilotConfig_System; } static inline pilotConfig_t* pilotConfigMutable(void) { return &pilotConfig_System; } struct _dummy;
+
+typedef struct systemConfig_s {
+    uint8_t pidProfileIndex;
+    uint8_t activeRateProfile;
+    uint8_t debug_mode;
+    uint8_t task_statistics;
+    uint8_t rateProfile6PosSwitch;
+    uint8_t cpu_overclock;
+    uint8_t powerOnArmingGraceTime;
+    char boardIdentifier[sizeof("SP7E") + 1];
+    uint8_t hseMhz;
+    uint8_t configurationState;
+    uint8_t schedulerOptimizeRate;
+    uint8_t enableStickArming;
+} systemConfig_t;
+
+extern systemConfig_t systemConfig_System; extern systemConfig_t systemConfig_Copy; static inline const systemConfig_t* systemConfig(void) { return &systemConfig_System; } static inline systemConfig_t* systemConfigMutable(void) { return &systemConfig_System; } struct _dummy;
+
+struct pidProfile_s;
+extern struct pidProfile_s *currentPidProfile;
+
+void initEEPROM(void);
+
+# 70 "./src/main/config/config.h" 3 4
+_Bool 
+# 70 "./src/main/config/config.h"
+    resetEEPROM(
+# 70 "./src/main/config/config.h" 3 4
+                _Bool 
+# 70 "./src/main/config/config.h"
+                     useCustomDefaults);
+
+# 71 "./src/main/config/config.h" 3 4
+_Bool 
+# 71 "./src/main/config/config.h"
+    readEEPROM(void);
+void writeEEPROM(void);
+void writeUnmodifiedConfigToEEPROM(void);
+void ensureEEPROMStructureIsValid(void);
+
+void saveConfigAndNotify(void);
+void validateAndFixGyroConfig(void);
+
+void setConfigDirty(void);
+
+# 80 "./src/main/config/config.h" 3 4
+_Bool 
+# 80 "./src/main/config/config.h"
+    isConfigDirty(void);
+
+uint8_t getCurrentPidProfileIndex(void);
+void changePidProfile(uint8_t pidProfileIndex);
+void changePidProfileFromCellCount(uint8_t cellCount);
+struct pidProfile_s;
+void resetPidProfile(struct pidProfile_s *profile);
+
+uint8_t getCurrentControlRateProfileIndex(void);
+void changeControlRateProfile(uint8_t profileIndex);
+
+
+# 91 "./src/main/config/config.h" 3 4
+_Bool 
+# 91 "./src/main/config/config.h"
+    canSoftwareSerialBeUsed(void);
+
+uint16_t getCurrentMinthrottle(void);
+
+void resetConfig(void);
+void targetConfiguration(void);
+void targetValidateConfiguration(void);
+
+
+# 99 "./src/main/config/config.h" 3 4
+_Bool 
+# 99 "./src/main/config/config.h"
+    isSystemConfigured(void);
+void setRebootRequired(void);
+
+# 101 "./src/main/config/config.h" 3 4
+_Bool 
+# 101 "./src/main/config/config.h"
+    getRebootRequired(void);
+# 41 "./src/main/cms/cms_menu_failsafe.c" 2
+
+# 1 "./src/main/flight/failsafe.h" 1
+# 21 "./src/main/flight/failsafe.h"
+       
+# 35 "./src/main/flight/failsafe.h"
+typedef struct failsafeConfig_s {
+    uint16_t failsafe_throttle;
+    uint16_t failsafe_throttle_low_delay;
+    uint8_t failsafe_delay;
+    uint8_t failsafe_off_delay;
+    uint8_t failsafe_switch_mode;
+    uint8_t failsafe_procedure;
+    uint16_t failsafe_recovery_delay;
+    uint8_t failsafe_stick_threshold;
+} failsafeConfig_t;
+
+extern failsafeConfig_t failsafeConfig_System; extern failsafeConfig_t failsafeConfig_Copy; static inline const failsafeConfig_t* failsafeConfig(void) { return &failsafeConfig_System; } static inline failsafeConfig_t* failsafeConfigMutable(void) { return &failsafeConfig_System; } struct _dummy;
+
+typedef enum {
+    FAILSAFE_IDLE = 0,
+    FAILSAFE_RX_LOSS_DETECTED,
+    FAILSAFE_LANDING,
+    FAILSAFE_LANDED,
+    FAILSAFE_RX_LOSS_MONITORING,
+    FAILSAFE_RX_LOSS_RECOVERED,
+    FAILSAFE_GPS_RESCUE
+} failsafePhase_e;
+
+typedef enum {
+    FAILSAFE_RXLINK_DOWN = 0,
+    FAILSAFE_RXLINK_UP
+} failsafeRxLinkState_e;
+
+typedef enum {
+    FAILSAFE_PROCEDURE_AUTO_LANDING = 0,
+    FAILSAFE_PROCEDURE_DROP_IT,
+
+
+
+    FAILSAFE_PROCEDURE_COUNT
+} failsafeProcedure_e;
+
+extern const char * const failsafeProcedureNames[FAILSAFE_PROCEDURE_COUNT];
+
+typedef enum {
+    FAILSAFE_SWITCH_MODE_STAGE1 = 0,
+    FAILSAFE_SWITCH_MODE_KILL,
+    FAILSAFE_SWITCH_MODE_STAGE2
+} failsafeSwitchMode_e;
+
+typedef struct failsafeState_s {
+    int16_t events;
+    
+# 82 "./src/main/flight/failsafe.h" 3 4
+   _Bool 
+# 82 "./src/main/flight/failsafe.h"
+        monitoring;
+    
+# 83 "./src/main/flight/failsafe.h" 3 4
+   _Bool 
+# 83 "./src/main/flight/failsafe.h"
+        active;
+    uint32_t rxDataFailurePeriod;
+    uint32_t rxDataRecoveryPeriod;
+    uint32_t validRxDataReceivedAt;
+    uint32_t validRxDataFailedAt;
+    uint32_t throttleLowPeriod;
+    uint32_t landingShouldBeFinishedAt;
+    uint32_t receivingRxDataPeriod;
+    uint32_t receivingRxDataPeriodPreset;
+    failsafePhase_e phase;
+    failsafeRxLinkState_e rxLinkState;
+} failsafeState_t;
+
+void failsafeInit(void);
+void failsafeReset(void);
+
+void failsafeStartMonitoring(void);
+void failsafeUpdateState(void);
+
+failsafePhase_e failsafePhase(void);
+
+# 103 "./src/main/flight/failsafe.h" 3 4
+_Bool 
+# 103 "./src/main/flight/failsafe.h"
+    failsafeIsMonitoring(void);
+
+# 104 "./src/main/flight/failsafe.h" 3 4
+_Bool 
+# 104 "./src/main/flight/failsafe.h"
+    failsafeIsActive(void);
+
+# 105 "./src/main/flight/failsafe.h" 3 4
+_Bool 
+# 105 "./src/main/flight/failsafe.h"
+    failsafeIsReceivingRxData(void);
+void failsafeOnRxSuspend(uint32_t suspendPeriod);
+void failsafeOnRxResume(void);
+
+void failsafeOnValidDataReceived(void);
+void failsafeOnValidDataFailed(void);
+# 43 "./src/main/cms/cms_menu_failsafe.c" 2
+
+# 1 "./src/main/rx/rx.h" 1
+# 21 "./src/main/rx/rx.h"
+       
+
+
+
+
+# 1 "./src/main/pg/rx.h" 1
+# 21 "./src/main/pg/rx.h"
+       
+
+# 1 "./src/main/drivers/io_types.h" 1
+# 21 "./src/main/drivers/io_types.h"
+       
+
+
+
+
+
+typedef uint8_t ioTag_t;
+typedef void* IO_t;
+# 48 "./src/main/drivers/io_types.h"
+typedef uint8_t ioConfig_t;
+# 24 "./src/main/pg/rx.h" 2
+
+
+
+
+
+
+typedef struct rxConfig_s {
+    uint8_t rcmap[8];
+    uint8_t serialrx_provider;
+    uint8_t serialrx_inverted;
+    uint8_t halfDuplex;
+    ioTag_t spektrum_bind_pin_override_ioTag;
+    ioTag_t spektrum_bind_plug_ioTag;
+    uint8_t spektrum_sat_bind;
+    uint8_t spektrum_sat_bind_autoreset;
+    uint8_t rssi_channel;
+    uint8_t rssi_scale;
+    uint8_t rssi_invert;
+    uint16_t midrc;
+    uint16_t mincheck;
+    uint16_t maxcheck;
+    uint8_t rcInterpolation;
+    uint8_t rcInterpolationChannels;
+    uint8_t rcInterpolationInterval;
+    uint8_t fpvCamAngleDegrees;
+    uint8_t airModeActivateThreshold;
+
+    uint16_t rx_min_usec;
+    uint16_t rx_max_usec;
+    uint8_t max_aux_channel;
+    uint8_t rssi_src_frame_errors;
+    int8_t rssi_offset;
+    uint8_t rc_smoothing_type;
+    uint8_t rc_smoothing_input_cutoff;
+    uint8_t rc_smoothing_derivative_cutoff;
+    uint8_t rc_smoothing_debug_axis;
+    uint8_t rc_smoothing_input_type;
+    uint8_t rc_smoothing_derivative_type;
+    uint8_t rc_smoothing_auto_factor;
+    uint8_t rssi_src_frame_lpf_period;
+
+    uint8_t srxl2_unit_id;
+    uint8_t srxl2_baud_fast;
+    uint8_t sbus_baud_fast;
+    uint8_t crsf_use_rx_snr;
+
+    uint32_t msp_override_channels_mask;
+} rxConfig_t;
+
+extern rxConfig_t rxConfig_System; extern rxConfig_t rxConfig_Copy; static inline const rxConfig_t* rxConfig(void) { return &rxConfig_System; } static inline rxConfig_t* rxConfigMutable(void) { return &rxConfig_System; } struct _dummy;
+# 27 "./src/main/rx/rx.h" 2
+# 48 "./src/main/rx/rx.h"
+typedef enum {
+    RX_FRAME_PENDING = 0,
+    RX_FRAME_COMPLETE = (1 << 0),
+    RX_FRAME_FAILSAFE = (1 << 1),
+    RX_FRAME_PROCESSING_REQUIRED = (1 << 2),
+    RX_FRAME_DROPPED = (1 << 3)
+} rxFrameState_e;
+
+typedef enum {
+    SERIALRX_SPEKTRUM1024 = 0,
+    SERIALRX_SPEKTRUM2048 = 1,
+    SERIALRX_SBUS = 2,
+    SERIALRX_SUMD = 3,
+    SERIALRX_SUMH = 4,
+    SERIALRX_XBUS_MODE_B = 5,
+    SERIALRX_XBUS_MODE_B_RJ01 = 6,
+    SERIALRX_IBUS = 7,
+    SERIALRX_JETIEXBUS = 8,
+    SERIALRX_CRSF = 9,
+    SERIALRX_SRXL = 10,
+    SERIALRX_TARGET_CUSTOM = 11,
+    SERIALRX_FPORT = 12,
+    SERIALRX_SRXL2 = 13,
+    SERIALRX_GHST = 14
+} SerialRXType;
+# 87 "./src/main/rx/rx.h"
+extern const char rcChannelLetters[];
+
+extern int16_t rcData[18];
+
+
+
+
+
+
+typedef enum {
+    RX_FAILSAFE_MODE_AUTO = 0,
+    RX_FAILSAFE_MODE_HOLD,
+    RX_FAILSAFE_MODE_SET,
+    RX_FAILSAFE_MODE_INVALID
+} rxFailsafeChannelMode_e;
+
+
+
+typedef enum {
+    RX_FAILSAFE_TYPE_FLIGHT = 0,
+    RX_FAILSAFE_TYPE_AUX
+} rxFailsafeChannelType_e;
+
+
+
+typedef struct rxFailsafeChannelConfig_s {
+    uint8_t mode;
+    uint8_t step;
+} rxFailsafeChannelConfig_t;
+
+extern rxFailsafeChannelConfig_t rxFailsafeChannelConfigs_SystemArray[18]; extern rxFailsafeChannelConfig_t rxFailsafeChannelConfigs_CopyArray[18]; static inline const rxFailsafeChannelConfig_t* rxFailsafeChannelConfigs(int _index) { return &rxFailsafeChannelConfigs_SystemArray[_index]; } static inline rxFailsafeChannelConfig_t* rxFailsafeChannelConfigsMutable(int _index) { return &rxFailsafeChannelConfigs_SystemArray[_index]; } static inline rxFailsafeChannelConfig_t (* rxFailsafeChannelConfigs_array(void))[18] { return &rxFailsafeChannelConfigs_SystemArray; } struct _dummy;
+
+typedef struct rxChannelRangeConfig_s {
+    uint16_t min;
+    uint16_t max;
+} rxChannelRangeConfig_t;
+
+extern rxChannelRangeConfig_t rxChannelRangeConfigs_SystemArray[4]; extern rxChannelRangeConfig_t rxChannelRangeConfigs_CopyArray[4]; static inline const rxChannelRangeConfig_t* rxChannelRangeConfigs(int _index) { return &rxChannelRangeConfigs_SystemArray[_index]; } static inline rxChannelRangeConfig_t* rxChannelRangeConfigsMutable(int _index) { return &rxChannelRangeConfigs_SystemArray[_index]; } static inline rxChannelRangeConfig_t (* rxChannelRangeConfigs_array(void))[4] { return &rxChannelRangeConfigs_SystemArray; } struct _dummy;
+
+struct rxRuntimeState_s;
+typedef uint16_t (*rcReadRawDataFnPtr)(const struct rxRuntimeState_s *rxRuntimeState, uint8_t chan);
+typedef uint8_t (*rcFrameStatusFnPtr)(struct rxRuntimeState_s *rxRuntimeState);
+typedef 
+# 129 "./src/main/rx/rx.h" 3 4
+       _Bool 
+# 129 "./src/main/rx/rx.h"
+            (*rcProcessFrameFnPtr)(const struct rxRuntimeState_s *rxRuntimeState);
+typedef timeUs_t rcGetFrameTimeUsFn(void);
+
+typedef enum {
+    RX_PROVIDER_NONE = 0,
+    RX_PROVIDER_PARALLEL_PWM,
+    RX_PROVIDER_PPM,
+    RX_PROVIDER_SERIAL,
+    RX_PROVIDER_MSP,
+    RX_PROVIDER_SPI,
+} rxProvider_t;
+
+typedef struct rxRuntimeState_s {
+    rxProvider_t rxProvider;
+    SerialRXType serialrxProvider;
+    uint8_t channelCount;
+    uint16_t rxRefreshRate;
+    rcReadRawDataFnPtr rcReadRawFn;
+    rcFrameStatusFnPtr rcFrameStatusFn;
+    rcProcessFrameFnPtr rcProcessFrameFn;
+    rcGetFrameTimeUsFn *rcFrameTimeUsFn;
+    uint16_t *channelData;
+    void *frameData;
+} rxRuntimeState_t;
+
+typedef enum {
+    RSSI_SOURCE_NONE = 0,
+    RSSI_SOURCE_ADC,
+    RSSI_SOURCE_RX_CHANNEL,
+    RSSI_SOURCE_RX_PROTOCOL,
+    RSSI_SOURCE_MSP,
+    RSSI_SOURCE_FRAME_ERRORS,
+    RSSI_SOURCE_RX_PROTOCOL_CRSF,
+} rssiSource_e;
+
+extern rssiSource_e rssiSource;
+
+typedef enum {
+    LQ_SOURCE_NONE = 0,
+    LQ_SOURCE_RX_PROTOCOL_CRSF,
+    LQ_SOURCE_RX_PROTOCOL_GHST,
+} linkQualitySource_e;
+
+extern linkQualitySource_e linkQualitySource;
+
+extern rxRuntimeState_t rxRuntimeState;
+
+void rxInit(void);
+
+# 177 "./src/main/rx/rx.h" 3 4
+_Bool 
+# 177 "./src/main/rx/rx.h"
+    rxUpdateCheck(timeUs_t currentTimeUs, timeDelta_t currentDeltaTimeUs);
+
+# 178 "./src/main/rx/rx.h" 3 4
+_Bool 
+# 178 "./src/main/rx/rx.h"
+    rxIsReceivingSignal(void);
+
+# 179 "./src/main/rx/rx.h" 3 4
+_Bool 
+# 179 "./src/main/rx/rx.h"
+    rxAreFlightChannelsValid(void);
+
+# 180 "./src/main/rx/rx.h" 3 4
+_Bool 
+# 180 "./src/main/rx/rx.h"
+    calculateRxChannelsAndUpdateFailsafe(timeUs_t currentTimeUs);
+
+struct rxConfig_s;
+
+void parseRcChannels(const char *input, struct rxConfig_s *rxConfig);
+
+
+
+void setRssiDirect(uint16_t newRssi, rssiSource_e source);
+void setRssi(uint16_t rssiValue, rssiSource_e source);
+void setRssiMsp(uint8_t newMspRssi);
+void updateRSSI(timeUs_t currentTimeUs);
+uint16_t getRssi(void);
+uint8_t getRssiPercent(void);
+
+# 194 "./src/main/rx/rx.h" 3 4
+_Bool 
+# 194 "./src/main/rx/rx.h"
+    isRssiConfigured(void);
+
+
+
+uint16_t rxGetLinkQuality(void);
+void setLinkQualityDirect(uint16_t linkqualityValue);
+uint16_t rxGetLinkQualityPercent(void);
+
+int16_t getRssiDbm(void);
+void setRssiDbm(int16_t newRssiDbm, rssiSource_e source);
+void setRssiDbmDirect(int16_t newRssiDbm, rssiSource_e source);
+
+void rxSetRfMode(uint8_t rfModeValue);
+uint8_t rxGetRfMode(void);
+
+void resetAllRxChannelRangeConfigurations(rxChannelRangeConfig_t *rxChannelRangeConfig);
+
+void suspendRxPwmPpmSignal(void);
+void resumeRxPwmPpmSignal(void);
+
+uint16_t rxGetRefreshRate(void);
+
+timeDelta_t rxGetFrameDelta(timeDelta_t *frameAgeUs);
+# 45 "./src/main/cms/cms_menu_failsafe.c" 2
+
+uint8_t failsafeConfig_failsafe_procedure;
+uint8_t failsafeConfig_failsafe_delay;
+uint8_t failsafeConfig_failsafe_off_delay;
+uint16_t failsafeConfig_failsafe_throttle;
+
+static const void *cmsx_Failsafe_onEnter(displayPort_t *pDisp)
+{
+    ((void)(pDisp));
+
+    failsafeConfig_failsafe_procedure = failsafeConfig()->failsafe_procedure;
+    failsafeConfig_failsafe_delay = failsafeConfig()->failsafe_delay;
+    failsafeConfig_failsafe_off_delay = failsafeConfig()->failsafe_off_delay;
+    failsafeConfig_failsafe_throttle = failsafeConfig()->failsafe_throttle;
+
+    return 
+# 60 "./src/main/cms/cms_menu_failsafe.c" 3 4
+          ((void *)0)
+# 60 "./src/main/cms/cms_menu_failsafe.c"
+              ;
+}
+
+static const void *cmsx_Failsafe_onExit(displayPort_t *pDisp, const OSD_Entry *self)
+{
+    ((void)(pDisp));
+    ((void)(self));
+
+    failsafeConfigMutable()->failsafe_procedure = failsafeConfig_failsafe_procedure;
+    failsafeConfigMutable()->failsafe_delay = failsafeConfig_failsafe_delay;
+    failsafeConfigMutable()->failsafe_off_delay = failsafeConfig_failsafe_off_delay;
+    failsafeConfigMutable()->failsafe_throttle = failsafeConfig_failsafe_throttle;
+
+    return 
+# 73 "./src/main/cms/cms_menu_failsafe.c" 3 4
+          ((void *)0)
+# 73 "./src/main/cms/cms_menu_failsafe.c"
+              ;
+}
+
+static const OSD_Entry cmsx_menuFailsafeEntries[] =
+{
+    { "-- FAILSAFE --", OME_Label, 
+# 78 "./src/main/cms/cms_menu_failsafe.c" 3 4
+                                  ((void *)0)
+# 78 "./src/main/cms/cms_menu_failsafe.c"
+                                      , 
+# 78 "./src/main/cms/cms_menu_failsafe.c" 3 4
+                                        ((void *)0)
+# 78 "./src/main/cms/cms_menu_failsafe.c"
+                                            , 0},
+
+    { "PROCEDURE", OME_TAB, 
+# 80 "./src/main/cms/cms_menu_failsafe.c" 3 4
+                                     ((void *)0)
+# 80 "./src/main/cms/cms_menu_failsafe.c"
+                                         , &(OSD_TAB_t) { &failsafeConfig_failsafe_procedure, FAILSAFE_PROCEDURE_COUNT - 1, failsafeProcedureNames }, 0x10 },
+    { "GUARD TIME", OME_FLOAT, 
+# 81 "./src/main/cms/cms_menu_failsafe.c" 3 4
+                                     ((void *)0)
+# 81 "./src/main/cms/cms_menu_failsafe.c"
+                                         , &(OSD_FLOAT_t) { &failsafeConfig_failsafe_delay, 0, 200, 1, 100 }, 0x10 },
+    { "STAGE 2 DELAY", OME_FLOAT, 
+# 82 "./src/main/cms/cms_menu_failsafe.c" 3 4
+                                     ((void *)0)
+# 82 "./src/main/cms/cms_menu_failsafe.c"
+                                         , &(OSD_FLOAT_t) { &failsafeConfig_failsafe_off_delay, 0, 200, 1, 100 }, 0x10 },
+    { "STAGE 2 THROTTLE", OME_UINT16, 
+# 83 "./src/main/cms/cms_menu_failsafe.c" 3 4
+                                     ((void *)0)
+# 83 "./src/main/cms/cms_menu_failsafe.c"
+                                         , &(OSD_UINT16_t) { &failsafeConfig_failsafe_throttle, 750, 2250, 1 }, 0x10 },
+
+
+
+    { "BACK", OME_Back, 
+# 87 "./src/main/cms/cms_menu_failsafe.c" 3 4
+                       ((void *)0)
+# 87 "./src/main/cms/cms_menu_failsafe.c"
+                           , 
+# 87 "./src/main/cms/cms_menu_failsafe.c" 3 4
+                             ((void *)0)
+# 87 "./src/main/cms/cms_menu_failsafe.c"
+                                 , 0 },
+    { 
+# 88 "./src/main/cms/cms_menu_failsafe.c" 3 4
+     ((void *)0)
+# 88 "./src/main/cms/cms_menu_failsafe.c"
+         , OME_END, 
+# 88 "./src/main/cms/cms_menu_failsafe.c" 3 4
+                    ((void *)0)
+# 88 "./src/main/cms/cms_menu_failsafe.c"
+                        , 
+# 88 "./src/main/cms/cms_menu_failsafe.c" 3 4
+                          ((void *)0)
+# 88 "./src/main/cms/cms_menu_failsafe.c"
+                              , 0 }
+};
+
+CMS_Menu cmsx_menuFailsafe = {
+
+
+
+
+    .onEnter = cmsx_Failsafe_onEnter,
+    .onExit = cmsx_Failsafe_onExit,
+    .onDisplayUpdate = 
+# 98 "./src/main/cms/cms_menu_failsafe.c" 3 4
+                      ((void *)0)
+# 98 "./src/main/cms/cms_menu_failsafe.c"
+                          ,
+    .entries = cmsx_menuFailsafeEntries
+};

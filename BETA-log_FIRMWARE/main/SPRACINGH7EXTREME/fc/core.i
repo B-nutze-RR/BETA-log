@@ -28839,7 +28839,19 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-# 351 "./src/main/flight/pid.h"
+# 343 "./src/main/flight/pid.h"
+    pt1Filter_t setpointDerivativePt1[3];
+    biquadFilter_t setpointDerivativeBiquad[3];
+    
+# 345 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 345 "./src/main/flight/pid.h"
+        setpointDerivativeLpfInitialized;
+    uint8_t rcSmoothingDebugAxis;
+    uint8_t rcSmoothingFilterType;
+
+
+
     float acroTrainerAngleLimit;
     float acroTrainerLookaheadTime;
     uint8_t acroTrainerDebugAxis;
@@ -30172,7 +30184,7 @@ typedef struct osdConfig_s {
     uint8_t ahInvert;
     uint8_t osdProfileIndex;
     uint8_t overlay_radio_mode;
-    char profile[1][16 + 1];
+    char profile[3][16 + 1];
     uint16_t link_quality_alarm;
     int16_t rssi_dbm_alarm;
     uint8_t gps_sats_show_hdop;
@@ -30592,7 +30604,7 @@ typedef enum {
     TASK_DASHBOARD,
 
 
-
+    TASK_TELEMETRY,
 
 
     TASK_LEDSTRIP,
@@ -30607,7 +30619,15 @@ typedef enum {
     TASK_OSD,
 # 127 "./src/main/scheduler/scheduler.h"
     TASK_CMS,
-# 137 "./src/main/scheduler/scheduler.h"
+
+
+
+
+
+    TASK_CAMCTRL,
+
+
+
     TASK_RCDEVICE,
 
 
@@ -32271,13 +32291,21 @@ typedef enum {
 
     IBUS_SENSOR_TYPE_ALT_FLYSKY = 0xf9,
 
-
-
-
+    IBUS_SENSOR_TYPE_GPS_FULL = 0xfd,
+    IBUS_SENSOR_TYPE_VOLT_FULL = 0xf0,
+    IBUS_SENSOR_TYPE_ACC_FULL = 0xef,
 
     IBUS_SENSOR_TYPE_UNKNOWN = 0xff
 } ibusSensorType_e;
-# 89 "./src/main/telemetry/ibus_shared.h"
+
+
+
+uint8_t respondToIbusRequest(uint8_t const * const ibusPacket);
+void initSharedIbusTelemetry(serialPort_t * port);
+
+
+
+
 
 # 89 "./src/main/telemetry/ibus_shared.h" 3 4
 _Bool 
@@ -32511,6 +32539,29 @@ static timeUs_t disarmAt;
 static int lastArmingDisabledReason = 0;
 static timeUs_t lastDisarmTimeUs;
 static int tryingToArm = ARMING_DELAYED_DISARMED;
+
+
+static timeUs_t runawayTakeoffDeactivateUs = 0;
+static timeUs_t runawayTakeoffAccumulatedUs = 0;
+static 
+# 160 "./src/main/fc/core.c" 3 4
+      _Bool 
+# 160 "./src/main/fc/core.c"
+           runawayTakeoffCheckDisabled = 
+# 160 "./src/main/fc/core.c" 3 4
+                                         0
+# 160 "./src/main/fc/core.c"
+                                              ;
+static timeUs_t runawayTakeoffTriggerUs = 0;
+static 
+# 162 "./src/main/fc/core.c" 3 4
+      _Bool 
+# 162 "./src/main/fc/core.c"
+           runawayTakeoffTemporarilyDisabled = 
+# 162 "./src/main/fc/core.c" 3 4
+                                               0
+# 162 "./src/main/fc/core.c"
+                                                    ;
 # 175 "./src/main/fc/core.c"
 extern const throttleCorrectionConfig_t pgResetTemplate_throttleCorrectionConfig; throttleCorrectionConfig_t throttleCorrectionConfig_System; throttleCorrectionConfig_t throttleCorrectionConfig_Copy; extern const pgRegistry_t throttleCorrectionConfig_Registry; const pgRegistry_t throttleCorrectionConfig_Registry __attribute__ ((section(".pg_registry"), used, aligned(4))) = { .pgn = 39 | (0 << 12), .length = 1, .size = sizeof(throttleCorrectionConfig_t) | PGR_SIZE_SYSTEM_FLAG, .address = (uint8_t*)&throttleCorrectionConfig_System, .copy = (uint8_t*)&throttleCorrectionConfig_Copy, .ptr = 0, .reset = {.ptr = (void*)&pgResetTemplate_throttleCorrectionConfig}, };
 
@@ -32731,7 +32782,7 @@ void updateArmingStatus(void)
         if (!isUsingSticksForArming()) {
             if (!IS_RC_MODE_ACTIVE(BOXARM)) {
 
-
+                unsetArmingDisabled(ARMING_DISABLED_RUNAWAY_TAKEOFF);
 
                 unsetArmingDisabled(ARMING_DISABLED_CRASH_DETECTED);
             }
@@ -32810,7 +32861,17 @@ void disarm(flightLogDisarmReason_e reason)
        0
 # 459 "./src/main/fc/core.c"
        );
-# 471 "./src/main/fc/core.c"
+
+
+
+
+
+
+        if (!flipOverAfterCrashActive) {
+            statsOnDisarm();
+        }
+
+
         flipOverAfterCrashActive = 
 # 471 "./src/main/fc/core.c" 3 4
                                   0
@@ -32871,7 +32932,17 @@ void tryArm(void)
         lastArmingDisabledReason = 0;
 # 575 "./src/main/fc/core.c"
         beeper(BEEPER_ARMING);
-# 587 "./src/main/fc/core.c"
+
+
+
+        statsOnArm();
+
+
+
+        runawayTakeoffDeactivateUs = 0;
+        runawayTakeoffAccumulatedUs = 0;
+        runawayTakeoffTriggerUs = 0;
+
     } else {
        resetTryingToArm();
         if (!isFirstArmingGyroCalibrationRunning()) {
@@ -32996,7 +33067,53 @@ static void updateMagHold(void)
     } else
         magHold = ((attitude.values.yaw) / 10);
 }
-# 703 "./src/main/fc/core.c"
+# 669 "./src/main/fc/core.c"
+
+# 669 "./src/main/fc/core.c" 3 4
+_Bool 
+# 669 "./src/main/fc/core.c"
+    areSticksActive(uint8_t stickPercentLimit)
+{
+    for (int axis = FD_ROLL; axis <= FD_YAW; axis ++) {
+        const uint8_t deadband = axis == FD_YAW ? rcControlsConfig()->yaw_deadband : rcControlsConfig()->deadband;
+        uint8_t stickPercent = 0;
+        if ((rcData[axis] >= 2000) || (rcData[axis] <= 1000)) {
+            stickPercent = 100;
+        } else {
+            if (rcData[axis] > (rxConfig()->midrc + deadband)) {
+                stickPercent = ((rcData[axis] - rxConfig()->midrc - deadband) * 100) / (2000 - rxConfig()->midrc - deadband);
+            } else if (rcData[axis] < (rxConfig()->midrc - deadband)) {
+                stickPercent = ((rxConfig()->midrc - deadband - rcData[axis]) * 100) / (rxConfig()->midrc - deadband - 1000);
+            }
+        }
+        if (stickPercent >= stickPercentLimit) {
+            return 
+# 684 "./src/main/fc/core.c" 3 4
+                  1
+# 684 "./src/main/fc/core.c"
+                      ;
+        }
+    }
+    return 
+# 687 "./src/main/fc/core.c" 3 4
+          0
+# 687 "./src/main/fc/core.c"
+               ;
+}
+
+
+
+
+
+void runawayTakeoffTemporaryDisable(uint8_t disableFlag)
+{
+    runawayTakeoffTemporarilyDisabled = disableFlag;
+}
+
+
+
+
+
 int8_t calculateThrottlePercent(void)
 {
     uint8_t ret = 0;
@@ -33063,7 +33180,15 @@ _Bool
 # 747 "./src/main/fc/core.c"
                                     ;
 
-
+    static 
+# 749 "./src/main/fc/core.c" 3 4
+          _Bool 
+# 749 "./src/main/fc/core.c"
+               sharedPortTelemetryEnabled = 
+# 749 "./src/main/fc/core.c" 3 4
+                                            0
+# 749 "./src/main/fc/core.c"
+                                                 ;
 
 
     timeDelta_t frameAgeUs;
@@ -33155,6 +33280,82 @@ _Bool
 # 799 "./src/main/fc/core.c"
                              );
         pidStabilisationState(PID_STABILISATION_ON);
+    }
+# 810 "./src/main/fc/core.c"
+    if ((armingFlags & (ARMED))
+        && pidConfig()->runaway_takeoff_prevention
+        && !runawayTakeoffCheckDisabled
+        && !flipOverAfterCrashActive
+        && !runawayTakeoffTemporarilyDisabled
+        && !isFixedWing()) {
+
+
+
+
+
+
+        
+# 822 "./src/main/fc/core.c" 3 4
+       _Bool 
+# 822 "./src/main/fc/core.c"
+            inStableFlight = 
+# 822 "./src/main/fc/core.c" 3 4
+                             0
+# 822 "./src/main/fc/core.c"
+                                  ;
+        if (!featureIsEnabled(FEATURE_MOTOR_STOP) || airmodeIsEnabled() || (throttleStatus != THROTTLE_LOW)) {
+            const uint8_t lowThrottleLimit = pidConfig()->runaway_takeoff_deactivate_throttle;
+            const uint8_t midThrottleLimit = constrain(lowThrottleLimit * 2, lowThrottleLimit * 2, 75);
+            if ((((throttlePercent >= lowThrottleLimit) && areSticksActive(15)) || (throttlePercent >= midThrottleLimit))
+                && (fabsf(pidData[FD_PITCH].Sum) < 100)
+                && (fabsf(pidData[FD_ROLL].Sum) < 100)
+                && (fabsf(pidData[FD_YAW].Sum) < 100)) {
+
+                inStableFlight = 
+# 831 "./src/main/fc/core.c" 3 4
+                                1
+# 831 "./src/main/fc/core.c"
+                                    ;
+                if (runawayTakeoffDeactivateUs == 0) {
+                    runawayTakeoffDeactivateUs = currentTimeUs;
+                }
+            }
+        }
+
+
+        if (inStableFlight) {
+            if (runawayTakeoffDeactivateUs == 0) {
+                runawayTakeoffDeactivateUs = currentTimeUs;
+            }
+            uint16_t deactivateDelay = pidConfig()->runaway_takeoff_deactivate_delay;
+
+            if (throttlePercent >= 75) {
+                deactivateDelay = deactivateDelay / 2;
+            }
+            if ((cmpTimeUs(currentTimeUs, runawayTakeoffDeactivateUs) + runawayTakeoffAccumulatedUs) > deactivateDelay * 1000) {
+                runawayTakeoffCheckDisabled = 
+# 849 "./src/main/fc/core.c" 3 4
+                                             1
+# 849 "./src/main/fc/core.c"
+                                                 ;
+            }
+
+        } else {
+            if (runawayTakeoffDeactivateUs != 0) {
+                runawayTakeoffAccumulatedUs += cmpTimeUs(currentTimeUs, runawayTakeoffDeactivateUs);
+            }
+            runawayTakeoffDeactivateUs = 0;
+        }
+        if (runawayTakeoffDeactivateUs == 0) {
+            {if (debugMode == (DEBUG_RUNAWAY_TAKEOFF)) {debug[(2)] = (0);}};
+            {if (debugMode == (DEBUG_RUNAWAY_TAKEOFF)) {debug[(3)] = (runawayTakeoffAccumulatedUs / 1000);}};
+        } else {
+            {if (debugMode == (DEBUG_RUNAWAY_TAKEOFF)) {debug[(2)] = (1);}};
+            {if (debugMode == (DEBUG_RUNAWAY_TAKEOFF)) {debug[(3)] = ((cmpTimeUs(currentTimeUs, runawayTakeoffDeactivateUs) + runawayTakeoffAccumulatedUs) / 1000);}};
+        }
+    } else {
+        {if (debugMode == (DEBUG_RUNAWAY_TAKEOFF)) {debug[(2)] = (0);}};
+        {if (debugMode == (DEBUG_RUNAWAY_TAKEOFF)) {debug[(3)] = (0);}};
     }
 # 897 "./src/main/fc/core.c"
     const timeUs_t autoDisarmDelayUs = armingConfig()->auto_disarm_delay * 1e6;
@@ -33330,9 +33531,45 @@ _Bool
     if (mixerConfig()->mixerMode == MIXER_FLYING_WING || mixerConfig()->mixerMode == MIXER_AIRPLANE) {
         disableFlightMode(HEADFREE_MODE);
     }
+
+
+    if (featureIsEnabled(FEATURE_TELEMETRY)) {
+        
+# 1050 "./src/main/fc/core.c" 3 4
+       _Bool 
+# 1050 "./src/main/fc/core.c"
+            enableSharedPortTelemetry = (!isModeActivationConditionPresent(BOXTELEMETRY) && (armingFlags & (ARMED))) || (isModeActivationConditionPresent(BOXTELEMETRY) && IS_RC_MODE_ACTIVE(BOXTELEMETRY));
+        if (enableSharedPortTelemetry && !sharedPortTelemetryEnabled) {
+            mspSerialReleaseSharedTelemetryPorts();
+            telemetryCheckState();
+
+            sharedPortTelemetryEnabled = 
+# 1055 "./src/main/fc/core.c" 3 4
+                                        1
+# 1055 "./src/main/fc/core.c"
+                                            ;
+        } else if (!enableSharedPortTelemetry && sharedPortTelemetryEnabled) {
+
+            telemetryCheckState();
+            mspSerialAllocatePorts();
+
+            sharedPortTelemetryEnabled = 
+# 1061 "./src/main/fc/core.c" 3 4
+                                        0
+# 1061 "./src/main/fc/core.c"
+                                             ;
+        }
+    }
 # 1075 "./src/main/fc/core.c"
     pidSetAcroTrainerState(IS_RC_MODE_ACTIVE(BOXACROTRAINER) && sensors(SENSOR_ACC));
-# 1084 "./src/main/fc/core.c"
+
+
+
+    if ((armingFlags & (ARMED)) && !rcSmoothingInitializationComplete()) {
+        beeper(BEEPER_RC_SMOOTHING_INIT_FAIL);
+    }
+
+
     pidSetAntiGravityState(IS_RC_MODE_ACTIVE(BOXANTIGRAVITY) || featureIsEnabled(FEATURE_ANTI_GRAVITY));
 
     return 
@@ -33349,7 +33586,47 @@ static __attribute__((section(".tcm_code"))) void subTaskPidController(timeUs_t 
 
     pidController(currentPidProfile, currentTimeUs);
     {if (debugMode == (DEBUG_PIDLOOP)) {debug[(1)] = (micros() - startTime);}};
-# 1137 "./src/main/fc/core.c"
+
+
+
+
+
+    if ((armingFlags & (ARMED))
+        && !isFixedWing()
+        && pidConfig()->runaway_takeoff_prevention
+        && !runawayTakeoffCheckDisabled
+        && !flipOverAfterCrashActive
+        && !runawayTakeoffTemporarilyDisabled
+        && !(flightModeFlags & (GPS_RESCUE_MODE))
+        && (!featureIsEnabled(FEATURE_MOTOR_STOP) || airmodeIsEnabled() || (calculateThrottleStatus() != THROTTLE_LOW))) {
+
+        if (((fabsf(pidData[FD_PITCH].Sum) >= 600)
+            || (fabsf(pidData[FD_ROLL].Sum) >= 600)
+            || (fabsf(pidData[FD_YAW].Sum) >= 600))
+            && ((gyroAbsRateDps(FD_PITCH) > 15)
+                || (gyroAbsRateDps(FD_ROLL) > 15)
+                || (gyroAbsRateDps(FD_YAW) > 50))) {
+
+            if (runawayTakeoffTriggerUs == 0) {
+                runawayTakeoffTriggerUs = currentTimeUs + 75000;
+            } else if (currentTimeUs > runawayTakeoffTriggerUs) {
+                setArmingDisabled(ARMING_DISABLED_RUNAWAY_TAKEOFF);
+                disarm(DISARM_REASON_RUNAWAY_TAKEOFF);
+            }
+        } else {
+            runawayTakeoffTriggerUs = 0;
+        }
+        {if (debugMode == (DEBUG_RUNAWAY_TAKEOFF)) {debug[(0)] = (1);}};
+        {if (debugMode == (DEBUG_RUNAWAY_TAKEOFF)) {debug[(1)] = (runawayTakeoffTriggerUs == 0 ? 0 : 1);}};
+    } else {
+        runawayTakeoffTriggerUs = 0;
+        {if (debugMode == (DEBUG_RUNAWAY_TAKEOFF)) {debug[(0)] = (0);}};
+        {if (debugMode == (DEBUG_RUNAWAY_TAKEOFF)) {debug[(1)] = (0);}};
+    }
+
+
+
+
     if (isModeActivationConditionPresent(BOXPIDAUDIO)) {
         pidAudioUpdate();
     }
@@ -33379,7 +33656,21 @@ static __attribute__((noinline)) void subTaskPidSubprocesses(timeUs_t currentTim
 
     {if (debugMode == (DEBUG_PIDLOOP)) {debug[(3)] = (micros() - startTime);}};
 }
-# 1181 "./src/main/fc/core.c"
+
+
+
+void subTaskTelemetryPollSensors(timeUs_t currentTimeUs)
+{
+    static timeUs_t lastGyroTempTimeUs = 0;
+
+    if (cmpTimeUs(currentTimeUs, lastGyroTempTimeUs) >= 3e6) {
+
+        gyroReadTemperature();
+        lastGyroTempTimeUs = currentTimeUs;
+    }
+}
+
+
 static __attribute__((section(".tcm_code"))) void subTaskMotorUpdate(timeUs_t currentTimeUs)
 {
     uint32_t startTime = 0;

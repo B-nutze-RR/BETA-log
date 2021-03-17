@@ -22350,7 +22350,7 @@ typedef struct osdConfig_s {
     uint8_t ahInvert;
     uint8_t osdProfileIndex;
     uint8_t overlay_radio_mode;
-    char profile[1][16 + 1];
+    char profile[3][16 + 1];
     uint16_t link_quality_alarm;
     int16_t rssi_dbm_alarm;
     uint8_t gps_sats_show_hdop;

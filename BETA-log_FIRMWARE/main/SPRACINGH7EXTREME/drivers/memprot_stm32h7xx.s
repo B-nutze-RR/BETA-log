@@ -9,23 +9,23 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"memprot_stm32h7xx.c"
-	.section	.gnu.lto_.profile.4111bb61,"e",%progbits
+	.section	.gnu.lto_.profile.41586852,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4111bb61,"e",%progbits
+	.section	.gnu.lto_.icf.41586852,"e",%progbits
 	.ascii	"x\234\343``d\340c@\000&\206\305;\036\255ec|\332\333"
 	.ascii	"0\225\207\001\000-T\005\236"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4111bb61,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41586852,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.inline.4111bb61,"e",%progbits
+	.section	.gnu.lto_.inline.41586852,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.pureconst.4111bb61,"e",%progbits
+	.section	.gnu.lto_.pureconst.41586852,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_mpuRegions.4111bb61,"e",%progbits
+	.section	.gnu.lto_mpuRegions.41586852,"e",%progbits
 	.ascii	"x\234\343``dpgb`\320d\200\200\351\314\214\307\337\277"
 	.ascii	"\275\302\330\307<\237\031(\005\344\356\353\271p\232"
 	.ascii	"\031\302e\004r\233\256\256\331\316\007\3412\003\271"
@@ -48,15 +48,15 @@
 	.ascii	"ZT\254\237\233\232[P\224_\022_\\\222kl\224a^Q\241\227"
 	.ascii	"\314\000\000\211\346\301\265"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4111bb61,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41586852,"e",%progbits
 	.ascii	"x\234\343``d0a\000\002\326\025\334\014\215J \306rnF"
 	.ascii	"\010c%7\223\002\210^\305\315\014\246Ws\263\200\3515"
 	.ascii	"\334\254 \232\001\000\310G\006l"
 	.text
-	.section	.gnu.lto_.refs.4111bb61,"e",%progbits
+	.section	.gnu.lto_.refs.41586852,"e",%progbits
 	.ascii	"x\234\343``d\340f```adbbbfbabe\000\000\002\003\0000"
 	.text
-	.section	.gnu.lto_.decls.4111bb61,"e",%progbits
+	.section	.gnu.lto_.decls.41586852,"e",%progbits
 	.ascii	"x\234\225T[L\034U\030>\377\236\001v\247\013(\324\244"
 	.ascii	"\0115\341\201\026\037\014\013\345A\0374\321\364A\237"
 	.ascii	"|0\361\301\027\311\026\246\262\211\013dw\251\304\007"
@@ -124,7 +124,7 @@
 	.ascii	"\260\332sx5Y\013\260O\002{|\327Zb\023\031s$\304\334"
 	.ascii	"?\341\351Qi"
 	.text
-	.section	.gnu.lto_.symtab.4111bb61,"e",%progbits
+	.section	.gnu.lto_.symtab.41586852,"e",%progbits
 	.ascii	"mpuRegionCount\000"
 	.ascii	"\000"
 	.ascii	"\000"

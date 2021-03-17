@@ -22651,7 +22651,19 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-# 351 "./src/main/flight/pid.h"
+# 343 "./src/main/flight/pid.h"
+    pt1Filter_t setpointDerivativePt1[3];
+    biquadFilter_t setpointDerivativeBiquad[3];
+    
+# 345 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 345 "./src/main/flight/pid.h"
+        setpointDerivativeLpfInitialized;
+    uint8_t rcSmoothingDebugAxis;
+    uint8_t rcSmoothingFilterType;
+
+
+
     float acroTrainerAngleLimit;
     float acroTrainerLookaheadTime;
     uint8_t acroTrainerDebugAxis;
@@ -23276,7 +23288,37 @@ const positionConfig_t pgResetTemplate_positionConfig __attribute__ ((section(".
  ;
 
 static int32_t estimatedAltitudeCm = 0;
-# 87 "./src/main/flight/position.c"
+
+
+
+
+static int16_t estimatedVario = 0;
+
+int16_t calculateEstimatedVario(int32_t baroAlt, const uint32_t dTime) {
+    static float vel = 0;
+    static int32_t lastBaroAlt = 0;
+
+    int32_t baroVel = 0;
+
+    baroVel = (baroAlt - lastBaroAlt) * 1000000.0f / dTime;
+    lastBaroAlt = baroAlt;
+
+    baroVel = constrain(baroVel, -1500.0f, 1500.0f);
+    baroVel = applyDeadband(baroVel, 10.0f);
+
+    vel = vel * (0.001f * barometerConfig()->baro_cf_vel) + baroVel * (1.0f - (0.001f * barometerConfig()->baro_cf_vel));
+    int32_t vel_tmp = lrintf(vel);
+    vel_tmp = applyDeadband(vel_tmp, 5.0f);
+
+    return constrain(vel_tmp, 
+# 82 "./src/main/flight/position.c" 3 4
+                             (-0x7fff - 1)
+# 82 "./src/main/flight/position.c"
+                                     , 0x7fff);
+}
+
+
+
 static 
 # 87 "./src/main/flight/position.c" 3 4
       _Bool 
@@ -23365,7 +23407,7 @@ void calculateEstimatedAltitude(timeUs_t currentTimeUs)
         }
 
 
-
+        estimatedVario = calculateEstimatedVario(baroAlt, dTime);
 
     } else if (haveGpsAlt && (positionConfig()->altSource == GPS_ONLY || positionConfig()->altSource == DEFAULT )) {
         estimatedAltitudeCm = gpsAlt;
@@ -23375,7 +23417,7 @@ void calculateEstimatedAltitude(timeUs_t currentTimeUs)
     } else if (haveBaroAlt && (positionConfig()->altSource == BARO_ONLY || positionConfig()->altSource == DEFAULT)) {
         estimatedAltitudeCm = baroAlt;
 
-
+        estimatedVario = calculateEstimatedVario(baroAlt, dTime);
 
     }
 
@@ -23385,7 +23427,7 @@ void calculateEstimatedAltitude(timeUs_t currentTimeUs)
     {if (debugMode == (DEBUG_ALTITUDE)) {debug[(1)] = (baroAlt);}};
     {if (debugMode == (DEBUG_ALTITUDE)) {debug[(2)] = (gpsAlt);}};
 
-
+    {if (debugMode == (DEBUG_ALTITUDE)) {debug[(3)] = (estimatedVario);}};
 
 }
 
@@ -23402,4 +23444,10 @@ _Bool
 int32_t getEstimatedAltitudeCm(void)
 {
     return estimatedAltitudeCm;
+}
+
+
+int16_t getEstimatedVario(void)
+{
+    return estimatedVario;
 }

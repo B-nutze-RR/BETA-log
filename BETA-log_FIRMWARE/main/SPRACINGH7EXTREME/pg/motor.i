@@ -22369,7 +22369,7 @@ void pgResetFn_motorConfig(motorConfig_t *motorConfig)
     motorConfig->digitalIdleOffsetValue = 550;
 
 
-
+    motorConfig->dev.useBurstDshot = DSHOT_DMAR_OFF;
 
 
 

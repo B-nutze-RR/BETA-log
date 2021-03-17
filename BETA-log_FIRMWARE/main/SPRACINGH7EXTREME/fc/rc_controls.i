@@ -22919,7 +22919,19 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-# 351 "./src/main/flight/pid.h"
+# 343 "./src/main/flight/pid.h"
+    pt1Filter_t setpointDerivativePt1[3];
+    biquadFilter_t setpointDerivativeBiquad[3];
+    
+# 345 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 345 "./src/main/flight/pid.h"
+        setpointDerivativeLpfInitialized;
+    uint8_t rcSmoothingDebugAxis;
+    uint8_t rcSmoothingFilterType;
+
+
+
     float acroTrainerAngleLimit;
     float acroTrainerLookaheadTime;
     uint8_t acroTrainerDebugAxis;
@@ -23946,7 +23958,7 @@ typedef enum {
     TASK_DASHBOARD,
 
 
-
+    TASK_TELEMETRY,
 
 
     TASK_LEDSTRIP,
@@ -23961,7 +23973,15 @@ typedef enum {
     TASK_OSD,
 # 127 "./src/main/scheduler/scheduler.h"
     TASK_CMS,
-# 137 "./src/main/scheduler/scheduler.h"
+
+
+
+
+
+    TASK_CAMCTRL,
+
+
+
     TASK_RCDEVICE,
 
 
@@ -29347,7 +29367,14 @@ void processRcStickPositions()
                0
 # 195 "./src/main/fc/rc_controls.c"
                ; };
-# 204 "./src/main/fc/rc_controls.c"
+
+
+
+
+
+
+                unsetArmingDisabled(ARMING_DISABLED_RUNAWAY_TAKEOFF);
+
                 unsetArmingDisabled(ARMING_DISABLED_CRASH_DETECTED);
             }
         }
@@ -29545,7 +29572,46 @@ void processRcStickPositions()
     if (rcSticks == (1 << (2 * THROTTLE)) + (3 << (2 * YAW)) + (2 << (2 * PITCH)) + (2 << (2 * ROLL))) {
         dashboardEnablePageCycling();
     }
-# 401 "./src/main/fc/rc_controls.c"
+# 382 "./src/main/fc/rc_controls.c"
+    if (rcSticks == (3 << (2 * THROTTLE)) + (2 << (2 * YAW)) + (3 << (2 * PITCH)) + (3 << (2 * ROLL))) {
+        cameraControlKeyPress(CAMERA_CONTROL_KEY_ENTER, 0);
+        { rcDelayMs -= (3 * 50); doNotRepeat = 
+# 384 "./src/main/fc/rc_controls.c" 3 4
+       0
+# 384 "./src/main/fc/rc_controls.c"
+       ; };
+    } else if (rcSticks == (3 << (2 * THROTTLE)) + (3 << (2 * YAW)) + (3 << (2 * PITCH)) + (1 << (2 * ROLL))) {
+        cameraControlKeyPress(CAMERA_CONTROL_KEY_LEFT, 0);
+        { rcDelayMs -= (3 * 50); doNotRepeat = 
+# 387 "./src/main/fc/rc_controls.c" 3 4
+       0
+# 387 "./src/main/fc/rc_controls.c"
+       ; };
+    } else if (rcSticks == (3 << (2 * THROTTLE)) + (3 << (2 * YAW)) + (2 << (2 * PITCH)) + (3 << (2 * ROLL))) {
+        cameraControlKeyPress(CAMERA_CONTROL_KEY_UP, 0);
+        { rcDelayMs -= (3 * 50); doNotRepeat = 
+# 390 "./src/main/fc/rc_controls.c" 3 4
+       0
+# 390 "./src/main/fc/rc_controls.c"
+       ; };
+    } else if (rcSticks == (3 << (2 * THROTTLE)) + (3 << (2 * YAW)) + (3 << (2 * PITCH)) + (2 << (2 * ROLL))) {
+        cameraControlKeyPress(CAMERA_CONTROL_KEY_RIGHT, 0);
+        { rcDelayMs -= (3 * 50); doNotRepeat = 
+# 393 "./src/main/fc/rc_controls.c" 3 4
+       0
+# 393 "./src/main/fc/rc_controls.c"
+       ; };
+    } else if (rcSticks == (3 << (2 * THROTTLE)) + (3 << (2 * YAW)) + (1 << (2 * PITCH)) + (3 << (2 * ROLL))) {
+        cameraControlKeyPress(CAMERA_CONTROL_KEY_DOWN, 0);
+        { rcDelayMs -= (3 * 50); doNotRepeat = 
+# 396 "./src/main/fc/rc_controls.c" 3 4
+       0
+# 396 "./src/main/fc/rc_controls.c"
+       ; };
+    } else if (rcSticks == (1 << (2 * THROTTLE)) + (3 << (2 * YAW)) + (2 << (2 * PITCH)) + (3 << (2 * ROLL))) {
+        cameraControlKeyPress(CAMERA_CONTROL_KEY_UP, 2000);
+    }
+
 }
 
 int32_t getRcStickDeflection(int32_t axis, uint16_t midrc) {

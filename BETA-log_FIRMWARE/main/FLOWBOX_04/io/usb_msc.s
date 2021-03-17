@@ -9,25 +9,25 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"usb_msc.c"
-	.section	.gnu.lto_.profile.410c34db,"e",%progbits
+	.section	.gnu.lto_.profile.415f7adc,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.410c34db,"e",%progbits
+	.section	.gnu.lto_.icf.415f7adc,"e",%progbits
 	.ascii	"x\234\343``d\340`@\000F\206\367;\037\234ag\000\000\020"
 	.ascii	"\277\003n"
 	.text
-	.section	.gnu.lto_.jmpfuncs.410c34db,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415f7adc,"e",%progbits
 	.ascii	"x\234\343``d`c@\000F0\011\000\001L\000\021"
 	.text
-	.section	.gnu.lto_.inline.410c34db,"e",%progbits
+	.section	.gnu.lto_.inline.415f7adc,"e",%progbits
 	.ascii	"x\234\343``d\320f@\000F\006\006\256\351O7\275`Ned`\342"
 	.ascii	"\2328\377\305f\346\024\006\006\266\006 `Jab`\002\251"
 	.ascii	"a\342\006+\005\000\022*\011z"
 	.text
-	.section	.gnu.lto_.pureconst.410c34db,"e",%progbits
+	.section	.gnu.lto_.pureconst.415f7adc,"e",%progbits
 	.ascii	"x\234\343``d`a`\000\2223X\000\001\316\000\253"
 	.text
-	.section	.gnu.lto_mscCheckFilesystemReady.410c34db,"e",%progbits
+	.section	.gnu.lto_mscCheckFilesystemReady.415f7adc,"e",%progbits
 	.ascii	"x\234]P\317KTQ\024>\337=\357\336\367&\306\235\202\364"
 	.ascii	"6nMp\006\346\037\350\037\360o\210\234\225\013\023\032"
 	.ascii	"\202v^\337L\014\242\230\005\242\202\303S\304_\233\302"
@@ -53,18 +53,18 @@
 	.ascii	"s\245\207\305\\\377\375\276\007\271\276\201\334\243"
 	.ascii	"R\357\275\376R\261\273H\377\000\312\375\240\310"
 	.text
-	.section	.gnu.lto_.symbol_nodes.410c34db,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415f7adc,"e",%progbits
 	.ascii	"x\234\343``d\360d\000\002\246\211\214\365\014\015@\300"
 	.ascii	"\3028\341\034\003C=\003\303\256\006G\240$\020\260Nf"
 	.ascii	"dP\000\322\214\223\030\353\031\377C\201<X\031\003P\213"
 	.ascii	"\003\003\0033\003\323\302}\027\23630\2460\000\000\027"
 	.ascii	"\010\026\307"
 	.text
-	.section	.gnu.lto_.refs.410c34db,"e",%progbits
+	.section	.gnu.lto_.refs.415f7adc,"e",%progbits
 	.ascii	"x\234\343``d`c`\000\222\014\214\214\014\000\000\321"
 	.ascii	"\000\023"
 	.text
-	.section	.gnu.lto_.decls.410c34db,"e",%progbits
+	.section	.gnu.lto_.decls.415f7adc,"e",%progbits
 	.ascii	"x\234\215S]L\\E\024\236\263\263\205\335\273\013%\245"
 	.ascii	"\006\0220\222\206\246\017\246l)5\366Y\022\333'c\254"
 	.ascii	"\372\340\313\272\354\336\225\015\273l\303]H\353\323"
@@ -130,7 +130,7 @@
 	.ascii	"\315\341;\352U\355e\216\200\232\266\205E3\372\374.\365"
 	.ascii	"\205\204M7\001\261\011\356\2755+\360\027B\364\020\362"
 	.text
-	.section	.gnu.lto_.symtab.410c34db,"e",%progbits
+	.section	.gnu.lto_.symtab.415f7adc,"e",%progbits
 	.ascii	"mscCheckFilesystemReady\000"
 	.ascii	"\000"
 	.ascii	"\000"

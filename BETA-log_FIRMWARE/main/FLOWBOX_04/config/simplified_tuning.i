@@ -4968,3 +4968,5591 @@ extern uint8_t __config_end;
 # 1 "./src/main/target/common_defaults_post.h" 1
 # 153 "./src/main/platform.h" 2
 # 23 "./src/main/config/simplified_tuning.c" 2
+
+
+
+# 1 "./src/main/common/axis.h" 1
+# 21 "./src/main/common/axis.h"
+       
+
+typedef enum {
+    X = 0,
+    Y,
+    Z
+} axis_e;
+
+
+
+
+typedef enum {
+    FD_ROLL = 0,
+    FD_PITCH,
+    FD_YAW
+} flight_dynamics_index_t;
+
+
+
+typedef enum {
+    AI_ROLL = 0,
+    AI_PITCH
+} angle_index_t;
+# 27 "./src/main/config/simplified_tuning.c" 2
+# 1 "./src/main/common/maths.h" 1
+# 21 "./src/main/common/maths.h"
+       
+# 63 "./src/main/common/maths.h"
+typedef int32_t fix12_t;
+
+typedef struct stdev_s
+{
+    float m_oldM, m_newM, m_oldS, m_newS;
+    int m_n;
+} stdev_t;
+
+
+typedef struct fp_vector {
+    float X;
+    float Y;
+    float Z;
+} t_fp_vector_def;
+
+typedef union u_fp_vector {
+    float A[3];
+    t_fp_vector_def V;
+} t_fp_vector;
+
+
+
+typedef struct fp_angles {
+    float roll;
+    float pitch;
+    float yaw;
+} fp_angles_def;
+
+typedef union {
+    float raw[3];
+    fp_angles_def angles;
+} fp_angles_t;
+
+typedef struct fp_rotationMatrix_s {
+    float m[3][3];
+} fp_rotationMatrix_t;
+
+int gcd(int num, int denom);
+float powerf(float base, int exp);
+int32_t applyDeadband(int32_t value, int32_t deadband);
+float fapplyDeadband(float value, float deadband);
+
+void devClear(stdev_t *dev);
+void devPush(stdev_t *dev, float x);
+float devVariance(stdev_t *dev);
+float devStandardDeviation(stdev_t *dev);
+float degreesToRadians(int16_t degrees);
+
+int scaleRange(int x, int srcFrom, int srcTo, int destFrom, int destTo);
+float scaleRangef(float x, float srcFrom, float srcTo, float destFrom, float destTo);
+
+void normalizeV(struct fp_vector *src, struct fp_vector *dest);
+
+void rotateV(struct fp_vector *v, fp_angles_t *delta);
+void buildRotationMatrix(fp_angles_t *delta, fp_rotationMatrix_t *rotation);
+void applyRotation(float *v, fp_rotationMatrix_t *rotationMatrix);
+
+int32_t quickMedianFilter3(int32_t * v);
+int32_t quickMedianFilter5(int32_t * v);
+int32_t quickMedianFilter7(int32_t * v);
+int32_t quickMedianFilter9(int32_t * v);
+
+float quickMedianFilter3f(float * v);
+float quickMedianFilter5f(float * v);
+float quickMedianFilter7f(float * v);
+float quickMedianFilter9f(float * v);
+
+
+float sin_approx(float x);
+float cos_approx(float x);
+float atan2_approx(float y, float x);
+float acos_approx(float x);
+
+float exp_approx(float val);
+float log_approx(float val);
+float pow_approx(float a, float b);
+# 150 "./src/main/common/maths.h"
+void arraySubInt32(int32_t *dest, int32_t *array1, int32_t *array2, int count);
+
+int16_t qPercent(fix12_t q);
+int16_t qMultiply(fix12_t q, int16_t input);
+fix12_t qConstruct(int16_t num, int16_t den);
+
+static inline int constrain(int amt, int low, int high)
+{
+    if (amt < low)
+        return low;
+    else if (amt > high)
+        return high;
+    else
+        return amt;
+}
+
+static inline float constrainf(float amt, float low, float high)
+{
+    if (amt < low)
+        return low;
+    else if (amt > high)
+        return high;
+    else
+        return amt;
+}
+# 28 "./src/main/config/simplified_tuning.c" 2
+
+# 1 "./src/main/config/simplified_tuning.h" 1
+# 21 "./src/main/config/simplified_tuning.h"
+       
+
+# 1 "./src/main/flight/pid.h" 1
+# 21 "./src/main/flight/pid.h"
+       
+
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdbool.h" 1 3 4
+# 24 "./src/main/flight/pid.h" 2
+# 1 "./src/main/common/time.h" 1
+# 21 "./src/main/common/time.h"
+       
+
+
+
+
+
+
+# 1 "./src/main/pg/pg.h" 1
+# 21 "./src/main/pg/pg.h"
+       
+
+
+
+
+# 1 "./src/main/build/build_config.h" 1
+# 21 "./src/main/build/build_config.h"
+       
+# 44 "./src/main/build/build_config.h"
+typedef enum {
+    MCU_TYPE_SIMULATOR = 0,
+    MCU_TYPE_F103,
+    MCU_TYPE_F303,
+    MCU_TYPE_F40X,
+    MCU_TYPE_F411,
+    MCU_TYPE_F446,
+    MCU_TYPE_F722,
+    MCU_TYPE_F745,
+    MCU_TYPE_F746,
+    MCU_TYPE_F765,
+    MCU_TYPE_H750,
+    MCU_TYPE_H743_REV_UNKNOWN,
+    MCU_TYPE_H743_REV_Y,
+    MCU_TYPE_H743_REV_X,
+    MCU_TYPE_H743_REV_V,
+    MCU_TYPE_H7A3,
+    MCU_TYPE_H723_725,
+    MCU_TYPE_UNKNOWN = 255,
+} mcuTypeId_e;
+
+mcuTypeId_e getMcuTypeId(void);
+# 27 "./src/main/pg/pg.h" 2
+
+typedef uint16_t pgn_t;
+
+
+typedef enum {
+    PGRF_NONE = 0,
+    PGRF_CLASSIFICATON_BIT = (1 << 0)
+} pgRegistryFlags_e;
+
+typedef enum {
+    PGR_PGN_MASK = 0x0fff,
+    PGR_PGN_VERSION_MASK = 0xf000,
+    PGR_SIZE_MASK = 0x0fff,
+    PGR_SIZE_SYSTEM_FLAG = 0x0000
+} pgRegistryInternal_e;
+
+
+typedef void (pgResetFunc)(void * );
+
+typedef struct pgRegistry_s {
+    pgn_t pgn;
+    uint8_t length;
+    uint16_t size;
+    uint8_t *address;
+    uint8_t *copy;
+    uint8_t **ptr;
+    union {
+        void *ptr;
+        pgResetFunc *fn;
+    } reset;
+} pgRegistry_t;
+
+static inline uint16_t pgN(const pgRegistry_t* reg) {return reg->pgn & PGR_PGN_MASK;}
+static inline uint8_t pgVersion(const pgRegistry_t* reg) {return (uint8_t)(reg->pgn >> 12);}
+static inline uint16_t pgSize(const pgRegistry_t* reg) {return reg->size & PGR_SIZE_MASK;}
+static inline uint16_t pgElementSize(const pgRegistry_t* reg) {return (reg->size & PGR_SIZE_MASK) / reg->length;}
+# 75 "./src/main/pg/pg.h"
+extern const pgRegistry_t __pg_registry_start[];
+extern const pgRegistry_t __pg_registry_end[];
+
+
+extern const uint8_t __pg_resetdata_start[];
+extern const uint8_t __pg_resetdata_end[];
+# 194 "./src/main/pg/pg.h"
+const pgRegistry_t* pgFind(pgn_t pgn);
+
+
+# 196 "./src/main/pg/pg.h" 3 4
+_Bool 
+# 196 "./src/main/pg/pg.h"
+    pgLoad(const pgRegistry_t* reg, const void *from, int size, int version);
+int pgStore(const pgRegistry_t* reg, void *to, int size);
+void pgResetAll(void);
+void pgResetInstance(const pgRegistry_t *reg, uint8_t *base);
+
+# 200 "./src/main/pg/pg.h" 3 4
+_Bool 
+# 200 "./src/main/pg/pg.h"
+    pgResetCopy(void *copy, pgn_t pgn);
+void pgReset(const pgRegistry_t* reg);
+# 29 "./src/main/common/time.h" 2
+
+
+typedef int32_t timeDelta_t;
+
+typedef uint32_t timeMs_t ;
+
+
+
+
+
+typedef uint32_t timeUs_t;
+
+
+
+
+
+
+static inline timeDelta_t cmpTimeUs(timeUs_t a, timeUs_t b) { return (timeDelta_t)(a - b); }
+
+
+
+
+
+typedef struct timeConfig_s {
+    int16_t tz_offsetMinutes;
+} timeConfig_t;
+
+extern timeConfig_t timeConfig_System; extern timeConfig_t timeConfig_Copy; static inline const timeConfig_t* timeConfig(void) { return &timeConfig_System; } static inline timeConfig_t* timeConfigMutable(void) { return &timeConfig_System; } struct _dummy;
+
+
+typedef int64_t rtcTime_t;
+
+rtcTime_t rtcTimeMake(int32_t secs, uint16_t millis);
+int32_t rtcTimeGetSeconds(rtcTime_t *t);
+uint16_t rtcTimeGetMillis(rtcTime_t *t);
+
+typedef struct _dateTime_s {
+
+    uint16_t year;
+
+    uint8_t month;
+
+    uint8_t day;
+
+    uint8_t hours;
+
+    uint8_t minutes;
+
+    uint8_t seconds;
+
+    uint16_t millis;
+} dateTime_t;
+
+
+
+# 83 "./src/main/common/time.h" 3 4
+_Bool 
+# 83 "./src/main/common/time.h"
+    dateTimeFormatUTC(char *buf, dateTime_t *dt);
+
+# 84 "./src/main/common/time.h" 3 4
+_Bool 
+# 84 "./src/main/common/time.h"
+    dateTimeFormatLocal(char *buf, dateTime_t *dt);
+
+# 85 "./src/main/common/time.h" 3 4
+_Bool 
+# 85 "./src/main/common/time.h"
+    dateTimeFormatLocalShort(char *buf, dateTime_t *dt);
+
+void dateTimeUTCToLocal(dateTime_t *utcDateTime, dateTime_t *localDateTime);
+
+
+
+
+# 91 "./src/main/common/time.h" 3 4
+_Bool 
+# 91 "./src/main/common/time.h"
+    dateTimeSplitFormatted(char *formatted, char **date, char **time);
+
+
+# 93 "./src/main/common/time.h" 3 4
+_Bool 
+# 93 "./src/main/common/time.h"
+    rtcHasTime(void);
+
+
+# 95 "./src/main/common/time.h" 3 4
+_Bool 
+# 95 "./src/main/common/time.h"
+    rtcGet(rtcTime_t *t);
+
+# 96 "./src/main/common/time.h" 3 4
+_Bool 
+# 96 "./src/main/common/time.h"
+    rtcSet(rtcTime_t *t);
+
+
+# 98 "./src/main/common/time.h" 3 4
+_Bool 
+# 98 "./src/main/common/time.h"
+    rtcGetDateTime(dateTime_t *dt);
+
+# 99 "./src/main/common/time.h" 3 4
+_Bool 
+# 99 "./src/main/common/time.h"
+    rtcSetDateTime(dateTime_t *dt);
+
+void rtcPersistWrite(int16_t offsetMinutes);
+
+# 102 "./src/main/common/time.h" 3 4
+_Bool 
+# 102 "./src/main/common/time.h"
+    rtcPersistRead(rtcTime_t *t);
+# 25 "./src/main/flight/pid.h" 2
+# 1 "./src/main/common/filter.h" 1
+# 21 "./src/main/common/filter.h"
+       
+
+
+struct filter_s;
+typedef struct filter_s filter_t;
+
+typedef struct pt1Filter_s {
+    float state;
+    float k;
+} pt1Filter_t;
+
+typedef struct slewFilter_s {
+    float state;
+    float slewLimit;
+    float threshold;
+} slewFilter_t;
+
+
+typedef struct biquadFilter_s {
+    float b0, b1, b2, a1, a2;
+    float x1, x2, y1, y2;
+} biquadFilter_t;
+
+typedef struct laggedMovingAverage_s {
+    uint16_t movingWindowIndex;
+    uint16_t windowSize;
+    float movingSum;
+    float *buf;
+    
+# 49 "./src/main/common/filter.h" 3 4
+   _Bool 
+# 49 "./src/main/common/filter.h"
+        primed;
+} laggedMovingAverage_t;
+
+typedef enum {
+    FILTER_PT1 = 0,
+    FILTER_BIQUAD,
+} lowpassFilterType_e;
+
+typedef enum {
+    FILTER_LPF,
+    FILTER_NOTCH,
+    FILTER_BPF,
+} biquadFilterType_e;
+
+typedef float (*filterApplyFnPtr)(filter_t *filter, float input);
+
+float nullFilterApply(filter_t *filter, float input);
+
+void biquadFilterInitLPF(biquadFilter_t *filter, float filterFreq, uint32_t refreshRate);
+void biquadFilterInit(biquadFilter_t *filter, float filterFreq, uint32_t refreshRate, float Q, biquadFilterType_e filterType);
+void biquadFilterUpdate(biquadFilter_t *filter, float filterFreq, uint32_t refreshRate, float Q, biquadFilterType_e filterType);
+void biquadFilterUpdateLPF(biquadFilter_t *filter, float filterFreq, uint32_t refreshRate);
+
+float biquadFilterApplyDF1(biquadFilter_t *filter, float input);
+float biquadFilterApply(biquadFilter_t *filter, float input);
+float filterGetNotchQ(float centerFreq, float cutoffFreq);
+
+void laggedMovingAverageInit(laggedMovingAverage_t *filter, uint16_t windowSize, float *buf);
+float laggedMovingAverageUpdate(laggedMovingAverage_t *filter, float input);
+
+float pt1FilterGain(float f_cut, float dT);
+void pt1FilterInit(pt1Filter_t *filter, float k);
+void pt1FilterUpdateCutoff(pt1Filter_t *filter, float k);
+float pt1FilterApply(pt1Filter_t *filter, float input);
+
+void slewFilterInit(slewFilter_t *filter, float slewLimit, float threshold);
+float slewFilterApply(slewFilter_t *filter, float input);
+# 26 "./src/main/flight/pid.h" 2
+# 70 "./src/main/flight/pid.h"
+typedef enum {
+    PID_ROLL,
+    PID_PITCH,
+    PID_YAW,
+    PID_LEVEL,
+    PID_MAG,
+    PID_ITEM_COUNT
+} pidIndex_e;
+
+typedef enum {
+    SUPEREXPO_YAW_OFF = 0,
+    SUPEREXPO_YAW_ON,
+    SUPEREXPO_YAW_ALWAYS
+} pidSuperExpoYaw_e;
+
+typedef enum {
+    PID_STABILISATION_OFF = 0,
+    PID_STABILISATION_ON
+} pidStabilisationState_e;
+
+typedef enum {
+    PID_CRASH_RECOVERY_OFF = 0,
+    PID_CRASH_RECOVERY_ON,
+    PID_CRASH_RECOVERY_BEEP,
+    PID_CRASH_RECOVERY_DISARM,
+} pidCrashRecovery_e;
+
+typedef struct pidf_s {
+    uint8_t P;
+    uint8_t I;
+    uint8_t D;
+    uint16_t F;
+} pidf_t;
+
+typedef enum {
+    ANTI_GRAVITY_SMOOTH,
+    ANTI_GRAVITY_STEP
+} antiGravityMode_e;
+
+typedef enum {
+    ITERM_RELAX_OFF,
+    ITERM_RELAX_RP,
+    ITERM_RELAX_RPY,
+    ITERM_RELAX_RP_INC,
+    ITERM_RELAX_RPY_INC,
+    ITERM_RELAX_COUNT,
+} itermRelax_e;
+
+typedef enum {
+    ITERM_RELAX_GYRO,
+    ITERM_RELAX_SETPOINT,
+    ITERM_RELAX_TYPE_COUNT,
+} itermRelaxType_e;
+
+typedef enum ffInterpolationType_e {
+    FF_INTERPOLATE_OFF,
+    FF_INTERPOLATE_ON,
+    FF_INTERPOLATE_AVG2,
+    FF_INTERPOLATE_AVG3,
+    FF_INTERPOLATE_AVG4
+} ffInterpolationType_t;
+
+
+
+typedef struct pidProfile_s {
+    uint16_t yaw_lowpass_hz;
+    uint16_t dterm_lowpass_hz;
+    uint16_t dterm_notch_hz;
+    uint16_t dterm_notch_cutoff;
+
+    pidf_t pid[PID_ITEM_COUNT];
+
+    uint8_t dterm_filter_type;
+    uint8_t itermWindupPointPercent;
+    uint16_t pidSumLimit;
+    uint16_t pidSumLimitYaw;
+    uint8_t pidAtMinThrottle;
+    uint8_t levelAngleLimit;
+
+    uint8_t horizon_tilt_effect;
+    uint8_t horizon_tilt_expert_mode;
+
+
+    uint8_t antiGravityMode;
+    uint16_t itermThrottleThreshold;
+    uint16_t itermAcceleratorGain;
+    uint16_t yawRateAccelLimit;
+    uint16_t rateAccelLimit;
+    uint16_t crash_dthreshold;
+    uint16_t crash_gthreshold;
+    uint16_t crash_setpoint_threshold;
+    uint16_t crash_time;
+    uint16_t crash_delay;
+    uint8_t crash_recovery_angle;
+    uint8_t crash_recovery_rate;
+    uint8_t feedForwardTransition;
+    uint16_t crash_limit_yaw;
+    uint16_t itermLimit;
+    uint16_t dterm_lowpass2_hz;
+    uint8_t crash_recovery;
+    uint8_t throttle_boost;
+    uint8_t throttle_boost_cutoff;
+    uint8_t iterm_rotation;
+    uint8_t iterm_relax_type;
+    uint8_t iterm_relax_cutoff;
+    uint8_t iterm_relax;
+    uint8_t acro_trainer_angle_limit;
+    uint8_t acro_trainer_debug_axis;
+    uint8_t acro_trainer_gain;
+    uint16_t acro_trainer_lookahead_ms;
+    uint8_t abs_control_gain;
+    uint8_t abs_control_limit;
+    uint8_t abs_control_error_limit;
+    uint8_t abs_control_cutoff;
+    uint8_t dterm_filter2_type;
+    uint16_t dyn_lpf_dterm_min_hz;
+    uint16_t dyn_lpf_dterm_max_hz;
+    uint8_t launchControlMode;
+    uint8_t launchControlThrottlePercent;
+    uint8_t launchControlAngleLimit;
+    uint8_t launchControlGain;
+    uint8_t launchControlAllowTriggerReset;
+    uint8_t use_integrated_yaw;
+    uint8_t integrated_yaw_relax;
+    uint8_t thrustLinearization;
+    uint8_t d_min[3];
+    uint8_t d_min_gain;
+    uint8_t d_min_advance;
+    uint8_t motor_output_limit;
+    int8_t auto_profile_cell_count;
+    uint8_t transient_throttle_limit;
+    uint8_t ff_boost;
+    char profileName[8u + 1];
+
+    uint8_t dyn_idle_min_rpm;
+    uint8_t dyn_idle_p_gain;
+    uint8_t dyn_idle_i_gain;
+    uint8_t dyn_idle_d_gain;
+    uint8_t dyn_idle_max_increase;
+
+    uint8_t ff_interpolate_sp;
+    uint8_t ff_max_rate_limit;
+    uint8_t ff_smooth_factor;
+    uint8_t dyn_lpf_curve_expo;
+    uint8_t level_race_mode;
+    uint8_t vbat_sag_compensation;
+
+    uint8_t simplified_pids_mode;
+    uint8_t simplified_master_multiplier;
+    uint8_t simplified_roll_pitch_ratio;
+    uint8_t simplified_i_gain;
+    uint8_t simplified_pd_ratio;
+    uint8_t simplified_pd_gain;
+    uint8_t simplified_dmin_ratio;
+    uint8_t simplified_ff_gain;
+
+    uint8_t simplified_dterm_filter;
+    uint8_t simplified_dterm_filter_multiplier;
+} pidProfile_t;
+
+extern pidProfile_t pidProfiles_SystemArray[3]; extern pidProfile_t pidProfiles_CopyArray[3]; static inline const pidProfile_t* pidProfiles(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t* pidProfilesMutable(int _index) { return &pidProfiles_SystemArray[_index]; } static inline pidProfile_t (* pidProfiles_array(void))[3] { return &pidProfiles_SystemArray; } struct _dummy;
+
+typedef struct pidConfig_s {
+    uint8_t pid_process_denom;
+    uint8_t runaway_takeoff_prevention;
+    uint16_t runaway_takeoff_deactivate_delay;
+    uint8_t runaway_takeoff_deactivate_throttle;
+} pidConfig_t;
+
+extern pidConfig_t pidConfig_System; extern pidConfig_t pidConfig_Copy; static inline const pidConfig_t* pidConfig(void) { return &pidConfig_System; } static inline pidConfig_t* pidConfigMutable(void) { return &pidConfig_System; } struct _dummy;
+
+union rollAndPitchTrims_u;
+void pidController(const pidProfile_t *pidProfile, timeUs_t currentTimeUs);
+
+typedef struct pidAxisData_s {
+    float P;
+    float I;
+    float D;
+    float F;
+
+    float Sum;
+} pidAxisData_t;
+
+typedef union dtermLowpass_u {
+    pt1Filter_t pt1Filter;
+    biquadFilter_t biquadFilter;
+} dtermLowpass_t;
+
+typedef struct pidCoefficient_s {
+    float Kp;
+    float Ki;
+    float Kd;
+    float Kf;
+} pidCoefficient_t;
+
+typedef struct pidRuntime_s {
+    float dT;
+    float pidFrequency;
+    
+# 268 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 268 "./src/main/flight/pid.h"
+        pidStabilisationEnabled;
+    float previousPidSetpoint[3];
+    filterApplyFnPtr dtermNotchApplyFn;
+    biquadFilter_t dtermNotch[3];
+    filterApplyFnPtr dtermLowpassApplyFn;
+    dtermLowpass_t dtermLowpass[3];
+    filterApplyFnPtr dtermLowpass2ApplyFn;
+    dtermLowpass_t dtermLowpass2[3];
+    filterApplyFnPtr ptermYawLowpassApplyFn;
+    pt1Filter_t ptermYawLowpass;
+    
+# 278 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 278 "./src/main/flight/pid.h"
+        antiGravityEnabled;
+    uint8_t antiGravityMode;
+    pt1Filter_t antiGravityThrottleLpf;
+    pt1Filter_t antiGravitySmoothLpf;
+    float antiGravityOsdCutoff;
+    float antiGravityThrottleHpf;
+    float antiGravityPBoost;
+    float ffBoostFactor;
+    float itermAccelerator;
+    uint16_t itermAcceleratorGain;
+    float feedForwardTransition;
+    pidCoefficient_t pidCoefficient[3];
+    float levelGain;
+    float horizonGain;
+    float horizonTransition;
+    float horizonCutoffDegrees;
+    float horizonFactorRatio;
+    uint8_t horizonTiltExpertMode;
+    float maxVelocity[3];
+    float itermWindupPointInv;
+    
+# 298 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 298 "./src/main/flight/pid.h"
+        inCrashRecoveryMode;
+    timeUs_t crashDetectedAtUs;
+    timeDelta_t crashTimeLimitUs;
+    timeDelta_t crashTimeDelayUs;
+    int32_t crashRecoveryAngleDeciDegrees;
+    float crashRecoveryRate;
+    float crashGyroThreshold;
+    float crashDtermThreshold;
+    float crashSetpointThreshold;
+    float crashLimitYaw;
+    float itermLimit;
+    
+# 309 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 309 "./src/main/flight/pid.h"
+        itermRotation;
+    
+# 310 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 310 "./src/main/flight/pid.h"
+        zeroThrottleItermReset;
+    
+# 311 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 311 "./src/main/flight/pid.h"
+        levelRaceMode;
+
+
+    pt1Filter_t windupLpf[3];
+    uint8_t itermRelax;
+    uint8_t itermRelaxType;
+    uint8_t itermRelaxCutoff;
+
+
+
+    float acCutoff;
+    float acGain;
+    float acLimit;
+    float acErrorLimit;
+    pt1Filter_t acLpf[3];
+    float oldSetpointCorrection[3];
+
+
+
+    biquadFilter_t dMinRange[3];
+    pt1Filter_t dMinLowpass[3];
+    float dMinPercent[3];
+    float dMinGyroGain;
+    float dMinSetpointGain;
+
+
+
+    pt1Filter_t airmodeThrottleLpf1;
+    pt1Filter_t airmodeThrottleLpf2;
+
+
+
+    pt1Filter_t setpointDerivativePt1[3];
+    biquadFilter_t setpointDerivativeBiquad[3];
+    
+# 345 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 345 "./src/main/flight/pid.h"
+        setpointDerivativeLpfInitialized;
+    uint8_t rcSmoothingDebugAxis;
+    uint8_t rcSmoothingFilterType;
+
+
+
+    float acroTrainerAngleLimit;
+    float acroTrainerLookaheadTime;
+    uint8_t acroTrainerDebugAxis;
+    float acroTrainerGain;
+    
+# 355 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 355 "./src/main/flight/pid.h"
+        acroTrainerActive;
+    int acroTrainerAxisState[2];
+
+
+
+    uint8_t dynLpfFilter;
+    uint16_t dynLpfMin;
+    uint16_t dynLpfMax;
+    uint8_t dynLpfCurveExpo;
+
+
+
+    uint8_t launchControlMode;
+    uint8_t launchControlAngleLimit;
+    float launchControlKi;
+
+
+
+    
+# 373 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 373 "./src/main/flight/pid.h"
+        useIntegratedYaw;
+    uint8_t integratedYawRelax;
+
+
+
+    float thrustLinearization;
+    float throttleCompensateAmount;
+
+
+
+    float airmodeThrottleOffsetLimit;
+
+
+
+    ffInterpolationType_t ffFromInterpolatedSetpoint;
+    float ffSmoothFactor;
+
+} pidRuntime_t;
+
+extern pidRuntime_t pidRuntime;
+
+extern const char pidNames[];
+
+extern pidAxisData_t pidData[3];
+
+extern uint32_t targetPidLooptime;
+
+extern float throttleBoost;
+extern pt1Filter_t throttleLpf;
+
+void pidResetIterm(void);
+void pidStabilisationState(pidStabilisationState_e pidControllerState);
+void pidSetItermAccelerator(float newItermAccelerator);
+
+# 406 "./src/main/flight/pid.h" 3 4
+_Bool 
+# 406 "./src/main/flight/pid.h"
+    crashRecoveryModeActive(void);
+void pidAcroTrainerInit(void);
+void pidSetAcroTrainerState(
+# 408 "./src/main/flight/pid.h" 3 4
+                           _Bool 
+# 408 "./src/main/flight/pid.h"
+                                newState);
+void pidUpdateAntiGravityThrottleFilter(float throttle);
+
+# 410 "./src/main/flight/pid.h" 3 4
+_Bool 
+# 410 "./src/main/flight/pid.h"
+    pidOsdAntiGravityActive(void);
+
+# 411 "./src/main/flight/pid.h" 3 4
+_Bool 
+# 411 "./src/main/flight/pid.h"
+    pidOsdAntiGravityMode(void);
+void pidSetAntiGravityState(
+# 412 "./src/main/flight/pid.h" 3 4
+                           _Bool 
+# 412 "./src/main/flight/pid.h"
+                                newState);
+
+# 413 "./src/main/flight/pid.h" 3 4
+_Bool 
+# 413 "./src/main/flight/pid.h"
+    pidAntiGravityEnabled(void);
+
+
+float pidApplyThrustLinearization(float motorValue);
+float pidCompensateThrustLinearization(float throttle);
+
+
+
+void pidUpdateAirmodeLpf(float currentOffset);
+float pidGetAirmodeThrottleOffset();
+# 436 "./src/main/flight/pid.h"
+void dynLpfDTermUpdate(float throttle);
+void pidSetItermReset(
+# 437 "./src/main/flight/pid.h" 3 4
+                     _Bool 
+# 437 "./src/main/flight/pid.h"
+                          enabled);
+float pidGetPreviousSetpoint(int axis);
+float pidGetDT();
+float pidGetPidFrequency();
+float pidGetFfBoostFactor();
+float pidGetFfSmoothFactor();
+float dynLpfCutoffFreq(float throttle, uint16_t dynLpfMin, uint16_t dynLpfMax, uint8_t expo);
+# 24 "./src/main/config/simplified_tuning.h" 2
+
+
+
+
+
+typedef enum {
+    PID_SIMPLIFIED_TUNING_OFF = 0,
+    PID_SIMPLIFIED_TUNING_RP,
+    PID_SIMPLIFIED_TUNING_RPY,
+    PID_SIMPLIFIED_TUNING_MODE_COUNT,
+} pidSimplifiedTuningMode_e;
+
+void applySimplifiedTuning(pidProfile_t *pidProfile);
+# 30 "./src/main/config/simplified_tuning.c" 2
+
+# 1 "./src/main/sensors/gyro.h" 1
+# 21 "./src/main/sensors/gyro.h"
+       
+
+
+
+
+
+# 1 "./src/main/drivers/accgyro/accgyro.h" 1
+# 21 "./src/main/drivers/accgyro/accgyro.h"
+       
+
+
+
+
+
+# 1 "./src/main/common/sensor_alignment.h" 1
+# 21 "./src/main/common/sensor_alignment.h"
+       
+
+
+
+
+typedef enum {
+    ALIGN_DEFAULT = 0,
+
+
+
+
+    CW0_DEG = 1,
+    CW90_DEG = 2,
+    CW180_DEG = 3,
+    CW270_DEG = 4,
+    CW0_DEG_FLIP = 5,
+    CW90_DEG_FLIP = 6,
+    CW180_DEG_FLIP = 7,
+    CW270_DEG_FLIP = 8,
+
+    ALIGN_CUSTOM = 9,
+} sensor_align_e;
+
+typedef union sensorAlignment_u {
+
+
+
+
+    int16_t raw[3];
+    struct {
+        int16_t roll;
+        int16_t pitch;
+        int16_t yaw;
+    };
+} sensorAlignment_t;
+# 72 "./src/main/common/sensor_alignment.h"
+void buildRotationMatrixFromAlignment(const sensorAlignment_t* alignment, fp_rotationMatrix_t* rm);
+void buildAlignmentFromStandardAlignment(sensorAlignment_t* sensorAlignment, sensor_align_e alignment);
+# 28 "./src/main/drivers/accgyro/accgyro.h" 2
+# 1 "./src/main/drivers/exti.h" 1
+# 21 "./src/main/drivers/exti.h"
+       
+
+
+
+# 1 "./src/main/drivers/io_types.h" 1
+# 21 "./src/main/drivers/io_types.h"
+       
+
+
+
+
+
+typedef uint8_t ioTag_t;
+typedef void* IO_t;
+# 48 "./src/main/drivers/io_types.h"
+typedef uint8_t ioConfig_t;
+# 26 "./src/main/drivers/exti.h" 2
+
+typedef enum {
+    BETAFLIGHT_EXTI_TRIGGER_RISING = 0,
+    BETAFLIGHT_EXTI_TRIGGER_FALLING = 1,
+    BETAFLIGHT_EXTI_TRIGGER_BOTH = 2
+} extiTrigger_t;
+
+typedef struct extiCallbackRec_s extiCallbackRec_t;
+typedef void extiHandlerCallback(extiCallbackRec_t *self);
+
+struct extiCallbackRec_s {
+    extiHandlerCallback *fn;
+};
+
+void EXTIInit(void);
+
+void EXTIHandlerInit(extiCallbackRec_t *cb, extiHandlerCallback *fn);
+void EXTIConfig(IO_t io, extiCallbackRec_t *cb, int irqPriority, ioConfig_t config, extiTrigger_t trigger);
+void EXTIRelease(IO_t io);
+void EXTIEnable(IO_t io, 
+# 45 "./src/main/drivers/exti.h" 3 4
+                        _Bool 
+# 45 "./src/main/drivers/exti.h"
+                             enable);
+# 29 "./src/main/drivers/accgyro/accgyro.h" 2
+# 1 "./src/main/drivers/bus.h" 1
+# 21 "./src/main/drivers/bus.h"
+       
+
+
+
+# 1 "./src/main/drivers/bus_i2c.h" 1
+# 21 "./src/main/drivers/bus_i2c.h"
+       
+
+
+
+
+# 1 "./src/main/drivers/rcc_types.h" 1
+# 21 "./src/main/drivers/rcc_types.h"
+       
+
+
+
+
+typedef uint8_t rccPeriphTag_t;
+# 27 "./src/main/drivers/bus_i2c.h" 2
+
+
+
+
+
+typedef enum I2CDevice {
+    I2CINVALID = -1,
+    I2CDEV_1 = 0,
+    I2CDEV_2,
+    I2CDEV_3,
+    I2CDEV_4,
+} I2CDevice;
+# 58 "./src/main/drivers/bus_i2c.h"
+struct i2cConfig_s;
+void i2cHardwareConfigure(const struct i2cConfig_s *i2cConfig);
+void i2cInit(I2CDevice device);
+
+# 61 "./src/main/drivers/bus_i2c.h" 3 4
+_Bool 
+# 61 "./src/main/drivers/bus_i2c.h"
+    i2cWriteBuffer(I2CDevice device, uint8_t addr_, uint8_t reg_, uint8_t len_, uint8_t *data);
+
+# 62 "./src/main/drivers/bus_i2c.h" 3 4
+_Bool 
+# 62 "./src/main/drivers/bus_i2c.h"
+    i2cWrite(I2CDevice device, uint8_t addr_, uint8_t reg, uint8_t data);
+
+# 63 "./src/main/drivers/bus_i2c.h" 3 4
+_Bool 
+# 63 "./src/main/drivers/bus_i2c.h"
+    i2cReadBuffer(I2CDevice device, uint8_t addr_, uint8_t reg, uint8_t len, uint8_t* buf);
+
+# 64 "./src/main/drivers/bus_i2c.h" 3 4
+_Bool 
+# 64 "./src/main/drivers/bus_i2c.h"
+    i2cRead(I2CDevice device, uint8_t addr_, uint8_t reg, uint8_t len, uint8_t* buf);
+
+# 65 "./src/main/drivers/bus_i2c.h" 3 4
+_Bool 
+# 65 "./src/main/drivers/bus_i2c.h"
+    i2cBusy(I2CDevice device, 
+# 65 "./src/main/drivers/bus_i2c.h" 3 4
+                              _Bool 
+# 65 "./src/main/drivers/bus_i2c.h"
+                                   *error);
+
+uint16_t i2cGetErrorCounter(void);
+uint8_t i2cGetRegisteredDeviceCount(void);
+# 26 "./src/main/drivers/bus.h" 2
+
+
+typedef enum {
+    BUSTYPE_NONE = 0,
+    BUSTYPE_I2C,
+    BUSTYPE_SPI,
+    BUSTYPE_MPU_SLAVE,
+    BUSTYPE_GYRO_AUTO,
+} busType_e;
+
+struct spiDevice_s;
+
+typedef struct busDevice_s {
+    busType_e bustype;
+    union {
+        struct deviceSpi_s {
+            SPI_TypeDef *instance;
+
+            struct SPIDevice_s *device;
+
+            uint16_t modeCache;
+
+
+
+
+            IO_t csnPin;
+        } spi;
+        struct deviceI2C_s {
+            I2CDevice device;
+            uint8_t address;
+        } i2c;
+        struct deviceMpuSlave_s {
+            const struct busDevice_s *master;
+            uint8_t address;
+        } mpuSlave;
+    } busdev_u;
+} busDevice_t;
+
+
+
+
+
+
+# 68 "./src/main/drivers/bus.h" 3 4
+_Bool 
+# 68 "./src/main/drivers/bus.h"
+    busRawWriteRegister(const busDevice_t *bus, uint8_t reg, uint8_t data);
+
+# 69 "./src/main/drivers/bus.h" 3 4
+_Bool 
+# 69 "./src/main/drivers/bus.h"
+    busWriteRegister(const busDevice_t *bus, uint8_t reg, uint8_t data);
+
+# 70 "./src/main/drivers/bus.h" 3 4
+_Bool 
+# 70 "./src/main/drivers/bus.h"
+    busRawWriteRegisterStart(const busDevice_t *bus, uint8_t reg, uint8_t data);
+
+# 71 "./src/main/drivers/bus.h" 3 4
+_Bool 
+# 71 "./src/main/drivers/bus.h"
+    busWriteRegisterStart(const busDevice_t *bus, uint8_t reg, uint8_t data);
+
+# 72 "./src/main/drivers/bus.h" 3 4
+_Bool 
+# 72 "./src/main/drivers/bus.h"
+    busRawReadRegisterBuffer(const busDevice_t *bus, uint8_t reg, uint8_t *data, uint8_t length);
+
+# 73 "./src/main/drivers/bus.h" 3 4
+_Bool 
+# 73 "./src/main/drivers/bus.h"
+    busReadRegisterBuffer(const busDevice_t *bus, uint8_t reg, uint8_t *data, uint8_t length);
+uint8_t busReadRegister(const busDevice_t *bus, uint8_t reg);
+
+# 75 "./src/main/drivers/bus.h" 3 4
+_Bool 
+# 75 "./src/main/drivers/bus.h"
+    busRawReadRegisterBufferStart(const busDevice_t *busdev, uint8_t reg, uint8_t *data, uint8_t length);
+
+# 76 "./src/main/drivers/bus.h" 3 4
+_Bool 
+# 76 "./src/main/drivers/bus.h"
+    busReadRegisterBufferStart(const busDevice_t *busdev, uint8_t reg, uint8_t *data, uint8_t length);
+
+# 77 "./src/main/drivers/bus.h" 3 4
+_Bool 
+# 77 "./src/main/drivers/bus.h"
+    busBusy(const busDevice_t *busdev, 
+# 77 "./src/main/drivers/bus.h" 3 4
+                                       _Bool 
+# 77 "./src/main/drivers/bus.h"
+                                            *error);
+void busDeviceRegister(const busDevice_t *busdev);
+# 30 "./src/main/drivers/accgyro/accgyro.h" 2
+# 1 "./src/main/drivers/sensor.h" 1
+# 21 "./src/main/drivers/sensor.h"
+       
+
+
+
+
+typedef 
+# 26 "./src/main/drivers/sensor.h" 3 4
+       _Bool 
+# 26 "./src/main/drivers/sensor.h"
+            (*sensorInterruptFuncPtr)(void);
+struct magDev_s;
+typedef 
+# 28 "./src/main/drivers/sensor.h" 3 4
+       _Bool 
+# 28 "./src/main/drivers/sensor.h"
+            (*sensorMagInitFuncPtr)(struct magDev_s *magdev);
+typedef 
+# 29 "./src/main/drivers/sensor.h" 3 4
+       _Bool 
+# 29 "./src/main/drivers/sensor.h"
+            (*sensorMagReadFuncPtr)(struct magDev_s *magdev, int16_t *data);
+struct accDev_s;
+typedef void (*sensorAccInitFuncPtr)(struct accDev_s *acc);
+typedef 
+# 32 "./src/main/drivers/sensor.h" 3 4
+       _Bool 
+# 32 "./src/main/drivers/sensor.h"
+            (*sensorAccReadFuncPtr)(struct accDev_s *acc);
+struct gyroDev_s;
+typedef void (*sensorGyroInitFuncPtr)(struct gyroDev_s *gyro);
+typedef 
+# 35 "./src/main/drivers/sensor.h" 3 4
+       _Bool 
+# 35 "./src/main/drivers/sensor.h"
+            (*sensorGyroReadFuncPtr)(struct gyroDev_s *gyro);
+typedef 
+# 36 "./src/main/drivers/sensor.h" 3 4
+       _Bool 
+# 36 "./src/main/drivers/sensor.h"
+            (*sensorGyroReadDataFuncPtr)(struct gyroDev_s *gyro, int16_t *data);
+# 31 "./src/main/drivers/accgyro/accgyro.h" 2
+# 1 "./src/main/drivers/accgyro/accgyro_mpu.h" 1
+# 21 "./src/main/drivers/accgyro/accgyro_mpu.h"
+       
+# 144 "./src/main/drivers/accgyro/accgyro_mpu.h"
+enum gyro_fsr_e {
+    INV_FSR_250DPS = 0,
+    INV_FSR_500DPS,
+    INV_FSR_1000DPS,
+    INV_FSR_2000DPS,
+    NUM_GYRO_FSR
+};
+
+enum icm_high_range_gyro_fsr_e {
+    ICM_HIGH_RANGE_FSR_500DPS = 0,
+    ICM_HIGH_RANGE_FSR_1000DPS,
+    ICM_HIGH_RANGE_FSR_2000DPS,
+    ICM_HIGH_RANGE_FSR_4000DPS,
+    NUM_ICM_HIGH_RANGE_GYRO_FSR
+};
+
+enum clock_sel_e {
+    INV_CLK_INTERNAL = 0,
+    INV_CLK_PLL,
+    NUM_CLK
+};
+
+enum accel_fsr_e {
+    INV_FSR_2G = 0,
+    INV_FSR_4G,
+    INV_FSR_8G,
+    INV_FSR_16G,
+    NUM_ACCEL_FSR
+};
+
+enum icm_high_range_accel_fsr_e {
+    ICM_HIGH_RANGE_FSR_4G = 0,
+    ICM_HIGH_RANGE_FSR_8G,
+    ICM_HIGH_RANGE_FSR_16G,
+    ICM_HIGH_RANGE_FSR_32G,
+    NUM_ICM_HIGH_RANGE_ACCEL_FSR
+};
+
+typedef enum {
+    GYRO_OVERFLOW_NONE = 0x00,
+    GYRO_OVERFLOW_X = 0x01,
+    GYRO_OVERFLOW_Y = 0x02,
+    GYRO_OVERFLOW_Z = 0x04
+} gyroOverflow_e;
+
+typedef enum {
+    MPU_NONE,
+    MPU_3050,
+    MPU_60x0,
+    MPU_60x0_SPI,
+    MPU_65xx_I2C,
+    MPU_65xx_SPI,
+    MPU_9250_SPI,
+    ICM_20601_SPI,
+    ICM_20602_SPI,
+    ICM_20608_SPI,
+    ICM_20649_SPI,
+    ICM_20689_SPI,
+    ICM_42605_SPI,
+    BMI_160_SPI,
+    BMI_270_SPI,
+    LSM6DSO_SPI,
+    L3GD20_SPI,
+} mpuSensor_e;
+
+typedef enum {
+    MPU_HALF_RESOLUTION,
+    MPU_FULL_RESOLUTION
+} mpu6050Resolution_e;
+
+typedef struct mpuDetectionResult_s {
+    mpuSensor_e sensor;
+    mpu6050Resolution_e resolution;
+} mpuDetectionResult_t;
+
+struct gyroDev_s;
+struct gyroDeviceConfig_s;
+void mpuGyroInit(struct gyroDev_s *gyro);
+
+# 222 "./src/main/drivers/accgyro/accgyro_mpu.h" 3 4
+_Bool 
+# 222 "./src/main/drivers/accgyro/accgyro_mpu.h"
+    mpuGyroRead(struct gyroDev_s *gyro);
+
+# 223 "./src/main/drivers/accgyro/accgyro_mpu.h" 3 4
+_Bool 
+# 223 "./src/main/drivers/accgyro/accgyro_mpu.h"
+    mpuGyroReadSPI(struct gyroDev_s *gyro);
+void mpuPreInit(const struct gyroDeviceConfig_s *config);
+
+# 225 "./src/main/drivers/accgyro/accgyro_mpu.h" 3 4
+_Bool 
+# 225 "./src/main/drivers/accgyro/accgyro_mpu.h"
+    mpuDetect(struct gyroDev_s *gyro, const struct gyroDeviceConfig_s *config);
+uint8_t mpuGyroDLPF(struct gyroDev_s *gyro);
+uint8_t mpuGyroReadRegister(const busDevice_t *bus, uint8_t reg);
+
+struct accDev_s;
+
+# 230 "./src/main/drivers/accgyro/accgyro_mpu.h" 3 4
+_Bool 
+# 230 "./src/main/drivers/accgyro/accgyro_mpu.h"
+    mpuAccRead(struct accDev_s *acc);
+# 32 "./src/main/drivers/accgyro/accgyro.h" 2
+
+#pragma GCC diagnostic push
+
+
+
+#pragma GCC diagnostic warning "-Wpadded"
+
+
+
+
+
+typedef enum {
+    GYRO_NONE = 0,
+    GYRO_DEFAULT,
+    GYRO_MPU6050,
+    GYRO_L3G4200D,
+    GYRO_MPU3050,
+    GYRO_L3GD20,
+    GYRO_MPU6000,
+    GYRO_MPU6500,
+    GYRO_MPU9250,
+    GYRO_ICM20601,
+    GYRO_ICM20602,
+    GYRO_ICM20608G,
+    GYRO_ICM20649,
+    GYRO_ICM20689,
+    GYRO_ICM42605,
+    GYRO_BMI160,
+    GYRO_BMI270,
+    GYRO_LSM6DSO,
+    GYRO_FAKE
+} gyroHardware_e;
+
+typedef enum {
+    GYRO_HARDWARE_LPF_NORMAL,
+
+    GYRO_HARDWARE_LPF_EXPERIMENTAL
+
+} gyroHardwareLpf_e;
+
+typedef enum {
+    GYRO_RATE_1_kHz,
+    GYRO_RATE_1100_Hz,
+    GYRO_RATE_3200_Hz,
+    GYRO_RATE_6400_Hz,
+    GYRO_RATE_6664_Hz,
+    GYRO_RATE_8_kHz,
+    GYRO_RATE_9_kHz,
+    GYRO_RATE_32_kHz,
+} gyroRateKHz_e;
+
+typedef struct gyroDev_s {
+
+
+
+    sensorGyroInitFuncPtr initFn;
+    sensorGyroReadFuncPtr readFn;
+    sensorGyroReadDataFuncPtr temperatureFn;
+    extiCallbackRec_t exti;
+    busDevice_t bus;
+    float scale;
+    float gyroZero[3];
+    float gyroADC[3];
+    int32_t gyroADCRawPrevious[3];
+    int16_t gyroADCRaw[3];
+    int16_t temperature;
+    mpuDetectionResult_t mpuDetectionResult;
+    sensor_align_e gyroAlign;
+    gyroRateKHz_e gyroRateKHz;
+    
+# 101 "./src/main/drivers/accgyro/accgyro.h" 3 4
+   _Bool 
+# 101 "./src/main/drivers/accgyro/accgyro.h"
+        dataReady;
+    
+# 102 "./src/main/drivers/accgyro/accgyro.h" 3 4
+   _Bool 
+# 102 "./src/main/drivers/accgyro/accgyro.h"
+        gyro_high_fsr;
+    uint8_t hardware_lpf;
+    uint8_t hardware_32khz_lpf;
+    uint8_t mpuDividerDrops;
+    ioTag_t mpuIntExtiTag;
+    uint8_t gyroHasOverflowProtection;
+    gyroHardware_e gyroHardware;
+    fp_rotationMatrix_t rotationMatrix;
+    uint16_t gyroSampleRateHz;
+    uint16_t accSampleRateHz;
+} gyroDev_t;
+
+typedef struct accDev_s {
+
+
+
+    float acc_1G_rec;
+    sensorAccInitFuncPtr initFn;
+    sensorAccReadFuncPtr readFn;
+    busDevice_t bus;
+    uint16_t acc_1G;
+    int16_t ADCRaw[3];
+    mpuDetectionResult_t mpuDetectionResult;
+    sensor_align_e accAlign;
+    
+# 126 "./src/main/drivers/accgyro/accgyro.h" 3 4
+   _Bool 
+# 126 "./src/main/drivers/accgyro/accgyro.h"
+        dataReady;
+    
+# 127 "./src/main/drivers/accgyro/accgyro.h" 3 4
+   _Bool 
+# 127 "./src/main/drivers/accgyro/accgyro.h"
+        acc_high_fsr;
+    char revisionCode;
+    uint8_t filler[2];
+    fp_rotationMatrix_t rotationMatrix;
+} accDev_t;
+
+static inline void accDevLock(accDev_t *acc)
+{
+
+
+
+    (void)acc;
+
+}
+
+static inline void accDevUnLock(accDev_t *acc)
+{
+
+
+
+    (void)acc;
+
+}
+
+static inline void gyroDevLock(gyroDev_t *gyro)
+{
+
+
+
+    (void)gyro;
+
+}
+
+static inline void gyroDevUnLock(gyroDev_t *gyro)
+{
+
+
+
+    (void)gyro;
+
+}
+#pragma GCC diagnostic pop
+# 28 "./src/main/sensors/gyro.h" 2
+
+
+
+
+# 1 "./src/main/flight/gyroanalyse.h" 1
+# 21 "./src/main/flight/gyroanalyse.h"
+       
+
+# 1 "./lib/main/CMSIS/DSP/Include/arm_math.h" 1
+# 298 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+#pragma GCC diagnostic ignored "-Wconversion"
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+# 322 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+# 1 "./lib/main/CMSIS/Core/Include/core_cm4.h" 1
+# 323 "./lib/main/CMSIS/DSP/Include/arm_math.h" 2
+# 345 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 1 3
+# 17 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 18 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+
+
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 1 3
+# 9 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 3
+
+# 9 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 3
+struct __locale_t;
+typedef struct __locale_t *locale_t;
+# 21 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+
+
+
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 1 3
+# 44 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 3
+
+
+int bcmp(const void *, const void *, size_t) __attribute__((__pure__));
+void bcopy(const void *, void *, size_t);
+void bzero(void *, size_t);
+
+
+void explicit_bzero(void *, size_t);
+
+
+int ffs(int) __attribute__((__const__));
+
+
+int ffsl(long) __attribute__((__const__));
+int ffsll(long long) __attribute__((__const__));
+int fls(int) __attribute__((__const__));
+int flsl(long) __attribute__((__const__));
+int flsll(long long) __attribute__((__const__));
+
+
+char *index(const char *, int) __attribute__((__pure__));
+char *rindex(const char *, int) __attribute__((__pure__));
+
+int strcasecmp(const char *, const char *) __attribute__((__pure__));
+int strncasecmp(const char *, const char *, size_t) __attribute__((__pure__));
+
+
+int strcasecmp_l (const char *, const char *, locale_t);
+int strncasecmp_l (const char *, const char *, size_t, locale_t);
+
+
+# 25 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+
+
+
+
+void * memchr (const void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void * memcpy (void *restrict, const void *restrict, size_t);
+void * memmove (void *, const void *, size_t);
+void * memset (void *, int, size_t);
+char *strcat (char *restrict, const char *restrict);
+char *strchr (const char *, int);
+int strcmp (const char *, const char *);
+int strcoll (const char *, const char *);
+char *strcpy (char *restrict, const char *restrict);
+size_t strcspn (const char *, const char *);
+char *strerror (int);
+size_t strlen (const char *);
+char *strncat (char *restrict, const char *restrict, size_t);
+int strncmp (const char *, const char *, size_t);
+char *strncpy (char *restrict, const char *restrict, size_t);
+char *strpbrk (const char *, const char *);
+char *strrchr (const char *, int);
+size_t strspn (const char *, const char *);
+char *strstr (const char *, const char *);
+
+char *strtok (char *restrict, const char *restrict);
+
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+
+int strcoll_l (const char *, const char *, locale_t);
+char *strerror_l (int, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
+
+
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+
+
+int timingsafe_bcmp (const void *, const void *, size_t);
+int timingsafe_memcmp (const void *, const void *, size_t);
+
+
+void * memccpy (void *restrict, const void *restrict, int, size_t);
+
+
+void * mempcpy (void *, const void *, size_t);
+void * memmem (const void *, size_t, const void *, size_t);
+void * memrchr (const void *, int, size_t);
+void * rawmemchr (const void *, int);
+
+
+char *stpcpy (char *restrict, const char *restrict);
+char *stpncpy (char *restrict, const char *restrict, size_t);
+
+
+char *strcasestr (const char *, const char *);
+char *strchrnul (const char *, int);
+
+
+char *strdup (const char *) __attribute__((__malloc__)) __attribute__((__warn_unused_result__));
+
+char *_strdup_r (struct _reent *, const char *);
+
+char *strndup (const char *, size_t) __attribute__((__malloc__)) __attribute__((__warn_unused_result__));
+
+char *_strndup_r (struct _reent *, const char *, size_t);
+
+
+
+
+
+
+char *strerror_r (int, char *, size_t);
+# 112 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
+char * _strerror_r (struct _reent *, int, int, int *);
+
+
+size_t strlcat (char *, const char *, size_t);
+size_t strlcpy (char *, const char *, size_t);
+
+
+size_t strnlen (const char *, size_t);
+
+
+char *strsep (char **, const char *);
+
+
+char *strnstr(const char *, const char *, size_t) __attribute__((__pure__));
+
+
+
+char *strlwr (char *);
+char *strupr (char *);
+
+
+
+char *strsignal (int __signo);
+
+
+
+
+
+
+
+int strverscmp (const char *, const char *);
+# 172 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
+char *__attribute__((__nonnull__ (1))) basename (const char *) __asm__("" "__gnu_basename");
+
+
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\string.h" 1 3
+# 176 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+
+
+# 346 "./lib/main/CMSIS/DSP/Include/arm_math.h" 2
+# 399 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  
+# 399 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+ typedef enum
+  {
+    ARM_MATH_SUCCESS = 0,
+    ARM_MATH_ARGUMENT_ERROR = -1,
+    ARM_MATH_LENGTH_ERROR = -2,
+    ARM_MATH_SIZE_MISMATCH = -3,
+    ARM_MATH_NANINF = -4,
+    ARM_MATH_SINGULAR = -5,
+    ARM_MATH_TEST_FAILURE = -6
+  } arm_status;
+
+
+
+
+  typedef int8_t q7_t;
+
+
+
+
+  typedef int16_t q15_t;
+
+
+
+
+  typedef int32_t q31_t;
+
+
+
+
+  typedef int64_t q63_t;
+
+
+
+
+  typedef float float32_t;
+
+
+
+
+  typedef double float64_t;
+# 520 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline q31_t clip_q63_to_q31(
+  q63_t x)
+  {
+    return ((q31_t) (x >> 32) != ((q31_t) x >> 31)) ?
+      ((0x7FFFFFFF ^ ((q31_t) (x >> 63)))) : (q31_t) x;
+  }
+
+
+
+
+  __attribute__((always_inline)) static inline q15_t clip_q63_to_q15(
+  q63_t x)
+  {
+    return ((q31_t) (x >> 32) != ((q31_t) x >> 31)) ?
+      ((0x7FFF ^ ((q15_t) (x >> 63)))) : (q15_t) (x >> 15);
+  }
+
+
+
+
+  __attribute__((always_inline)) static inline q7_t clip_q31_to_q7(
+  q31_t x)
+  {
+    return ((q31_t) (x >> 24) != ((q31_t) x >> 23)) ?
+      ((0x7F ^ ((q7_t) (x >> 31)))) : (q7_t) x;
+  }
+
+
+
+
+  __attribute__((always_inline)) static inline q15_t clip_q31_to_q15(
+  q31_t x)
+  {
+    return ((q31_t) (x >> 16) != ((q31_t) x >> 15)) ?
+      ((0x7FFF ^ ((q15_t) (x >> 31)))) : (q15_t) x;
+  }
+
+
+
+
+
+  __attribute__((always_inline)) static inline q63_t mult32x64(
+  q63_t x,
+  q31_t y)
+  {
+    return ((((q63_t) (x & 0x00000000FFFFFFFF) * y) >> 32) +
+            (((q63_t) (x >> 32) * y)));
+  }
+
+
+
+
+
+  __attribute__((always_inline)) static inline uint32_t arm_recip_q31(
+  q31_t in,
+  q31_t * dst,
+  q31_t * pRecipTable)
+  {
+    q31_t out;
+    uint32_t tempVal;
+    uint32_t index, i;
+    uint32_t signBits;
+
+    if (in > 0)
+    {
+      signBits = ((uint32_t) ((uint8_t)__builtin_clz( in) - 1));
+    }
+    else
+    {
+      signBits = ((uint32_t) ((uint8_t)__builtin_clz(-in) - 1));
+    }
+
+
+    in = (in << signBits);
+
+
+    index = (uint32_t)(in >> 24);
+    index = (index & 0x0000003F);
+
+
+    out = pRecipTable[index];
+
+
+
+    for (i = 0U; i < 2U; i++)
+    {
+      tempVal = (uint32_t) (((q63_t) in * out) >> 31);
+      tempVal = 0x7FFFFFFFu - tempVal;
+
+
+      out = clip_q63_to_q31(((q63_t) out * tempVal) >> 30);
+    }
+
+
+    *dst = out;
+
+
+    return (signBits + 1U);
+  }
+
+
+
+
+
+  __attribute__((always_inline)) static inline uint32_t arm_recip_q15(
+  q15_t in,
+  q15_t * dst,
+  q15_t * pRecipTable)
+  {
+    q15_t out = 0;
+    uint32_t tempVal = 0;
+    uint32_t index = 0, i = 0;
+    uint32_t signBits = 0;
+
+    if (in > 0)
+    {
+      signBits = ((uint32_t)((uint8_t)__builtin_clz( in) - 17));
+    }
+    else
+    {
+      signBits = ((uint32_t)((uint8_t)__builtin_clz(-in) - 17));
+    }
+
+
+    in = (in << signBits);
+
+
+    index = (uint32_t)(in >> 8);
+    index = (index & 0x0000003F);
+
+
+    out = pRecipTable[index];
+
+
+
+    for (i = 0U; i < 2U; i++)
+    {
+      tempVal = (uint32_t) (((q31_t) in * out) >> 15);
+      tempVal = 0x7FFFu - tempVal;
+
+      out = (q15_t) (((q31_t) out * tempVal) >> 14);
+
+    }
+
+
+    *dst = out;
+
+
+    return (signBits + 1);
+  }
+# 1010 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  typedef struct
+  {
+    uint16_t numTaps;
+    q7_t *pState;
+    q7_t *pCoeffs;
+  } arm_fir_instance_q7;
+
+
+
+
+  typedef struct
+  {
+    uint16_t numTaps;
+    q15_t *pState;
+    q15_t *pCoeffs;
+  } arm_fir_instance_q15;
+
+
+
+
+  typedef struct
+  {
+    uint16_t numTaps;
+    q31_t *pState;
+    q31_t *pCoeffs;
+  } arm_fir_instance_q31;
+
+
+
+
+  typedef struct
+  {
+    uint16_t numTaps;
+    float32_t *pState;
+    float32_t *pCoeffs;
+  } arm_fir_instance_f32;
+# 1055 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_q7(
+  const arm_fir_instance_q7 * S,
+  q7_t * pSrc,
+  q7_t * pDst,
+  uint32_t blockSize);
+# 1070 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_init_q7(
+  arm_fir_instance_q7 * S,
+  uint16_t numTaps,
+  q7_t * pCoeffs,
+  q7_t * pState,
+  uint32_t blockSize);
+# 1085 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_q15(
+  const arm_fir_instance_q15 * S,
+  q15_t * pSrc,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 1099 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_fast_q15(
+  const arm_fir_instance_q15 * S,
+  q15_t * pSrc,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 1116 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_fir_init_q15(
+  arm_fir_instance_q15 * S,
+  uint16_t numTaps,
+  q15_t * pCoeffs,
+  q15_t * pState,
+  uint32_t blockSize);
+# 1131 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_q31(
+  const arm_fir_instance_q31 * S,
+  q31_t * pSrc,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 1145 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_fast_q31(
+  const arm_fir_instance_q31 * S,
+  q31_t * pSrc,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 1160 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_init_q31(
+  arm_fir_instance_q31 * S,
+  uint16_t numTaps,
+  q31_t * pCoeffs,
+  q31_t * pState,
+  uint32_t blockSize);
+# 1175 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_f32(
+  const arm_fir_instance_f32 * S,
+  float32_t * pSrc,
+  float32_t * pDst,
+  uint32_t blockSize);
+# 1190 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_init_f32(
+  arm_fir_instance_f32 * S,
+  uint16_t numTaps,
+  float32_t * pCoeffs,
+  float32_t * pState,
+  uint32_t blockSize);
+
+
+
+
+
+  typedef struct
+  {
+    int8_t numStages;
+    q15_t *pState;
+    q15_t *pCoeffs;
+    int8_t postShift;
+  } arm_biquad_casd_df1_inst_q15;
+
+
+
+
+  typedef struct
+  {
+    uint32_t numStages;
+    q31_t *pState;
+    q31_t *pCoeffs;
+    uint8_t postShift;
+  } arm_biquad_casd_df1_inst_q31;
+
+
+
+
+  typedef struct
+  {
+    uint32_t numStages;
+    float32_t *pState;
+    float32_t *pCoeffs;
+  } arm_biquad_casd_df1_inst_f32;
+# 1238 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_biquad_cascade_df1_q15(
+  const arm_biquad_casd_df1_inst_q15 * S,
+  q15_t * pSrc,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 1253 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_biquad_cascade_df1_init_q15(
+  arm_biquad_casd_df1_inst_q15 * S,
+  uint8_t numStages,
+  q15_t * pCoeffs,
+  q15_t * pState,
+  int8_t postShift);
+# 1268 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_biquad_cascade_df1_fast_q15(
+  const arm_biquad_casd_df1_inst_q15 * S,
+  q15_t * pSrc,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 1282 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_biquad_cascade_df1_q31(
+  const arm_biquad_casd_df1_inst_q31 * S,
+  q31_t * pSrc,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 1296 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_biquad_cascade_df1_fast_q31(
+  const arm_biquad_casd_df1_inst_q31 * S,
+  q31_t * pSrc,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 1311 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_biquad_cascade_df1_init_q31(
+  arm_biquad_casd_df1_inst_q31 * S,
+  uint8_t numStages,
+  q31_t * pCoeffs,
+  q31_t * pState,
+  int8_t postShift);
+# 1326 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_biquad_cascade_df1_f32(
+  const arm_biquad_casd_df1_inst_f32 * S,
+  float32_t * pSrc,
+  float32_t * pDst,
+  uint32_t blockSize);
+# 1340 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_biquad_cascade_df1_init_f32(
+  arm_biquad_casd_df1_inst_f32 * S,
+  uint8_t numStages,
+  float32_t * pCoeffs,
+  float32_t * pState);
+
+
+
+
+
+  typedef struct
+  {
+    uint16_t numRows;
+    uint16_t numCols;
+    float32_t *pData;
+  } arm_matrix_instance_f32;
+
+
+
+
+
+  typedef struct
+  {
+    uint16_t numRows;
+    uint16_t numCols;
+    float64_t *pData;
+  } arm_matrix_instance_f64;
+
+
+
+
+  typedef struct
+  {
+    uint16_t numRows;
+    uint16_t numCols;
+    q15_t *pData;
+  } arm_matrix_instance_q15;
+
+
+
+
+  typedef struct
+  {
+    uint16_t numRows;
+    uint16_t numCols;
+    q31_t *pData;
+  } arm_matrix_instance_q31;
+# 1397 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_add_f32(
+  const arm_matrix_instance_f32 * pSrcA,
+  const arm_matrix_instance_f32 * pSrcB,
+  arm_matrix_instance_f32 * pDst);
+# 1411 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_add_q15(
+  const arm_matrix_instance_q15 * pSrcA,
+  const arm_matrix_instance_q15 * pSrcB,
+  arm_matrix_instance_q15 * pDst);
+# 1425 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_add_q31(
+  const arm_matrix_instance_q31 * pSrcA,
+  const arm_matrix_instance_q31 * pSrcB,
+  arm_matrix_instance_q31 * pDst);
+# 1439 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_cmplx_mult_f32(
+  const arm_matrix_instance_f32 * pSrcA,
+  const arm_matrix_instance_f32 * pSrcB,
+  arm_matrix_instance_f32 * pDst);
+# 1453 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_cmplx_mult_q15(
+  const arm_matrix_instance_q15 * pSrcA,
+  const arm_matrix_instance_q15 * pSrcB,
+  arm_matrix_instance_q15 * pDst,
+  q15_t * pScratch);
+# 1468 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_cmplx_mult_q31(
+  const arm_matrix_instance_q31 * pSrcA,
+  const arm_matrix_instance_q31 * pSrcB,
+  arm_matrix_instance_q31 * pDst);
+# 1481 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_trans_f32(
+  const arm_matrix_instance_f32 * pSrc,
+  arm_matrix_instance_f32 * pDst);
+# 1493 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_trans_q15(
+  const arm_matrix_instance_q15 * pSrc,
+  arm_matrix_instance_q15 * pDst);
+# 1505 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_trans_q31(
+  const arm_matrix_instance_q31 * pSrc,
+  arm_matrix_instance_q31 * pDst);
+# 1518 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_mult_f32(
+  const arm_matrix_instance_f32 * pSrcA,
+  const arm_matrix_instance_f32 * pSrcB,
+  arm_matrix_instance_f32 * pDst);
+# 1533 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_mult_q15(
+  const arm_matrix_instance_q15 * pSrcA,
+  const arm_matrix_instance_q15 * pSrcB,
+  arm_matrix_instance_q15 * pDst,
+  q15_t * pState);
+# 1549 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_mult_fast_q15(
+  const arm_matrix_instance_q15 * pSrcA,
+  const arm_matrix_instance_q15 * pSrcB,
+  arm_matrix_instance_q15 * pDst,
+  q15_t * pState);
+# 1564 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_mult_q31(
+  const arm_matrix_instance_q31 * pSrcA,
+  const arm_matrix_instance_q31 * pSrcB,
+  arm_matrix_instance_q31 * pDst);
+# 1578 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_mult_fast_q31(
+  const arm_matrix_instance_q31 * pSrcA,
+  const arm_matrix_instance_q31 * pSrcB,
+  arm_matrix_instance_q31 * pDst);
+# 1592 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_sub_f32(
+  const arm_matrix_instance_f32 * pSrcA,
+  const arm_matrix_instance_f32 * pSrcB,
+  arm_matrix_instance_f32 * pDst);
+# 1606 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_sub_q15(
+  const arm_matrix_instance_q15 * pSrcA,
+  const arm_matrix_instance_q15 * pSrcB,
+  arm_matrix_instance_q15 * pDst);
+# 1620 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_sub_q31(
+  const arm_matrix_instance_q31 * pSrcA,
+  const arm_matrix_instance_q31 * pSrcB,
+  arm_matrix_instance_q31 * pDst);
+# 1634 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_scale_f32(
+  const arm_matrix_instance_f32 * pSrc,
+  float32_t scale,
+  arm_matrix_instance_f32 * pDst);
+# 1649 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_scale_q15(
+  const arm_matrix_instance_q15 * pSrc,
+  q15_t scaleFract,
+  int32_t shift,
+  arm_matrix_instance_q15 * pDst);
+# 1665 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_scale_q31(
+  const arm_matrix_instance_q31 * pSrc,
+  q31_t scaleFract,
+  int32_t shift,
+  arm_matrix_instance_q31 * pDst);
+# 1679 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_mat_init_q31(
+  arm_matrix_instance_q31 * S,
+  uint16_t nRows,
+  uint16_t nColumns,
+  q31_t * pData);
+# 1693 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_mat_init_q15(
+  arm_matrix_instance_q15 * S,
+  uint16_t nRows,
+  uint16_t nColumns,
+  q15_t * pData);
+# 1707 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_mat_init_f32(
+  arm_matrix_instance_f32 * S,
+  uint16_t nRows,
+  uint16_t nColumns,
+  float32_t * pData);
+
+
+
+
+
+
+  typedef struct
+  {
+    q15_t A0;
+
+
+
+
+    q31_t A1;
+
+    q15_t state[3];
+    q15_t Kp;
+    q15_t Ki;
+    q15_t Kd;
+  } arm_pid_instance_q15;
+
+
+
+
+  typedef struct
+  {
+    q31_t A0;
+    q31_t A1;
+    q31_t A2;
+    q31_t state[3];
+    q31_t Kp;
+    q31_t Ki;
+    q31_t Kd;
+  } arm_pid_instance_q31;
+
+
+
+
+  typedef struct
+  {
+    float32_t A0;
+    float32_t A1;
+    float32_t A2;
+    float32_t state[3];
+    float32_t Kp;
+    float32_t Ki;
+    float32_t Kd;
+  } arm_pid_instance_f32;
+# 1768 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_pid_init_f32(
+  arm_pid_instance_f32 * S,
+  int32_t resetStateFlag);
+
+
+
+
+
+
+  void arm_pid_reset_f32(
+  arm_pid_instance_f32 * S);
+
+
+
+
+
+
+
+  void arm_pid_init_q31(
+  arm_pid_instance_q31 * S,
+  int32_t resetStateFlag);
+
+
+
+
+
+
+
+  void arm_pid_reset_q31(
+  arm_pid_instance_q31 * S);
+
+
+
+
+
+
+
+  void arm_pid_init_q15(
+  arm_pid_instance_q15 * S,
+  int32_t resetStateFlag);
+
+
+
+
+
+
+  void arm_pid_reset_q15(
+  arm_pid_instance_q15 * S);
+
+
+
+
+
+  typedef struct
+  {
+    uint32_t nValues;
+    float32_t x1;
+    float32_t xSpacing;
+    float32_t *pYData;
+  } arm_linear_interp_instance_f32;
+
+
+
+
+  typedef struct
+  {
+    uint16_t numRows;
+    uint16_t numCols;
+    float32_t *pData;
+  } arm_bilinear_interp_instance_f32;
+
+
+
+
+  typedef struct
+  {
+    uint16_t numRows;
+    uint16_t numCols;
+    q31_t *pData;
+  } arm_bilinear_interp_instance_q31;
+
+
+
+
+  typedef struct
+  {
+    uint16_t numRows;
+    uint16_t numCols;
+    q15_t *pData;
+  } arm_bilinear_interp_instance_q15;
+
+
+
+
+  typedef struct
+  {
+    uint16_t numRows;
+    uint16_t numCols;
+    q7_t *pData;
+  } arm_bilinear_interp_instance_q7;
+# 1877 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_mult_q7(
+  q7_t * pSrcA,
+  q7_t * pSrcB,
+  q7_t * pDst,
+  uint32_t blockSize);
+# 1891 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_mult_q15(
+  q15_t * pSrcA,
+  q15_t * pSrcB,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 1905 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_mult_q31(
+  q31_t * pSrcA,
+  q31_t * pSrcB,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 1919 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_mult_f32(
+  float32_t * pSrcA,
+  float32_t * pSrcB,
+  float32_t * pDst,
+  uint32_t blockSize);
+
+
+
+
+
+  typedef struct
+  {
+    uint16_t fftLen;
+    uint8_t ifftFlag;
+    uint8_t bitReverseFlag;
+    q15_t *pTwiddle;
+    uint16_t *pBitRevTable;
+    uint16_t twidCoefModifier;
+    uint16_t bitRevFactor;
+  } arm_cfft_radix2_instance_q15;
+
+
+  arm_status arm_cfft_radix2_init_q15(
+  arm_cfft_radix2_instance_q15 * S,
+  uint16_t fftLen,
+  uint8_t ifftFlag,
+  uint8_t bitReverseFlag);
+
+
+  void arm_cfft_radix2_q15(
+  const arm_cfft_radix2_instance_q15 * S,
+  q15_t * pSrc);
+
+
+
+
+
+  typedef struct
+  {
+    uint16_t fftLen;
+    uint8_t ifftFlag;
+    uint8_t bitReverseFlag;
+    q15_t *pTwiddle;
+    uint16_t *pBitRevTable;
+    uint16_t twidCoefModifier;
+    uint16_t bitRevFactor;
+  } arm_cfft_radix4_instance_q15;
+
+
+  arm_status arm_cfft_radix4_init_q15(
+  arm_cfft_radix4_instance_q15 * S,
+  uint16_t fftLen,
+  uint8_t ifftFlag,
+  uint8_t bitReverseFlag);
+
+
+  void arm_cfft_radix4_q15(
+  const arm_cfft_radix4_instance_q15 * S,
+  q15_t * pSrc);
+
+
+
+
+  typedef struct
+  {
+    uint16_t fftLen;
+    uint8_t ifftFlag;
+    uint8_t bitReverseFlag;
+    q31_t *pTwiddle;
+    uint16_t *pBitRevTable;
+    uint16_t twidCoefModifier;
+    uint16_t bitRevFactor;
+  } arm_cfft_radix2_instance_q31;
+
+
+  arm_status arm_cfft_radix2_init_q31(
+  arm_cfft_radix2_instance_q31 * S,
+  uint16_t fftLen,
+  uint8_t ifftFlag,
+  uint8_t bitReverseFlag);
+
+
+  void arm_cfft_radix2_q31(
+  const arm_cfft_radix2_instance_q31 * S,
+  q31_t * pSrc);
+
+
+
+
+  typedef struct
+  {
+    uint16_t fftLen;
+    uint8_t ifftFlag;
+    uint8_t bitReverseFlag;
+    q31_t *pTwiddle;
+    uint16_t *pBitRevTable;
+    uint16_t twidCoefModifier;
+    uint16_t bitRevFactor;
+  } arm_cfft_radix4_instance_q31;
+
+
+  void arm_cfft_radix4_q31(
+  const arm_cfft_radix4_instance_q31 * S,
+  q31_t * pSrc);
+
+
+  arm_status arm_cfft_radix4_init_q31(
+  arm_cfft_radix4_instance_q31 * S,
+  uint16_t fftLen,
+  uint8_t ifftFlag,
+  uint8_t bitReverseFlag);
+
+
+
+
+  typedef struct
+  {
+    uint16_t fftLen;
+    uint8_t ifftFlag;
+    uint8_t bitReverseFlag;
+    float32_t *pTwiddle;
+    uint16_t *pBitRevTable;
+    uint16_t twidCoefModifier;
+    uint16_t bitRevFactor;
+    float32_t onebyfftLen;
+  } arm_cfft_radix2_instance_f32;
+
+
+  arm_status arm_cfft_radix2_init_f32(
+  arm_cfft_radix2_instance_f32 * S,
+  uint16_t fftLen,
+  uint8_t ifftFlag,
+  uint8_t bitReverseFlag);
+
+
+  void arm_cfft_radix2_f32(
+  const arm_cfft_radix2_instance_f32 * S,
+  float32_t * pSrc);
+
+
+
+
+  typedef struct
+  {
+    uint16_t fftLen;
+    uint8_t ifftFlag;
+    uint8_t bitReverseFlag;
+    float32_t *pTwiddle;
+    uint16_t *pBitRevTable;
+    uint16_t twidCoefModifier;
+    uint16_t bitRevFactor;
+    float32_t onebyfftLen;
+  } arm_cfft_radix4_instance_f32;
+
+
+  arm_status arm_cfft_radix4_init_f32(
+  arm_cfft_radix4_instance_f32 * S,
+  uint16_t fftLen,
+  uint8_t ifftFlag,
+  uint8_t bitReverseFlag);
+
+
+  void arm_cfft_radix4_f32(
+  const arm_cfft_radix4_instance_f32 * S,
+  float32_t * pSrc);
+
+
+
+
+  typedef struct
+  {
+    uint16_t fftLen;
+    const q15_t *pTwiddle;
+    const uint16_t *pBitRevTable;
+    uint16_t bitRevLength;
+  } arm_cfft_instance_q15;
+
+void arm_cfft_q15(
+    const arm_cfft_instance_q15 * S,
+    q15_t * p1,
+    uint8_t ifftFlag,
+    uint8_t bitReverseFlag);
+
+
+
+
+  typedef struct
+  {
+    uint16_t fftLen;
+    const q31_t *pTwiddle;
+    const uint16_t *pBitRevTable;
+    uint16_t bitRevLength;
+  } arm_cfft_instance_q31;
+
+void arm_cfft_q31(
+    const arm_cfft_instance_q31 * S,
+    q31_t * p1,
+    uint8_t ifftFlag,
+    uint8_t bitReverseFlag);
+
+
+
+
+  typedef struct
+  {
+    uint16_t fftLen;
+    const float32_t *pTwiddle;
+    const uint16_t *pBitRevTable;
+    uint16_t bitRevLength;
+  } arm_cfft_instance_f32;
+
+  void arm_cfft_f32(
+  const arm_cfft_instance_f32 * S,
+  float32_t * p1,
+  uint8_t ifftFlag,
+  uint8_t bitReverseFlag);
+
+
+
+
+  typedef struct
+  {
+    uint32_t fftLenReal;
+    uint8_t ifftFlagR;
+    uint8_t bitReverseFlagR;
+    uint32_t twidCoefRModifier;
+    q15_t *pTwiddleAReal;
+    q15_t *pTwiddleBReal;
+    const arm_cfft_instance_q15 *pCfft;
+  } arm_rfft_instance_q15;
+
+  arm_status arm_rfft_init_q15(
+  arm_rfft_instance_q15 * S,
+  uint32_t fftLenReal,
+  uint32_t ifftFlagR,
+  uint32_t bitReverseFlag);
+
+  void arm_rfft_q15(
+  const arm_rfft_instance_q15 * S,
+  q15_t * pSrc,
+  q15_t * pDst);
+
+
+
+
+  typedef struct
+  {
+    uint32_t fftLenReal;
+    uint8_t ifftFlagR;
+    uint8_t bitReverseFlagR;
+    uint32_t twidCoefRModifier;
+    q31_t *pTwiddleAReal;
+    q31_t *pTwiddleBReal;
+    const arm_cfft_instance_q31 *pCfft;
+  } arm_rfft_instance_q31;
+
+  arm_status arm_rfft_init_q31(
+  arm_rfft_instance_q31 * S,
+  uint32_t fftLenReal,
+  uint32_t ifftFlagR,
+  uint32_t bitReverseFlag);
+
+  void arm_rfft_q31(
+  const arm_rfft_instance_q31 * S,
+  q31_t * pSrc,
+  q31_t * pDst);
+
+
+
+
+  typedef struct
+  {
+    uint32_t fftLenReal;
+    uint16_t fftLenBy2;
+    uint8_t ifftFlagR;
+    uint8_t bitReverseFlagR;
+    uint32_t twidCoefRModifier;
+    float32_t *pTwiddleAReal;
+    float32_t *pTwiddleBReal;
+    arm_cfft_radix4_instance_f32 *pCfft;
+  } arm_rfft_instance_f32;
+
+  arm_status arm_rfft_init_f32(
+  arm_rfft_instance_f32 * S,
+  arm_cfft_radix4_instance_f32 * S_CFFT,
+  uint32_t fftLenReal,
+  uint32_t ifftFlagR,
+  uint32_t bitReverseFlag);
+
+  void arm_rfft_f32(
+  const arm_rfft_instance_f32 * S,
+  float32_t * pSrc,
+  float32_t * pDst);
+
+
+
+
+typedef struct
+  {
+    arm_cfft_instance_f32 Sint;
+    uint16_t fftLenRFFT;
+    float32_t * pTwiddleRFFT;
+  } arm_rfft_fast_instance_f32 ;
+
+arm_status arm_rfft_fast_init_f32 (
+   arm_rfft_fast_instance_f32 * S,
+   uint16_t fftLen);
+
+void arm_rfft_fast_f32(
+  arm_rfft_fast_instance_f32 * S,
+  float32_t * p, float32_t * pOut,
+  uint8_t ifftFlag);
+
+
+
+
+  typedef struct
+  {
+    uint16_t N;
+    uint16_t Nby2;
+    float32_t normalize;
+    float32_t *pTwiddle;
+    float32_t *pCosFactor;
+    arm_rfft_instance_f32 *pRfft;
+    arm_cfft_radix4_instance_f32 *pCfft;
+  } arm_dct4_instance_f32;
+# 2257 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_dct4_init_f32(
+  arm_dct4_instance_f32 * S,
+  arm_rfft_instance_f32 * S_RFFT,
+  arm_cfft_radix4_instance_f32 * S_CFFT,
+  uint16_t N,
+  uint16_t Nby2,
+  float32_t normalize);
+# 2272 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_dct4_f32(
+  const arm_dct4_instance_f32 * S,
+  float32_t * pState,
+  float32_t * pInlineBuffer);
+
+
+
+
+
+  typedef struct
+  {
+    uint16_t N;
+    uint16_t Nby2;
+    q31_t normalize;
+    q31_t *pTwiddle;
+    q31_t *pCosFactor;
+    arm_rfft_instance_q31 *pRfft;
+    arm_cfft_radix4_instance_q31 *pCfft;
+  } arm_dct4_instance_q31;
+# 2303 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_dct4_init_q31(
+  arm_dct4_instance_q31 * S,
+  arm_rfft_instance_q31 * S_RFFT,
+  arm_cfft_radix4_instance_q31 * S_CFFT,
+  uint16_t N,
+  uint16_t Nby2,
+  q31_t normalize);
+# 2318 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_dct4_q31(
+  const arm_dct4_instance_q31 * S,
+  q31_t * pState,
+  q31_t * pInlineBuffer);
+
+
+
+
+
+  typedef struct
+  {
+    uint16_t N;
+    uint16_t Nby2;
+    q15_t normalize;
+    q15_t *pTwiddle;
+    q15_t *pCosFactor;
+    arm_rfft_instance_q15 *pRfft;
+    arm_cfft_radix4_instance_q15 *pCfft;
+  } arm_dct4_instance_q15;
+# 2349 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_dct4_init_q15(
+  arm_dct4_instance_q15 * S,
+  arm_rfft_instance_q15 * S_RFFT,
+  arm_cfft_radix4_instance_q15 * S_CFFT,
+  uint16_t N,
+  uint16_t Nby2,
+  q15_t normalize);
+# 2364 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_dct4_q15(
+  const arm_dct4_instance_q15 * S,
+  q15_t * pState,
+  q15_t * pInlineBuffer);
+# 2377 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_add_f32(
+  float32_t * pSrcA,
+  float32_t * pSrcB,
+  float32_t * pDst,
+  uint32_t blockSize);
+# 2391 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_add_q7(
+  q7_t * pSrcA,
+  q7_t * pSrcB,
+  q7_t * pDst,
+  uint32_t blockSize);
+# 2405 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_add_q15(
+  q15_t * pSrcA,
+  q15_t * pSrcB,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 2419 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_add_q31(
+  q31_t * pSrcA,
+  q31_t * pSrcB,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 2433 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_sub_f32(
+  float32_t * pSrcA,
+  float32_t * pSrcB,
+  float32_t * pDst,
+  uint32_t blockSize);
+# 2447 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_sub_q7(
+  q7_t * pSrcA,
+  q7_t * pSrcB,
+  q7_t * pDst,
+  uint32_t blockSize);
+# 2461 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_sub_q15(
+  q15_t * pSrcA,
+  q15_t * pSrcB,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 2475 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_sub_q31(
+  q31_t * pSrcA,
+  q31_t * pSrcB,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 2489 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_scale_f32(
+  float32_t * pSrc,
+  float32_t scale,
+  float32_t * pDst,
+  uint32_t blockSize);
+# 2504 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_scale_q7(
+  q7_t * pSrc,
+  q7_t scaleFract,
+  int8_t shift,
+  q7_t * pDst,
+  uint32_t blockSize);
+# 2520 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_scale_q15(
+  q15_t * pSrc,
+  q15_t scaleFract,
+  int8_t shift,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 2536 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_scale_q31(
+  q31_t * pSrc,
+  q31_t scaleFract,
+  int8_t shift,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 2550 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_abs_q7(
+  q7_t * pSrc,
+  q7_t * pDst,
+  uint32_t blockSize);
+# 2562 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_abs_f32(
+  float32_t * pSrc,
+  float32_t * pDst,
+  uint32_t blockSize);
+# 2574 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_abs_q15(
+  q15_t * pSrc,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 2586 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_abs_q31(
+  q31_t * pSrc,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 2599 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_dot_prod_f32(
+  float32_t * pSrcA,
+  float32_t * pSrcB,
+  uint32_t blockSize,
+  float32_t * result);
+# 2613 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_dot_prod_q7(
+  q7_t * pSrcA,
+  q7_t * pSrcB,
+  uint32_t blockSize,
+  q31_t * result);
+# 2627 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_dot_prod_q15(
+  q15_t * pSrcA,
+  q15_t * pSrcB,
+  uint32_t blockSize,
+  q63_t * result);
+# 2641 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_dot_prod_q31(
+  q31_t * pSrcA,
+  q31_t * pSrcB,
+  uint32_t blockSize,
+  q63_t * result);
+# 2655 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_shift_q7(
+  q7_t * pSrc,
+  int8_t shiftBits,
+  q7_t * pDst,
+  uint32_t blockSize);
+# 2669 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_shift_q15(
+  q15_t * pSrc,
+  int8_t shiftBits,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 2683 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_shift_q31(
+  q31_t * pSrc,
+  int8_t shiftBits,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 2697 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_offset_f32(
+  float32_t * pSrc,
+  float32_t offset,
+  float32_t * pDst,
+  uint32_t blockSize);
+# 2711 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_offset_q7(
+  q7_t * pSrc,
+  q7_t offset,
+  q7_t * pDst,
+  uint32_t blockSize);
+# 2725 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_offset_q15(
+  q15_t * pSrc,
+  q15_t offset,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 2739 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_offset_q31(
+  q31_t * pSrc,
+  q31_t offset,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 2752 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_negate_f32(
+  float32_t * pSrc,
+  float32_t * pDst,
+  uint32_t blockSize);
+# 2764 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_negate_q7(
+  q7_t * pSrc,
+  q7_t * pDst,
+  uint32_t blockSize);
+# 2776 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_negate_q15(
+  q15_t * pSrc,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 2788 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_negate_q31(
+  q31_t * pSrc,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 2800 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_copy_f32(
+  float32_t * pSrc,
+  float32_t * pDst,
+  uint32_t blockSize);
+# 2812 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_copy_q7(
+  q7_t * pSrc,
+  q7_t * pDst,
+  uint32_t blockSize);
+# 2824 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_copy_q15(
+  q15_t * pSrc,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 2836 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_copy_q31(
+  q31_t * pSrc,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 2848 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fill_f32(
+  float32_t value,
+  float32_t * pDst,
+  uint32_t blockSize);
+# 2860 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fill_q7(
+  q7_t value,
+  q7_t * pDst,
+  uint32_t blockSize);
+# 2872 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fill_q15(
+  q15_t value,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 2884 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fill_q31(
+  q31_t value,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 2898 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_conv_f32(
+  float32_t * pSrcA,
+  uint32_t srcALen,
+  float32_t * pSrcB,
+  uint32_t srcBLen,
+  float32_t * pDst);
+# 2916 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_conv_opt_q15(
+  q15_t * pSrcA,
+  uint32_t srcALen,
+  q15_t * pSrcB,
+  uint32_t srcBLen,
+  q15_t * pDst,
+  q15_t * pScratch1,
+  q15_t * pScratch2);
+# 2934 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_conv_q15(
+  q15_t * pSrcA,
+  uint32_t srcALen,
+  q15_t * pSrcB,
+  uint32_t srcBLen,
+  q15_t * pDst);
+# 2950 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_conv_fast_q15(
+          q15_t * pSrcA,
+          uint32_t srcALen,
+          q15_t * pSrcB,
+          uint32_t srcBLen,
+          q15_t * pDst);
+# 2968 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_conv_fast_opt_q15(
+  q15_t * pSrcA,
+  uint32_t srcALen,
+  q15_t * pSrcB,
+  uint32_t srcBLen,
+  q15_t * pDst,
+  q15_t * pScratch1,
+  q15_t * pScratch2);
+# 2986 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_conv_q31(
+  q31_t * pSrcA,
+  uint32_t srcALen,
+  q31_t * pSrcB,
+  uint32_t srcBLen,
+  q31_t * pDst);
+# 3002 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_conv_fast_q31(
+  q31_t * pSrcA,
+  uint32_t srcALen,
+  q31_t * pSrcB,
+  uint32_t srcBLen,
+  q31_t * pDst);
+# 3020 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_conv_opt_q7(
+  q7_t * pSrcA,
+  uint32_t srcALen,
+  q7_t * pSrcB,
+  uint32_t srcBLen,
+  q7_t * pDst,
+  q15_t * pScratch1,
+  q15_t * pScratch2);
+# 3038 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_conv_q7(
+  q7_t * pSrcA,
+  uint32_t srcALen,
+  q7_t * pSrcB,
+  uint32_t srcBLen,
+  q7_t * pDst);
+# 3057 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_conv_partial_f32(
+  float32_t * pSrcA,
+  uint32_t srcALen,
+  float32_t * pSrcB,
+  uint32_t srcBLen,
+  float32_t * pDst,
+  uint32_t firstIndex,
+  uint32_t numPoints);
+# 3080 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_conv_partial_opt_q15(
+  q15_t * pSrcA,
+  uint32_t srcALen,
+  q15_t * pSrcB,
+  uint32_t srcBLen,
+  q15_t * pDst,
+  uint32_t firstIndex,
+  uint32_t numPoints,
+  q15_t * pScratch1,
+  q15_t * pScratch2);
+# 3103 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_conv_partial_q15(
+  q15_t * pSrcA,
+  uint32_t srcALen,
+  q15_t * pSrcB,
+  uint32_t srcBLen,
+  q15_t * pDst,
+  uint32_t firstIndex,
+  uint32_t numPoints);
+# 3124 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_conv_partial_fast_q15(
+  q15_t * pSrcA,
+  uint32_t srcALen,
+  q15_t * pSrcB,
+  uint32_t srcBLen,
+  q15_t * pDst,
+  uint32_t firstIndex,
+  uint32_t numPoints);
+# 3147 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_conv_partial_fast_opt_q15(
+  q15_t * pSrcA,
+  uint32_t srcALen,
+  q15_t * pSrcB,
+  uint32_t srcBLen,
+  q15_t * pDst,
+  uint32_t firstIndex,
+  uint32_t numPoints,
+  q15_t * pScratch1,
+  q15_t * pScratch2);
+# 3170 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_conv_partial_q31(
+  q31_t * pSrcA,
+  uint32_t srcALen,
+  q31_t * pSrcB,
+  uint32_t srcBLen,
+  q31_t * pDst,
+  uint32_t firstIndex,
+  uint32_t numPoints);
+# 3191 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_conv_partial_fast_q31(
+  q31_t * pSrcA,
+  uint32_t srcALen,
+  q31_t * pSrcB,
+  uint32_t srcBLen,
+  q31_t * pDst,
+  uint32_t firstIndex,
+  uint32_t numPoints);
+# 3214 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_conv_partial_opt_q7(
+  q7_t * pSrcA,
+  uint32_t srcALen,
+  q7_t * pSrcB,
+  uint32_t srcBLen,
+  q7_t * pDst,
+  uint32_t firstIndex,
+  uint32_t numPoints,
+  q15_t * pScratch1,
+  q15_t * pScratch2);
+# 3237 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_conv_partial_q7(
+  q7_t * pSrcA,
+  uint32_t srcALen,
+  q7_t * pSrcB,
+  uint32_t srcBLen,
+  q7_t * pDst,
+  uint32_t firstIndex,
+  uint32_t numPoints);
+
+
+
+
+
+  typedef struct
+  {
+    uint8_t M;
+    uint16_t numTaps;
+    q15_t *pCoeffs;
+    q15_t *pState;
+  } arm_fir_decimate_instance_q15;
+
+
+
+
+  typedef struct
+  {
+    uint8_t M;
+    uint16_t numTaps;
+    q31_t *pCoeffs;
+    q31_t *pState;
+  } arm_fir_decimate_instance_q31;
+
+
+
+
+  typedef struct
+  {
+    uint8_t M;
+    uint16_t numTaps;
+    float32_t *pCoeffs;
+    float32_t *pState;
+  } arm_fir_decimate_instance_f32;
+# 3288 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_decimate_f32(
+  const arm_fir_decimate_instance_f32 * S,
+  float32_t * pSrc,
+  float32_t * pDst,
+  uint32_t blockSize);
+# 3306 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_fir_decimate_init_f32(
+  arm_fir_decimate_instance_f32 * S,
+  uint16_t numTaps,
+  uint8_t M,
+  float32_t * pCoeffs,
+  float32_t * pState,
+  uint32_t blockSize);
+# 3322 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_decimate_q15(
+  const arm_fir_decimate_instance_q15 * S,
+  q15_t * pSrc,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 3336 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_decimate_fast_q15(
+  const arm_fir_decimate_instance_q15 * S,
+  q15_t * pSrc,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 3354 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_fir_decimate_init_q15(
+  arm_fir_decimate_instance_q15 * S,
+  uint16_t numTaps,
+  uint8_t M,
+  q15_t * pCoeffs,
+  q15_t * pState,
+  uint32_t blockSize);
+# 3370 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_decimate_q31(
+  const arm_fir_decimate_instance_q31 * S,
+  q31_t * pSrc,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 3383 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_decimate_fast_q31(
+  arm_fir_decimate_instance_q31 * S,
+  q31_t * pSrc,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 3401 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_fir_decimate_init_q31(
+  arm_fir_decimate_instance_q31 * S,
+  uint16_t numTaps,
+  uint8_t M,
+  q31_t * pCoeffs,
+  q31_t * pState,
+  uint32_t blockSize);
+
+
+
+
+
+  typedef struct
+  {
+    uint8_t L;
+    uint16_t phaseLength;
+    q15_t *pCoeffs;
+    q15_t *pState;
+  } arm_fir_interpolate_instance_q15;
+
+
+
+
+  typedef struct
+  {
+    uint8_t L;
+    uint16_t phaseLength;
+    q31_t *pCoeffs;
+    q31_t *pState;
+  } arm_fir_interpolate_instance_q31;
+
+
+
+
+  typedef struct
+  {
+    uint8_t L;
+    uint16_t phaseLength;
+    float32_t *pCoeffs;
+    float32_t *pState;
+  } arm_fir_interpolate_instance_f32;
+# 3451 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_interpolate_q15(
+  const arm_fir_interpolate_instance_q15 * S,
+  q15_t * pSrc,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 3469 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_fir_interpolate_init_q15(
+  arm_fir_interpolate_instance_q15 * S,
+  uint8_t L,
+  uint16_t numTaps,
+  q15_t * pCoeffs,
+  q15_t * pState,
+  uint32_t blockSize);
+# 3485 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_interpolate_q31(
+  const arm_fir_interpolate_instance_q31 * S,
+  q31_t * pSrc,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 3503 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_fir_interpolate_init_q31(
+  arm_fir_interpolate_instance_q31 * S,
+  uint8_t L,
+  uint16_t numTaps,
+  q31_t * pCoeffs,
+  q31_t * pState,
+  uint32_t blockSize);
+# 3519 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_interpolate_f32(
+  const arm_fir_interpolate_instance_f32 * S,
+  float32_t * pSrc,
+  float32_t * pDst,
+  uint32_t blockSize);
+# 3537 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_fir_interpolate_init_f32(
+  arm_fir_interpolate_instance_f32 * S,
+  uint8_t L,
+  uint16_t numTaps,
+  float32_t * pCoeffs,
+  float32_t * pState,
+  uint32_t blockSize);
+
+
+
+
+
+  typedef struct
+  {
+    uint8_t numStages;
+    q63_t *pState;
+    q31_t *pCoeffs;
+    uint8_t postShift;
+  } arm_biquad_cas_df1_32x64_ins_q31;
+# 3564 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_biquad_cas_df1_32x64_q31(
+  const arm_biquad_cas_df1_32x64_ins_q31 * S,
+  q31_t * pSrc,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 3578 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_biquad_cas_df1_32x64_init_q31(
+  arm_biquad_cas_df1_32x64_ins_q31 * S,
+  uint8_t numStages,
+  q31_t * pCoeffs,
+  q63_t * pState,
+  uint8_t postShift);
+
+
+
+
+
+  typedef struct
+  {
+    uint8_t numStages;
+    float32_t *pState;
+    float32_t *pCoeffs;
+  } arm_biquad_cascade_df2T_instance_f32;
+
+
+
+
+  typedef struct
+  {
+    uint8_t numStages;
+    float32_t *pState;
+    float32_t *pCoeffs;
+  } arm_biquad_cascade_stereo_df2T_instance_f32;
+
+
+
+
+  typedef struct
+  {
+    uint8_t numStages;
+    float64_t *pState;
+    float64_t *pCoeffs;
+  } arm_biquad_cascade_df2T_instance_f64;
+# 3624 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_biquad_cascade_df2T_f32(
+  const arm_biquad_cascade_df2T_instance_f32 * S,
+  float32_t * pSrc,
+  float32_t * pDst,
+  uint32_t blockSize);
+# 3638 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_biquad_cascade_stereo_df2T_f32(
+  const arm_biquad_cascade_stereo_df2T_instance_f32 * S,
+  float32_t * pSrc,
+  float32_t * pDst,
+  uint32_t blockSize);
+# 3652 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_biquad_cascade_df2T_f64(
+  const arm_biquad_cascade_df2T_instance_f64 * S,
+  float64_t * pSrc,
+  float64_t * pDst,
+  uint32_t blockSize);
+# 3666 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_biquad_cascade_df2T_init_f32(
+  arm_biquad_cascade_df2T_instance_f32 * S,
+  uint8_t numStages,
+  float32_t * pCoeffs,
+  float32_t * pState);
+# 3680 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_biquad_cascade_stereo_df2T_init_f32(
+  arm_biquad_cascade_stereo_df2T_instance_f32 * S,
+  uint8_t numStages,
+  float32_t * pCoeffs,
+  float32_t * pState);
+# 3694 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_biquad_cascade_df2T_init_f64(
+  arm_biquad_cascade_df2T_instance_f64 * S,
+  uint8_t numStages,
+  float64_t * pCoeffs,
+  float64_t * pState);
+
+
+
+
+
+  typedef struct
+  {
+    uint16_t numStages;
+    q15_t *pState;
+    q15_t *pCoeffs;
+  } arm_fir_lattice_instance_q15;
+
+
+
+
+  typedef struct
+  {
+    uint16_t numStages;
+    q31_t *pState;
+    q31_t *pCoeffs;
+  } arm_fir_lattice_instance_q31;
+
+
+
+
+  typedef struct
+  {
+    uint16_t numStages;
+    float32_t *pState;
+    float32_t *pCoeffs;
+  } arm_fir_lattice_instance_f32;
+# 3739 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_lattice_init_q15(
+  arm_fir_lattice_instance_q15 * S,
+  uint16_t numStages,
+  q15_t * pCoeffs,
+  q15_t * pState);
+# 3753 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_lattice_q15(
+  const arm_fir_lattice_instance_q15 * S,
+  q15_t * pSrc,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 3767 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_lattice_init_q31(
+  arm_fir_lattice_instance_q31 * S,
+  uint16_t numStages,
+  q31_t * pCoeffs,
+  q31_t * pState);
+# 3781 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_lattice_q31(
+  const arm_fir_lattice_instance_q31 * S,
+  q31_t * pSrc,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 3795 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_lattice_init_f32(
+  arm_fir_lattice_instance_f32 * S,
+  uint16_t numStages,
+  float32_t * pCoeffs,
+  float32_t * pState);
+# 3809 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_lattice_f32(
+  const arm_fir_lattice_instance_f32 * S,
+  float32_t * pSrc,
+  float32_t * pDst,
+  uint32_t blockSize);
+
+
+
+
+
+  typedef struct
+  {
+    uint16_t numStages;
+    q15_t *pState;
+    q15_t *pkCoeffs;
+    q15_t *pvCoeffs;
+  } arm_iir_lattice_instance_q15;
+
+
+
+
+  typedef struct
+  {
+    uint16_t numStages;
+    q31_t *pState;
+    q31_t *pkCoeffs;
+    q31_t *pvCoeffs;
+  } arm_iir_lattice_instance_q31;
+
+
+
+
+  typedef struct
+  {
+    uint16_t numStages;
+    float32_t *pState;
+    float32_t *pkCoeffs;
+    float32_t *pvCoeffs;
+  } arm_iir_lattice_instance_f32;
+# 3857 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_iir_lattice_f32(
+  const arm_iir_lattice_instance_f32 * S,
+  float32_t * pSrc,
+  float32_t * pDst,
+  uint32_t blockSize);
+# 3873 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_iir_lattice_init_f32(
+  arm_iir_lattice_instance_f32 * S,
+  uint16_t numStages,
+  float32_t * pkCoeffs,
+  float32_t * pvCoeffs,
+  float32_t * pState,
+  uint32_t blockSize);
+# 3889 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_iir_lattice_q31(
+  const arm_iir_lattice_instance_q31 * S,
+  q31_t * pSrc,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 3905 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_iir_lattice_init_q31(
+  arm_iir_lattice_instance_q31 * S,
+  uint16_t numStages,
+  q31_t * pkCoeffs,
+  q31_t * pvCoeffs,
+  q31_t * pState,
+  uint32_t blockSize);
+# 3921 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_iir_lattice_q15(
+  const arm_iir_lattice_instance_q15 * S,
+  q15_t * pSrc,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 3937 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_iir_lattice_init_q15(
+  arm_iir_lattice_instance_q15 * S,
+  uint16_t numStages,
+  q15_t * pkCoeffs,
+  q15_t * pvCoeffs,
+  q15_t * pState,
+  uint32_t blockSize);
+
+
+
+
+
+  typedef struct
+  {
+    uint16_t numTaps;
+    float32_t *pState;
+    float32_t *pCoeffs;
+    float32_t mu;
+  } arm_lms_instance_f32;
+# 3967 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_lms_f32(
+  const arm_lms_instance_f32 * S,
+  float32_t * pSrc,
+  float32_t * pRef,
+  float32_t * pOut,
+  float32_t * pErr,
+  uint32_t blockSize);
+# 3985 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_lms_init_f32(
+  arm_lms_instance_f32 * S,
+  uint16_t numTaps,
+  float32_t * pCoeffs,
+  float32_t * pState,
+  float32_t mu,
+  uint32_t blockSize);
+
+
+
+
+
+  typedef struct
+  {
+    uint16_t numTaps;
+    q15_t *pState;
+    q15_t *pCoeffs;
+    q15_t mu;
+    uint32_t postShift;
+  } arm_lms_instance_q15;
+# 4017 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_lms_init_q15(
+  arm_lms_instance_q15 * S,
+  uint16_t numTaps,
+  q15_t * pCoeffs,
+  q15_t * pState,
+  q15_t mu,
+  uint32_t blockSize,
+  uint32_t postShift);
+# 4036 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_lms_q15(
+  const arm_lms_instance_q15 * S,
+  q15_t * pSrc,
+  q15_t * pRef,
+  q15_t * pOut,
+  q15_t * pErr,
+  uint32_t blockSize);
+
+
+
+
+
+  typedef struct
+  {
+    uint16_t numTaps;
+    q31_t *pState;
+    q31_t *pCoeffs;
+    q31_t mu;
+    uint32_t postShift;
+  } arm_lms_instance_q31;
+# 4067 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_lms_q31(
+  const arm_lms_instance_q31 * S,
+  q31_t * pSrc,
+  q31_t * pRef,
+  q31_t * pOut,
+  q31_t * pErr,
+  uint32_t blockSize);
+# 4086 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_lms_init_q31(
+  arm_lms_instance_q31 * S,
+  uint16_t numTaps,
+  q31_t * pCoeffs,
+  q31_t * pState,
+  q31_t mu,
+  uint32_t blockSize,
+  uint32_t postShift);
+
+
+
+
+
+  typedef struct
+  {
+    uint16_t numTaps;
+    float32_t *pState;
+    float32_t *pCoeffs;
+    float32_t mu;
+    float32_t energy;
+    float32_t x0;
+  } arm_lms_norm_instance_f32;
+# 4119 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_lms_norm_f32(
+  arm_lms_norm_instance_f32 * S,
+  float32_t * pSrc,
+  float32_t * pRef,
+  float32_t * pOut,
+  float32_t * pErr,
+  uint32_t blockSize);
+# 4137 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_lms_norm_init_f32(
+  arm_lms_norm_instance_f32 * S,
+  uint16_t numTaps,
+  float32_t * pCoeffs,
+  float32_t * pState,
+  float32_t mu,
+  uint32_t blockSize);
+
+
+
+
+
+  typedef struct
+  {
+    uint16_t numTaps;
+    q31_t *pState;
+    q31_t *pCoeffs;
+    q31_t mu;
+    uint8_t postShift;
+    q31_t *recipTable;
+    q31_t energy;
+    q31_t x0;
+  } arm_lms_norm_instance_q31;
+# 4171 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_lms_norm_q31(
+  arm_lms_norm_instance_q31 * S,
+  q31_t * pSrc,
+  q31_t * pRef,
+  q31_t * pOut,
+  q31_t * pErr,
+  uint32_t blockSize);
+# 4190 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_lms_norm_init_q31(
+  arm_lms_norm_instance_q31 * S,
+  uint16_t numTaps,
+  q31_t * pCoeffs,
+  q31_t * pState,
+  q31_t mu,
+  uint32_t blockSize,
+  uint8_t postShift);
+
+
+
+
+
+  typedef struct
+  {
+    uint16_t numTaps;
+    q15_t *pState;
+    q15_t *pCoeffs;
+    q15_t mu;
+    uint8_t postShift;
+    q15_t *recipTable;
+    q15_t energy;
+    q15_t x0;
+  } arm_lms_norm_instance_q15;
+# 4225 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_lms_norm_q15(
+  arm_lms_norm_instance_q15 * S,
+  q15_t * pSrc,
+  q15_t * pRef,
+  q15_t * pOut,
+  q15_t * pErr,
+  uint32_t blockSize);
+# 4244 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_lms_norm_init_q15(
+  arm_lms_norm_instance_q15 * S,
+  uint16_t numTaps,
+  q15_t * pCoeffs,
+  q15_t * pState,
+  q15_t mu,
+  uint32_t blockSize,
+  uint8_t postShift);
+# 4262 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_correlate_f32(
+  float32_t * pSrcA,
+  uint32_t srcALen,
+  float32_t * pSrcB,
+  uint32_t srcBLen,
+  float32_t * pDst);
+# 4279 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_correlate_opt_q15(
+  q15_t * pSrcA,
+  uint32_t srcALen,
+  q15_t * pSrcB,
+  uint32_t srcBLen,
+  q15_t * pDst,
+  q15_t * pScratch);
+# 4297 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_correlate_q15(
+  q15_t * pSrcA,
+  uint32_t srcALen,
+  q15_t * pSrcB,
+  uint32_t srcBLen,
+  q15_t * pDst);
+# 4314 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_correlate_fast_q15(
+  q15_t * pSrcA,
+  uint32_t srcALen,
+  q15_t * pSrcB,
+  uint32_t srcBLen,
+  q15_t * pDst);
+# 4331 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_correlate_fast_opt_q15(
+  q15_t * pSrcA,
+  uint32_t srcALen,
+  q15_t * pSrcB,
+  uint32_t srcBLen,
+  q15_t * pDst,
+  q15_t * pScratch);
+# 4348 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_correlate_q31(
+  q31_t * pSrcA,
+  uint32_t srcALen,
+  q31_t * pSrcB,
+  uint32_t srcBLen,
+  q31_t * pDst);
+# 4364 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_correlate_fast_q31(
+  q31_t * pSrcA,
+  uint32_t srcALen,
+  q31_t * pSrcB,
+  uint32_t srcBLen,
+  q31_t * pDst);
+# 4382 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_correlate_opt_q7(
+  q7_t * pSrcA,
+  uint32_t srcALen,
+  q7_t * pSrcB,
+  uint32_t srcBLen,
+  q7_t * pDst,
+  q15_t * pScratch1,
+  q15_t * pScratch2);
+# 4400 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_correlate_q7(
+  q7_t * pSrcA,
+  uint32_t srcALen,
+  q7_t * pSrcB,
+  uint32_t srcBLen,
+  q7_t * pDst);
+
+
+
+
+
+  typedef struct
+  {
+    uint16_t numTaps;
+    uint16_t stateIndex;
+    float32_t *pState;
+    float32_t *pCoeffs;
+    uint16_t maxDelay;
+    int32_t *pTapDelay;
+  } arm_fir_sparse_instance_f32;
+
+
+
+
+  typedef struct
+  {
+    uint16_t numTaps;
+    uint16_t stateIndex;
+    q31_t *pState;
+    q31_t *pCoeffs;
+    uint16_t maxDelay;
+    int32_t *pTapDelay;
+  } arm_fir_sparse_instance_q31;
+
+
+
+
+  typedef struct
+  {
+    uint16_t numTaps;
+    uint16_t stateIndex;
+    q15_t *pState;
+    q15_t *pCoeffs;
+    uint16_t maxDelay;
+    int32_t *pTapDelay;
+  } arm_fir_sparse_instance_q15;
+
+
+
+
+  typedef struct
+  {
+    uint16_t numTaps;
+    uint16_t stateIndex;
+    q7_t *pState;
+    q7_t *pCoeffs;
+    uint16_t maxDelay;
+    int32_t *pTapDelay;
+  } arm_fir_sparse_instance_q7;
+# 4469 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_sparse_f32(
+  arm_fir_sparse_instance_f32 * S,
+  float32_t * pSrc,
+  float32_t * pDst,
+  float32_t * pScratchIn,
+  uint32_t blockSize);
+# 4487 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_sparse_init_f32(
+  arm_fir_sparse_instance_f32 * S,
+  uint16_t numTaps,
+  float32_t * pCoeffs,
+  float32_t * pState,
+  int32_t * pTapDelay,
+  uint16_t maxDelay,
+  uint32_t blockSize);
+# 4505 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_sparse_q31(
+  arm_fir_sparse_instance_q31 * S,
+  q31_t * pSrc,
+  q31_t * pDst,
+  q31_t * pScratchIn,
+  uint32_t blockSize);
+# 4523 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_sparse_init_q31(
+  arm_fir_sparse_instance_q31 * S,
+  uint16_t numTaps,
+  q31_t * pCoeffs,
+  q31_t * pState,
+  int32_t * pTapDelay,
+  uint16_t maxDelay,
+  uint32_t blockSize);
+# 4542 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_sparse_q15(
+  arm_fir_sparse_instance_q15 * S,
+  q15_t * pSrc,
+  q15_t * pDst,
+  q15_t * pScratchIn,
+  q31_t * pScratchOut,
+  uint32_t blockSize);
+# 4561 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_sparse_init_q15(
+  arm_fir_sparse_instance_q15 * S,
+  uint16_t numTaps,
+  q15_t * pCoeffs,
+  q15_t * pState,
+  int32_t * pTapDelay,
+  uint16_t maxDelay,
+  uint32_t blockSize);
+# 4580 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_sparse_q7(
+  arm_fir_sparse_instance_q7 * S,
+  q7_t * pSrc,
+  q7_t * pDst,
+  q7_t * pScratchIn,
+  q31_t * pScratchOut,
+  uint32_t blockSize);
+# 4599 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_fir_sparse_init_q7(
+  arm_fir_sparse_instance_q7 * S,
+  uint16_t numTaps,
+  q7_t * pCoeffs,
+  q7_t * pState,
+  int32_t * pTapDelay,
+  uint16_t maxDelay,
+  uint32_t blockSize);
+# 4615 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_sin_cos_f32(
+  float32_t theta,
+  float32_t * pSinVal,
+  float32_t * pCosVal);
+# 4627 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_sin_cos_q31(
+  q31_t theta,
+  q31_t * pSinVal,
+  q31_t * pCosVal);
+# 4639 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_cmplx_conj_f32(
+  float32_t * pSrc,
+  float32_t * pDst,
+  uint32_t numSamples);
+
+
+
+
+
+
+
+  void arm_cmplx_conj_q31(
+  q31_t * pSrc,
+  q31_t * pDst,
+  uint32_t numSamples);
+# 4662 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_cmplx_conj_q15(
+  q15_t * pSrc,
+  q15_t * pDst,
+  uint32_t numSamples);
+# 4674 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_cmplx_mag_squared_f32(
+  float32_t * pSrc,
+  float32_t * pDst,
+  uint32_t numSamples);
+# 4686 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_cmplx_mag_squared_q31(
+  q31_t * pSrc,
+  q31_t * pDst,
+  uint32_t numSamples);
+# 4698 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_cmplx_mag_squared_q15(
+  q15_t * pSrc,
+  q15_t * pDst,
+  uint32_t numSamples);
+# 4776 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline float32_t arm_pid_f32(
+  arm_pid_instance_f32 * S,
+  float32_t in)
+  {
+    float32_t out;
+
+
+    out = (S->A0 * in) +
+      (S->A1 * S->state[0]) + (S->A2 * S->state[1]) + (S->state[2]);
+
+
+    S->state[1] = S->state[0];
+    S->state[0] = in;
+    S->state[2] = out;
+
+
+    return (out);
+
+  }
+# 4810 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline q31_t arm_pid_q31(
+  arm_pid_instance_q31 * S,
+  q31_t in)
+  {
+    q63_t acc;
+    q31_t out;
+
+
+    acc = (q63_t) S->A0 * in;
+
+
+    acc += (q63_t) S->A1 * S->state[0];
+
+
+    acc += (q63_t) S->A2 * S->state[1];
+
+
+    out = (q31_t) (acc >> 31U);
+
+
+    out += S->state[2];
+
+
+    S->state[1] = S->state[0];
+    S->state[0] = in;
+    S->state[2] = out;
+
+
+    return (out);
+  }
+# 4857 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline q15_t arm_pid_q15(
+  arm_pid_instance_q15 * S,
+  q15_t in)
+  {
+    q63_t acc;
+    q15_t out;
+
+
+    int32_t *vstate;
+
+
+
+
+    acc = (q31_t) __SMUAD((uint32_t)S->A0, (uint32_t)in);
+
+
+    vstate = ((int32_t *)(S->state));
+    acc = (q63_t)__SMLALD((uint32_t)S->A1, (uint32_t)*vstate, (uint64_t)acc);
+# 4885 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+    acc += (q31_t) S->state[2] << 15;
+
+
+    out = (q15_t) (__extension__ ({ int32_t __RES, __ARG1 = ((acc >> 15)); __asm ("ssat %0, %1, %2" : "=r" (__RES) : "I" (16), "r" (__ARG1) ); __RES; }));
+
+
+    S->state[1] = S->state[0];
+    S->state[0] = in;
+    S->state[2] = out;
+
+
+    return (out);
+  }
+# 4911 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_inverse_f32(
+  const arm_matrix_instance_f32 * src,
+  arm_matrix_instance_f32 * dst);
+# 4923 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_mat_inverse_f64(
+  const arm_matrix_instance_f64 * src,
+  arm_matrix_instance_f64 * dst);
+# 4968 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline void arm_clarke_f32(
+  float32_t Ia,
+  float32_t Ib,
+  float32_t * pIalpha,
+  float32_t * pIbeta)
+  {
+
+    *pIalpha = Ia;
+
+
+    *pIbeta = ((float32_t) 0.57735026919 * Ia + (float32_t) 1.15470053838 * Ib);
+  }
+# 4995 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline void arm_clarke_q31(
+  q31_t Ia,
+  q31_t Ib,
+  q31_t * pIalpha,
+  q31_t * pIbeta)
+  {
+    q31_t product1, product2;
+
+
+    *pIalpha = Ia;
+
+
+    product1 = (q31_t) (((q63_t) Ia * 0x24F34E8B) >> 30);
+
+
+    product2 = (q31_t) (((q63_t) Ib * 0x49E69D16) >> 30);
+
+
+    *pIbeta = __QADD(product1, product2);
+  }
+# 5026 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_q7_to_q31(
+  q7_t * pSrc,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 5065 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline void arm_inv_clarke_f32(
+  float32_t Ialpha,
+  float32_t Ibeta,
+  float32_t * pIa,
+  float32_t * pIb)
+  {
+
+    *pIa = Ialpha;
+
+
+    *pIb = -0.5f * Ialpha + 0.8660254039f * Ibeta;
+  }
+# 5092 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline void arm_inv_clarke_q31(
+  q31_t Ialpha,
+  q31_t Ibeta,
+  q31_t * pIa,
+  q31_t * pIb)
+  {
+    q31_t product1, product2;
+
+
+    *pIa = Ialpha;
+
+
+    product1 = (q31_t) (((q63_t) (Ialpha) * (0x40000000)) >> 31);
+
+
+    product2 = (q31_t) (((q63_t) (Ibeta) * (0x6ED9EBA1)) >> 31);
+
+
+    *pIb = __QSUB(product2, product1);
+  }
+# 5123 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_q7_to_q15(
+  q7_t * pSrc,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 5175 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline void arm_park_f32(
+  float32_t Ialpha,
+  float32_t Ibeta,
+  float32_t * pId,
+  float32_t * pIq,
+  float32_t sinVal,
+  float32_t cosVal)
+  {
+
+    *pId = Ialpha * cosVal + Ibeta * sinVal;
+
+
+    *pIq = -Ialpha * sinVal + Ibeta * cosVal;
+  }
+# 5206 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline void arm_park_q31(
+  q31_t Ialpha,
+  q31_t Ibeta,
+  q31_t * pId,
+  q31_t * pIq,
+  q31_t sinVal,
+  q31_t cosVal)
+  {
+    q31_t product1, product2;
+    q31_t product3, product4;
+
+
+    product1 = (q31_t) (((q63_t) (Ialpha) * (cosVal)) >> 31);
+
+
+    product2 = (q31_t) (((q63_t) (Ibeta) * (sinVal)) >> 31);
+
+
+
+    product3 = (q31_t) (((q63_t) (Ialpha) * (sinVal)) >> 31);
+
+
+    product4 = (q31_t) (((q63_t) (Ibeta) * (cosVal)) >> 31);
+
+
+    *pId = __QADD(product1, product2);
+
+
+    *pIq = __QSUB(product4, product3);
+  }
+# 5247 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_q7_to_float(
+  q7_t * pSrc,
+  float32_t * pDst,
+  uint32_t blockSize);
+# 5288 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline void arm_inv_park_f32(
+  float32_t Id,
+  float32_t Iq,
+  float32_t * pIalpha,
+  float32_t * pIbeta,
+  float32_t sinVal,
+  float32_t cosVal)
+  {
+
+    *pIalpha = Id * cosVal - Iq * sinVal;
+
+
+    *pIbeta = Id * sinVal + Iq * cosVal;
+  }
+# 5319 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline void arm_inv_park_q31(
+  q31_t Id,
+  q31_t Iq,
+  q31_t * pIalpha,
+  q31_t * pIbeta,
+  q31_t sinVal,
+  q31_t cosVal)
+  {
+    q31_t product1, product2;
+    q31_t product3, product4;
+
+
+    product1 = (q31_t) (((q63_t) (Id) * (cosVal)) >> 31);
+
+
+    product2 = (q31_t) (((q63_t) (Iq) * (sinVal)) >> 31);
+
+
+
+    product3 = (q31_t) (((q63_t) (Id) * (sinVal)) >> 31);
+
+
+    product4 = (q31_t) (((q63_t) (Iq) * (cosVal)) >> 31);
+
+
+    *pIalpha = __QSUB(product1, product2);
+
+
+    *pIbeta = __QADD(product4, product3);
+  }
+# 5361 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_q31_to_float(
+  q31_t * pSrc,
+  float32_t * pDst,
+  uint32_t blockSize);
+# 5414 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline float32_t arm_linear_interp_f32(
+  arm_linear_interp_instance_f32 * S,
+  float32_t x)
+  {
+    float32_t y;
+    float32_t x0, x1;
+    float32_t y0, y1;
+    float32_t xSpacing = S->xSpacing;
+    int32_t i;
+    float32_t *pYData = S->pYData;
+
+
+    i = (int32_t) ((x - S->x1) / xSpacing);
+
+    if (i < 0)
+    {
+
+      y = pYData[0];
+    }
+    else if ((uint32_t)i >= S->nValues)
+    {
+
+      y = pYData[S->nValues - 1];
+    }
+    else
+    {
+
+      x0 = S->x1 + i * xSpacing;
+      x1 = S->x1 + (i + 1) * xSpacing;
+
+
+      y0 = pYData[i];
+      y1 = pYData[i + 1];
+
+
+      y = y0 + (x - x0) * ((y1 - y0) / (x1 - x0));
+
+    }
+
+
+    return (y);
+  }
+# 5471 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline q31_t arm_linear_interp_q31(
+  q31_t * pYData,
+  q31_t x,
+  uint32_t nValues)
+  {
+    q31_t y;
+    q31_t y0, y1;
+    q31_t fract;
+    int32_t index;
+
+
+
+
+    index = ((x & (q31_t)0xFFF00000) >> 20);
+
+    if (index >= (int32_t)(nValues - 1))
+    {
+      return (pYData[nValues - 1]);
+    }
+    else if (index < 0)
+    {
+      return (pYData[0]);
+    }
+    else
+    {
+
+
+      fract = (x & 0x000FFFFF) << 11;
+
+
+      y0 = pYData[index];
+      y1 = pYData[index + 1];
+
+
+      y = ((q31_t) ((q63_t) y0 * (0x7FFFFFFF - fract) >> 32));
+
+
+      y += ((q31_t) (((q63_t) y1 * fract) >> 32));
+
+
+      return (y << 1U);
+    }
+  }
+# 5529 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline q15_t arm_linear_interp_q15(
+  q15_t * pYData,
+  q31_t x,
+  uint32_t nValues)
+  {
+    q63_t y;
+    q15_t y0, y1;
+    q31_t fract;
+    int32_t index;
+
+
+
+
+    index = ((x & (int32_t)0xFFF00000) >> 20);
+
+    if (index >= (int32_t)(nValues - 1))
+    {
+      return (pYData[nValues - 1]);
+    }
+    else if (index < 0)
+    {
+      return (pYData[0]);
+    }
+    else
+    {
+
+
+      fract = (x & 0x000FFFFF);
+
+
+      y0 = pYData[index];
+      y1 = pYData[index + 1];
+
+
+      y = ((q63_t) y0 * (0xFFFFF - fract));
+
+
+      y += ((q63_t) y1 * (fract));
+
+
+      return (q15_t) (y >> 20);
+    }
+  }
+# 5586 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline q7_t arm_linear_interp_q7(
+  q7_t * pYData,
+  q31_t x,
+  uint32_t nValues)
+  {
+    q31_t y;
+    q7_t y0, y1;
+    q31_t fract;
+    uint32_t index;
+
+
+
+
+    if (x < 0)
+    {
+      return (pYData[0]);
+    }
+    index = (x >> 20) & 0xfff;
+
+    if (index >= (nValues - 1))
+    {
+      return (pYData[nValues - 1]);
+    }
+    else
+    {
+
+
+      fract = (x & 0x000FFFFF);
+
+
+      y0 = pYData[index];
+      y1 = pYData[index + 1];
+
+
+      y = ((y0 * (0xFFFFF - fract)));
+
+
+      y += (y1 * fract);
+
+
+      return (q7_t) (y >> 20);
+     }
+  }
+# 5639 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  float32_t arm_sin_f32(
+  float32_t x);
+
+
+
+
+
+
+
+  q31_t arm_sin_q31(
+  q31_t x);
+
+
+
+
+
+
+
+  q15_t arm_sin_q15(
+  q15_t x);
+
+
+
+
+
+
+
+  float32_t arm_cos_f32(
+  float32_t x);
+
+
+
+
+
+
+
+  q31_t arm_cos_q31(
+  q31_t x);
+
+
+
+
+
+
+
+  q15_t arm_cos_q15(
+  q15_t x);
+# 5726 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline arm_status arm_sqrt_f32(
+  float32_t in,
+  float32_t * pOut)
+  {
+    if (in >= 0.0f)
+    {
+
+
+
+
+
+
+      *pOut = __builtin_sqrtf(in);
+
+
+
+
+
+
+      return (ARM_MATH_SUCCESS);
+    }
+    else
+    {
+      *pOut = 0.0f;
+      return (ARM_MATH_ARGUMENT_ERROR);
+    }
+  }
+# 5762 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_sqrt_q31(
+  q31_t in,
+  q31_t * pOut);
+# 5774 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  arm_status arm_sqrt_q15(
+  q15_t in,
+  q15_t * pOut);
+# 5786 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline void arm_circularWrite_f32(
+  int32_t * circBuffer,
+  int32_t L,
+  uint16_t * writeOffset,
+  int32_t bufferInc,
+  const int32_t * src,
+  int32_t srcInc,
+  uint32_t blockSize)
+  {
+    uint32_t i = 0U;
+    int32_t wOffset;
+
+
+
+    wOffset = *writeOffset;
+
+
+    i = blockSize;
+
+    while (i > 0U)
+    {
+
+      circBuffer[wOffset] = *src;
+
+
+      src += srcInc;
+
+
+      wOffset += bufferInc;
+      if (wOffset >= L)
+        wOffset -= L;
+
+
+      i--;
+    }
+
+
+    *writeOffset = (uint16_t)wOffset;
+  }
+
+
+
+
+
+
+  __attribute__((always_inline)) static inline void arm_circularRead_f32(
+  int32_t * circBuffer,
+  int32_t L,
+  int32_t * readOffset,
+  int32_t bufferInc,
+  int32_t * dst,
+  int32_t * dst_base,
+  int32_t dst_length,
+  int32_t dstInc,
+  uint32_t blockSize)
+  {
+    uint32_t i = 0U;
+    int32_t rOffset, dst_end;
+
+
+
+    rOffset = *readOffset;
+    dst_end = (int32_t) (dst_base + dst_length);
+
+
+    i = blockSize;
+
+    while (i > 0U)
+    {
+
+      *dst = circBuffer[rOffset];
+
+
+      dst += dstInc;
+
+      if (dst == (int32_t *) dst_end)
+      {
+        dst = dst_base;
+      }
+
+
+      rOffset += bufferInc;
+
+      if (rOffset >= L)
+      {
+        rOffset -= L;
+      }
+
+
+      i--;
+    }
+
+
+    *readOffset = rOffset;
+  }
+
+
+
+
+
+  __attribute__((always_inline)) static inline void arm_circularWrite_q15(
+  q15_t * circBuffer,
+  int32_t L,
+  uint16_t * writeOffset,
+  int32_t bufferInc,
+  const q15_t * src,
+  int32_t srcInc,
+  uint32_t blockSize)
+  {
+    uint32_t i = 0U;
+    int32_t wOffset;
+
+
+
+    wOffset = *writeOffset;
+
+
+    i = blockSize;
+
+    while (i > 0U)
+    {
+
+      circBuffer[wOffset] = *src;
+
+
+      src += srcInc;
+
+
+      wOffset += bufferInc;
+      if (wOffset >= L)
+        wOffset -= L;
+
+
+      i--;
+    }
+
+
+    *writeOffset = (uint16_t)wOffset;
+  }
+
+
+
+
+
+  __attribute__((always_inline)) static inline void arm_circularRead_q15(
+  q15_t * circBuffer,
+  int32_t L,
+  int32_t * readOffset,
+  int32_t bufferInc,
+  q15_t * dst,
+  q15_t * dst_base,
+  int32_t dst_length,
+  int32_t dstInc,
+  uint32_t blockSize)
+  {
+    uint32_t i = 0;
+    int32_t rOffset, dst_end;
+
+
+
+    rOffset = *readOffset;
+
+    dst_end = (int32_t) (dst_base + dst_length);
+
+
+    i = blockSize;
+
+    while (i > 0U)
+    {
+
+      *dst = circBuffer[rOffset];
+
+
+      dst += dstInc;
+
+      if (dst == (q15_t *) dst_end)
+      {
+        dst = dst_base;
+      }
+
+
+      rOffset += bufferInc;
+
+      if (rOffset >= L)
+      {
+        rOffset -= L;
+      }
+
+
+      i--;
+    }
+
+
+    *readOffset = rOffset;
+  }
+
+
+
+
+
+  __attribute__((always_inline)) static inline void arm_circularWrite_q7(
+  q7_t * circBuffer,
+  int32_t L,
+  uint16_t * writeOffset,
+  int32_t bufferInc,
+  const q7_t * src,
+  int32_t srcInc,
+  uint32_t blockSize)
+  {
+    uint32_t i = 0U;
+    int32_t wOffset;
+
+
+
+    wOffset = *writeOffset;
+
+
+    i = blockSize;
+
+    while (i > 0U)
+    {
+
+      circBuffer[wOffset] = *src;
+
+
+      src += srcInc;
+
+
+      wOffset += bufferInc;
+      if (wOffset >= L)
+        wOffset -= L;
+
+
+      i--;
+    }
+
+
+    *writeOffset = (uint16_t)wOffset;
+  }
+
+
+
+
+
+  __attribute__((always_inline)) static inline void arm_circularRead_q7(
+  q7_t * circBuffer,
+  int32_t L,
+  int32_t * readOffset,
+  int32_t bufferInc,
+  q7_t * dst,
+  q7_t * dst_base,
+  int32_t dst_length,
+  int32_t dstInc,
+  uint32_t blockSize)
+  {
+    uint32_t i = 0;
+    int32_t rOffset, dst_end;
+
+
+
+    rOffset = *readOffset;
+
+    dst_end = (int32_t) (dst_base + dst_length);
+
+
+    i = blockSize;
+
+    while (i > 0U)
+    {
+
+      *dst = circBuffer[rOffset];
+
+
+      dst += dstInc;
+
+      if (dst == (q7_t *) dst_end)
+      {
+        dst = dst_base;
+      }
+
+
+      rOffset += bufferInc;
+
+      if (rOffset >= L)
+      {
+        rOffset -= L;
+      }
+
+
+      i--;
+    }
+
+
+    *readOffset = rOffset;
+  }
+# 6089 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_power_q31(
+  q31_t * pSrc,
+  uint32_t blockSize,
+  q63_t * pResult);
+# 6101 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_power_f32(
+  float32_t * pSrc,
+  uint32_t blockSize,
+  float32_t * pResult);
+# 6113 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_power_q15(
+  q15_t * pSrc,
+  uint32_t blockSize,
+  q63_t * pResult);
+# 6125 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_power_q7(
+  q7_t * pSrc,
+  uint32_t blockSize,
+  q31_t * pResult);
+# 6137 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_mean_q7(
+  q7_t * pSrc,
+  uint32_t blockSize,
+  q7_t * pResult);
+# 6149 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_mean_q15(
+  q15_t * pSrc,
+  uint32_t blockSize,
+  q15_t * pResult);
+# 6161 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_mean_q31(
+  q31_t * pSrc,
+  uint32_t blockSize,
+  q31_t * pResult);
+# 6173 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_mean_f32(
+  float32_t * pSrc,
+  uint32_t blockSize,
+  float32_t * pResult);
+# 6185 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_var_f32(
+  float32_t * pSrc,
+  uint32_t blockSize,
+  float32_t * pResult);
+# 6197 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_var_q31(
+  q31_t * pSrc,
+  uint32_t blockSize,
+  q31_t * pResult);
+# 6209 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_var_q15(
+  q15_t * pSrc,
+  uint32_t blockSize,
+  q15_t * pResult);
+# 6221 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_rms_f32(
+  float32_t * pSrc,
+  uint32_t blockSize,
+  float32_t * pResult);
+# 6233 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_rms_q31(
+  q31_t * pSrc,
+  uint32_t blockSize,
+  q31_t * pResult);
+# 6245 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_rms_q15(
+  q15_t * pSrc,
+  uint32_t blockSize,
+  q15_t * pResult);
+# 6257 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_std_f32(
+  float32_t * pSrc,
+  uint32_t blockSize,
+  float32_t * pResult);
+# 6269 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_std_q31(
+  q31_t * pSrc,
+  uint32_t blockSize,
+  q31_t * pResult);
+# 6281 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_std_q15(
+  q15_t * pSrc,
+  uint32_t blockSize,
+  q15_t * pResult);
+# 6293 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_cmplx_mag_f32(
+  float32_t * pSrc,
+  float32_t * pDst,
+  uint32_t numSamples);
+# 6305 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_cmplx_mag_q31(
+  q31_t * pSrc,
+  q31_t * pDst,
+  uint32_t numSamples);
+# 6317 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_cmplx_mag_q15(
+  q15_t * pSrc,
+  q15_t * pDst,
+  uint32_t numSamples);
+# 6331 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_cmplx_dot_prod_q15(
+  q15_t * pSrcA,
+  q15_t * pSrcB,
+  uint32_t numSamples,
+  q31_t * realResult,
+  q31_t * imagResult);
+# 6347 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_cmplx_dot_prod_q31(
+  q31_t * pSrcA,
+  q31_t * pSrcB,
+  uint32_t numSamples,
+  q63_t * realResult,
+  q63_t * imagResult);
+# 6363 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_cmplx_dot_prod_f32(
+  float32_t * pSrcA,
+  float32_t * pSrcB,
+  uint32_t numSamples,
+  float32_t * realResult,
+  float32_t * imagResult);
+# 6378 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_cmplx_mult_real_q15(
+  q15_t * pSrcCmplx,
+  q15_t * pSrcReal,
+  q15_t * pCmplxDst,
+  uint32_t numSamples);
+# 6392 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_cmplx_mult_real_q31(
+  q31_t * pSrcCmplx,
+  q31_t * pSrcReal,
+  q31_t * pCmplxDst,
+  uint32_t numSamples);
+# 6406 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_cmplx_mult_real_f32(
+  float32_t * pSrcCmplx,
+  float32_t * pSrcReal,
+  float32_t * pCmplxDst,
+  uint32_t numSamples);
+# 6420 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_min_q7(
+  q7_t * pSrc,
+  uint32_t blockSize,
+  q7_t * result,
+  uint32_t * index);
+# 6434 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_min_q15(
+  q15_t * pSrc,
+  uint32_t blockSize,
+  q15_t * pResult,
+  uint32_t * pIndex);
+# 6448 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_min_q31(
+  q31_t * pSrc,
+  uint32_t blockSize,
+  q31_t * pResult,
+  uint32_t * pIndex);
+# 6462 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_min_f32(
+  float32_t * pSrc,
+  uint32_t blockSize,
+  float32_t * pResult,
+  uint32_t * pIndex);
+# 6476 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_max_q7(
+  q7_t * pSrc,
+  uint32_t blockSize,
+  q7_t * pResult,
+  uint32_t * pIndex);
+# 6490 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_max_q15(
+  q15_t * pSrc,
+  uint32_t blockSize,
+  q15_t * pResult,
+  uint32_t * pIndex);
+# 6504 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_max_q31(
+  q31_t * pSrc,
+  uint32_t blockSize,
+  q31_t * pResult,
+  uint32_t * pIndex);
+# 6518 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_max_f32(
+  float32_t * pSrc,
+  uint32_t blockSize,
+  float32_t * pResult,
+  uint32_t * pIndex);
+# 6532 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_cmplx_mult_cmplx_q15(
+  q15_t * pSrcA,
+  q15_t * pSrcB,
+  q15_t * pDst,
+  uint32_t numSamples);
+# 6546 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_cmplx_mult_cmplx_q31(
+  q31_t * pSrcA,
+  q31_t * pSrcB,
+  q31_t * pDst,
+  uint32_t numSamples);
+# 6560 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_cmplx_mult_cmplx_f32(
+  float32_t * pSrcA,
+  float32_t * pSrcB,
+  float32_t * pDst,
+  uint32_t numSamples);
+# 6573 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_float_to_q31(
+  float32_t * pSrc,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 6585 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_float_to_q15(
+  float32_t * pSrc,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 6597 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_float_to_q7(
+  float32_t * pSrc,
+  q7_t * pDst,
+  uint32_t blockSize);
+# 6609 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_q31_to_q15(
+  q31_t * pSrc,
+  q15_t * pDst,
+  uint32_t blockSize);
+# 6621 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_q31_to_q7(
+  q31_t * pSrc,
+  q7_t * pDst,
+  uint32_t blockSize);
+# 6633 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_q15_to_float(
+  q15_t * pSrc,
+  float32_t * pDst,
+  uint32_t blockSize);
+# 6645 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_q15_to_q31(
+  q15_t * pSrc,
+  q31_t * pDst,
+  uint32_t blockSize);
+# 6657 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  void arm_q15_to_q7(
+  q15_t * pSrc,
+  q7_t * pDst,
+  uint32_t blockSize);
+# 6733 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline float32_t arm_bilinear_interp_f32(
+  const arm_bilinear_interp_instance_f32 * S,
+  float32_t X,
+  float32_t Y)
+  {
+    float32_t out;
+    float32_t f00, f01, f10, f11;
+    float32_t *pData = S->pData;
+    int32_t xIndex, yIndex, index;
+    float32_t xdiff, ydiff;
+    float32_t b1, b2, b3, b4;
+
+    xIndex = (int32_t) X;
+    yIndex = (int32_t) Y;
+
+
+
+    if (xIndex < 0 || xIndex > (S->numRows - 1) || yIndex < 0 || yIndex > (S->numCols - 1))
+    {
+      return (0);
+    }
+
+
+    index = (xIndex - 1) + (yIndex - 1) * S->numCols;
+
+
+
+    f00 = pData[index];
+    f01 = pData[index + 1];
+
+
+    index = (xIndex - 1) + (yIndex) * S->numCols;
+
+
+
+    f10 = pData[index];
+    f11 = pData[index + 1];
+
+
+    b1 = f00;
+    b2 = f01 - f00;
+    b3 = f10 - f00;
+    b4 = f00 - f01 - f10 + f11;
+
+
+    xdiff = X - xIndex;
+
+
+    ydiff = Y - yIndex;
+
+
+    out = b1 + b2 * xdiff + b3 * ydiff + b4 * xdiff * ydiff;
+
+
+    return (out);
+  }
+# 6799 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline q31_t arm_bilinear_interp_q31(
+  arm_bilinear_interp_instance_q31 * S,
+  q31_t X,
+  q31_t Y)
+  {
+    q31_t out;
+    q31_t acc = 0;
+    q31_t xfract, yfract;
+    q31_t x1, x2, y1, y2;
+    int32_t rI, cI;
+    q31_t *pYData = S->pData;
+    uint32_t nCols = S->numCols;
+
+
+
+
+    rI = ((X & (q31_t)0xFFF00000) >> 20);
+
+
+
+
+    cI = ((Y & (q31_t)0xFFF00000) >> 20);
+
+
+
+    if (rI < 0 || rI > (S->numRows - 1) || cI < 0 || cI > (S->numCols - 1))
+    {
+      return (0);
+    }
+
+
+
+    xfract = (X & 0x000FFFFF) << 11U;
+
+
+    x1 = pYData[(rI) + (int32_t)nCols * (cI) ];
+    x2 = pYData[(rI) + (int32_t)nCols * (cI) + 1];
+
+
+
+    yfract = (Y & 0x000FFFFF) << 11U;
+
+
+    y1 = pYData[(rI) + (int32_t)nCols * (cI + 1) ];
+    y2 = pYData[(rI) + (int32_t)nCols * (cI + 1) + 1];
+
+
+    out = ((q31_t) (((q63_t) x1 * (0x7FFFFFFF - xfract)) >> 32));
+    acc = ((q31_t) (((q63_t) out * (0x7FFFFFFF - yfract)) >> 32));
+
+
+    out = ((q31_t) ((q63_t) x2 * (0x7FFFFFFF - yfract) >> 32));
+    acc += ((q31_t) ((q63_t) out * (xfract) >> 32));
+
+
+    out = ((q31_t) ((q63_t) y1 * (0x7FFFFFFF - xfract) >> 32));
+    acc += ((q31_t) ((q63_t) out * (yfract) >> 32));
+
+
+    out = ((q31_t) ((q63_t) y2 * (xfract) >> 32));
+    acc += ((q31_t) ((q63_t) out * (yfract) >> 32));
+
+
+    return ((q31_t)(acc << 2));
+  }
+# 6873 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline q15_t arm_bilinear_interp_q15(
+  arm_bilinear_interp_instance_q15 * S,
+  q31_t X,
+  q31_t Y)
+  {
+    q63_t acc = 0;
+    q31_t out;
+    q15_t x1, x2, y1, y2;
+    q31_t xfract, yfract;
+    int32_t rI, cI;
+    q15_t *pYData = S->pData;
+    uint32_t nCols = S->numCols;
+
+
+
+
+    rI = ((X & (q31_t)0xFFF00000) >> 20);
+
+
+
+
+    cI = ((Y & (q31_t)0xFFF00000) >> 20);
+
+
+
+    if (rI < 0 || rI > (S->numRows - 1) || cI < 0 || cI > (S->numCols - 1))
+    {
+      return (0);
+    }
+
+
+
+    xfract = (X & 0x000FFFFF);
+
+
+    x1 = pYData[((uint32_t)rI) + nCols * ((uint32_t)cI) ];
+    x2 = pYData[((uint32_t)rI) + nCols * ((uint32_t)cI) + 1];
+
+
+
+    yfract = (Y & 0x000FFFFF);
+
+
+    y1 = pYData[((uint32_t)rI) + nCols * ((uint32_t)cI + 1) ];
+    y2 = pYData[((uint32_t)rI) + nCols * ((uint32_t)cI + 1) + 1];
+
+
+
+
+
+    out = (q31_t) (((q63_t) x1 * (0xFFFFF - xfract)) >> 4U);
+    acc = ((q63_t) out * (0xFFFFF - yfract));
+
+
+    out = (q31_t) (((q63_t) x2 * (0xFFFFF - yfract)) >> 4U);
+    acc += ((q63_t) out * (xfract));
+
+
+    out = (q31_t) (((q63_t) y1 * (0xFFFFF - xfract)) >> 4U);
+    acc += ((q63_t) out * (yfract));
+
+
+    out = (q31_t) (((q63_t) y2 * (xfract)) >> 4U);
+    acc += ((q63_t) out * (yfract));
+
+
+
+    return ((q15_t)(acc >> 36));
+  }
+# 6951 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+  __attribute__((always_inline)) static inline q7_t arm_bilinear_interp_q7(
+  arm_bilinear_interp_instance_q7 * S,
+  q31_t X,
+  q31_t Y)
+  {
+    q63_t acc = 0;
+    q31_t out;
+    q31_t xfract, yfract;
+    q7_t x1, x2, y1, y2;
+    int32_t rI, cI;
+    q7_t *pYData = S->pData;
+    uint32_t nCols = S->numCols;
+
+
+
+
+    rI = ((X & (q31_t)0xFFF00000) >> 20);
+
+
+
+
+    cI = ((Y & (q31_t)0xFFF00000) >> 20);
+
+
+
+    if (rI < 0 || rI > (S->numRows - 1) || cI < 0 || cI > (S->numCols - 1))
+    {
+      return (0);
+    }
+
+
+
+    xfract = (X & (q31_t)0x000FFFFF);
+
+
+    x1 = pYData[((uint32_t)rI) + nCols * ((uint32_t)cI) ];
+    x2 = pYData[((uint32_t)rI) + nCols * ((uint32_t)cI) + 1];
+
+
+
+    yfract = (Y & (q31_t)0x000FFFFF);
+
+
+    y1 = pYData[((uint32_t)rI) + nCols * ((uint32_t)cI + 1) ];
+    y2 = pYData[((uint32_t)rI) + nCols * ((uint32_t)cI + 1) + 1];
+
+
+    out = ((x1 * (0xFFFFF - xfract)));
+    acc = (((q63_t) out * (0xFFFFF - yfract)));
+
+
+    out = ((x2 * (0xFFFFF - yfract)));
+    acc += (((q63_t) out * (xfract)));
+
+
+    out = ((y1 * (0xFFFFF - xfract)));
+    acc += (((q63_t) out * (yfract)));
+
+
+    out = ((y2 * (yfract)));
+    acc += (((q63_t) out * (xfract)));
+
+
+    return ((q7_t)(acc >> 40));
+  }
+# 7138 "./lib/main/CMSIS/DSP/Include/arm_math.h"
+#pragma GCC diagnostic pop
+# 24 "./src/main/flight/gyroanalyse.h" 2
+
+
+
+
+
+typedef struct gyroAnalyseState_s {
+
+    uint8_t sampleCount;
+    uint8_t maxSampleCount;
+    float maxSampleCountRcp;
+    float oversampledGyroAccumulator[3];
+
+
+    uint8_t circularBufferIdx;
+    float downsampledGyroData[3][32];
+
+
+    uint8_t updateTicks;
+    uint8_t updateStep;
+    uint8_t updateAxis;
+
+    arm_rfft_fast_instance_f32 fftInstance;
+    float fftData[32];
+    float rfftData[32];
+
+    float centerFreq[3];
+
+} gyroAnalyseState_t;
+
+_Static_assert((32 <= (uint8_t) -1), "window_size_greater_than_underlying_type");
+
+void gyroDataAnalyseStateInit(gyroAnalyseState_t *state, uint32_t targetLooptimeUs);
+void gyroDataAnalysePush(gyroAnalyseState_t *state, const int axis, const float sample);
+void gyroDataAnalyse(gyroAnalyseState_t *state, biquadFilter_t *notchFilterDyn, biquadFilter_t *notchFilterDyn2);
+uint16_t getMaxFFT(void);
+void resetMaxFFT(void);
+# 33 "./src/main/sensors/gyro.h" 2
+# 51 "./src/main/sensors/gyro.h"
+typedef union gyroLowpassFilter_u {
+    pt1Filter_t pt1FilterState;
+    biquadFilter_t biquadFilterState;
+} gyroLowpassFilter_t;
+
+typedef enum gyroDetectionFlags_e {
+    GYRO_NONE_MASK = 0,
+    GYRO_1_MASK = (1 << (0)),
+
+    GYRO_2_MASK = (1 << (1)),
+    GYRO_ALL_MASK = (GYRO_1_MASK | GYRO_2_MASK),
+    GYRO_IDENTICAL_MASK = (1 << (7)),
+
+} gyroDetectionFlags_t;
+
+typedef struct gyroCalibration_s {
+    float sum[3];
+    stdev_t var[3];
+    int32_t cyclesRemaining;
+} gyroCalibration_t;
+
+typedef struct gyroSensor_s {
+    gyroDev_t gyroDev;
+    gyroCalibration_t calibration;
+} gyroSensor_t;
+
+typedef struct gyro_s {
+    uint16_t sampleRateHz;
+    uint32_t targetLooptime;
+    uint32_t sampleLooptime;
+    float scale;
+    float gyroADC[3];
+    float gyroADCf[3];
+    uint8_t sampleCount;
+    float sampleSum[3];
+    
+# 86 "./src/main/sensors/gyro.h" 3 4
+   _Bool 
+# 86 "./src/main/sensors/gyro.h"
+        downsampleFilterEnabled;
+
+    gyroSensor_t gyroSensor1;
+
+    gyroSensor_t gyroSensor2;
+
+
+    gyroDev_t *rawSensorDev;
+
+
+    filterApplyFnPtr lowpassFilterApplyFn;
+    gyroLowpassFilter_t lowpassFilter[3];
+
+
+    filterApplyFnPtr lowpass2FilterApplyFn;
+    gyroLowpassFilter_t lowpass2Filter[3];
+
+
+    filterApplyFnPtr notchFilter1ApplyFn;
+    biquadFilter_t notchFilter1[3];
+
+    filterApplyFnPtr notchFilter2ApplyFn;
+    biquadFilter_t notchFilter2[3];
+
+    filterApplyFnPtr notchFilterDynApplyFn;
+    filterApplyFnPtr notchFilterDynApplyFn2;
+    biquadFilter_t notchFilterDyn[3];
+    biquadFilter_t notchFilterDyn2[3];
+
+
+    gyroAnalyseState_t gyroAnalyseState;
+
+
+    uint16_t accSampleRateHz;
+    uint8_t gyroToUse;
+    uint8_t gyroDebugMode;
+    
+# 122 "./src/main/sensors/gyro.h" 3 4
+   _Bool 
+# 122 "./src/main/sensors/gyro.h"
+        gyroHasOverflowProtection;
+    
+# 123 "./src/main/sensors/gyro.h" 3 4
+   _Bool 
+# 123 "./src/main/sensors/gyro.h"
+        useDualGyroDebugging;
+    flight_dynamics_index_t gyroDebugAxis;
+
+
+    uint8_t dynLpfFilter;
+    uint16_t dynLpfMin;
+    uint16_t dynLpfMax;
+    uint8_t dynLpfCurveExpo;
+
+
+
+    uint8_t overflowAxisMask;
+
+
+} gyro_t;
+
+extern gyro_t gyro;
+extern uint8_t activePidLoopDenom;
+
+enum {
+    GYRO_OVERFLOW_CHECK_NONE = 0,
+    GYRO_OVERFLOW_CHECK_YAW,
+    GYRO_OVERFLOW_CHECK_ALL_AXES
+};
+
+enum {
+    DYN_LPF_NONE = 0,
+    DYN_LPF_PT1,
+    DYN_LPF_BIQUAD
+};
+
+typedef enum {
+    YAW_SPIN_RECOVERY_OFF,
+    YAW_SPIN_RECOVERY_ON,
+    YAW_SPIN_RECOVERY_AUTO
+} yawSpinRecoveryMode_e;
+
+
+
+
+
+enum {
+    FILTER_LOWPASS = 0,
+    FILTER_LOWPASS2
+};
+
+typedef struct gyroConfig_s {
+    uint8_t gyroMovementCalibrationThreshold;
+    uint8_t gyro_hardware_lpf;
+
+    uint8_t gyro_high_fsr;
+    uint8_t gyro_to_use;
+
+    uint16_t gyro_lowpass_hz;
+    uint16_t gyro_lowpass2_hz;
+
+    uint16_t gyro_soft_notch_hz_1;
+    uint16_t gyro_soft_notch_cutoff_1;
+    uint16_t gyro_soft_notch_hz_2;
+    uint16_t gyro_soft_notch_cutoff_2;
+    int16_t gyro_offset_yaw;
+    uint8_t checkOverflow;
+
+
+    uint8_t gyro_lowpass_type;
+    uint8_t gyro_lowpass2_type;
+
+    uint8_t yaw_spin_recovery;
+    int16_t yaw_spin_threshold;
+
+    uint16_t gyroCalibrationDuration;
+
+    uint16_t dyn_lpf_gyro_min_hz;
+    uint16_t dyn_lpf_gyro_max_hz;
+
+    uint16_t dyn_notch_max_hz;
+    uint8_t dyn_notch_width_percent;
+    uint16_t dyn_notch_q;
+    uint16_t dyn_notch_min_hz;
+
+    uint8_t gyro_filter_debug_axis;
+
+    uint8_t gyrosDetected;
+    uint8_t dyn_lpf_curve_expo;
+    uint8_t simplified_gyro_filter;
+    uint8_t simplified_gyro_filter_multiplier;
+} gyroConfig_t;
+
+extern gyroConfig_t gyroConfig_System; extern gyroConfig_t gyroConfig_Copy; static inline const gyroConfig_t* gyroConfig(void) { return &gyroConfig_System; } static inline gyroConfig_t* gyroConfigMutable(void) { return &gyroConfig_System; } struct _dummy;
+
+void gyroUpdate(void);
+void gyroFiltering(timeUs_t currentTimeUs);
+
+# 215 "./src/main/sensors/gyro.h" 3 4
+_Bool 
+# 215 "./src/main/sensors/gyro.h"
+    gyroGetAccumulationAverage(float *accumulation);
+void gyroStartCalibration(
+# 216 "./src/main/sensors/gyro.h" 3 4
+                         _Bool 
+# 216 "./src/main/sensors/gyro.h"
+                              isFirstArmingCalibration);
+
+# 217 "./src/main/sensors/gyro.h" 3 4
+_Bool 
+# 217 "./src/main/sensors/gyro.h"
+    isFirstArmingGyroCalibrationRunning(void);
+
+# 218 "./src/main/sensors/gyro.h" 3 4
+_Bool 
+# 218 "./src/main/sensors/gyro.h"
+    gyroIsCalibrationComplete(void);
+void gyroReadTemperature(void);
+int16_t gyroGetTemperature(void);
+
+# 221 "./src/main/sensors/gyro.h" 3 4
+_Bool 
+# 221 "./src/main/sensors/gyro.h"
+    gyroOverflowDetected(void);
+
+# 222 "./src/main/sensors/gyro.h" 3 4
+_Bool 
+# 222 "./src/main/sensors/gyro.h"
+    gyroYawSpinDetected(void);
+uint16_t gyroAbsRateDps(int axis);
+
+float dynThrottle(float throttle);
+void dynLpfGyroUpdate(float throttle);
+
+
+void initYawSpinRecovery(int maxYawRate);
+
+
+
+# 232 "./src/main/sensors/gyro.h" 3 4
+_Bool 
+# 232 "./src/main/sensors/gyro.h"
+    isDynamicFilterActive(void);
+# 32 "./src/main/config/simplified_tuning.c" 2
+
+static void calculateNewPidValues(pidProfile_t *pidProfile)
+{
+    const pidf_t pidDefaults[3] = {
+            [PID_ROLL] = { 42, 85, 35, 90 },
+            [PID_PITCH] = { 46, 90, 38, 95 },
+            [PID_YAW] = { 45, 90, 0, 90 },
+        };
+    const int dMinDefaults[3] = { 23, 25, 0 };
+
+    const float masterMultiplier = pidProfile->simplified_master_multiplier / 100.0f;
+    const float ffGain = pidProfile->simplified_ff_gain / 100.0f;
+    const float pdGain = pidProfile->simplified_pd_gain / 100.0f;
+    const float iGain = pidProfile->simplified_i_gain / 100.0f;
+    const float pdRatio = pidProfile->simplified_pd_ratio / 100.0f;
+
+    for (int axis = FD_ROLL; axis <= pidProfile->simplified_pids_mode; ++axis) {
+        const float rpRatio = (axis == FD_PITCH) ? pidProfile->simplified_roll_pitch_ratio / 100.0f : 1.0f;
+        const float dminRatio = 1.0f + (((float)pidDefaults[axis].D / dMinDefaults[axis] - 1.0f) * (pidProfile->simplified_dmin_ratio / 100.0f - 1.0f));
+
+        pidProfile->pid[axis].P = constrain(pidDefaults[axis].P * masterMultiplier * pdGain * pdRatio * rpRatio, 0, 200);
+        pidProfile->pid[axis].I = constrain(pidDefaults[axis].I * masterMultiplier * iGain * rpRatio, 0, 200);
+        pidProfile->pid[axis].D = constrain(pidDefaults[axis].D * masterMultiplier * pdGain * rpRatio, 0, 200);
+        if (pidProfile->simplified_dmin_ratio == 200) {
+            pidProfile->d_min[axis] = 0;
+        } else {
+            pidProfile->d_min[axis] = constrain(dMinDefaults[axis] * masterMultiplier * pdGain * rpRatio * dminRatio, 0, 100);
+        }
+        pidProfile->pid[axis].F = constrain(pidDefaults[axis].F * masterMultiplier * ffGain * rpRatio, 0, 2000);
+    }
+}
+
+static void calculateNewDTermFilterValues(pidProfile_t *pidProfile)
+{
+    pidProfile->dyn_lpf_dterm_min_hz = constrain(70 * pidProfile->simplified_dterm_filter_multiplier / 100, 0, 1000);
+    pidProfile->dyn_lpf_dterm_max_hz = constrain(170 * pidProfile->simplified_dterm_filter_multiplier / 100, 0, 1000);
+    pidProfile->dterm_lowpass2_hz = constrain(150 * pidProfile->simplified_dterm_filter_multiplier / 100, 0, 4000);
+    pidProfile->dterm_filter_type = FILTER_PT1;
+    pidProfile->dterm_filter2_type = FILTER_PT1;
+}
+
+static void calculateNewGyroFilterValues()
+{
+    gyroConfigMutable()->dyn_lpf_gyro_min_hz = constrain(200 * gyroConfig()->simplified_gyro_filter_multiplier / 100, 0, 1000);
+    gyroConfigMutable()->dyn_lpf_gyro_max_hz = constrain(500 * gyroConfig()->simplified_gyro_filter_multiplier / 100, 0, 1000);
+    gyroConfigMutable()->gyro_lowpass2_hz = constrain(250 * gyroConfig()->simplified_gyro_filter_multiplier / 100, 0, 4000);
+    gyroConfigMutable()->gyro_lowpass_type = FILTER_PT1;
+    gyroConfigMutable()->gyro_lowpass2_type = FILTER_PT1;
+}
+
+void applySimplifiedTuning(pidProfile_t *pidProfile)
+{
+    if (pidProfile->simplified_pids_mode != PID_SIMPLIFIED_TUNING_OFF) {
+        calculateNewPidValues(pidProfile);
+    }
+
+    if (pidProfile->simplified_dterm_filter) {
+        calculateNewDTermFilterValues(pidProfile);
+    }
+
+    if (gyroConfig()->simplified_gyro_filter) {
+        calculateNewGyroFilterValues();
+    }
+}

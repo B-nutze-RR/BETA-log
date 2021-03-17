@@ -9,14 +9,14 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"compass_qmc5883l.c"
-	.section	.gnu.lto_.profile.411180d2,"e",%progbits
+	.section	.gnu.lto_.profile.41581cc3,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.411180d2,"e",%progbits
+	.section	.gnu.lto_.icf.41581cc3,"e",%progbits
 	.ascii	"x\234\343``d\020a@\000f\206\377\233\037\034\343f\234"
 	.ascii	"v\376\363aN\246\207w6\254cb\000\000k0\011\310"
 	.text
-	.section	.gnu.lto_.jmpfuncs.411180d2,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41581cc3,"e",%progbits
 	.ascii	"x\234\215\222;K\003Q\020\205\347\334\011\227}\020l\322"
 	.ascii	"\205\3747\033\177G\002V\261\010\026BH!)\305JEH\221\304"
 	.ascii	"l|`\257`\251\210\332\006\301Z\320\271;\303\262\011\311"
@@ -35,7 +35,7 @@
 	.ascii	"\317\253\213D\313\035\340\301\352\035\365\246\177\250"
 	.ascii	"@\272>"
 	.text
-	.section	.gnu.lto_.inline.411180d2,"e",%progbits
+	.section	.gnu.lto_.inline.41581cc3,"e",%progbits
 	.ascii	"x\234\343``d\270\314\200\000\314\014\354\232\363\237"
 	.ascii	"\036\355b\312`ddP`d``\322[\372\243w+S\032\003\003\317"
 	.ascii	"\316\007\037^0\247010\201\024\262\361\003\011\226\011"
@@ -45,11 +45,11 @@
 	.ascii	"\310\005\334\355/W\274d\302\357\002\210)\014,\2740c"
 	.ascii	"\031\000\227\314'\021"
 	.text
-	.section	.gnu.lto_.pureconst.411180d2,"e",%progbits
+	.section	.gnu.lto_.pureconst.41581cc3,"e",%progbits
 	.ascii	"x\234\343``d\340b```f\230\305\3028\203\205i\026\013"
 	.ascii	"\000\012\224\001\362"
 	.text
-	.section	.gnu.lto_qmc5883lRead.411180d2,"e",%progbits
+	.section	.gnu.lto_qmc5883lRead.41581cc3,"e",%progbits
 	.ascii	"x\234}VYL\224W\024\276\347\277\3772\0133\340\202&N\343"
 	.ascii	"\022j\210\266\021\252i\243/\215\017\276\365\241O}l\232"
 	.ascii	"\021mcZ\272\200\232\364\311\013X\021\265.UA\022\307"
@@ -128,7 +128,7 @@
 	.ascii	"r\255E/\377j?\367\347|h._\223\277b\345Z\276|\315\373"
 	.ascii	"f\376j\377\3525\371\377\003*\007+\377"
 	.text
-	.section	.gnu.lto_qmc5883lInit.411180d2,"e",%progbits
+	.section	.gnu.lto_qmc5883lInit.41581cc3,"e",%progbits
 	.ascii	"x\234u\222\355KTA\024\306\347\231\271o\273\256\333\247"
 	.ascii	" X\002?$\242\201\032Q\370\251$\372?b\333$\244\266\027"
 	.ascii	"%\2776\253\222\355\232\032\244\330V\333\012&\225\201"
@@ -175,7 +175,7 @@
 	.ascii	"\277wgU\235\261\373H\355\236\252:\341\017\354\373\005"
 	.ascii	"\335\273s\004"
 	.text
-	.section	.gnu.lto_qmc5883lDetect.411180d2,"e",%progbits
+	.section	.gnu.lto_qmc5883lDetect.41581cc3,"e",%progbits
 	.ascii	"x\234\235U\353O\034U\024\277g\356\314\354\314\354.\""
 	.ascii	"\245\265\311~(i$M\033\003k\210\206&\306\360\301\370"
 	.ascii	"'\370\325 %\015Q|\260\221\217e`\241t)\001\215\213t\215"
@@ -246,7 +246,7 @@
 	.ascii	"\346\346\275O]\005\307\345\367>u\035\313/\376\017W\264"
 	.ascii	"\276\233"
 	.text
-	.section	.gnu.lto_.symbol_nodes.411180d2,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41581cc3,"e",%progbits
 	.ascii	"x\234m\316!\016\302@\020\205\341\367v\332\205d\017\321"
 	.ascii	"Cp\001H8\012\367\230\025\004\015\006\013\002\022$P "
 	.ascii	"\015\216\244\032\301\031\020H4\246l\331\032\222}\352"
@@ -258,11 +258,11 @@
 	.ascii	"\361I16f{\225\230u\233\213\325k\300\272\207/\321\273"
 	.ascii	"d]"
 	.text
-	.section	.gnu.lto_.refs.411180d2,"e",%progbits
+	.section	.gnu.lto_.refs.41581cc3,"e",%progbits
 	.ascii	"x\234\343``d\340d```bbb\024bb\020f\000\000\001\333\000"
 	.ascii	"A"
 	.text
-	.section	.gnu.lto_.decls.411180d2,"e",%progbits
+	.section	.gnu.lto_.decls.41581cc3,"e",%progbits
 	.ascii	"x\234\225XkPTG\026\276}{\206\031\206\227\021\023\215"
 	.ascii	"\344\207\265E*[\265\211\304d\223\370c\177\344\265\233"
 	.ascii	"X\273n\\\315n\252\366\307N&0\352\324\312c\231\201MR"
@@ -470,7 +470,7 @@
 	.ascii	"\034\201\336\257\"M\026\243\324\375\222c*\244\036u\210"
 	.ascii	"q\235\341;wa%\203\201\321\375\037\235\364\242'"
 	.text
-	.section	.gnu.lto_.symtab.411180d2,"e",%progbits
+	.section	.gnu.lto_.symtab.41581cc3,"e",%progbits
 	.ascii	"qmc5883lDetect\000"
 	.ascii	"\000"
 	.ascii	"\000"

@@ -24031,7 +24031,7 @@ void batteryInit(void)
 
         case CURRENT_METER_VIRTUAL:
 
-
+            currentMeterVirtualInit();
 
             break;
 
@@ -24071,7 +24071,18 @@ void batteryUpdateCurrentMeter(timeUs_t currentTimeUs)
             break;
 
         case CURRENT_METER_VIRTUAL: {
-# 442 "./src/main/sensors/battery.c"
+
+            throttleStatus_e throttleStatus = calculateThrottleStatus();
+            
+# 436 "./src/main/sensors/battery.c" 3 4
+           _Bool 
+# 436 "./src/main/sensors/battery.c"
+                throttleLowAndMotorStop = (throttleStatus == THROTTLE_LOW && featureIsEnabled(FEATURE_MOTOR_STOP));
+            const int32_t throttleOffset = lrintf(mixerGetThrottle() * 1000);
+
+            currentMeterVirtualRefresh(lastUpdateAt, (armingFlags & (ARMED)), throttleLowAndMotorStop, throttleOffset);
+            currentMeterVirtualRead(&currentMeter);
+
             break;
         }
 

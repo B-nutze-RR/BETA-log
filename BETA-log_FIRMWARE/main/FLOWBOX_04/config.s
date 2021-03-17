@@ -9,24 +9,24 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"config.c"
-	.section	.gnu.lto_.profile.4123b893,"e",%progbits
+	.section	.gnu.lto_.profile.415f3cc8,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4123b893,"e",%progbits
+	.section	.gnu.lto_.icf.415f3cc8,"e",%progbits
 	.ascii	"x\234\343``d\340`@\000F\206S_\027\354ed\000\000\017"
 	.ascii	"\324\0030"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4123b893,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415f3cc8,"e",%progbits
 	.ascii	"x\234\343``d`e@\000F\020\001\000\001*\000\020"
 	.text
-	.section	.gnu.lto_.inline.4123b893,"e",%progbits
+	.section	.gnu.lto_.inline.415f3cc8,"e",%progbits
 	.ascii	"x\234\343``dPe@\000F\006\006\326\006 `Jed`b\001\263"
 	.ascii	"R\030\030\330 \014&\006&\260\"\000\244#\007y"
 	.text
-	.section	.gnu.lto_.pureconst.4123b893,"e",%progbits
+	.section	.gnu.lto_.pureconst.415f3cc8,"e",%progbits
 	.ascii	"x\234\343``d`a`\000\2223X\000\001\316\000\253"
 	.text
-	.section	.gnu.lto_targetConfiguration.4123b893,"e",%progbits
+	.section	.gnu.lto_targetConfiguration.415f3cc8,"e",%progbits
 	.ascii	"x\234\205\220\317+DQ\024\307\317\367\335g<\312\206\215"
 	.ascii	"\232l5Cy\223\374\001\262\260R\263d\247ib\232\205Q\314"
 	.ascii	"~\256\207F\321(%,4\243IfeFV\306\230y~M\224\205,l\224"
@@ -49,15 +49,15 @@
 	.ascii	"\340\310h\240\317\014O\306\306\243\221\2360\375\000"
 	.ascii	"v\274\240\023"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4123b893,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415f3cc8,"e",%progbits
 	.ascii	"x\234\343``dPe\000\002\246\251\214\365\014\015@\300"
 	.ascii	"\3028\341\034\003C=\003\303\256\006G\240$\020\260Nc"
 	.ascii	"dP\0001\000\263\\\007`"
 	.text
-	.section	.gnu.lto_.refs.4123b893,"e",%progbits
+	.section	.gnu.lto_.refs.415f3cc8,"e",%progbits
 	.ascii	"x\234\343``d\340d```b`\004\001&\006\000\001L\000\034"
 	.text
-	.section	.gnu.lto_.decls.4123b893,"e",%progbits
+	.section	.gnu.lto_.decls.415f3cc8,"e",%progbits
 	.ascii	"x\234\215SILSA\030\236\357\015X(\210\204\272\246\232"
 	.ascii	"\020\002^\214<\032I\364h4qI\214\036\324\350\215\324"
 	.ascii	"Z\240\211mIy\030\274\015\020\304\230h\352\202^\\P4\321"
@@ -102,7 +102,7 @@
 	.ascii	"\362\370\214\025%\306\202\244\035*\312t\011\331\341"
 	.ascii	"\257.,'\177\302\215\337\202e^\""
 	.text
-	.section	.gnu.lto_.symtab.4123b893,"e",%progbits
+	.section	.gnu.lto_.symtab.415f3cc8,"e",%progbits
 	.ascii	"targetConfiguration\000"
 	.ascii	"\000"
 	.ascii	"\000"

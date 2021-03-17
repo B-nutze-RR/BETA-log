@@ -22573,7 +22573,19 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-# 351 "./src/main/flight/pid.h"
+# 343 "./src/main/flight/pid.h"
+    pt1Filter_t setpointDerivativePt1[3];
+    biquadFilter_t setpointDerivativeBiquad[3];
+    
+# 345 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 345 "./src/main/flight/pid.h"
+        setpointDerivativeLpfInitialized;
+    uint8_t rcSmoothingDebugAxis;
+    uint8_t rcSmoothingFilterType;
+
+
+
     float acroTrainerAngleLimit;
     float acroTrainerLookaheadTime;
     uint8_t acroTrainerDebugAxis;
@@ -29170,7 +29182,7 @@ typedef enum {
     TABLE_FAILSAFE_SWITCH_MODE,
     TABLE_CRASH_RECOVERY,
 
-
+    TABLE_CAMERA_CONTROL_MODE,
 
     TABLE_BUS_TYPE,
 
@@ -29198,7 +29210,16 @@ typedef enum {
 
 
     TABLE_ACRO_TRAINER_DEBUG,
-# 121 "./src/main/cli/settings.h"
+
+
+    TABLE_RC_SMOOTHING_TYPE,
+    TABLE_RC_SMOOTHING_DEBUG,
+    TABLE_RC_SMOOTHING_INPUT_TYPE,
+    TABLE_RC_SMOOTHING_DERIVATIVE_TYPE,
+
+
+
+
     TABLE_GYRO_HARDWARE,
 
     TABLE_SDCARD_MODE,
@@ -29373,8 +29394,20 @@ static void setProfileIndexString(char *profileString, int profileIndex, char *p
 {
     int charIndex = 0;
     profileString[charIndex++] = '1' + profileIndex;
-# 105 "./src/main/cms/cms_menu_imu.c"
-    ((void)(profileName));
+
+
+    const int profileNameLen = strlen(profileName);
+
+    if (profileNameLen > 0) {
+        profileString[charIndex++] = ' ';
+        profileString[charIndex++] = '(';
+        for (int i = 0; i < profileNameLen; i++) {
+            profileString[charIndex++] = toupper(profileName[i]);
+        }
+        profileString[charIndex++] = ')';
+    }
+
+
 
 
     profileString[charIndex] = '\0';
@@ -30117,7 +30150,188 @@ static CMS_Menu cmsx_menuFilterGlobal = {
                           ,
     .entries = cmsx_menuFilterGlobalEntries,
 };
-# 852 "./src/main/cms/cms_menu_imu.c"
+
+
+
+
+static uint16_t dynFiltNotchMaxHz;
+static uint8_t dynFiltWidthPercent;
+static uint16_t dynFiltNotchQ;
+static uint16_t dynFiltNotchMinHz;
+
+
+static uint16_t dynFiltGyroMin;
+static uint16_t dynFiltGyroMax;
+static uint8_t dynFiltGyroExpo;
+static uint16_t dynFiltDtermMin;
+static uint16_t dynFiltDtermMax;
+static uint8_t dynFiltDtermExpo;
+
+
+static const void *cmsx_menuDynFilt_onEnter(displayPort_t *pDisp)
+{
+    ((void)(pDisp));
+
+
+    dynFiltNotchMaxHz = gyroConfig()->dyn_notch_max_hz;
+    dynFiltWidthPercent = gyroConfig()->dyn_notch_width_percent;
+    dynFiltNotchQ = gyroConfig()->dyn_notch_q;
+    dynFiltNotchMinHz = gyroConfig()->dyn_notch_min_hz;
+
+
+    const pidProfile_t *pidProfile = pidProfiles(pidProfileIndex);
+    dynFiltGyroMin = gyroConfig()->dyn_lpf_gyro_min_hz;
+    dynFiltGyroMax = gyroConfig()->dyn_lpf_gyro_max_hz;
+    dynFiltGyroExpo = gyroConfig()->dyn_lpf_curve_expo;
+    dynFiltDtermMin = pidProfile->dyn_lpf_dterm_min_hz;
+    dynFiltDtermMax = pidProfile->dyn_lpf_dterm_max_hz;
+    dynFiltDtermExpo = pidProfile->dyn_lpf_curve_expo;
+
+
+    return 
+# 788 "./src/main/cms/cms_menu_imu.c" 3 4
+          ((void *)0)
+# 788 "./src/main/cms/cms_menu_imu.c"
+              ;
+}
+
+static const void *cmsx_menuDynFilt_onExit(displayPort_t *pDisp, const OSD_Entry *self)
+{
+    ((void)(pDisp));
+    ((void)(self));
+
+
+    gyroConfigMutable()->dyn_notch_max_hz = dynFiltNotchMaxHz;
+    gyroConfigMutable()->dyn_notch_width_percent = dynFiltWidthPercent;
+    gyroConfigMutable()->dyn_notch_q = dynFiltNotchQ;
+    gyroConfigMutable()->dyn_notch_min_hz = dynFiltNotchMinHz;
+
+
+    pidProfile_t *pidProfile = currentPidProfile;
+    gyroConfigMutable()->dyn_lpf_gyro_min_hz = dynFiltGyroMin;
+    gyroConfigMutable()->dyn_lpf_gyro_max_hz = dynFiltGyroMax;
+    gyroConfigMutable()->dyn_lpf_curve_expo = dynFiltGyroExpo;
+    pidProfile->dyn_lpf_dterm_min_hz = dynFiltDtermMin;
+    pidProfile->dyn_lpf_dterm_max_hz = dynFiltDtermMax;
+    pidProfile->dyn_lpf_curve_expo = dynFiltDtermExpo;
+
+
+    return 
+# 812 "./src/main/cms/cms_menu_imu.c" 3 4
+          ((void *)0)
+# 812 "./src/main/cms/cms_menu_imu.c"
+              ;
+}
+
+static const OSD_Entry cmsx_menuDynFiltEntries[] =
+{
+    { "-- DYN FILT --", OME_Label, 
+# 817 "./src/main/cms/cms_menu_imu.c" 3 4
+                                  ((void *)0)
+# 817 "./src/main/cms/cms_menu_imu.c"
+                                      , 
+# 817 "./src/main/cms/cms_menu_imu.c" 3 4
+                                        ((void *)0)
+# 817 "./src/main/cms/cms_menu_imu.c"
+                                            , 0 },
+
+
+    { "NOTCH WIDTH %", OME_UINT8, 
+# 820 "./src/main/cms/cms_menu_imu.c" 3 4
+                                   ((void *)0)
+# 820 "./src/main/cms/cms_menu_imu.c"
+                                       , &(OSD_UINT8_t) { &dynFiltWidthPercent, 0, 20, 1 }, 0 },
+    { "NOTCH Q", OME_UINT16, 
+# 821 "./src/main/cms/cms_menu_imu.c" 3 4
+                                   ((void *)0)
+# 821 "./src/main/cms/cms_menu_imu.c"
+                                       , &(OSD_UINT16_t) { &dynFiltNotchQ, 0, 1000, 1 }, 0 },
+    { "NOTCH MIN HZ", OME_UINT16, 
+# 822 "./src/main/cms/cms_menu_imu.c" 3 4
+                                   ((void *)0)
+# 822 "./src/main/cms/cms_menu_imu.c"
+                                       , &(OSD_UINT16_t) { &dynFiltNotchMinHz, 0, 1000, 1 }, 0 },
+    { "NOTCH MAX HZ", OME_UINT16, 
+# 823 "./src/main/cms/cms_menu_imu.c" 3 4
+                                   ((void *)0)
+# 823 "./src/main/cms/cms_menu_imu.c"
+                                       , &(OSD_UINT16_t) { &dynFiltNotchMaxHz, 0, 1000, 1 }, 0 },
+
+
+
+    { "LPF GYRO MIN", OME_UINT16, 
+# 827 "./src/main/cms/cms_menu_imu.c" 3 4
+                                   ((void *)0)
+# 827 "./src/main/cms/cms_menu_imu.c"
+                                       , &(OSD_UINT16_t) { &dynFiltGyroMin, 0, 1000, 1 }, 0 },
+    { "LPF GYRO MAX", OME_UINT16, 
+# 828 "./src/main/cms/cms_menu_imu.c" 3 4
+                                   ((void *)0)
+# 828 "./src/main/cms/cms_menu_imu.c"
+                                       , &(OSD_UINT16_t) { &dynFiltGyroMax, 0, 1000, 1 }, 0 },
+    { "GYRO DLPF EXPO", OME_UINT8, 
+# 829 "./src/main/cms/cms_menu_imu.c" 3 4
+                                  ((void *)0)
+# 829 "./src/main/cms/cms_menu_imu.c"
+                                      , &(OSD_UINT8_t) { &dynFiltGyroExpo, 0, 10, 1 }, 0 },
+    { "DTERM DLPF MIN", OME_UINT16, 
+# 830 "./src/main/cms/cms_menu_imu.c" 3 4
+                                   ((void *)0)
+# 830 "./src/main/cms/cms_menu_imu.c"
+                                       , &(OSD_UINT16_t) { &dynFiltDtermMin, 0, 1000, 1 }, 0 },
+    { "DTERM DLPF MAX", OME_UINT16, 
+# 831 "./src/main/cms/cms_menu_imu.c" 3 4
+                                   ((void *)0)
+# 831 "./src/main/cms/cms_menu_imu.c"
+                                       , &(OSD_UINT16_t) { &dynFiltDtermMax, 0, 1000, 1 }, 0 },
+    { "DTERM DLPF EXPO", OME_UINT8, 
+# 832 "./src/main/cms/cms_menu_imu.c" 3 4
+                                   ((void *)0)
+# 832 "./src/main/cms/cms_menu_imu.c"
+                                       , &(OSD_UINT8_t) { &dynFiltDtermExpo, 0, 10, 1 }, 0 },
+
+
+    { "BACK", OME_Back, 
+# 835 "./src/main/cms/cms_menu_imu.c" 3 4
+                       ((void *)0)
+# 835 "./src/main/cms/cms_menu_imu.c"
+                           , 
+# 835 "./src/main/cms/cms_menu_imu.c" 3 4
+                             ((void *)0)
+# 835 "./src/main/cms/cms_menu_imu.c"
+                                 , 0 },
+    { 
+# 836 "./src/main/cms/cms_menu_imu.c" 3 4
+     ((void *)0)
+# 836 "./src/main/cms/cms_menu_imu.c"
+         , OME_END, 
+# 836 "./src/main/cms/cms_menu_imu.c" 3 4
+                    ((void *)0)
+# 836 "./src/main/cms/cms_menu_imu.c"
+                        , 
+# 836 "./src/main/cms/cms_menu_imu.c" 3 4
+                          ((void *)0)
+# 836 "./src/main/cms/cms_menu_imu.c"
+                              , 0 }
+};
+
+static CMS_Menu cmsx_menuDynFilt = {
+
+
+
+
+    .onEnter = cmsx_menuDynFilt_onEnter,
+    .onExit = cmsx_menuDynFilt_onExit,
+    .onDisplayUpdate = 
+# 846 "./src/main/cms/cms_menu_imu.c" 3 4
+                      ((void *)0)
+# 846 "./src/main/cms/cms_menu_imu.c"
+                          ,
+    .entries = cmsx_menuDynFiltEntries,
+};
+
+
+
 static uint16_t cmsx_dterm_lowpass_hz;
 static uint16_t cmsx_dterm_lowpass2_hz;
 static uint16_t cmsx_dterm_notch_hz;
@@ -30239,7 +30453,146 @@ static CMS_Menu cmsx_menuFilterPerProfile = {
                           ,
     .entries = cmsx_menuFilterPerProfileEntries,
 };
-# 989 "./src/main/cms/cms_menu_imu.c"
+
+
+
+static uint8_t cmsx_dstPidProfile;
+static uint8_t cmsx_dstControlRateProfile;
+
+static const char * const cmsx_ProfileNames[] = {
+    "-",
+    "1",
+    "2",
+    "3"
+};
+
+static OSD_TAB_t cmsx_PidProfileTable = { &cmsx_dstPidProfile, 3, cmsx_ProfileNames };
+static OSD_TAB_t cmsx_ControlRateProfileTable = { &cmsx_dstControlRateProfile, 3, cmsx_ProfileNames };
+
+static const void *cmsx_menuCopyProfile_onEnter(displayPort_t *pDisp)
+{
+    ((void)(pDisp));
+
+    cmsx_dstPidProfile = 0;
+    cmsx_dstControlRateProfile = 0;
+
+    return 
+# 936 "./src/main/cms/cms_menu_imu.c" 3 4
+          ((void *)0)
+# 936 "./src/main/cms/cms_menu_imu.c"
+              ;
+}
+
+static const void *cmsx_CopyPidProfile(displayPort_t *pDisplay, const void *ptr)
+{
+    ((void)(pDisplay));
+    ((void)(ptr));
+
+    if (cmsx_dstPidProfile > 0) {
+        pidCopyProfile(cmsx_dstPidProfile - 1, getCurrentPidProfileIndex());
+    }
+
+    return 
+# 948 "./src/main/cms/cms_menu_imu.c" 3 4
+          ((void *)0)
+# 948 "./src/main/cms/cms_menu_imu.c"
+              ;
+}
+
+static const void *cmsx_CopyControlRateProfile(displayPort_t *pDisplay, const void *ptr)
+{
+    ((void)(pDisplay));
+    ((void)(ptr));
+
+    if (cmsx_dstControlRateProfile > 0) {
+        copyControlRateProfile(cmsx_dstControlRateProfile - 1, getCurrentControlRateProfileIndex());
+    }
+
+    return 
+# 960 "./src/main/cms/cms_menu_imu.c" 3 4
+          ((void *)0)
+# 960 "./src/main/cms/cms_menu_imu.c"
+              ;
+}
+
+static const OSD_Entry cmsx_menuCopyProfileEntries[] =
+{
+    { "-- COPY PROFILE --", OME_Label, 
+# 965 "./src/main/cms/cms_menu_imu.c" 3 4
+                                      ((void *)0)
+# 965 "./src/main/cms/cms_menu_imu.c"
+                                          , 
+# 965 "./src/main/cms/cms_menu_imu.c" 3 4
+                                            ((void *)0)
+# 965 "./src/main/cms/cms_menu_imu.c"
+                                                , 0},
+
+    { "CPY PID PROF TO", OME_TAB, 
+# 967 "./src/main/cms/cms_menu_imu.c" 3 4
+                                        ((void *)0)
+# 967 "./src/main/cms/cms_menu_imu.c"
+                                            , &cmsx_PidProfileTable, 0 },
+    { "COPY PP", OME_Funcall, cmsx_CopyPidProfile, 
+# 968 "./src/main/cms/cms_menu_imu.c" 3 4
+                                                                     ((void *)0)
+# 968 "./src/main/cms/cms_menu_imu.c"
+                                                                         , 0 },
+    { "CPY RATE PROF TO", OME_TAB, 
+# 969 "./src/main/cms/cms_menu_imu.c" 3 4
+                                        ((void *)0)
+# 969 "./src/main/cms/cms_menu_imu.c"
+                                            , &cmsx_ControlRateProfileTable, 0 },
+    { "COPY RP", OME_Funcall, cmsx_CopyControlRateProfile, 
+# 970 "./src/main/cms/cms_menu_imu.c" 3 4
+                                                                     ((void *)0)
+# 970 "./src/main/cms/cms_menu_imu.c"
+                                                                         , 0 },
+
+    { "BACK", OME_Back, 
+# 972 "./src/main/cms/cms_menu_imu.c" 3 4
+                       ((void *)0)
+# 972 "./src/main/cms/cms_menu_imu.c"
+                           , 
+# 972 "./src/main/cms/cms_menu_imu.c" 3 4
+                             ((void *)0)
+# 972 "./src/main/cms/cms_menu_imu.c"
+                                 , 0 },
+    { 
+# 973 "./src/main/cms/cms_menu_imu.c" 3 4
+     ((void *)0)
+# 973 "./src/main/cms/cms_menu_imu.c"
+         , OME_END, 
+# 973 "./src/main/cms/cms_menu_imu.c" 3 4
+                    ((void *)0)
+# 973 "./src/main/cms/cms_menu_imu.c"
+                        , 
+# 973 "./src/main/cms/cms_menu_imu.c" 3 4
+                          ((void *)0)
+# 973 "./src/main/cms/cms_menu_imu.c"
+                              , 0 }
+};
+
+CMS_Menu cmsx_menuCopyProfile = {
+
+
+
+
+    .onEnter = cmsx_menuCopyProfile_onEnter,
+    .onExit = 
+# 982 "./src/main/cms/cms_menu_imu.c" 3 4
+             ((void *)0)
+# 982 "./src/main/cms/cms_menu_imu.c"
+                 ,
+    .onDisplayUpdate = 
+# 983 "./src/main/cms/cms_menu_imu.c" 3 4
+                      ((void *)0)
+# 983 "./src/main/cms/cms_menu_imu.c"
+                          ,
+    .entries = cmsx_menuCopyProfileEntries,
+};
+
+
+
 static const OSD_Entry cmsx_menuImuEntries[] =
 {
     { "-- PROFILE --", OME_Label, 
@@ -30264,7 +30617,14 @@ static const OSD_Entry cmsx_menuImuEntries[] =
     {"RATE", OME_Submenu, cmsMenuChange, &cmsx_menuRateProfile, 0},
 
     {"FILT GLB", OME_Submenu, cmsMenuChange, &cmsx_menuFilterGlobal, 0},
-# 1013 "./src/main/cms/cms_menu_imu.c"
+
+    {"DYN FILT", OME_Submenu, cmsMenuChange, &cmsx_menuDynFilt, 0},
+
+
+
+    {"COPY PROF", OME_Submenu, cmsMenuChange, &cmsx_menuCopyProfile, 0},
+
+
     {"BACK", OME_Back, 
 # 1013 "./src/main/cms/cms_menu_imu.c" 3 4
                       ((void *)0)

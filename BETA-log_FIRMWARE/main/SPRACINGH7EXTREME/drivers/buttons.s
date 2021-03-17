@@ -9,15 +9,15 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"buttons.c"
-	.section	.gnu.lto_.profile.411181ad,"e",%progbits
+	.section	.gnu.lto_.profile.415831a0,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.411181ad,"e",%progbits
+	.section	.gnu.lto_.icf.415831a0,"e",%progbits
 	.ascii	"x\234\343``dP`@\000V\206\346\316\343\213\370\030?\375"
 	.ascii	"8\177\235\233\011L2w\254\271\177\225\217\005L2\000\000"
 	.ascii	"\007\236\017\336"
 	.text
-	.section	.gnu.lto_.jmpfuncs.411181ad,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415831a0,"e",%progbits
 	.ascii	"x\234\343``d0ed\200\003f fa``<\300\302\310\000\304\377"
 	.ascii	"\201\200\237\201i:3\343\325\011\253\367q\3661\317g\006"
 	.ascii	"\31210\356b\224\006\2539\000R\304\300\300\206M\307\215"
@@ -27,18 +27,18 @@
 	.ascii	"W *0\235H\330I\350n\300\260\024\335\022`X0\241\233\302"
 	.ascii	"\202E\214\001\000\255aM\305"
 	.text
-	.section	.gnu.lto_.inline.411181ad,"e",%progbits
+	.section	.gnu.lto_.inline.415831a0,"e",%progbits
 	.ascii	"x\234\343``dX\317\200\000\314\014\014\322\015\015\015"
 	.ascii	"\007\2302\031\031\2308\200\254\006\246T\006\00660#\205"
 	.ascii	"\211\201\011\254\206\007H0M\360c`\341\005\361\200\014"
 	.ascii	"\210\020#>\031\006v\240\021\017\230\323\200\3062\201"
 	.ascii	"MK\306j,\343\004?\026\342\2252\000\000P\010\035}"
 	.text
-	.section	.gnu.lto_.pureconst.411181ad,"e",%progbits
+	.section	.gnu.lto_.pureconst.415831a0,"e",%progbits
 	.ascii	"x\234\343``d\340b```f\230\301\302<\203\205e\006\013"
 	.ascii	"\000\012\222\001\362"
 	.text
-	.section	.gnu.lto_buttonsInit.411181ad,"e",%progbits
+	.section	.gnu.lto_buttonsInit.415831a0,"e",%progbits
 	.ascii	"x\234\215\223\315KTQ\030\306\337\347\274w\306;\346\007"
 	.ascii	"m\202\030\"7-Dp\376\005\377\025\265\026.4\230\261\026"
 	.ascii	"m<3M\232\215\230\033\225Y\014w@\"\305E\264\254\374\270"
@@ -67,7 +67,7 @@
 	.ascii	"\327\223}\267o$S\211\236[\203\2037\007R\235\275\364"
 	.ascii	"\007\204~\376\225"
 	.text
-	.section	.gnu.lto_buttonAPressed.411181ad,"e",%progbits
+	.section	.gnu.lto_buttonAPressed.415831a0,"e",%progbits
 	.ascii	"x\234]P=KBa\024~\236{\256z\203\334\005\221Z]\274A\177"
 	.ascii	"\240\277R\326\340\220\201Z\253\257W%\242\260\311\314"
 	.ascii	"@.!Q[\264f\037wjj\210\206\032\202\206\266\"\212\226"
@@ -85,7 +85,7 @@
 	.ascii	"\026\212\376r\251\260\261R*\373K\353\225\312Z\261\234"
 	.ascii	"\313\343\007~\337b\006"
 	.text
-	.section	.gnu.lto_buttonBPressed.411181ad,"e",%progbits
+	.section	.gnu.lto_buttonBPressed.415831a0,"e",%progbits
 	.ascii	"x\234]P=KBa\024~\236{\256z\033\334#\221Z]\274A\177\240"
 	.ascii	"\277R\326\340\220\201Z\253\257W%\242\260\311\304A.!"
 	.ascii	"Q\320\020\256\231u\247\246\010i\250!hh+\242\376\201"
@@ -103,7 +103,7 @@
 	.ascii	"T\277/\353\227\2129\177k-_\3607\212\371\335\315b\311"
 	.ascii	"_\337)\227\267\013\245l\016?{>a\366"
 	.text
-	.section	.gnu.lto_.symbol_nodes.411181ad,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415831a0,"e",%progbits
 	.ascii	"x\234m\316\315\015\3020\014\206\341\317q\222V\362\020"
 	.ascii	"\010\304 T\352(\354\341\034:\000C \361\017w\316=w%\010"
 	.ascii	"\015\315\311>\275\322c\311nAX\023\000w\021E\312\343"
@@ -113,12 +113,12 @@
 	.ascii	"\362\300\226\021K\355\031\241\324\221*\217T}\210ua\214"
 	.ascii	"\314m\311\236\375R\370\002\332;Z\272"
 	.text
-	.section	.gnu.lto_.refs.411181ad,"e",%progbits
+	.section	.gnu.lto_.refs.415831a0,"e",%progbits
 	.ascii	"x\234\015\307\301\015\000 \020\303\260\244T\202\033"
 	.ascii	"\201\375\027\005\377|\220\013\024\015\326l2\256_K\344"
 	.ascii	"\001\006\255\000S"
 	.text
-	.section	.gnu.lto_.decls.411181ad,"e",%progbits
+	.section	.gnu.lto_.decls.415831a0,"e",%progbits
 	.ascii	"x\234\215UkLTG\024\236\263\263\300r\331]Hc\252\0116"
 	.ascii	"!\246&&\215\240\261\215\376k\253?,\177\012ij\377\022"
 	.ascii	"\212+nRv\233e\261\355\277\013\264\370\350C\252\240@"
@@ -198,7 +198,7 @@
 	.ascii	"j\307\337\024'~\371\300\222\272WR\343Ym\222\032\305"
 	.ascii	"j\373\017\2658\326\372"
 	.text
-	.section	.gnu.lto_.symtab.411181ad,"e",%progbits
+	.section	.gnu.lto_.symtab.415831a0,"e",%progbits
 	.ascii	"buttonsInit\000"
 	.ascii	"\000"
 	.ascii	"\000"

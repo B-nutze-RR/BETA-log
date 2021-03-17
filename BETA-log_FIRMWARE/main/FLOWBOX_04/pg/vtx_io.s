@@ -9,32 +9,32 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"vtx_io.c"
-	.section	.gnu.lto_.profile.412439f6,"e",%progbits
+	.section	.gnu.lto_.profile.415f2263,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.412439f6,"e",%progbits
+	.section	.gnu.lto_.icf.415f2263,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.jmpfuncs.412439f6,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415f2263,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.inline.412439f6,"e",%progbits
+	.section	.gnu.lto_.inline.415f2263,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.pureconst.412439f6,"e",%progbits
+	.section	.gnu.lto_.pureconst.415f2263,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.symbol_nodes.412439f6,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415f2263,"e",%progbits
 	.ascii	"x\234\343``d`b\000\001\000\000n\000\014"
 	.text
-	.section	.gnu.lto_.refs.412439f6,"e",%progbits
+	.section	.gnu.lto_.refs.415f2263,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.412439f6,"e",%progbits
+	.section	.gnu.lto_.decls.415f2263,"e",%progbits
 	.ascii	"x\234\343``d\000\001\020\251\002\304\377\201\000\304"
 	.ascii	"\276\310@\000\000\000\3015\004\375"
 	.text
-	.section	.gnu.lto_.symtab.412439f6,"e",%progbits
+	.section	.gnu.lto_.symtab.415f2263,"e",%progbits
 	.text
 	.section	.gnu.lto_.opts,"e",%progbits
 	.ascii	"'-fno-openmp' '-fno-openacc' '-fno-pie' '-mthumb' '"

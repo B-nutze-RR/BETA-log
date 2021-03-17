@@ -9,29 +9,29 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"uvarint.c"
-	.section	.gnu.lto_.profile.4111edb1,"e",%progbits
+	.section	.gnu.lto_.profile.41582ac9,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4111edb1,"e",%progbits
+	.section	.gnu.lto_.icf.41582ac9,"e",%progbits
 	.ascii	"x\234\343``d\340c@\000&\206kK7\237\346f\354\377\366"
 	.ascii	"\250\231\227\001\000/\244\006\026"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4111edb1,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41582ac9,"e",%progbits
 	.ascii	"x\234\343``dPc@\000&\006fFFF\366\372\371\314\014@\314"
 	.ascii	"\010\304L\2140\021f f\001\2110\000\000\202\347\007\037"
 	.text
-	.section	.gnu.lto_.inline.4111edb1,"e",%progbits
+	.section	.gnu.lto_.inline.41582ac9,"e",%progbits
 	.ascii	"x\234\343``d\010a@\000&\006\006\3013\377.\234b\312d"
 	.ascii	"ddR`\004\012\310\000\271\207\2302\031\030\330\032\200"
 	.ascii	"\200)\205\011\250\206\005\250\222\221A\346\331\361\206"
 	.ascii	"\207\314p\205\272\273\356\336\336\314\014T\310\375\340"
 	.ascii	"\322\262WLi0\205\014\000\346S\025\367"
 	.text
-	.section	.gnu.lto_.pureconst.4111edb1,"e",%progbits
+	.section	.gnu.lto_.pureconst.41582ac9,"e",%progbits
 	.ascii	"x\234\343``d`g```b\230\305\3028\213\005\000\005<\001"
 	.ascii	"P"
 	.text
-	.section	.gnu.lto_uvarintEncode.4111edb1,"e",%progbits
+	.section	.gnu.lto_uvarintEncode.41582ac9,"e",%progbits
 	.ascii	"x\234eS\333K\224A\024\2373g\276\313\332\256\206k\366"
 	.ascii	"\260AA\211\004\245o=\005\365O\364\322\233I\017\013i"
 	.ascii	"a\345C/\315\252)\231\027R\323VZ\214\314.\022X\341C\224"
@@ -80,7 +80,7 @@
 	.ascii	"J\242\305\207\362\012\031\226\026\354\303\003\207J\304"
 	.ascii	"\301\350\221\275<\032\375\015>\275\202\334"
 	.text
-	.section	.gnu.lto_uvarintDecode.4111edb1,"e",%progbits
+	.section	.gnu.lto_uvarintDecode.41582ac9,"e",%progbits
 	.ascii	"x\234\215U\353O\034U\024\277g\316\274vv\027\322P\240"
 	.ascii	"\270\004H\224\220&\025|\305OF\375'\374\003\220\370\201"
 	.ascii	"\244PC\037\037\374`\207G \274\332(\262\025d\334\246"
@@ -148,15 +148,15 @@
 	.ascii	"\302\022\206\207\212\367\342\273\007*\324\375\245\357"
 	.ascii	"\275\003\373\225\322Rx\373_\206\022\\>"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4111edb1,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41582ac9,"e",%progbits
 	.ascii	"x\234\343``d0c\000\002\246\345\334\365\014kn?2c\234"
 	.ascii	"p\216\201\241\236\201aW\203#P\016$\263\202\273\236\021"
 	.ascii	"\253\014\003\000\310\014\016\232"
 	.text
-	.section	.gnu.lto_.refs.4111edb1,"e",%progbits
+	.section	.gnu.lto_.refs.41582ac9,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.4111edb1,"e",%progbits
+	.section	.gnu.lto_.decls.41582ac9,"e",%progbits
 	.ascii	"x\234\205TKLSA\024\235\373^\201\362l\201\020\022L\312"
 	.ascii	"\202\260aa\240 1\2600\272P\243+w\232\300\206\220Z\015"
 	.ascii	"\213\202\201B\214\253'\305J$\232\022A\002\312W\"\020"
@@ -207,7 +207,7 @@
 	.ascii	"\030S\"\321zH\316e\0302\257\030#\376\361\022_\350Y#"
 	.ascii	"\015\375\013\310\377\233\260"
 	.text
-	.section	.gnu.lto_.symtab.4111edb1,"e",%progbits
+	.section	.gnu.lto_.symtab.41582ac9,"e",%progbits
 	.ascii	"uvarintEncode\000"
 	.ascii	"\000"
 	.ascii	"\000"

@@ -61,7 +61,11 @@ BETA-log_FIRMWARE/main/SPRACINGH7EXTREME/io/displayport_srxl.o: \
  src/main/drivers/stm32h7xx_ll_ex.h src/main/common/utils.h \
  src/main/target/common_pre.h src/main/target/SPRACINGH7EXTREME/target.h \
  src/main/target/common_deprecated_post.h src/main/target/common_post.h \
- src/main/build/version.h src/main/target/common_defaults_post.h
+ src/main/build/version.h src/main/target/common_defaults_post.h \
+ src/main/cms/cms.h src/main/drivers/display.h src/main/common/time.h \
+ src/main/pg/pg.h src/main/build/build_config.h src/main/cms/cms_types.h \
+ src/main/config/feature.h src/main/rx/rx.h src/main/pg/rx.h \
+ src/main/drivers/io_types.h src/main/telemetry/srxl.h
 
 src/main/platform.h:
 
@@ -196,3 +200,25 @@ src/main/target/common_post.h:
 src/main/build/version.h:
 
 src/main/target/common_defaults_post.h:
+
+src/main/cms/cms.h:
+
+src/main/drivers/display.h:
+
+src/main/common/time.h:
+
+src/main/pg/pg.h:
+
+src/main/build/build_config.h:
+
+src/main/cms/cms_types.h:
+
+src/main/config/feature.h:
+
+src/main/rx/rx.h:
+
+src/main/pg/rx.h:
+
+src/main/drivers/io_types.h:
+
+src/main/telemetry/srxl.h:

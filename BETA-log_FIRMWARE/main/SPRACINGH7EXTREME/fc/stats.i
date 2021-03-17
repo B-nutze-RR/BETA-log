@@ -21320,3 +21320,858 @@ extern uint8_t eepromData[4096];
 # 1 "./src/main/target/common_defaults_post.h" 1
 # 153 "./src/main/platform.h" 2
 # 22 "./src/main/fc/stats.c" 2
+
+
+
+# 1 "./src/main/drivers/time.h" 1
+# 21 "./src/main/drivers/time.h"
+       
+
+
+
+# 1 "./src/main/common/time.h" 1
+# 21 "./src/main/common/time.h"
+       
+
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdbool.h" 1 3 4
+# 24 "./src/main/common/time.h" 2
+
+
+
+
+# 1 "./src/main/pg/pg.h" 1
+# 21 "./src/main/pg/pg.h"
+       
+
+
+
+
+# 1 "./src/main/build/build_config.h" 1
+# 21 "./src/main/build/build_config.h"
+       
+# 44 "./src/main/build/build_config.h"
+typedef enum {
+    MCU_TYPE_SIMULATOR = 0,
+    MCU_TYPE_F103,
+    MCU_TYPE_F303,
+    MCU_TYPE_F40X,
+    MCU_TYPE_F411,
+    MCU_TYPE_F446,
+    MCU_TYPE_F722,
+    MCU_TYPE_F745,
+    MCU_TYPE_F746,
+    MCU_TYPE_F765,
+    MCU_TYPE_H750,
+    MCU_TYPE_H743_REV_UNKNOWN,
+    MCU_TYPE_H743_REV_Y,
+    MCU_TYPE_H743_REV_X,
+    MCU_TYPE_H743_REV_V,
+    MCU_TYPE_H7A3,
+    MCU_TYPE_H723_725,
+    MCU_TYPE_UNKNOWN = 255,
+} mcuTypeId_e;
+
+mcuTypeId_e getMcuTypeId(void);
+# 27 "./src/main/pg/pg.h" 2
+
+typedef uint16_t pgn_t;
+
+
+typedef enum {
+    PGRF_NONE = 0,
+    PGRF_CLASSIFICATON_BIT = (1 << 0)
+} pgRegistryFlags_e;
+
+typedef enum {
+    PGR_PGN_MASK = 0x0fff,
+    PGR_PGN_VERSION_MASK = 0xf000,
+    PGR_SIZE_MASK = 0x0fff,
+    PGR_SIZE_SYSTEM_FLAG = 0x0000
+} pgRegistryInternal_e;
+
+
+typedef void (pgResetFunc)(void * );
+
+typedef struct pgRegistry_s {
+    pgn_t pgn;
+    uint8_t length;
+    uint16_t size;
+    uint8_t *address;
+    uint8_t *copy;
+    uint8_t **ptr;
+    union {
+        void *ptr;
+        pgResetFunc *fn;
+    } reset;
+} pgRegistry_t;
+
+static inline uint16_t pgN(const pgRegistry_t* reg) {return reg->pgn & PGR_PGN_MASK;}
+static inline uint8_t pgVersion(const pgRegistry_t* reg) {return (uint8_t)(reg->pgn >> 12);}
+static inline uint16_t pgSize(const pgRegistry_t* reg) {return reg->size & PGR_SIZE_MASK;}
+static inline uint16_t pgElementSize(const pgRegistry_t* reg) {return (reg->size & PGR_SIZE_MASK) / reg->length;}
+# 75 "./src/main/pg/pg.h"
+extern const pgRegistry_t __pg_registry_start[];
+extern const pgRegistry_t __pg_registry_end[];
+
+
+extern const uint8_t __pg_resetdata_start[];
+extern const uint8_t __pg_resetdata_end[];
+# 194 "./src/main/pg/pg.h"
+const pgRegistry_t* pgFind(pgn_t pgn);
+
+
+# 196 "./src/main/pg/pg.h" 3 4
+_Bool 
+# 196 "./src/main/pg/pg.h"
+    pgLoad(const pgRegistry_t* reg, const void *from, int size, int version);
+int pgStore(const pgRegistry_t* reg, void *to, int size);
+void pgResetAll(void);
+void pgResetInstance(const pgRegistry_t *reg, uint8_t *base);
+
+# 200 "./src/main/pg/pg.h" 3 4
+_Bool 
+# 200 "./src/main/pg/pg.h"
+    pgResetCopy(void *copy, pgn_t pgn);
+void pgReset(const pgRegistry_t* reg);
+# 29 "./src/main/common/time.h" 2
+
+
+typedef int32_t timeDelta_t;
+
+typedef uint32_t timeMs_t ;
+
+
+
+
+
+typedef uint32_t timeUs_t;
+
+
+
+
+
+
+static inline timeDelta_t cmpTimeUs(timeUs_t a, timeUs_t b) { return (timeDelta_t)(a - b); }
+
+
+
+
+
+typedef struct timeConfig_s {
+    int16_t tz_offsetMinutes;
+} timeConfig_t;
+
+extern timeConfig_t timeConfig_System; extern timeConfig_t timeConfig_Copy; static inline const timeConfig_t* timeConfig(void) { return &timeConfig_System; } static inline timeConfig_t* timeConfigMutable(void) { return &timeConfig_System; } struct _dummy;
+
+
+typedef int64_t rtcTime_t;
+
+rtcTime_t rtcTimeMake(int32_t secs, uint16_t millis);
+int32_t rtcTimeGetSeconds(rtcTime_t *t);
+uint16_t rtcTimeGetMillis(rtcTime_t *t);
+
+typedef struct _dateTime_s {
+
+    uint16_t year;
+
+    uint8_t month;
+
+    uint8_t day;
+
+    uint8_t hours;
+
+    uint8_t minutes;
+
+    uint8_t seconds;
+
+    uint16_t millis;
+} dateTime_t;
+
+
+
+# 83 "./src/main/common/time.h" 3 4
+_Bool 
+# 83 "./src/main/common/time.h"
+    dateTimeFormatUTC(char *buf, dateTime_t *dt);
+
+# 84 "./src/main/common/time.h" 3 4
+_Bool 
+# 84 "./src/main/common/time.h"
+    dateTimeFormatLocal(char *buf, dateTime_t *dt);
+
+# 85 "./src/main/common/time.h" 3 4
+_Bool 
+# 85 "./src/main/common/time.h"
+    dateTimeFormatLocalShort(char *buf, dateTime_t *dt);
+
+void dateTimeUTCToLocal(dateTime_t *utcDateTime, dateTime_t *localDateTime);
+
+
+
+
+# 91 "./src/main/common/time.h" 3 4
+_Bool 
+# 91 "./src/main/common/time.h"
+    dateTimeSplitFormatted(char *formatted, char **date, char **time);
+
+
+# 93 "./src/main/common/time.h" 3 4
+_Bool 
+# 93 "./src/main/common/time.h"
+    rtcHasTime(void);
+
+
+# 95 "./src/main/common/time.h" 3 4
+_Bool 
+# 95 "./src/main/common/time.h"
+    rtcGet(rtcTime_t *t);
+
+# 96 "./src/main/common/time.h" 3 4
+_Bool 
+# 96 "./src/main/common/time.h"
+    rtcSet(rtcTime_t *t);
+
+
+# 98 "./src/main/common/time.h" 3 4
+_Bool 
+# 98 "./src/main/common/time.h"
+    rtcGetDateTime(dateTime_t *dt);
+
+# 99 "./src/main/common/time.h" 3 4
+_Bool 
+# 99 "./src/main/common/time.h"
+    rtcSetDateTime(dateTime_t *dt);
+
+void rtcPersistWrite(int16_t offsetMinutes);
+
+# 102 "./src/main/common/time.h" 3 4
+_Bool 
+# 102 "./src/main/common/time.h"
+    rtcPersistRead(rtcTime_t *t);
+# 26 "./src/main/drivers/time.h" 2
+
+void delayMicroseconds(timeUs_t us);
+void delay(timeMs_t ms);
+
+timeUs_t micros(void);
+timeUs_t microsISR(void);
+timeMs_t millis(void);
+
+uint32_t ticks(void);
+timeDelta_t ticks_diff_us(uint32_t begin, uint32_t end);
+# 26 "./src/main/fc/stats.c" 2
+
+# 1 "./src/main/config/config.h" 1
+# 21 "./src/main/config/config.h"
+       
+# 30 "./src/main/config/config.h"
+typedef enum {
+    CONFIGURATION_STATE_DEFAULTS_BARE = 0,
+    CONFIGURATION_STATE_DEFAULTS_CUSTOM,
+    CONFIGURATION_STATE_CONFIGURED,
+} configurationState_e;
+
+typedef enum {
+    SCHEDULER_OPTIMIZE_RATE_OFF = 0,
+    SCHEDULER_OPTIMIZE_RATE_ON,
+    SCHEDULER_OPTIMIZE_RATE_AUTO,
+} schedulerOptimizeRate_e;
+
+typedef struct pilotConfig_s {
+    char name[16u + 1];
+    char displayName[16u + 1];
+} pilotConfig_t;
+
+extern pilotConfig_t pilotConfig_System; extern pilotConfig_t pilotConfig_Copy; static inline const pilotConfig_t* pilotConfig(void) { return &pilotConfig_System; } static inline pilotConfig_t* pilotConfigMutable(void) { return &pilotConfig_System; } struct _dummy;
+
+typedef struct systemConfig_s {
+    uint8_t pidProfileIndex;
+    uint8_t activeRateProfile;
+    uint8_t debug_mode;
+    uint8_t task_statistics;
+    uint8_t rateProfile6PosSwitch;
+    uint8_t cpu_overclock;
+    uint8_t powerOnArmingGraceTime;
+    char boardIdentifier[sizeof("SP7E") + 1];
+    uint8_t hseMhz;
+    uint8_t configurationState;
+    uint8_t schedulerOptimizeRate;
+    uint8_t enableStickArming;
+} systemConfig_t;
+
+extern systemConfig_t systemConfig_System; extern systemConfig_t systemConfig_Copy; static inline const systemConfig_t* systemConfig(void) { return &systemConfig_System; } static inline systemConfig_t* systemConfigMutable(void) { return &systemConfig_System; } struct _dummy;
+
+struct pidProfile_s;
+extern struct pidProfile_s *currentPidProfile;
+
+void initEEPROM(void);
+
+# 70 "./src/main/config/config.h" 3 4
+_Bool 
+# 70 "./src/main/config/config.h"
+    resetEEPROM(
+# 70 "./src/main/config/config.h" 3 4
+                _Bool 
+# 70 "./src/main/config/config.h"
+                     useCustomDefaults);
+
+# 71 "./src/main/config/config.h" 3 4
+_Bool 
+# 71 "./src/main/config/config.h"
+    readEEPROM(void);
+void writeEEPROM(void);
+void writeUnmodifiedConfigToEEPROM(void);
+void ensureEEPROMStructureIsValid(void);
+
+void saveConfigAndNotify(void);
+void validateAndFixGyroConfig(void);
+
+void setConfigDirty(void);
+
+# 80 "./src/main/config/config.h" 3 4
+_Bool 
+# 80 "./src/main/config/config.h"
+    isConfigDirty(void);
+
+uint8_t getCurrentPidProfileIndex(void);
+void changePidProfile(uint8_t pidProfileIndex);
+void changePidProfileFromCellCount(uint8_t cellCount);
+struct pidProfile_s;
+void resetPidProfile(struct pidProfile_s *profile);
+
+uint8_t getCurrentControlRateProfileIndex(void);
+void changeControlRateProfile(uint8_t profileIndex);
+
+
+# 91 "./src/main/config/config.h" 3 4
+_Bool 
+# 91 "./src/main/config/config.h"
+    canSoftwareSerialBeUsed(void);
+
+uint16_t getCurrentMinthrottle(void);
+
+void resetConfig(void);
+void targetConfiguration(void);
+void targetValidateConfiguration(void);
+
+
+# 99 "./src/main/config/config.h" 3 4
+_Bool 
+# 99 "./src/main/config/config.h"
+    isSystemConfigured(void);
+void setRebootRequired(void);
+
+# 101 "./src/main/config/config.h" 3 4
+_Bool 
+# 101 "./src/main/config/config.h"
+    getRebootRequired(void);
+# 28 "./src/main/fc/stats.c" 2
+# 1 "./src/main/fc/dispatch.h" 1
+# 21 "./src/main/fc/dispatch.h"
+       
+
+struct dispatchEntry_s;
+typedef void dispatchFunc(struct dispatchEntry_s* self);
+
+typedef struct dispatchEntry_s {
+    dispatchFunc *dispatch;
+    uint32_t delayedUntil;
+    struct dispatchEntry_s *next;
+    
+# 30 "./src/main/fc/dispatch.h" 3 4
+   _Bool 
+# 30 "./src/main/fc/dispatch.h"
+        inQue;
+} dispatchEntry_t;
+
+
+# 33 "./src/main/fc/dispatch.h" 3 4
+_Bool 
+# 33 "./src/main/fc/dispatch.h"
+    dispatchIsEnabled(void);
+void dispatchEnable(void);
+void dispatchProcess(uint32_t currentTime);
+void dispatchAdd(dispatchEntry_t *entry, int delayUs);
+# 29 "./src/main/fc/stats.c" 2
+# 1 "./src/main/fc/runtime_config.h" 1
+# 21 "./src/main/fc/runtime_config.h"
+       
+
+
+
+
+typedef enum {
+    ARMED = (1 << 0),
+    WAS_EVER_ARMED = (1 << 1),
+    WAS_ARMED_WITH_PREARM = (1 << 2)
+} armingFlag_e;
+
+extern uint8_t armingFlags;
+# 42 "./src/main/fc/runtime_config.h"
+typedef enum {
+    ARMING_DISABLED_NO_GYRO = (1 << 0),
+    ARMING_DISABLED_FAILSAFE = (1 << 1),
+    ARMING_DISABLED_RX_FAILSAFE = (1 << 2),
+    ARMING_DISABLED_BAD_RX_RECOVERY = (1 << 3),
+    ARMING_DISABLED_BOXFAILSAFE = (1 << 4),
+    ARMING_DISABLED_RUNAWAY_TAKEOFF = (1 << 5),
+    ARMING_DISABLED_CRASH_DETECTED = (1 << 6),
+    ARMING_DISABLED_THROTTLE = (1 << 7),
+    ARMING_DISABLED_ANGLE = (1 << 8),
+    ARMING_DISABLED_BOOT_GRACE_TIME = (1 << 9),
+    ARMING_DISABLED_NOPREARM = (1 << 10),
+    ARMING_DISABLED_LOAD = (1 << 11),
+    ARMING_DISABLED_CALIBRATING = (1 << 12),
+    ARMING_DISABLED_CLI = (1 << 13),
+    ARMING_DISABLED_CMS_MENU = (1 << 14),
+    ARMING_DISABLED_BST = (1 << 15),
+    ARMING_DISABLED_MSP = (1 << 16),
+    ARMING_DISABLED_PARALYZE = (1 << 17),
+    ARMING_DISABLED_GPS = (1 << 18),
+    ARMING_DISABLED_RESC = (1 << 19),
+    ARMING_DISABLED_RPMFILTER = (1 << 20),
+    ARMING_DISABLED_REBOOT_REQUIRED = (1 << 21),
+    ARMING_DISABLED_DSHOT_BITBANG = (1 << 22),
+    ARMING_DISABLED_ACC_CALIBRATION = (1 << 23),
+    ARMING_DISABLED_MOTOR_PROTOCOL = (1 << 24),
+    ARMING_DISABLED_ARM_SWITCH = (1 << 25),
+} armingDisableFlags_e;
+
+
+
+extern const char *armingDisableFlagNames[((32*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) + (16*(((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))>65535L) + (8*((((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))*1L >>16*(((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))*1L >>16*(((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))>65535L)) >>8*((((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))*1L >>16*(((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))*1L >>16*(((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))>65535L)) >>8*((((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))*1L >>16*(((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))>65535L))>255))/2+1))))) + 1)];
+
+void setArmingDisabled(armingDisableFlags_e flag);
+void unsetArmingDisabled(armingDisableFlags_e flag);
+
+# 77 "./src/main/fc/runtime_config.h" 3 4
+_Bool 
+# 77 "./src/main/fc/runtime_config.h"
+    isArmingDisabled(void);
+armingDisableFlags_e getArmingDisableFlags(void);
+
+typedef enum {
+    ANGLE_MODE = (1 << 0),
+    HORIZON_MODE = (1 << 1),
+    MAG_MODE = (1 << 2),
+
+
+
+    HEADFREE_MODE = (1 << 6),
+
+    PASSTHRU_MODE = (1 << 8),
+
+    FAILSAFE_MODE = (1 << 10),
+    GPS_RESCUE_MODE = (1 << 11)
+} flightModeFlags_e;
+
+extern uint16_t flightModeFlags;
+# 114 "./src/main/fc/runtime_config.h"
+typedef enum {
+    GPS_FIX_HOME = (1 << 0),
+    GPS_FIX = (1 << 1),
+} stateFlags_t;
+
+
+
+
+
+extern uint8_t stateFlags;
+
+uint16_t enableFlightMode(flightModeFlags_e mask);
+uint16_t disableFlightMode(flightModeFlags_e mask);
+
+
+# 128 "./src/main/fc/runtime_config.h" 3 4
+_Bool 
+# 128 "./src/main/fc/runtime_config.h"
+    sensors(uint32_t mask);
+void sensorsSet(uint32_t mask);
+void sensorsClear(uint32_t mask);
+uint32_t sensorsMask(void);
+
+void mwDisarm(void);
+# 30 "./src/main/fc/stats.c" 2
+# 1 "./src/main/fc/stats.h" 1
+# 21 "./src/main/fc/stats.h"
+       
+
+void statsInit(void);
+
+void statsOnArm(void);
+void statsOnDisarm(void);
+# 31 "./src/main/fc/stats.c" 2
+
+# 1 "./src/main/io/beeper.h" 1
+# 21 "./src/main/io/beeper.h"
+       
+# 32 "./src/main/io/beeper.h"
+typedef enum {
+
+    BEEPER_SILENCE = 0,
+
+    BEEPER_GYRO_CALIBRATED,
+    BEEPER_RX_LOST,
+    BEEPER_RX_LOST_LANDING,
+    BEEPER_DISARMING,
+    BEEPER_ARMING,
+    BEEPER_ARMING_GPS_FIX,
+    BEEPER_BAT_CRIT_LOW,
+    BEEPER_BAT_LOW,
+    BEEPER_GPS_STATUS,
+    BEEPER_RX_SET,
+    BEEPER_ACC_CALIBRATION,
+    BEEPER_ACC_CALIBRATION_FAIL,
+    BEEPER_READY_BEEP,
+    BEEPER_MULTI_BEEPS,
+    BEEPER_DISARM_REPEAT,
+    BEEPER_ARMED,
+    BEEPER_SYSTEM_INIT,
+    BEEPER_USB,
+    BEEPER_BLACKBOX_ERASE,
+    BEEPER_CRASH_FLIP_MODE,
+    BEEPER_CAM_CONNECTION_OPEN,
+    BEEPER_CAM_CONNECTION_CLOSE,
+    BEEPER_RC_SMOOTHING_INIT_FAIL,
+    BEEPER_ARMING_GPS_NO_FIX,
+    BEEPER_ALL,
+
+} beeperMode_e;
+# 96 "./src/main/io/beeper.h"
+void beeper(beeperMode_e mode);
+void beeperSilence(void);
+void beeperUpdate(timeUs_t currentTimeUs);
+void beeperConfirmationBeeps(uint8_t beepCount);
+void beeperWarningBeeps(uint8_t beepCount);
+uint32_t getArmingBeepTimeMicros(void);
+beeperMode_e beeperModeForTableIndex(int idx);
+uint32_t beeperModeMaskForTableIndex(int idx);
+const char *beeperNameForTableIndex(int idx);
+int beeperTableEntryCount(void);
+
+# 106 "./src/main/io/beeper.h" 3 4
+_Bool 
+# 106 "./src/main/io/beeper.h"
+    isBeeperOn(void);
+timeUs_t getLastDshotBeaconCommandTimeUs(void);
+# 33 "./src/main/fc/stats.c" 2
+# 1 "./src/main/io/gps.h" 1
+# 21 "./src/main/io/gps.h"
+       
+
+# 1 "./src/main/common/axis.h" 1
+# 21 "./src/main/common/axis.h"
+       
+
+typedef enum {
+    X = 0,
+    Y,
+    Z
+} axis_e;
+
+
+
+
+typedef enum {
+    FD_ROLL = 0,
+    FD_PITCH,
+    FD_YAW
+} flight_dynamics_index_t;
+
+
+
+typedef enum {
+    AI_ROLL = 0,
+    AI_PITCH
+} angle_index_t;
+# 24 "./src/main/io/gps.h" 2
+# 35 "./src/main/io/gps.h"
+typedef enum {
+    GPS_NMEA = 0,
+    GPS_UBLOX,
+    GPS_MSP
+} gpsProvider_e;
+
+typedef enum {
+    SBAS_AUTO = 0,
+    SBAS_EGNOS,
+    SBAS_WAAS,
+    SBAS_MSAS,
+    SBAS_GAGAN,
+    SBAS_NONE
+} sbasMode_e;
+
+
+
+typedef enum {
+    UBLOX_AIRBORNE = 0,
+    UBLOX_PEDESTRIAN,
+    UBLOX_DYNAMIC
+} ubloxMode_e;
+
+typedef enum {
+    GPS_BAUDRATE_115200 = 0,
+    GPS_BAUDRATE_57600,
+    GPS_BAUDRATE_38400,
+    GPS_BAUDRATE_19200,
+    GPS_BAUDRATE_9600
+} gpsBaudRate_e;
+
+typedef enum {
+    GPS_AUTOCONFIG_OFF = 0,
+    GPS_AUTOCONFIG_ON
+} gpsAutoConfig_e;
+
+typedef enum {
+    GPS_AUTOBAUD_OFF = 0,
+    GPS_AUTOBAUD_ON
+} gpsAutoBaud_e;
+
+typedef enum {
+    UBLOX_ACK_IDLE = 0,
+    UBLOX_ACK_WAITING,
+    UBLOX_ACK_GOT_ACK,
+    UBLOX_ACK_GOT_NACK,
+    UBLOX_ACK_GOT_TIMEOUT
+} ubloxAckState_e;
+
+
+
+typedef struct gpsConfig_s {
+    gpsProvider_e provider;
+    sbasMode_e sbasMode;
+    gpsAutoConfig_e autoConfig;
+    gpsAutoBaud_e autoBaud;
+    uint8_t gps_ublox_use_galileo;
+    ubloxMode_e gps_ublox_mode;
+    uint8_t gps_set_home_point_once;
+    uint8_t gps_use_3d_speed;
+    uint8_t sbas_integrity;
+} gpsConfig_t;
+
+extern gpsConfig_t gpsConfig_System; extern gpsConfig_t gpsConfig_Copy; static inline const gpsConfig_t* gpsConfig(void) { return &gpsConfig_System; } static inline gpsConfig_t* gpsConfigMutable(void) { return &gpsConfig_System; } struct _dummy;
+
+typedef struct gpsCoordinateDDDMMmmmm_s {
+    int16_t dddmm;
+    int16_t mmmm;
+} gpsCoordinateDDDMMmmmm_t;
+
+
+typedef struct gpsLocation_s {
+    int32_t lat;
+    int32_t lon;
+    int32_t altCm;
+} gpsLocation_t;
+
+typedef struct gpsSolutionData_s {
+    gpsLocation_t llh;
+    uint16_t speed3d;
+    uint16_t groundSpeed;
+    uint16_t groundCourse;
+    uint16_t hdop;
+    uint8_t numSat;
+} gpsSolutionData_t;
+
+typedef enum {
+    GPS_MESSAGE_STATE_IDLE = 0,
+    GPS_MESSAGE_STATE_INIT,
+    GPS_MESSAGE_STATE_SBAS,
+    GPS_MESSAGE_STATE_GNSS,
+    GPS_MESSAGE_STATE_INITIALIZED,
+    GPS_MESSAGE_STATE_PEDESTRIAN_TO_AIRBORNE,
+    GPS_MESSAGE_STATE_ENTRY_COUNT
+} gpsMessageState_e;
+
+typedef struct gpsData_s {
+    uint32_t errors;
+    uint32_t timeouts;
+    uint32_t lastMessage;
+    uint32_t lastLastMessage;
+
+    uint32_t state_position;
+    uint32_t state_ts;
+    uint8_t state;
+    uint8_t baudrateIndex;
+    gpsMessageState_e messageState;
+
+    uint8_t ackWaitingMsgId;
+    uint8_t ackTimeoutCounter;
+    ubloxAckState_e ackState;
+} gpsData_t;
+
+
+extern char gpsPacketLog[21];
+
+extern int32_t GPS_home[2];
+extern uint16_t GPS_distanceToHome;
+extern int16_t GPS_directionToHome;
+extern uint32_t GPS_distanceFlownInCm;
+extern int16_t GPS_verticalSpeedInCmS;
+extern int16_t GPS_angle[2];
+extern float dTnav;
+extern float GPS_scaleLonDown;
+extern int16_t nav_takeoff_bearing;
+
+typedef enum {
+    GPS_DIRECT_TICK = 1 << 0,
+    GPS_MSP_UPDATE = 1 << 1
+} gpsUpdateToggle_e;
+
+extern gpsData_t gpsData;
+extern gpsSolutionData_t gpsSol;
+
+extern uint8_t GPS_update;
+extern uint32_t GPS_packetCount;
+extern uint32_t GPS_svInfoReceivedCount;
+extern uint8_t GPS_numCh;
+extern uint8_t GPS_svinfo_chn[16];
+extern uint8_t GPS_svinfo_svid[16];
+extern uint8_t GPS_svinfo_quality[16];
+extern uint8_t GPS_svinfo_cno[16];
+
+
+
+
+void gpsInit(void);
+void gpsUpdate(timeUs_t currentTimeUs);
+
+# 183 "./src/main/io/gps.h" 3 4
+_Bool 
+# 183 "./src/main/io/gps.h"
+    gpsNewFrame(uint8_t c);
+
+# 184 "./src/main/io/gps.h" 3 4
+_Bool 
+# 184 "./src/main/io/gps.h"
+    gpsIsHealthy(void);
+struct serialPort_s;
+void gpsEnablePassthrough(struct serialPort_s *gpsPassthroughPort);
+void onGpsNewData(void);
+void GPS_reset_home_position(void);
+void GPS_calc_longitude_scaling(int32_t lat);
+void GPS_distance_cm_bearing(int32_t *currentLat1, int32_t *currentLon1, int32_t *destinationLat2, int32_t *destinationLon2, uint32_t *dist, int32_t *bearing);
+# 34 "./src/main/fc/stats.c" 2
+
+# 1 "./src/main/pg/stats.h" 1
+# 21 "./src/main/pg/stats.h"
+       
+
+
+# 1 "./src/main/drivers/io_types.h" 1
+# 21 "./src/main/drivers/io_types.h"
+       
+
+
+
+
+
+typedef uint8_t ioTag_t;
+typedef void* IO_t;
+# 48 "./src/main/drivers/io_types.h"
+typedef uint8_t ioConfig_t;
+# 25 "./src/main/pg/stats.h" 2
+
+
+
+typedef struct statsConfig_s {
+    uint32_t stats_total_flights;
+    uint32_t stats_total_time_s;
+    uint32_t stats_total_dist_m;
+    int8_t stats_min_armed_time_s;
+} statsConfig_t;
+
+extern statsConfig_t statsConfig_System; extern statsConfig_t statsConfig_Copy; static inline const statsConfig_t* statsConfig(void) { return &statsConfig_System; } static inline statsConfig_t* statsConfigMutable(void) { return &statsConfig_System; } struct _dummy;
+# 36 "./src/main/fc/stats.c" 2
+
+
+
+
+static timeMs_t arm_millis;
+static uint32_t arm_distance_cm;
+
+static 
+# 43 "./src/main/fc/stats.c" 3 4
+      _Bool 
+# 43 "./src/main/fc/stats.c"
+           saveRequired = 
+# 43 "./src/main/fc/stats.c" 3 4
+                          0
+# 43 "./src/main/fc/stats.c"
+                               ;
+
+
+
+
+
+
+
+void statsInit(void)
+{
+    dispatchEnable();
+}
+
+void writeStats(struct dispatchEntry_s* self)
+{
+    ((void)(self));
+
+    if (!(armingFlags & (ARMED))) {
+
+        if (!isConfigDirty()) {
+            writeEEPROM();
+
+
+            beeper(BEEPER_DISARMING);
+        }
+
+        saveRequired = 
+# 69 "./src/main/fc/stats.c" 3 4
+                      0
+# 69 "./src/main/fc/stats.c"
+                           ;
+    }
+}
+
+dispatchEntry_t writeStatsEntry =
+{
+    writeStats, 0, 
+# 75 "./src/main/fc/stats.c" 3 4
+                  ((void *)0)
+# 75 "./src/main/fc/stats.c"
+                      , 
+# 75 "./src/main/fc/stats.c" 3 4
+                        0
+
+# 76 "./src/main/fc/stats.c"
+};
+
+
+void statsOnArm(void)
+{
+    arm_millis = millis();
+    arm_distance_cm = (0);
+}
+
+void statsOnDisarm(void)
+{
+    int8_t minArmedTimeS = statsConfig()->stats_min_armed_time_s;
+    if (minArmedTimeS >= 0) {
+        uint32_t dtS = (millis() - arm_millis) / 1000;
+        if (dtS >= (uint8_t)minArmedTimeS) {
+            statsConfigMutable()->stats_total_flights += 1;
+            statsConfigMutable()->stats_total_time_s += dtS;
+            statsConfigMutable()->stats_total_dist_m += ((0) - arm_distance_cm) / 100;
+
+            saveRequired = 
+# 95 "./src/main/fc/stats.c" 3 4
+                          1
+# 95 "./src/main/fc/stats.c"
+                              ;
+        }
+
+        if (saveRequired) {
+
+
+            dispatchAdd(&writeStatsEntry, 500000);
+        }
+    }
+}

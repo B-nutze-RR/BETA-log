@@ -78,7 +78,9 @@ BETA-log_FIRMWARE/main/SPRACINGH7EXTREME/io/serial.o: \
  lib/main/STM32H7/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h \
  src/main/config/config.h src/main/io/serial.h src/main/msp/msp_serial.h \
  src/main/msp/msp.h src/main/common/streambuf.h src/main/pg/pg_ids.h \
- src/main/pg/pinio.h src/main/drivers/pinio.h
+ src/main/telemetry/telemetry.h src/main/common/unit.h src/main/rx/rx.h \
+ src/main/pg/rx.h src/main/telemetry/ibus_shared.h src/main/pg/pinio.h \
+ src/main/drivers/pinio.h
 
 src/main/platform.h:
 
@@ -273,6 +275,16 @@ src/main/msp/msp.h:
 src/main/common/streambuf.h:
 
 src/main/pg/pg_ids.h:
+
+src/main/telemetry/telemetry.h:
+
+src/main/common/unit.h:
+
+src/main/rx/rx.h:
+
+src/main/pg/rx.h:
+
+src/main/telemetry/ibus_shared.h:
 
 src/main/pg/pinio.h:
 

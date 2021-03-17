@@ -10404,7 +10404,37 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-# 343 "./src/main/flight/pid.h"
+
+
+    pt1Filter_t windupLpf[3];
+    uint8_t itermRelax;
+    uint8_t itermRelaxType;
+    uint8_t itermRelaxCutoff;
+
+
+
+    float acCutoff;
+    float acGain;
+    float acLimit;
+    float acErrorLimit;
+    pt1Filter_t acLpf[3];
+    float oldSetpointCorrection[3];
+
+
+
+    biquadFilter_t dMinRange[3];
+    pt1Filter_t dMinLowpass[3];
+    float dMinPercent[3];
+    float dMinGyroGain;
+    float dMinSetpointGain;
+
+
+
+    pt1Filter_t airmodeThrottleLpf1;
+    pt1Filter_t airmodeThrottleLpf2;
+
+
+
     pt1Filter_t setpointDerivativePt1[3];
     biquadFilter_t setpointDerivativeBiquad[3];
     
@@ -10434,7 +10464,33 @@ typedef struct pidRuntime_s {
     uint16_t dynLpfMin;
     uint16_t dynLpfMax;
     uint8_t dynLpfCurveExpo;
-# 387 "./src/main/flight/pid.h"
+
+
+
+    uint8_t launchControlMode;
+    uint8_t launchControlAngleLimit;
+    float launchControlKi;
+
+
+
+    
+# 373 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 373 "./src/main/flight/pid.h"
+        useIntegratedYaw;
+    uint8_t integratedYawRelax;
+
+
+
+    float thrustLinearization;
+    float throttleCompensateAmount;
+
+
+
+    float airmodeThrottleOffsetLimit;
+
+
+
     ffInterpolationType_t ffFromInterpolatedSetpoint;
     float ffSmoothFactor;
 
@@ -10486,6 +10542,15 @@ void pidSetAntiGravityState(
 _Bool 
 # 413 "./src/main/flight/pid.h"
     pidAntiGravityEnabled(void);
+
+
+float pidApplyThrustLinearization(float motorValue);
+float pidCompensateThrustLinearization(float throttle);
+
+
+
+void pidUpdateAirmodeLpf(float currentOffset);
+float pidGetAirmodeThrottleOffset();
 # 436 "./src/main/flight/pid.h"
 void dynLpfDTermUpdate(float throttle);
 void pidSetItermReset(

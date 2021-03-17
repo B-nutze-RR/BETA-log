@@ -9,16 +9,16 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"tramp_protocol.c"
-	.section	.gnu.lto_.profile.4111c8a3,"e",%progbits
+	.section	.gnu.lto_.profile.4158b0c1,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4111c8a3,"e",%progbits
+	.section	.gnu.lto_.icf.4158b0c1,"e",%progbits
 	.ascii	"x\234\343``d0g@\000N\206K{zws3\376\335\333\263\233\221"
 	.ascii	"i\303\366%\3638\231O\037^\324\300\316\362\263\361\310"
 	.ascii	"N&\326e\357'\257gb\333\361\343\336wF\366\373\257\177"
 	.ascii	"\273q\274m\274p\211\227\001\000\352\353\033:"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4111c8a3,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.4158b0c1,"e",%progbits
 	.ascii	"x\234\215\221=\012\0021\020F\347\233\304\354\212\205"
 	.ascii	"\366\366\036So`\241\310\272\325\212\205\007\260\021"
 	.ascii	"\374\303J\320\306=\201\205'\020\213\265\324\211\011"
@@ -33,7 +33,7 @@
 	.ascii	"=\005\255\261\200\210\354\352\244\265\250c]C\325l\224"
 	.ascii	"\336\232.\220#"
 	.text
-	.section	.gnu.lto_.inline.4111c8a3,"e",%progbits
+	.section	.gnu.lto_.inline.4158b0c1,"e",%progbits
 	.ascii	"x\234\235QAJ\003Q\014}I\276\235\337v\012\355V7s\242"
 	.ascii	"9D-SfeO z\201\3627\305\345t\357\015\\y\002\261\240\007"
 	.ascii	"\020\012\335t\353\336$\323\031\250(\210\371\037\362"
@@ -49,12 +49,12 @@
 	.ascii	"HSz\242+pqs\362\366\225?\015\336-vj\035la\021\354\033"
 	.ascii	"\373\002\336\224g`"
 	.text
-	.section	.gnu.lto_.pureconst.4111c8a3,"e",%progbits
+	.section	.gnu.lto_.pureconst.4158b0c1,"e",%progbits
 	.ascii	"x\234\005\301\201\001\000\020\014\004\261/\207\332\301"
 	.ascii	"\272v\250\237V\222\012\035I[\2270\315\364\007\3050\323"
 	.ascii	",\223\305\007R\227\005\307"
 	.text
-	.section	.gnu.lto_trampCrc.4111c8a3,"e",%progbits
+	.section	.gnu.lto_trampCrc.4158b0c1,"e",%progbits
 	.ascii	"x\234m\222\337KTA\024\307\317\2313w\275n\353>\205\005"
 	.ascii	"\033d\222\230P\256\324c/\275\364gD\310V \244\273l\276"
 	.ascii	";\273\232!\353Z\340\317\302m-]\242 \254\020\002-\275"
@@ -90,7 +90,7 @@
 	.ascii	"`scSK\260)\034l\21566G.F\242\341\326p(|\265>\004\326"
 	.ascii	"\025\236\271,#\347[.a\204B\321\320_ME\377s"
 	.text
-	.section	.gnu.lto_trampFrameInit.4111c8a3,"e",%progbits
+	.section	.gnu.lto_trampFrameInit.4158b0c1,"e",%progbits
 	.ascii	"x\234\225Q\317KTQ\024\276\337\273of\336\350\250\255"
 	.ascii	"\"\030\"\215D\204p\206\242\205\253\352?h\021\265\214"
 	.ascii	"\301\014\014m\006\223\3006\3367MhLi\013\177\225Lop\030"
@@ -129,7 +129,7 @@
 	.ascii	"\252\253?\020\250\257\016\006\216\322\322\376\000\266"
 	.ascii	"C(\341"
 	.text
-	.section	.gnu.lto_trampFrameClose.4111c8a3,"e",%progbits
+	.section	.gnu.lto_trampFrameClose.4158b0c1,"e",%progbits
 	.ascii	"x\234\225PKK[A\024>\337\234\344z\343\243\333\026BUD"
 	.ascii	"\0207&\033\367\375'EB\005\245\032I]\270s\356m\212`\212"
 	.ascii	"n\024\343\"\275\201\022\252.\264\205RZm\355\365\255"
@@ -156,7 +156,7 @@
 	.ascii	"\300\323\201Tr0\231H>\357HP\270[*\317\256\001C\216\273"
 	.ascii	"\027"
 	.text
-	.section	.gnu.lto_trampParseResponseBuffer.part.0.4111c8a3,"e",%progbits
+	.section	.gnu.lto_trampParseResponseBuffer.part.0.4158b0c1,"e",%progbits
 	.ascii	"x\234\215T\337O\024W\024\276\337=3\303\356\012\370#"
 	.ascii	"i\323\272\0175\215\204\240\011\020M\372\3244\2744\351"
 	.ascii	"C\223\376\011\255n\240!\251`\026\372f\342uY4\200\001"
@@ -208,7 +208,7 @@
 	.ascii	"/\353\352j\243A\357\357\343\332\006\212D#v\035\343k"
 	.ascii	"\377\005\211\033\264l"
 	.text
-	.section	.gnu.lto_trampFrameGetSettings.4111c8a3,"e",%progbits
+	.section	.gnu.lto_trampFrameGetSettings.4158b0c1,"e",%progbits
 	.ascii	"x\234m\217MKBQ\020\206\347=\343\307\255l\035!QD \022"
 	.ascii	"\350_\350\227\024&\005B\246\230{\217b\270Pj\243\230"
 	.ascii	"\013\273\026\210\326&\2026}_\335\025\255\242M\233\026"
@@ -229,7 +229,7 @@
 	.ascii	"c\211p:\025\211'W\222\251D:\021Ml\204\242\344^\227\316"
 	.ascii	"\332\017#\"{\211"
 	.text
-	.section	.gnu.lto_trampFrameSetFrequency.4111c8a3,"e",%progbits
+	.section	.gnu.lto_trampFrameSetFrequency.4158b0c1,"e",%progbits
 	.ascii	"x\234m\222Mk\023Q\024\206\317;g2\231\264\251\272\014"
 	.ascii	"\004\261\210\020\273i\342/\320\177\"%\244P\261M\215"
 	.ascii	"u\341\252w\246i\273hH\273\2506\021\306\231\"\361c\323"
@@ -260,7 +260,7 @@
 	.ascii	"\034>;\\*\216\024\363\305\363\275y\212\365\313M!\321"
 	.ascii	"_*\\\270T\030\312_\376\003:\336\306U"
 	.text
-	.section	.gnu.lto_trampFrameSetPower.4111c8a3,"e",%progbits
+	.section	.gnu.lto_trampFrameSetPower.4158b0c1,"e",%progbits
 	.ascii	"x\234m\222\321K\024Q\024\306\3177gvv\326V\353\241\207"
 	.ascii	"b\211$\202\315\207\334\375\013\242\377$d10\262Y6\241"
 	.ascii	"G\357\214\253>\270\250\220\261\2560\315H.\326\213\026"
@@ -291,7 +291,7 @@
 	.ascii	"\001+7T\352\033,^(\226\254!\253`]\356-P\342\242\334"
 	.ascii	"\364'\212\326\265\376\322\037J\037\3046"
 	.text
-	.section	.gnu.lto_trampFrameSetActiveState.4111c8a3,"e",%progbits
+	.section	.gnu.lto_trampFrameSetActiveState.4158b0c1,"e",%progbits
 	.ascii	"x\234mRMk\023Q\024\275g\356\314dRS\327b\020\213\010"
 	.ascii	"\261\233$\340\306\245\377DB\250\020\261\246\304\340"
 	.ascii	"\266o\306\324\200\265U$\245\311\"\316\024\011V\204F"
@@ -321,7 +321,7 @@
 	.ascii	"\354\324X\251X.\346\213g\323y\262NKe\304\316\345\313"
 	.ascii	"\205\013#\377\000\275g\301\312"
 	.text
-	.section	.gnu.lto_trampParseResponseBuffer.4111c8a3,"e",%progbits
+	.section	.gnu.lto_trampParseResponseBuffer.4158b0c1,"e",%progbits
 	.ascii	"x\234e\221\317k\023A\024\307\337w\336\354fSS\360$\352"
 	.ascii	"\036,\"\204\"4\2427\005\361\017\360\177\220\032R\011"
 	.ascii	"\330\244$\361\334I\232V\212\245^\032B\325\260^B\275"
@@ -351,7 +351,7 @@
 	.ascii	"r\256R\311\027.\224\335\363\227FFr\245d\274\235\315"
 	.ascii	"\025\376\0021\362\273\356"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4111c8a3,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.4158b0c1,"e",%progbits
 	.ascii	"x\234u\320;\012\002A\014\306\361/\223}\222C({\022\335"
 	.ascii	"\243x\221\014\342\001\026\364\000\2266\276\037\260v"
 	.ascii	"\013\326\026\236\304\332\306\307:\014\012;\251\302\377"
@@ -364,10 +364,10 @@
 	.ascii	"\226\370\226\372\226\2726&\316\332_\031*\361\002n\006"
 	.ascii	"i\271"
 	.text
-	.section	.gnu.lto_.refs.4111c8a3,"e",%progbits
+	.section	.gnu.lto_.refs.4158b0c1,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.4111c8a3,"e",%progbits
+	.section	.gnu.lto_.decls.4158b0c1,"e",%progbits
 	.ascii	"x\234\255X\013PT\327\031\276\347\236}\261,\213\003\232"
 	.ascii	"\230\3524\3062\235dZ\025\223\246\246i3\223\3041I'\323"
 	.ascii	"N\246i;\223\2113\314\272,\201\024X\262,\246\266\235"
@@ -562,7 +562,7 @@
 	.ascii	"\376\206\325\341f\023\320\203\251\"\323\007\352L\377"
 	.ascii	"\005\270l\342\305"
 	.text
-	.section	.gnu.lto_.symtab.4111c8a3,"e",%progbits
+	.section	.gnu.lto_.symtab.4158b0c1,"e",%progbits
 	.ascii	"trampFrameGetSettings\000"
 	.ascii	"\000"
 	.ascii	"\000"

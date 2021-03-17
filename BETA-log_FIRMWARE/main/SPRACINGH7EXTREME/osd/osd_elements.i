@@ -25202,7 +25202,19 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-# 351 "./src/main/flight/pid.h"
+# 343 "./src/main/flight/pid.h"
+    pt1Filter_t setpointDerivativePt1[3];
+    biquadFilter_t setpointDerivativeBiquad[3];
+    
+# 345 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 345 "./src/main/flight/pid.h"
+        setpointDerivativeLpfInitialized;
+    uint8_t rcSmoothingDebugAxis;
+    uint8_t rcSmoothingFilterType;
+
+
+
     float acroTrainerAngleLimit;
     float acroTrainerLookaheadTime;
     uint8_t acroTrainerDebugAxis;
@@ -25719,7 +25731,7 @@ typedef struct osdConfig_s {
     uint8_t ahInvert;
     uint8_t osdProfileIndex;
     uint8_t overlay_radio_mode;
-    char profile[1][16 + 1];
+    char profile[3][16 + 1];
     uint16_t link_quality_alarm;
     int16_t rssi_dbm_alarm;
     uint8_t gps_sats_show_hdop;
@@ -26950,7 +26962,22 @@ typedef enum {
     SENSOR_GPSMAG = 1 << 6
 } sensors_e;
 # 124 "./src/main/osd/osd_elements.c" 2
-# 160 "./src/main/osd/osd_elements.c"
+# 145 "./src/main/osd/osd_elements.c"
+typedef struct radioControls_s {
+    uint8_t left_vertical;
+    uint8_t left_horizontal;
+    uint8_t right_vertical;
+    uint8_t right_horizontal;
+} radioControls_t;
+
+static const radioControls_t radioModes[4] = {
+    { PITCH, YAW, THROTTLE, ROLL },
+    { THROTTLE, YAW, PITCH, ROLL },
+    { PITCH, ROLL, THROTTLE, YAW },
+    { THROTTLE, ROLL, PITCH, YAW },
+};
+
+
 static const char compassBar[] = {
   0x1B,
   0x1D, 0x1C, 0x1D,
@@ -27317,7 +27344,22 @@ char osdGetTemperatureSymbolForSelectedUnit(void)
         return 0x0E;
     }
 }
-# 557 "./src/main/osd/osd_elements.c"
+
+
+
+
+
+
+
+static void osdElementAdjustmentRange(osdElementParms_t *element)
+{
+    const char *name = getAdjustmentsRangeName();
+    if (name) {
+        tfp_sprintf(element->buff, "%s: %3d", name, getAdjustmentsRangeValue());
+    }
+}
+
+
 static void osdElementAltitude(osdElementParms_t *element)
 {
     
@@ -27594,6 +27636,70 @@ static void osdBackgroundDisplayName(osdElementParms_t *element)
         element->buff[i] = '\0';
     }
 }
+
+
+static void osdElementTotalFlights(osdElementParms_t *element)
+{
+    const int32_t total_flights = statsConfig()->stats_total_flights;
+    tfp_sprintf(element->buff, "#%d", total_flights);
+}
+
+
+
+static void osdElementRateProfileName(osdElementParms_t *element)
+{
+    if (strlen(currentControlRateProfile->profileName) == 0) {
+        tfp_sprintf(element->buff, "RATE_%u", getCurrentControlRateProfileIndex() + 1);
+    } else {
+        unsigned i;
+        for (i = 0; i < 8u; i++) {
+            if (currentControlRateProfile->profileName[i]) {
+                element->buff[i] = toupper((unsigned char)currentControlRateProfile->profileName[i]);
+            } else {
+                break;
+            }
+        }
+        element->buff[i] = '\0';
+    }
+}
+
+static void osdElementPidProfileName(osdElementParms_t *element)
+{
+    if (strlen(currentPidProfile->profileName) == 0) {
+        tfp_sprintf(element->buff, "PID_%u", getCurrentPidProfileIndex() + 1);
+    } else {
+        unsigned i;
+        for (i = 0; i < 8u; i++) {
+            if (currentPidProfile->profileName[i]) {
+                element->buff[i] = toupper((unsigned char)currentPidProfile->profileName[i]);
+            } else {
+                break;
+            }
+        }
+        element->buff[i] = '\0';
+    }
+}
+
+
+
+static void osdElementOsdProfileName(osdElementParms_t *element)
+{
+    uint8_t profileIndex = getCurrentOsdProfileIndex();
+
+    if (strlen(osdConfig()->profile[profileIndex - 1]) == 0) {
+        tfp_sprintf(element->buff, "OSD_%u", profileIndex);
+    } else {
+        unsigned i;
+        for (i = 0; i < 16; i++) {
+            if (osdConfig()->profile[profileIndex - 1][i]) {
+                element->buff[i] = toupper((unsigned char)osdConfig()->profile[profileIndex - 1][i]);
+            } else {
+                break;
+            }
+        }
+        element->buff[i] = '\0';
+    }
+}
 # 880 "./src/main/osd/osd_elements.c"
 static void osdElementFlymode(osdElementParms_t *element)
 {
@@ -27653,7 +27759,29 @@ static void osdBackgroundHorizonSidebars(osdElementParms_t *element)
 # 1015 "./src/main/osd/osd_elements.c"
                                ;
 }
-# 1040 "./src/main/osd/osd_elements.c"
+
+
+static void osdElementLinkQuality(osdElementParms_t *element)
+{
+    uint16_t osdLinkQuality = 0;
+    if (linkQualitySource == LQ_SOURCE_RX_PROTOCOL_CRSF) {
+        osdLinkQuality = rxGetLinkQuality();
+        const uint8_t osdRfMode = rxGetRfMode();
+        tfp_sprintf(element->buff, "%c%1d:%2d", 0x7B, osdRfMode, osdLinkQuality);
+    } else if (linkQualitySource == LQ_SOURCE_RX_PROTOCOL_GHST) {
+        osdLinkQuality = rxGetLinkQuality();
+        tfp_sprintf(element->buff, "%c%2d", 0x7B, osdLinkQuality);
+    } else {
+        osdLinkQuality = rxGetLinkQuality() * 10 / 1023;
+        if (osdLinkQuality >= 10) {
+            osdLinkQuality = 9;
+        }
+        tfp_sprintf(element->buff, "%c%1d", 0x7B, osdLinkQuality);
+    }
+}
+
+
+
 static void osdElementLogStatus(osdElementParms_t *element)
 {
     if (IS_RC_MODE_ACTIVE(BOXBLACKBOX)) {
@@ -27776,7 +27904,50 @@ static void osdElementNumericalHeading(osdElementParms_t *element)
     const int heading = ((attitude.values.yaw) / 10);
     tfp_sprintf(element->buff, "%c%03d", osdGetDirectionSymbolFromHeading(heading), heading);
 }
-# 1178 "./src/main/osd/osd_elements.c"
+
+
+static void osdElementNumericalVario(osdElementParms_t *element)
+{
+    
+# 1158 "./src/main/osd/osd_elements.c" 3 4
+   _Bool 
+# 1158 "./src/main/osd/osd_elements.c"
+        haveBaro = 
+# 1158 "./src/main/osd/osd_elements.c" 3 4
+                   0
+# 1158 "./src/main/osd/osd_elements.c"
+                        ;
+    
+# 1159 "./src/main/osd/osd_elements.c" 3 4
+   _Bool 
+# 1159 "./src/main/osd/osd_elements.c"
+        haveGps = 
+# 1159 "./src/main/osd/osd_elements.c" 3 4
+                  0
+# 1159 "./src/main/osd/osd_elements.c"
+                       ;
+
+    haveBaro = sensors(SENSOR_BARO);
+
+
+
+
+    if (haveBaro || haveGps) {
+        const float verticalSpeed = osdGetMetersToSelectedUnit(getEstimatedVario()) / 100.0f;
+        const char directionSymbol = verticalSpeed < 0 ? 0x76 : 0x75;
+        osdPrintFloat(element->buff, directionSymbol, fabsf(verticalSpeed), "", 1, 
+# 1169 "./src/main/osd/osd_elements.c" 3 4
+                                                                                  1
+# 1169 "./src/main/osd/osd_elements.c"
+                                                                                      , osdGetVarioToSelectedUnitSymbol());
+    } else {
+
+        element->buff[0] = 0x2D;
+        element->buff[1] = '\0';
+    }
+}
+
+
 static void osdElementPidRateProfile(osdElementParms_t *element)
 {
     tfp_sprintf(element->buff, "%d-%d", getCurrentPidProfileIndex() + 1, getCurrentControlRateProfileIndex() + 1);
@@ -27862,7 +28033,65 @@ static void osdElementRssiDbm(osdElementParms_t *element)
 {
     tfp_sprintf(element->buff, "%c%3d", 0x01, getRssiDbm());
 }
-# 1310 "./src/main/osd/osd_elements.c"
+
+
+
+static void osdBackgroundStickOverlay(osdElementParms_t *element)
+{
+    const uint8_t xpos = element->elemPosX;
+    const uint8_t ypos = element->elemPosY;
+
+
+    for (unsigned x = 0; x < 7; x++) {
+        for (unsigned y = 0; y < 5; y++) {
+
+            if ((x == ((7 - 1) / 2)) && (y == (5 - 1) / 2)) {
+                osdDisplayWriteChar(element, xpos + x, ypos + y, DISPLAYPORT_ATTR_NONE, 0x0B);
+            } else if (x == ((7 - 1) / 2)) {
+                osdDisplayWriteChar(element, xpos + x, ypos + y, DISPLAYPORT_ATTR_NONE, 0x16);
+            } else if (y == ((5 - 1) / 2)) {
+                osdDisplayWriteChar(element, xpos + x, ypos + y, DISPLAYPORT_ATTR_NONE, 0x17);
+            }
+        }
+    }
+
+    element->drawElement = 
+# 1281 "./src/main/osd/osd_elements.c" 3 4
+                          0
+# 1281 "./src/main/osd/osd_elements.c"
+                               ;
+}
+
+static void osdElementStickOverlay(osdElementParms_t *element)
+{
+    const uint8_t xpos = element->elemPosX;
+    const uint8_t ypos = element->elemPosY;
+
+
+    rc_alias_e vertical_channel, horizontal_channel;
+
+    if (element->item == OSD_STICK_OVERLAY_LEFT) {
+        vertical_channel = radioModes[osdConfig()->overlay_radio_mode-1].left_vertical;
+        horizontal_channel = radioModes[osdConfig()->overlay_radio_mode-1].left_horizontal;
+    } else {
+        vertical_channel = radioModes[osdConfig()->overlay_radio_mode-1].right_vertical;
+        horizontal_channel = radioModes[osdConfig()->overlay_radio_mode-1].right_horizontal;
+    }
+
+    const uint8_t cursorX = scaleRange(constrain(rcData[horizontal_channel], 1000, 2000 - 1), 1000, 2000, 0, 7);
+    const uint8_t cursorY = (5 * 3) - 1 - scaleRange(constrain(rcData[vertical_channel], 1000, 2000 - 1), 1000, 2000, 0, (5 * 3));
+    const char cursor = 0x08 + (cursorY % 3);
+
+    osdDisplayWriteChar(element, xpos + cursorX, ypos + cursorY / 3, DISPLAYPORT_ATTR_NONE, cursor);
+
+    element->drawElement = 
+# 1306 "./src/main/osd/osd_elements.c" 3 4
+                          0
+# 1306 "./src/main/osd/osd_elements.c"
+                               ;
+}
+
+
 static void osdElementThrottlePosition(osdElementParms_t *element)
 {
     tfp_sprintf(element->buff, "%c%3d", 0x04, calculateThrottlePercent());
@@ -27936,7 +28165,7 @@ static const uint8_t osdElementDisplayOrder[] = {
     OSD_DISARMED,
     OSD_NUMERICAL_HEADING,
 
-
+    OSD_NUMERICAL_VARIO,
 
     OSD_COMPASS_BAR,
     OSD_ANTI_GRAVITY,
@@ -27952,21 +28181,32 @@ static const uint8_t osdElementDisplayOrder[] = {
     OSD_RTC_DATETIME,
 
 
-
+    OSD_ADJUSTMENT_RANGE,
 
 
     OSD_CORE_TEMPERATURE,
 
 
-
+    OSD_LINK_QUALITY,
 
 
     OSD_RSSI_DBM_VALUE,
-# 1439 "./src/main/osd/osd_elements.c"
+
+
+    OSD_STICK_OVERLAY_LEFT,
+    OSD_STICK_OVERLAY_RIGHT,
+
+
+    OSD_RATE_PROFILE_NAME,
+    OSD_PID_PROFILE_NAME,
+
+
+    OSD_PROFILE_NAME,
+
     OSD_RC_CHANNELS,
     OSD_CAMERA_FRAME,
 
-
+    OSD_TOTAL_FLIGHTS,
 
 };
 
@@ -28033,7 +28273,7 @@ const osdElementDrawFn osdElementDrawFunction[OSD_ITEM_COUNT] = {
 
     [OSD_NUMERICAL_HEADING] = osdElementNumericalHeading,
 
-
+    [OSD_NUMERICAL_VARIO] = osdElementNumericalVario,
 
     [OSD_COMPASS_BAR] = osdElementCompassBar,
 
@@ -28047,7 +28287,7 @@ const osdElementDrawFn osdElementDrawFunction[OSD_ITEM_COUNT] = {
     [OSD_RTC_DATETIME] = osdElementRtcTime,
 
 
-
+    [OSD_ADJUSTMENT_RANGE] = osdElementAdjustmentRange,
 
 
     [OSD_CORE_TEMPERATURE] = osdElementCoreTemperature,
@@ -28062,13 +28302,33 @@ const osdElementDrawFn osdElementDrawFunction[OSD_ITEM_COUNT] = {
 
 
     [OSD_FLIP_ARROW] = osdElementCrashFlipArrow,
-# 1537 "./src/main/osd/osd_elements.c"
+
+
+    [OSD_LINK_QUALITY] = osdElementLinkQuality,
+
+
+
+
+
+    [OSD_STICK_OVERLAY_LEFT] = osdElementStickOverlay,
+    [OSD_STICK_OVERLAY_RIGHT] = osdElementStickOverlay,
+
     [OSD_DISPLAY_NAME] = 
 # 1537 "./src/main/osd/osd_elements.c" 3 4
                                    ((void *)0)
 # 1537 "./src/main/osd/osd_elements.c"
                                        ,
-# 1549 "./src/main/osd/osd_elements.c"
+
+
+
+
+    [OSD_RATE_PROFILE_NAME] = osdElementRateProfileName,
+    [OSD_PID_PROFILE_NAME] = osdElementPidProfileName,
+
+
+    [OSD_PROFILE_NAME] = osdElementOsdProfileName,
+
+
     [OSD_RSSI_DBM_VALUE] = osdElementRssiDbm,
 
     [OSD_RC_CHANNELS] = osdElementRcChannels,
@@ -28076,7 +28336,7 @@ const osdElementDrawFn osdElementDrawFunction[OSD_ITEM_COUNT] = {
 
 
 
-
+    [OSD_TOTAL_FLIGHTS] = osdElementTotalFlights,
 
 };
 
@@ -28088,15 +28348,15 @@ const osdElementDrawFn osdElementBackgroundFunction[OSD_ITEM_COUNT] = {
     [OSD_HORIZON_SIDEBARS] = osdBackgroundHorizonSidebars,
     [OSD_CRAFT_NAME] = osdBackgroundCraftName,
 
-
-
+    [OSD_STICK_OVERLAY_LEFT] = osdBackgroundStickOverlay,
+    [OSD_STICK_OVERLAY_RIGHT] = osdBackgroundStickOverlay,
 
     [OSD_DISPLAY_NAME] = osdBackgroundDisplayName,
 };
 
 static void osdAddActiveElement(osd_items_e element)
 {
-    if (((osdElementConfig()->item_pos[element]) & (((1 << 1) - 1) << 11))) {
+    if (osdElementVisible(osdElementConfig()->item_pos[element])) {
         activeOsdElementArray[activeOsdElementCount++] = element;
     }
 }
@@ -28119,7 +28379,9 @@ void osdAddActiveElements(void)
     for (unsigned i = 0; i < sizeof(osdElementDisplayOrder); i++) {
         osdAddActiveElement(osdElementDisplayOrder[i]);
     }
-# 1628 "./src/main/osd/osd_elements.c"
+# 1626 "./src/main/osd/osd_elements.c"
+    osdAddActiveElement(OSD_TOTAL_FLIGHTS);
+
 }
 
 static void osdDrawSingleElement(displayPort_t *osdDisplayPort, uint8_t item)
@@ -28247,7 +28509,15 @@ void osdUpdateAlarms(void)
     } else {
         (blinkBits[(OSD_RSSI_VALUE) / 32] &= ~(1 << ((OSD_RSSI_VALUE) % 32)));
     }
-# 1764 "./src/main/osd/osd_elements.c"
+
+
+    if (rxGetLinkQualityPercent() < osdConfig()->link_quality_alarm) {
+        (blinkBits[(OSD_LINK_QUALITY) / 32] |= (1 << ((OSD_LINK_QUALITY) % 32)));
+    } else {
+        (blinkBits[(OSD_LINK_QUALITY) / 32] &= ~(1 << ((OSD_LINK_QUALITY) % 32)));
+    }
+
+
     if (getBatteryState() == BATTERY_OK) {
         (blinkBits[(OSD_MAIN_BATT_VOLTAGE) / 32] &= ~(1 << ((OSD_MAIN_BATT_VOLTAGE) % 32)));
         (blinkBits[(OSD_AVG_CELL_VOLTAGE) / 32] &= ~(1 << ((OSD_AVG_CELL_VOLTAGE) % 32)));

@@ -22732,7 +22732,7 @@ extern uint32_t dshotDmaBuffer[8][18];
 extern uint32_t dshotDmaInputBuffer[8][18];
 
 
-
+extern uint32_t dshotBurstDmaBuffer[8][18 * 4];
 
 
 typedef struct {

@@ -9,30 +9,30 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"usbd_storage.c"
-	.section	.gnu.lto_.profile.4123d4b7,"e",%progbits
+	.section	.gnu.lto_.profile.415f21a3,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4123d4b7,"e",%progbits
+	.section	.gnu.lto_.icf.415f21a3,"e",%progbits
 	.ascii	"x\234\343``d\340`@\000F\206\275\017\337\265\2632\000"
 	.ascii	"\000\017\300\003+"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4123d4b7,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415f21a3,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.inline.4123d4b7,"e",%progbits
+	.section	.gnu.lto_.inline.415f21a3,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.pureconst.4123d4b7,"e",%progbits
+	.section	.gnu.lto_.pureconst.415f21a3,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4123d4b7,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415f21a3,"e",%progbits
 	.ascii	"x\234\343``d\340f\000\002\326^F\206F%\020\013\000\012"
 	.ascii	"@\001K"
 	.text
-	.section	.gnu.lto_.refs.4123d4b7,"e",%progbits
+	.section	.gnu.lto_.refs.415f21a3,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.4123d4b7,"e",%progbits
+	.section	.gnu.lto_.decls.415f21a3,"e",%progbits
 	.ascii	"x\234\225UkL\\E\024\276\207Y\330\007\313Ch\002\011\325"
 	.ascii	"\360\203\332\306\030\026lbL\374U\241A\022\252\006h\374"
 	.ascii	"\341\217\315\262lu\015\257\356.F~y\005\301Jk\303C(B"
@@ -104,7 +104,7 @@
 	.ascii	"\242!1\370#\301\317)c}\23466-\305\020n8\366\322\177"
 	.ascii	"\346-\374\013\300\352\2345"
 	.text
-	.section	.gnu.lto_.symtab.4123d4b7,"e",%progbits
+	.section	.gnu.lto_.symtab.415f21a3,"e",%progbits
 	.ascii	"USBD_STORAGE_fops\000"
 	.ascii	"\000"
 	.ascii	"\000"

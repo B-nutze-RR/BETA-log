@@ -9,14 +9,14 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"msp_override.c"
-	.section	.gnu.lto_.profile.36d662f3,"e",%progbits
+	.section	.gnu.lto_.profile.415f75d1,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.36d662f3,"e",%progbits
+	.section	.gnu.lto_.icf.415f75d1,"e",%progbits
 	.ascii	"x\234\343``d\340`@\000F\206\366-[\347q3\000\000\015"
 	.ascii	"\010\002\254"
 	.text
-	.section	.gnu.lto_.jmpfuncs.36d662f3,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415f75d1,"e",%progbits
 	.ascii	"x\234\205\213\261\015\2000\020\003\355\377\227H\307"
 	.ascii	"\000,\220\031\030.\244\243KK\231\025\250\021E6\203\017"
 	.ascii	"\015tX:\311\262\316\001D\306\033BI\016KU8tDdS\346u?"
@@ -24,7 +24,7 @@
 	.ascii	"\356\\\236\021\226\3443\361q\370\343`n\300\015rW\036"
 	.ascii	"R"
 	.text
-	.section	.gnu.lto_.inline.36d662f3,"e",%progbits
+	.section	.gnu.lto_.inline.415f75d1,"e",%progbits
 	.ascii	"x\234\343``d\310f@\000F\006\006\211\266\353\307\027"
 	.ascii	"1g021(020;0q\000\305X\271W\355\330\273\205)\225\201"
 	.ascii	"\201\275\241\241\341\000S\012\023\003\023\003#\220\331"
@@ -32,10 +32,10 @@
 	.ascii	"\230y\300f\262\360\002)\246\011~\023\374\330\204`,\006"
 	.ascii	"\000\365\002\025&"
 	.text
-	.section	.gnu.lto_.pureconst.36d662f3,"e",%progbits
+	.section	.gnu.lto_.pureconst.415f75d1,"e",%progbits
 	.ascii	"x\234\343``d`a`\000\2223Y\000\001\320\000\254"
 	.text
-	.section	.gnu.lto_rxMspOverrideReadRawRc.36d662f3,"e",%progbits
+	.section	.gnu.lto_rxMspOverrideReadRawRc.415f75d1,"e",%progbits
 	.ascii	"x\234m\224[hTW\024\206\367\177\326>\223\223\311\\Ro"
 	.ascii	"/\2030\017\015\211Z\234@_\372R\020|\025\037j\237|)C"
 	.ascii	"\232j\300D\031S\311\233;\223\033\022\321\250\361\222"
@@ -86,17 +86,17 @@
 	.ascii	"\215\351\206\330\373\302u\351\372-\233t\322\177x\007"
 	.ascii	"\002D}\231"
 	.text
-	.section	.gnu.lto_.symbol_nodes.36d662f3,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415f75d1,"e",%progbits
 	.ascii	"x\234\343``d(`\000\002\2469\214\365\014\015@\300\302"
 	.ascii	"8\341\034\003C=\003\303\256\006G\240$\0200\316c\254"
 	.ascii	"g\374\017\005\362`i\006\240R\007\240\314\\\306z&\254"
 	.ascii	"2\314\014L\020\303R\230\031\030!\254%l,P\013B\031\030"
 	.ascii	"\000\343\202&!"
 	.text
-	.section	.gnu.lto_.refs.36d662f3,"e",%progbits
+	.section	.gnu.lto_.refs.415f75d1,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.36d662f3,"e",%progbits
+	.section	.gnu.lto_.decls.415f75d1,"e",%progbits
 	.ascii	"x\234\315X{PSW\032\277\347\036\002IxD\321V[\335\035"
 	.ascii	"\247\343\364\261;-\332vv\373\317\316l\027\333\256\177"
 	.ascii	"\3641j;;\273\177\2441\004\315\024\022&\011.\2733;\275"
@@ -300,7 +300,7 @@
 	.ascii	"\231|\2541\012J)\036J\302\016p\"\250\003\217\341\350"
 	.ascii	"\311\343\014\203\314\177\001%o>\354"
 	.text
-	.section	.gnu.lto_.symtab.36d662f3,"e",%progbits
+	.section	.gnu.lto_.symtab.415f75d1,"e",%progbits
 	.ascii	"rxMspOverrideReadRawRc\000"
 	.ascii	"\000"
 	.ascii	"\000"

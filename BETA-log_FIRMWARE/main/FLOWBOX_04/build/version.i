@@ -4195,4 +4195,4 @@ extern uint8_t __config_end;
 const char * const targetName = "FLOWBOX_04";
 const char * const shortGitRevision = "BETAlog_no_FLIGHT";
 const char * const buildDate = "Mar 17 2021";
-const char * const buildTime = "18:02:58";
+const char * const buildTime = "19:07:32";

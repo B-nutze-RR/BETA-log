@@ -9,10 +9,10 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"asyncfatfs.c"
-	.section	.gnu.lto_.profile.41127d00,"e",%progbits
+	.section	.gnu.lto_.profile.4158f407,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.41127d00,"e",%progbits
+	.section	.gnu.lto_.icf.4158f407,"e",%progbits
 	.ascii	"x\234\001\200\002\177\375\010\000\001\000p\002\000\000"
 	.ascii	"\000\000\000\000\000\000\000\000i\000\213\236\270\244"
 	.ascii	"\014\001\200\243\374\317\010\002\364\353\307\217\004"
@@ -60,7 +60,7 @@
 	.ascii	"g\271\331\332\256\017h\302\320\327\253\013\000\305 "
 	.ascii	"N5"
 	.text
-	.section	.gnu.lto_.jmpfuncs.41127d00,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.4158f407,"e",%progbits
 	.ascii	"x\234\305Z\211oTE\030\237\357\275\327\355n\217\355\005"
 	.ascii	"\245\260 [<P\324Z\025\357\003\021\213\267\"x\033\357"
 	.ascii	"\363\2170\264\245 \022\240\321\004B\253!U\232\022E\023"
@@ -179,7 +179,7 @@
 	.ascii	"O\200\252\376\321oq\320\252`\271c\307WUM\0307zLE\025"
 	.ascii	"\373\027Xi\203u"
 	.text
-	.section	.gnu.lto_.inline.41127d00,"e",%progbits
+	.section	.gnu.lto_.inline.4158f407,"e",%progbits
 	.ascii	"x\234\225Zi\\UG\226?Uu\037\\\340\001/J\214\211\351\370"
 	.ascii	"\332D\323\332\351L\2173=3\351\231\236a\226\236\255\273"
 	.ascii	"\355\351Y\323\335\023\025\0205\313\264~\233\3714\363"
@@ -425,7 +425,7 @@
 	.ascii	"\316=\004\263\340\345dH\256i(\274@\341R\032R\247\243"
 	.ascii	"\343e\370\177\242<\003\325"
 	.text
-	.section	.gnu.lto_.pureconst.41127d00,"e",%progbits
+	.section	.gnu.lto_.pureconst.4158f407,"e",%progbits
 	.ascii	"x\234\005\301UR\004Q\020E\301n\342\000\203\273\273\273"
 	.ascii	"\016\356\356\356\022\270.c>^\357\241\352\256\204\331"
 	.ascii	"\035\231\251(\216\322q\024}G\031\342\0149\001Dn /\220"
@@ -439,7 +439,7 @@
 	.ascii	"\373?\036\214G\347\311y\026/\316k\302[\340\335\370\010"
 	.ascii	"|\006\276\214\037\3437\360\017\332\000R\354"
 	.text
-	.section	.gnu.lto_roundUpTo.41127d00,"e",%progbits
+	.section	.gnu.lto_roundUpTo.4158f407,"e",%progbits
 	.ascii	"x\234m\221\317kSA\020\307\347\273\263I\237\245\322\253"
 	.ascii	"P\304\"\326\230K\003\236\004/\365O\011i*\001M!\261\202"
 	.ascii	"\247n\222\362JcZ-\030\212\342K\004\177\201\027\021{"
@@ -469,7 +469,7 @@
 	.ascii	"\311\377a\016\246(r:yb,\355\344F\307\262\303\231\354"
 	.ascii	"\361]\271\264%\206\323\271\337\352&\313\260"
 	.text
-	.section	.gnu.lto_isPowerOfTwo.41127d00,"e",%progbits
+	.section	.gnu.lto_isPowerOfTwo.4158f407,"e",%progbits
 	.ascii	"x\234M\220OK\033Q\024\305\357y\367M\222\246\272\024"
 	.ascii	"\012\263\011\"JR0B\277@?\201\337!\004\004\027U0.\352"
 	.ascii	"\312\227\261\030\332\204\026!*-\244YT\321])\324\205"
@@ -495,7 +495,7 @@
 	.ascii	"\341\221\354\360h6W\230\030\311\017\345\306\207\012"
 	.ascii	"\377\225\375y\302\375\277\274\361\237\263"
 	.text
-	.section	.gnu.lto_afatfs_fatEntriesPerSector.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fatEntriesPerSector.4158f407,"e",%progbits
 	.ascii	"x\234MP\277K\233Q\024\275\347\335\227\317\317\240c\207"
 	.ascii	"\362-\001Aj\207\304\275\213\377J\010\010\016\215`\\"
 	.ascii	"\234|\371\032\332`\202V\261\330\0161\224\020\014\012"
@@ -521,7 +521,7 @@
 	.ascii	"P\"\3662>\220\214\015\014\306\342\251\221d\242?>\334"
 	.ascii	"\237\372\357\031M\320_\301\025\232+"
 	.text
-	.section	.gnu.lto_afatfs_cacheSectorInit.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_cacheSectorInit.4158f407,"e",%progbits
 	.ascii	"x\234\235\224\337KSa\034\306\337\347\274g\277\247\325"
 	.ascii	"](\201W\015o\334\242\376\000\257\242\376\014\231\023"
 	.ascii	"\244\322p^\324M\236M\311\246\251\024\212N\034\023\306"
@@ -563,7 +563,7 @@
 	.ascii	"\334\314Z\354\361\272+J\317W\226W\330\274\0367}\235"
 	.ascii	".+\366\\0\236-w\237\361\024\377\006\177\327\322K"
 	.text
-	.section	.gnu.lto_afatfs_findCacheSector.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_findCacheSector.4158f407,"e",%progbits
 	.ascii	"x\234\215S\315KTQ\024\277\347\336\373>F\247\332E1\213"
 	.ascii	"\332\230X\342\210P\213h\341\266M\377\203L\012.Rp\204"
 	.ascii	"j\345u\034\24645\015\303\017|N0H%\341\027\0225\352\370"
@@ -605,7 +605,7 @@
 	.ascii	"\257W\370\312J\252\313\374\373\314\002\037\311\366\227"
 	.ascii	"\372\252+\253.V\\.\275\006\345\277\001\010TJ%"
 	.text
-	.section	.gnu.lto_afatfs_fatSectorToPhysical.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fatSectorToPhysical.4158f407,"e",%progbits
 	.ascii	"x\234\215QMkSQ\020\235s\357M\362\022\252n\013A\310B"
 	.ascii	"\014q\321T7.\334t\353\332_\020c\013]\230B\323\205\256"
 	.ascii	"z\223\206*Z\252\361\203V1\246P\252u\243\026D4\215\366"
@@ -638,7 +638,7 @@
 	.ascii	"\244\006z\262\277\205\035ir88\2319\323}n?\007\247\272"
 	.ascii	"\323\003}\375^\372\003sw\353\276"
 	.text
-	.section	.gnu.lto_afatfs_fileClusterToPhysical.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fileClusterToPhysical.4158f407,"e",%progbits
 	.ascii	"x\234\215P\317k\023a\020\235\267\337&\331m\015=KQr\020"
 	.ascii	"C.M/\"x\022o^\372?\3045\205\202M!\233\202\236\372%\015"
 	.ascii	"QL[\355\017\251\221\306\036J\265\364`[\361bmt\25365"
@@ -669,7 +669,7 @@
 	.ascii	"L:\333\351\246\235\334P\366t\346l\372\374O\242J\344"
 	.ascii	"\032"
 	.text
-	.section	.gnu.lto_afatfs_fileGetCursorClusterAndSector.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fileGetCursorClusterAndSector.4158f407,"e",%progbits
 	.ascii	"x\234\225S]KT[\030^\317^k\357\371\320\231\260(\242\272"
 	.ascii	"\360*\261\013\365\246C\034\012\272\352\037\364\003d"
 	.ascii	"P\020J\301\261\213\256\332\216\203\206F\207\016\235"
@@ -718,7 +718,7 @@
 	.ascii	"56\355h\010\304v\354\212\2675\264:\361\206X[K\353\027"
 	.ascii	"%E\317}"
 	.text
-	.section	.gnu.lto_afatfs_parseMBR.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_parseMBR.4158f407,"e",%progbits
 	.ascii	"x\234}U\335O\024W\024\277\277\271\263\363\275\2536\276"
 	.ascii	"m\323\370Pkh\215l\343\223/\265\377\012!5\341\241\232"
 	.ascii	"\210/}rX\350\312\012\321R\005\245q]\233\315\206Z\242"
@@ -781,7 +781,7 @@
 	.ascii	"\372\243\243\225G*N\034\251.Y\036\250dZ\365\007\225"
 	.ascii	"'\216\035G\325\277<\347%9"
 	.text
-	.section	.gnu.lto_afatfs_parseVolumeID.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_parseVolumeID.4158f407,"e",%progbits
 	.ascii	"x\234\225W]P\324\327\025\377\237{\377\373\361\337\335"
 	.ascii	"\377\356\262\260,\212\037L\243u4S\330Nf\234I\373\322"
 	.ascii	">\264/}\350\364\343\261/\214\211\323<\324\314\004_:"
@@ -899,7 +899,7 @@
 	.ascii	"k\306\313\333^\372\371\326\237\376\370\327%\356\227"
 	.ascii	"\212\267\027\377JL\226\374\037/'\004\240"
 	.text
-	.section	.gnu.lto_afatfs_fileUpdateFilesize.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fileUpdateFilesize.4158f407,"e",%progbits
 	.ascii	"x\234\205\221\315kSA\024\305\357\231yI\236\322v!\335"
 	.ascii	"H\021\2720\226(\344E\334\270\364\377pQb0\020\320\012"
 	.ascii	"\306\215\253\316K\244\305F\352\007\325Z!\276@\210nl"
@@ -930,7 +930,7 @@
 	.ascii	"\263'\007R\351\344\211t\366\237c<EV:s\344\260\350?$"
 	.ascii	"\372\223\177\000[L\355d"
 	.text
-	.section	.gnu.lto_afatfs_fileUnlockCacheSector.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fileUnlockCacheSector.4158f407,"e",%progbits
 	.ascii	"x\234\235T[k\024Y\020>_\327\351\236I\314\005\204}\312"
 	.ascii	"*>x!\021\223A\037\326G\377\204\017\373 \022\202\201"
 	.ascii	"\200\0270\"\370\242g&!\331d\203\256\022I\202;;\221!"
@@ -978,7 +978,7 @@
 	.ascii	"\352][+*\313wTVg\231\245\025JWVm\336dm,\377\017\200"
 	.ascii	"#\365\213"
 	.text
-	.section	.gnu.lto_afatfs_superClusterSize.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_superClusterSize.4158f407,"e",%progbits
 	.ascii	"x\234]P\277K#a\020\235\267\263\273\256\247Vb%\007Vb"
 	.ascii	",\214\265\225\377J\010\010\026*\230k\256\362s\023rb"
 	.ascii	"\304\023\177\340\245\210\2713\210\202b<\356\232\363"
@@ -1005,7 +1005,7 @@
 	.ascii	"`\264\177(\032K|\036\214\367\305>\365%j\312\2568\275"
 	.ascii	"\002\300\322\252\310"
 	.text
-	.section	.gnu.lto_afatfs_allocateFileHandle.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_allocateFileHandle.4158f407,"e",%progbits
 	.ascii	"x\234\215SMKTa\024~\237\367\274\367cd\372\200\250\315"
 	.ascii	"@\2641\320\304\031\334\264i\341\262M?B\004\301E\006"
 	.ascii	"\031D+_\307\301\322D\255\024\015\034'\034\264\332\230"
@@ -1044,7 +1044,7 @@
 	.ascii	"\325\222\362\212p\371\265pI\345\255\212\322\262\222"
 	.ascii	"\033e\225\207\302\302R\201\362\337\342z,8"
 	.text
-	.section	.gnu.lto_afatfs_fileLoadDirectoryEntry.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fileLoadDirectoryEntry.4158f407,"e",%progbits
 	.ascii	"x\234\235T\337K\024Q\024\276\337\334\231\331\331mW]"
 	.ascii	"\252\227$\220\210\304\036\324\350\245\307\376\214^E"
 	.ascii	"\024\2042P_|r\3345\315\037\030\211bF\313j\"jB\271\324"
@@ -1089,7 +1089,7 @@
 	.ascii	"9+\247\270\26407?\247$\277x\31723W\350\371\005\027\363"
 	.ascii	"\214\274\302\222\242\322_yt\321["
 	.text
-	.section	.gnu.lto_afatfs_findLargestContiguousFreeBlockBegin.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_findLargestContiguousFreeBlockBegin.4158f407,"e",%progbits
 	.ascii	"x\234\215\223\317KTQ\024\307\317\367\3367\3177\202\333"
 	.ascii	"6\321Vr\343{\233\366\375+\303\200 \322\004M\233V\336"
 	.ascii	"\371\001\023\032\006A\251\321\360\006D\254E\245\233"
@@ -1117,7 +1117,7 @@
 	.ascii	"k\034\276M\242\356^?{.\355\237I\365g\374\376\263~*{"
 	.ascii	"!\223\356K\235\357\313\036Y\366\246\3517\330\257d\010"
 	.text
-	.section	.gnu.lto_afatfs_freeFileCreated.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_freeFileCreated.4158f407,"e",%progbits
 	.ascii	"x\234\215\223\313OSA\024\306\347\273s{{[\013\033\243"
 	.ascii	"\0336,\214\004\243\264\211\033\227\376+\004%!\021L\304"
 	.ascii	"\215\033\231\026\022\344!\210\242X\265\271UR\324\015"
@@ -1156,7 +1156,7 @@
 	.ascii	"i\365\271\252\262\362\322\263\345\3259\313\2222\246"
 	.ascii	"\227W\234:\371\013\321\251j\352"
 	.text
-	.section	.gnu.lto_afatfs_cacheFlushSector.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_cacheFlushSector.4158f407,"e",%progbits
 	.ascii	"x\234\235U\337SSG\024\336s\367\346\336$&P*?\354\360"
 	.ascii	"\302\214\235:8S`\354C\373\330\327\376\031\014\352\324"
 	.ascii	"\231\226\316\024\036\332'o\000A\010\342P\352\004\246"
@@ -1227,7 +1227,7 @@
 	.ascii	"\005\021\217Yy\314\236\227\233\367\356\241w\362\017"
 	.ascii	"\036\372\350_\230\032h\254"
 	.text
-	.section	.gnu.lto_afatfs_sdcardWriteComplete.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_sdcardWriteComplete.4158f407,"e",%progbits
 	.ascii	"x\234\215V[O\\U\024\336\353\354s\233\013\364\212\017"
 	.ascii	"\222FbR\011`\012)o\306D\037\214I_|\321?0EH\210\025\032"
 	.ascii	"\300D\237z\030&\214\345\326b0@\303t\254\024\333\242"
@@ -1301,7 +1301,7 @@
 	.ascii	"\245fYSl\247N\235\264\245|\366\201-\307\006\351\377"
 	.ascii	"\002\315H\374\312"
 	.text
-	.section	.gnu.lto_afatfs_FATIsEndOfChainMarker.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_FATIsEndOfChainMarker.4158f407,"e",%progbits
 	.ascii	"x\234]RKk\023a\024\275g\356L2\235$\273\272\312&\013"
 	.ascii	"i\211\213& \270v\345\262\377!\206\026\012\266B\322."
 	.ascii	"\004\241_\322`5-\025\332\224\032$\035%D\245\213\372"
@@ -1333,7 +1333,7 @@
 	.ascii	"\356M\015\366f\377\203]i\212\244O\015e\007{2\335C\375"
 	.ascii	"'{2\277\001\025\231\322K"
 	.text
-	.section	.gnu.lto_afatfs_initFileHandle.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_initFileHandle.4158f407,"e",%progbits
 	.ascii	"x\234\225\221\315K\033a\020\306\347\331\331l\326\242"
 	.ascii	"\366\324S(x\020%\025\223\034{\354?\321SO!4\020\260\026"
 	.ascii	"L/=\371\356*~\243\010\212\365\0206R\322\026\012~@\301"
@@ -1360,7 +1360,7 @@
 	.ascii	"3\275\361\314\303x2\373\2707\225N>Jg\377\011c)2\323"
 	.ascii	"\231\236\373\027`\300\267q"
 	.text
-	.section	.gnu.lto_afatfs_assert.part.0.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_assert.part.0.4158f407,"e",%progbits
 	.ascii	"x\234\215RMkSA\024\275\347\335\367\246\211\330_\220"
 	.ascii	"M\241\264%\233\346\241\033\227\376\202\342_\010\221"
 	.ascii	"B\026&\320t\343\246\235\244\001\225\304\010bi\025\312"
@@ -1390,7 +1390,7 @@
 	.ascii	"\322\205\263\271\314pzt\270\320\001\0073\024\317\344"
 	.ascii	"s\247\263\243\331|\3567\350\307\360\023"
 	.text
-	.section	.gnu.lto_afatfs_assert.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_assert.4158f407,"e",%progbits
 	.ascii	"x\234M\220\277K\202A\030\307\237\357=\247\275F\356\201"
 	.ascii	"K\020(.*\26555\365\177\310\033\202C\257\220.-y\376\240"
 	.ascii	"\250\314\010\0243\020#\010\333\2425\373\361JCKSK\264"
@@ -1412,7 +1412,7 @@
 	.ascii	"]s\354T2\227\312\216\311\230M\001;\343,\247s\351\214"
 	.ascii	"\363\007q\351}\177"
 	.text
-	.section	.gnu.lto_afatfs_sdcardReadComplete.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_sdcardReadComplete.4158f407,"e",%progbits
 	.ascii	"x\234\215U[O\\U\024\336k\357s\235\013\264\305>(\032"
 	.ascii	"y\251\004l\312\244}01&6\321\230\370\342\213\376\201"
 	.ascii	")BB\254`\000\023}\352\3510\001+\027\243\301\300\220"
@@ -1483,7 +1483,7 @@
 	.ascii	"\207\031\237)g>\315\314\314\310u\244\273\317\236=\343"
 	.ascii	"N\377\350mw\276\033\262\376\005\273r\2765"
 	.text
-	.section	.gnu.lto_afatfs_getCacheDescriptorIndexForBuffer.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_getCacheDescriptorIndexForBuffer.4158f407,"e",%progbits
 	.ascii	"x\234]QMKTQ\030>\317y\317\275s\233\3066\255b6\263\310"
 	.ascii	"\314E\216\233\266\341\337h)\246\340B\005m\221+\317|"
 	.ascii	"0\226\016\2262a\023\216\003M2Q\320\007\272H\323\272"
@@ -1520,7 +1520,7 @@
 	.ascii	"\365\035\235\255\015M\365\327\233:\216\2055\015\302"
 	.ascii	"nilik\357\264\232[\2575\336\370\013\354\267\021E"
 	.text
-	.section	.gnu.lto_afatfs_getCacheDescriptorForBuffer.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_getCacheDescriptorForBuffer.4158f407,"e",%progbits
 	.ascii	"x\234UPKk\023a\024\275g\356\314d\022\025\334\326\"\270"
 	.ascii	"2d\323\351O\360\257\204`\241\213\264\220\270\351\252"
 	.ascii	"_\246!-\255\304\007\225\332\3028\221R*.j}l\232V\035"
@@ -1549,7 +1549,7 @@
 	.ascii	"\251\236\010\207J\342\227/\227\307+\023\177\0016\267"
 	.ascii	"\261\027"
 	.text
-	.section	.gnu.lto_afatfs_allocateCacheSector.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_allocateCacheSector.4158f407,"e",%progbits
 	.ascii	"x\234\225X\353WT\327\025\277\373\234y\334y?x\0143\203"
 	.ascii	"\326(\230j\332`\355\352\227\266\253\315\327\256\225"
 	.ascii	"~\312\312\037@\021\273\\5\332%|H>\345\002#\370\300\021"
@@ -1682,7 +1682,7 @@
 	.ascii	"\277\331X(\240\346\302\367~_\374\201x\264\345o\334\270"
 	.ascii	"\271 \277X]\200\015\377\003\317S\016<"
 	.text
-	.section	.gnu.lto_afatfs_cacheSectorMarkDirty.part.0.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_cacheSectorMarkDirty.part.0.4158f407,"e",%progbits
 	.ascii	"x\234\215S\337K\223Q\030>\3179g\363\333*\241;\301\033"
 	.ascii	"\257\032#p\213\356\243\313\376\215\261\022\274Hc\363"
 	.ascii	"&\210<n\222\251a\024\205\031\215O\020\373q\343\017\026"
@@ -1718,7 +1718,7 @@
 	.ascii	"\261)\324\330\034\212\304\3177E\033\"-\015\361=a}\224"
 	.ascii	"\371O\237\211Gc\215\347Z\232c\377\000P/S\344"
 	.text
-	.section	.gnu.lto_afatfs_cacheSectorMarkDirty.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_cacheSectorMarkDirty.4158f407,"e",%progbits
 	.ascii	"x\234MP\317K[A\030\374\346}\233\347k\260\201\036\012"
 	.ascii	"\212\027O\015\351\301\004\274\365\344\277\022R\205\034"
 	.ascii	"\252\222x\351\311}\317\200X\213E\260\244\026\342\023"
@@ -1745,7 +1745,7 @@
 	.ascii	"\336\030\273r\024\177\330[\314\025\362\203C\003\205"
 	.ascii	"+\366\307\252\206"
 	.text
-	.section	.gnu.lto_afatfs_cacheSector.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_cacheSector.4158f407,"e",%progbits
 	.ascii	"x\234\225WiPTW\026~\347\336\336W\220\245!\255b*\223"
 	.ascii	"q\027\242\177R\225\312T\25225U\363o\252\346\347\374"
 	.ascii	"\"\004'\326dtJ\314\324\344W^\323l\015D\305\210\210\021"
@@ -1876,7 +1876,7 @@
 	.ascii	"\264\260\244\370\315%\357-^\226VTX\364N\261I\374\177"
 	.ascii	"k\324\027\017"
 	.text
-	.section	.gnu.lto_afatfs_saveDirectoryEntry.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_saveDirectoryEntry.4158f407,"e",%progbits
 	.ascii	"x\234\245W\373O\024W\024\276g\356\314\276w\305\252\210"
 	.ascii	"bSR\243V\323\012\3214\251\375\241\261i\322\377\303P"
 	.ascii	"LL|$@\233\370\223\263\013\202\270\250\325\212\013M`"
@@ -1969,7 +1969,7 @@
 	.ascii	"\343\231\274}\307\316\004y\327\236o\022\014\211\011"
 	.ascii	"I\337\356L6$%\304'\357IT\022v''\356\375\017r)\0379"
 	.text
-	.section	.gnu.lto_afatfs_fcloseContinue.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fcloseContinue.4158f407,"e",%progbits
 	.ascii	"x\234\235V\353O\024W\024\277g\356\354\314\354\354\000"
 	.ascii	"\255\212\240k\353bE\243\261\260I\223\246\306/\376\023"
 	.ascii	"\375\3304\204JB\322j#\366\203_\352\260\254\"H\264\032"
@@ -2050,7 +2050,7 @@
 	.ascii	"\346\224\025\317/\375v\301\274\371\322\227E\377\000"
 	.ascii	"\322gw\305"
 	.text
-	.section	.gnu.lto_afatfs_fileGetCursorPhysicalSector.part.0.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fileGetCursorPhysicalSector.part.0.4158f407,"e",%progbits
 	.ascii	"x\234\215S\317K\224A\030\236gfv\367[\177u\210 \360\342"
 	.ascii	"e]\366\342\332!\010O\202\027;\367\027\310\242`\230\302"
 	.ascii	"\256\036:9\356\332f)\246V\230\341\272\205H\277\240,"
@@ -2090,7 +2090,7 @@
 	.ascii	"!\222\223V\204\230lhl\252?\021j\013GZ\302\347\352C\255"
 	.ascii	"-\341\263\3155Mm\221\326\372\360o\033<T$"
 	.text
-	.section	.gnu.lto_afatfs_fileGetCursorPhysicalSector.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fileGetCursorPhysicalSector.4158f407,"e",%progbits
 	.ascii	"x\234}T]KTA\030\236gf\316\356\331u\265\253 \020\302"
 	.ascii	"\253L!\327\233 \272\352\246\037\"\222 \224Az\323\225"
 	.ascii	"\263\353\266\206\212fXj\265\036s\331\354\312\014\202"
@@ -2131,7 +2131,7 @@
 	.ascii	"\242\256\2526\313,\253d\262\252\372\364\251\337(\023"
 	.ascii	"Xo"
 	.text
-	.section	.gnu.lto_afatfs_getFATPositionForCluster.part.0.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_getFATPositionForCluster.part.0.4158f407,"e",%progbits
 	.ascii	"x\234\245\223MOSA\024\206\347\275g\356mE\205D7\032\\"
 	.ascii	"\260\020\232FC\345\037\340B\243;\023\371\003\244\026"
 	.ascii	"C\242\305\2645\221\025C\333@\004\202\037Q\260\204\246"
@@ -2173,7 +2173,7 @@
 	.ascii	"\260\322\343?\342\361\035\334_f\355\376\001\253\306"
 	.ascii	"{\322"
 	.text
-	.section	.gnu.lto_afatfs_getFATPositionForCluster.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_getFATPositionForCluster.4158f407,"e",%progbits
 	.ascii	"x\234mR\337K\024Q\024\276\337\334\273\273\263\333jP"
 	.ascii	"Oa\220\017\245,\204k\377\201/>\364\354_ \233\202P+\354"
 	.ascii	"n\220\020xw574\254\244\324\025\226\261\314\012\202R"
@@ -2213,7 +2213,7 @@
 	.ascii	"\012DjC\307\203'\252\316\354\377\033\226\007#\241:+"
 	.ascii	"\367\007%C4\310"
 	.text
-	.section	.gnu.lto_afatfs_FATGetNextCluster.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_FATGetNextCluster.4158f407,"e",%progbits
 	.ascii	"x\234}U]L\\U\020>s\317\271w\177`\027m)\242\030\345A"
 	.ascii	"$\370P\210>\325\247&F\023\037|Q\037\364\221 \215M*M"
 	.ascii	"\330m\323>\365\262P\376\266\326\210T\272\326\375\251"
@@ -2284,7 +2284,7 @@
 	.ascii	"3B\337\223\2737\313\334\345\373%\313\271\346\223\346"
 	.ascii	"\177\013\271\232\015"
 	.text
-	.section	.gnu.lto_afatfs_FATSetNextCluster.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_FATSetNextCluster.4158f407,"e",%progbits
 	.ascii	"x\234\215T]LTW\020>s\317\275w\377`K\331\232\224\356"
 	.ascii	"\213/\224\300\203\3204iB\372B\332\364\301\327\366\311"
 	.ascii	"\207\246!\024\023\023\212\311\356\232`_<,[\376\326\322"
@@ -2351,7 +2351,7 @@
 	.ascii	"\256\217\312=\256\303{\313?/\255\260o\371\244\251\273"
 	.ascii	"\345\375?i2\211n"
 	.text
-	.section	.gnu.lto_afatfs_FATFillWithPattern.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_FATFillWithPattern.4158f407,"e",%progbits
 	.ascii	"x\234\215XyP\325\325\036\377}\177\347\376\356~/\373"
 	.ascii	"\256F\231\232V\202i.\275W\343d\3316\323\242c3\257\346"
 	.ascii	"M\217gT\316\030\275\001\232\311\367O?\026A\005\327T"
@@ -2532,7 +2532,7 @@
 	.ascii	"<3\356\343$\365\2038\365\203\177\303\214\377\001\253"
 	.ascii	"\372\342\222"
 	.text
-	.section	.gnu.lto_afatfs_appendSuperclusterContinue.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_appendSuperclusterContinue.4158f407,"e",%progbits
 	.ascii	"x\234\235WmP\224\327\025~\317\275\373\375\015J\322\302"
 	.ascii	"8:f\210\203f\200\031\333\231N;\323\261\323?\375\323"
 	.ascii	"?\355\257\366Gg\034\033g\234i\343L\260\231\311\257\274"
@@ -2651,7 +2651,7 @@
 	.ascii	"kQB3\177\213f\332\272\355\017\257[~\277\375\227\333"
 	.ascii	"\337|\335R\264c\363\216?\025\375\037\215\273\2749"
 	.text
-	.section	.gnu.lto_afatfs_appendSupercluster.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_appendSupercluster.4158f407,"e",%progbits
 	.ascii	"x\234\225T\357oSU\030>\317=\367WK;6\320\030SM\366\005"
 	.ascii	"\331\022\2636\372\305O\206\304?\301\277`Y\266d\011\242"
 	.ascii	"\331\230F?\270\273na\2145\230)\0103\324;\235\305\356"
@@ -2710,7 +2710,7 @@
 	.ascii	"Lmj\336\331X\331\332\366Vc\313k;\333Zw7\266\274\336"
 	.ascii	"\374^\343\277*\230L-"
 	.text
-	.section	.gnu.lto_afatfs_ftruncateContinue.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_ftruncateContinue.4158f407,"e",%progbits
 	.ascii	"x\234\235XiPTW\026~\347\336\336\273\351f\337\032\025"
 	.ascii	"\2238\226\211\245]eM&\261\242\225d\254\214\363cf\252"
 	.ascii	"f\346o&\345$X\225\032\023\253\020'\223_y\310\242,\243"
@@ -2886,7 +2886,7 @@
 	.ascii	"\031\231Y\2269Y3\262\346\316q~\230\361\237\254\337\317"
 	.ascii	"\232;'+#\223\2753\203\275\363\317\377\003(\267\206\177"
 	.text
-	.section	.gnu.lto_afatfs_findClusterWithCondition.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_findClusterWithCondition.4158f407,"e",%progbits
 	.ascii	"x\234\215W{P\224\327\025\377\316\275\337.\373\006y\013"
 	.ascii	"F\261\2111\352\004\211N3q\332f\332\311\230Nf2\235N\373"
 	.ascii	"G\377\310\344\017kHK\033\245\003\330I\376\312\307\303"
@@ -3059,7 +3059,7 @@
 	.ascii	"\337\313\374\320\025^\023\257\346\\17\347\346\315\311"
 	.ascii	"[\220\353T\302\376\260`\336_3s\376\017\340\222\210/"
 	.text
-	.section	.gnu.lto_afatfs_appendRegularFreeClusterContinue.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_appendRegularFreeClusterContinue.4158f407,"e",%progbits
 	.ascii	"x\234\235XYL\\\327\031\276\3779\263\257\014\353$\343"
 	.ascii	"\007T\224FD\026 U\225*U\252R\365\271/}\252\372P\311"
 	.ascii	"rc\311R\033K\301\225\332\247\334a\207\031\217\315\026"
@@ -3185,7 +3185,7 @@
 	.ascii	"\375\276\217>0\344\356\337\265\377\357\271\377\007\263"
 	.ascii	"\250\254H"
 	.text
-	.section	.gnu.lto_afatfs_appendRegularFreeCluster.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_appendRegularFreeCluster.4158f407,"e",%progbits
 	.ascii	"x\234\225\224\357O[e\024\307\237\357=\367\336\376\242"
 	.ascii	"e\006\243\211\335\213\275\032`\024\032\367F\337\371"
 	.ascii	"?\370\027\020b\023\214\233F\214\211\311\022.\245\221"
@@ -3238,7 +3238,7 @@
 	.ascii	"\261\372`\335\207\301\306\222eM\275\320\203\015\357"
 	.ascii	"\276\375\027\246\341\355l"
 	.text
-	.section	.gnu.lto_afatfs_appendFreeCluster.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_appendFreeCluster.4158f407,"e",%progbits
 	.ascii	"x\234eRKk\023Q\024>\337\234;\311$\266\335K@\272\251"
 	.ascii	"\245.\232\240.\\\270\350\312\377\021\212\201\200V0\021"
 	.ascii	"t\325\233\207J\265\264\250}\0301\235@\010UA\255 Xlk"
@@ -3272,7 +3272,7 @@
 	.ascii	"\361d\346\\Wg*\231Me\376\010\333;I\245\322'\216\207"
 	.ascii	"2\331d\366L\346\027\030\370\350\370"
 	.text
-	.section	.gnu.lto_afatfs_findLargestContiguousFreeBlockContinue.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_findLargestContiguousFreeBlockContinue.4158f407,"e",%progbits
 	.ascii	"x\234\225XkPTG\026\276\247{\036w\036wf\300\270[f\022"
 	.ascii	"\013\223\230\212\376P\252R\353\376\333\312\356\326\326"
 	.ascii	"\346\207?v\313\332\337\026KpCUB\266\204\374\330\037"
@@ -3401,7 +3401,7 @@
 	.ascii	"O9\313\227\344d\027|\261\234,\375+Y\232\365?\367\257"
 	.ascii	"7\221"
 	.text
-	.section	.gnu.lto_afatfs_fileGetNextCluster.isra.0.part.0.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fileGetNextCluster.isra.0.part.0.4158f407,"e",%progbits
 	.ascii	"x\234mS]hTG\030\2353\337\334\273\233d7o\005\313B\361"
 	.ascii	"%.\351C\262\"\210\217\221\226b\037\012E\237\332\227"
 	.ascii	"\022\302\006\0026\205\315\012\355\223\343f\253&YS*\212"
@@ -3454,7 +3454,7 @@
 	.ascii	"{g\303\326\255\333Uk\333\336x\2705\021\217\277\302\305"
 	.ascii	"\236ds\"\371/\372\333\306\207"
 	.text
-	.section	.gnu.lto_afatfs_fileGetNextCluster.isra.0.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fileGetNextCluster.isra.0.4158f407,"e",%progbits
 	.ascii	"x\234eS]H\223Q\030>\317y\317\267}n\323\353`\020^9\326"
 	.ascii	"\205\323\204\350R\211\240.\272\250\256\272\2241A\260"
 	.ascii	"\005\233\202]y\266\206a\231\025\244\2461\346M%AH\320"
@@ -3492,7 +3492,7 @@
 	.ascii	"kk\367UD\333\022\211X\274\365@K[\2625\226\360\307c\355"
 	.ascii	"\233\265jjn\211\375\003\205\366(R"
 	.text
-	.section	.gnu.lto_afatfs_isEndOfAllocatedFile.part.0.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_isEndOfAllocatedFile.part.0.4158f407,"e",%progbits
 	.ascii	"x\234]RMk\023Q\024\275\347\335\227\351TM\327B6]\210"
 	.ascii	"!\013\233X7.]\3727Bh \242\025\214\033W}IJ\253V*JKt1"
 	.ascii	"L\241\204*\202FpQ\333hS\373aS\\\024\027\212\012\025"
@@ -3522,7 +3522,7 @@
 	.ascii	"0\234.\\Mg\2137\206s\371\354\365|\261\003\016\344H\347"
 	.ascii	"\013\227\207\376\003\013:\330\015"
 	.text
-	.section	.gnu.lto_afatfs_isEndOfAllocatedFile.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_isEndOfAllocatedFile.4158f407,"e",%progbits
 	.ascii	"x\234\225R\317KTQ\024>\337=\367\375p\234q\327j6.\"\321"
 	.ascii	"\310\031jQ\213\026\375+\"\011B\031\244-Zyg\034\222T"
 	.ascii	"\224P1\027\343\223d\260\225\031\024H\232\215\251\225"
@@ -3559,7 +3559,7 @@
 	.ascii	"\275\331\322\330\324\320\326\324z\314\255o$\335\324"
 	.ascii	"|\345\362\037\226\364\020\276"
 	.text
-	.section	.gnu.lto_afatfs_fseekAtomic.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fseekAtomic.4158f407,"e",%progbits
 	.ascii	"x\234\235VklTU\020>s\317\335{\367](}\230Tl\215VRMhA"
 	.ascii	"M4\020c\342\037\375\345\017\374k\0146\333H\304\222\320"
 	.ascii	"\365\365\313\333\007[\240\204\012\010\330h\331B-\265"
@@ -3665,7 +3665,7 @@
 	.ascii	"\277is\275\373\251\337W\364\326\242y>\337\373\377\002"
 	.ascii	">\261\274\306"
 	.text
-	.section	.gnu.lto_afatfs_extendSubdirectoryContinue.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_extendSubdirectoryContinue.4158f407,"e",%progbits
 	.ascii	"x\234\245XkPU\327\025>\353\354\373:\367\211\274\214"
 	.ascii	"\"\2256\305D\245H\260\355L2\23545\311\217\266\323\376"
 	.ascii	"h\177\365G:c\215\266\316$\332\001\374\221\351\217\034"
@@ -3830,7 +3830,7 @@
 	.ascii	")v!<o\331\242E\013SL\251i\363\323\226\245Z\021\361\315"
 	.ascii	"%i)\213\027\246\376\017\361\263\335O"
 	.text
-	.section	.gnu.lto_afatfs_extendSubdirectory.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_extendSubdirectory.4158f407,"e",%progbits
 	.ascii	"x\234\235U]O\\U\024=\353\236;\367\316\014\014\237\202"
 	.ascii	"%\364\241O\266\230\246\214\355\213\217&\372\246\276"
 	.ascii	"\371\007pl\023,R\005^\352K/t\"\245\020\254Jm\007;\001"
@@ -3897,7 +3897,7 @@
 	.ascii	"\246\276[P\262\267\270\354\225\225\271;PPT\364fA`\377"
 	.ascii	"\277Hz\221\220"
 	.text
-	.section	.gnu.lto_afatfs_fileRetainCursorSectorForRead.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fileRetainCursorSectorForRead.4158f407,"e",%progbits
 	.ascii	"x\234\225U\337OTG\024\236s\347\356\336_\013\210\326"
 	.ascii	"\026A\032bb\215I+D\223\246>4\361\241O}\350K\377\002"
 	.ascii	"B4\245\261j\\l\352\223\027XY\021\243U\252\270\246\313"
@@ -3977,7 +3977,7 @@
 	.ascii	"\273\267\270\250p\343\247\353\213J6ouo]\357\335\266"
 	.ascii	"\261\304\355-),\331\346\375\013Z9\356\023"
 	.text
-	.section	.gnu.lto_afatfs_fseekInternalContinue.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fseekInternalContinue.4158f407,"e",%progbits
 	.ascii	"x\234\235VkLTG\024\236s\347\356\335'O\333\002\022\003"
 	.ascii	"?\244FE 1m\352\017S\223\246I\373\243M\232\372\263\177"
 	.ascii	"\250\201\204\324b\"\230\324_^\036\002\202\221\240\242"
@@ -4071,7 +4071,7 @@
 	.ascii	"\231)\353\355\351)_eN\216?\337\230\231\222\261z\335"
 	.ascii	"\247))_\374\007j\272H\226"
 	.text
-	.section	.gnu.lto_afatfs_fileLockCursorSectorForWrite.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fileLockCursorSectorForWrite.4158f407,"e",%progbits
 	.ascii	"x\234\225W{P\224\327\025\377\316w\277\335o_\354\262"
 	.ascii	"<l\232\255\202&\350\320\031\221\2113m\374#\235L;\351"
 	.ascii	"Lg:\343\037\3713\1771\024\022S\012\016\013\235\311\364"
@@ -4194,7 +4194,7 @@
 	.ascii	"\237\376\360\333\370\360\355[\271\277\013\337\275\274"
 	.ascii	"\004^\2705+?3\247\320]\220\225\377?\307\260$\037"
 	.text
-	.section	.gnu.lto_afatfs_fseekInternal.part.0.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fseekInternal.part.0.4158f407,"e",%progbits
 	.ascii	"x\234e\223\337KTA\024\307\347;3{wW\324\227^\244\205"
 	.ascii	"\010\304\226\205p\205\036\012\202\360%\350\255\240\277"
 	.ascii	"`[\\\220L\243\335\227\236\234T\212M\323~\211h\330\012"
@@ -4233,7 +4233,7 @@
 	.ascii	"\011\207\032\032N\204\302'\255\246H$Z\027s7\235>\036"
 	.ascii	"\013\305\352\376\001\273u<\324"
 	.text
-	.section	.gnu.lto_afatfs_fseekInternal.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fseekInternal.4158f407,"e",%progbits
 	.ascii	"x\234\225T[KTQ\024\336\337Y\373\034g\274\034\273PD\003"
 	.ascii	"!\004\231\021:\020A/A\217\375\204\240\247ih@\262\202"
 	.ascii	"\214\240\247\366\214\226y\241\032\262\313X\323XiI\220"
@@ -4280,7 +4280,7 @@
 	.ascii	"!\030\012l\016\225g,\213\203B\206J\313\326Z\033C\241"
 	.ascii	"\362\265\233=\301@Y\331\232@p\335oR1\205\313"
 	.text
-	.section	.gnu.lto_afatfs_flush.part.0.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_flush.part.0.4158f407,"e",%progbits
 	.ascii	"x\234\215U]L\034U\024\276g\356\374\355\354\260\376\245"
 	.ascii	"\211fc\322\304`\002M\201\324\237\007_\354\253F\037\214"
 	.ascii	">\371F\220&$\226\032\340A\237:\005\002\305\222\255h"
@@ -4349,7 +4349,7 @@
 	.ascii	"\255{\267\262\242\356H\315\033\325\037T~\374\364\377"
 	.ascii	"\327\336\253:\\\371\037)\343\240\320"
 	.text
-	.section	.gnu.lto_afatfs_fseek.part.0.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fseek.part.0.4158f407,"e",%progbits
 	.ascii	"x\234\215\224\337k\024W\024\307\357\367\236\331\331"
 	.ascii	"\3314\346\265\342R\360\301\270l\037\222H)\010\026\324"
 	.ascii	"7_\373\027h\014Y\032h#4\266\322'o~\260!1\370[b\304e"
@@ -4399,7 +4399,7 @@
 	.ascii	"\035\231LS\375Nw\327\027\365\215u\365z\353v\275\265"
 	.ascii	"\3665\344$\317\247"
 	.text
-	.section	.gnu.lto_afatfs_findNext.part.0.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_findNext.part.0.4158f407,"e",%progbits
 	.ascii	"x\234\205S\337K\223Q\030>\3179\337\276m\376\274\213"
 	.ascii	"`\020^ds\021*x\333\205\020A]\325\277 Si\027M\330\354"
 	.ascii	"\302+\317\326PtfR\016QX\013lh!\224b]\344\217fZ\371c"
@@ -4440,7 +4440,7 @@
 	.ascii	"J7\263\327{|\015\356\346&_\213\215\320io\263\257\305"
 	.ascii	"\364\353\015\263\321\343\255o\360\375\006\200\002R\347"
 	.text
-	.section	.gnu.lto_afatfs_fclose.part.0.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fclose.part.0.4158f407,"e",%progbits
 	.ascii	"x\234\215\223\321K\323Q\024\307\357\367\336\237\363"
 	.ascii	"\3673g\217\005{\011\312\306\010\334\"\250\036}\354\337"
 	.ascii	"XCA2\203\214\250'\257S\012\233\030I\242\026c\013\023"
@@ -4480,7 +4480,7 @@
 	.ascii	"k\317\326\004*\375\247*k7\205e\001fTVUW\230\001\177"
 	.ascii	"u\365Q\177\340\330o\020f\\\010"
 	.text
-	.section	.gnu.lto_afatfs_fwrite.part.0.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fwrite.part.0.4158f407,"e",%progbits
 	.ascii	"x\234\225V]L\024W\024\2363wvgv\331\005\345\267-mC\332"
 	.ascii	"R\202I\201\244i\323>41>4\366\251\0175i\233\2465HvS\022"
 	.ascii	"\013\011\213i|rX6\253\340\342_TXtY*Alm(*\261\012* \212"
@@ -4569,7 +4569,7 @@
 	.ascii	"\370\314\221W\\X$/]&/\315\265\271\330\313\"FL^F\321"
 	.ascii	"K\012?G\256c\311\267\371.\216\374\027\304\361\223\267"
 	.text
-	.section	.gnu.lto_afatfs_fread.part.0.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fread.part.0.4158f407,"e",%progbits
 	.ascii	"x\234\255V]L\024W\024\276g\356\354\354\354\037\213\012"
 	.ascii	"\246)\2651i\221\320\246B\322\264i\037\232\030\237l\232"
 	.ascii	"\264M\353\203\211i\015R6%\265\220\260\370\340\223\003"
@@ -4657,7 +4657,7 @@
 	.ascii	"u\331i^a\325jaU\212\323\313\303K9+v5K,\317\374\0041"
 	.ascii	"\313\277L\367j\224\177\000\357\346\245\027"
 	.text
-	.section	.gnu.lto_afatfs_sectorCacheInSync.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_sectorCacheInSync.4158f407,"e",%progbits
 	.ascii	"x\234\215T[K\224Q\024=\353\234\3576\323hO=\310<\324"
 	.ascii	"\213\201\026\216\330[\020\370\017\372\015\"\010>d\220"
 	.ascii	"\275\364\344\361\2025yC\361\032\216S\211],JE\014F\307"
@@ -4699,7 +4699,7 @@
 	.ascii	"\345+\276\225\357\273\221WX\344+\274\351\313+\276S\224"
 	.ascii	"_\220w\273\240\370\3042+\237\241\360\037|tb\313"
 	.text
-	.section	.gnu.lto_afatfs_flush.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_flush.4158f407,"e",%progbits
 	.ascii	"x\234mR\335KSa\030\177~\357s\216\333d\032\324]#\362"
 	.ascii	"f\301\0069!\350\246.\274\355\256\250\177`\254\011\203"
 	.ascii	"T\330\274\250+_\347HD9!)\313h\011-\373\202>\024\351"
@@ -4735,7 +4735,7 @@
 	.ascii	"B\2441|\350\337\324\231\246\213\341\313\210\374\006"
 	.ascii	"\360d\004\331"
 	.text
-	.section	.gnu.lto_afatfs_isFull.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_isFull.4158f407,"e",%progbits
 	.ascii	"x\234M\2161K\003A\020\205\337\333\215\361D\362\013B"
 	.ascii	" \225\230&w`a\353_9\002\201\024F\360l\254\262w\006T"
 	.ascii	"\224\210b\210\026!E\020SilsQ\257\262\262\210\026\261"
@@ -4753,7 +4753,7 @@
 	.ascii	"X\310\333\336z\301^uKe\273\264f\273\336f\271Pt7\212"
 	.ascii	"\336\2772_\300\017\352\261e>"
 	.text
-	.section	.gnu.lto_afatfs_fseek.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fseek.4158f407,"e",%progbits
 	.ascii	"x\234\235U\373OTG\024\236s\347\336\273w\227](*Me\265"
 	.ascii	"1Q $-l\33241i\223\266\377C\177m\014%\220\222\266\230"
 	.ascii	"\210i\323\237\234\205\025\272\213\325\350b`m\267K\013"
@@ -4826,7 +4826,7 @@
 	.ascii	"\027\227\274]dn...+\332j\276\367fQia\221\266\351\015"
 	.ascii	"mS\301\377\300\261\333\263"
 	.text
-	.section	.gnu.lto_afatfs_ftruncate.part.0.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_ftruncate.part.0.4158f407,"e",%progbits
 	.ascii	"x\234\235\225[LTW\024\206\367\177\366\271\31503\332"
 	.ascii	"\213\211\311$\015IK\011i\003\223\364\241}\252\274\325"
 	.ascii	"\367\246/}\233\022IH\2516\302\213O\036.\261\016\022"
@@ -4889,7 +4889,7 @@
 	.ascii	"\254\260\270\214\251\345\025\225\233\314\262pe\345\007"
 	.ascii	"\341\262\017\215-\037\277[\035\256\336\364/2p\276\247"
 	.text
-	.section	.gnu.lto_afatfs_chdir.part.0.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_chdir.part.0.4158f407,"e",%progbits
 	.ascii	"x\234\225\226\357o\223U\024\307\357\367\336\247\317"
 	.ascii	"\323\225\266\233\250\211\261oHt\222i\302\032y\307+\376"
 	.ascii	"\013\023\337-\023\342^\010\311\306\033\336\310\263\256"
@@ -4947,7 +4947,7 @@
 	.ascii	"\251V\224\275SW\277\255v\327\316\372\335\377\002`\246"
 	.ascii	"\302\237"
 	.text
-	.section	.gnu.lto_afatfs_ftell.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_ftell.4158f407,"e",%progbits
 	.ascii	"x\234e\222Ak\023Q\024\205\357\231\373f2\011m\027n\263"
 	.ascii	"\351B\214\331$\005A\0247\376\225R\014\0044\021\323\215"
 	.ascii	"\253\276\244B\251-\025!mULR\261Q\334\264)\024\2516\332"
@@ -4979,7 +4979,7 @@
 	.ascii	"\363\231\276To\177*\327\266L\364\221J\245O\237r\317"
 	.ascii	"fs\351\376t6\363\017:\360\355\336"
 	.text
-	.section	.gnu.lto_afatfs_findNext.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_findNext.4158f407,"e",%progbits
 	.ascii	"x\234\235T]O\\U\024=\353\236\3739\037\014\242\210:\211"
 	.ascii	"\362`\2454Z&\351\233\211I\023\343\203\217\376\004BK"
 	.ascii	"\302\2034\001b\322\007\345\316\207\020(b\023!tj\207"
@@ -5037,7 +5037,7 @@
 	.ascii	"p\\\255\255\253?r\264A\247\304\013\365M\264o\264\363"
 	.ascii	"\177\001}\362(\231"
 	.text
-	.section	.gnu.lto_afatfs_allocateDirectoryEntry.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_allocateDirectoryEntry.4158f407,"e",%progbits
 	.ascii	"x\234}T\337O\\E\024\236s\347\376\276wwK\267(\272Qyi"
 	.ascii	"\001c\240\011\211\361\301\230\032\343\203\257\376\007"
 	.ascii	"\204BB\2424Y\360\201\247\336]V\010n[I\\\304\305.\027"
@@ -5099,7 +5099,7 @@
 	.ascii	"\326T7\236\0106\2518{\275\2761\330$\327\326\325\037"
 	.ascii	"\257\011\312\301\232\206w\336j\374\007\022`.\314"
 	.text
-	.section	.gnu.lto_afatfs_findLast.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_findLast.4158f407,"e",%progbits
 	.ascii	"x\234M\217\315K\002a\020\306\347\331Ym\015\353\324M"
 	.ascii	"\202\210H$P\350/\350\334\271\177@\266\004\017)\250\027"
 	.ascii	"O\276.\202\007\243\202\014\361 \353\241(\202\210\300"
@@ -5120,7 +5120,7 @@
 	.ascii	"\371\224\231\210\347\022\331\1772jR`9\231Y1s\351L\376"
 	.ascii	"\007O\322q5"
 	.text
-	.section	.gnu.lto_afatfs_findFirst.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_findFirst.4158f407,"e",%progbits
 	.ascii	"x\234eQMkSQ\020\235\363\346\365\345%\326\272q!\204B"
 	.ascii	"\027b\010BSp\345\316\265k\377@H\033\310\242)$\335t\325"
 	.ascii	"\373\236\305.\242U\260\245V\010/\242\241\305Em\241\245"
@@ -5149,7 +5149,7 @@
 	.ascii	"-6\205\235\031\212v\347\012=\231\376\276\302\200\223"
 	.ascii	"\315\345\273{\012\177\001gw\271\253"
 	.text
-	.section	.gnu.lto_afatfs_ftruncate.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_ftruncate.4158f407,"e",%progbits
 	.ascii	"x\234ePKk\023Q\024>\337\234;\217\224\266;E\010B\027"
 	.ascii	"b\214\213D\020D\334\350_\031\203\201`\254`\334\270\352"
 	.ascii	"M\032(\322R)M-\025\247S\251Aq\323\012.\304V\035\355"
@@ -5178,7 +5178,7 @@
 	.ascii	"\331\302\331\254_\272\320\233\313\373\347\363\245\035"
 	.ascii	"e&G*_(\236\362r~\261x\322\317\235\376\013{\036\302\014"
 	.text
-	.section	.gnu.lto_afatfs_createFileContinue.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_createFileContinue.4158f407,"e",%progbits
 	.ascii	"x\234\235ZyP\224\327\226\377\316w\233\336\001\001\301"
 	.ascii	"\005T\224%\321\030\305\030\307h\214\317d\336L\246\352"
 	.ascii	"-\177\314Lj\252^\325L\306gL\225U\2768e\234yqj\252\336"
@@ -5437,7 +5437,7 @@
 	.ascii	"\372\327y\177\231\313\037~;{\321\334\340O\346-\234;"
 	.ascii	"g\321\202\205\213\377\205\177\375?\266\312\307\356"
 	.text
-	.section	.gnu.lto_afatfs_createFile.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_createFile.4158f407,"e",%progbits
 	.ascii	"x\234\245\226kLTG\024\307\347\314\334\327\356\"h\325"
 	.ascii	"\212E[i\232\032M\003\233\2304M?5\351\327\266\337\372"
 	.ascii	"\255_V*\011)j\242\246I?yw]|\000j\255RA]\356Z\3433)\250"
@@ -5520,7 +5520,7 @@
 	.ascii	"f\033\364\305\207\363?\235c\024\370\212\213g\373\012"
 	.ascii	">\343y\354?o\300\026>"
 	.text
-	.section	.gnu.lto_afatfs_funlink.part.0.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_funlink.part.0.4158f407,"e",%progbits
 	.ascii	"x\234eR]KTQ\024=\353\236;w>\034\365)\010\346\245\207"
 	.ascii	"l\230\012g\240\207z\012\037{+\350\027L\203\003C\246"
 	.ascii	"\241\276\364\344\321\2142E\021\0245\032G2\323\002?*"
@@ -5563,7 +5563,7 @@
 	.ascii	"L\365\0072\322->oF\3069\257\357\2749\353\342\331\\o"
 	.ascii	"n\372_\210\307^-"
 	.text
-	.section	.gnu.lto_afatfs_funlink.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_funlink.4158f407,"e",%progbits
 	.ascii	"x\234eRMk\023Q\024\275\347\3357\315\244\037Y\272\311"
 	.ascii	"\302,\304\222M\022P\304\245\177\300\237\340\"\006\003"
 	.ascii	"\305Z\301\270q\325\227\030\251\305R\021\014\265`\030"
@@ -5596,7 +5596,7 @@
 	.ascii	"\307\263\271\177\302D\206t\266\243\363\220\233Iwv\036"
 	.ascii	"Lg\016\377\001\240\003\333\030"
 	.text
-	.section	.gnu.lto_afatfs_fclose.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fclose.4158f407,"e",%progbits
 	.ascii	"x\234eS\333K\024Q\030\377~\347\314\314\316^\364-z\330"
 	.ascii	"\027\037\"\263\207]\241\250\036\373S\332\226\004\311"
 	.ascii	"\014\262\227\236<\273n\230)J\345%\241m\013\023\273\200"
@@ -5633,7 +5633,7 @@
 	.ascii	"\211Hye\270\374d8Ru\2462Z\0269]V\265m\031\212\222QV"
 	.ascii	"^q\314\216F**\216F\242\307\377\001\007\273\023r"
 	.text
-	.section	.gnu.lto_afatfs_funlinkContinue.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_funlinkContinue.4158f407,"e",%progbits
 	.ascii	"x\234]Q\317KTQ\024>\337;\317q\306\031\3076\265\231\215"
 	.ascii	"\213L\204\230\031\260E\320\306\177e\020\007\2042h,p"
 	.ascii	"\345\235Q\261R\024#\321\001\2477!\232-\374Q\204N\245"
@@ -5669,7 +5669,7 @@
 	.ascii	"\365\027#\261DSCm<\326\030O\034y\206k\311\214\327\237"
 	.ascii	"\257\363$\032c\215\227\023\177\000\352t\010\236"
 	.text
-	.section	.gnu.lto_afatfs_fileOperationContinue.part.0.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fileOperationContinue.part.0.4158f407,"e",%progbits
 	.ascii	"x\234u\226\333O\024W\030\300\3177gvvf/\250M\3334\341"
 	.ascii	"\305\304\246\2046\012\217>\364\241I_\372o\020\")Ik\223"
 	.ascii	"\342K\237<\273\200\270.\322\022\245\353Z\266\273J\021"
@@ -5732,7 +5732,7 @@
 	.ascii	",(\375\250\240\250\354\223\203\305%E\207J\312l\351\276"
 	.ascii	"b\244\226\224~p\340\177O\026\343\205"
 	.text
-	.section	.gnu.lto_afatfs_fileOperationContinue.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fileOperationContinue.4158f407,"e",%progbits
 	.ascii	"x\234m\221\301KTQ\024\306\317w\317\235\347K&wm\222@"
 	.ascii	"0\2221rf\031\255\372W\206\241\201\0013h\332\264\362"
 	.ascii	"\2767\003BSF`N\212\3233d\230 4\213\002+\253\227\216"
@@ -5760,7 +5760,7 @@
 	.ascii	"0\224.\234Kg\213\027\207r\371\354\205|\361\257r G:_"
 	.ascii	"\030<\263\017\361\344\270\260"
 	.text
-	.section	.gnu.lto_afatfs_fileOperationsPoll.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fileOperationsPoll.4158f407,"e",%progbits
 	.ascii	"x\234\215RMKTa\024~\237\367\334{\347:\214\325\312\315"
 	.ascii	"@\2701\320\304\031\374\005\376\212v-\006a`\210\014\232"
 	.ascii	"6\255|\347\003\277\012\263\260Lh\272\302 \265\251,\206"
@@ -5794,7 +5794,7 @@
 	.ascii	"\330\331D\252/\226:\027K\244/\366\365&\023\027\222\351"
 	.ascii	"\277\314\256^\205\324\037\200j\006\227"
 	.text
-	.section	.gnu.lto_afatfs_mkdir.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_mkdir.4158f407,"e",%progbits
 	.ascii	"x\234eR\337K\223Q\030>\317\367\236\357\333\267\251\021"
 	.ascii	"x\321\305\010$2\021\302\205]\024t\221\377F\227k(Hj\220"
 	.ascii	"\335t\345Q\007\"3Cj\330\3021CJ)B%\203\312~L\315\312"
@@ -5831,7 +5831,7 @@
 	.ascii	"\317\212\220pkj\353\252\033\202\365\325n(XWw<\030:!"
 	.ascii	"u\346\037\210;\014\025"
 	.text
-	.section	.gnu.lto_afatfs_chdir.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_chdir.4158f407,"e",%progbits
 	.ascii	"x\234]RMO\023Q\024}g\336tfZ\013\254\214\213n01\".(\321"
 	.ascii	"\225\256\374+\244BB\214\220\000\033V<\012\341;\242B"
 	.ascii	"\005\022k\321\332\200.\240&\306\030\240X\241\"\337\026"
@@ -5873,7 +5873,7 @@
 	.ascii	"\211\247\250\240\242\250<-\314\3630\373\335\342\262"
 	.ascii	"BOEiY\345?S\361GZ"
 	.text
-	.section	.gnu.lto_afatfs_initContinue.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_initContinue.4158f407,"e",%progbits
 	.ascii	"x\234\235Y}LTW\026\177\347\335\371\376\000\204\001A"
 	.ascii	"D\351vuk\335E\032\315\272v\223n\233\246\233l\262\233"
 	.ascii	"l\272\331Mv\377\330\304X\2334\331\255\211\330M\366\257"
@@ -6060,7 +6060,7 @@
 	.ascii	"\232\225\253m\364\311\3525b`\375\355\373\357\275\367"
 	.ascii	"\247?\276\363n\332{\322\177\001/\010\347\277"
 	.text
-	.section	.gnu.lto_afatfs_poll.part.0.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_poll.part.0.4158f407,"e",%progbits
 	.ascii	"x\234u\222\317k\023A\024\307\347\273\263\273\331\202"
 	.ascii	"\021/\212\340E(\210\2754={\321\377\302s\010\004z\260"
 	.ascii	"\202\361\342\251\263i\260\265)\021\254i\314!$\265\224"
@@ -6095,7 +6095,7 @@
 	.ascii	"@\344R(p!\330\333\027\350\275\030\010F\256\364\205\302"
 	.ascii	"\301\313\341\210'\354\016\261\337\177q7#"
 	.text
-	.section	.gnu.lto_afatfs_fopen.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fopen.4158f407,"e",%progbits
 	.ascii	"x\234uT[OTW\024\336\353\354s\316\234\313\314H\255h\033"
 	.ascii	"bBj-\265m\304\320\2076>4\276\364\321\307\376\000B11"
 	.ascii	"\021i\324\227>\271g\030Kp\250Vp\244\020\306\031D\274"
@@ -6173,7 +6173,7 @@
 	.ascii	"f\355\272\374\365\271\005\371jA\341\327\371F^a\3017"
 	.ascii	"\353\3627\345\253|[\234\255\306\355\377\0000A\263\241"
 	.text
-	.section	.gnu.lto_CSWTCH.160.41127d00,"e",%progbits
+	.section	.gnu.lto_CSWTCH.160.4158f407,"e",%progbits
 	.ascii	"x\234-\320[K\002A\030\306\361\035\307c\236:\337\370"
 	.ascii	"I\374<\321\367\260\014\324\014)\310LH\264\302\242\004"
 	.ascii	"\221\012\013W\315\016\246e\226\232\202\027\032\021v"
@@ -6196,7 +6196,7 @@
 	.ascii	"^\243W\350%\315\005M\001>G\363h\016\225i2\314!\261\026"
 	.ascii	"sJ\377\214}\262\370"
 	.text
-	.section	.gnu.lto_afatfs_fwrite.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fwrite.4158f407,"e",%progbits
 	.ascii	"x\234e\221\335K\024a\024\306\337g\316\314\354\354\207"
 	.ascii	"\336uQBHTj\027\256\027\025^\366\027\364?\230\270 \230"
 	.ascii	"\201\326EW\276\373A\206\212%\250\233\3218\205lz\345"
@@ -6235,7 +6235,7 @@
 	.ascii	"c\215\273\302\362j\241\307j\353j\3143\027b\261\232\006"
 	.ascii	"\252\253\251\377\013\315\222\032["
 	.text
-	.section	.gnu.lto_afatfs_fputc.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fputc.4158f407,"e",%progbits
 	.ascii	"x\234\225T_L[U\030?\277{\356\275\375\013\033\233\372"
 	.ascii	"\302\313\036D\302\022\241\311^L|\220\327=\355\301'\037"
 	.ascii	"Im3\022\205\2042\243O\273\024\326n+c\331R\2305t\255"
@@ -6295,7 +6295,7 @@
 	.ascii	"\005Z\333\016\370\375\001_\373\376\226\327}\336\366"
 	.ascii	"\326\266\277\001\374\303\004\364"
 	.text
-	.section	.gnu.lto_afatfs_fread.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_fread.4158f407,"e",%progbits
 	.ascii	"x\234e\222\337K\024Q\024\307\357w\316\314\356\354\017"
 	.ascii	"}\013\"!|\010\177\364\340\372P\340c\177A\377\203\211"
 	.ascii	"\013\202\031h=\364\344\335u\311\310\305\022tMk\234\302"
@@ -6333,7 +6333,7 @@
 	.ascii	"B\244\264\346rUY\264\364b\264\346@XT&\364hEe\271\357"
 	.ascii	"\334\245h\264\274\232*\313\253\376\001\261\371\033\260"
 	.text
-	.section	.gnu.lto_afatfs_feof.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_feof.4158f407,"e",%progbits
 	.ascii	"x\234\225\217OK\002Q\024\305\357\2317\216\022\331\027"
 	.ascii	"\220\300E$\006\251\320\246e\237\240\357 \222`\224A\266"
 	.ascii	"i\345S\027\022E\021\364w!\026%A\2132h!i5Y-\214\026\021"
@@ -6357,7 +6357,7 @@
 	.ascii	"F\202\341\304x<\022\015\217E\023\177\312@\204\364hl"
 	.ascii	"h\340\033\211\361\237Y"
 	.text
-	.section	.gnu.lto_afatfs_getContiguousFreeSpace.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_getContiguousFreeSpace.4158f407,"e",%progbits
 	.ascii	"x\234M\217\313JBQ\024\206\327\177\366\321NRO\020\201"
 	.ascii	"\243\250\211\307G\350\001z\011\021\004\211\014\262I"
 	.ascii	"#\267'\251\310\260\210J\033\230At\035t\201&i\331\251"
@@ -6378,7 +6378,7 @@
 	.ascii	"\002v|,l\217\204\2421;:j\207\342\023\261p$4\036\211"
 	.ascii	"\377\013\003a\372\0017Y|\224"
 	.text
-	.section	.gnu.lto_afatfs_poll.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_poll.4158f407,"e",%progbits
 	.ascii	"x\234]\220\277KBQ\024\307\317\367\236\253\275\242\306"
 	.ascii	"Z\032\205\310\006\335[\352OI\204\240!\205li\362>\025"
 	.ascii	"\244\024]Rq\010m\252)i\212~?\252\261\301\242\032\035"
@@ -6400,7 +6400,7 @@
 	.ascii	"\012'V\242\341\345\310R,\274\024\017G\022k\261\350b"
 	.ascii	"du1\361\247\014E\351\007\2775\211\232"
 	.text
-	.section	.gnu.lto_afatfs_getFilesystemState.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_getFilesystemState.4158f407,"e",%progbits
 	.ascii	"x\234M\216\275J\003A\024\205\317\231\211\353\212\344"
 	.ascii	"\011\202\020\020\3044\331\005_\300W\011\013\201\024"
 	.ascii	"F0\026Zev\015\306\237\020!\030V\213\260E\020\265\361"
@@ -6419,7 +6419,7 @@
 	.ascii	"\314e\235\322\212\347,\345\012E\247\260\354\344J\353"
 	.ascii	"E/\237[\315\227\376\225Y\017?\000\035ds"
 	.text
-	.section	.gnu.lto_afatfs_getLastError.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_getLastError.4158f407,"e",%progbits
 	.ascii	"x\234M\216\275J\003A\024\205\317\231\211qE\362\004\213"
 	.ascii	"\020\020\3044\331\005_\300W\011\201@\012#\270\026Ze"
 	.ascii	"v\023\374\015\021\204\020\005\303\026A\324\306\2376"
@@ -6439,7 +6439,7 @@
 	.ascii	"\311y\313\245|!\267X\360\376\225\331<~\000\331\305e"
 	.ascii	"T"
 	.text
-	.section	.gnu.lto_afatfs_init.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_init.4158f407,"e",%progbits
 	.ascii	"x\234\215\2229K\203A\020\206\347\335\215_>\013K\261"
 	.ascii	"\020+A\2641\376\004\377J\010\010\026F0\026Z\271\211"
 	.ascii	"\202\301x\200(QD#\206\240\225W\021\210\347\347\031o"
@@ -6464,7 +6464,7 @@
 	.ascii	"'\320\344\3634x\353\375\236\372F\2177\320\352\367\325"
 	.ascii	"y\233\353\002_\216\325>z\007\306\032\364\223"
 	.text
-	.section	.gnu.lto_afatfs_destroy.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_destroy.4158f407,"e",%progbits
 	.ascii	"x\234\215VmO\024W\024\276g\356\354\354\354\354\354\013"
 	.ascii	"V\211qS\264i\325\250\215l\350\2476\2551i\322\244?\303"
 	.ascii	"XMHZl\320~\360\223\003\"\212P\261V\262\254a\273V\342"
@@ -6546,7 +6546,7 @@
 	.ascii	"\362\277\334\360\351\246o\012\266@\376\377\034\217\226"
 	.ascii	"\345"
 	.text
-	.section	.gnu.lto_afatfs_getFreeBufferSpace.41127d00,"e",%progbits
+	.section	.gnu.lto_afatfs_getFreeBufferSpace.4158f407,"e",%progbits
 	.ascii	"x\234\215S\333K\224A\024\237\337\234\371\276\375v[\363"
 	.ascii	"\255\207\204\262\007\003-r\3531\010\372WD\012\204.\240"
 	.ascii	"\365P/\216\353b7\261\233aY\273\033-\321v\241,B\312\\"
@@ -6591,7 +6591,7 @@
 	.ascii	"kyE\315\216-\225\033+\266m\254\371\315]U)\334\352\015"
 	.ascii	"5\3337mC\325O\200\352x\304"
 	.text
-	.section	.gnu.lto_.symbol_nodes.41127d00,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.4158f407,"e",%progbits
 	.ascii	"x\234uW{X\224U\032\177\317\034\204\344\034\241@g\022"
 	.ascii	"r\206&n\002j\006\010Di\272\355\245\335m/\355\266\265"
 	.ascii	"\327v\255mw\333\373\375y\366\237\227&\322DK]#\304\215"
@@ -6736,7 +6736,7 @@
 	.ascii	"\332\325\333O\016\032\213:m1\010\247\017\325\257\247"
 	.ascii	"\371\024\017\377\003N\265\311\250"
 	.text
-	.section	.gnu.lto_.refs.41127d00,"e",%progbits
+	.section	.gnu.lto_.refs.4158f407,"e",%progbits
 	.ascii	"x\234MSMO\024Q\020\354\352\232\331\235\235\205]fA>W"
 	.ascii	"P\026X@@D\344C\321\0305z\323\233\361#11j\364oj<`\014"
 	.ascii	"\361\240\361\344\331\237`<Z\375\006\321\303{o\336\276"
@@ -6771,7 +6771,7 @@
 	.ascii	"\220\326\333z\306=du\235\225,\362\260H\034\027\374\335"
 	.ascii	"i[\377\000H\3261i"
 	.text
-	.section	.gnu.lto_.decls.41127d00,"e",%progbits
+	.section	.gnu.lto_.decls.4158f407,"e",%progbits
 	.ascii	"x\234\305\275\011|T\307\225/\254\333\325\3327l\210m"
 	.ascii	"\014\211\211C\034g&\361\2228\011\311\363\274\304q\342"
 	.ascii	"\304\363\234\214_\354d&\316\314c0\310Fc@D\022I\234\357"
@@ -8082,7 +8082,7 @@
 	.ascii	"\225\346\317ai\357\264\032\322\\\337\200\377\015\310"
 	.ascii	"Q\005I"
 	.text
-	.section	.gnu.lto_.symtab.41127d00,"e",%progbits
+	.section	.gnu.lto_.symtab.4158f407,"e",%progbits
 	.ascii	"afatfs_sectorCacheInSync\000"
 	.ascii	"\000"
 	.ascii	"\000"

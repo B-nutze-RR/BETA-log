@@ -5874,7 +5874,16 @@ typedef enum {
     TABLE_OFF_ON = 0,
     TABLE_UNIT,
     TABLE_ALIGNMENT,
-# 42 "./src/main/cli/settings.h"
+
+    TABLE_GPS_PROVIDER,
+    TABLE_GPS_SBAS_MODE,
+    TABLE_GPS_UBLOX_MODE,
+
+
+    TABLE_GPS_RESCUE_SANITY_CHECK,
+    TABLE_GPS_RESCUE_ALT_MODE,
+
+
     TABLE_BLACKBOX_DEVICE,
     TABLE_BLACKBOX_MODE,
     TABLE_BLACKBOX_SAMPLE_RATE,
@@ -5909,7 +5918,7 @@ typedef enum {
     TABLE_FAILSAFE_SWITCH_MODE,
     TABLE_CRASH_RECOVERY,
 
-
+    TABLE_CAMERA_CONTROL_MODE,
 
     TABLE_BUS_TYPE,
 # 89 "./src/main/cli/settings.h"
@@ -5926,7 +5935,14 @@ typedef enum {
     TABLE_GYRO,
 
     TABLE_THROTTLE_LIMIT_TYPE,
-# 110 "./src/main/cli/settings.h"
+
+    TABLE_VIDEO_SYSTEM,
+
+
+    TABLE_ITERM_RELAX,
+    TABLE_ITERM_RELAX_TYPE,
+
+
     TABLE_ACRO_TRAINER_DEBUG,
 
 
@@ -5936,10 +5952,19 @@ typedef enum {
     TABLE_RC_SMOOTHING_DERIVATIVE_TYPE,
 
 
-
+    TABLE_VTX_LOW_POWER_DISARM,
 
     TABLE_GYRO_HARDWARE,
-# 132 "./src/main/cli/settings.h"
+
+
+
+
+    TABLE_LAUNCH_CONTROL_MODE,
+
+
+    TABLE_TPA_MODE,
+
+
     TABLE_LED_PROFILE,
     TABLE_LEDSTRIP_COLOR,
 
@@ -5950,12 +5975,12 @@ typedef enum {
     TABLE_DSHOT_BITBANGED_TIMER,
     TABLE_OSD_DISPLAYPORT_DEVICE,
 
-
+    TABLE_OSD_LOGO_ON_ARMING,
 
     TABLE_MIXER_TYPE,
     TABLE_SIMPLIFIED_TUNING_PIDS_MODE,
 
-
+    TABLE_CMS_BACKGROUND,
 
     LOOKUP_TABLE_COUNT
 } lookupTableIndex_e;
@@ -6324,7 +6349,7 @@ typedef enum
     OME_FLOAT,
 
 
-
+    OME_VISIBLE,
 
     OME_TAB,
     OME_END,
@@ -7247,7 +7272,37 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-# 343 "./src/main/flight/pid.h"
+
+
+    pt1Filter_t windupLpf[3];
+    uint8_t itermRelax;
+    uint8_t itermRelaxType;
+    uint8_t itermRelaxCutoff;
+
+
+
+    float acCutoff;
+    float acGain;
+    float acLimit;
+    float acErrorLimit;
+    pt1Filter_t acLpf[3];
+    float oldSetpointCorrection[3];
+
+
+
+    biquadFilter_t dMinRange[3];
+    pt1Filter_t dMinLowpass[3];
+    float dMinPercent[3];
+    float dMinGyroGain;
+    float dMinSetpointGain;
+
+
+
+    pt1Filter_t airmodeThrottleLpf1;
+    pt1Filter_t airmodeThrottleLpf2;
+
+
+
     pt1Filter_t setpointDerivativePt1[3];
     biquadFilter_t setpointDerivativeBiquad[3];
     
@@ -7277,7 +7332,33 @@ typedef struct pidRuntime_s {
     uint16_t dynLpfMin;
     uint16_t dynLpfMax;
     uint8_t dynLpfCurveExpo;
-# 387 "./src/main/flight/pid.h"
+
+
+
+    uint8_t launchControlMode;
+    uint8_t launchControlAngleLimit;
+    float launchControlKi;
+
+
+
+    
+# 373 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 373 "./src/main/flight/pid.h"
+        useIntegratedYaw;
+    uint8_t integratedYawRelax;
+
+
+
+    float thrustLinearization;
+    float throttleCompensateAmount;
+
+
+
+    float airmodeThrottleOffsetLimit;
+
+
+
     ffInterpolationType_t ffFromInterpolatedSetpoint;
     float ffSmoothFactor;
 
@@ -7329,6 +7410,15 @@ void pidSetAntiGravityState(
 _Bool 
 # 413 "./src/main/flight/pid.h"
     pidAntiGravityEnabled(void);
+
+
+float pidApplyThrustLinearization(float motorValue);
+float pidCompensateThrustLinearization(float throttle);
+
+
+
+void pidUpdateAirmodeLpf(float currentOffset);
+float pidGetAirmodeThrottleOffset();
 # 436 "./src/main/flight/pid.h"
 void dynLpfDTermUpdate(float throttle);
 void pidSetItermReset(
@@ -8737,7 +8827,18 @@ typedef struct motorConfig_s {
 
 extern motorConfig_t motorConfig_System; extern motorConfig_t motorConfig_Copy; static inline const motorConfig_t* motorConfig(void) { return &motorConfig_System; } static inline motorConfig_t* motorConfigMutable(void) { return &motorConfig_System; } struct _dummy;
 # 26 "./src/main/drivers/dshot.h" 2
-# 54 "./src/main/drivers/dshot.h"
+# 43 "./src/main/drivers/dshot.h"
+typedef struct dshotTelemetryQuality_s {
+    uint32_t packetCountSum;
+    uint32_t invalidCountSum;
+    uint32_t packetCountArray[(1 * 1000 / 100)];
+    uint32_t invalidCountArray[(1 * 1000 / 100)];
+    uint8_t lastBucketIndex;
+} dshotTelemetryQuality_t;
+
+extern dshotTelemetryQuality_t dshotTelemetryQuality[8];
+
+
 typedef struct dshotProtocolControl_s {
     uint16_t value;
     
@@ -8752,7 +8853,47 @@ float dshotConvertFromExternal(uint16_t externalValue);
 uint16_t dshotConvertToExternal(float motorValue);
 
 uint16_t prepareDshotPacket(dshotProtocolControl_t *pcb);
-# 89 "./src/main/drivers/dshot.h"
+
+
+extern 
+# 66 "./src/main/drivers/dshot.h" 3 4
+      _Bool 
+# 66 "./src/main/drivers/dshot.h"
+           useDshotTelemetry;
+
+typedef struct dshotTelemetryMotorState_s {
+    uint16_t telemetryValue;
+    
+# 70 "./src/main/drivers/dshot.h" 3 4
+   _Bool 
+# 70 "./src/main/drivers/dshot.h"
+        telemetryActive;
+} dshotTelemetryMotorState_t;
+
+
+typedef struct dshotTelemetryState_s {
+    
+# 75 "./src/main/drivers/dshot.h" 3 4
+   _Bool 
+# 75 "./src/main/drivers/dshot.h"
+        useDshotTelemetry;
+    uint32_t invalidPacketCount;
+    uint32_t readCount;
+    dshotTelemetryMotorState_t motorState[8];
+    uint32_t inputBuffer[22];
+} dshotTelemetryState_t;
+
+extern dshotTelemetryState_t dshotTelemetryState;
+
+
+void updateDshotTelemetryQuality(dshotTelemetryQuality_t *qualityStats, 
+# 85 "./src/main/drivers/dshot.h" 3 4
+                                                                       _Bool 
+# 85 "./src/main/drivers/dshot.h"
+                                                                            packetValid, timeMs_t currentTimeMs);
+
+
+
 uint16_t getDshotTelemetry(uint8_t index);
 
 # 90 "./src/main/drivers/dshot.h" 3 4
@@ -8963,9 +9104,13 @@ timeMs_t motorGetMotorEnableTimeMs(void);
 void motorShutdown(void);
 
 
+struct motorDevConfig_s;
+typedef struct motorDevConfig_s motorDevConfig_t;
 
-
-
+# 102 "./src/main/drivers/motor.h" 3 4
+_Bool 
+# 102 "./src/main/drivers/motor.h"
+    isDshotBitbangActive(const motorDevConfig_t *motorConfig);
 
 
 float getDigitalIdleOffset(const motorConfig_t *motorConfig);
@@ -8984,17 +9129,34 @@ motorDevice_t *dshotPwmDevInit(const struct motorDevConfig_s *motorConfig, uint1
                                                                                                                   _Bool 
 # 52 "./src/main/drivers/dshot_dpwm.h"
                                                                                                                        useUnsyncedPwm);
-# 87 "./src/main/drivers/dshot_dpwm.h"
-extern uint32_t dshotDmaBuffer[8][18];
-extern uint32_t dshotDmaInputBuffer[8][18];
+# 81 "./src/main/drivers/dshot_dpwm.h"
+_Static_assert((22 >= 18), "dshotBufferSizeConstrait");
 
 
 
+
+
+extern uint32_t dshotDmaBuffer[8][22];
+extern uint32_t dshotDmaInputBuffer[8][22];
+
+
+extern uint32_t dshotBurstDmaBuffer[8][18 * 4];
 
 
 typedef struct {
     TIM_TypeDef *timer;
-# 108 "./src/main/drivers/dshot_dpwm.h"
+
+    uint16_t outputPeriod;
+
+
+
+
+
+    dmaResource_t *dmaBurstRef;
+    uint16_t dmaBurstLength;
+    uint32_t *dmaBurstBuffer;
+
+
     uint16_t timerDmaSources;
 } motorDmaTimer_t;
 
@@ -9002,7 +9164,52 @@ typedef struct motorDmaOutput_s {
     dshotProtocolControl_t protocolControl;
     ioTag_t ioTag;
     const timerHardware_t *timerHardware;
-# 153 "./src/main/drivers/dshot_dpwm.h"
+
+    uint16_t timerDmaSource;
+    uint8_t timerDmaIndex;
+    
+# 118 "./src/main/drivers/dshot_dpwm.h" 3 4
+   _Bool 
+# 118 "./src/main/drivers/dshot_dpwm.h"
+        configured;
+
+
+
+
+
+    uint8_t output;
+    uint8_t index;
+    uint32_t iocfg;
+
+
+
+
+
+    DMA_InitTypeDef dmaInitStruct;
+
+
+
+    volatile 
+# 136 "./src/main/drivers/dshot_dpwm.h" 3 4
+            _Bool 
+# 136 "./src/main/drivers/dshot_dpwm.h"
+                 isInput;
+    timeDelta_t dshotTelemetryDeadtimeUs;
+    uint8_t dmaInputLen;
+
+
+
+
+
+    TIM_OCInitTypeDef ocInitStruct;
+    TIM_ICInitTypeDef icInitStruct;
+
+
+
+
+    dmaResource_t *dmaRef;
+
+
     motorDmaTimer_t *timer;
     uint32_t *dmaBuffer;
 } motorDmaOutput_t;
@@ -9017,6 +9224,10 @@ _Bool
     pwmDshotMotorHardwareConfig(const timerHardware_t *timerHardware, uint8_t motorIndex, uint8_t reorderedMotorIndex, motorPwmProtocolTypes_e pwmProtocolType, uint8_t output);
 
 
+# 162 "./src/main/drivers/dshot_dpwm.h" 3 4
+_Bool 
+# 162 "./src/main/drivers/dshot_dpwm.h"
+    pwmStartDshotMotorUpdate(void);
 
 void pwmCompleteDshotMotorUpdate(void);
 
@@ -9029,6 +9240,51 @@ extern
 extern motorDevice_t dshotPwmDevice;
 # 72 "./src/main/cli/cli.c" 2
 # 1 "./src/main/drivers/pwm_output_dshot_shared.h" 1
+# 23 "./src/main/drivers/pwm_output_dshot_shared.h"
+extern uint8_t dmaMotorTimerCount;
+
+
+
+
+extern motorDmaTimer_t dmaMotorTimers[8];
+extern motorDmaOutput_t dmaMotors[8];
+
+
+
+extern uint32_t readDoneCount;
+
+ extern uint32_t inputStampUs;
+
+typedef struct dshotDMAHandlerCycleCounters_s {
+    uint32_t irqAt;
+    uint32_t changeDirectionCompletedAt;
+} dshotDMAHandlerCycleCounters_t;
+
+ extern dshotDMAHandlerCycleCounters_t dshotDMAHandlerCycleCounters;
+
+
+
+uint8_t getTimerIndex(TIM_TypeDef *timer);
+motorDmaOutput_t *getMotorDmaOutput(uint8_t index);
+void dshotEnableChannels(uint8_t motorCount);
+
+
+void pwmDshotSetDirectionOutput(
+    motorDmaOutput_t * const motor
+
+
+
+
+
+
+
+);
+
+
+# 62 "./src/main/drivers/pwm_output_dshot_shared.h" 3 4
+_Bool 
+# 62 "./src/main/drivers/pwm_output_dshot_shared.h"
+    pwmStartDshotMotorUpdate(void);
 # 73 "./src/main/cli/cli.c" 2
 # 1 "./src/main/drivers/camera_control.h" 1
 # 21 "./src/main/drivers/camera_control.h"
@@ -9718,7 +9974,7 @@ typedef struct voltageMeter_s {
     uint16_t displayFiltered;
     uint16_t unfiltered;
 
-
+    uint16_t sagFiltered;
 
     
 # 49 "./src/main/sensors/voltage.h" 3 4
@@ -10466,27 +10722,23 @@ void vtxTableConfigClearPowerValues(struct vtxTableConfig_s *config, int start);
 void vtxTableConfigClearPowerLabels(struct vtxTableConfig_s *config, int start);
 void vtxTableConfigClearChannels(struct vtxTableConfig_s *config, int band, int channels);
 
-void vtxTableSetFactoryBands(
-# 62 "./src/main/drivers/vtx_table.h" 3 4
-                            _Bool 
-# 62 "./src/main/drivers/vtx_table.h"
-                                 isFactory);
+
 
 
 extern int vtxTableBandCount;
 extern int vtxTableChannelCount;
-extern uint16_t vtxTableFrequency[5][8];
-extern const char *vtxTableBandNames[5 + 1];
-extern char vtxTableBandLetters[5 + 1];
+extern uint16_t vtxTableFrequency[8][8];
+extern const char *vtxTableBandNames[8 + 1];
+extern char vtxTableBandLetters[8 + 1];
 extern const char *vtxTableChannelNames[8 + 1];
 extern 
 # 71 "./src/main/drivers/vtx_table.h" 3 4
       _Bool 
 # 71 "./src/main/drivers/vtx_table.h"
-                     vtxTableIsFactoryBand[5];
+                     vtxTableIsFactoryBand[8];
 extern int vtxTablePowerLevels;
-extern uint16_t vtxTablePowerValues[5];
-extern const char *vtxTablePowerLabels[5 + 1];
+extern uint16_t vtxTablePowerValues[8];
+extern const char *vtxTablePowerLabels[8 + 1];
 # 98 "./src/main/cli/cli.c" 2
 
 # 1 "./src/main/fc/board_info.h" 1
@@ -10605,7 +10857,14 @@ void copyControlRateProfile(const uint8_t dstControlRateProfileIndex, const uint
 # 1 "./src/main/fc/core.h" 1
 # 21 "./src/main/fc/core.h"
        
-# 30 "./src/main/fc/core.h"
+
+
+
+
+
+extern int16_t magHold;
+
+
 typedef struct throttleCorrectionConfig_s {
     uint16_t throttle_correction_angle;
     uint8_t throttle_correction_value;
@@ -10641,7 +10900,7 @@ typedef enum {
 
 
 
-
+extern const char * const osdLaunchControlModeNames[LAUNCH_CONTROL_MODE_COUNT];
 
 
 extern throttleCorrectionConfig_t throttleCorrectionConfig_System; extern throttleCorrectionConfig_t throttleCorrectionConfig_Copy; static inline const throttleCorrectionConfig_t* throttleCorrectionConfig(void) { return &throttleCorrectionConfig_System; } static inline throttleCorrectionConfig_t* throttleCorrectionConfigMutable(void) { return &throttleCorrectionConfig_System; } struct _dummy;
@@ -11305,7 +11564,7 @@ typedef enum {
     FAILSAFE_PROCEDURE_AUTO_LANDING = 0,
     FAILSAFE_PROCEDURE_DROP_IT,
 
-
+    FAILSAFE_PROCEDURE_GPS_RESCUE,
 
     FAILSAFE_PROCEDURE_COUNT
 } failsafeProcedure_e;
@@ -13131,7 +13390,7 @@ typedef struct osdConfig_s {
     uint8_t ahInvert;
     uint8_t osdProfileIndex;
     uint8_t overlay_radio_mode;
-    char profile[1][16 + 1];
+    char profile[3][16 + 1];
     uint16_t link_quality_alarm;
     int16_t rssi_dbm_alarm;
     uint8_t gps_sats_show_hdop;
@@ -13177,7 +13436,7 @@ extern timeUs_t osdFlyTime;
 extern float osdGForce;
 
 
-
+extern escSensorData_t *osdEscDataCombined;
 
 
 void osdInit(displayPort_t *osdDisplayPort, osdDisplayPortDevice_e displayPortDevice);
@@ -13686,6 +13945,62 @@ extern usbDev_t usbDevConfig_System; extern usbDev_t usbDevConfig_Copy; static i
 # 1 "./src/main/pg/vtx_table.h" 1
 # 21 "./src/main/pg/vtx_table.h"
        
+
+
+
+
+
+
+
+# 1 "./src/main/drivers/vtx_table.h" 1
+# 54 "./src/main/drivers/vtx_table.h"
+struct vtxTableConfig_s;
+void vtxTableInit(void);
+void vtxTableStrncpyWithPad(char *dst, const char *src, int length);
+void vtxTableConfigClearBand(struct vtxTableConfig_s *config, int band);
+void vtxTableConfigClearPowerValues(struct vtxTableConfig_s *config, int start);
+void vtxTableConfigClearPowerLabels(struct vtxTableConfig_s *config, int start);
+void vtxTableConfigClearChannels(struct vtxTableConfig_s *config, int band, int channels);
+
+
+
+
+extern int vtxTableBandCount;
+extern int vtxTableChannelCount;
+extern uint16_t vtxTableFrequency[8][8];
+extern const char *vtxTableBandNames[8 + 1];
+extern char vtxTableBandLetters[8 + 1];
+extern const char *vtxTableChannelNames[8 + 1];
+extern 
+# 71 "./src/main/drivers/vtx_table.h" 3 4
+      _Bool 
+# 71 "./src/main/drivers/vtx_table.h"
+                     vtxTableIsFactoryBand[8];
+extern int vtxTablePowerLevels;
+extern uint16_t vtxTablePowerValues[8];
+extern const char *vtxTablePowerLabels[8 + 1];
+# 30 "./src/main/pg/vtx_table.h" 2
+
+typedef struct vtxTableConfig_s {
+    uint8_t bands;
+    uint8_t channels;
+    uint16_t frequency[8][8];
+    char bandNames[8][8 + 1];
+    char bandLetters[8];
+    char channelNames[8][1 + 1];
+    
+# 38 "./src/main/pg/vtx_table.h" 3 4
+   _Bool 
+# 38 "./src/main/pg/vtx_table.h"
+            isFactoryBand[8];
+
+    uint8_t powerLevels;
+    uint16_t powerValues[8];
+    char powerLabels[8][3 + 1];
+} vtxTableConfig_t;
+
+struct vtxTableConfig_s;
+extern struct vtxTableConfig_s vtxTableConfig_System; extern struct vtxTableConfig_s vtxTableConfig_Copy; static inline const struct vtxTableConfig_s* vtxTableConfig(void) { return &vtxTableConfig_System; } static inline struct vtxTableConfig_s* vtxTableConfigMutable(void) { return &vtxTableConfig_System; } struct _dummy;
 # 155 "./src/main/cli/cli.c" 2
 
 # 1 "./src/main/rx/rx_bind.h" 1
@@ -14046,11 +14361,40 @@ typedef enum {
     TASK_BATTERY_ALERTS,
 
     TASK_BEEPER,
-# 109 "./src/main/scheduler/scheduler.h"
+
+
+    TASK_GPS,
+# 100 "./src/main/scheduler/scheduler.h"
+    TASK_ALTITUDE,
+
+
+
+
+
+    TASK_TELEMETRY,
+
+
     TASK_LEDSTRIP,
-# 127 "./src/main/scheduler/scheduler.h"
+# 118 "./src/main/scheduler/scheduler.h"
+    TASK_OSD,
+
+
+
+
+
+    TASK_ESC_SENSOR,
+
+
     TASK_CMS,
-# 137 "./src/main/scheduler/scheduler.h"
+
+
+    TASK_VTXCTRL,
+
+
+    TASK_CAMCTRL,
+
+
+
     TASK_RCDEVICE,
 
 
@@ -18478,13 +18822,21 @@ typedef enum {
 
     IBUS_SENSOR_TYPE_ALT_FLYSKY = 0xf9,
 
-
-
-
+    IBUS_SENSOR_TYPE_GPS_FULL = 0xfd,
+    IBUS_SENSOR_TYPE_VOLT_FULL = 0xf0,
+    IBUS_SENSOR_TYPE_ACC_FULL = 0xef,
 
     IBUS_SENSOR_TYPE_UNKNOWN = 0xff
 } ibusSensorType_e;
-# 89 "./src/main/telemetry/ibus_shared.h"
+
+
+
+uint8_t respondToIbusRequest(uint8_t const * const ibusPacket);
+void initSharedIbusTelemetry(serialPort_t * port);
+
+
+
+
 
 # 89 "./src/main/telemetry/ibus_shared.h" 3 4
 _Bool 
@@ -21574,7 +21926,697 @@ static void cliFlashErase(const char *cmdName, char *cmdline)
     cliPrintLinefeed();
     cliPrintLine("Done.");
 }
-# 3108 "./src/main/cli/cli.c"
+# 2594 "./src/main/cli/cli.c"
+static void printVtx(dumpFlags_t dumpMask, const vtxConfig_t *vtxConfig, const vtxConfig_t *vtxConfigDefault, const char *headingStr)
+{
+
+    const char *format = "vtx %u %u %u %u %u %u %u";
+    headingStr = cliPrintSectionHeading(dumpMask, 
+# 2598 "./src/main/cli/cli.c" 3 4
+                                                 0
+# 2598 "./src/main/cli/cli.c"
+                                                      , headingStr);
+    
+# 2599 "./src/main/cli/cli.c" 3 4
+   _Bool 
+# 2599 "./src/main/cli/cli.c"
+        equalsDefault = 
+# 2599 "./src/main/cli/cli.c" 3 4
+                        0
+# 2599 "./src/main/cli/cli.c"
+                             ;
+    for (uint32_t i = 0; i < 10; i++) {
+        const vtxChannelActivationCondition_t *cac = &vtxConfig->vtxChannelActivationConditions[i];
+        if (vtxConfigDefault) {
+            const vtxChannelActivationCondition_t *cacDefault = &vtxConfigDefault->vtxChannelActivationConditions[i];
+            equalsDefault = !memcmp(cac, cacDefault, sizeof(*cac));
+            headingStr = cliPrintSectionHeading(dumpMask, !equalsDefault, headingStr);
+            cliDefaultPrintLinef(dumpMask, equalsDefault, format,
+                i,
+                cacDefault->auxChannelIndex,
+                cacDefault->band,
+                cacDefault->channel,
+                cacDefault->power,
+                (900 + 25 * cacDefault->range.startStep),
+                (900 + 25 * cacDefault->range.endStep)
+            );
+        }
+        cliDumpPrintLinef(dumpMask, equalsDefault, format,
+            i,
+            cac->auxChannelIndex,
+            cac->band,
+            cac->channel,
+            cac->power,
+            (900 + 25 * cac->range.startStep),
+            (900 + 25 * cac->range.endStep)
+        );
+    }
+}
+
+static void cliVtx(const char *cmdName, char *cmdline)
+{
+    const char *format = "vtx %u %u %u %u %u %u %u";
+    int i, val = 0;
+    const char *ptr;
+
+    if (isEmpty(cmdline)) {
+        printVtx(DUMP_MASTER, vtxConfig(), 
+# 2635 "./src/main/cli/cli.c" 3 4
+                                          ((void *)0)
+# 2635 "./src/main/cli/cli.c"
+                                              , 
+# 2635 "./src/main/cli/cli.c" 3 4
+                                                ((void *)0)
+# 2635 "./src/main/cli/cli.c"
+                                                    );
+    } else {
+
+        const uint8_t maxBandIndex = vtxTableConfig()->bands;
+        const uint8_t maxChannelIndex = vtxTableConfig()->channels;
+        const uint8_t maxPowerIndex = vtxTableConfig()->powerLevels;
+
+
+
+
+
+        ptr = cmdline;
+        i = atoi(ptr++);
+        if (i < 10) {
+            vtxChannelActivationCondition_t *cac = &vtxConfigMutable()->vtxChannelActivationConditions[i];
+            uint8_t validArgumentCount = 0;
+            ptr = nextArg(ptr);
+            if (ptr) {
+                val = atoi(ptr);
+                if (val >= 0 && val < (18 - 4)) {
+                    cac->auxChannelIndex = val;
+                    validArgumentCount++;
+                }
+            }
+            ptr = nextArg(ptr);
+            if (ptr) {
+                val = atoi(ptr);
+                if (val >= 0 && val <= maxBandIndex) {
+                    cac->band = val;
+                    validArgumentCount++;
+                }
+            }
+            ptr = nextArg(ptr);
+            if (ptr) {
+                val = atoi(ptr);
+                if (val >= 0 && val <= maxChannelIndex) {
+                    cac->channel = val;
+                    validArgumentCount++;
+                }
+            }
+            ptr = nextArg(ptr);
+            if (ptr) {
+                val = atoi(ptr);
+                if (val >= 0 && val <= maxPowerIndex) {
+                    cac->power= val;
+                    validArgumentCount++;
+                }
+            }
+            ptr = processChannelRangeArgs(ptr, &cac->range, &validArgumentCount);
+
+            if (validArgumentCount != 6) {
+                memset(cac, 0, sizeof(vtxChannelActivationCondition_t));
+                cliShowInvalidArgumentCountError(cmdName);
+            } else {
+                cliDumpPrintLinef(0, 
+# 2689 "./src/main/cli/cli.c" 3 4
+                                    0
+# 2689 "./src/main/cli/cli.c"
+                                         , format,
+                    i,
+                    cac->auxChannelIndex,
+                    cac->band,
+                    cac->channel,
+                    cac->power,
+                    (900 + 25 * cac->range.startStep),
+                    (900 + 25 * cac->range.endStep)
+                );
+            }
+        } else {
+            cliShowArgumentRangeError(cmdName, "INDEX", 0, 10 - 1);
+        }
+    }
+}
+
+
+
+
+
+static char *formatVtxTableBandFrequency(const 
+# 2709 "./src/main/cli/cli.c" 3 4
+                                              _Bool 
+# 2709 "./src/main/cli/cli.c"
+                                                   isFactory, const uint16_t *frequency, int channels)
+{
+    static char freqbuf[5 * 8 + 8 + 1];
+    char freqtmp[5 + 1];
+    freqbuf[0] = 0;
+    strcat(freqbuf, isFactory ? " FACTORY" : " CUSTOM ");
+    for (int channel = 0; channel < channels; channel++) {
+        tfp_sprintf(freqtmp, " %4d", frequency[channel]);
+        strcat(freqbuf, freqtmp);
+    }
+    return freqbuf;
+}
+
+static const char *printVtxTableBand(dumpFlags_t dumpMask, int band, const vtxTableConfig_t *currentConfig, const vtxTableConfig_t *defaultConfig, const char *headingStr)
+{
+    char *fmt = "vtxtable band %d %s %c%s";
+    
+# 2725 "./src/main/cli/cli.c" 3 4
+   _Bool 
+# 2725 "./src/main/cli/cli.c"
+        equalsDefault = 
+# 2725 "./src/main/cli/cli.c" 3 4
+                        0
+# 2725 "./src/main/cli/cli.c"
+                             ;
+
+    if (defaultConfig) {
+        equalsDefault = 
+# 2728 "./src/main/cli/cli.c" 3 4
+                       1
+# 2728 "./src/main/cli/cli.c"
+                           ;
+        if (strcasecmp(currentConfig->bandNames[band], defaultConfig->bandNames[band])) {
+            equalsDefault = 
+# 2730 "./src/main/cli/cli.c" 3 4
+                           0
+# 2730 "./src/main/cli/cli.c"
+                                ;
+        }
+        if (currentConfig->bandLetters[band] != defaultConfig->bandLetters[band]) {
+            equalsDefault = 
+# 2733 "./src/main/cli/cli.c" 3 4
+                           0
+# 2733 "./src/main/cli/cli.c"
+                                ;
+        }
+        for (int channel = 0; channel < 8; channel++) {
+            if (currentConfig->frequency[band][channel] != defaultConfig->frequency[band][channel]) {
+                equalsDefault = 
+# 2737 "./src/main/cli/cli.c" 3 4
+                               0
+# 2737 "./src/main/cli/cli.c"
+                                    ;
+              }
+        }
+        headingStr = cliPrintSectionHeading(dumpMask, !equalsDefault, headingStr);
+        char *freqbuf = formatVtxTableBandFrequency(defaultConfig->isFactoryBand[band], defaultConfig->frequency[band], defaultConfig->channels);
+        cliDefaultPrintLinef(dumpMask, equalsDefault, fmt, band + 1, defaultConfig->bandNames[band], defaultConfig->bandLetters[band], freqbuf);
+    }
+
+    char *freqbuf = formatVtxTableBandFrequency(currentConfig->isFactoryBand[band], currentConfig->frequency[band], currentConfig->channels);
+    cliDumpPrintLinef(dumpMask, equalsDefault, fmt, band + 1, currentConfig->bandNames[band], currentConfig->bandLetters[band], freqbuf);
+    return headingStr;
+}
+
+static char *formatVtxTablePowerValues(const uint16_t *levels, int count)
+{
+
+    static char pwrbuf[5 * 8 + 1];
+    char pwrtmp[5 + 1];
+    pwrbuf[0] = 0;
+    for (int pwrindex = 0; pwrindex < count; pwrindex++) {
+        tfp_sprintf(pwrtmp, " %d", levels[pwrindex]);
+        strcat(pwrbuf, pwrtmp);
+    }
+    return pwrbuf;
+}
+
+static const char *printVtxTablePowerValues(dumpFlags_t dumpMask, const vtxTableConfig_t *currentConfig, const vtxTableConfig_t *defaultConfig, const char *headingStr)
+{
+    char *fmt = "vtxtable powervalues%s";
+    
+# 2766 "./src/main/cli/cli.c" 3 4
+   _Bool 
+# 2766 "./src/main/cli/cli.c"
+        equalsDefault = 
+# 2766 "./src/main/cli/cli.c" 3 4
+                        0
+# 2766 "./src/main/cli/cli.c"
+                             ;
+    if (defaultConfig) {
+        equalsDefault = 
+# 2768 "./src/main/cli/cli.c" 3 4
+                       1
+# 2768 "./src/main/cli/cli.c"
+                           ;
+        for (int pwrindex = 0; pwrindex < 8; pwrindex++) {
+            if (defaultConfig->powerValues[pwrindex] != currentConfig->powerValues[pwrindex]) {
+                equalsDefault = 
+# 2771 "./src/main/cli/cli.c" 3 4
+                               0
+# 2771 "./src/main/cli/cli.c"
+                                    ;
+            }
+        }
+        headingStr = cliPrintSectionHeading(dumpMask, !equalsDefault, headingStr);
+        char *pwrbuf = formatVtxTablePowerValues(defaultConfig->powerValues, 8);
+        cliDefaultPrintLinef(dumpMask, equalsDefault, fmt, pwrbuf);
+    }
+
+    char *pwrbuf = formatVtxTablePowerValues(currentConfig->powerValues, currentConfig->powerLevels);
+    cliDumpPrintLinef(dumpMask, equalsDefault, fmt, pwrbuf);
+    return headingStr;
+}
+
+static char *formatVtxTablePowerLabels(const char labels[8][3 + 1], int count)
+{
+    static char pwrbuf[(3 + 1) * 8 + 1];
+    char pwrtmp[(3 + 1) + 1];
+    pwrbuf[0] = 0;
+    for (int pwrindex = 0; pwrindex < count; pwrindex++) {
+        strcat(pwrbuf, " ");
+        strcpy(pwrtmp, labels[pwrindex]);
+
+        char *sp;
+        while ((sp = strchr(pwrtmp, ' '))) {
+            *sp = 0;
+        }
+        strcat(pwrbuf, pwrtmp);
+    }
+    return pwrbuf;
+}
+
+static const char *printVtxTablePowerLabels(dumpFlags_t dumpMask, const vtxTableConfig_t *currentConfig, const vtxTableConfig_t *defaultConfig, const char *headingStr)
+{
+    char *fmt = "vtxtable powerlabels%s";
+    
+# 2805 "./src/main/cli/cli.c" 3 4
+   _Bool 
+# 2805 "./src/main/cli/cli.c"
+        equalsDefault = 
+# 2805 "./src/main/cli/cli.c" 3 4
+                        0
+# 2805 "./src/main/cli/cli.c"
+                             ;
+    if (defaultConfig) {
+        equalsDefault = 
+# 2807 "./src/main/cli/cli.c" 3 4
+                       1
+# 2807 "./src/main/cli/cli.c"
+                           ;
+        for (int pwrindex = 0; pwrindex < 8; pwrindex++) {
+            if (strcasecmp(defaultConfig->powerLabels[pwrindex], currentConfig->powerLabels[pwrindex])) {
+                equalsDefault = 
+# 2810 "./src/main/cli/cli.c" 3 4
+                               0
+# 2810 "./src/main/cli/cli.c"
+                                    ;
+            }
+        }
+        headingStr = cliPrintSectionHeading(dumpMask, !equalsDefault, headingStr);
+        char *pwrbuf = formatVtxTablePowerLabels(defaultConfig->powerLabels, 8);
+        cliDefaultPrintLinef(dumpMask, equalsDefault, fmt, pwrbuf);
+    }
+
+    char *pwrbuf = formatVtxTablePowerLabels(currentConfig->powerLabels, currentConfig->powerLevels);
+    cliDumpPrintLinef(dumpMask, equalsDefault, fmt, pwrbuf);
+    return headingStr;
+}
+
+static void printVtxTable(dumpFlags_t dumpMask, const vtxTableConfig_t *currentConfig, const vtxTableConfig_t *defaultConfig, const char *headingStr)
+{
+    
+# 2825 "./src/main/cli/cli.c" 3 4
+   _Bool 
+# 2825 "./src/main/cli/cli.c"
+        equalsDefault;
+    char *fmt;
+
+    headingStr = cliPrintSectionHeading(dumpMask, 
+# 2828 "./src/main/cli/cli.c" 3 4
+                                                 0
+# 2828 "./src/main/cli/cli.c"
+                                                      , headingStr);
+
+
+    equalsDefault = 
+# 2831 "./src/main/cli/cli.c" 3 4
+                   0
+# 2831 "./src/main/cli/cli.c"
+                        ;
+    fmt = "vtxtable bands %d";
+    if (defaultConfig) {
+        equalsDefault = (defaultConfig->bands == currentConfig->bands);
+        headingStr = cliPrintSectionHeading(dumpMask, !equalsDefault, headingStr);
+        cliDefaultPrintLinef(dumpMask, equalsDefault, fmt, defaultConfig->bands);
+    }
+    cliDumpPrintLinef(dumpMask, equalsDefault, fmt, currentConfig->bands);
+
+
+    equalsDefault = 
+# 2841 "./src/main/cli/cli.c" 3 4
+                   0
+# 2841 "./src/main/cli/cli.c"
+                        ;
+    fmt = "vtxtable channels %d";
+    if (defaultConfig) {
+        equalsDefault = (defaultConfig->channels == currentConfig->channels);
+        headingStr = cliPrintSectionHeading(dumpMask, !equalsDefault, headingStr);
+        cliDefaultPrintLinef(dumpMask, equalsDefault, fmt, defaultConfig->channels);
+    }
+    cliDumpPrintLinef(dumpMask, equalsDefault, fmt, currentConfig->channels);
+
+
+
+    for (int band = 0; band < currentConfig->bands; band++) {
+        headingStr = printVtxTableBand(dumpMask, band, currentConfig, defaultConfig, headingStr);
+    }
+
+
+
+    equalsDefault = 
+# 2858 "./src/main/cli/cli.c" 3 4
+                   0
+# 2858 "./src/main/cli/cli.c"
+                        ;
+    fmt = "vtxtable powerlevels %d";
+    if (defaultConfig) {
+        equalsDefault = (defaultConfig->powerLevels == currentConfig->powerLevels);
+        headingStr = cliPrintSectionHeading(dumpMask, !equalsDefault, headingStr);
+        cliDefaultPrintLinef(dumpMask, equalsDefault, fmt, defaultConfig->powerLevels);
+    }
+    cliDumpPrintLinef(dumpMask, equalsDefault, fmt, currentConfig->powerLevels);
+
+
+
+
+    headingStr = printVtxTablePowerValues(dumpMask, currentConfig, defaultConfig, headingStr);
+    headingStr = printVtxTablePowerLabels(dumpMask, currentConfig, defaultConfig, headingStr);
+}
+
+static void cliVtxTable(const char *cmdName, char *cmdline)
+{
+    char *tok;
+    char *saveptr;
+
+
+    tok = strtok_r(cmdline, " ", &saveptr);
+
+    if (!tok) {
+        printVtxTable(DUMP_MASTER | HIDE_UNUSED, vtxTableConfigMutable(), 
+# 2883 "./src/main/cli/cli.c" 3 4
+                                                                         ((void *)0)
+# 2883 "./src/main/cli/cli.c"
+                                                                             , 
+# 2883 "./src/main/cli/cli.c" 3 4
+                                                                               ((void *)0)
+# 2883 "./src/main/cli/cli.c"
+                                                                                   );
+        return;
+    }
+
+    if (strcasecmp(tok, "bands") == 0) {
+        tok = strtok_r(
+# 2888 "./src/main/cli/cli.c" 3 4
+                      ((void *)0)
+# 2888 "./src/main/cli/cli.c"
+                          , " ", &saveptr);
+        int bands = atoi(tok);
+        if (bands < 0 || bands > 8) {
+            cliShowArgumentRangeError(cmdName, "BAND COUNT", 0, 8);
+            return;
+        }
+        if (bands < vtxTableConfigMutable()->bands) {
+            for (int i = bands; i < vtxTableConfigMutable()->bands; i++) {
+                vtxTableConfigClearBand(vtxTableConfigMutable(), i);
+             }
+        }
+        vtxTableConfigMutable()->bands = bands;
+
+    } else if (strcasecmp(tok, "channels") == 0) {
+        tok = strtok_r(
+# 2902 "./src/main/cli/cli.c" 3 4
+                      ((void *)0)
+# 2902 "./src/main/cli/cli.c"
+                          , " ", &saveptr);
+
+        int channels = atoi(tok);
+        if (channels < 0 || channels > 8) {
+            cliShowArgumentRangeError(cmdName, "CHANNEL COUNT", 0, 8);
+            return;
+        }
+        if (channels < vtxTableConfigMutable()->channels) {
+            for (int i = 0; i < 8; i++) {
+                vtxTableConfigClearChannels(vtxTableConfigMutable(), i, channels);
+            }
+        }
+        vtxTableConfigMutable()->channels = channels;
+
+    } else if (strcasecmp(tok, "powerlevels") == 0) {
+
+        tok = strtok_r(
+# 2918 "./src/main/cli/cli.c" 3 4
+                      ((void *)0)
+# 2918 "./src/main/cli/cli.c"
+                          , " ", &saveptr);
+        if (tok) {
+            int levels = atoi(tok);
+            if (levels < 0 || levels > 8) {
+                cliShowArgumentRangeError(cmdName, "POWER LEVEL COUNT", 0, 8);
+            } else {
+                if (levels < vtxTableConfigMutable()->powerLevels) {
+                    vtxTableConfigClearPowerValues(vtxTableConfigMutable(), levels);
+                    vtxTableConfigClearPowerLabels(vtxTableConfigMutable(), levels);
+                }
+                vtxTableConfigMutable()->powerLevels = levels;
+            }
+        } else {
+
+        }
+        return;
+
+    } else if (strcasecmp(tok, "powervalues") == 0) {
+
+        uint16_t power[8];
+        int count;
+        int levels = vtxTableConfigMutable()->powerLevels;
+
+        memset(power, 0, sizeof(power));
+
+        for (count = 0; count < levels && (tok = strtok_r(
+# 2943 "./src/main/cli/cli.c" 3 4
+                                                         ((void *)0)
+# 2943 "./src/main/cli/cli.c"
+                                                             , " ", &saveptr)); count++) {
+            int value = atoi(tok);
+            power[count] = value;
+        }
+
+
+
+        if (count < levels) {
+            cliPrintErrorLinef(cmdName, "NOT ENOUGH VALUES (EXPECTED %d)", levels);
+            return;
+        } else if ((tok = strtok_r(
+# 2953 "./src/main/cli/cli.c" 3 4
+                                  ((void *)0)
+# 2953 "./src/main/cli/cli.c"
+                                      , " ", &saveptr))) {
+            cliPrintErrorLinef(cmdName, "TOO MANY VALUES (EXPECTED %d)", levels);
+            return;
+        }
+
+        for (int i = 0; i < 8; i++) {
+            vtxTableConfigMutable()->powerValues[i] = power[i];
+        }
+
+    } else if (strcasecmp(tok, "powerlabels") == 0) {
+
+        char label[8][3 + 1];
+        int levels = vtxTableConfigMutable()->powerLevels;
+        int count;
+        for (count = 0; count < levels && (tok = strtok_r(
+# 2967 "./src/main/cli/cli.c" 3 4
+                                                         ((void *)0)
+# 2967 "./src/main/cli/cli.c"
+                                                             , " ", &saveptr)); count++) {
+            strncpy(label[count], tok, 3);
+            for (unsigned i = 0; i < strlen(label[count]); i++) {
+                label[count][i] = toupper(label[count][i]);
+            }
+        }
+
+
+
+        if (count < levels) {
+            cliPrintErrorLinef(cmdName, "NOT ENOUGH LABELS (EXPECTED %d)", levels);
+            return;
+        } else if ((tok = strtok_r(
+# 2979 "./src/main/cli/cli.c" 3 4
+                                  ((void *)0)
+# 2979 "./src/main/cli/cli.c"
+                                      , " ", &saveptr))) {
+            cliPrintErrorLinef(cmdName, "TOO MANY LABELS (EXPECTED %d)", levels);
+            return;
+        }
+
+        for (int i = 0; i < count; i++) {
+            vtxTableStrncpyWithPad(vtxTableConfigMutable()->powerLabels[i], label[i], 3);
+        }
+    } else if (strcasecmp(tok, "band") == 0) {
+
+        int bands = vtxTableConfigMutable()->bands;
+
+        tok = strtok_r(
+# 2991 "./src/main/cli/cli.c" 3 4
+                      ((void *)0)
+# 2991 "./src/main/cli/cli.c"
+                          , " ", &saveptr);
+        if (!tok) {
+            return;
+        }
+
+        int band = atoi(tok);
+        --band;
+
+        if (band < 0 || band >= bands) {
+            cliShowArgumentRangeError(cmdName, "BAND NUMBER", 1, bands);
+            return;
+        }
+
+
+        tok = strtok_r(
+# 3005 "./src/main/cli/cli.c" 3 4
+                       ((void *)0)
+# 3005 "./src/main/cli/cli.c"
+                           , " ", &saveptr);
+
+        if (!tok) {
+            return;
+        }
+
+        char bandname[8 + 1];
+        memset(bandname, 0, 8 + 1);
+        strncpy(bandname, tok, 8);
+        for (unsigned i = 0; i < strlen(bandname); i++) {
+            bandname[i] = toupper(bandname[i]);
+        }
+
+
+        tok = strtok_r(
+# 3019 "./src/main/cli/cli.c" 3 4
+                       ((void *)0)
+# 3019 "./src/main/cli/cli.c"
+                           , " ", &saveptr);
+
+        if (!tok) {
+            return;
+        }
+
+        char bandletter = toupper(tok[0]);
+
+        uint16_t bandfreq[8];
+        int channel = 0;
+        int channels = vtxTableConfigMutable()->channels;
+        
+# 3030 "./src/main/cli/cli.c" 3 4
+       _Bool 
+# 3030 "./src/main/cli/cli.c"
+            isFactory = 
+# 3030 "./src/main/cli/cli.c" 3 4
+                        0
+# 3030 "./src/main/cli/cli.c"
+                             ;
+
+        for (channel = 0; channel < channels && (tok = strtok_r(
+# 3032 "./src/main/cli/cli.c" 3 4
+                                                                 ((void *)0)
+# 3032 "./src/main/cli/cli.c"
+                                                                     , " ", &saveptr)); channel++) {
+            if (channel == 0 && !isdigit(tok[0])) {
+                channel -= 1;
+                if (strcasecmp(tok, "FACTORY") == 0) {
+                    isFactory = 
+# 3036 "./src/main/cli/cli.c" 3 4
+                               1
+# 3036 "./src/main/cli/cli.c"
+                                   ;
+                } else if (strcasecmp(tok, "CUSTOM") == 0) {
+                    isFactory = 
+# 3038 "./src/main/cli/cli.c" 3 4
+                               0
+# 3038 "./src/main/cli/cli.c"
+                                    ;
+                } else {
+                    cliPrintErrorLinef(cmdName, "INVALID FACTORY FLAG %s (EXPECTED FACTORY OR CUSTOM)", tok);
+                    return;
+                }
+            }
+            int freq = atoi(tok);
+            if (freq < 0) {
+                cliPrintErrorLinef(cmdName, "INVALID FREQUENCY %s", tok);
+                return;
+            }
+            bandfreq[channel] = freq;
+        }
+
+        if (channel < channels) {
+            cliPrintErrorLinef(cmdName, "NOT ENOUGH FREQUENCIES (EXPECTED %d)", channels);
+            return;
+        } else if ((tok = strtok_r(
+# 3055 "./src/main/cli/cli.c" 3 4
+                                  ((void *)0)
+# 3055 "./src/main/cli/cli.c"
+                                      , " ", &saveptr))) {
+            cliPrintErrorLinef(cmdName, "TOO MANY FREQUENCIES (EXPECTED %d)", channels);
+            return;
+        }
+
+        vtxTableStrncpyWithPad(vtxTableConfigMutable()->bandNames[band], bandname, 8);
+        vtxTableConfigMutable()->bandLetters[band] = bandletter;
+
+        for (int i = 0; i < channel; i++) {
+            vtxTableConfigMutable()->frequency[band][i] = bandfreq[i];
+        }
+        vtxTableConfigMutable()->isFactoryBand[band] = isFactory;
+    } else {
+
+        cliPrintErrorLinef(cmdName, "INVALID SUBCOMMAND %s", tok);
+    }
+}
+
+static void cliVtxInfo(const char *cmdName, char *cmdline)
+{
+    (void)(cmdline);
+
+
+    uint16_t levels[8];
+    uint16_t powers[8];
+    vtxDevice_t *vtxDevice = vtxCommonDevice();
+    if (vtxDevice) {
+        uint8_t level_count = vtxCommonGetVTXPowerLevels(vtxDevice, levels, powers);
+
+        if (level_count) {
+            for (int i = 0; i < level_count; i++) {
+                cliPrintLinef("level %d dBm, power %d mW", levels[i], powers[i]);
+            }
+        } else {
+            cliPrintErrorLinef(cmdName, "NO POWER VALUES DEFINED");
+        }
+    } else {
+        cliPrintErrorLinef(cmdName, "NO VTX");
+    }
+}
+
+
+
+static void cliApplySimplifiedTuning(const char *cmdName, char *cmdline)
+{
+    (void)(cmdName);
+    (void)(cmdline);
+
+    applySimplifiedTuning(currentPidProfile);
+    cliPrintLine("Applied tuning based on simplified tuning settings.");
+}
+
+
 static void printName(dumpFlags_t dumpMask, const pilotConfig_t *pilotConfig)
 {
     const 
@@ -21825,10 +22867,10 @@ static void cliFeature(const char *cmdName, char *cmdline)
             if (strncasecmp(cmdline, featureNames[i], len) == 0) {
                 feature = 1 << i;
 
-                if (feature & FEATURE_GPS) {
-                    cliPrintLine("unavailable");
-                    break;
-                }
+
+
+
+
 
 
                 if (feature & FEATURE_RANGEFINDER) {
@@ -21950,7 +22992,14 @@ static void processBeeperCommand(const char *cmdName, char *cmdline, uint32_t *o
         }
     }
 }
-# 3419 "./src/main/cli/cli.c"
+
+
+static void cliBeacon(const char *cmdName, char *cmdline)
+{
+    processBeeperCommand(cmdName, cmdline, &(beeperConfigMutable()->dshotBeaconOffFlags), ( (1 << (BEEPER_RX_LOST - 1)) | (1 << (BEEPER_RX_SET - 1)) ));
+}
+
+
 static void cliBeeper(const char *cmdName, char *cmdline)
 {
     processBeeperCommand(cmdName, cmdline, &(beeperConfigMutable()->beeper_off_flags), ( (1 << (BEEPER_GYRO_CALIBRATED - 1)) | (1 << (BEEPER_RX_LOST - 1)) | (1 << (BEEPER_RX_LOST_LANDING - 1)) | (1 << (BEEPER_DISARMING - 1)) | (1 << (BEEPER_ARMING - 1)) | (1 << (BEEPER_ARMING_GPS_FIX - 1)) | (1 << (BEEPER_BAT_CRIT_LOW - 1)) | (1 << (BEEPER_BAT_LOW - 1)) | (1 << (BEEPER_GPS_STATUS - 1)) | (1 << (BEEPER_RX_SET - 1)) | (1 << (BEEPER_ACC_CALIBRATION - 1)) | (1 << (BEEPER_ACC_CALIBRATION_FAIL - 1)) | (1 << (BEEPER_READY_BEEP - 1)) | (1 << (BEEPER_MULTI_BEEPS - 1)) | (1 << (BEEPER_DISARM_REPEAT - 1)) | (1 << (BEEPER_ARMED - 1)) | (1 << (BEEPER_SYSTEM_INIT - 1)) | (1 << (BEEPER_USB - 1)) | (1 << (BEEPER_BLACKBOX_ERASE - 1)) | (1 << (BEEPER_CRASH_FLIP_MODE - 1)) | (1 << (BEEPER_CAM_CONNECTION_OPEN - 1)) | (1 << (BEEPER_CAM_CONNECTION_CLOSE - 1)) | (1 << (BEEPER_RC_SMOOTHING_INIT_FAIL - 1)) | (1 << (BEEPER_ARMING_GPS_NO_FIX - 1)) ));
@@ -22139,6 +23188,15 @@ static void cliExit(const char *cmdName, char *cmdline)
     mixerResetDisarmedMotors();
     cliReboot();
 }
+
+
+static void cliGpsPassthrough(const char *cmdName, char *cmdline)
+{
+    (void)(cmdName);
+    (void)(cmdline);
+
+    gpsEnablePassthrough(cliPort);
+}
 # 3631 "./src/main/cli/cli.c"
 static int parseOutputIndex(const char *cmdName, char *pch, 
 # 3631 "./src/main/cli/cli.c" 3 4
@@ -22157,6 +23215,293 @@ static int parseOutputIndex(const char *cmdName, char *pch,
     }
 
     return outputIndex;
+}
+# 3653 "./src/main/cli/cli.c"
+enum {
+    ESC_INFO_KISS_V1,
+    ESC_INFO_KISS_V2,
+    ESC_INFO_BLHELI32
+};
+
+
+
+static void printEscInfo(const char *cmdName, const uint8_t *escInfoBuffer, uint8_t bytesRead)
+{
+    
+# 3663 "./src/main/cli/cli.c" 3 4
+   _Bool 
+# 3663 "./src/main/cli/cli.c"
+        escInfoReceived = 
+# 3663 "./src/main/cli/cli.c" 3 4
+                          0
+# 3663 "./src/main/cli/cli.c"
+                               ;
+    if (bytesRead > 12) {
+        uint8_t escInfoVersion;
+        uint8_t frameLength;
+        if (escInfoBuffer[12] == 254) {
+            escInfoVersion = ESC_INFO_BLHELI32;
+            frameLength = 64;
+        } else if (escInfoBuffer[12] == 255) {
+            escInfoVersion = ESC_INFO_KISS_V2;
+            frameLength = 21;
+        } else {
+            escInfoVersion = ESC_INFO_KISS_V1;
+            frameLength = 15;
+        }
+
+        if (bytesRead == frameLength) {
+            escInfoReceived = 
+# 3679 "./src/main/cli/cli.c" 3 4
+                             1
+# 3679 "./src/main/cli/cli.c"
+                                 ;
+
+            if (calculateCrc8(escInfoBuffer, frameLength - 1) == escInfoBuffer[frameLength - 1]) {
+                uint8_t firmwareVersion = 0;
+                uint8_t firmwareSubVersion = 0;
+                uint8_t escType = 0;
+                switch (escInfoVersion) {
+                case ESC_INFO_KISS_V1:
+                    firmwareVersion = escInfoBuffer[12];
+                    firmwareSubVersion = (escInfoBuffer[13] & 0x1f) + 97;
+                    escType = (escInfoBuffer[13] & 0xe0) >> 5;
+
+                    break;
+                case ESC_INFO_KISS_V2:
+                    firmwareVersion = escInfoBuffer[13];
+                    firmwareSubVersion = escInfoBuffer[14];
+                    escType = escInfoBuffer[15];
+
+                    break;
+                case ESC_INFO_BLHELI32:
+                    firmwareVersion = escInfoBuffer[13];
+                    firmwareSubVersion = escInfoBuffer[14];
+                    escType = escInfoBuffer[15];
+
+                    break;
+                }
+
+                cliPrint("ESC Type: ");
+                switch (escInfoVersion) {
+                case ESC_INFO_KISS_V1:
+                case ESC_INFO_KISS_V2:
+                    switch (escType) {
+                    case 1:
+                        cliPrintLine("KISS8A");
+
+                        break;
+                    case 2:
+                        cliPrintLine("KISS16A");
+
+                        break;
+                    case 3:
+                        cliPrintLine("KISS24A");
+
+                        break;
+                    case 5:
+                        cliPrintLine("KISS Ultralite");
+
+                        break;
+                    default:
+                        cliPrintLine("unknown");
+
+                        break;
+                    }
+
+                    break;
+                case ESC_INFO_BLHELI32:
+                    {
+                        char *escType = (char *)(escInfoBuffer + 31);
+                        escType[32] = 0;
+                        cliPrintLine(escType);
+                    }
+
+                    break;
+                }
+
+                cliPrint("MCU Serial No: 0x");
+                for (int i = 0; i < 12; i++) {
+                    if (i && (i % 3 == 0)) {
+                        cliPrint("-");
+                    }
+                    cliPrintf("%02x", escInfoBuffer[i]);
+                }
+                cliPrintLinefeed();
+
+                switch (escInfoVersion) {
+                case ESC_INFO_KISS_V1:
+                case ESC_INFO_KISS_V2:
+                    cliPrintLinef("Firmware Version: %d.%02d%c", firmwareVersion / 100, firmwareVersion % 100, (char)firmwareSubVersion);
+
+                    break;
+                case ESC_INFO_BLHELI32:
+                    cliPrintLinef("Firmware Version: %d.%02d%", firmwareVersion, firmwareSubVersion);
+
+                    break;
+                }
+                if (escInfoVersion == ESC_INFO_KISS_V2 || escInfoVersion == ESC_INFO_BLHELI32) {
+                    cliPrintLinef("Rotation Direction: %s", escInfoBuffer[16] ? "reversed" : "normal");
+                    cliPrintLinef("3D: %s", escInfoBuffer[17] ? "on" : "off");
+                    if (escInfoVersion == ESC_INFO_BLHELI32) {
+                        uint8_t setting = escInfoBuffer[18];
+                        cliPrint("Low voltage Limit: ");
+                        switch (setting) {
+                        case 0:
+                            cliPrintLine("off");
+
+                            break;
+                        case 255:
+                            cliPrintLine("unsupported");
+
+                            break;
+                        default:
+                            cliPrintLinef("%d.%01d", setting / 10, setting % 10);
+
+                            break;
+                        }
+
+                        setting = escInfoBuffer[19];
+                        cliPrint("Current Limit: ");
+                        switch (setting) {
+                        case 0:
+                            cliPrintLine("off");
+
+                            break;
+                        case 255:
+                            cliPrintLine("unsupported");
+
+                            break;
+                        default:
+                            cliPrintLinef("%d", setting);
+
+                            break;
+                        }
+
+                        for (int i = 0; i < 4; i++) {
+                            setting = escInfoBuffer[i + 20];
+                            cliPrintLinef("LED %d: %s", i, setting ? (setting == 255) ? "unsupported" : "on" : "off");
+                        }
+                    }
+                }
+            } else {
+                cliPrintErrorLinef(cmdName, "CHECKSUM ERROR.");
+            }
+        }
+    }
+
+    if (!escInfoReceived) {
+        cliPrintLine("No Info.");
+    }
+}
+
+static void executeEscInfoCommand(const char *cmdName, uint8_t escIndex)
+{
+    cliPrintLinef("Info for ESC %d:", escIndex);
+
+    uint8_t escInfoBuffer[64];
+
+    startEscDataRead(escInfoBuffer, 64);
+
+    dshotCommandWrite(escIndex, getMotorCount(), DSHOT_CMD_ESC_INFO, DSHOT_CMD_TYPE_BLOCKING);
+
+    delay(10);
+
+    printEscInfo(cmdName, escInfoBuffer, getNumberEscBytesRead());
+}
+
+
+static void cliDshotProg(const char *cmdName, char *cmdline)
+{
+    if (isEmpty(cmdline) || !isMotorProtocolDshot()) {
+        cliShowParseError(cmdName);
+
+        return;
+    }
+
+    char *saveptr;
+    char *pch = strtok_r(cmdline, " ", &saveptr);
+    int pos = 0;
+    int escIndex = 0;
+    
+# 3847 "./src/main/cli/cli.c" 3 4
+   _Bool 
+# 3847 "./src/main/cli/cli.c"
+        firstCommand = 
+# 3847 "./src/main/cli/cli.c" 3 4
+                       1
+# 3847 "./src/main/cli/cli.c"
+                           ;
+    while (pch != 
+# 3848 "./src/main/cli/cli.c" 3 4
+                 ((void *)0)
+# 3848 "./src/main/cli/cli.c"
+                     ) {
+        switch (pos) {
+        case 0:
+            escIndex = parseOutputIndex(cmdName, pch, 
+# 3851 "./src/main/cli/cli.c" 3 4
+                                                     1
+# 3851 "./src/main/cli/cli.c"
+                                                         );
+            if (escIndex == -1) {
+                return;
+            }
+
+            break;
+        default:
+            {
+                int command = atoi(pch);
+                if (command >= 0 && command < 48) {
+                    if (firstCommand) {
+
+                        motorDisable();
+
+                        firstCommand = 
+# 3865 "./src/main/cli/cli.c" 3 4
+                                      0
+# 3865 "./src/main/cli/cli.c"
+                                           ;
+                    }
+
+                    if (command != DSHOT_CMD_ESC_INFO) {
+                        dshotCommandWrite(escIndex, getMotorCount(), command, DSHOT_CMD_TYPE_BLOCKING);
+                    } else {
+
+                        if (featureIsEnabled(FEATURE_ESC_SENSOR)) {
+                            if (escIndex != 255) {
+                                executeEscInfoCommand(cmdName, escIndex);
+                            } else {
+                                for (uint8_t i = 0; i < getMotorCount(); i++) {
+                                    executeEscInfoCommand(cmdName, i);
+                                }
+                            }
+                        } else
+
+                        {
+                            cliPrintLine("Not supported.");
+                        }
+                    }
+
+                    cliPrintLinef("Command Sent: %d", command);
+
+                } else {
+                    cliPrintErrorLinef(cmdName, "INVALID COMMAND. RANGE: 1 - %d.", 48 - 1);
+                }
+            }
+
+            break;
+        }
+
+        pos++;
+        pch = strtok_r(
+# 3898 "./src/main/cli/cli.c" 3 4
+                      ((void *)0)
+# 3898 "./src/main/cli/cli.c"
+                          , " ", &saveptr);
+    }
+
+    motorEnable();
 }
 # 3962 "./src/main/cli/cli.c"
 static void cliMixer(const char *cmdName, char *cmdline)
@@ -23053,7 +24398,17 @@ static void cliStatus(const char *cmdName, char *cmdline)
         }
     }
     cliPrintLinefeed();
-# 4782 "./src/main/cli/cli.c"
+
+
+
+    osdDisplayPortDevice_e displayPortDeviceType;
+    osdGetDisplayPort(&displayPortDeviceType);
+
+    cliPrintLinef("OSD: %s", lookupTableOsdDisplayPortDevice[displayPortDeviceType]);
+
+
+
+
     cliPrintf("System Uptime: %d seconds", millis() / 1000);
 
 
@@ -23456,7 +24811,26 @@ const cliResourceValue_t resourceTable[] = {
    )
 # 5055 "./src/main/cli/cli.c"
    , 3 },
-# 5064 "./src/main/cli/cli.c"
+
+
+
+
+
+    { OWNER_CAMERA_CONTROL, 522, 0, 
+# 5061 "./src/main/cli/cli.c" 3 4
+   __builtin_offsetof (
+# 5061 "./src/main/cli/cli.c"
+   cameraControlConfig_t
+# 5061 "./src/main/cli/cli.c" 3 4
+   , 
+# 5061 "./src/main/cli/cli.c"
+   ioTag
+# 5061 "./src/main/cli/cli.c" 3 4
+   )
+# 5061 "./src/main/cli/cli.c"
+   , 0 },
+
+
     { OWNER_ADC_BATT, 510, 0, 
 # 5064 "./src/main/cli/cli.c" 3 4
    __builtin_offsetof (
@@ -24825,7 +26199,69 @@ static void cliResource(const char *cmdName, char *cmdline)
 
     cliShowParseError(cmdName);
 }
-# 6124 "./src/main/cli/cli.c"
+
+
+
+static void cliDshotTelemetryInfo(const char *cmdName, char *cmdline)
+{
+    (void)(cmdName);
+    (void)(cmdline);
+
+    if (useDshotTelemetry) {
+        cliPrintLinef("Dshot reads: %u", dshotTelemetryState.readCount);
+        cliPrintLinef("Dshot invalid pkts: %u", dshotTelemetryState.invalidPacketCount);
+        uint32_t directionChangeCycles = dshotDMAHandlerCycleCounters.changeDirectionCompletedAt - dshotDMAHandlerCycleCounters.irqAt;
+        uint32_t directionChangeDurationUs = clockCyclesToMicros(directionChangeCycles);
+        cliPrintLinef("Dshot directionChange cycles: %u, micros: %u", directionChangeCycles, directionChangeDurationUs);
+        cliPrintLinefeed();
+
+
+        cliPrintLine("Motor      eRPM      RPM      Hz   Invalid");
+        cliPrintLine("=====   =======   ======   =====   =======");
+
+
+
+
+        for (uint8_t i = 0; i < getMotorCount(); i++) {
+            cliPrintf("%5d   %7d   %6d   %5d   ", i,
+                      (int)getDshotTelemetry(i) * 100,
+                      (int)getDshotTelemetry(i) * 100 * 2 / motorConfig()->motorPoleCount,
+                      (int)getDshotTelemetry(i) * 100 * 2 / motorConfig()->motorPoleCount / 60);
+
+            if (isDshotMotorTelemetryActive(i)) {
+                const int calcPercent = getDshotTelemetryMotorInvalidPercent(i);
+                cliPrintLinef("%3d.%02d%%", calcPercent / 100, calcPercent % 100);
+            } else {
+                cliPrintLine("NO DATA");
+            }
+
+
+
+        }
+        cliPrintLinefeed();
+
+        const int len = 22;
+
+
+
+
+
+
+
+        for (int i = 0; i < len; i++) {
+            cliPrintf("%u ", (int)dshotTelemetryState.inputBuffer[i]);
+        }
+        cliPrintLinefeed();
+        for (int i = 1; i < len; i++) {
+            cliPrintf("%u ", (int)(dshotTelemetryState.inputBuffer[i] - dshotTelemetryState.inputBuffer[i-1]));
+        }
+        cliPrintLinefeed();
+    } else {
+        cliPrintLine("Dshot telemetry not enabled");
+    }
+}
+
+
 static void printConfig(const char *cmdName, char *cmdline, 
 # 6124 "./src/main/cli/cli.c" 3 4
                                                            _Bool 
@@ -24965,7 +26401,7 @@ static void printConfig(const char *cmdName, char *cmdline,
             printBeeper(dumpMask, beeperConfig_Copy.beeper_off_flags, beeperConfig()->beeper_off_flags, "beeper", ( (1 << (BEEPER_GYRO_CALIBRATED - 1)) | (1 << (BEEPER_RX_LOST - 1)) | (1 << (BEEPER_RX_LOST_LANDING - 1)) | (1 << (BEEPER_DISARMING - 1)) | (1 << (BEEPER_ARMING - 1)) | (1 << (BEEPER_ARMING_GPS_FIX - 1)) | (1 << (BEEPER_BAT_CRIT_LOW - 1)) | (1 << (BEEPER_BAT_LOW - 1)) | (1 << (BEEPER_GPS_STATUS - 1)) | (1 << (BEEPER_RX_SET - 1)) | (1 << (BEEPER_ACC_CALIBRATION - 1)) | (1 << (BEEPER_ACC_CALIBRATION_FAIL - 1)) | (1 << (BEEPER_READY_BEEP - 1)) | (1 << (BEEPER_MULTI_BEEPS - 1)) | (1 << (BEEPER_DISARM_REPEAT - 1)) | (1 << (BEEPER_ARMED - 1)) | (1 << (BEEPER_SYSTEM_INIT - 1)) | (1 << (BEEPER_USB - 1)) | (1 << (BEEPER_BLACKBOX_ERASE - 1)) | (1 << (BEEPER_CRASH_FLIP_MODE - 1)) | (1 << (BEEPER_CAM_CONNECTION_OPEN - 1)) | (1 << (BEEPER_CAM_CONNECTION_CLOSE - 1)) | (1 << (BEEPER_RC_SMOOTHING_INIT_FAIL - 1)) | (1 << (BEEPER_ARMING_GPS_NO_FIX - 1)) ), "beeper");
 
 
-
+            printBeeper(dumpMask, beeperConfig_Copy.dshotBeaconOffFlags, beeperConfig()->dshotBeaconOffFlags, "beacon", ( (1 << (BEEPER_RX_LOST - 1)) | (1 << (BEEPER_RX_SET - 1)) ), "beacon");
 
 
 
@@ -24984,7 +26420,15 @@ static void printConfig(const char *cmdName, char *cmdline,
             printAdjustmentRange(dumpMask, adjustmentRanges_CopyArray, adjustmentRanges(0), "adjrange");
 
             printRxRange(dumpMask, rxChannelRangeConfigs_CopyArray, rxChannelRangeConfigs(0), "rxrange");
-# 6263 "./src/main/cli/cli.c"
+
+
+            printVtxTable(dumpMask, &vtxTableConfig_Copy, vtxTableConfig(), "vtxtable");
+
+
+
+            printVtx(dumpMask, &vtxConfig_Copy, vtxConfig(), "vtx");
+
+
             printRxFailsafe(dumpMask, rxFailsafeChannelConfigs_CopyArray, rxFailsafeChannelConfigs(0), "rxfail");
         }
 
@@ -25119,7 +26563,11 @@ static void cliHelp(const char *cmdName, char *cmdline);
 const clicmd_t cmdTable[] = {
     { "adjrange" , "configure adjustment ranges" , "<index> <unused> <range channel> <start> <end> <function> <select channel> [<center> <scale>]" , cliAdjustmentRange },
 
-
+    { "apply_simplified_tuning" , "applies tuning based on simplified tuning settings" , 
+# 6401 "./src/main/cli/cli.c" 3 4
+   ((void *)0) 
+# 6401 "./src/main/cli/cli.c"
+   , cliApplySimplifiedTuning },
 
     { "aux" , "configure modes" , "<index> <mode> <aux> <start> <end> <logic>" , cliAux },
 
@@ -25127,8 +26575,8 @@ const clicmd_t cmdTable[] = {
 
 
 
-
-
+    { "beacon" , "enable/disable Dshot beacon for a condition" , "list\r\n" "\t<->[name]" , cliBeacon }
+                                 ,
 
     { "beeper" , "enable/disable beeper for a condition" , "list\r\n" "\t<->[name]" , cliBeeper }
                                  ,
@@ -25166,7 +26614,22 @@ const clicmd_t cmdTable[] = {
 
 
     { "dma" , "show/set DMA assignments" , "<> | <device> <index> list | <device> <index> [<option>|none] | list | show" , cliDma },
-# 6452 "./src/main/cli/cli.c"
+
+
+
+
+
+
+
+    { "dshot_telemetry_info" , "display dshot telemetry info and stats" , 
+# 6447 "./src/main/cli/cli.c" 3 4
+   ((void *)0) 
+# 6447 "./src/main/cli/cli.c"
+   , cliDshotTelemetryInfo },
+
+
+    { "dshotprog" , "program DShot ESC(s)" , "<index> <command>+" , cliDshotProg },
+
     { "dump" , "dump configuration" , "[master|profile|rates|hardware|all] {defaults|bare}" , cliDump }
                                                                        ,
 
@@ -25203,7 +26666,11 @@ const clicmd_t cmdTable[] = {
 
     { "get" , "get variable value" , "[name]" , cliGet },
 
-
+    { "gpspassthrough" , "passthrough gps to serial" , 
+# 6472 "./src/main/cli/cli.c" 3 4
+   ((void *)0) 
+# 6472 "./src/main/cli/cli.c"
+   , cliGpsPassthrough },
 
 
 
@@ -25334,7 +26801,21 @@ const clicmd_t cmdTable[] = {
    ((void *)0) 
 # 6546 "./src/main/cli/cli.c"
    , cliVersion },
-# 6558 "./src/main/cli/cli.c"
+
+
+
+
+    { "vtx" , "vtx channels on switch" , "<index> <aux_channel> <vtx_band> <vtx_channel> <vtx_power> <start_range> <end_range>" , cliVtx },
+
+
+
+    { "vtx_info" , "vtx power config dump" , 
+# 6555 "./src/main/cli/cli.c" 3 4
+   ((void *)0) 
+# 6555 "./src/main/cli/cli.c"
+   , cliVtxInfo },
+    { "vtxtable" , "vtx frequency table" , "<band> <bandname> <bandletter> [FACTORY|CUSTOM] <freq> ... <freq>\r\n" , cliVtxTable },
+
 };
 
 static void cliHelp(const char *cmdName, char *cmdline)

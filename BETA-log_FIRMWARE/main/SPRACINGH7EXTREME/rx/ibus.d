@@ -68,8 +68,9 @@ BETA-log_FIRMWARE/main/SPRACINGH7EXTREME/rx/ibus.o: src/main/rx/ibus.c \
  src/main/drivers/io_def.h src/main/drivers/io_def_generated.h \
  src/main/drivers/serial_uart.h src/main/drivers/dma.h \
  src/main/drivers/time.h src/main/common/time.h src/main/io/serial.h \
- src/main/rx/rx.h src/main/rx/ibus.h src/main/telemetry/ibus.h \
- src/main/telemetry/ibus_shared.h
+ src/main/telemetry/telemetry.h src/main/common/unit.h src/main/rx/rx.h \
+ src/main/telemetry/ibus_shared.h src/main/rx/ibus.h \
+ src/main/telemetry/ibus.h
 
 src/main/platform.h:
 
@@ -233,10 +234,14 @@ src/main/common/time.h:
 
 src/main/io/serial.h:
 
+src/main/telemetry/telemetry.h:
+
+src/main/common/unit.h:
+
 src/main/rx/rx.h:
+
+src/main/telemetry/ibus_shared.h:
 
 src/main/rx/ibus.h:
 
 src/main/telemetry/ibus.h:
-
-src/main/telemetry/ibus_shared.h:

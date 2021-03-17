@@ -9,14 +9,14 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"bus_i2c_config.c"
-	.section	.gnu.lto_.profile.4111e46a,"e",%progbits
+	.section	.gnu.lto_.profile.415855bf,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4111e46a,"e",%progbits
+	.section	.gnu.lto_.icf.415855bf,"e",%progbits
 	.ascii	"x\234\343``d\340`@\000F\206\2063\007\33732\000\000\016"
 	.ascii	"e\003\020"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4111e46a,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415855bf,"e",%progbits
 	.ascii	"x\234\343``d\250g@\000F\006FF\306\372\371\314\014L@"
 	.ascii	"\366\001\026F\006 \376\317\210\306cC\360\376\374\377"
 	.ascii	"\377\237\237\221y:3c_\363\373{\034}\314\363\231\031"
@@ -24,16 +24,16 @@
 	.ascii	"\003)cb|\300\300\270\233\021\"\377\000\242\200\001\000"
 	.ascii	";\220\035\234"
 	.text
-	.section	.gnu.lto_.inline.4111e46a,"e",%progbits
+	.section	.gnu.lto_.inline.415855bf,"e",%progbits
 	.ascii	"x\234\343``d\260g@\000F\006\006\323\267\273\366\255"
 	.ascii	"g\316bd`\0128\370v\311f\246,\006\006\266\357\377\377"
 	.ascii	"\377gNfb`\002\251a\346\001R\214\023\374`4\013/P\027"
 	.ascii	"\363\004?\240\024\000ix\016\373"
 	.text
-	.section	.gnu.lto_.pureconst.4111e46a,"e",%progbits
+	.section	.gnu.lto_.pureconst.415855bf,"e",%progbits
 	.ascii	"x\234\343``d`a`\000\222\263X\000\001\322\000\255"
 	.text
-	.section	.gnu.lto_i2cHardwareConfigure.4111e46a,"e",%progbits
+	.section	.gnu.lto_i2cHardwareConfigure.415855bf,"e",%progbits
 	.ascii	"x\234\235XkPU\327\025\336k\357\3738\367\334s_ $JQ\247"
 	.ascii	"\211cl\361Q\362#\177\332Lg\322_\235\316t\246?\372\253"
 	.ascii	"3\031\203$\341Gl\006'&\377rx\010)\022\311\003\025\324"
@@ -148,7 +148,7 @@
 	.ascii	"\027\025\024j\317\257.^\363\362\352\342B\327\213r\354"
 	.ascii	"?\270\201)\375"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4111e46a,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415855bf,"e",%progbits
 	.ascii	"x\234\343``dhd\000\002\246u\334\365\014\347\356-0g\234"
 	.ascii	"p\216\201\241\236\201aW\203#P\016\010X\327s3(\200\350"
 	.ascii	"\015\334\214 \232q\023w=\343\177(\220\007+g`hhp\000"
@@ -156,13 +156,13 @@
 	.ascii	"l\314\014\314[N\177\276\304\300\370\204\035\316<\302"
 	.ascii	"\315\000\000\350\003-,"
 	.text
-	.section	.gnu.lto_.refs.4111e46a,"e",%progbits
+	.section	.gnu.lto_.refs.415855bf,"e",%progbits
 	.ascii	"x\234\005\301A\012\202P\000\000\321\231\201\320\215"
 	.ascii	"P\037\301\\H\350F:B\367\277X\357\315\310\017\030\244"
 	.ascii	"\030>j\302\305\236\370\262\201\253m\370\266\235\016"
 	.ascii	"\372\330i\227\335\366\345\0174\021\001\370"
 	.text
-	.section	.gnu.lto_.decls.4111e46a,"e",%progbits
+	.section	.gnu.lto_.decls.415855bf,"e",%progbits
 	.ascii	"x\234\255ZyPTI\232\257|Y\027\305\345\200\333\355\216"
 	.ascii	"\375\207\335\355\034\021\2736\2121\333\275\023\273\021"
 	.ascii	"mkOK\354\330\272jO\264\035n04\224\302\016\327T\025\266"
@@ -438,7 +438,7 @@
 	.ascii	"\265\311\203Y\200\207\346\212\"eD\"7\226\322o\226\357"
 	.ascii	"\334\011\341\377\037&2\263\021"
 	.text
-	.section	.gnu.lto_.symtab.4111e46a,"e",%progbits
+	.section	.gnu.lto_.symtab.415855bf,"e",%progbits
 	.ascii	"i2cHardwareConfigure\000"
 	.ascii	"\000"
 	.ascii	"\000"

@@ -24802,7 +24802,19 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-# 351 "./src/main/flight/pid.h"
+# 343 "./src/main/flight/pid.h"
+    pt1Filter_t setpointDerivativePt1[3];
+    biquadFilter_t setpointDerivativeBiquad[3];
+    
+# 345 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 345 "./src/main/flight/pid.h"
+        setpointDerivativeLpfInitialized;
+    uint8_t rcSmoothingDebugAxis;
+    uint8_t rcSmoothingFilterType;
+
+
+
     float acroTrainerAngleLimit;
     float acroTrainerLookaheadTime;
     uint8_t acroTrainerDebugAxis;
@@ -31022,13 +31034,21 @@ typedef enum {
 
     IBUS_SENSOR_TYPE_ALT_FLYSKY = 0xf9,
 
-
-
-
+    IBUS_SENSOR_TYPE_GPS_FULL = 0xfd,
+    IBUS_SENSOR_TYPE_VOLT_FULL = 0xf0,
+    IBUS_SENSOR_TYPE_ACC_FULL = 0xef,
 
     IBUS_SENSOR_TYPE_UNKNOWN = 0xff
 } ibusSensorType_e;
-# 89 "./src/main/telemetry/ibus_shared.h"
+
+
+
+uint8_t respondToIbusRequest(uint8_t const * const ibusPacket);
+void initSharedIbusTelemetry(serialPort_t * port);
+
+
+
+
 
 # 89 "./src/main/telemetry/ibus_shared.h" 3 4
 _Bool 

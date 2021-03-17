@@ -9,10 +9,10 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"usbd_msc_scsi.c"
-	.section	.gnu.lto_.profile.411218c2,"e",%progbits
+	.section	.gnu.lto_.profile.4158cbc8,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.411218c2,"e",%progbits
+	.section	.gnu.lto_.icf.4158cbc8,"e",%progbits
 	.ascii	"x\234\343``d\250g@\000Q\206\213MG'p0v\356y7\211\223"
 	.ascii	"y\335\272\333[\331X\347\1778~\232\227\355U\317\336="
 	.ascii	"\214\354\033\366L\375\312\303\361\371\362\364_\034\334"
@@ -23,7 +23,7 @@
 	.ascii	"\177s\234G\374\300\272\366'\254\022\0336n\223g\000\000"
 	.ascii	"_\336A\273"
 	.text
-	.section	.gnu.lto_.jmpfuncs.411218c2,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.4158cbc8,"e",%progbits
 	.ascii	"x\234\355X\315k\023A\024\23773\331\254\266i\214\266"
 	.ascii	"*\344\262\205B\377\001O\375\343\262\206\352A*\001\013"
 	.ascii	"%\364 A\245\251\326{Q[\265j\325\250\255\271\226\202"
@@ -67,7 +67,7 @@
 	.ascii	"\303c\261c6S\306J&\336j\007)!=\345\215\374\004|\315"
 	.ascii	"\356\363"
 	.text
-	.section	.gnu.lto_.inline.411218c2,"e",%progbits
+	.section	.gnu.lto_.inline.4158cbc8,"e",%progbits
 	.ascii	"x\234\325V]LTG\024>gfY.\262\273,(\226`cL\224jL\240\246"
 	.ascii	"O&}\321W\037x\251\017>\265R\313\337S\237|\360\245\271"
 	.ascii	"j\241\206(l\004\005\342\017h\301\037\3205Q\212\021\005"
@@ -124,13 +124,13 @@
 	.ascii	"\030n\362}\301\342\220\210M\014\366\006\271c\242f\336"
 	.ascii	"`l8\215\241\0249Z\017\012\377\0018\364\250,"
 	.text
-	.section	.gnu.lto_.pureconst.411218c2,"e",%progbits
+	.section	.gnu.lto_.pureconst.4158cbc8,"e",%progbits
 	.ascii	"x\234\005\301\011\022@0\020\000\301M\031\244\312}\004"
 	.ascii	"\317\361L\231\327\352\316\221\342\215\210\022\222\244"
 	.ascii	"\251\264\322I/\2712\310(\223\314\262|\254\225Mv9\344"
 	.ascii	"\224\"\227\334\362\310\017\317\216\016c"
 	.text
-	.section	.gnu.lto_SCSI_UpdateBotData.411218c2,"e",%progbits
+	.section	.gnu.lto_SCSI_UpdateBotData.4158cbc8,"e",%progbits
 	.ascii	"x\234}S[H\224A\024\236\363\237\371w\177m\327z\350!0"
 	.ascii	"B\2420_Z\261 \037\243z\350!\237\254\207\240X\326u\325"
 	.ascii	"\005\225r\273\320S\263k*\271^\",\333p[+\254\210\320"
@@ -178,7 +178,7 @@
 	.ascii	"lg\201\317\355\364\271}\336\325n\306\363\310\320wm\330"
 	.ascii	"\233\223c\311\367\024\346\356\311C\332~\001\340<z\374"
 	.text
-	.section	.gnu.lto_SCSI_ModeSense6.411218c2,"e",%progbits
+	.section	.gnu.lto_SCSI_ModeSense6.4158cbc8,"e",%progbits
 	.ascii	"x\234\215T]lTE\024\236\357\316\335\037\366\027\353\037"
 	.ascii	"\330\304\364\301\246\341\245\273)&>\350\203\021\037"
 	.ascii	"|\260O\325\007\023\223\315v\273\211\033\267M\263k!>"
@@ -237,7 +237,7 @@
 	.ascii	"\261.\276\221'\233\032\234\215\321T\264>\315\223\361"
 	.ascii	"\006\375\005\012\370\013\012\321\361\216"
 	.text
-	.section	.gnu.lto_SCSI_ModeSense10.isra.0.411218c2,"e",%progbits
+	.section	.gnu.lto_SCSI_ModeSense10.isra.0.4158cbc8,"e",%progbits
 	.ascii	"x\234}R[H\223a\030\376\236\377\373\267\375\236\252\273"
 	.ascii	",!\272\221\341\215\177\007\250[;\\\024\344M\253\213"
 	.ascii	" \030s\0334R\213--\257\374\334\302\002\24324I\030\263"
@@ -283,7 +283,7 @@
 	.ascii	"\315\256\255\353\212W\256\261\357\365\004=\025!^\356"
 	.ascii	"\257\324wQ^\337\353\363W\377\001\021\\\202\010"
 	.text
-	.section	.gnu.lto_SCSI_SenseCode.411218c2,"e",%progbits
+	.section	.gnu.lto_SCSI_SenseCode.4158cbc8,"e",%progbits
 	.ascii	"x\234\235T_lSU\034>\337\375\235\336\226Z\266\360`B\234"
 	.ascii	"1\204H\026|\240\315x\360\301\027`>\230\350\236\252\017"
 	.ascii	"&&M\327\325P3\026\322\006\014O\234\226\271\001k 3#\033"
@@ -336,7 +336,7 @@
 	.ascii	"B\201X(\026\331\026b|oUx?U\357\253\341\261\327\303\007"
 	.ascii	"h\247\277\234\357\226\360\337\246\233%\002"
 	.text
-	.section	.gnu.lto_SCSI_TestUnitReady.isra.0.411218c2,"e",%progbits
+	.section	.gnu.lto_SCSI_TestUnitReady.isra.0.4158cbc8,"e",%progbits
 	.ascii	"x\234\225T[L\\U\024=\353\236\373\232a\030\2645\015\311"
 	.ascii	"$\015\0376\004?:\304\2324\361Gc\373\321\017\371B?LL"
 	.ascii	"\010\2171N\244\3040i\215_\\\036\015\037\220\22244\320"
@@ -399,7 +399,7 @@
 	.ascii	"\307\242{\213\231\372nI\344(/=R\246\276M\326\177\001"
 	.ascii	"\007cwS"
 	.text
-	.section	.gnu.lto_SCSI_RequestSense.isra.0.411218c2,"e",%progbits
+	.section	.gnu.lto_SCSI_RequestSense.isra.0.4158cbc8,"e",%progbits
 	.ascii	"x\234\225V[LTW\024\275\373\234;w^wf\224V\323HkISC\364"
 	.ascii	"\303!\330\244?M\332\324~\370Q\277l\2236iB\020h%\021"
 	.ascii	"b \265\351\227\227\207 2\212\340\013\324q\254\210\255"
@@ -497,7 +497,7 @@
 	.ascii	"E\311)\213\265E\211\031\211i\231\352\002\234\200\324"
 	.ascii	"\377\000\367\207\201\337"
 	.text
-	.section	.gnu.lto_SCSI_Inquiry.411218c2,"e",%progbits
+	.section	.gnu.lto_SCSI_Inquiry.4158cbc8,"e",%progbits
 	.ascii	"x\234\205V[LTW\024=\373\236;w\2360>x\311\244\206\017"
 	.ascii	"\255\261\037\016\251m\232\364C\333\332\217~\324\244"
 	.ascii	"\011\355G\223&\004\201\264$H,D\033\2334^\036\202\025"
@@ -585,7 +585,7 @@
 	.ascii	"\304\325I\312\252\230\344\230\225)\362W\270\311\023"
 	.ascii	"\343\223\014\253>\211\3712\376\177\314\273\202\270"
 	.text
-	.section	.gnu.lto_SCSI_StartStopUnit.411218c2,"e",%progbits
+	.section	.gnu.lto_SCSI_StartStopUnit.4158cbc8,"e",%progbits
 	.ascii	"x\234\235U]l\024U\024\276\337\334\331\331\331\277\222"
 	.ascii	"\324h\2245\206DH\203\017\354FL|1\221\210\017>\330\007"
 	.ascii	"S}01i\266\355\0327iI\323\015\030\237\230\335\326\022"
@@ -649,7 +649,7 @@
 	.ascii	"\337\306K\267nQ\312}\025\276\262\240\374\0019\377\001"
 	.ascii	"\344S^\323"
 	.text
-	.section	.gnu.lto_SCSI_ReadFormatCapacity.isra.0.411218c2,"e",%progbits
+	.section	.gnu.lto_SCSI_ReadFormatCapacity.isra.0.4158cbc8,"e",%progbits
 	.ascii	"x\234\225\226]P\024W\026\307\373\364\355\236\356\371"
 	.ascii	"`@E\304\260\225\362!\026e\312\312P\2446\251$\017\331"
 	.ascii	"J\362\220\207\370\344\356\303Vm\025\005\310V&A+\005"
@@ -759,7 +759,7 @@
 	.ascii	"k\031\331\037\247-\313\310\321\351\177\256\377_Y\277"
 	.ascii	"\001\244K\335\265"
 	.text
-	.section	.gnu.lto_SCSI_ReadCapacity10.isra.0.411218c2,"e",%progbits
+	.section	.gnu.lto_SCSI_ReadCapacity10.isra.0.4158cbc8,"e",%progbits
 	.ascii	"x\234\235\226]LTG\024\307\347\334\271ww\201eA\226\217"
 	.ascii	"MH\014\017U\2425.\301\207&\276\264\251}\360\241>\321"
 	.ascii	"\246i\322\204 \220\210\001\323@\265\351\223\227\005"
@@ -848,7 +848,7 @@
 	.ascii	"\234\223\232\223\2610\225\251\237\247\245\257\341\231"
 	.ascii	"\253W\251+\320\312\263\323\277\370\027\031\376\373y"
 	.text
-	.section	.gnu.lto_SCSI_ReadCapacity16.411218c2,"e",%progbits
+	.section	.gnu.lto_SCSI_ReadCapacity16.4158cbc8,"e",%progbits
 	.ascii	"x\234\235\227kPU\327\025\307\317:\373\334\027\334\013"
 	.ascii	"*\210D|\020\225\020\214z\021>\250If\332i\372\301\351"
 	.ascii	"\324O\266\037\332\351\214\203B\247t0c\241\246\351'\017"
@@ -971,7 +971,7 @@
 	.ascii	"]\343\206\224\314\224\365Y\332\037\360%\313L\3733KO"
 	.ascii	"}\377\177\350\037\331\263"
 	.text
-	.section	.gnu.lto_SCSI_CheckAddressRange.part.0.411218c2,"e",%progbits
+	.section	.gnu.lto_SCSI_CheckAddressRange.part.0.4158cbc8,"e",%progbits
 	.ascii	"x\234}S[HTQ\024=\353\356;O\254~\215\371\251H\304\037"
 	.ascii	"\307\362\243\240\037\311>\374\310\217\260>\202`\230"
 	.ascii	"\22745Z\314\244\021\004\036\315\224T2\301R?\246[\204"
@@ -1013,7 +1013,7 @@
 	.ascii	"Y\253\313\177\324q\254\2708\350=a\222a\251+\360\023"
 	.ascii	"0\205W0"
 	.text
-	.section	.gnu.lto_SCSI_CheckAddressRange.411218c2,"e",%progbits
+	.section	.gnu.lto_SCSI_CheckAddressRange.4158cbc8,"e",%progbits
 	.ascii	"x\234m\221MHTQ\024\307\357y\347\315gc\255\202j\026\271"
 	.ascii	"H\304\026\316\220AD\213$[\264\320\225\265\010\202a\276"
 	.ascii	"\244\241\321d&\255 \360\216\232\221\211\"X~\320\360"
@@ -1057,7 +1057,7 @@
 	.ascii	"\\\352\361\226\243\277\254\304\354\362\237s\234/*\012"
 	.ascii	"z/\030\304\266\304\025\220\317\322\305\337&\011B\376"
 	.text
-	.section	.gnu.lto_SCSI_ProcessRead.411218c2,"e",%progbits
+	.section	.gnu.lto_SCSI_ProcessRead.4158cbc8,"e",%progbits
 	.ascii	"x\234\235U]L\\U\020>s\317\275\373\003\313?Z`M$QB\372"
 	.ascii	"\302\256\326\304\007\2436\326\007\037\344\301\240\211"
 	.ascii	"F\023\302\317\0327\0021lZ\343\023w\001!\266\265H\002"
@@ -1132,7 +1132,7 @@
 	.ascii	"c\352\007\371\256\015\274`}\021/p\025\251\357\241\345"
 	.ascii	"\177\265<+\332"
 	.text
-	.section	.gnu.lto_SCSI_Read10.411218c2,"e",%progbits
+	.section	.gnu.lto_SCSI_Read10.4158cbc8,"e",%progbits
 	.ascii	"x\234\235WkLTG\024\276\347\316\335\335\273O\024E\224"
 	.ascii	"E\304W|\304\012\255Mh\332&5\265?\372\243\246i\254?\232"
 	.ascii	"4!\2104\245Ac\241\332\264i\342\345\255\210\022\215/"
@@ -1237,7 +1237,7 @@
 	.ascii	"\364\2449,e\366L\363\254\204\324\204\031i\312\2278\370"
 	.ascii	"?\371\012\306U"
 	.text
-	.section	.gnu.lto_SCSI_Read12.411218c2,"e",%progbits
+	.section	.gnu.lto_SCSI_Read12.4158cbc8,"e",%progbits
 	.ascii	"x\234\235W}LTW\026\177\347\33573o>\361\013P\207RZE\352"
 	.ascii	"\307\312\324\2326\3316\321l\367\217\375\243\246il\377"
 	.ascii	"h\322\204 \322\224\006\033\027\266n\3324\361\361\255"
@@ -1352,7 +1352,7 @@
 	.ascii	"\352\344\214\344U\231\312\033\330\371\177^\326."
 	.ascii	"\265"
 	.text
-	.section	.gnu.lto_SCSI_ProcessWrite.411218c2,"e",%progbits
+	.section	.gnu.lto_SCSI_ProcessWrite.4158cbc8,"e",%progbits
 	.ascii	"x\234\235V[L\224W\020>\363\237\377\262,\313MhA\266M"
 	.ascii	"0)\261\276\260\2646\351[5\265\017}(\017-\355C\3236\004"
 	.ascii	"a\223n\212\304\260\321\246O\376\013\270\0244^R\032 "
@@ -1433,7 +1433,7 @@
 	.ascii	"\011S\227\226\272\227\363\262e\345\274\314]\256~\212"
 	.ascii	"\026\245\250\370\177\"%TC"
 	.text
-	.section	.gnu.lto_SCSI_Write10.411218c2,"e",%progbits
+	.section	.gnu.lto_SCSI_Write10.4158cbc8,"e",%progbits
 	.ascii	"x\234\235WmPU\307\031>\357\331s\277?\375\026A\305D\304"
 	.ascii	"4\321\313h\2533\355L\223i\372#?\342/\233\037\235\351"
 	.ascii	"\014\203H\247t\320\261\320\330i\2473\036>o\3704\022"
@@ -1555,7 +1555,7 @@
 	.ascii	"\270#.9n[\012KJ\330\256\374\016\007\374\037\327p\250"
 	.ascii	"\342"
 	.text
-	.section	.gnu.lto_SCSI_Write12.411218c2,"e",%progbits
+	.section	.gnu.lto_SCSI_Write12.4158cbc8,"e",%progbits
 	.ascii	"x\234\235X{P\224\327\025\377\316w\277}\277\020\237\010"
 	.ascii	"\"&\022\304D`\212\206\031;\243\231\246\177\2443\361"
 	.ascii	"/\233?:\223\031\007\221N\351 c\245\261\323Ng\\\336\""
@@ -1686,7 +1686,7 @@
 	.ascii	"M,\371\203\024\375\206\370\215\361\353SYrb\212\362\007"
 	.ascii	"\234\360\177\203#C\352"
 	.text
-	.section	.gnu.lto_SCSI_Verify10.411218c2,"e",%progbits
+	.section	.gnu.lto_SCSI_Verify10.4158cbc8,"e",%progbits
 	.ascii	"x\234\205S]l\024U\024\276\337\234;\263?\335\356\342"
 	.ascii	"\243.i\372\000ixa7bb\242\017\022\361\301\007\373`*1"
 	.ascii	"&&\233\355v\0237\331\222f7`|\352l[i\220\206\212A\312"
@@ -1742,7 +1742,7 @@
 	.ascii	"\216E\322\261tbsL\310\272\232\370.J\356\334a\324ES\321"
 	.ascii	"\332\264|\213\203\377\000s\200\301f"
 	.text
-	.section	.gnu.lto_SCSI_ProcessCmd.411218c2,"e",%progbits
+	.section	.gnu.lto_SCSI_ProcessCmd.4158cbc8,"e",%progbits
 	.ascii	"x\234\225\327kP\025\327\035\000\360\375\357\271\357"
 	.ascii	"7\227\0131\340\020&\352\030\323T\230\346C\277fj?\364"
 	.ascii	"C\375d\373\2413\235a\020\310\224\031uZ\250i\375\344"
@@ -1866,7 +1866,7 @@
 	.ascii	"\354\337\207\322\366\246\353\376\200\317\240\254\214"
 	.ascii	"?\377\007\227\225\177\336"
 	.text
-	.section	.gnu.lto_.symbol_nodes.411218c2,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.4158cbc8,"e",%progbits
 	.ascii	"x\234u\224YO\023Q\024\307\357\2313\267S{\240\313Lg:"
 	.ascii	"\226\004\211/~\002\023\037|\320\257\"\037\3446@\210"
 	.ascii	"\020\267(D\215\372@c\014\240Q\022\026\331d)5\262\010"
@@ -1909,11 +1909,11 @@
 	.ascii	"\242\350F\025\223\312T,\206\256\245\230T\266b&\272\216"
 	.ascii	"bR\245\024\263\320\345\212Y\3547X\204\315\303"
 	.text
-	.section	.gnu.lto_.refs.411218c2,"e",%progbits
+	.section	.gnu.lto_.refs.4158cbc8,"e",%progbits
 	.ascii	"x\234\343``d\020f```ddbbedfbae\342`\342\344f\342\342"
 	.ascii	"e\000\000\005+\000p"
 	.text
-	.section	.gnu.lto_.decls.411218c2,"e",%progbits
+	.section	.gnu.lto_.decls.4158cbc8,"e",%progbits
 	.ascii	"x\234\335{{XUW\226\347\335g_^\227\227\202\211F\315T"
 	.ascii	":\037]\251o2\0255\231NR\335=SI4]\261+\251\312DS\335"
 	.ascii	"\225\177(\224\033\303\027\005\212\207\306\356\231\257"
@@ -2377,7 +2377,7 @@
 	.ascii	"Q\011\010\202\036yXX\226~\274re\300\032\360\343j\243"
 	.ascii	"?\014\237U\001\253}\226\2554\376o\326{\223\224"
 	.text
-	.section	.gnu.lto_.symtab.411218c2,"e",%progbits
+	.section	.gnu.lto_.symtab.4158cbc8,"e",%progbits
 	.ascii	"SCSI_SenseCode\000"
 	.ascii	"\000"
 	.ascii	"\000"

@@ -22597,7 +22597,19 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-# 351 "./src/main/flight/pid.h"
+# 343 "./src/main/flight/pid.h"
+    pt1Filter_t setpointDerivativePt1[3];
+    biquadFilter_t setpointDerivativeBiquad[3];
+    
+# 345 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 345 "./src/main/flight/pid.h"
+        setpointDerivativeLpfInitialized;
+    uint8_t rcSmoothingDebugAxis;
+    uint8_t rcSmoothingFilterType;
+
+
+
     float acroTrainerAngleLimit;
     float acroTrainerLookaheadTime;
     uint8_t acroTrainerDebugAxis;
@@ -27378,7 +27390,48 @@ void pidInit(const pidProfile_t *pidProfile)
 
 
 }
-# 261 "./src/main/flight/pid_init.c"
+
+
+void pidInitSetpointDerivativeLpf(uint16_t filterCutoff, uint8_t debugAxis, uint8_t filterType)
+{
+    pidRuntime.rcSmoothingDebugAxis = debugAxis;
+    pidRuntime.rcSmoothingFilterType = filterType;
+    if ((filterCutoff > 0) && (pidRuntime.rcSmoothingFilterType != RC_SMOOTHING_DERIVATIVE_OFF)) {
+        pidRuntime.setpointDerivativeLpfInitialized = 
+# 230 "./src/main/flight/pid_init.c" 3 4
+                                                     1
+# 230 "./src/main/flight/pid_init.c"
+                                                         ;
+        for (int axis = FD_ROLL; axis <= FD_YAW; axis++) {
+            switch (pidRuntime.rcSmoothingFilterType) {
+                case RC_SMOOTHING_DERIVATIVE_PT1:
+                    pt1FilterInit(&pidRuntime.setpointDerivativePt1[axis], pt1FilterGain(filterCutoff, pidRuntime.dT));
+                    break;
+                case RC_SMOOTHING_DERIVATIVE_BIQUAD:
+                    biquadFilterInitLPF(&pidRuntime.setpointDerivativeBiquad[axis], filterCutoff, targetPidLooptime);
+                    break;
+            }
+        }
+    }
+}
+
+void pidUpdateSetpointDerivativeLpf(uint16_t filterCutoff)
+{
+    if ((filterCutoff > 0) && (pidRuntime.rcSmoothingFilterType != RC_SMOOTHING_DERIVATIVE_OFF)) {
+        for (int axis = FD_ROLL; axis <= FD_YAW; axis++) {
+            switch (pidRuntime.rcSmoothingFilterType) {
+                case RC_SMOOTHING_DERIVATIVE_PT1:
+                    pt1FilterUpdateCutoff(&pidRuntime.setpointDerivativePt1[axis], pt1FilterGain(filterCutoff, pidRuntime.dT));
+                    break;
+                case RC_SMOOTHING_DERIVATIVE_BIQUAD:
+                    biquadFilterUpdateLPF(&pidRuntime.setpointDerivativeBiquad[axis], filterCutoff, targetPidLooptime);
+                    break;
+            }
+        }
+    }
+}
+
+
 void pidInitConfig(const pidProfile_t *pidProfile)
 {
     if (pidProfile->feedForwardTransition == 0) {

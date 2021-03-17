@@ -9,14 +9,14 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"usb_io.c"
-	.section	.gnu.lto_.profile.36d6c505,"e",%progbits
+	.section	.gnu.lto_.profile.415f4d93,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.36d6c505,"e",%progbits
+	.section	.gnu.lto_.icf.415f4d93,"e",%progbits
 	.ascii	"x\234\343``d\220d@\000\026\206\253\333\277\336\343e"
 	.ascii	"\004\223L\255]\273\346r0/9y'\201\001\000\244H\014\034"
 	.text
-	.section	.gnu.lto_.jmpfuncs.36d6c505,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415f4d93,"e",%progbits
 	.ascii	"x\234\343``dX\304\200\000,@\314\310\300\300\304\300"
 	.ascii	"\300\014&\031\017\26002\000\361\177 \340g`b\232\316"
 	.ascii	"\314x\370\357\365\023\\}\314\363\231\031\030O02\356"
@@ -25,18 +25,18 @@
 	.ascii	"\347mg\376\261\203\344\231\030e\030\367@\345e\300\362"
 	.ascii	"\014\000]0)\353"
 	.text
-	.section	.gnu.lto_.inline.36d6c505,"e",%progbits
+	.section	.gnu.lto_.inline.415f4d93,"e",%progbits
 	.ascii	"x\234\343``d\330\312\200\000,\014\014\314\015@\300\224"
 	.ascii	"\302\310\300\304\300\320\010d\32610\260A\204\230@B\014"
 	.ascii	"@\035\004\2250\021V\302\314\300\017\344\336`\316\300"
 	.ascii	"c\0127\310\266\011~\020\032\316e\346\001\311M\360c\000"
 	.ascii	"3\030\031\030\000\333:!\203"
 	.text
-	.section	.gnu.lto_.pureconst.36d6c505,"e",%progbits
+	.section	.gnu.lto_.pureconst.415f4d93,"e",%progbits
 	.ascii	"x\234\343``d\340e```ah`al`aj`a\236\301\002\000\017\207"
 	.ascii	"\002I"
 	.text
-	.section	.gnu.lto_usbCableDetectDeinit.36d6c505,"e",%progbits
+	.section	.gnu.lto_usbCableDetectDeinit.415f4d93,"e",%progbits
 	.ascii	"x\234\343``d\350a``\220\003bY fdf`djhhp`o\344`bd\004"
 	.ascii	"\263\0328\030\031\352\231\030\353\031\373\231\24733"
 	.ascii	"\036j\177\266\223Is9P\246\341\300\364Y\222\015+\016"
@@ -49,7 +49,7 @@
 	.ascii	"Y\226ZT\254_Z\234\024\237\231\257\227\314\000\000\326"
 	.ascii	"R8\300"
 	.text
-	.section	.gnu.lto_usbCableDetectInit.36d6c505,"e",%progbits
+	.section	.gnu.lto_usbCableDetectInit.415f4d93,"e",%progbits
 	.ascii	"x\234\343``d\350a``\220\003bY fdf`djhhp`o\344`bd\004"
 	.ascii	"\263\0328\030\031\352\231\030\353\031\373\231\24733"
 	.ascii	"\036j\177\266\223Is9P\246\341\300\364=\222\015+\016"
@@ -61,7 +61,7 @@
 	.ascii	"O\277\270(Y?713O?\245(\263,\265\250X\277\2648)>3_/\231"
 	.ascii	"\001\000\005\0269/"
 	.text
-	.section	.gnu.lto_usbCableIsInserted.36d6c505,"e",%progbits
+	.section	.gnu.lto_usbCableIsInserted.415f4d93,"e",%progbits
 	.ascii	"x\234\343``dX\306\300\300 \007\304\262@\314\310\314"
 	.ascii	"\300\310\324\320\320\340\300\336\310\301\304\310\010"
 	.ascii	"f5p02\32431\3263\3663Ogf\234\332\271\373:\257\346\362"
@@ -76,7 +76,7 @@
 	.ascii	"\251E\305\372\245\305I\361\231\371z\311\014\000\245"
 	.ascii	"\336B\015"
 	.text
-	.section	.gnu.lto_usbGenerateDisconnectPulse.36d6c505,"e",%progbits
+	.section	.gnu.lto_usbGenerateDisconnectPulse.415f4d93,"e",%progbits
 	.ascii	"x\234uPMK\033Q\024\275g\356\314d\242\211\022p!\304b"
 	.ascii	"7Y\210`\376B\177\202\377@\374Zda\012\011\355\326\227"
 	.ascii	"4\352\302\250\033EF\010\223\220\205\342F\224v\321\252"
@@ -102,7 +102,7 @@
 	.ascii	"L\245\223#\231\324\333\321L6\371&;4\220z\3357L\266\334"
 	.ascii	"\372S\351\177\230\200\260q"
 	.text
-	.section	.gnu.lto_.symbol_nodes.36d6c505,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415f4d93,"e",%progbits
 	.ascii	"x\234u\316\273\021\302@\020\203a\351t\266\257\013\022"
 	.ascii	"\027\0023\224B\037r@\216y7@\025\024AKpp\204kE\377\314"
 	.ascii	"\027\354\026\020#\001\244\003\215\251.s~\001\006\236"
@@ -111,10 +111,10 @@
 	.ascii	"\313\231.\241H\245\2756JC\253\255\324\267\332I]\253"
 	.ascii	"=\245\334\362A|\000\226{a\\"
 	.text
-	.section	.gnu.lto_.refs.36d6c505,"e",%progbits
+	.section	.gnu.lto_.refs.415f4d93,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.36d6c505,"e",%progbits
+	.section	.gnu.lto_.decls.415f4d93,"e",%progbits
 	.ascii	"x\234}TmLSW\030>\357=E\332R\221\0202\215\220\214\370"
 	.ascii	"G\223M\213\031\211\377\026\243$\330d\033\376\330\366"
 	.ascii	"\227 ^\265\011\264\013\255ff\177.0\235\037q\353\"\237"
@@ -192,7 +192,7 @@
 	.ascii	"\0018\375\013\247\305\226%|fn\267e\231mY\231\262{\313"
 	.ascii	"\376\257sv\307\332\235x\315v\377\007K\241\253\032"
 	.text
-	.section	.gnu.lto_.symtab.36d6c505,"e",%progbits
+	.section	.gnu.lto_.symtab.415f4d93,"e",%progbits
 	.ascii	"usbCableDetectDeinit\000"
 	.ascii	"\000"
 	.ascii	"\000"

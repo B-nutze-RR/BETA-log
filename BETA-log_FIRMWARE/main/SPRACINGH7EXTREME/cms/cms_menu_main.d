@@ -68,16 +68,17 @@ BETA-log_FIRMWARE/main/SPRACINGH7EXTREME/cms/cms_menu_main.o: \
  src/main/cms/cms_menu_failsafe.h src/main/cms/cms_menu_firmware.h \
  src/main/cms/cms_menu_ledstrip.h src/main/cms/cms_menu_misc.h \
  src/main/cms/cms_menu_osd.h src/main/cms/cms_menu_power.h \
- src/main/cms/cms_menu_saveexit.h src/main/cms/cms_menu_vtx_common.h \
- src/main/common/printf.h src/main/config/config.h src/main/fc/core.h \
- src/main/fc/runtime_config.h src/main/sensors/acceleration.h \
- src/main/drivers/accgyro/accgyro.h src/main/common/axis.h \
- src/main/common/maths.h src/main/common/sensor_alignment.h \
- src/main/drivers/exti.h src/main/drivers/io_types.h \
- src/main/drivers/bus.h src/main/drivers/bus_i2c.h \
- src/main/drivers/rcc_types.h src/main/drivers/sensor.h \
- src/main/drivers/accgyro/accgyro_mpu.h src/main/sensors/sensors.h \
- src/main/cms/cms_menu_main.h
+ src/main/cms/cms_menu_saveexit.h \
+ src/main/cms/cms_menu_persistent_stats.h \
+ src/main/cms/cms_menu_vtx_common.h src/main/common/printf.h \
+ src/main/config/config.h src/main/fc/core.h src/main/fc/runtime_config.h \
+ src/main/sensors/acceleration.h src/main/drivers/accgyro/accgyro.h \
+ src/main/common/axis.h src/main/common/maths.h \
+ src/main/common/sensor_alignment.h src/main/drivers/exti.h \
+ src/main/drivers/io_types.h src/main/drivers/bus.h \
+ src/main/drivers/bus_i2c.h src/main/drivers/rcc_types.h \
+ src/main/drivers/sensor.h src/main/drivers/accgyro/accgyro_mpu.h \
+ src/main/sensors/sensors.h src/main/cms/cms_menu_main.h
 
 src/main/platform.h:
 
@@ -242,6 +243,8 @@ src/main/cms/cms_menu_osd.h:
 src/main/cms/cms_menu_power.h:
 
 src/main/cms/cms_menu_saveexit.h:
+
+src/main/cms/cms_menu_persistent_stats.h:
 
 src/main/cms/cms_menu_vtx_common.h:
 

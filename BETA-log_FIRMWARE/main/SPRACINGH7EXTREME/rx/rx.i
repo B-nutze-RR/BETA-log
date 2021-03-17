@@ -24262,7 +24262,17 @@ static int16_t rssiDbm = (-130);
 static timeUs_t lastMspRssiUpdateUs = 0;
 
 static pt1Filter_t frameErrFilter;
-# 92 "./src/main/rx/rx.c"
+
+
+static uint16_t linkQuality = 0;
+static uint8_t rfMode = 0;
+
+
+
+
+
+
+
 rssiSource_e rssiSource;
 linkQualitySource_e linkQualitySource;
 
@@ -24466,7 +24476,17 @@ static
     case SERIALRX_GHST:
         enabled = ghstRxInit(rxConfig, rxRuntimeState);
         break;
-# 252 "./src/main/rx/rx.c"
+
+
+
+
+
+
+
+    case SERIALRX_FPORT:
+        enabled = fportRxInit(rxConfig, rxRuntimeState);
+        break;
+
     default:
         enabled = 
 # 253 "./src/main/rx/rx.c" 3 4
@@ -24615,7 +24635,28 @@ void resumeRxPwmPpmSignal(void)
     }
 
 }
-# 421 "./src/main/rx/rx.c"
+
+
+
+
+static uint16_t updateLinkQualitySamples(uint16_t value)
+{
+    static uint16_t samples[16];
+    static uint8_t sampleIndex = 0;
+    static uint16_t sum = 0;
+
+    sum += value - samples[sampleIndex];
+    samples[sampleIndex] = value;
+    sampleIndex = (sampleIndex + 1) % 16;
+    return sum / 16;
+}
+
+void rxSetRfMode(uint8_t rfModeValue)
+{
+    rfMode = rfModeValue;
+}
+
+
 static void setLinkQuality(
 # 421 "./src/main/rx/rx.c" 3 4
                           _Bool 
@@ -24625,7 +24666,14 @@ static void setLinkQuality(
     static uint16_t rssiSum = 0;
     static uint16_t rssiCount = 0;
     static timeDelta_t resampleTimeUs = 0;
-# 434 "./src/main/rx/rx.c"
+
+
+    if (linkQualitySource == LQ_SOURCE_NONE) {
+
+        linkQuality = updateLinkQualitySamples(validFrame ? 1023 : 0);
+    }
+
+
     if (rssiSource == RSSI_SOURCE_FRAME_ERRORS) {
         resampleTimeUs += currentDeltaTimeUs;
         rssiSum += validFrame ? 1023 : 0;
@@ -24643,9 +24691,9 @@ static void setLinkQuality(
 void setLinkQualityDirect(uint16_t linkqualityValue)
 {
 
+    linkQuality = linkqualityValue;
 
 
-    ((void)(linkqualityValue));
 
 }
 
@@ -25164,7 +25212,24 @@ void setRssiDbmDirect(int16_t newRssiDbm, rssiSource_e source)
 
     rssiDbm = newRssiDbm;
 }
-# 878 "./src/main/rx/rx.c"
+
+
+uint16_t rxGetLinkQuality(void)
+{
+    return linkQuality;
+}
+
+uint8_t rxGetRfMode(void)
+{
+    return rfMode;
+}
+
+uint16_t rxGetLinkQualityPercent(void)
+{
+    return (linkQualitySource == LQ_SOURCE_NONE) ? scaleRange(linkQuality, 0, 1023, 0, 100) : linkQuality;
+}
+
+
 uint16_t rxGetRefreshRate(void)
 {
     return rxRuntimeState.rxRefreshRate;

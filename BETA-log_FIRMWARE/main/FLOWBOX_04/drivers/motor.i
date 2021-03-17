@@ -5766,7 +5766,18 @@ typedef struct motorConfig_s {
 
 extern motorConfig_t motorConfig_System; extern motorConfig_t motorConfig_Copy; static inline const motorConfig_t* motorConfig(void) { return &motorConfig_System; } static inline motorConfig_t* motorConfigMutable(void) { return &motorConfig_System; } struct _dummy;
 # 26 "./src/main/drivers/dshot.h" 2
-# 54 "./src/main/drivers/dshot.h"
+# 43 "./src/main/drivers/dshot.h"
+typedef struct dshotTelemetryQuality_s {
+    uint32_t packetCountSum;
+    uint32_t invalidCountSum;
+    uint32_t packetCountArray[(1 * 1000 / 100)];
+    uint32_t invalidCountArray[(1 * 1000 / 100)];
+    uint8_t lastBucketIndex;
+} dshotTelemetryQuality_t;
+
+extern dshotTelemetryQuality_t dshotTelemetryQuality[8];
+
+
 typedef struct dshotProtocolControl_s {
     uint16_t value;
     
@@ -5781,7 +5792,47 @@ float dshotConvertFromExternal(uint16_t externalValue);
 uint16_t dshotConvertToExternal(float motorValue);
 
 uint16_t prepareDshotPacket(dshotProtocolControl_t *pcb);
-# 89 "./src/main/drivers/dshot.h"
+
+
+extern 
+# 66 "./src/main/drivers/dshot.h" 3 4
+      _Bool 
+# 66 "./src/main/drivers/dshot.h"
+           useDshotTelemetry;
+
+typedef struct dshotTelemetryMotorState_s {
+    uint16_t telemetryValue;
+    
+# 70 "./src/main/drivers/dshot.h" 3 4
+   _Bool 
+# 70 "./src/main/drivers/dshot.h"
+        telemetryActive;
+} dshotTelemetryMotorState_t;
+
+
+typedef struct dshotTelemetryState_s {
+    
+# 75 "./src/main/drivers/dshot.h" 3 4
+   _Bool 
+# 75 "./src/main/drivers/dshot.h"
+        useDshotTelemetry;
+    uint32_t invalidPacketCount;
+    uint32_t readCount;
+    dshotTelemetryMotorState_t motorState[8];
+    uint32_t inputBuffer[22];
+} dshotTelemetryState_t;
+
+extern dshotTelemetryState_t dshotTelemetryState;
+
+
+void updateDshotTelemetryQuality(dshotTelemetryQuality_t *qualityStats, 
+# 85 "./src/main/drivers/dshot.h" 3 4
+                                                                       _Bool 
+# 85 "./src/main/drivers/dshot.h"
+                                                                            packetValid, timeMs_t currentTimeMs);
+
+
+
 uint16_t getDshotTelemetry(uint8_t index);
 
 # 90 "./src/main/drivers/dshot.h" 3 4
@@ -5935,9 +5986,13 @@ timeMs_t motorGetMotorEnableTimeMs(void);
 void motorShutdown(void);
 
 
+struct motorDevConfig_s;
+typedef struct motorDevConfig_s motorDevConfig_t;
 
-
-
+# 102 "./src/main/drivers/motor.h" 3 4
+_Bool 
+# 102 "./src/main/drivers/motor.h"
+    isDshotBitbangActive(const motorDevConfig_t *motorConfig);
 
 
 float getDigitalIdleOffset(const motorConfig_t *motorConfig);
@@ -6034,17 +6089,34 @@ motorDevice_t *dshotPwmDevInit(const struct motorDevConfig_s *motorConfig, uint1
                                                                                                                   _Bool 
 # 52 "./src/main/drivers/dshot_dpwm.h"
                                                                                                                        useUnsyncedPwm);
-# 87 "./src/main/drivers/dshot_dpwm.h"
-extern uint32_t dshotDmaBuffer[8][18];
-extern uint32_t dshotDmaInputBuffer[8][18];
+# 81 "./src/main/drivers/dshot_dpwm.h"
+_Static_assert((22 >= 18), "dshotBufferSizeConstrait");
 
 
 
+
+
+extern uint32_t dshotDmaBuffer[8][22];
+extern uint32_t dshotDmaInputBuffer[8][22];
+
+
+extern uint32_t dshotBurstDmaBuffer[8][18 * 4];
 
 
 typedef struct {
     TIM_TypeDef *timer;
-# 108 "./src/main/drivers/dshot_dpwm.h"
+
+    uint16_t outputPeriod;
+
+
+
+
+
+    dmaResource_t *dmaBurstRef;
+    uint16_t dmaBurstLength;
+    uint32_t *dmaBurstBuffer;
+
+
     uint16_t timerDmaSources;
 } motorDmaTimer_t;
 
@@ -6052,7 +6124,52 @@ typedef struct motorDmaOutput_s {
     dshotProtocolControl_t protocolControl;
     ioTag_t ioTag;
     const timerHardware_t *timerHardware;
-# 153 "./src/main/drivers/dshot_dpwm.h"
+
+    uint16_t timerDmaSource;
+    uint8_t timerDmaIndex;
+    
+# 118 "./src/main/drivers/dshot_dpwm.h" 3 4
+   _Bool 
+# 118 "./src/main/drivers/dshot_dpwm.h"
+        configured;
+
+
+
+
+
+    uint8_t output;
+    uint8_t index;
+    uint32_t iocfg;
+
+
+
+
+
+    DMA_InitTypeDef dmaInitStruct;
+
+
+
+    volatile 
+# 136 "./src/main/drivers/dshot_dpwm.h" 3 4
+            _Bool 
+# 136 "./src/main/drivers/dshot_dpwm.h"
+                 isInput;
+    timeDelta_t dshotTelemetryDeadtimeUs;
+    uint8_t dmaInputLen;
+
+
+
+
+
+    TIM_OCInitTypeDef ocInitStruct;
+    TIM_ICInitTypeDef icInitStruct;
+
+
+
+
+    dmaResource_t *dmaRef;
+
+
     motorDmaTimer_t *timer;
     uint32_t *dmaBuffer;
 } motorDmaOutput_t;
@@ -6067,6 +6184,10 @@ _Bool
     pwmDshotMotorHardwareConfig(const timerHardware_t *timerHardware, uint8_t motorIndex, uint8_t reorderedMotorIndex, motorPwmProtocolTypes_e pwmProtocolType, uint8_t output);
 
 
+# 162 "./src/main/drivers/dshot_dpwm.h" 3 4
+_Bool 
+# 162 "./src/main/drivers/dshot_dpwm.h"
+    pwmStartDshotMotorUpdate(void);
 
 void pwmCompleteDshotMotorUpdate(void);
 
@@ -6352,9 +6473,9 @@ void motorWriteAll(float *values)
 
     if (motorDevice->enabled) {
 
-
-
-
+        if (!motorDevice->vTable.updateStart()) {
+            return;
+        }
 
         for (int i = 0; i < motorDevice->count; i++) {
             motorDevice->vTable.write(i, values[i]);
@@ -6432,7 +6553,25 @@ _Bool
                      ;
 
         break;
-# 127 "./src/main/drivers/motor.c"
+
+
+    case PWM_TYPE_DSHOT150:
+    case PWM_TYPE_DSHOT300:
+    case PWM_TYPE_DSHOT600:
+    case PWM_TYPE_PROSHOT1000:
+        enabled = 
+# 122 "./src/main/drivers/motor.c" 3 4
+                 1
+# 122 "./src/main/drivers/motor.c"
+                     ;
+        isDshot = 
+# 123 "./src/main/drivers/motor.c" 3 4
+                 1
+# 123 "./src/main/drivers/motor.c"
+                     ;
+
+        break;
+
     default:
 
         break;
@@ -6460,9 +6599,9 @@ void motorInitEndpoints(const motorConfig_t *motorConfig, float outputLimit, flo
             analogInitEndpoints(motorConfig, outputLimit, outputLow, outputHigh, disarm, deadbandMotor3dHigh, deadbandMotor3dLow);
         }
 
-
-
-
+        else {
+            dshotInitEndpoints(motorConfig, outputLimit, outputLow, outputHigh, disarm, deadbandMotor3dHigh, deadbandMotor3dLow);
+        }
 
     }
 }
@@ -6621,7 +6760,18 @@ void motorDevInit(const motorDevConfig_t *motorDevConfig, uint16_t idlePulse, ui
         if (!isMotorProtocolDshot()) {
             motorDevice = motorPwmDevInit(motorDevConfig, idlePulse, motorCount, useUnsyncedPwm);
         }
-# 283 "./src/main/drivers/motor.c"
+
+        else {
+
+            if (isDshotBitbangActive(motorDevConfig)) {
+                motorDevice = dshotBitbangDevInit(motorDevConfig, motorCount);
+            } else
+
+            {
+                motorDevice = dshotPwmDevInit(motorDevConfig, idlePulse, motorCount, useUnsyncedPwm);
+            }
+        }
+
     }
 
     if (motorDevice) {
@@ -6683,7 +6833,26 @@ _Bool
 {
     return motorDevice->vTable.isMotorEnabled(index);
 }
-# 336 "./src/main/drivers/motor.c"
+
+
+timeMs_t motorGetMotorEnableTimeMs(void)
+{
+    return motorDevice->motorEnableTimeMs;
+}
+
+
+
+
+# 329 "./src/main/drivers/motor.c" 3 4
+_Bool 
+# 329 "./src/main/drivers/motor.c"
+    isDshotBitbangActive(const motorDevConfig_t *motorDevConfig)
+{
+    return motorDevConfig->useDshotBitbang == DSHOT_BITBANG_ON ||
+        (motorDevConfig->useDshotBitbang == DSHOT_BITBANG_AUTO && motorDevConfig->useDshotTelemetry && motorDevConfig->motorPwmProtocol != PWM_TYPE_PROSHOT1000);
+}
+
+
 float getDigitalIdleOffset(const motorConfig_t *motorConfig)
 {
     return (0.01f * motorConfig->digitalIdleOffsetValue * 0.01f);

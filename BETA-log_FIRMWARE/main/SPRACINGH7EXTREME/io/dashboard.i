@@ -23472,7 +23472,19 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-# 351 "./src/main/flight/pid.h"
+# 343 "./src/main/flight/pid.h"
+    pt1Filter_t setpointDerivativePt1[3];
+    biquadFilter_t setpointDerivativeBiquad[3];
+    
+# 345 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 345 "./src/main/flight/pid.h"
+        setpointDerivativeLpfInitialized;
+    uint8_t rcSmoothingDebugAxis;
+    uint8_t rcSmoothingFilterType;
+
+
+
     float acroTrainerAngleLimit;
     float acroTrainerLookaheadTime;
     uint8_t acroTrainerDebugAxis;
@@ -24355,7 +24367,7 @@ typedef enum {
     TASK_DASHBOARD,
 
 
-
+    TASK_TELEMETRY,
 
 
     TASK_LEDSTRIP,
@@ -24370,7 +24382,15 @@ typedef enum {
     TASK_OSD,
 # 127 "./src/main/scheduler/scheduler.h"
     TASK_CMS,
-# 137 "./src/main/scheduler/scheduler.h"
+
+
+
+
+
+    TASK_CAMCTRL,
+
+
+
     TASK_RCDEVICE,
 
 

@@ -41,7 +41,9 @@ BETA-log_FIRMWARE/main/FLOWBOX_04/io/serial.o: src/main/io/serial.c \
  src/main/drivers/dma.h src/main/drivers/light_led.h \
  src/main/drivers/serial_usb_vcp.h src/main/config/config.h \
  src/main/io/serial.h src/main/msp/msp_serial.h src/main/msp/msp.h \
- src/main/common/streambuf.h src/main/pg/pg_ids.h src/main/pg/pinio.h \
+ src/main/common/streambuf.h src/main/pg/pg_ids.h \
+ src/main/telemetry/telemetry.h src/main/common/unit.h src/main/rx/rx.h \
+ src/main/pg/rx.h src/main/telemetry/ibus_shared.h src/main/pg/pinio.h \
  src/main/drivers/pinio.h
 
 src/main/platform.h:
@@ -161,6 +163,16 @@ src/main/msp/msp.h:
 src/main/common/streambuf.h:
 
 src/main/pg/pg_ids.h:
+
+src/main/telemetry/telemetry.h:
+
+src/main/common/unit.h:
+
+src/main/rx/rx.h:
+
+src/main/pg/rx.h:
+
+src/main/telemetry/ibus_shared.h:
 
 src/main/pg/pinio.h:
 

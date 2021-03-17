@@ -68,7 +68,22 @@ BETA-log_FIRMWARE/main/SPRACINGH7EXTREME/telemetry/ibus_shared.o: \
  src/main/drivers/resource.h src/main/drivers/io_types.h \
  src/main/drivers/io_def.h src/main/drivers/io_def_generated.h \
  src/main/rx/rx.h src/main/common/time.h src/main/pg/rx.h \
- src/main/telemetry/ibus_shared.h
+ src/main/telemetry/ibus_shared.h src/main/config/feature.h \
+ src/main/pg/pg_ids.h src/main/sensors/battery.h src/main/common/filter.h \
+ src/main/sensors/current.h src/main/sensors/current_ids.h \
+ src/main/sensors/voltage.h src/main/sensors/voltage_ids.h \
+ src/main/fc/rc_controls.h src/main/config/config.h \
+ src/main/sensors/gyro.h src/main/common/axis.h \
+ src/main/drivers/accgyro/accgyro.h src/main/common/maths.h \
+ src/main/common/sensor_alignment.h src/main/drivers/exti.h \
+ src/main/drivers/bus.h src/main/drivers/bus_i2c.h \
+ src/main/drivers/rcc_types.h src/main/drivers/sensor.h \
+ src/main/drivers/accgyro/accgyro_mpu.h src/main/flight/gyroanalyse.h \
+ lib/main/CMSIS/DSP/Include/arm_math.h src/main/flight/pid.h \
+ src/main/fc/runtime_config.h src/main/sensors/acceleration.h \
+ src/main/sensors/sensors.h src/main/sensors/barometer.h \
+ src/main/drivers/barometer/barometer.h src/main/flight/imu.h \
+ src/main/flight/position.h src/main/io/gps.h
 
 src/main/platform.h:
 
@@ -233,3 +248,67 @@ src/main/common/time.h:
 src/main/pg/rx.h:
 
 src/main/telemetry/ibus_shared.h:
+
+src/main/config/feature.h:
+
+src/main/pg/pg_ids.h:
+
+src/main/sensors/battery.h:
+
+src/main/common/filter.h:
+
+src/main/sensors/current.h:
+
+src/main/sensors/current_ids.h:
+
+src/main/sensors/voltage.h:
+
+src/main/sensors/voltage_ids.h:
+
+src/main/fc/rc_controls.h:
+
+src/main/config/config.h:
+
+src/main/sensors/gyro.h:
+
+src/main/common/axis.h:
+
+src/main/drivers/accgyro/accgyro.h:
+
+src/main/common/maths.h:
+
+src/main/common/sensor_alignment.h:
+
+src/main/drivers/exti.h:
+
+src/main/drivers/bus.h:
+
+src/main/drivers/bus_i2c.h:
+
+src/main/drivers/rcc_types.h:
+
+src/main/drivers/sensor.h:
+
+src/main/drivers/accgyro/accgyro_mpu.h:
+
+src/main/flight/gyroanalyse.h:
+
+lib/main/CMSIS/DSP/Include/arm_math.h:
+
+src/main/flight/pid.h:
+
+src/main/fc/runtime_config.h:
+
+src/main/sensors/acceleration.h:
+
+src/main/sensors/sensors.h:
+
+src/main/sensors/barometer.h:
+
+src/main/drivers/barometer/barometer.h:
+
+src/main/flight/imu.h:
+
+src/main/flight/position.h:
+
+src/main/io/gps.h:

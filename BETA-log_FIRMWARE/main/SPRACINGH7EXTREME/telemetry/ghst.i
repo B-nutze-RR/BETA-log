@@ -21495,3 +21495,3472 @@ extern uint8_t eepromData[4096];
 # 1 "./src/main/target/common_defaults_post.h" 1
 # 153 "./src/main/platform.h" 2
 # 26 "./src/main/telemetry/ghst.c" 2
+
+
+
+# 1 "./src/main/build/atomic.h" 1
+# 21 "./src/main/build/atomic.h"
+       
+# 31 "./src/main/build/atomic.h"
+__attribute__( ( always_inline ) ) static inline void __set_BASEPRI_nb(uint32_t basePri)
+{
+   __asm volatile ("\tMSR basepri, %0\n" : : "r" (basePri) );
+}
+
+
+__attribute__( ( always_inline ) ) static inline void __set_BASEPRI_MAX_nb(uint32_t basePri)
+{
+   __asm volatile ("\tMSR basepri_max, %0\n" : : "r" (basePri) );
+}
+# 90 "./src/main/build/atomic.h"
+static inline void __basepriRestoreMem(uint8_t *val)
+{
+    __set_BASEPRI(*val);
+}
+
+
+static inline uint8_t __basepriSetMemRetVal(uint8_t prio)
+{
+    __set_BASEPRI_MAX(prio);
+    return 1;
+}
+
+
+static inline void __basepriRestore(uint8_t *val)
+{
+    __set_BASEPRI_nb(*val);
+}
+
+
+static inline uint8_t __basepriSetRetVal(uint8_t prio)
+{
+    __set_BASEPRI_MAX_nb(prio);
+    return 1;
+}
+# 30 "./src/main/telemetry/ghst.c" 2
+# 1 "./src/main/build/build_config.h" 1
+# 21 "./src/main/build/build_config.h"
+       
+# 44 "./src/main/build/build_config.h"
+typedef enum {
+    MCU_TYPE_SIMULATOR = 0,
+    MCU_TYPE_F103,
+    MCU_TYPE_F303,
+    MCU_TYPE_F40X,
+    MCU_TYPE_F411,
+    MCU_TYPE_F446,
+    MCU_TYPE_F722,
+    MCU_TYPE_F745,
+    MCU_TYPE_F746,
+    MCU_TYPE_F765,
+    MCU_TYPE_H750,
+    MCU_TYPE_H743_REV_UNKNOWN,
+    MCU_TYPE_H743_REV_Y,
+    MCU_TYPE_H743_REV_X,
+    MCU_TYPE_H743_REV_V,
+    MCU_TYPE_H7A3,
+    MCU_TYPE_H723_725,
+    MCU_TYPE_UNKNOWN = 255,
+} mcuTypeId_e;
+
+mcuTypeId_e getMcuTypeId(void);
+# 31 "./src/main/telemetry/ghst.c" 2
+
+
+# 1 "./src/main/config/feature.h" 1
+# 21 "./src/main/config/feature.h"
+       
+
+# 1 "./src/main/pg/pg.h" 1
+# 21 "./src/main/pg/pg.h"
+       
+
+
+
+
+
+
+typedef uint16_t pgn_t;
+
+
+typedef enum {
+    PGRF_NONE = 0,
+    PGRF_CLASSIFICATON_BIT = (1 << 0)
+} pgRegistryFlags_e;
+
+typedef enum {
+    PGR_PGN_MASK = 0x0fff,
+    PGR_PGN_VERSION_MASK = 0xf000,
+    PGR_SIZE_MASK = 0x0fff,
+    PGR_SIZE_SYSTEM_FLAG = 0x0000
+} pgRegistryInternal_e;
+
+
+typedef void (pgResetFunc)(void * );
+
+typedef struct pgRegistry_s {
+    pgn_t pgn;
+    uint8_t length;
+    uint16_t size;
+    uint8_t *address;
+    uint8_t *copy;
+    uint8_t **ptr;
+    union {
+        void *ptr;
+        pgResetFunc *fn;
+    } reset;
+} pgRegistry_t;
+
+static inline uint16_t pgN(const pgRegistry_t* reg) {return reg->pgn & PGR_PGN_MASK;}
+static inline uint8_t pgVersion(const pgRegistry_t* reg) {return (uint8_t)(reg->pgn >> 12);}
+static inline uint16_t pgSize(const pgRegistry_t* reg) {return reg->size & PGR_SIZE_MASK;}
+static inline uint16_t pgElementSize(const pgRegistry_t* reg) {return (reg->size & PGR_SIZE_MASK) / reg->length;}
+# 75 "./src/main/pg/pg.h"
+extern const pgRegistry_t __pg_registry_start[];
+extern const pgRegistry_t __pg_registry_end[];
+
+
+extern const uint8_t __pg_resetdata_start[];
+extern const uint8_t __pg_resetdata_end[];
+# 194 "./src/main/pg/pg.h"
+const pgRegistry_t* pgFind(pgn_t pgn);
+
+
+# 196 "./src/main/pg/pg.h" 3 4
+_Bool 
+# 196 "./src/main/pg/pg.h"
+    pgLoad(const pgRegistry_t* reg, const void *from, int size, int version);
+int pgStore(const pgRegistry_t* reg, void *to, int size);
+void pgResetAll(void);
+void pgResetInstance(const pgRegistry_t *reg, uint8_t *base);
+
+# 200 "./src/main/pg/pg.h" 3 4
+_Bool 
+# 200 "./src/main/pg/pg.h"
+    pgResetCopy(void *copy, pgn_t pgn);
+void pgReset(const pgRegistry_t* reg);
+# 24 "./src/main/config/feature.h" 2
+# 32 "./src/main/config/feature.h"
+typedef enum {
+    FEATURE_RX_PPM = 1 << 0,
+    FEATURE_INFLIGHT_ACC_CAL = 1 << 2,
+    FEATURE_RX_SERIAL = 1 << 3,
+    FEATURE_MOTOR_STOP = 1 << 4,
+    FEATURE_SERVO_TILT = 1 << 5,
+    FEATURE_SOFTSERIAL = 1 << 6,
+    FEATURE_GPS = 1 << 7,
+    FEATURE_RANGEFINDER = 1 << 9,
+    FEATURE_TELEMETRY = 1 << 10,
+    FEATURE_3D = 1 << 12,
+    FEATURE_RX_PARALLEL_PWM = 1 << 13,
+    FEATURE_RX_MSP = 1 << 14,
+    FEATURE_RSSI_ADC = 1 << 15,
+    FEATURE_LED_STRIP = 1 << 16,
+    FEATURE_DASHBOARD = 1 << 17,
+    FEATURE_OSD = 1 << 18,
+    FEATURE_CHANNEL_FORWARDING = 1 << 20,
+    FEATURE_TRANSPONDER = 1 << 21,
+    FEATURE_AIRMODE = 1 << 22,
+    FEATURE_RX_SPI = 1 << 25,
+
+    FEATURE_ESC_SENSOR = 1 << 27,
+    FEATURE_ANTI_GRAVITY = 1 << 28,
+    FEATURE_DYNAMIC_FILTER = 1 << 29,
+} features_e;
+
+typedef struct featureConfig_s {
+    uint32_t enabledFeatures;
+} featureConfig_t;
+
+extern featureConfig_t featureConfig_System; extern featureConfig_t featureConfig_Copy; static inline const featureConfig_t* featureConfig(void) { return &featureConfig_System; } static inline featureConfig_t* featureConfigMutable(void) { return &featureConfig_System; } struct _dummy;
+
+void featureInit(void);
+
+# 66 "./src/main/config/feature.h" 3 4
+_Bool 
+# 66 "./src/main/config/feature.h"
+    featureIsEnabled(const uint32_t mask);
+
+# 67 "./src/main/config/feature.h" 3 4
+_Bool 
+# 67 "./src/main/config/feature.h"
+    featureIsConfigured(const uint32_t mask);
+void featureEnableImmediate(const uint32_t mask);
+void featureDisableImmediate(const uint32_t mask);
+void featureConfigSet(const uint32_t mask);
+void featureConfigClear(const uint32_t mask);
+void featureConfigReplace(const uint32_t mask);
+# 34 "./src/main/telemetry/ghst.c" 2
+
+# 1 "./src/main/pg/pg_ids.h" 1
+# 21 "./src/main/pg/pg_ids.h"
+       
+# 36 "./src/main/telemetry/ghst.c" 2
+
+# 1 "./src/main/common/crc.h" 1
+# 21 "./src/main/common/crc.h"
+       
+
+struct sbuf_s;
+
+uint16_t crc16_ccitt(uint16_t crc, unsigned char a);
+uint16_t crc16_ccitt_update(uint16_t crc, const void *data, uint32_t length);
+struct sbuf_s;
+void crc16_ccitt_sbuf_append(struct sbuf_s *dst, uint8_t *start);
+
+uint8_t crc8_dvb_s2(uint8_t crc, unsigned char a);
+uint8_t crc8_dvb_s2_update(uint8_t crc, const void *data, uint32_t length);
+void crc8_dvb_s2_sbuf_append(struct sbuf_s *dst, uint8_t *start);
+uint8_t crc8_xor_update(uint8_t crc, const void *data, uint32_t length);
+void crc8_xor_sbuf_append(struct sbuf_s *dst, uint8_t *start);
+# 38 "./src/main/telemetry/ghst.c" 2
+# 1 "./src/main/common/maths.h" 1
+# 21 "./src/main/common/maths.h"
+       
+# 63 "./src/main/common/maths.h"
+typedef int32_t fix12_t;
+
+typedef struct stdev_s
+{
+    float m_oldM, m_newM, m_oldS, m_newS;
+    int m_n;
+} stdev_t;
+
+
+typedef struct fp_vector {
+    float X;
+    float Y;
+    float Z;
+} t_fp_vector_def;
+
+typedef union u_fp_vector {
+    float A[3];
+    t_fp_vector_def V;
+} t_fp_vector;
+
+
+
+typedef struct fp_angles {
+    float roll;
+    float pitch;
+    float yaw;
+} fp_angles_def;
+
+typedef union {
+    float raw[3];
+    fp_angles_def angles;
+} fp_angles_t;
+
+typedef struct fp_rotationMatrix_s {
+    float m[3][3];
+} fp_rotationMatrix_t;
+
+int gcd(int num, int denom);
+float powerf(float base, int exp);
+int32_t applyDeadband(int32_t value, int32_t deadband);
+float fapplyDeadband(float value, float deadband);
+
+void devClear(stdev_t *dev);
+void devPush(stdev_t *dev, float x);
+float devVariance(stdev_t *dev);
+float devStandardDeviation(stdev_t *dev);
+float degreesToRadians(int16_t degrees);
+
+int scaleRange(int x, int srcFrom, int srcTo, int destFrom, int destTo);
+float scaleRangef(float x, float srcFrom, float srcTo, float destFrom, float destTo);
+
+void normalizeV(struct fp_vector *src, struct fp_vector *dest);
+
+void rotateV(struct fp_vector *v, fp_angles_t *delta);
+void buildRotationMatrix(fp_angles_t *delta, fp_rotationMatrix_t *rotation);
+void applyRotation(float *v, fp_rotationMatrix_t *rotationMatrix);
+
+int32_t quickMedianFilter3(int32_t * v);
+int32_t quickMedianFilter5(int32_t * v);
+int32_t quickMedianFilter7(int32_t * v);
+int32_t quickMedianFilter9(int32_t * v);
+
+float quickMedianFilter3f(float * v);
+float quickMedianFilter5f(float * v);
+float quickMedianFilter7f(float * v);
+float quickMedianFilter9f(float * v);
+
+
+float sin_approx(float x);
+float cos_approx(float x);
+float atan2_approx(float y, float x);
+float acos_approx(float x);
+
+float exp_approx(float val);
+float log_approx(float val);
+float pow_approx(float a, float b);
+# 150 "./src/main/common/maths.h"
+void arraySubInt32(int32_t *dest, int32_t *array1, int32_t *array2, int count);
+
+int16_t qPercent(fix12_t q);
+int16_t qMultiply(fix12_t q, int16_t input);
+fix12_t qConstruct(int16_t num, int16_t den);
+
+static inline int constrain(int amt, int low, int high)
+{
+    if (amt < low)
+        return low;
+    else if (amt > high)
+        return high;
+    else
+        return amt;
+}
+
+static inline float constrainf(float amt, float low, float high)
+{
+    if (amt < low)
+        return low;
+    else if (amt > high)
+        return high;
+    else
+        return amt;
+}
+# 39 "./src/main/telemetry/ghst.c" 2
+# 1 "./src/main/common/printf.h" 1
+# 105 "./src/main/common/printf.h"
+       
+
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdarg.h" 1 3 4
+# 40 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdarg.h" 3 4
+
+# 40 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdarg.h" 3 4
+typedef __builtin_va_list __gnuc_va_list;
+# 99 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdarg.h" 3 4
+typedef __gnuc_va_list va_list;
+# 108 "./src/main/common/printf.h" 2
+
+
+# 109 "./src/main/common/printf.h"
+typedef void (*putcf) (void *, char);
+extern putcf stdout_putf;
+extern void *stdout_putp;
+
+void init_printf(void *putp, void (*putf) (void *, char));
+
+int tfp_sprintf(char *s, const char *fmt, ...);
+int tfp_format(void *putp, void (*putf) (void *, char), const char *fmt, va_list va);
+# 40 "./src/main/telemetry/ghst.c" 2
+# 1 "./src/main/common/streambuf.h" 1
+# 21 "./src/main/common/streambuf.h"
+       
+
+
+
+
+
+typedef struct sbuf_s {
+    uint8_t *ptr;
+    uint8_t *end;
+} sbuf_t;
+
+sbuf_t *sbufInit(sbuf_t *sbuf, uint8_t *ptr, uint8_t *end);
+
+void sbufWriteU8(sbuf_t *dst, uint8_t val);
+void sbufWriteU16(sbuf_t *dst, uint16_t val);
+void sbufWriteU32(sbuf_t *dst, uint32_t val);
+void sbufWriteU16BigEndian(sbuf_t *dst, uint16_t val);
+void sbufWriteU32BigEndian(sbuf_t *dst, uint32_t val);
+void sbufFill(sbuf_t *dst, uint8_t data, int len);
+void sbufWriteData(sbuf_t *dst, const void *data, int len);
+void sbufWriteString(sbuf_t *dst, const char *string);
+void sbufWriteStringWithZeroTerminator(sbuf_t *dst, const char *string);
+
+uint8_t sbufReadU8(sbuf_t *src);
+uint16_t sbufReadU16(sbuf_t *src);
+uint32_t sbufReadU32(sbuf_t *src);
+void sbufReadData(sbuf_t *dst, void *data, int len);
+
+int sbufBytesRemaining(sbuf_t *buf);
+uint8_t* sbufPtr(sbuf_t *buf);
+const uint8_t* sbufConstPtr(const sbuf_t *buf);
+void sbufAdvance(sbuf_t *buf, int size);
+
+void sbufSwitchToReader(sbuf_t *buf, uint8_t * base);
+# 41 "./src/main/telemetry/ghst.c" 2
+
+
+# 1 "./src/main/cms/cms.h" 1
+# 21 "./src/main/cms/cms.h"
+       
+
+# 1 "./src/main/drivers/display.h" 1
+# 21 "./src/main/drivers/display.h"
+       
+
+typedef enum {
+    DISPLAYPORT_DEVICE_TYPE_MAX7456 = 0,
+    DISPLAYPORT_DEVICE_TYPE_OLED,
+    DISPLAYPORT_DEVICE_TYPE_MSP,
+    DISPLAYPORT_DEVICE_TYPE_FRSKYOSD,
+    DISPLAYPORT_DEVICE_TYPE_CRSF,
+    DISPLAYPORT_DEVICE_TYPE_HOTT,
+    DISPLAYPORT_DEVICE_TYPE_SRXL,
+} displayPortDeviceType_e;
+
+typedef enum {
+    DISPLAYPORT_ATTR_NONE = 0,
+    DISPLAYPORT_ATTR_INFO,
+    DISPLAYPORT_ATTR_WARNING,
+    DISPLAYPORT_ATTR_CRITICAL,
+} displayPortAttr_e;
+
+
+
+typedef enum {
+    DISPLAYPORT_LAYER_FOREGROUND,
+    DISPLAYPORT_LAYER_BACKGROUND,
+    DISPLAYPORT_LAYER_COUNT,
+} displayPortLayer_e;
+
+typedef enum {
+    DISPLAY_TRANSACTION_OPT_NONE = 0,
+    DISPLAY_TRANSACTION_OPT_PROFILED = 1 << 0,
+    DISPLAY_TRANSACTION_OPT_RESET_DRAWING = 1 << 1,
+} displayTransactionOption_e;
+
+typedef enum {
+    DISPLAY_BACKGROUND_TRANSPARENT,
+    DISPLAY_BACKGROUND_BLACK,
+    DISPLAY_BACKGROUND_GRAY,
+    DISPLAY_BACKGROUND_LTGRAY,
+    DISPLAY_BACKGROUND_COUNT
+} displayPortBackground_e;
+
+struct displayCanvas_s;
+struct osdCharacter_s;
+struct displayPortVTable_s;
+
+typedef struct displayPort_s {
+    const struct displayPortVTable_s *vTable;
+    void *device;
+    uint8_t rows;
+    uint8_t cols;
+    uint8_t posX;
+    uint8_t posY;
+
+
+    
+# 75 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 75 "./src/main/drivers/display.h"
+        useFullscreen;
+    
+# 76 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 76 "./src/main/drivers/display.h"
+        cleared;
+    int8_t cursorRow;
+    int8_t grabCount;
+
+
+    
+# 81 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 81 "./src/main/drivers/display.h"
+        useDeviceBlink;
+
+
+    displayPortDeviceType_e deviceType;
+} displayPort_t;
+
+typedef struct displayPortVTable_s {
+    int (*grab)(displayPort_t *displayPort);
+    int (*release)(displayPort_t *displayPort);
+    int (*clearScreen)(displayPort_t *displayPort);
+    int (*drawScreen)(displayPort_t *displayPort);
+    int (*screenSize)(const displayPort_t *displayPort);
+    int (*writeString)(displayPort_t *displayPort, uint8_t x, uint8_t y, uint8_t attr, const char *text);
+    int (*writeChar)(displayPort_t *displayPort, uint8_t x, uint8_t y, uint8_t attr, uint8_t c);
+    
+# 95 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 95 "./src/main/drivers/display.h"
+        (*isTransferInProgress)(const displayPort_t *displayPort);
+    int (*heartbeat)(displayPort_t *displayPort);
+    void (*redraw)(displayPort_t *displayPort);
+    
+# 98 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 98 "./src/main/drivers/display.h"
+        (*isSynced)(const displayPort_t *displayPort);
+    uint32_t (*txBytesFree)(const displayPort_t *displayPort);
+    
+# 100 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 100 "./src/main/drivers/display.h"
+        (*layerSupported)(displayPort_t *displayPort, displayPortLayer_e layer);
+    
+# 101 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 101 "./src/main/drivers/display.h"
+        (*layerSelect)(displayPort_t *displayPort, displayPortLayer_e layer);
+    
+# 102 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 102 "./src/main/drivers/display.h"
+        (*layerCopy)(displayPort_t *displayPort, displayPortLayer_e destLayer, displayPortLayer_e sourceLayer);
+    
+# 103 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 103 "./src/main/drivers/display.h"
+        (*writeFontCharacter)(displayPort_t *instance, uint16_t addr, const struct osdCharacter_s *chr);
+    
+# 104 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 104 "./src/main/drivers/display.h"
+        (*checkReady)(displayPort_t *displayPort, 
+# 104 "./src/main/drivers/display.h" 3 4
+                                                  _Bool 
+# 104 "./src/main/drivers/display.h"
+                                                       rescan);
+    void (*beginTransaction)(displayPort_t *displayPort, displayTransactionOption_e opts);
+    void (*commitTransaction)(displayPort_t *displayPort);
+    
+# 107 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 107 "./src/main/drivers/display.h"
+        (*getCanvas)(struct displayCanvas_s *canvas, const displayPort_t *displayPort);
+    void (*setBackgroundType)(displayPort_t *displayPort, displayPortBackground_e backgroundType);
+} displayPortVTable_t;
+
+void displayGrab(displayPort_t *instance);
+void displayRelease(displayPort_t *instance);
+void displayReleaseAll(displayPort_t *instance);
+
+# 114 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 114 "./src/main/drivers/display.h"
+    displayIsGrabbed(const displayPort_t *instance);
+void displayClearScreen(displayPort_t *instance);
+void displayDrawScreen(displayPort_t *instance);
+int displayScreenSize(const displayPort_t *instance);
+void displaySetXY(displayPort_t *instance, uint8_t x, uint8_t y);
+int displayWrite(displayPort_t *instance, uint8_t x, uint8_t y, uint8_t attr, const char *s);
+int displayWriteChar(displayPort_t *instance, uint8_t x, uint8_t y, uint8_t attr, uint8_t c);
+
+# 121 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 121 "./src/main/drivers/display.h"
+    displayIsTransferInProgress(const displayPort_t *instance);
+void displayHeartbeat(displayPort_t *instance);
+void displayRedraw(displayPort_t *instance);
+
+# 124 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 124 "./src/main/drivers/display.h"
+    displayIsSynced(const displayPort_t *instance);
+uint16_t displayTxBytesFree(const displayPort_t *instance);
+
+# 126 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 126 "./src/main/drivers/display.h"
+    displayWriteFontCharacter(displayPort_t *instance, uint16_t addr, const struct osdCharacter_s *chr);
+
+# 127 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 127 "./src/main/drivers/display.h"
+    displayCheckReady(displayPort_t *instance, 
+# 127 "./src/main/drivers/display.h" 3 4
+                                               _Bool 
+# 127 "./src/main/drivers/display.h"
+                                                    rescan);
+void displayBeginTransaction(displayPort_t *instance, displayTransactionOption_e opts);
+void displayCommitTransaction(displayPort_t *instance);
+
+# 130 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 130 "./src/main/drivers/display.h"
+    displayGetCanvas(struct displayCanvas_s *canvas, const displayPort_t *instance);
+void displayInit(displayPort_t *instance, const displayPortVTable_t *vTable, displayPortDeviceType_e deviceType);
+
+# 132 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 132 "./src/main/drivers/display.h"
+    displayLayerSupported(displayPort_t *instance, displayPortLayer_e layer);
+
+# 133 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 133 "./src/main/drivers/display.h"
+    displayLayerSelect(displayPort_t *instance, displayPortLayer_e layer);
+
+# 134 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 134 "./src/main/drivers/display.h"
+    displayLayerCopy(displayPort_t *instance, displayPortLayer_e destLayer, displayPortLayer_e sourceLayer);
+void displaySetBackgroundType(displayPort_t *instance, displayPortBackground_e backgroundType);
+
+# 136 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 136 "./src/main/drivers/display.h"
+    displaySupportsOsdSymbols(displayPort_t *instance);
+# 24 "./src/main/cms/cms.h" 2
+
+# 1 "./src/main/common/time.h" 1
+# 21 "./src/main/common/time.h"
+       
+# 31 "./src/main/common/time.h"
+typedef int32_t timeDelta_t;
+
+typedef uint32_t timeMs_t ;
+
+
+
+
+
+typedef uint32_t timeUs_t;
+
+
+
+
+
+
+static inline timeDelta_t cmpTimeUs(timeUs_t a, timeUs_t b) { return (timeDelta_t)(a - b); }
+
+
+
+
+
+typedef struct timeConfig_s {
+    int16_t tz_offsetMinutes;
+} timeConfig_t;
+
+extern timeConfig_t timeConfig_System; extern timeConfig_t timeConfig_Copy; static inline const timeConfig_t* timeConfig(void) { return &timeConfig_System; } static inline timeConfig_t* timeConfigMutable(void) { return &timeConfig_System; } struct _dummy;
+
+
+typedef int64_t rtcTime_t;
+
+rtcTime_t rtcTimeMake(int32_t secs, uint16_t millis);
+int32_t rtcTimeGetSeconds(rtcTime_t *t);
+uint16_t rtcTimeGetMillis(rtcTime_t *t);
+
+typedef struct _dateTime_s {
+
+    uint16_t year;
+
+    uint8_t month;
+
+    uint8_t day;
+
+    uint8_t hours;
+
+    uint8_t minutes;
+
+    uint8_t seconds;
+
+    uint16_t millis;
+} dateTime_t;
+
+
+
+# 83 "./src/main/common/time.h" 3 4
+_Bool 
+# 83 "./src/main/common/time.h"
+    dateTimeFormatUTC(char *buf, dateTime_t *dt);
+
+# 84 "./src/main/common/time.h" 3 4
+_Bool 
+# 84 "./src/main/common/time.h"
+    dateTimeFormatLocal(char *buf, dateTime_t *dt);
+
+# 85 "./src/main/common/time.h" 3 4
+_Bool 
+# 85 "./src/main/common/time.h"
+    dateTimeFormatLocalShort(char *buf, dateTime_t *dt);
+
+void dateTimeUTCToLocal(dateTime_t *utcDateTime, dateTime_t *localDateTime);
+
+
+
+
+# 91 "./src/main/common/time.h" 3 4
+_Bool 
+# 91 "./src/main/common/time.h"
+    dateTimeSplitFormatted(char *formatted, char **date, char **time);
+
+
+# 93 "./src/main/common/time.h" 3 4
+_Bool 
+# 93 "./src/main/common/time.h"
+    rtcHasTime(void);
+
+
+# 95 "./src/main/common/time.h" 3 4
+_Bool 
+# 95 "./src/main/common/time.h"
+    rtcGet(rtcTime_t *t);
+
+# 96 "./src/main/common/time.h" 3 4
+_Bool 
+# 96 "./src/main/common/time.h"
+    rtcSet(rtcTime_t *t);
+
+
+# 98 "./src/main/common/time.h" 3 4
+_Bool 
+# 98 "./src/main/common/time.h"
+    rtcGetDateTime(dateTime_t *dt);
+
+# 99 "./src/main/common/time.h" 3 4
+_Bool 
+# 99 "./src/main/common/time.h"
+    rtcSetDateTime(dateTime_t *dt);
+
+void rtcPersistWrite(int16_t offsetMinutes);
+
+# 102 "./src/main/common/time.h" 3 4
+_Bool 
+# 102 "./src/main/common/time.h"
+    rtcPersistRead(rtcTime_t *t);
+# 26 "./src/main/cms/cms.h" 2
+
+# 1 "./src/main/cms/cms_types.h" 1
+# 26 "./src/main/cms/cms_types.h"
+       
+
+
+
+typedef enum
+{
+    OME_Label,
+    OME_Back,
+    OME_OSD_Exit,
+    OME_Submenu,
+    OME_Funcall,
+    OME_Bool,
+    OME_INT8,
+    OME_UINT8,
+    OME_UINT16,
+    OME_INT16,
+    OME_UINT32,
+    OME_INT32,
+    OME_String,
+    OME_FLOAT,
+
+
+    OME_VISIBLE,
+
+    OME_TAB,
+    OME_END,
+
+
+    OME_MENU,
+
+    OME_MAX = OME_MENU
+} OSD_MenuElement;
+
+typedef const void *(*CMSEntryFuncPtr)(displayPort_t *displayPort, const void *ptr);
+
+typedef struct
+{
+    const char * text;
+    OSD_MenuElement type;
+    CMSEntryFuncPtr func;
+    void *data;
+    uint8_t flags;
+} __attribute__((packed)) OSD_Entry;
+# 92 "./src/main/cms/cms_types.h"
+typedef const void *(*CMSMenuFuncPtr)(displayPort_t *pDisp);
+
+
+extern int menuChainBack;
+# 105 "./src/main/cms/cms_types.h"
+typedef const void *(*CMSMenuOnExitPtr)(displayPort_t *pDisp, const OSD_Entry *self);
+
+typedef const void *(*CMSMenuOnDisplayUpdatePtr)(displayPort_t *pDisp, const OSD_Entry *selected);
+
+typedef struct
+{
+
+
+
+
+
+    const CMSMenuFuncPtr onEnter;
+    const CMSMenuOnExitPtr onExit;
+    const CMSMenuOnDisplayUpdatePtr onDisplayUpdate;
+    const OSD_Entry *entries;
+} CMS_Menu;
+
+typedef struct
+{
+    uint8_t *val;
+    uint8_t min;
+    uint8_t max;
+    uint8_t step;
+} OSD_UINT8_t;
+
+typedef struct
+{
+    int8_t *val;
+    int8_t min;
+    int8_t max;
+    int8_t step;
+} OSD_INT8_t;
+
+typedef struct
+{
+    int16_t *val;
+    int16_t min;
+    int16_t max;
+    int16_t step;
+} OSD_INT16_t;
+
+typedef struct
+{
+    uint16_t *val;
+    uint16_t min;
+    uint16_t max;
+    uint16_t step;
+} OSD_UINT16_t;
+
+typedef struct
+{
+    int32_t *val;
+    int32_t min;
+    int32_t max;
+    int32_t step;
+} OSD_INT32_t;
+
+typedef struct
+{
+    uint32_t *val;
+    uint32_t min;
+    uint32_t max;
+    uint32_t step;
+} OSD_UINT32_t;
+
+typedef struct
+{
+    uint8_t *val;
+    uint8_t min;
+    uint8_t max;
+    uint8_t step;
+    uint16_t multipler;
+} OSD_FLOAT_t;
+
+typedef struct
+{
+    uint8_t *val;
+    uint8_t max;
+    const char * const *names;
+} OSD_TAB_t;
+
+typedef struct
+{
+    char *val;
+} OSD_String_t;
+# 28 "./src/main/cms/cms.h" 2
+
+typedef enum {
+    CMS_KEY_NONE,
+    CMS_KEY_UP,
+    CMS_KEY_DOWN,
+    CMS_KEY_LEFT,
+    CMS_KEY_RIGHT,
+    CMS_KEY_ESC,
+    CMS_KEY_MENU,
+    CMS_KEY_SAVEMENU,
+} cms_key_e;
+
+extern 
+# 40 "./src/main/cms/cms.h" 3 4
+      _Bool 
+# 40 "./src/main/cms/cms.h"
+           cmsInMenu;
+
+
+
+# 43 "./src/main/cms/cms.h" 3 4
+_Bool 
+# 43 "./src/main/cms/cms.h"
+    cmsDisplayPortRegister(displayPort_t *pDisplay);
+
+extern displayPort_t *pCurrentDisplay;
+
+
+void cmsInit(void);
+void cmsHandler(timeUs_t currentTimeUs);
+
+
+# 51 "./src/main/cms/cms.h" 3 4
+_Bool 
+# 51 "./src/main/cms/cms.h"
+    cmsDisplayPortSelect(displayPort_t *instance);
+void cmsMenuOpen(void);
+const void *cmsMenuChange(displayPort_t *pPort, const void *ptr);
+const void *cmsMenuExit(displayPort_t *pPort, const void *ptr);
+void cmsSetExternKey(cms_key_e extKey);
+void inhibitSaveMenu(void);
+void cmsAddMenuEntry(OSD_Entry *menuEntry, char *text, OSD_MenuElement type, CMSEntryFuncPtr func, void *data, uint8_t flags);
+# 44 "./src/main/telemetry/ghst.c" 2
+
+# 1 "./src/main/drivers/nvic.h" 1
+# 21 "./src/main/drivers/nvic.h"
+       
+# 46 "./src/main/telemetry/ghst.c" 2
+
+# 1 "./src/main/config/config.h" 1
+# 21 "./src/main/config/config.h"
+       
+# 30 "./src/main/config/config.h"
+typedef enum {
+    CONFIGURATION_STATE_DEFAULTS_BARE = 0,
+    CONFIGURATION_STATE_DEFAULTS_CUSTOM,
+    CONFIGURATION_STATE_CONFIGURED,
+} configurationState_e;
+
+typedef enum {
+    SCHEDULER_OPTIMIZE_RATE_OFF = 0,
+    SCHEDULER_OPTIMIZE_RATE_ON,
+    SCHEDULER_OPTIMIZE_RATE_AUTO,
+} schedulerOptimizeRate_e;
+
+typedef struct pilotConfig_s {
+    char name[16u + 1];
+    char displayName[16u + 1];
+} pilotConfig_t;
+
+extern pilotConfig_t pilotConfig_System; extern pilotConfig_t pilotConfig_Copy; static inline const pilotConfig_t* pilotConfig(void) { return &pilotConfig_System; } static inline pilotConfig_t* pilotConfigMutable(void) { return &pilotConfig_System; } struct _dummy;
+
+typedef struct systemConfig_s {
+    uint8_t pidProfileIndex;
+    uint8_t activeRateProfile;
+    uint8_t debug_mode;
+    uint8_t task_statistics;
+    uint8_t rateProfile6PosSwitch;
+    uint8_t cpu_overclock;
+    uint8_t powerOnArmingGraceTime;
+    char boardIdentifier[sizeof("SP7E") + 1];
+    uint8_t hseMhz;
+    uint8_t configurationState;
+    uint8_t schedulerOptimizeRate;
+    uint8_t enableStickArming;
+} systemConfig_t;
+
+extern systemConfig_t systemConfig_System; extern systemConfig_t systemConfig_Copy; static inline const systemConfig_t* systemConfig(void) { return &systemConfig_System; } static inline systemConfig_t* systemConfigMutable(void) { return &systemConfig_System; } struct _dummy;
+
+struct pidProfile_s;
+extern struct pidProfile_s *currentPidProfile;
+
+void initEEPROM(void);
+
+# 70 "./src/main/config/config.h" 3 4
+_Bool 
+# 70 "./src/main/config/config.h"
+    resetEEPROM(
+# 70 "./src/main/config/config.h" 3 4
+                _Bool 
+# 70 "./src/main/config/config.h"
+                     useCustomDefaults);
+
+# 71 "./src/main/config/config.h" 3 4
+_Bool 
+# 71 "./src/main/config/config.h"
+    readEEPROM(void);
+void writeEEPROM(void);
+void writeUnmodifiedConfigToEEPROM(void);
+void ensureEEPROMStructureIsValid(void);
+
+void saveConfigAndNotify(void);
+void validateAndFixGyroConfig(void);
+
+void setConfigDirty(void);
+
+# 80 "./src/main/config/config.h" 3 4
+_Bool 
+# 80 "./src/main/config/config.h"
+    isConfigDirty(void);
+
+uint8_t getCurrentPidProfileIndex(void);
+void changePidProfile(uint8_t pidProfileIndex);
+void changePidProfileFromCellCount(uint8_t cellCount);
+struct pidProfile_s;
+void resetPidProfile(struct pidProfile_s *profile);
+
+uint8_t getCurrentControlRateProfileIndex(void);
+void changeControlRateProfile(uint8_t profileIndex);
+
+
+# 91 "./src/main/config/config.h" 3 4
+_Bool 
+# 91 "./src/main/config/config.h"
+    canSoftwareSerialBeUsed(void);
+
+uint16_t getCurrentMinthrottle(void);
+
+void resetConfig(void);
+void targetConfiguration(void);
+void targetValidateConfiguration(void);
+
+
+# 99 "./src/main/config/config.h" 3 4
+_Bool 
+# 99 "./src/main/config/config.h"
+    isSystemConfigured(void);
+void setRebootRequired(void);
+
+# 101 "./src/main/config/config.h" 3 4
+_Bool 
+# 101 "./src/main/config/config.h"
+    getRebootRequired(void);
+# 48 "./src/main/telemetry/ghst.c" 2
+# 1 "./src/main/fc/rc_modes.h" 1
+# 21 "./src/main/fc/rc_modes.h"
+       
+
+
+
+
+
+
+
+typedef enum {
+
+    BOXARM = 0,
+
+    BOXANGLE,
+    BOXHORIZON,
+    BOXMAG,
+    BOXHEADFREE,
+    BOXPASSTHRU,
+    BOXFAILSAFE,
+    BOXGPSRESCUE,
+    BOXID_FLIGHTMODE_LAST = BOXGPSRESCUE,
+
+
+
+
+    BOXANTIGRAVITY,
+    BOXHEADADJ,
+    BOXCAMSTAB,
+    BOXBEEPERON,
+    BOXLEDLOW,
+    BOXCALIB,
+    BOXOSD,
+    BOXTELEMETRY,
+    BOXSERVO1,
+    BOXSERVO2,
+    BOXSERVO3,
+    BOXBLACKBOX,
+    BOXAIRMODE,
+    BOX3D,
+    BOXFPVANGLEMIX,
+    BOXBLACKBOXERASE,
+    BOXCAMERA1,
+    BOXCAMERA2,
+    BOXCAMERA3,
+    BOXFLIPOVERAFTERCRASH,
+    BOXPREARM,
+    BOXBEEPGPSCOUNT,
+    BOXVTXPITMODE,
+    BOXPARALYZE,
+    BOXUSER1,
+    BOXUSER2,
+    BOXUSER3,
+    BOXUSER4,
+    BOXPIDAUDIO,
+    BOXACROTRAINER,
+    BOXVTXCONTROLDISABLE,
+    BOXLAUNCHCONTROL,
+    BOXMSPOVERRIDE,
+    BOXSTICKCOMMANDDISABLE,
+    BOXBEEPERMUTE,
+    CHECKBOX_ITEM_COUNT
+} boxId_e;
+
+typedef enum {
+    MODELOGIC_OR = 0,
+    MODELOGIC_AND
+} modeLogic_e;
+
+
+typedef struct boxBitmask_s { uint32_t bits[(CHECKBOX_ITEM_COUNT + 31) / 32]; } boxBitmask_t;
+# 106 "./src/main/fc/rc_modes.h"
+typedef struct channelRange_s {
+    uint8_t startStep;
+    uint8_t endStep;
+} channelRange_t;
+
+typedef struct modeActivationCondition_s {
+    boxId_e modeId;
+    uint8_t auxChannelIndex;
+    channelRange_t range;
+    modeLogic_e modeLogic;
+    boxId_e linkedTo;
+} modeActivationCondition_t;
+
+extern modeActivationCondition_t modeActivationConditions_SystemArray[20]; extern modeActivationCondition_t modeActivationConditions_CopyArray[20]; static inline const modeActivationCondition_t* modeActivationConditions(int _index) { return &modeActivationConditions_SystemArray[_index]; } static inline modeActivationCondition_t* modeActivationConditionsMutable(int _index) { return &modeActivationConditions_SystemArray[_index]; } static inline modeActivationCondition_t (* modeActivationConditions_array(void))[20] { return &modeActivationConditions_SystemArray; } struct _dummy;
+
+
+
+
+
+typedef struct modeActivationConfig_s {
+    char box_user_1_name[16];
+    char box_user_2_name[16];
+    char box_user_3_name[16];
+    char box_user_4_name[16];
+} modeActivationConfig_t;
+
+extern modeActivationConfig_t modeActivationConfig_System; extern modeActivationConfig_t modeActivationConfig_Copy; static inline const modeActivationConfig_t* modeActivationConfig(void) { return &modeActivationConfig_System; } static inline modeActivationConfig_t* modeActivationConfigMutable(void) { return &modeActivationConfig_System; } struct _dummy;
+
+
+typedef struct modeActivationProfile_s {
+    modeActivationCondition_t modeActivationConditions[20];
+} modeActivationProfile_t;
+
+
+
+
+# 141 "./src/main/fc/rc_modes.h" 3 4
+_Bool 
+# 141 "./src/main/fc/rc_modes.h"
+    IS_RC_MODE_ACTIVE(boxId_e boxId);
+void rcModeUpdate(boxBitmask_t *newState);
+
+
+# 144 "./src/main/fc/rc_modes.h" 3 4
+_Bool 
+# 144 "./src/main/fc/rc_modes.h"
+    airmodeIsEnabled(void);
+
+
+# 146 "./src/main/fc/rc_modes.h" 3 4
+_Bool 
+# 146 "./src/main/fc/rc_modes.h"
+    isRangeActive(uint8_t auxChannelIndex, const channelRange_t *range);
+void updateActivatedModes(void);
+
+# 148 "./src/main/fc/rc_modes.h" 3 4
+_Bool 
+# 148 "./src/main/fc/rc_modes.h"
+    isModeActivationConditionPresent(boxId_e modeId);
+
+# 149 "./src/main/fc/rc_modes.h" 3 4
+_Bool 
+# 149 "./src/main/fc/rc_modes.h"
+    isModeActivationConditionLinked(boxId_e modeId);
+void removeModeActivationCondition(boxId_e modeId);
+
+# 151 "./src/main/fc/rc_modes.h" 3 4
+_Bool 
+# 151 "./src/main/fc/rc_modes.h"
+    isModeActivationConditionConfigured(const modeActivationCondition_t *mac, const modeActivationCondition_t *emptyMac);
+void analyzeModeActivationConditions(void);
+# 49 "./src/main/telemetry/ghst.c" 2
+# 1 "./src/main/fc/runtime_config.h" 1
+# 21 "./src/main/fc/runtime_config.h"
+       
+
+
+
+
+typedef enum {
+    ARMED = (1 << 0),
+    WAS_EVER_ARMED = (1 << 1),
+    WAS_ARMED_WITH_PREARM = (1 << 2)
+} armingFlag_e;
+
+extern uint8_t armingFlags;
+# 42 "./src/main/fc/runtime_config.h"
+typedef enum {
+    ARMING_DISABLED_NO_GYRO = (1 << 0),
+    ARMING_DISABLED_FAILSAFE = (1 << 1),
+    ARMING_DISABLED_RX_FAILSAFE = (1 << 2),
+    ARMING_DISABLED_BAD_RX_RECOVERY = (1 << 3),
+    ARMING_DISABLED_BOXFAILSAFE = (1 << 4),
+    ARMING_DISABLED_RUNAWAY_TAKEOFF = (1 << 5),
+    ARMING_DISABLED_CRASH_DETECTED = (1 << 6),
+    ARMING_DISABLED_THROTTLE = (1 << 7),
+    ARMING_DISABLED_ANGLE = (1 << 8),
+    ARMING_DISABLED_BOOT_GRACE_TIME = (1 << 9),
+    ARMING_DISABLED_NOPREARM = (1 << 10),
+    ARMING_DISABLED_LOAD = (1 << 11),
+    ARMING_DISABLED_CALIBRATING = (1 << 12),
+    ARMING_DISABLED_CLI = (1 << 13),
+    ARMING_DISABLED_CMS_MENU = (1 << 14),
+    ARMING_DISABLED_BST = (1 << 15),
+    ARMING_DISABLED_MSP = (1 << 16),
+    ARMING_DISABLED_PARALYZE = (1 << 17),
+    ARMING_DISABLED_GPS = (1 << 18),
+    ARMING_DISABLED_RESC = (1 << 19),
+    ARMING_DISABLED_RPMFILTER = (1 << 20),
+    ARMING_DISABLED_REBOOT_REQUIRED = (1 << 21),
+    ARMING_DISABLED_DSHOT_BITBANG = (1 << 22),
+    ARMING_DISABLED_ACC_CALIBRATION = (1 << 23),
+    ARMING_DISABLED_MOTOR_PROTOCOL = (1 << 24),
+    ARMING_DISABLED_ARM_SWITCH = (1 << 25),
+} armingDisableFlags_e;
+
+
+
+extern const char *armingDisableFlagNames[((32*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) + (16*(((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))>65535L) + (8*((((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))*1L >>16*(((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))>65535L))>255) + (8 - 90/((((((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))*1L >>16*(((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))>65535L)) >>8*((((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))*1L >>16*(((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))>65535L))>255))/4+14)|1) - 2/(((((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))*1L >>16*(((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))>65535L)) >>8*((((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))*1L >>16*(((ARMING_DISABLED_ARM_SWITCH)*1L >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0) >>16*((ARMING_DISABLED_ARM_SWITCH)/2L>>31 > 0))>65535L))>255))/2+1))))) + 1)];
+
+void setArmingDisabled(armingDisableFlags_e flag);
+void unsetArmingDisabled(armingDisableFlags_e flag);
+
+# 77 "./src/main/fc/runtime_config.h" 3 4
+_Bool 
+# 77 "./src/main/fc/runtime_config.h"
+    isArmingDisabled(void);
+armingDisableFlags_e getArmingDisableFlags(void);
+
+typedef enum {
+    ANGLE_MODE = (1 << 0),
+    HORIZON_MODE = (1 << 1),
+    MAG_MODE = (1 << 2),
+
+
+
+    HEADFREE_MODE = (1 << 6),
+
+    PASSTHRU_MODE = (1 << 8),
+
+    FAILSAFE_MODE = (1 << 10),
+    GPS_RESCUE_MODE = (1 << 11)
+} flightModeFlags_e;
+
+extern uint16_t flightModeFlags;
+# 114 "./src/main/fc/runtime_config.h"
+typedef enum {
+    GPS_FIX_HOME = (1 << 0),
+    GPS_FIX = (1 << 1),
+} stateFlags_t;
+
+
+
+
+
+extern uint8_t stateFlags;
+
+uint16_t enableFlightMode(flightModeFlags_e mask);
+uint16_t disableFlightMode(flightModeFlags_e mask);
+
+
+# 128 "./src/main/fc/runtime_config.h" 3 4
+_Bool 
+# 128 "./src/main/fc/runtime_config.h"
+    sensors(uint32_t mask);
+void sensorsSet(uint32_t mask);
+void sensorsClear(uint32_t mask);
+uint32_t sensorsMask(void);
+
+void mwDisarm(void);
+# 50 "./src/main/telemetry/ghst.c" 2
+
+# 1 "./src/main/flight/imu.h" 1
+# 21 "./src/main/flight/imu.h"
+       
+
+# 1 "./src/main/common/axis.h" 1
+# 21 "./src/main/common/axis.h"
+       
+
+typedef enum {
+    X = 0,
+    Y,
+    Z
+} axis_e;
+
+
+
+
+typedef enum {
+    FD_ROLL = 0,
+    FD_PITCH,
+    FD_YAW
+} flight_dynamics_index_t;
+
+
+
+typedef enum {
+    AI_ROLL = 0,
+    AI_PITCH
+} angle_index_t;
+# 24 "./src/main/flight/imu.h" 2
+
+
+
+
+
+extern 
+# 29 "./src/main/flight/imu.h" 3 4
+      _Bool 
+# 29 "./src/main/flight/imu.h"
+           canUseGPSHeading;
+extern float accAverage[3];
+
+typedef struct {
+    float w,x,y,z;
+} quaternion;
+
+
+typedef struct {
+    float ww,wx,wy,wz,xx,xy,xz,yy,yz,zz;
+} quaternionProducts;
+
+
+typedef union {
+    int16_t raw[3];
+    struct {
+
+        int16_t roll;
+        int16_t pitch;
+        int16_t yaw;
+    } values;
+} attitudeEulerAngles_t;
+
+
+extern attitudeEulerAngles_t attitude;
+extern float rMat[3][3];
+
+typedef struct imuConfig_s {
+    uint16_t dcm_kp;
+    uint16_t dcm_ki;
+    uint8_t small_angle;
+} imuConfig_t;
+
+extern imuConfig_t imuConfig_System; extern imuConfig_t imuConfig_Copy; static inline const imuConfig_t* imuConfig(void) { return &imuConfig_System; } static inline imuConfig_t* imuConfigMutable(void) { return &imuConfig_System; } struct _dummy;
+
+typedef struct imuRuntimeConfig_s {
+    float dcm_ki;
+    float dcm_kp;
+} imuRuntimeConfig_t;
+
+void imuConfigure(uint16_t throttle_correction_angle, uint8_t throttle_correction_value);
+
+float getCosTiltAngle(void);
+void getQuaternion(quaternion * q);
+void imuUpdateAttitude(timeUs_t currentTimeUs);
+
+void imuInit(void);
+# 85 "./src/main/flight/imu.h"
+
+# 85 "./src/main/flight/imu.h" 3 4
+_Bool 
+# 85 "./src/main/flight/imu.h"
+    imuQuaternionHeadfreeOffsetSet(void);
+void imuQuaternionHeadfreeTransformVectorEarthToBody(t_fp_vector_def * v);
+
+# 87 "./src/main/flight/imu.h" 3 4
+_Bool 
+# 87 "./src/main/flight/imu.h"
+    shouldInitializeGPSHeading(void);
+
+# 88 "./src/main/flight/imu.h" 3 4
+_Bool 
+# 88 "./src/main/flight/imu.h"
+    isUpright(void);
+# 52 "./src/main/telemetry/ghst.c" 2
+# 1 "./src/main/flight/position.h" 1
+# 21 "./src/main/flight/position.h"
+       
+
+
+
+typedef struct positionConfig_s {
+    uint8_t altSource;
+} positionConfig_t;
+
+extern positionConfig_t positionConfig_System; extern positionConfig_t positionConfig_Copy; static inline const positionConfig_t* positionConfig(void) { return &positionConfig_System; } static inline positionConfig_t* positionConfigMutable(void) { return &positionConfig_System; } struct _dummy;
+
+
+# 31 "./src/main/flight/position.h" 3 4
+_Bool 
+# 31 "./src/main/flight/position.h"
+    isAltitudeOffset(void);
+void calculateEstimatedAltitude(timeUs_t currentTimeUs);
+int32_t getEstimatedAltitudeCm(void);
+int16_t getEstimatedVario(void);
+# 53 "./src/main/telemetry/ghst.c" 2
+
+# 1 "./src/main/io/gps.h" 1
+# 21 "./src/main/io/gps.h"
+       
+# 35 "./src/main/io/gps.h"
+typedef enum {
+    GPS_NMEA = 0,
+    GPS_UBLOX,
+    GPS_MSP
+} gpsProvider_e;
+
+typedef enum {
+    SBAS_AUTO = 0,
+    SBAS_EGNOS,
+    SBAS_WAAS,
+    SBAS_MSAS,
+    SBAS_GAGAN,
+    SBAS_NONE
+} sbasMode_e;
+
+
+
+typedef enum {
+    UBLOX_AIRBORNE = 0,
+    UBLOX_PEDESTRIAN,
+    UBLOX_DYNAMIC
+} ubloxMode_e;
+
+typedef enum {
+    GPS_BAUDRATE_115200 = 0,
+    GPS_BAUDRATE_57600,
+    GPS_BAUDRATE_38400,
+    GPS_BAUDRATE_19200,
+    GPS_BAUDRATE_9600
+} gpsBaudRate_e;
+
+typedef enum {
+    GPS_AUTOCONFIG_OFF = 0,
+    GPS_AUTOCONFIG_ON
+} gpsAutoConfig_e;
+
+typedef enum {
+    GPS_AUTOBAUD_OFF = 0,
+    GPS_AUTOBAUD_ON
+} gpsAutoBaud_e;
+
+typedef enum {
+    UBLOX_ACK_IDLE = 0,
+    UBLOX_ACK_WAITING,
+    UBLOX_ACK_GOT_ACK,
+    UBLOX_ACK_GOT_NACK,
+    UBLOX_ACK_GOT_TIMEOUT
+} ubloxAckState_e;
+
+
+
+typedef struct gpsConfig_s {
+    gpsProvider_e provider;
+    sbasMode_e sbasMode;
+    gpsAutoConfig_e autoConfig;
+    gpsAutoBaud_e autoBaud;
+    uint8_t gps_ublox_use_galileo;
+    ubloxMode_e gps_ublox_mode;
+    uint8_t gps_set_home_point_once;
+    uint8_t gps_use_3d_speed;
+    uint8_t sbas_integrity;
+} gpsConfig_t;
+
+extern gpsConfig_t gpsConfig_System; extern gpsConfig_t gpsConfig_Copy; static inline const gpsConfig_t* gpsConfig(void) { return &gpsConfig_System; } static inline gpsConfig_t* gpsConfigMutable(void) { return &gpsConfig_System; } struct _dummy;
+
+typedef struct gpsCoordinateDDDMMmmmm_s {
+    int16_t dddmm;
+    int16_t mmmm;
+} gpsCoordinateDDDMMmmmm_t;
+
+
+typedef struct gpsLocation_s {
+    int32_t lat;
+    int32_t lon;
+    int32_t altCm;
+} gpsLocation_t;
+
+typedef struct gpsSolutionData_s {
+    gpsLocation_t llh;
+    uint16_t speed3d;
+    uint16_t groundSpeed;
+    uint16_t groundCourse;
+    uint16_t hdop;
+    uint8_t numSat;
+} gpsSolutionData_t;
+
+typedef enum {
+    GPS_MESSAGE_STATE_IDLE = 0,
+    GPS_MESSAGE_STATE_INIT,
+    GPS_MESSAGE_STATE_SBAS,
+    GPS_MESSAGE_STATE_GNSS,
+    GPS_MESSAGE_STATE_INITIALIZED,
+    GPS_MESSAGE_STATE_PEDESTRIAN_TO_AIRBORNE,
+    GPS_MESSAGE_STATE_ENTRY_COUNT
+} gpsMessageState_e;
+
+typedef struct gpsData_s {
+    uint32_t errors;
+    uint32_t timeouts;
+    uint32_t lastMessage;
+    uint32_t lastLastMessage;
+
+    uint32_t state_position;
+    uint32_t state_ts;
+    uint8_t state;
+    uint8_t baudrateIndex;
+    gpsMessageState_e messageState;
+
+    uint8_t ackWaitingMsgId;
+    uint8_t ackTimeoutCounter;
+    ubloxAckState_e ackState;
+} gpsData_t;
+
+
+extern char gpsPacketLog[21];
+
+extern int32_t GPS_home[2];
+extern uint16_t GPS_distanceToHome;
+extern int16_t GPS_directionToHome;
+extern uint32_t GPS_distanceFlownInCm;
+extern int16_t GPS_verticalSpeedInCmS;
+extern int16_t GPS_angle[2];
+extern float dTnav;
+extern float GPS_scaleLonDown;
+extern int16_t nav_takeoff_bearing;
+
+typedef enum {
+    GPS_DIRECT_TICK = 1 << 0,
+    GPS_MSP_UPDATE = 1 << 1
+} gpsUpdateToggle_e;
+
+extern gpsData_t gpsData;
+extern gpsSolutionData_t gpsSol;
+
+extern uint8_t GPS_update;
+extern uint32_t GPS_packetCount;
+extern uint32_t GPS_svInfoReceivedCount;
+extern uint8_t GPS_numCh;
+extern uint8_t GPS_svinfo_chn[16];
+extern uint8_t GPS_svinfo_svid[16];
+extern uint8_t GPS_svinfo_quality[16];
+extern uint8_t GPS_svinfo_cno[16];
+
+
+
+
+void gpsInit(void);
+void gpsUpdate(timeUs_t currentTimeUs);
+
+# 183 "./src/main/io/gps.h" 3 4
+_Bool 
+# 183 "./src/main/io/gps.h"
+    gpsNewFrame(uint8_t c);
+
+# 184 "./src/main/io/gps.h" 3 4
+_Bool 
+# 184 "./src/main/io/gps.h"
+    gpsIsHealthy(void);
+struct serialPort_s;
+void gpsEnablePassthrough(struct serialPort_s *gpsPassthroughPort);
+void onGpsNewData(void);
+void GPS_reset_home_position(void);
+void GPS_calc_longitude_scaling(int32_t lat);
+void GPS_distance_cm_bearing(int32_t *currentLat1, int32_t *currentLon1, int32_t *destinationLat2, int32_t *destinationLon2, uint32_t *dist, int32_t *bearing);
+# 55 "./src/main/telemetry/ghst.c" 2
+# 1 "./src/main/io/serial.h" 1
+# 21 "./src/main/io/serial.h"
+       
+
+
+
+
+
+# 1 "./src/main/drivers/serial.h" 1
+# 21 "./src/main/drivers/serial.h"
+       
+
+# 1 "./src/main/drivers/io.h" 1
+# 21 "./src/main/drivers/io.h"
+       
+
+
+
+
+
+
+# 1 "./src/main/drivers/resource.h" 1
+# 21 "./src/main/drivers/resource.h"
+       
+
+typedef enum {
+    OWNER_FREE = 0,
+    OWNER_PWMINPUT,
+    OWNER_PPMINPUT,
+    OWNER_MOTOR,
+    OWNER_SERVO,
+    OWNER_LED,
+    OWNER_ADC,
+    OWNER_ADC_BATT,
+    OWNER_ADC_CURR,
+    OWNER_ADC_EXT,
+    OWNER_ADC_RSSI,
+    OWNER_SERIAL_TX,
+    OWNER_SERIAL_RX,
+    OWNER_PINDEBUG,
+    OWNER_TIMER,
+    OWNER_SONAR_TRIGGER,
+    OWNER_SONAR_ECHO,
+    OWNER_SYSTEM,
+    OWNER_SPI_SCK,
+    OWNER_SPI_MISO,
+    OWNER_SPI_MOSI,
+    OWNER_I2C_SCL,
+    OWNER_I2C_SDA,
+    OWNER_SDCARD,
+    OWNER_SDIO_CK,
+    OWNER_SDIO_CMD,
+    OWNER_SDIO_D0,
+    OWNER_SDIO_D1,
+    OWNER_SDIO_D2,
+    OWNER_SDIO_D3,
+    OWNER_SDCARD_CS,
+    OWNER_SDCARD_DETECT,
+    OWNER_FLASH_CS,
+    OWNER_BARO_CS,
+    OWNER_GYRO_CS,
+    OWNER_OSD_CS,
+    OWNER_RX_SPI_CS,
+    OWNER_SPI_CS,
+    OWNER_GYRO_EXTI,
+    OWNER_BARO_EOC,
+    OWNER_COMPASS_EXTI,
+    OWNER_USB,
+    OWNER_USB_DETECT,
+    OWNER_BEEPER,
+    OWNER_OSD,
+    OWNER_RX_BIND,
+    OWNER_INVERTER,
+    OWNER_LED_STRIP,
+    OWNER_TRANSPONDER,
+    OWNER_VTX_POWER,
+    OWNER_VTX_CS,
+    OWNER_VTX_DATA,
+    OWNER_VTX_CLK,
+    OWNER_COMPASS_CS,
+    OWNER_RX_BIND_PLUG,
+    OWNER_ESCSERIAL,
+    OWNER_CAMERA_CONTROL,
+    OWNER_TIMUP,
+    OWNER_RANGEFINDER,
+    OWNER_RX_SPI,
+    OWNER_PINIO,
+    OWNER_USB_MSC_PIN,
+    OWNER_MCO,
+    OWNER_RX_SPI_BIND,
+    OWNER_RX_SPI_LED,
+    OWNER_PREINIT,
+    OWNER_RX_SPI_EXTI,
+    OWNER_RX_SPI_CC2500_TX_EN,
+    OWNER_RX_SPI_CC2500_LNA_EN,
+    OWNER_RX_SPI_CC2500_ANT_SEL,
+    OWNER_QUADSPI_CLK,
+    OWNER_QUADSPI_BK1IO0,
+    OWNER_QUADSPI_BK1IO1,
+    OWNER_QUADSPI_BK1IO2,
+    OWNER_QUADSPI_BK1IO3,
+    OWNER_QUADSPI_BK1CS,
+    OWNER_QUADSPI_BK2IO0,
+    OWNER_QUADSPI_BK2IO1,
+    OWNER_QUADSPI_BK2IO2,
+    OWNER_QUADSPI_BK2IO3,
+    OWNER_QUADSPI_BK2CS,
+    OWNER_BARO_XCLR,
+    OWNER_PULLUP,
+    OWNER_PULLDOWN,
+    OWNER_DSHOT_BITBANG,
+    OWNER_SWD,
+    OWNER_TOTAL_COUNT
+} resourceOwner_e;
+
+typedef struct resourceOwner_s {
+    resourceOwner_e owner;
+    uint8_t resourceIndex;
+} resourceOwner_t;
+
+extern const char * const ownerNames[OWNER_TOTAL_COUNT];
+# 29 "./src/main/drivers/io.h" 2
+
+# 1 "./src/main/drivers/io_types.h" 1
+# 21 "./src/main/drivers/io_types.h"
+       
+
+
+
+
+
+typedef uint8_t ioTag_t;
+typedef void* IO_t;
+# 48 "./src/main/drivers/io_types.h"
+typedef uint8_t ioConfig_t;
+# 31 "./src/main/drivers/io.h" 2
+# 110 "./src/main/drivers/io.h"
+# 1 "./src/main/drivers/io_def.h" 1
+# 21 "./src/main/drivers/io_def.h"
+       
+# 54 "./src/main/drivers/io_def.h"
+# 1 "./src/main/drivers/io_def_generated.h" 1
+# 21 "./src/main/drivers/io_def_generated.h"
+       
+# 54 "./src/main/drivers/io_def.h" 2
+# 111 "./src/main/drivers/io.h" 2
+
+
+# 112 "./src/main/drivers/io.h" 3 4
+_Bool 
+# 112 "./src/main/drivers/io.h"
+    IORead(IO_t io);
+void IOWrite(IO_t io, 
+# 113 "./src/main/drivers/io.h" 3 4
+                     _Bool 
+# 113 "./src/main/drivers/io.h"
+                          value);
+void IOHi(IO_t io);
+void IOLo(IO_t io);
+void IOToggle(IO_t io);
+
+void IOInit(IO_t io, resourceOwner_e owner, uint8_t index);
+void IORelease(IO_t io);
+resourceOwner_e IOGetOwner(IO_t io);
+
+# 121 "./src/main/drivers/io.h" 3 4
+_Bool 
+# 121 "./src/main/drivers/io.h"
+    IOIsFreeOrPreinit(IO_t io);
+IO_t IOGetByTag(ioTag_t tag);
+
+void IOConfigGPIO(IO_t io, ioConfig_t cfg);
+
+void IOConfigGPIOAF(IO_t io, ioConfig_t cfg, uint8_t af);
+
+
+void IOInitGlobal(void);
+
+typedef void (*IOTraverseFuncPtr_t)(IO_t io);
+
+void IOTraversePins(IOTraverseFuncPtr_t func);
+
+GPIO_TypeDef* IO_GPIO(IO_t io);
+uint16_t IO_Pin(IO_t io);
+# 24 "./src/main/drivers/serial.h" 2
+
+
+
+
+
+typedef enum {
+    MODE_RX = 1 << 0,
+    MODE_TX = 1 << 1,
+    MODE_RXTX = MODE_RX | MODE_TX
+} portMode_e;
+
+typedef enum {
+    SERIAL_NOT_INVERTED = 0 << 0,
+    SERIAL_INVERTED = 1 << 0,
+    SERIAL_STOPBITS_1 = 0 << 1,
+    SERIAL_STOPBITS_2 = 1 << 1,
+    SERIAL_PARITY_NO = 0 << 2,
+    SERIAL_PARITY_EVEN = 1 << 2,
+    SERIAL_UNIDIR = 0 << 3,
+    SERIAL_BIDIR = 1 << 3,
+# 52 "./src/main/drivers/serial.h"
+    SERIAL_BIDIR_OD = 0 << 4,
+    SERIAL_BIDIR_PP = 1 << 4,
+    SERIAL_BIDIR_NOPULL = 1 << 5,
+} portOptions_e;
+
+
+
+
+
+typedef void (*serialReceiveCallbackPtr)(uint16_t data, void *rxCallbackData);
+typedef void (*serialIdleCallbackPtr)();
+
+typedef struct serialPort_s {
+
+    const struct serialPortVTable *vTable;
+
+    portMode_e mode;
+    portOptions_e options;
+
+    uint32_t baudRate;
+
+    uint32_t rxBufferSize;
+    uint32_t txBufferSize;
+    volatile uint8_t *rxBuffer;
+    volatile uint8_t *txBuffer;
+    uint32_t rxBufferHead;
+    uint32_t rxBufferTail;
+    uint32_t txBufferHead;
+    uint32_t txBufferTail;
+
+    serialReceiveCallbackPtr rxCallback;
+    void *rxCallbackData;
+
+    serialIdleCallbackPtr idleCallback;
+
+    uint8_t identifier;
+} serialPort_t;
+# 100 "./src/main/drivers/serial.h"
+typedef struct serialPinConfig_s {
+    ioTag_t ioTagTx[10];
+    ioTag_t ioTagRx[10];
+    ioTag_t ioTagInverter[10];
+} serialPinConfig_t;
+
+extern serialPinConfig_t serialPinConfig_System; extern serialPinConfig_t serialPinConfig_Copy; static inline const serialPinConfig_t* serialPinConfig(void) { return &serialPinConfig_System; } static inline serialPinConfig_t* serialPinConfigMutable(void) { return &serialPinConfig_System; } struct _dummy;
+
+struct serialPortVTable {
+    void (*serialWrite)(serialPort_t *instance, uint8_t ch);
+
+    uint32_t (*serialTotalRxWaiting)(const serialPort_t *instance);
+    uint32_t (*serialTotalTxFree)(const serialPort_t *instance);
+
+    uint8_t (*serialRead)(serialPort_t *instance);
+
+
+    void (*serialSetBaudRate)(serialPort_t *instance, uint32_t baudRate);
+
+    
+# 119 "./src/main/drivers/serial.h" 3 4
+   _Bool 
+# 119 "./src/main/drivers/serial.h"
+        (*isSerialTransmitBufferEmpty)(const serialPort_t *instance);
+
+    void (*setMode)(serialPort_t *instance, portMode_e mode);
+    void (*setCtrlLineStateCb)(serialPort_t *instance, void (*cb)(void *instance, uint16_t ctrlLineState), void *context);
+    void (*setBaudRateCb)(serialPort_t *instance, void (*cb)(serialPort_t *context, uint32_t baud), serialPort_t *context);
+
+    void (*writeBuf)(serialPort_t *instance, const void *data, int count);
+
+    void (*beginWrite)(serialPort_t *instance);
+    void (*endWrite)(serialPort_t *instance);
+};
+
+void serialWrite(serialPort_t *instance, uint8_t ch);
+uint32_t serialRxBytesWaiting(const serialPort_t *instance);
+uint32_t serialTxBytesFree(const serialPort_t *instance);
+void serialWriteBuf(serialPort_t *instance, const uint8_t *data, int count);
+uint8_t serialRead(serialPort_t *instance);
+void serialSetBaudRate(serialPort_t *instance, uint32_t baudRate);
+void serialSetMode(serialPort_t *instance, portMode_e mode);
+void serialSetCtrlLineStateCb(serialPort_t *instance, void (*cb)(void *context, uint16_t ctrlLineState), void *context);
+void serialSetBaudRateCb(serialPort_t *instance, void (*cb)(serialPort_t *context, uint32_t baud), serialPort_t *context);
+
+# 140 "./src/main/drivers/serial.h" 3 4
+_Bool 
+# 140 "./src/main/drivers/serial.h"
+    isSerialTransmitBufferEmpty(const serialPort_t *instance);
+void serialPrint(serialPort_t *instance, const char *str);
+uint32_t serialGetBaudRate(serialPort_t *instance);
+
+
+void serialWriteBufShim(void *instance, const uint8_t *data, int count);
+void serialBeginWrite(serialPort_t *instance);
+void serialEndWrite(serialPort_t *instance);
+# 28 "./src/main/io/serial.h" 2
+
+typedef enum {
+    PORTSHARING_UNUSED = 0,
+    PORTSHARING_NOT_SHARED,
+    PORTSHARING_SHARED
+} portSharing_e;
+
+typedef enum {
+    FUNCTION_NONE = 0,
+    FUNCTION_MSP = (1 << 0),
+    FUNCTION_GPS = (1 << 1),
+    FUNCTION_TELEMETRY_FRSKY_HUB = (1 << 2),
+    FUNCTION_TELEMETRY_HOTT = (1 << 3),
+    FUNCTION_TELEMETRY_LTM = (1 << 4),
+    FUNCTION_TELEMETRY_SMARTPORT = (1 << 5),
+    FUNCTION_RX_SERIAL = (1 << 6),
+    FUNCTION_BLACKBOX = (1 << 7),
+    FUNCTION_TELEMETRY_MAVLINK = (1 << 9),
+    FUNCTION_ESC_SENSOR = (1 << 10),
+    FUNCTION_VTX_SMARTAUDIO = (1 << 11),
+    FUNCTION_TELEMETRY_IBUS = (1 << 12),
+    FUNCTION_VTX_TRAMP = (1 << 13),
+    FUNCTION_RCDEVICE = (1 << 14),
+    FUNCTION_LIDAR_TF = (1 << 15),
+    FUNCTION_FRSKY_OSD = (1 << 16),
+} serialPortFunction_e;
+
+
+
+
+typedef enum {
+    BAUD_AUTO = 0,
+    BAUD_9600,
+    BAUD_19200,
+    BAUD_38400,
+    BAUD_57600,
+    BAUD_115200,
+    BAUD_230400,
+    BAUD_250000,
+    BAUD_400000,
+    BAUD_460800,
+    BAUD_500000,
+    BAUD_921600,
+    BAUD_1000000,
+    BAUD_1500000,
+    BAUD_2000000,
+    BAUD_2470000
+} baudRate_e;
+
+extern const uint32_t baudRates[];
+
+
+typedef enum {
+    SERIAL_PORT_ALL = -2,
+    SERIAL_PORT_NONE = -1,
+    SERIAL_PORT_USART1 = 0,
+    SERIAL_PORT_USART2,
+    SERIAL_PORT_USART3,
+    SERIAL_PORT_UART4,
+    SERIAL_PORT_UART5,
+    SERIAL_PORT_USART6,
+    SERIAL_PORT_USART7,
+    SERIAL_PORT_USART8,
+    SERIAL_PORT_LPUART1,
+    SERIAL_PORT_USB_VCP = 20,
+    SERIAL_PORT_SOFTSERIAL1 = 30,
+    SERIAL_PORT_SOFTSERIAL2,
+    SERIAL_PORT_IDENTIFIER_MAX = SERIAL_PORT_SOFTSERIAL2,
+} serialPortIdentifier_e;
+
+extern const serialPortIdentifier_e serialPortIdentifiers[8];
+# 107 "./src/main/io/serial.h"
+typedef struct serialPortUsage_s {
+    serialPort_t *serialPort;
+    serialPortFunction_e function;
+    serialPortIdentifier_e identifier;
+} serialPortUsage_t;
+
+serialPort_t *findSharedSerialPort(uint16_t functionMask, serialPortFunction_e sharedWithFunction);
+
+
+
+
+typedef struct serialPortConfig_s {
+    uint32_t functionMask;
+    int8_t identifier;
+    uint8_t msp_baudrateIndex;
+    uint8_t gps_baudrateIndex;
+    uint8_t blackbox_baudrateIndex;
+    uint8_t telemetry_baudrateIndex;
+} serialPortConfig_t;
+
+typedef struct serialConfig_s {
+    serialPortConfig_t portConfigs[8];
+    uint16_t serial_update_rate_hz;
+    uint8_t reboot_character;
+} serialConfig_t;
+
+extern serialConfig_t serialConfig_System; extern serialConfig_t serialConfig_Copy; static inline const serialConfig_t* serialConfig(void) { return &serialConfig_System; } static inline serialConfig_t* serialConfigMutable(void) { return &serialConfig_System; } struct _dummy;
+
+typedef void serialConsumer(uint8_t);
+
+
+
+
+void serialInit(
+# 140 "./src/main/io/serial.h" 3 4
+               _Bool 
+# 140 "./src/main/io/serial.h"
+                    softserialEnabled, serialPortIdentifier_e serialPortToDisable);
+void serialRemovePort(serialPortIdentifier_e identifier);
+uint8_t serialGetAvailablePortCount(void);
+
+# 143 "./src/main/io/serial.h" 3 4
+_Bool 
+# 143 "./src/main/io/serial.h"
+    serialIsPortAvailable(serialPortIdentifier_e identifier);
+
+# 144 "./src/main/io/serial.h" 3 4
+_Bool 
+# 144 "./src/main/io/serial.h"
+    isSerialConfigValid(const serialConfig_t *serialConfig);
+const serialPortConfig_t *serialFindPortConfiguration(serialPortIdentifier_e identifier);
+serialPortConfig_t *serialFindPortConfigurationMutable(serialPortIdentifier_e identifier);
+
+# 147 "./src/main/io/serial.h" 3 4
+_Bool 
+# 147 "./src/main/io/serial.h"
+    doesConfigurationUsePort(serialPortIdentifier_e portIdentifier);
+const serialPortConfig_t *findSerialPortConfig(serialPortFunction_e function);
+const serialPortConfig_t *findNextSerialPortConfig(serialPortFunction_e function);
+
+portSharing_e determinePortSharing(const serialPortConfig_t *portConfig, serialPortFunction_e function);
+
+# 152 "./src/main/io/serial.h" 3 4
+_Bool 
+# 152 "./src/main/io/serial.h"
+    isSerialPortShared(const serialPortConfig_t *portConfig, uint16_t functionMask, serialPortFunction_e sharedWithFunction);
+
+void pgResetFn_serialConfig(serialConfig_t *serialConfig);
+serialPortUsage_t *findSerialPortUsageByIdentifier(serialPortIdentifier_e identifier);
+int findSerialPortIndexByIdentifier(serialPortIdentifier_e identifier);
+
+
+
+serialPort_t *openSerialPort(
+    serialPortIdentifier_e identifier,
+    serialPortFunction_e function,
+    serialReceiveCallbackPtr rxCallback,
+    void *rxCallbackData,
+    uint32_t baudrate,
+    portMode_e mode,
+    portOptions_e options
+);
+void closeSerialPort(serialPort_t *serialPort);
+
+void waitForSerialPortToFinishTransmitting(serialPort_t *serialPort);
+
+baudRate_e lookupBaudRateIndex(uint32_t baudRate);
+
+
+
+
+
+void serialPassthrough(serialPort_t *left, serialPort_t *right, serialConsumer *leftC, serialConsumer *rightC);
+# 56 "./src/main/telemetry/ghst.c" 2
+
+# 1 "./src/main/rx/ghst.h" 1
+# 21 "./src/main/rx/ghst.h"
+       
+
+# 1 "./src/main/rx/ghst_protocol.h" 1
+# 21 "./src/main/rx/ghst_protocol.h"
+       
+# 34 "./src/main/rx/ghst_protocol.h"
+typedef enum {
+    GHST_ADDR_RADIO = 0x80,
+    GHST_ADDR_TX_MODULE_SYM = 0x81,
+    GHST_ADDR_TX_MODULE_ASYM = 0x88,
+    GHST_ADDR_FC = 0x82,
+    GHST_ADDR_GOGGLES = 0x83,
+    GHST_ADDR_QUANTUM_TEE1 = 0x84,
+    GHST_ADDR_QUANTUM_TEE2 = 0x85,
+    GHST_ADDR_QUANTUM_GW1 = 0x86,
+    GHST_ADDR_5G_CLK = 0x87,
+    GHST_ADDR_RX = 0x89
+} ghstAddr_e;
+
+typedef enum {
+
+
+
+    GHST_UL_RC_CHANS_HS4_FIRST = 0x10,
+    GHST_UL_RC_CHANS_HS4_5TO8 = 0x10,
+    GHST_UL_RC_CHANS_HS4_9TO12 = 0x11,
+    GHST_UL_RC_CHANS_HS4_13TO16 = 0x12,
+    GHST_UL_RC_CHANS_HS4_RSSI = 0x13,
+    GHST_UL_RC_CHANS_HS4_LAST = 0x1f
+} ghstUl_e;
+
+
+
+typedef enum {
+    GHST_DL_OPENTX_SYNC = 0x20,
+    GHST_DL_LINK_STAT = 0x21,
+    GHST_DL_VTX_STAT = 0x22,
+    GHST_DL_PACK_STAT = 0x23,
+} ghstDl_e;
+# 77 "./src/main/rx/ghst_protocol.h"
+typedef struct ghstFrameDef_s {
+    uint8_t addr;
+    uint8_t len;
+    uint8_t type;
+    uint8_t payload[14 + 1];
+} ghstFrameDef_t;
+
+typedef union ghstFrame_u {
+    uint8_t bytes[14];
+    ghstFrameDef_t frame;
+} ghstFrame_t;
+
+
+
+typedef struct ghstPayloadServo4_s {
+
+    unsigned int ch1: 12;
+    unsigned int ch2: 12;
+    unsigned int ch3: 12;
+    unsigned int ch4: 12;
+} __attribute__ ((__packed__)) ghstPayloadServo4_t;
+
+
+typedef struct ghstPayloadPulses_s {
+
+    ghstPayloadServo4_t ch1to4;
+
+    unsigned int cha: 8;
+    unsigned int chb: 8;
+    unsigned int chc: 8;
+    unsigned int chd: 8;
+} __attribute__ ((__packed__)) ghstPayloadPulses_t;
+
+
+typedef struct ghstPayloadPulsesRssi_s {
+
+   ghstPayloadServo4_t ch1to4;
+
+    unsigned int lq: 8;
+    unsigned int rssi: 8;
+    unsigned int rfProtocol: 8;
+    signed int txPwrdBm: 8;
+} __attribute__ ((__packed__)) ghstPayloadPulsesRssi_t;
+# 24 "./src/main/rx/ghst.h" 2
+
+
+
+void ghstRxWriteTelemetryData(const void *data, int len);
+void ghstRxSendTelemetryData(void);
+
+struct rxConfig_s;
+struct rxRuntimeState_s;
+
+# 32 "./src/main/rx/ghst.h" 3 4
+_Bool 
+# 32 "./src/main/rx/ghst.h"
+    ghstRxInit(const struct rxConfig_s *initialRxConfig, struct rxRuntimeState_s *rxRuntimeState);
+
+# 33 "./src/main/rx/ghst.h" 3 4
+_Bool 
+# 33 "./src/main/rx/ghst.h"
+    ghstRxIsActive(void);
+# 58 "./src/main/telemetry/ghst.c" 2
+
+
+# 1 "./src/main/sensors/battery.h" 1
+# 21 "./src/main/sensors/battery.h"
+       
+
+
+
+# 1 "./src/main/common/filter.h" 1
+# 21 "./src/main/common/filter.h"
+       
+
+
+struct filter_s;
+typedef struct filter_s filter_t;
+
+typedef struct pt1Filter_s {
+    float state;
+    float k;
+} pt1Filter_t;
+
+typedef struct slewFilter_s {
+    float state;
+    float slewLimit;
+    float threshold;
+} slewFilter_t;
+
+
+typedef struct biquadFilter_s {
+    float b0, b1, b2, a1, a2;
+    float x1, x2, y1, y2;
+} biquadFilter_t;
+
+typedef struct laggedMovingAverage_s {
+    uint16_t movingWindowIndex;
+    uint16_t windowSize;
+    float movingSum;
+    float *buf;
+    
+# 49 "./src/main/common/filter.h" 3 4
+   _Bool 
+# 49 "./src/main/common/filter.h"
+        primed;
+} laggedMovingAverage_t;
+
+typedef enum {
+    FILTER_PT1 = 0,
+    FILTER_BIQUAD,
+} lowpassFilterType_e;
+
+typedef enum {
+    FILTER_LPF,
+    FILTER_NOTCH,
+    FILTER_BPF,
+} biquadFilterType_e;
+
+typedef float (*filterApplyFnPtr)(filter_t *filter, float input);
+
+float nullFilterApply(filter_t *filter, float input);
+
+void biquadFilterInitLPF(biquadFilter_t *filter, float filterFreq, uint32_t refreshRate);
+void biquadFilterInit(biquadFilter_t *filter, float filterFreq, uint32_t refreshRate, float Q, biquadFilterType_e filterType);
+void biquadFilterUpdate(biquadFilter_t *filter, float filterFreq, uint32_t refreshRate, float Q, biquadFilterType_e filterType);
+void biquadFilterUpdateLPF(biquadFilter_t *filter, float filterFreq, uint32_t refreshRate);
+
+float biquadFilterApplyDF1(biquadFilter_t *filter, float input);
+float biquadFilterApply(biquadFilter_t *filter, float input);
+float filterGetNotchQ(float centerFreq, float cutoffFreq);
+
+void laggedMovingAverageInit(laggedMovingAverage_t *filter, uint16_t windowSize, float *buf);
+float laggedMovingAverageUpdate(laggedMovingAverage_t *filter, float input);
+
+float pt1FilterGain(float f_cut, float dT);
+void pt1FilterInit(pt1Filter_t *filter, float k);
+void pt1FilterUpdateCutoff(pt1Filter_t *filter, float k);
+float pt1FilterApply(pt1Filter_t *filter, float input);
+
+void slewFilterInit(slewFilter_t *filter, float slewLimit, float threshold);
+float slewFilterApply(slewFilter_t *filter, float input);
+# 26 "./src/main/sensors/battery.h" 2
+
+# 1 "./src/main/sensors/current.h" 1
+# 21 "./src/main/sensors/current.h"
+       
+
+
+# 1 "./src/main/sensors/current_ids.h" 1
+# 21 "./src/main/sensors/current_ids.h"
+       
+
+
+
+
+
+typedef enum {
+    CURRENT_METER_ID_NONE = 0,
+
+    CURRENT_METER_ID_BATTERY_1 = 10,
+    CURRENT_METER_ID_BATTERY_2,
+
+    CURRENT_METER_ID_BATTERY_10 = 19,
+
+    CURRENT_METER_ID_5V_1 = 20,
+    CURRENT_METER_ID_5V_2,
+
+    CURRENT_METER_ID_5V_10 = 29,
+
+    CURRENT_METER_ID_9V_1 = 30,
+    CURRENT_METER_ID_9V_2,
+
+    CURRENT_METER_ID_9V_10 = 39,
+
+    CURRENT_METER_ID_12V_1 = 40,
+    CURRENT_METER_ID_12V_2,
+
+    CURRENT_METER_ID_12V_10 = 49,
+
+    CURRENT_METER_ID_ESC_COMBINED_1 = 50,
+
+    CURRENT_METER_ID_ESC_COMBINED_10 = 59,
+
+    CURRENT_METER_ID_ESC_MOTOR_1 = 60,
+    CURRENT_METER_ID_ESC_MOTOR_2,
+    CURRENT_METER_ID_ESC_MOTOR_3,
+    CURRENT_METER_ID_ESC_MOTOR_4,
+    CURRENT_METER_ID_ESC_MOTOR_5,
+    CURRENT_METER_ID_ESC_MOTOR_6,
+    CURRENT_METER_ID_ESC_MOTOR_7,
+    CURRENT_METER_ID_ESC_MOTOR_8,
+    CURRENT_METER_ID_ESC_MOTOR_9,
+    CURRENT_METER_ID_ESC_MOTOR_10,
+    CURRENT_METER_ID_ESC_MOTOR_11,
+    CURRENT_METER_ID_ESC_MOTOR_12,
+
+    CURRENT_METER_ID_ESC_MOTOR_20 = 79,
+
+    CURRENT_METER_ID_VIRTUAL_1 = 80,
+    CURRENT_METER_ID_VIRTUAL_2,
+
+    CURRENT_METER_ID_MSP_1 = 90,
+    CURRENT_METER_ID_MSP_2,
+
+} currentMeterId_e;
+# 25 "./src/main/sensors/current.h" 2
+
+typedef enum {
+    CURRENT_METER_NONE = 0,
+    CURRENT_METER_ADC,
+    CURRENT_METER_VIRTUAL,
+    CURRENT_METER_ESC,
+    CURRENT_METER_MSP,
+    CURRENT_METER_COUNT
+} currentMeterSource_e;
+
+extern const char * const currentMeterSourceNames[CURRENT_METER_COUNT];
+
+typedef struct currentMeter_s {
+    int32_t amperage;
+    int32_t amperageLatest;
+    int32_t mAhDrawn;
+} currentMeter_t;
+
+
+
+typedef struct currentMeterMAhDrawnState_s {
+    int32_t mAhDrawn;
+    float mAhDrawnF;
+} currentMeterMAhDrawnState_t;
+
+
+
+
+
+typedef enum {
+    CURRENT_SENSOR_VIRTUAL = 0,
+    CURRENT_SENSOR_ADC,
+    CURRENT_SENSOR_ESC,
+    CURRENT_SENSOR_MSP
+} currentSensor_e;
+
+
+
+
+
+
+typedef struct currentMeterADCState_s {
+    currentMeterMAhDrawnState_t mahDrawnState;
+    int32_t amperage;
+    int32_t amperageLatest;
+} currentMeterADCState_t;
+
+typedef struct currentSensorADCConfig_s {
+    int16_t scale;
+    int16_t offset;
+} currentSensorADCConfig_t;
+
+extern currentSensorADCConfig_t currentSensorADCConfig_System; extern currentSensorADCConfig_t currentSensorADCConfig_Copy; static inline const currentSensorADCConfig_t* currentSensorADCConfig(void) { return &currentSensorADCConfig_System; } static inline currentSensorADCConfig_t* currentSensorADCConfigMutable(void) { return &currentSensorADCConfig_System; } struct _dummy;
+
+
+
+
+
+typedef struct currentMeterVirtualState_s {
+    currentMeterMAhDrawnState_t mahDrawnState;
+    int32_t amperage;
+} currentSensorVirtualState_t;
+
+typedef struct currentSensorVirtualConfig_s {
+    int16_t scale;
+    uint16_t offset;
+} currentSensorVirtualConfig_t;
+
+extern currentSensorVirtualConfig_t currentSensorVirtualConfig_System; extern currentSensorVirtualConfig_t currentSensorVirtualConfig_Copy; static inline const currentSensorVirtualConfig_t* currentSensorVirtualConfig(void) { return &currentSensorVirtualConfig_System; } static inline currentSensorVirtualConfig_t* currentSensorVirtualConfigMutable(void) { return &currentSensorVirtualConfig_System; } struct _dummy;
+
+
+
+
+
+typedef struct currentMeterESCState_s {
+    int32_t mAhDrawn;
+    int32_t amperage;
+} currentMeterESCState_t;
+
+
+
+
+
+
+typedef struct currentMeterMSPState_s {
+    int32_t mAhDrawn;
+    int32_t amperage;
+} currentMeterMSPState_t;
+
+
+
+
+
+
+void currentMeterReset(currentMeter_t *meter);
+
+void currentMeterADCInit(void);
+void currentMeterADCRefresh(int32_t lastUpdateAt);
+void currentMeterADCRead(currentMeter_t *meter);
+
+void currentMeterVirtualInit(void);
+void currentMeterVirtualRefresh(int32_t lastUpdateAt, 
+# 126 "./src/main/sensors/current.h" 3 4
+                                                     _Bool 
+# 126 "./src/main/sensors/current.h"
+                                                          armed, 
+# 126 "./src/main/sensors/current.h" 3 4
+                                                                 _Bool 
+# 126 "./src/main/sensors/current.h"
+                                                                      throttleLowAndMotorStop, int32_t throttleOffset);
+void currentMeterVirtualRead(currentMeter_t *meter);
+
+void currentMeterESCInit(void);
+void currentMeterESCRefresh(int32_t lastUpdateAt);
+void currentMeterESCReadCombined(currentMeter_t *meter);
+void currentMeterESCReadMotor(uint8_t motorNumber, currentMeter_t *meter);
+
+void currentMeterMSPInit(void);
+void currentMeterMSPRefresh(timeUs_t currentTimeUs);
+void currentMeterMSPRead(currentMeter_t *meter);
+void currentMeterMSPSet(uint16_t amperage, uint16_t mAhDrawn);
+
+
+
+
+extern const uint8_t supportedCurrentMeterCount;
+extern const uint8_t currentMeterIds[];
+void currentMeterRead(currentMeterId_e id, currentMeter_t *currentMeter);
+# 28 "./src/main/sensors/battery.h" 2
+# 1 "./src/main/sensors/voltage.h" 1
+# 21 "./src/main/sensors/voltage.h"
+       
+
+# 1 "./src/main/sensors/voltage_ids.h" 1
+# 21 "./src/main/sensors/voltage_ids.h"
+       
+
+
+
+
+
+typedef enum {
+    VOLTAGE_METER_ID_NONE = 0,
+
+    VOLTAGE_METER_ID_BATTERY_1 = 10,
+    VOLTAGE_METER_ID_BATTERY_2,
+
+    VOLTAGE_METER_ID_BATTERY_10 = 19,
+
+    VOLTAGE_METER_ID_5V_1 = 20,
+    VOLTAGE_METER_ID_5V_2,
+
+    VOLTAGE_METER_ID_5V_10 = 29,
+
+    VOLTAGE_METER_ID_9V_1 = 30,
+    VOLTAGE_METER_ID_9V_2,
+
+    VOLTAGE_METER_ID_9V_10 = 39,
+
+    VOLTAGE_METER_ID_12V_1 = 40,
+    VOLTAGE_METER_ID_12V_2,
+
+    VOLTAGE_METER_ID_12V_10 = 49,
+
+    VOLTAGE_METER_ID_ESC_COMBINED_1 = 50,
+
+    VOLTAGE_METER_ID_ESC_COMBINED_10 = 59,
+
+    VOLTAGE_METER_ID_ESC_MOTOR_1 = 60,
+    VOLTAGE_METER_ID_ESC_MOTOR_2,
+    VOLTAGE_METER_ID_ESC_MOTOR_3,
+    VOLTAGE_METER_ID_ESC_MOTOR_4,
+    VOLTAGE_METER_ID_ESC_MOTOR_5,
+    VOLTAGE_METER_ID_ESC_MOTOR_6,
+    VOLTAGE_METER_ID_ESC_MOTOR_7,
+    VOLTAGE_METER_ID_ESC_MOTOR_8,
+    VOLTAGE_METER_ID_ESC_MOTOR_9,
+    VOLTAGE_METER_ID_ESC_MOTOR_10,
+    VOLTAGE_METER_ID_ESC_MOTOR_11,
+    VOLTAGE_METER_ID_ESC_MOTOR_12,
+
+    VOLTAGE_METER_ID_ESC_MOTOR_20 = 79,
+
+    VOLTAGE_METER_ID_CELL_1 = 80,
+    VOLTAGE_METER_ID_CELL_2,
+
+    VOLTAGE_METER_ID_CELL_40 = 119,
+
+} voltageMeterId_e;
+# 24 "./src/main/sensors/voltage.h" 2
+# 32 "./src/main/sensors/voltage.h"
+typedef enum {
+    VOLTAGE_METER_NONE = 0,
+    VOLTAGE_METER_ADC,
+    VOLTAGE_METER_ESC,
+    VOLTAGE_METER_COUNT
+} voltageMeterSource_e;
+
+extern const char * const voltageMeterSourceNames[VOLTAGE_METER_COUNT];
+
+
+
+typedef struct voltageMeter_s {
+    uint16_t displayFiltered;
+    uint16_t unfiltered;
+
+
+
+    
+# 49 "./src/main/sensors/voltage.h" 3 4
+   _Bool 
+# 49 "./src/main/sensors/voltage.h"
+        lowVoltageCutoff;
+} voltageMeter_t;
+
+
+
+
+
+
+typedef enum {
+    VOLTAGE_SENSOR_TYPE_ADC_RESISTOR_DIVIDER = 0,
+    VOLTAGE_SENSOR_TYPE_ESC
+} voltageSensorType_e;
+# 82 "./src/main/sensors/voltage.h"
+typedef enum {
+    VOLTAGE_SENSOR_ADC_VBAT = 0,
+    VOLTAGE_SENSOR_ADC_12V = 1,
+    VOLTAGE_SENSOR_ADC_9V = 2,
+    VOLTAGE_SENSOR_ADC_5V = 3
+} voltageSensorADC_e;
+
+
+typedef struct voltageSensorADCConfig_s {
+    uint8_t vbatscale;
+    uint8_t vbatresdivval;
+    uint8_t vbatresdivmultiplier;
+} voltageSensorADCConfig_t;
+
+extern voltageSensorADCConfig_t voltageSensorADCConfig_SystemArray[1]; extern voltageSensorADCConfig_t voltageSensorADCConfig_CopyArray[1]; static inline const voltageSensorADCConfig_t* voltageSensorADCConfig(int _index) { return &voltageSensorADCConfig_SystemArray[_index]; } static inline voltageSensorADCConfig_t* voltageSensorADCConfigMutable(int _index) { return &voltageSensorADCConfig_SystemArray[_index]; } static inline voltageSensorADCConfig_t (* voltageSensorADCConfig_array(void))[1] { return &voltageSensorADCConfig_SystemArray; } struct _dummy;
+
+
+
+
+void voltageMeterReset(voltageMeter_t *voltageMeter);
+
+void voltageMeterGenericInit(void);
+
+void voltageMeterADCInit(void);
+void voltageMeterADCRefresh(void);
+void voltageMeterADCRead(voltageSensorADC_e adcChannel, voltageMeter_t *voltageMeter);
+
+void voltageMeterESCInit(void);
+void voltageMeterESCRefresh(void);
+void voltageMeterESCReadCombined(voltageMeter_t *voltageMeter);
+void voltageMeterESCReadMotor(uint8_t motor, voltageMeter_t *voltageMeter);
+
+
+
+
+
+extern const uint8_t voltageMeterADCtoIDMap[1];
+
+extern const uint8_t supportedVoltageMeterCount;
+extern const uint8_t voltageMeterIds[];
+void voltageMeterRead(voltageMeterId_e id, voltageMeter_t *voltageMeter);
+
+
+# 124 "./src/main/sensors/voltage.h" 3 4
+_Bool 
+# 124 "./src/main/sensors/voltage.h"
+    isSagCompensationConfigured(void);
+# 29 "./src/main/sensors/battery.h" 2
+# 42 "./src/main/sensors/battery.h"
+enum {
+    AUTO_PROFILE_CELL_COUNT_STAY = 0,
+    AUTO_PROFILE_CELL_COUNT_CHANGE = -1,
+};
+
+typedef struct batteryConfig_s {
+
+    uint16_t vbatmaxcellvoltage;
+    uint16_t vbatmincellvoltage;
+    uint16_t vbatwarningcellvoltage;
+    uint16_t vbatnotpresentcellvoltage;
+    uint8_t lvcPercentage;
+    voltageMeterSource_e voltageMeterSource;
+
+
+    currentMeterSource_e currentMeterSource;
+    uint16_t batteryCapacity;
+
+
+    
+# 61 "./src/main/sensors/battery.h" 3 4
+   _Bool 
+# 61 "./src/main/sensors/battery.h"
+        useVBatAlerts;
+    
+# 62 "./src/main/sensors/battery.h" 3 4
+   _Bool 
+# 62 "./src/main/sensors/battery.h"
+        useConsumptionAlerts;
+    uint8_t consumptionWarningPercentage;
+    uint8_t vbathysteresis;
+
+    uint16_t vbatfullcellvoltage;
+
+    uint8_t forceBatteryCellCount;
+    uint8_t vbatDisplayLpfPeriod;
+    uint8_t ibatLpfPeriod;
+    uint8_t vbatDurationForWarning;
+    uint8_t vbatDurationForCritical;
+    uint8_t vbatSagLpfPeriod;
+} batteryConfig_t;
+
+extern batteryConfig_t batteryConfig_System; extern batteryConfig_t batteryConfig_Copy; static inline const batteryConfig_t* batteryConfig(void) { return &batteryConfig_System; } static inline batteryConfig_t* batteryConfigMutable(void) { return &batteryConfig_System; } struct _dummy;
+
+typedef struct lowVoltageCutoff_s {
+    
+# 79 "./src/main/sensors/battery.h" 3 4
+   _Bool 
+# 79 "./src/main/sensors/battery.h"
+        enabled;
+    uint8_t percentage;
+    timeUs_t startTime;
+} lowVoltageCutoff_t;
+
+typedef enum {
+    BATTERY_OK = 0,
+    BATTERY_WARNING,
+    BATTERY_CRITICAL,
+    BATTERY_NOT_PRESENT,
+    BATTERY_INIT
+} batteryState_e;
+
+void batteryInit(void);
+void batteryUpdateVoltage(timeUs_t currentTimeUs);
+void batteryUpdatePresence(void);
+
+batteryState_e getBatteryState(void);
+batteryState_e getVoltageState(void);
+batteryState_e getConsumptionState(void);
+const char * getBatteryStateString(void);
+
+void batteryUpdateStates(timeUs_t currentTimeUs);
+void batteryUpdateAlarms(void);
+
+struct rxConfig_s;
+
+uint8_t calculateBatteryPercentageRemaining(void);
+
+# 107 "./src/main/sensors/battery.h" 3 4
+_Bool 
+# 107 "./src/main/sensors/battery.h"
+    isBatteryVoltageConfigured(void);
+uint16_t getBatteryVoltage(void);
+uint16_t getLegacyBatteryVoltage(void);
+uint16_t getBatteryVoltageLatest(void);
+uint8_t getBatteryCellCount(void);
+uint16_t getBatteryAverageCellVoltage(void);
+uint16_t getBatterySagCellVoltage(void);
+
+
+# 115 "./src/main/sensors/battery.h" 3 4
+_Bool 
+# 115 "./src/main/sensors/battery.h"
+    isAmperageConfigured(void);
+int32_t getAmperage(void);
+int32_t getAmperageLatest(void);
+int32_t getMAhDrawn(void);
+
+void batteryUpdateCurrentMeter(timeUs_t currentTimeUs);
+
+const lowVoltageCutoff_t *getLowVoltageCutoff(void);
+# 61 "./src/main/telemetry/ghst.c" 2
+# 1 "./src/main/sensors/sensors.h" 1
+# 21 "./src/main/sensors/sensors.h"
+       
+
+typedef enum {
+    SENSOR_INDEX_GYRO = 0,
+    SENSOR_INDEX_ACC,
+    SENSOR_INDEX_BARO,
+    SENSOR_INDEX_MAG,
+    SENSOR_INDEX_RANGEFINDER,
+    SENSOR_INDEX_COUNT
+} sensorIndex_e;
+
+extern uint8_t requestedSensors[SENSOR_INDEX_COUNT];
+extern uint8_t detectedSensors[SENSOR_INDEX_COUNT];
+
+typedef struct int16_flightDynamicsTrims_s {
+    int16_t roll;
+    int16_t pitch;
+    int16_t yaw;
+    int16_t calibrationCompleted;
+} flightDynamicsTrims_def_t;
+
+typedef union flightDynamicsTrims_u {
+    int16_t raw[4];
+    flightDynamicsTrims_def_t values;
+} flightDynamicsTrims_t;
+
+typedef enum {
+    SENSOR_GYRO = 1 << 0,
+    SENSOR_ACC = 1 << 1,
+    SENSOR_BARO = 1 << 2,
+    SENSOR_MAG = 1 << 3,
+    SENSOR_SONAR = 1 << 4,
+    SENSOR_RANGEFINDER = 1 << 4,
+    SENSOR_GPS = 1 << 5,
+    SENSOR_GPSMAG = 1 << 6
+} sensors_e;
+# 62 "./src/main/telemetry/ghst.c" 2
+
+# 1 "./src/main/telemetry/telemetry.h" 1
+# 28 "./src/main/telemetry/telemetry.h"
+       
+
+# 1 "./src/main/common/unit.h" 1
+# 21 "./src/main/common/unit.h"
+       
+
+typedef enum {
+    UNIT_IMPERIAL = 0,
+    UNIT_METRIC,
+    UNIT_BRITISH
+} unit_e;
+# 31 "./src/main/telemetry/telemetry.h" 2
+
+
+
+
+
+# 1 "./src/main/rx/rx.h" 1
+# 21 "./src/main/rx/rx.h"
+       
+
+
+
+
+# 1 "./src/main/pg/rx.h" 1
+# 21 "./src/main/pg/rx.h"
+       
+# 30 "./src/main/pg/rx.h"
+typedef struct rxConfig_s {
+    uint8_t rcmap[8];
+    uint8_t serialrx_provider;
+    uint8_t serialrx_inverted;
+    uint8_t halfDuplex;
+    ioTag_t spektrum_bind_pin_override_ioTag;
+    ioTag_t spektrum_bind_plug_ioTag;
+    uint8_t spektrum_sat_bind;
+    uint8_t spektrum_sat_bind_autoreset;
+    uint8_t rssi_channel;
+    uint8_t rssi_scale;
+    uint8_t rssi_invert;
+    uint16_t midrc;
+    uint16_t mincheck;
+    uint16_t maxcheck;
+    uint8_t rcInterpolation;
+    uint8_t rcInterpolationChannels;
+    uint8_t rcInterpolationInterval;
+    uint8_t fpvCamAngleDegrees;
+    uint8_t airModeActivateThreshold;
+
+    uint16_t rx_min_usec;
+    uint16_t rx_max_usec;
+    uint8_t max_aux_channel;
+    uint8_t rssi_src_frame_errors;
+    int8_t rssi_offset;
+    uint8_t rc_smoothing_type;
+    uint8_t rc_smoothing_input_cutoff;
+    uint8_t rc_smoothing_derivative_cutoff;
+    uint8_t rc_smoothing_debug_axis;
+    uint8_t rc_smoothing_input_type;
+    uint8_t rc_smoothing_derivative_type;
+    uint8_t rc_smoothing_auto_factor;
+    uint8_t rssi_src_frame_lpf_period;
+
+    uint8_t srxl2_unit_id;
+    uint8_t srxl2_baud_fast;
+    uint8_t sbus_baud_fast;
+    uint8_t crsf_use_rx_snr;
+
+    uint32_t msp_override_channels_mask;
+} rxConfig_t;
+
+extern rxConfig_t rxConfig_System; extern rxConfig_t rxConfig_Copy; static inline const rxConfig_t* rxConfig(void) { return &rxConfig_System; } static inline rxConfig_t* rxConfigMutable(void) { return &rxConfig_System; } struct _dummy;
+# 27 "./src/main/rx/rx.h" 2
+# 48 "./src/main/rx/rx.h"
+typedef enum {
+    RX_FRAME_PENDING = 0,
+    RX_FRAME_COMPLETE = (1 << 0),
+    RX_FRAME_FAILSAFE = (1 << 1),
+    RX_FRAME_PROCESSING_REQUIRED = (1 << 2),
+    RX_FRAME_DROPPED = (1 << 3)
+} rxFrameState_e;
+
+typedef enum {
+    SERIALRX_SPEKTRUM1024 = 0,
+    SERIALRX_SPEKTRUM2048 = 1,
+    SERIALRX_SBUS = 2,
+    SERIALRX_SUMD = 3,
+    SERIALRX_SUMH = 4,
+    SERIALRX_XBUS_MODE_B = 5,
+    SERIALRX_XBUS_MODE_B_RJ01 = 6,
+    SERIALRX_IBUS = 7,
+    SERIALRX_JETIEXBUS = 8,
+    SERIALRX_CRSF = 9,
+    SERIALRX_SRXL = 10,
+    SERIALRX_TARGET_CUSTOM = 11,
+    SERIALRX_FPORT = 12,
+    SERIALRX_SRXL2 = 13,
+    SERIALRX_GHST = 14
+} SerialRXType;
+# 87 "./src/main/rx/rx.h"
+extern const char rcChannelLetters[];
+
+extern int16_t rcData[18];
+
+
+
+
+
+
+typedef enum {
+    RX_FAILSAFE_MODE_AUTO = 0,
+    RX_FAILSAFE_MODE_HOLD,
+    RX_FAILSAFE_MODE_SET,
+    RX_FAILSAFE_MODE_INVALID
+} rxFailsafeChannelMode_e;
+
+
+
+typedef enum {
+    RX_FAILSAFE_TYPE_FLIGHT = 0,
+    RX_FAILSAFE_TYPE_AUX
+} rxFailsafeChannelType_e;
+
+
+
+typedef struct rxFailsafeChannelConfig_s {
+    uint8_t mode;
+    uint8_t step;
+} rxFailsafeChannelConfig_t;
+
+extern rxFailsafeChannelConfig_t rxFailsafeChannelConfigs_SystemArray[18]; extern rxFailsafeChannelConfig_t rxFailsafeChannelConfigs_CopyArray[18]; static inline const rxFailsafeChannelConfig_t* rxFailsafeChannelConfigs(int _index) { return &rxFailsafeChannelConfigs_SystemArray[_index]; } static inline rxFailsafeChannelConfig_t* rxFailsafeChannelConfigsMutable(int _index) { return &rxFailsafeChannelConfigs_SystemArray[_index]; } static inline rxFailsafeChannelConfig_t (* rxFailsafeChannelConfigs_array(void))[18] { return &rxFailsafeChannelConfigs_SystemArray; } struct _dummy;
+
+typedef struct rxChannelRangeConfig_s {
+    uint16_t min;
+    uint16_t max;
+} rxChannelRangeConfig_t;
+
+extern rxChannelRangeConfig_t rxChannelRangeConfigs_SystemArray[4]; extern rxChannelRangeConfig_t rxChannelRangeConfigs_CopyArray[4]; static inline const rxChannelRangeConfig_t* rxChannelRangeConfigs(int _index) { return &rxChannelRangeConfigs_SystemArray[_index]; } static inline rxChannelRangeConfig_t* rxChannelRangeConfigsMutable(int _index) { return &rxChannelRangeConfigs_SystemArray[_index]; } static inline rxChannelRangeConfig_t (* rxChannelRangeConfigs_array(void))[4] { return &rxChannelRangeConfigs_SystemArray; } struct _dummy;
+
+struct rxRuntimeState_s;
+typedef uint16_t (*rcReadRawDataFnPtr)(const struct rxRuntimeState_s *rxRuntimeState, uint8_t chan);
+typedef uint8_t (*rcFrameStatusFnPtr)(struct rxRuntimeState_s *rxRuntimeState);
+typedef 
+# 129 "./src/main/rx/rx.h" 3 4
+       _Bool 
+# 129 "./src/main/rx/rx.h"
+            (*rcProcessFrameFnPtr)(const struct rxRuntimeState_s *rxRuntimeState);
+typedef timeUs_t rcGetFrameTimeUsFn(void);
+
+typedef enum {
+    RX_PROVIDER_NONE = 0,
+    RX_PROVIDER_PARALLEL_PWM,
+    RX_PROVIDER_PPM,
+    RX_PROVIDER_SERIAL,
+    RX_PROVIDER_MSP,
+    RX_PROVIDER_SPI,
+} rxProvider_t;
+
+typedef struct rxRuntimeState_s {
+    rxProvider_t rxProvider;
+    SerialRXType serialrxProvider;
+    uint8_t channelCount;
+    uint16_t rxRefreshRate;
+    rcReadRawDataFnPtr rcReadRawFn;
+    rcFrameStatusFnPtr rcFrameStatusFn;
+    rcProcessFrameFnPtr rcProcessFrameFn;
+    rcGetFrameTimeUsFn *rcFrameTimeUsFn;
+    uint16_t *channelData;
+    void *frameData;
+} rxRuntimeState_t;
+
+typedef enum {
+    RSSI_SOURCE_NONE = 0,
+    RSSI_SOURCE_ADC,
+    RSSI_SOURCE_RX_CHANNEL,
+    RSSI_SOURCE_RX_PROTOCOL,
+    RSSI_SOURCE_MSP,
+    RSSI_SOURCE_FRAME_ERRORS,
+    RSSI_SOURCE_RX_PROTOCOL_CRSF,
+} rssiSource_e;
+
+extern rssiSource_e rssiSource;
+
+typedef enum {
+    LQ_SOURCE_NONE = 0,
+    LQ_SOURCE_RX_PROTOCOL_CRSF,
+    LQ_SOURCE_RX_PROTOCOL_GHST,
+} linkQualitySource_e;
+
+extern linkQualitySource_e linkQualitySource;
+
+extern rxRuntimeState_t rxRuntimeState;
+
+void rxInit(void);
+
+# 177 "./src/main/rx/rx.h" 3 4
+_Bool 
+# 177 "./src/main/rx/rx.h"
+    rxUpdateCheck(timeUs_t currentTimeUs, timeDelta_t currentDeltaTimeUs);
+
+# 178 "./src/main/rx/rx.h" 3 4
+_Bool 
+# 178 "./src/main/rx/rx.h"
+    rxIsReceivingSignal(void);
+
+# 179 "./src/main/rx/rx.h" 3 4
+_Bool 
+# 179 "./src/main/rx/rx.h"
+    rxAreFlightChannelsValid(void);
+
+# 180 "./src/main/rx/rx.h" 3 4
+_Bool 
+# 180 "./src/main/rx/rx.h"
+    calculateRxChannelsAndUpdateFailsafe(timeUs_t currentTimeUs);
+
+struct rxConfig_s;
+
+void parseRcChannels(const char *input, struct rxConfig_s *rxConfig);
+
+
+
+void setRssiDirect(uint16_t newRssi, rssiSource_e source);
+void setRssi(uint16_t rssiValue, rssiSource_e source);
+void setRssiMsp(uint8_t newMspRssi);
+void updateRSSI(timeUs_t currentTimeUs);
+uint16_t getRssi(void);
+uint8_t getRssiPercent(void);
+
+# 194 "./src/main/rx/rx.h" 3 4
+_Bool 
+# 194 "./src/main/rx/rx.h"
+    isRssiConfigured(void);
+
+
+
+uint16_t rxGetLinkQuality(void);
+void setLinkQualityDirect(uint16_t linkqualityValue);
+uint16_t rxGetLinkQualityPercent(void);
+
+int16_t getRssiDbm(void);
+void setRssiDbm(int16_t newRssiDbm, rssiSource_e source);
+void setRssiDbmDirect(int16_t newRssiDbm, rssiSource_e source);
+
+void rxSetRfMode(uint8_t rfModeValue);
+uint8_t rxGetRfMode(void);
+
+void resetAllRxChannelRangeConfigurations(rxChannelRangeConfig_t *rxChannelRangeConfig);
+
+void suspendRxPwmPpmSignal(void);
+void resumeRxPwmPpmSignal(void);
+
+uint16_t rxGetRefreshRate(void);
+
+timeDelta_t rxGetFrameDelta(timeDelta_t *frameAgeUs);
+# 37 "./src/main/telemetry/telemetry.h" 2
+
+# 1 "./src/main/telemetry/ibus_shared.h" 1
+# 29 "./src/main/telemetry/ibus_shared.h"
+       
+
+
+
+
+
+
+
+typedef enum {
+    IBUS_SENSOR_TYPE_NONE = 0x00,
+    IBUS_SENSOR_TYPE_TEMPERATURE = 0x01,
+    IBUS_SENSOR_TYPE_RPM_FLYSKY = 0x02,
+    IBUS_SENSOR_TYPE_EXTERNAL_VOLTAGE = 0x03,
+    IBUS_SENSOR_TYPE_CELL = 0x04,
+    IBUS_SENSOR_TYPE_BAT_CURR = 0x05,
+    IBUS_SENSOR_TYPE_FUEL = 0x06,
+    IBUS_SENSOR_TYPE_RPM = 0x07,
+    IBUS_SENSOR_TYPE_CMP_HEAD = 0x08,
+    IBUS_SENSOR_TYPE_CLIMB_RATE = 0x09,
+    IBUS_SENSOR_TYPE_COG = 0x0a,
+    IBUS_SENSOR_TYPE_GPS_STATUS = 0x0b,
+    IBUS_SENSOR_TYPE_ACC_X = 0x0c,
+    IBUS_SENSOR_TYPE_ACC_Y = 0x0d,
+    IBUS_SENSOR_TYPE_ACC_Z = 0x0e,
+    IBUS_SENSOR_TYPE_ROLL = 0x0f,
+    IBUS_SENSOR_TYPE_PITCH = 0x10,
+    IBUS_SENSOR_TYPE_YAW = 0x11,
+    IBUS_SENSOR_TYPE_VERTICAL_SPEED = 0x12,
+    IBUS_SENSOR_TYPE_GROUND_SPEED = 0x13,
+    IBUS_SENSOR_TYPE_GPS_DIST = 0x14,
+    IBUS_SENSOR_TYPE_ARMED = 0x15,
+    IBUS_SENSOR_TYPE_FLIGHT_MODE = 0x16,
+    IBUS_SENSOR_TYPE_PRES = 0x41,
+    IBUS_SENSOR_TYPE_ODO1 = 0x7c,
+    IBUS_SENSOR_TYPE_ODO2 = 0x7d,
+    IBUS_SENSOR_TYPE_SPE = 0x7e,
+
+    IBUS_SENSOR_TYPE_GPS_LAT = 0x80,
+    IBUS_SENSOR_TYPE_GPS_LON = 0x81,
+    IBUS_SENSOR_TYPE_GPS_ALT = 0x82,
+    IBUS_SENSOR_TYPE_ALT = 0x83,
+    IBUS_SENSOR_TYPE_ALT_MAX = 0x84,
+
+    IBUS_SENSOR_TYPE_ALT_FLYSKY = 0xf9,
+
+    IBUS_SENSOR_TYPE_GPS_FULL = 0xfd,
+    IBUS_SENSOR_TYPE_VOLT_FULL = 0xf0,
+    IBUS_SENSOR_TYPE_ACC_FULL = 0xef,
+
+    IBUS_SENSOR_TYPE_UNKNOWN = 0xff
+} ibusSensorType_e;
+
+
+
+uint8_t respondToIbusRequest(uint8_t const * const ibusPacket);
+void initSharedIbusTelemetry(serialPort_t * port);
+
+
+
+
+
+# 89 "./src/main/telemetry/ibus_shared.h" 3 4
+_Bool 
+# 89 "./src/main/telemetry/ibus_shared.h"
+    isChecksumOkIa6b(const uint8_t *ibusPacket, const uint8_t length);
+# 39 "./src/main/telemetry/telemetry.h" 2
+
+typedef enum {
+    FRSKY_FORMAT_DMS = 0,
+    FRSKY_FORMAT_NMEA
+} frskyGpsCoordFormat_e;
+
+typedef enum {
+    SENSOR_VOLTAGE = 1 << 0,
+    SENSOR_CURRENT = 1 << 1,
+    SENSOR_FUEL = 1 << 2,
+    SENSOR_MODE = 1 << 3,
+    SENSOR_ACC_X = 1 << 4,
+    SENSOR_ACC_Y = 1 << 5,
+    SENSOR_ACC_Z = 1 << 6,
+    SENSOR_PITCH = 1 << 7,
+    SENSOR_ROLL = 1 << 8,
+    SENSOR_HEADING = 1 << 9,
+    SENSOR_ALTITUDE = 1 << 10,
+    SENSOR_VARIO = 1 << 11,
+    SENSOR_LAT_LONG = 1 << 12,
+    SENSOR_GROUND_SPEED = 1 << 13,
+    SENSOR_DISTANCE = 1 << 14,
+    ESC_SENSOR_CURRENT = 1 << 15,
+    ESC_SENSOR_VOLTAGE = 1 << 16,
+    ESC_SENSOR_RPM = 1 << 17,
+    ESC_SENSOR_TEMPERATURE = 1 << 18,
+    ESC_SENSOR_ALL = ESC_SENSOR_CURRENT
+                            | ESC_SENSOR_VOLTAGE
+                            | ESC_SENSOR_RPM
+                            | ESC_SENSOR_TEMPERATURE,
+    SENSOR_TEMPERATURE = 1 << 19,
+    SENSOR_CAP_USED = 1 << 20,
+    SENSOR_ALL = (1 << 21) - 1,
+} sensor_e;
+
+typedef struct telemetryConfig_s {
+    int16_t gpsNoFixLatitude;
+    int16_t gpsNoFixLongitude;
+    uint8_t telemetry_inverted;
+    uint8_t halfDuplex;
+    uint8_t frsky_coordinate_format;
+    uint8_t frsky_unit;
+    uint8_t frsky_vfas_precision;
+    uint8_t hottAlarmSoundInterval;
+    uint8_t pidValuesAsTelemetry;
+    uint8_t report_cell_voltage;
+    uint8_t flysky_sensors[15];
+    uint16_t mavlink_mah_as_heading_divisor;
+    uint32_t disabledSensors;
+} telemetryConfig_t;
+
+extern telemetryConfig_t telemetryConfig_System; extern telemetryConfig_t telemetryConfig_Copy; static inline const telemetryConfig_t* telemetryConfig(void) { return &telemetryConfig_System; } static inline telemetryConfig_t* telemetryConfigMutable(void) { return &telemetryConfig_System; } struct _dummy;
+
+extern serialPort_t *telemetrySharedPort;
+
+void telemetryInit(void);
+
+# 95 "./src/main/telemetry/telemetry.h" 3 4
+_Bool 
+# 95 "./src/main/telemetry/telemetry.h"
+    telemetryCheckRxPortShared(const serialPortConfig_t *portConfig, const SerialRXType serialrxProvider);
+
+void telemetryCheckState(void);
+void telemetryProcess(uint32_t currentTime);
+
+
+# 100 "./src/main/telemetry/telemetry.h" 3 4
+_Bool 
+# 100 "./src/main/telemetry/telemetry.h"
+    telemetryDetermineEnabledState(portSharing_e portSharing);
+
+
+# 102 "./src/main/telemetry/telemetry.h" 3 4
+_Bool 
+# 102 "./src/main/telemetry/telemetry.h"
+    telemetryIsSensorEnabled(sensor_e sensor);
+# 64 "./src/main/telemetry/ghst.c" 2
+# 1 "./src/main/telemetry/msp_shared.h" 1
+# 21 "./src/main/telemetry/msp_shared.h"
+       
+
+
+# 1 "./src/main/telemetry/crsf.h" 1
+# 21 "./src/main/telemetry/crsf.h"
+       
+
+
+
+
+
+
+# 1 "./src/main/rx/crsf_protocol.h" 1
+# 25 "./src/main/rx/crsf_protocol.h"
+       
+
+
+
+
+
+
+enum { CRSF_SYNC_BYTE = 0xC8 };
+
+enum { CRSF_FRAME_SIZE_MAX = 64 };
+enum { CRSF_PAYLOAD_SIZE_MAX = CRSF_FRAME_SIZE_MAX - 6 };
+
+typedef enum {
+    CRSF_FRAMETYPE_GPS = 0x02,
+    CRSF_FRAMETYPE_BATTERY_SENSOR = 0x08,
+    CRSF_FRAMETYPE_LINK_STATISTICS = 0x14,
+    CRSF_FRAMETYPE_RC_CHANNELS_PACKED = 0x16,
+    CRSF_FRAMETYPE_ATTITUDE = 0x1E,
+    CRSF_FRAMETYPE_FLIGHT_MODE = 0x21,
+
+    CRSF_FRAMETYPE_DEVICE_PING = 0x28,
+    CRSF_FRAMETYPE_DEVICE_INFO = 0x29,
+    CRSF_FRAMETYPE_PARAMETER_SETTINGS_ENTRY = 0x2B,
+    CRSF_FRAMETYPE_PARAMETER_READ = 0x2C,
+    CRSF_FRAMETYPE_PARAMETER_WRITE = 0x2D,
+    CRSF_FRAMETYPE_COMMAND = 0x32,
+
+    CRSF_FRAMETYPE_MSP_REQ = 0x7A,
+    CRSF_FRAMETYPE_MSP_RESP = 0x7B,
+    CRSF_FRAMETYPE_MSP_WRITE = 0x7C,
+    CRSF_FRAMETYPE_DISPLAYPORT_CMD = 0x7D,
+} crsfFrameType_e;
+
+enum {
+    CRSF_DISPLAYPORT_SUBCMD_UPDATE = 0x01,
+    CRSF_DISPLAYPORT_SUBCMD_CLEAR = 0X02,
+    CRSF_DISPLAYPORT_SUBCMD_OPEN = 0x03,
+    CRSF_DISPLAYPORT_SUBCMD_CLOSE = 0x04,
+    CRSF_DISPLAYPORT_SUBCMD_POLL = 0x05,
+};
+
+enum {
+    CRSF_DISPLAYPORT_OPEN_ROWS_OFFSET = 1,
+    CRSF_DISPLAYPORT_OPEN_COLS_OFFSET = 2,
+};
+
+enum {
+    CRSF_FRAME_GPS_PAYLOAD_SIZE = 15,
+    CRSF_FRAME_BATTERY_SENSOR_PAYLOAD_SIZE = 8,
+    CRSF_FRAME_LINK_STATISTICS_PAYLOAD_SIZE = 10,
+    CRSF_FRAME_RC_CHANNELS_PAYLOAD_SIZE = 22,
+    CRSF_FRAME_ATTITUDE_PAYLOAD_SIZE = 6,
+};
+
+enum {
+    CRSF_FRAME_LENGTH_ADDRESS = 1,
+    CRSF_FRAME_LENGTH_FRAMELENGTH = 1,
+    CRSF_FRAME_LENGTH_TYPE = 1,
+    CRSF_FRAME_LENGTH_CRC = 1,
+    CRSF_FRAME_LENGTH_TYPE_CRC = 2,
+    CRSF_FRAME_LENGTH_EXT_TYPE_CRC = 4,
+    CRSF_FRAME_LENGTH_NON_PAYLOAD = 4,
+};
+
+enum {
+    CRSF_FRAME_TX_MSP_FRAME_SIZE = 58,
+    CRSF_FRAME_RX_MSP_FRAME_SIZE = 8,
+    CRSF_FRAME_ORIGIN_DEST_SIZE = 2,
+};
+
+
+
+
+typedef enum {
+    CRSF_ADDRESS_BROADCAST = 0x00,
+    CRSF_ADDRESS_USB = 0x10,
+    CRSF_ADDRESS_TBS_CORE_PNP_PRO = 0x80,
+    CRSF_ADDRESS_RESERVED1 = 0x8A,
+    CRSF_ADDRESS_CURRENT_SENSOR = 0xC0,
+    CRSF_ADDRESS_GPS = 0xC2,
+    CRSF_ADDRESS_TBS_BLACKBOX = 0xC4,
+    CRSF_ADDRESS_FLIGHT_CONTROLLER = 0xC8,
+    CRSF_ADDRESS_RESERVED2 = 0xCA,
+    CRSF_ADDRESS_RACE_TAG = 0xCC,
+    CRSF_ADDRESS_RADIO_TRANSMITTER = 0xEA,
+    CRSF_ADDRESS_CRSF_RECEIVER = 0xEC,
+    CRSF_ADDRESS_CRSF_TRANSMITTER = 0xEE
+} crsfAddress_e;
+# 29 "./src/main/telemetry/crsf.h" 2
+
+
+
+
+void initCrsfTelemetry(void);
+
+# 34 "./src/main/telemetry/crsf.h" 3 4
+_Bool 
+# 34 "./src/main/telemetry/crsf.h"
+    checkCrsfTelemetryState(void);
+void handleCrsfTelemetry(timeUs_t currentTimeUs);
+void crsfScheduleDeviceInfoResponse(void);
+void crsfScheduleMspResponse(void);
+
+void crsfProcessDisplayPortCmd(uint8_t *frameStart);
+
+
+void initCrsfMspBuffer(void);
+
+# 43 "./src/main/telemetry/crsf.h" 3 4
+_Bool 
+# 43 "./src/main/telemetry/crsf.h"
+    bufferCrsfMspFrame(uint8_t *frameStart, int frameLength);
+# 25 "./src/main/telemetry/msp_shared.h" 2
+# 1 "./src/main/telemetry/smartport.h" 1
+# 28 "./src/main/telemetry/smartport.h"
+       
+
+
+
+
+
+
+
+enum
+{
+    FSSP_START_STOP = 0x7E,
+
+    FSSP_DLE = 0x7D,
+    FSSP_DLE_XOR = 0x20,
+
+    FSSP_DATA_FRAME = 0x10,
+    FSSP_MSPC_FRAME_SMARTPORT = 0x30,
+    FSSP_MSPC_FRAME_FPORT = 0x31,
+    FSSP_MSPS_FRAME = 0x32,
+
+
+    FSSP_SENSOR_ID1 = 0x1B,
+    FSSP_SENSOR_ID2 = 0x0D,
+    FSSP_SENSOR_ID3 = 0x34,
+    FSSP_SENSOR_ID4 = 0x67
+
+
+};
+
+typedef struct smartPortPayload_s {
+    uint8_t frameId;
+    uint16_t valueId;
+    uint32_t data;
+} __attribute__((packed)) smartPortPayload_t;
+
+typedef void smartPortWriteFrameFn(const smartPortPayload_t *payload);
+typedef 
+# 64 "./src/main/telemetry/smartport.h" 3 4
+       _Bool 
+# 64 "./src/main/telemetry/smartport.h"
+            smartPortReadyToSendFn(void);
+
+
+# 66 "./src/main/telemetry/smartport.h" 3 4
+_Bool 
+# 66 "./src/main/telemetry/smartport.h"
+    initSmartPortTelemetry(void);
+void checkSmartPortTelemetryState(void);
+
+# 68 "./src/main/telemetry/smartport.h" 3 4
+_Bool 
+# 68 "./src/main/telemetry/smartport.h"
+    initSmartPortTelemetryExternal(smartPortWriteFrameFn *smartPortWriteFrameExternal);
+
+void handleSmartPortTelemetry(void);
+void processSmartPortTelemetry(smartPortPayload_t *payload, volatile 
+# 71 "./src/main/telemetry/smartport.h" 3 4
+                                                                    _Bool 
+# 71 "./src/main/telemetry/smartport.h"
+                                                                         *hasRequest, const uint32_t *requestTimeout);
+
+smartPortPayload_t *smartPortDataReceive(uint16_t c, 
+# 73 "./src/main/telemetry/smartport.h" 3 4
+                                                    _Bool 
+# 73 "./src/main/telemetry/smartport.h"
+                                                         *clearToSend, smartPortReadyToSendFn *checkQueueEmpty, 
+# 73 "./src/main/telemetry/smartport.h" 3 4
+                                                                                                                _Bool 
+# 73 "./src/main/telemetry/smartport.h"
+                                                                                                                     withChecksum);
+
+struct serialPort_s;
+void smartPortWriteFrameSerial(const smartPortPayload_t *payload, struct serialPort_s *port, uint16_t checksum);
+void smartPortSendByte(uint8_t c, uint16_t *checksum, struct serialPort_s *port);
+
+# 78 "./src/main/telemetry/smartport.h" 3 4
+_Bool 
+# 78 "./src/main/telemetry/smartport.h"
+    smartPortPayloadContainsMSP(const smartPortPayload_t *payload);
+# 26 "./src/main/telemetry/msp_shared.h" 2
+
+typedef void (*mspResponseFnPtr)(uint8_t *payload);
+
+struct mspPacket_s;
+typedef struct mspPackage_s {
+    sbuf_t requestFrame;
+    uint8_t *requestBuffer;
+    uint8_t *responseBuffer;
+    struct mspPacket_s *requestPacket;
+    struct mspPacket_s *responsePacket;
+} mspPackage_t;
+
+typedef union mspRxBuffer_u {
+    uint8_t smartPortMspRxBuffer[64];
+    uint8_t crsfMspRxBuffer[128];
+} mspRxBuffer_t;
+
+typedef union mspTxBuffer_u {
+    uint8_t smartPortMspTxBuffer[256];
+    uint8_t crsfMspTxBuffer[128];
+} mspTxBuffer_t;
+
+void initSharedMsp(void);
+
+# 49 "./src/main/telemetry/msp_shared.h" 3 4
+_Bool 
+# 49 "./src/main/telemetry/msp_shared.h"
+    handleMspFrame(uint8_t *frameStart, int frameLength, uint8_t *skipsBeforeResponse);
+
+# 50 "./src/main/telemetry/msp_shared.h" 3 4
+_Bool 
+# 50 "./src/main/telemetry/msp_shared.h"
+    sendMspReply(uint8_t payloadSize, mspResponseFnPtr responseFn);
+# 65 "./src/main/telemetry/ghst.c" 2
+
+# 1 "./src/main/telemetry/ghst.h" 1
+# 21 "./src/main/telemetry/ghst.h"
+       
+# 30 "./src/main/telemetry/ghst.h"
+void initGhstTelemetry(void);
+
+# 31 "./src/main/telemetry/ghst.h" 3 4
+_Bool 
+# 31 "./src/main/telemetry/ghst.h"
+    checkGhstTelemetryState(void);
+void handleGhstTelemetry(timeUs_t currentTimeUs);
+# 67 "./src/main/telemetry/ghst.c" 2
+
+
+
+
+
+
+static 
+# 73 "./src/main/telemetry/ghst.c" 3 4
+      _Bool 
+# 73 "./src/main/telemetry/ghst.c"
+           ghstTelemetryEnabled;
+static uint8_t ghstFrame[24];
+
+static void ghstInitializeFrame(sbuf_t *dst)
+{
+    dst->ptr = ghstFrame;
+    dst->end = (&(ghstFrame)[(sizeof(ghstFrame) / sizeof((ghstFrame)[0]))]);
+
+    sbufWriteU8(dst, GHST_ADDR_RX);
+}
+
+static void ghstFinalize(sbuf_t *dst)
+{
+    crc8_dvb_s2_sbuf_append(dst, &ghstFrame[2]);
+    sbufSwitchToReader(dst, ghstFrame);
+
+    ghstRxWriteTelemetryData(sbufPtr(dst), sbufBytesRemaining(dst));
+}
+
+
+void ghstFramePackTelemetry(sbuf_t *dst)
+{
+
+    sbufWriteU8(dst, 10 + 1 + 1);
+    sbufWriteU8(dst, 0x23);
+
+    if (telemetryConfig()->report_cell_voltage) {
+        sbufWriteU16(dst, getBatteryAverageCellVoltage());
+    } else {
+        sbufWriteU16(dst, getBatteryVoltage());
+    }
+    sbufWriteU16(dst, getAmperage());
+
+    sbufWriteU16(dst, getMAhDrawn() / 10);
+
+    sbufWriteU8(dst, 0x00);
+
+    sbufWriteU8(dst, 0x00);
+    sbufWriteU8(dst, 0x00);
+    sbufWriteU8(dst, 0x00);
+}
+
+
+typedef enum {
+    GHST_FRAME_START_INDEX = 0,
+    GHST_FRAME_PACK_INDEX = GHST_FRAME_START_INDEX,
+    GHST_SCHEDULE_COUNT_MAX
+} ghstFrameTypeIndex_e;
+
+static uint8_t ghstScheduleCount;
+static uint8_t ghstSchedule[GHST_SCHEDULE_COUNT_MAX];
+
+static void processGhst(void)
+{
+    static uint8_t ghstScheduleIndex = 0;
+
+    const uint8_t currentSchedule = ghstSchedule[ghstScheduleIndex];
+
+    sbuf_t ghstPayloadBuf;
+    sbuf_t *dst = &ghstPayloadBuf;
+
+    if (currentSchedule & (1 << (GHST_FRAME_PACK_INDEX))) {
+        ghstInitializeFrame(dst);
+        ghstFramePackTelemetry(dst);
+        ghstFinalize(dst);
+    }
+    ghstScheduleIndex = (ghstScheduleIndex + 1) % ghstScheduleCount;
+}
+
+void initGhstTelemetry(void)
+{
+
+    ghstTelemetryEnabled = ghstRxIsActive();
+
+    if (!ghstTelemetryEnabled) {
+        return;
+    }
+
+    int index = 0;
+    if ((isBatteryVoltageConfigured() && telemetryIsSensorEnabled(SENSOR_VOLTAGE))
+        || (isAmperageConfigured() && telemetryIsSensorEnabled(SENSOR_CURRENT | SENSOR_FUEL))) {
+        ghstSchedule[index++] = (1 << (GHST_FRAME_PACK_INDEX));
+    }
+    ghstScheduleCount = (uint8_t)index;
+ }
+
+
+# 159 "./src/main/telemetry/ghst.c" 3 4
+_Bool 
+# 159 "./src/main/telemetry/ghst.c"
+    checkGhstTelemetryState(void)
+{
+    return ghstTelemetryEnabled;
+}
+
+
+ void handleGhstTelemetry(timeUs_t currentTimeUs)
+{
+    static uint32_t ghstLastCycleTime;
+
+    if (!ghstTelemetryEnabled) {
+        return;
+    }
+
+
+    if (currentTimeUs >= ghstLastCycleTime + (100000 / ghstScheduleCount)) {
+        ghstLastCycleTime = currentTimeUs;
+        processGhst();
+    }
+
+
+}

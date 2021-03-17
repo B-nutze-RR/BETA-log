@@ -9,10 +9,10 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"serial.c"
-	.section	.gnu.lto_.profile.41119fd0,"e",%progbits
+	.section	.gnu.lto_.profile.415857fd,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.41119fd0,"e",%progbits
+	.section	.gnu.lto_.icf.415857fd,"e",%progbits
 	.ascii	"x\234\343``dHd@\000\001\206\223\275\253'r3\276\231\361"
 	.ascii	"\363\014\017S\373\306c\227\031\231;\236]\\\311\307\002"
 	.ascii	"&Y[W\236\326`\233\274g\325oN\366[\273N\336\344\342\230"
@@ -20,7 +20,7 @@
 	.ascii	"zy\312k6\0360\311;k\342\353\177\314|-k\026\316\346\345"
 	.ascii	"\007\223\014\000?\001/\264"
 	.text
-	.section	.gnu.lto_.jmpfuncs.41119fd0,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415857fd,"e",%progbits
 	.ascii	"x\234\245R\211\015\2030\014\274K\014\004\372\320\021"
 	.ascii	"\262C\367#\243\260J7k\035@\220\026\024\020\265d)\262"
 	.ascii	"}\347\347\342@<-f{\200d\350-hH;<zK\221N\353\370\022"
@@ -32,7 +32,7 @@
 	.ascii	"5\361\263\374\303v\033\330\342L\352\302\323\002\336"
 	.ascii	"\263B\264\331,>`g\320\220"
 	.text
-	.section	.gnu.lto_.inline.41119fd0,"e",%progbits
+	.section	.gnu.lto_.inline.415857fd,"e",%progbits
 	.ascii	"x\234\343``d\360ba\200\003\001\006\006\226\006 `Nad"
 	.ascii	"dP`d`v\000J6\002\005\352\030\030\330@\022L)L\014L\014"
 	.ascii	"\214`f\022\023\003\013\234\315\0006\205\221\201\013"
@@ -49,13 +49,13 @@
 	.ascii	"\010\347c\340~~f\346drmf\021\200\004*?u\214a\000\000"
 	.ascii	"\247L\337\355"
 	.text
-	.section	.gnu.lto_.pureconst.41119fd0,"e",%progbits
+	.section	.gnu.lto_.pureconst.415857fd,"e",%progbits
 	.ascii	"x\234\005\301\211\001@0\000\004\301\013\213x\243\025"
 	.ascii	"E\352\301\226\222\356\314\324\224<I\356\274\024\031"
 	.ascii	":\243 Sg\226E\252\254\262\311.\207\234\037\2274\371"
 	.ascii	"\001\015\010\012\276"
 	.text
-	.section	.gnu.lto_serialGetBaudRate.41119fd0,"e",%progbits
+	.section	.gnu.lto_serialGetBaudRate.415857fd,"e",%progbits
 	.ascii	"x\234UO\277KBa\024\275\347\335\227=\242Zj\010,r\010"
 	.ascii	"\304\305\347\237\320\330\037\320\320*\346 \224\203F"
 	.ascii	"\253\337\323~\014\206-\2055\330#B\334\372\001\015\375"
@@ -76,7 +76,7 @@
 	.ascii	"H\332\263\251\304b<\225\266\323\361T\":\027\216\221"
 	.ascii	"\225H\246\027\242\311X\374\007\250_x\356"
 	.text
-	.section	.gnu.lto_serialWrite.41119fd0,"e",%progbits
+	.section	.gnu.lto_serialWrite.415857fd,"e",%progbits
 	.ascii	"x\234m\220\317KTQ\024\307\317\367\236\367\336\274\206"
 	.ascii	"\321]Y\214\221\013aR\310\031p\347\312\177e\230\006\034"
 	.ascii	"\260Y\314\204[\357\214\244\240\241-\012k1<A\207\011"
@@ -104,7 +104,7 @@
 	.ascii	"\012\331\341\276\034\371\205b\371j\266\230\313\253\334"
 	.ascii	"\320\037\202|\256;"
 	.text
-	.section	.gnu.lto_serialPrint.41119fd0,"e",%progbits
+	.section	.gnu.lto_serialPrint.415857fd,"e",%progbits
 	.ascii	"x\234mQMO\023Q\024\275g\356L;\264\325\205nHj\"\013\011"
 	.ascii	"\222\230\326\304\015K\377\202?\241\25156Q\026-q\313"
 	.ascii	"k\371\212\251\241\033\024YLJ\254\025\242\211\370\301"
@@ -138,7 +138,7 @@
 	.ascii	"\335\361\363\231\364\225T&\033\317\2462\351\304\245"
 	.ascii	"X\222\334tw\266'\321\235Lq\266'c%/\376\0015y\332\024"
 	.text
-	.section	.gnu.lto_serialRxBytesWaiting.41119fd0,"e",%progbits
+	.section	.gnu.lto_serialRxBytesWaiting.415857fd,"e",%progbits
 	.ascii	"x\234m\217\315+DQ\030\306\337\347\276\327\314\365\271"
 	.ascii	"\245\220Y(\315\306\370\003,,\375\033c\314b\212Y\334"
 	.ascii	"\221\355\234\231\361U\204\005a\301%\215)\013\037\245"
@@ -162,7 +162,7 @@
 	.ascii	"\305C\235v\2547j'B\211\250\035\013w5G\310\212\305\023"
 	.ascii	"=\341x$\372\005m$\236W"
 	.text
-	.section	.gnu.lto_serialTxBytesFree.41119fd0,"e",%progbits
+	.section	.gnu.lto_serialTxBytesFree.415857fd,"e",%progbits
 	.ascii	"x\234m\217\315/\003Q\024\305\357\231;\332Ak\335\004"
 	.ascii	"\321\205Dl\264\177\200\205\177\245\251.\232\320\305"
 	.ascii	"Tl\373Z\302\302\347\002E\302\020\251\356\212\244\211"
@@ -186,7 +186,7 @@
 	.ascii	"#\351\204\235\214\365t\304\311J\246\322}\261T<\361\005"
 	.ascii	"M\332\236\266"
 	.text
-	.section	.gnu.lto_serialWriteBuf.part.0.41119fd0,"e",%progbits
+	.section	.gnu.lto_serialWriteBuf.part.0.415857fd,"e",%progbits
 	.ascii	"x\234eS\337KTA\024\236\357\236\271?v\263|56\320\207"
 	.ascii	"\302\014\324\240\036|\253\336z\352\177X6\037\204\262"
 	.ascii	"P\353\325i]\215P\264\242\022\245e\003\023\205@K\352"
@@ -232,7 +232,7 @@
 	.ascii	"D\255<\034o\212\333\211c'\352\233p\374\037\255\271s"
 	.ascii	"\241"
 	.text
-	.section	.gnu.lto_serialWriteBuf.41119fd0,"e",%progbits
+	.section	.gnu.lto_serialWriteBuf.415857fd,"e",%progbits
 	.ascii	"x\234m\221\357KSQ\030\307\317\367\236{\357\356\356\\"
 	.ascii	"\004A\031F\372\"\261\240\234Poz\027\364\242\367\375"
 	.ascii	"\007c\372bP+6\353\355\316\326P*\261^\0246aM0\231 h?"
@@ -270,7 +270,7 @@
 	.ascii	"(\320\2447\372\233\375F\340\324\231P3N\377\005\020S"
 	.ascii	"\034\261"
 	.text
-	.section	.gnu.lto_serialRead.41119fd0,"e",%progbits
+	.section	.gnu.lto_serialRead.415857fd,"e",%progbits
 	.ascii	"x\234m\217\301k\023A\024\306\337\267o\263Y5\351Y\211"
 	.ascii	"b\016\205\320K7\320k\017\375WB\232\303\202\315a#^;\273"
 	.ascii	"\021E\224\350\241!\246PV\261!\267\030A\260\230\250k"
@@ -294,7 +294,7 @@
 	.ascii	"\252\347\336\250x5\247V\361\334\322\265\3052\331n\265"
 	.ascii	"v\275T-W\376\001QG\235\251"
 	.text
-	.section	.gnu.lto_serialSetBaudRate.41119fd0,"e",%progbits
+	.section	.gnu.lto_serialSetBaudRate.415857fd,"e",%progbits
 	.ascii	"x\234m\220MOSA\024\206\317;\347~\201\226%\301\000\221"
 	.ascii	"\205Ie!\355O\3607\370\017.\245\213&\322E\013l\231V)"
 	.ascii	"\213*\270\200\240\213\346Bj\323\035jb\242\362y\005*"
@@ -321,7 +321,7 @@
 	.ascii	"3\345|\251\020\336\034\311QP(\226'\302b.\037\214\206"
 	.ascii	"\223c7\302\211\374_FH\261\036"
 	.text
-	.section	.gnu.lto_isSerialTransmitBufferEmpty.41119fd0,"e",%progbits
+	.section	.gnu.lto_isSerialTransmitBufferEmpty.415857fd,"e",%progbits
 	.ascii	"x\234m\217;K\003A\024\205\357\331\273&\353#\326b\024"
 	.ascii	"S\010\222\306\004l-\374+!\246\010h\212\215\330f\222"
 	.ascii	"\370@\024\265P\324\"\254\"1\215\370\000E\360\271>\202"
@@ -346,7 +346,7 @@
 	.ascii	"d*\322o'\207\023v:\222N\330\311\330@w\234\254d*=\024"
 	.ascii	"K\305\023\337\362\375\235\037"
 	.text
-	.section	.gnu.lto_serialSetMode.41119fd0,"e",%progbits
+	.section	.gnu.lto_serialSetMode.415857fd,"e",%progbits
 	.ascii	"x\234m\220MOSA\024\206\317;\347\336\333\313GY\022\222"
 	.ascii	"JdaRI\2246\361\017\370W\232\322E\023\251IK\3302\255"
 	.ascii	"\241,@4QS]4\027\202Mw\010\321DA\320+\237\301\215\211"
@@ -373,7 +373,7 @@
 	.ascii	"*\345\212\371\314\275\241,\371\371Bi4S\310\346\234\221"
 	.ascii	"\373\303\271\277\225d\260\034"
 	.text
-	.section	.gnu.lto_serialSetCtrlLineStateCb.41119fd0,"e",%progbits
+	.section	.gnu.lto_serialSetCtrlLineStateCb.415857fd,"e",%progbits
 	.ascii	"x\234m\220\317k\023A\024\307\337wgv\223\256I=x\251D"
 	.ascii	"\264\007!T\264\351\301[/\376\011\376\0135\346\020\320"
 	.ascii	"\026\222 \336:\211\332\")Q\260\332\246\020\266\242!"
@@ -405,7 +405,7 @@
 	.ascii	"7N\266\277;9\224\312\030\361S\201\370\320`&q>\363\017"
 	.ascii	"C~\350C"
 	.text
-	.section	.gnu.lto_serialSetBaudRateCb.41119fd0,"e",%progbits
+	.section	.gnu.lto_serialSetBaudRateCb.415857fd,"e",%progbits
 	.ascii	"x\234m\220\313kSA\024\306\347\23337ICS\027n\224\026"
 	.ascii	"\355B\010\025m\272p\327\215\177\202\377B\215Y\004\264"
 	.ascii	"\205$\210\273Nbm\221H\024\254\306\004B*\032\262\221"
@@ -438,7 +438,7 @@
 	.ascii	"\210\017\035\355\217\212\240w:4\222H\311\350a\177td"
 	.ascii	"8\025;\221\372\013\322\004\350_"
 	.text
-	.section	.gnu.lto_serialWriteBufShim.41119fd0,"e",%progbits
+	.section	.gnu.lto_serialWriteBufShim.415857fd,"e",%progbits
 	.ascii	"x\234e\220\261K#Q\020\306\347{\263\273\331\013\212m"
 	.ascii	" \212W\034\344,4\340_\340\277\262$)\002\032!\311\331"
 	.ascii	"\372\262h,<L\243\210\302\262J\220\034X\034\212W\234"
@@ -463,7 +463,7 @@
 	.ascii	"39\226!;_(\225\235B&gd\235\262cf\246\277\024\312/\257"
 	.ascii	"]\225\037"
 	.text
-	.section	.gnu.lto_serialBeginWrite.41119fd0,"e",%progbits
+	.section	.gnu.lto_serialBeginWrite.415857fd,"e",%progbits
 	.ascii	"x\234m\221\317KTQ\024\307\317\367\236\373f\236\203\332"
 	.ascii	"\242\215\241\244\213@\204p\334F\233\376\225a\234\305"
 	.ascii	"@\315b&\334zg2]\030N\013E'\030\236\241\303\354\2540"
@@ -490,7 +490,7 @@
 	.ascii	"\036.\346Gr\305R\272\224+\3463w\007\263\344\347\013"
 	.ascii	"\245\373\231B6w\016\211\024\270\340"
 	.text
-	.section	.gnu.lto_serialEndWrite.41119fd0,"e",%progbits
+	.section	.gnu.lto_serialEndWrite.415857fd,"e",%progbits
 	.ascii	"x\234m\221\317KTQ\024\307\317\367\236\373f\236\203\326"
 	.ascii	"\302\215\242\240\013A\204p\334F\233\376\225a\232\305"
 	.ascii	"@\316b&\332zg2]\030\216\213BG\220\247\3300;K\014\374"
@@ -517,7 +517,7 @@
 	.ascii	"\310gog\362\205d!\223\317\246n\366\247\311\317\346\012"
 	.ascii	"\267R\271t\346\014\034j\271\223"
 	.text
-	.section	.gnu.lto_.symbol_nodes.41119fd0,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415857fd,"e",%progbits
 	.ascii	"x\234u\321\273RBA\014\006\340d7g9\360s\353l\035\236"
 	.ascii	"\202\326'\361)\250s\306\321Z\033\012\032j\033\360\202"
 	.ascii	"\240\200\2156v\264\366\026\326\3302\243\\t]\013\314"
@@ -532,10 +532,10 @@
 	.ascii	"\364F\357\356\273RM\321\327B\334-\365?o\244H\033B\344"
 	.ascii	"\237\217"
 	.text
-	.section	.gnu.lto_.refs.41119fd0,"e",%progbits
+	.section	.gnu.lto_.refs.415857fd,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.41119fd0,"e",%progbits
+	.section	.gnu.lto_.decls.415857fd,"e",%progbits
 	.ascii	"x\234\265X\013PTW\232\276\347\036\220\246i\032\242\306"
 	.ascii	"8\203\223X)\263\261*;Q7\223\235\251\235\231\252-\315"
 	.ascii	"\354$3\311&\025\263\261vf\252\234V;\261k\004\335\266"
@@ -764,7 +764,7 @@
 	.ascii	"\003\005jR\327\266}62qr\202\326\333H\226H\202fs5\237"
 	.ascii	"n\221\362\2503K\215\375/1%jX"
 	.text
-	.section	.gnu.lto_.symtab.41119fd0,"e",%progbits
+	.section	.gnu.lto_.symtab.415857fd,"e",%progbits
 	.ascii	"serialGetBaudRate\000"
 	.ascii	"\000"
 	.ascii	"\000"

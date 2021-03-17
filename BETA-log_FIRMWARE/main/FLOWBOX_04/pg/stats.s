@@ -9,24 +9,24 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"stats.c"
-	.section	.gnu.lto_.profile.4123f157,"e",%progbits
+	.section	.gnu.lto_.profile.415f064f,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4123f157,"e",%progbits
+	.section	.gnu.lto_.icf.415f064f,"e",%progbits
 	.ascii	"x\234\343``d\220b@\000\026\206\011\035_\336\3621N\275"
 	.ascii	"\274\363\023#\323\243\237]k\370\231\301$\003\000\253"
 	.ascii	"P\014\211"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4123f157,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415f064f,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.inline.4123f157,"e",%progbits
+	.section	.gnu.lto_.inline.415f064f,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.pureconst.4123f157,"e",%progbits
+	.section	.gnu.lto_.pureconst.415f064f,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_pgResetTemplate_statsConfig.4123f157,"e",%progbits
+	.section	.gnu.lto_pgResetTemplate_statsConfig.415f064f,"e",%progbits
 	.ascii	"x\234\343``d\010d`\000\222\0200\235\231\361\355\261"
 	.ascii	"\231\363Y\372\230\347330\326\003\271\307\337\277\275"
 	.ascii	"\302\010\34222\202dg\266\374\272\301i\271\275\241cA"
@@ -34,7 +34,7 @@
 	.ascii	"bf\334\305(\315\300\270\207\321\222\001\000\302\235"
 	.ascii	"\0318"
 	.text
-	.section	.gnu.lto_statsConfig_Registry.4123f157,"e",%progbits
+	.section	.gnu.lto_statsConfig_Registry.415f064f,"e",%progbits
 	.ascii	"x\234\343``d\370\304\300\300 \301\000\001\323\231\031"
 	.ascii	"w\177\331\373\212\263\205\261\251qFC\303\203\356}r\325"
 	.ascii	"\363\231\031\0263C\344\372\346-\350\347\267\334\336"
@@ -49,16 +49,16 @@
 	.ascii	"! !\246\247_\\\224\254\237\233\230\231\247_\220\256"
 	.ascii	"_\\\222XR\254\227\314\000\000\226(Wx"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4123f157,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415f064f,"e",%progbits
 	.ascii	"x\234\343``d\260g\000\002\326\211\214\014\255J\014z"
 	.ascii	"\005\351\361E\251\305\251%)\211%\211@\321~FF\270hzf"
 	.ascii	"qIQ%P\260\207\221\251Q\011\244\247\227\221\031\314`"
 	.ascii	"\000\000%\344\0172"
 	.text
-	.section	.gnu.lto_.refs.4123f157,"e",%progbits
+	.section	.gnu.lto_.refs.415f064f,"e",%progbits
 	.ascii	"x\234\343``d\340d```fdbbbfb`\000\000\001v\000\""
 	.text
-	.section	.gnu.lto_.decls.4123f157,"e",%progbits
+	.section	.gnu.lto_.decls.415f064f,"e",%progbits
 	.ascii	"x\234\215U]PS\327\026>\353\354\204\244\207\004\034\340"
 	.ascii	"\242\275\261\035\234Km\237\244\2643\235\316\235\316"
 	.ascii	"\334;\343\314\355}\272\017\375y\351C3\031\210!3\022"
@@ -171,7 +171,7 @@
 	.ascii	"\254\344hMy6T\035\031\245&KU\367\376F\247l\315]\026"
 	.ascii	"9\264\026\325\374\016\325\272-a"
 	.text
-	.section	.gnu.lto_.symtab.4123f157,"e",%progbits
+	.section	.gnu.lto_.symtab.415f064f,"e",%progbits
 	.ascii	"pgResetTemplate_statsConfig\000"
 	.ascii	"\000"
 	.ascii	"\000"

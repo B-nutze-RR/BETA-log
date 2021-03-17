@@ -21320,3 +21320,146 @@ extern uint8_t eepromData[4096];
 # 1 "./src/main/target/common_defaults_post.h" 1
 # 153 "./src/main/platform.h" 2
 # 22 "./src/main/pg/stats.c" 2
+
+
+
+# 1 "./src/main/pg/pg.h" 1
+# 21 "./src/main/pg/pg.h"
+       
+
+
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdbool.h" 1 3 4
+# 25 "./src/main/pg/pg.h" 2
+
+# 1 "./src/main/build/build_config.h" 1
+# 21 "./src/main/build/build_config.h"
+       
+# 44 "./src/main/build/build_config.h"
+typedef enum {
+    MCU_TYPE_SIMULATOR = 0,
+    MCU_TYPE_F103,
+    MCU_TYPE_F303,
+    MCU_TYPE_F40X,
+    MCU_TYPE_F411,
+    MCU_TYPE_F446,
+    MCU_TYPE_F722,
+    MCU_TYPE_F745,
+    MCU_TYPE_F746,
+    MCU_TYPE_F765,
+    MCU_TYPE_H750,
+    MCU_TYPE_H743_REV_UNKNOWN,
+    MCU_TYPE_H743_REV_Y,
+    MCU_TYPE_H743_REV_X,
+    MCU_TYPE_H743_REV_V,
+    MCU_TYPE_H7A3,
+    MCU_TYPE_H723_725,
+    MCU_TYPE_UNKNOWN = 255,
+} mcuTypeId_e;
+
+mcuTypeId_e getMcuTypeId(void);
+# 27 "./src/main/pg/pg.h" 2
+
+typedef uint16_t pgn_t;
+
+
+typedef enum {
+    PGRF_NONE = 0,
+    PGRF_CLASSIFICATON_BIT = (1 << 0)
+} pgRegistryFlags_e;
+
+typedef enum {
+    PGR_PGN_MASK = 0x0fff,
+    PGR_PGN_VERSION_MASK = 0xf000,
+    PGR_SIZE_MASK = 0x0fff,
+    PGR_SIZE_SYSTEM_FLAG = 0x0000
+} pgRegistryInternal_e;
+
+
+typedef void (pgResetFunc)(void * );
+
+typedef struct pgRegistry_s {
+    pgn_t pgn;
+    uint8_t length;
+    uint16_t size;
+    uint8_t *address;
+    uint8_t *copy;
+    uint8_t **ptr;
+    union {
+        void *ptr;
+        pgResetFunc *fn;
+    } reset;
+} pgRegistry_t;
+
+static inline uint16_t pgN(const pgRegistry_t* reg) {return reg->pgn & PGR_PGN_MASK;}
+static inline uint8_t pgVersion(const pgRegistry_t* reg) {return (uint8_t)(reg->pgn >> 12);}
+static inline uint16_t pgSize(const pgRegistry_t* reg) {return reg->size & PGR_SIZE_MASK;}
+static inline uint16_t pgElementSize(const pgRegistry_t* reg) {return (reg->size & PGR_SIZE_MASK) / reg->length;}
+# 75 "./src/main/pg/pg.h"
+extern const pgRegistry_t __pg_registry_start[];
+extern const pgRegistry_t __pg_registry_end[];
+
+
+extern const uint8_t __pg_resetdata_start[];
+extern const uint8_t __pg_resetdata_end[];
+# 194 "./src/main/pg/pg.h"
+const pgRegistry_t* pgFind(pgn_t pgn);
+
+
+# 196 "./src/main/pg/pg.h" 3 4
+_Bool 
+# 196 "./src/main/pg/pg.h"
+    pgLoad(const pgRegistry_t* reg, const void *from, int size, int version);
+int pgStore(const pgRegistry_t* reg, void *to, int size);
+void pgResetAll(void);
+void pgResetInstance(const pgRegistry_t *reg, uint8_t *base);
+
+# 200 "./src/main/pg/pg.h" 3 4
+_Bool 
+# 200 "./src/main/pg/pg.h"
+    pgResetCopy(void *copy, pgn_t pgn);
+void pgReset(const pgRegistry_t* reg);
+# 26 "./src/main/pg/stats.c" 2
+# 1 "./src/main/pg/pg_ids.h" 1
+# 21 "./src/main/pg/pg_ids.h"
+       
+# 27 "./src/main/pg/stats.c" 2
+
+# 1 "./src/main/pg/stats.h" 1
+# 21 "./src/main/pg/stats.h"
+       
+
+
+# 1 "./src/main/drivers/io_types.h" 1
+# 21 "./src/main/drivers/io_types.h"
+       
+
+
+
+
+
+typedef uint8_t ioTag_t;
+typedef void* IO_t;
+# 48 "./src/main/drivers/io_types.h"
+typedef uint8_t ioConfig_t;
+# 25 "./src/main/pg/stats.h" 2
+
+
+
+typedef struct statsConfig_s {
+    uint32_t stats_total_flights;
+    uint32_t stats_total_time_s;
+    uint32_t stats_total_dist_m;
+    int8_t stats_min_armed_time_s;
+} statsConfig_t;
+
+extern statsConfig_t statsConfig_System; extern statsConfig_t statsConfig_Copy; static inline const statsConfig_t* statsConfig(void) { return &statsConfig_System; } static inline statsConfig_t* statsConfigMutable(void) { return &statsConfig_System; } struct _dummy;
+# 29 "./src/main/pg/stats.c" 2
+
+extern const statsConfig_t pgResetTemplate_statsConfig; statsConfig_t statsConfig_System; statsConfig_t statsConfig_Copy; extern const pgRegistry_t statsConfig_Registry; const pgRegistry_t statsConfig_Registry __attribute__ ((section(".pg_registry"), used, aligned(4))) = { .pgn = 547 | (2 << 12), .length = 1, .size = sizeof(statsConfig_t) | PGR_SIZE_SYSTEM_FLAG, .address = (uint8_t*)&statsConfig_System, .copy = (uint8_t*)&statsConfig_Copy, .ptr = 0, .reset = {.ptr = (void*)&pgResetTemplate_statsConfig}, };
+
+const statsConfig_t pgResetTemplate_statsConfig __attribute__ ((section(".pg_resetdata"), used, aligned(2))) = { .stats_min_armed_time_s = (-1), .stats_total_flights = 0, .stats_total_time_s = 0, .stats_total_dist_m = 0, }
+
+
+
+
+ ;

@@ -22009,7 +22009,12 @@ CMS_Menu *getSaveExitMenu(void);
 # 45 "./src/main/cms/cms_menu_main.c" 2
 
 
+# 1 "./src/main/cms/cms_menu_persistent_stats.h" 1
+# 21 "./src/main/cms/cms_menu_persistent_stats.h"
+       
 
+extern CMS_Menu cmsx_menuPersistentStats;
+# 48 "./src/main/cms/cms_menu_main.c" 2
 
 
 
@@ -23239,10 +23244,10 @@ static const OSD_Entry menuFeaturesEntries[] =
 
     {"POWER", OME_Submenu, cmsMenuChange, &cmsx_menuPower, 0},
 
+    {"FAILSAFE", OME_Submenu, cmsMenuChange, &cmsx_menuFailsafe, 0},
 
 
-
-
+    {"PERSISTENT STATS", OME_Submenu, cmsMenuChange, &cmsx_menuPersistentStats, 0},
 
     {"BACK", OME_Back, 
 # 99 "./src/main/cms/cms_menu_main.c" 3 4

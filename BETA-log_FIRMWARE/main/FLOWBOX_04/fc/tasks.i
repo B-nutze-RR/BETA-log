@@ -5526,7 +5526,7 @@ typedef enum
     OME_FLOAT,
 
 
-
+    OME_VISIBLE,
 
     OME_TAB,
     OME_END,
@@ -7207,7 +7207,14 @@ _Bool
 # 1 "./src/main/fc/core.h" 1
 # 21 "./src/main/fc/core.h"
        
-# 30 "./src/main/fc/core.h"
+
+
+
+
+
+extern int16_t magHold;
+
+
 typedef struct throttleCorrectionConfig_s {
     uint16_t throttle_correction_angle;
     uint8_t throttle_correction_value;
@@ -7243,7 +7250,7 @@ typedef enum {
 
 
 
-
+extern const char * const osdLaunchControlModeNames[LAUNCH_CONTROL_MODE_COUNT];
 
 
 extern throttleCorrectionConfig_t throttleCorrectionConfig_System; extern throttleCorrectionConfig_t throttleCorrectionConfig_Copy; static inline const throttleCorrectionConfig_t* throttleCorrectionConfig(void) { return &throttleCorrectionConfig_System; } static inline throttleCorrectionConfig_t* throttleCorrectionConfigMutable(void) { return &throttleCorrectionConfig_System; } struct _dummy;
@@ -8380,9 +8387,13 @@ timeMs_t motorGetMotorEnableTimeMs(void);
 void motorShutdown(void);
 
 
+struct motorDevConfig_s;
+typedef struct motorDevConfig_s motorDevConfig_t;
 
-
-
+# 102 "./src/main/drivers/motor.h" 3 4
+_Bool 
+# 102 "./src/main/drivers/motor.h"
+    isDshotBitbangActive(const motorDevConfig_t *motorConfig);
 
 
 float getDigitalIdleOffset(const motorConfig_t *motorConfig);
@@ -8833,7 +8844,49 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-# 351 "./src/main/flight/pid.h"
+
+
+    pt1Filter_t windupLpf[3];
+    uint8_t itermRelax;
+    uint8_t itermRelaxType;
+    uint8_t itermRelaxCutoff;
+
+
+
+    float acCutoff;
+    float acGain;
+    float acLimit;
+    float acErrorLimit;
+    pt1Filter_t acLpf[3];
+    float oldSetpointCorrection[3];
+
+
+
+    biquadFilter_t dMinRange[3];
+    pt1Filter_t dMinLowpass[3];
+    float dMinPercent[3];
+    float dMinGyroGain;
+    float dMinSetpointGain;
+
+
+
+    pt1Filter_t airmodeThrottleLpf1;
+    pt1Filter_t airmodeThrottleLpf2;
+
+
+
+    pt1Filter_t setpointDerivativePt1[3];
+    biquadFilter_t setpointDerivativeBiquad[3];
+    
+# 345 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 345 "./src/main/flight/pid.h"
+        setpointDerivativeLpfInitialized;
+    uint8_t rcSmoothingDebugAxis;
+    uint8_t rcSmoothingFilterType;
+
+
+
     float acroTrainerAngleLimit;
     float acroTrainerLookaheadTime;
     uint8_t acroTrainerDebugAxis;
@@ -8851,7 +8904,33 @@ typedef struct pidRuntime_s {
     uint16_t dynLpfMin;
     uint16_t dynLpfMax;
     uint8_t dynLpfCurveExpo;
-# 387 "./src/main/flight/pid.h"
+
+
+
+    uint8_t launchControlMode;
+    uint8_t launchControlAngleLimit;
+    float launchControlKi;
+
+
+
+    
+# 373 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 373 "./src/main/flight/pid.h"
+        useIntegratedYaw;
+    uint8_t integratedYawRelax;
+
+
+
+    float thrustLinearization;
+    float throttleCompensateAmount;
+
+
+
+    float airmodeThrottleOffsetLimit;
+
+
+
     ffInterpolationType_t ffFromInterpolatedSetpoint;
     float ffSmoothFactor;
 
@@ -8903,6 +8982,15 @@ void pidSetAntiGravityState(
 _Bool 
 # 413 "./src/main/flight/pid.h"
     pidAntiGravityEnabled(void);
+
+
+float pidApplyThrustLinearization(float motorValue);
+float pidCompensateThrustLinearization(float throttle);
+
+
+
+void pidUpdateAirmodeLpf(float currentOffset);
+float pidGetAirmodeThrottleOffset();
 # 436 "./src/main/flight/pid.h"
 void dynLpfDTermUpdate(float throttle);
 void pidSetItermReset(
@@ -9230,7 +9318,7 @@ typedef enum {
     PAGE_TASKS,
 
 
-
+    PAGE_GPS,
 
 
     PAGE_DEBUG,
@@ -10681,7 +10769,7 @@ typedef struct osdConfig_s {
     uint8_t ahInvert;
     uint8_t osdProfileIndex;
     uint8_t overlay_radio_mode;
-    char profile[1][16 + 1];
+    char profile[3][16 + 1];
     uint16_t link_quality_alarm;
     int16_t rssi_dbm_alarm;
     uint8_t gps_sats_show_hdop;
@@ -10727,7 +10815,7 @@ extern timeUs_t osdFlyTime;
 extern float osdGForce;
 
 
-
+extern escSensorData_t *osdEscDataCombined;
 
 
 void osdInit(displayPort_t *osdDisplayPort, osdDisplayPortDevice_e displayPortDevice);
@@ -11555,7 +11643,7 @@ typedef struct voltageMeter_s {
     uint16_t displayFiltered;
     uint16_t unfiltered;
 
-
+    uint16_t sagFiltered;
 
     
 # 49 "./src/main/sensors/voltage.h" 3 4
@@ -16335,16 +16423,45 @@ typedef enum {
     TASK_BATTERY_ALERTS,
 
     TASK_BEEPER,
-# 109 "./src/main/scheduler/scheduler.h"
+
+
+    TASK_GPS,
+# 100 "./src/main/scheduler/scheduler.h"
+    TASK_ALTITUDE,
+
+
+
+
+
+    TASK_TELEMETRY,
+
+
     TASK_LEDSTRIP,
-# 127 "./src/main/scheduler/scheduler.h"
+# 118 "./src/main/scheduler/scheduler.h"
+    TASK_OSD,
+
+
+
+
+
+    TASK_ESC_SENSOR,
+
+
     TASK_CMS,
-# 137 "./src/main/scheduler/scheduler.h"
+
+
+    TASK_VTXCTRL,
+
+
+    TASK_CAMCTRL,
+
+
+
     TASK_RCDEVICE,
 
 
 
-
+    TASK_ADC_INTERNAL,
 
 
 
@@ -16474,13 +16591,21 @@ typedef enum {
 
     IBUS_SENSOR_TYPE_ALT_FLYSKY = 0xf9,
 
-
-
-
+    IBUS_SENSOR_TYPE_GPS_FULL = 0xfd,
+    IBUS_SENSOR_TYPE_VOLT_FULL = 0xf0,
+    IBUS_SENSOR_TYPE_ACC_FULL = 0xef,
 
     IBUS_SENSOR_TYPE_UNKNOWN = 0xff
 } ibusSensorType_e;
-# 89 "./src/main/telemetry/ibus_shared.h"
+
+
+
+uint8_t respondToIbusRequest(uint8_t const * const ibusPacket);
+void initSharedIbusTelemetry(serialPort_t * port);
+
+
+
+
 
 # 89 "./src/main/telemetry/ibus_shared.h" 3 4
 _Bool 
@@ -18219,7 +18344,35 @@ static void taskUpdateRxMain(timeUs_t currentTimeUs)
     }
 
 }
-# 236 "./src/main/fc/tasks.c"
+# 208 "./src/main/fc/tasks.c"
+static void taskCalculateAltitude(timeUs_t currentTimeUs)
+{
+    calculateEstimatedAltitude(currentTimeUs);
+}
+
+
+
+static void taskTelemetry(timeUs_t currentTimeUs)
+{
+    if (!cliMode && featureIsEnabled(FEATURE_TELEMETRY)) {
+        subTaskTelemetryPollSensors(currentTimeUs);
+
+        telemetryProcess(currentTimeUs);
+    }
+}
+
+
+
+static void taskCameraControl(uint32_t currentTime)
+{
+    if ((armingFlags & (ARMED))) {
+        return;
+    }
+
+    cameraControlProcess(currentTime);
+}
+
+
 void tasksInit(void)
 {
     schedulerInit();
@@ -18243,7 +18396,14 @@ void tasksInit(void)
 # 245 "./src/main/fc/tasks.c"
               useBatteryVoltage = batteryConfig()->voltageMeterSource != VOLTAGE_METER_NONE;
     setTaskEnabled(TASK_BATTERY_VOLTAGE, useBatteryVoltage);
-# 255 "./src/main/fc/tasks.c"
+
+
+
+    if (isSagCompensationConfigured()) {
+        rescheduleTask(TASK_BATTERY_VOLTAGE, (1000000 / (200)));
+    }
+
+
     const 
 # 255 "./src/main/fc/tasks.c" 3 4
          _Bool 
@@ -18312,9 +18472,69 @@ void tasksInit(void)
                                1
 # 293 "./src/main/fc/tasks.c"
                                    );
-# 330 "./src/main/fc/tasks.c"
+
+
+
+    setTaskEnabled(TASK_GPS, featureIsEnabled(FEATURE_GPS));
+# 309 "./src/main/fc/tasks.c"
+    setTaskEnabled(TASK_ALTITUDE, sensors(SENSOR_BARO) || featureIsEnabled(FEATURE_GPS));
+
+
+
+
+
+
+
+    if (featureIsEnabled(FEATURE_TELEMETRY)) {
+        setTaskEnabled(TASK_TELEMETRY, 
+# 318 "./src/main/fc/tasks.c" 3 4
+                                      1
+# 318 "./src/main/fc/tasks.c"
+                                          );
+        if (rxRuntimeState.serialrxProvider == SERIALRX_JETIEXBUS) {
+
+            rescheduleTask(TASK_TELEMETRY, (1000000 / (500)));
+        } else if (rxRuntimeState.serialrxProvider == SERIALRX_CRSF) {
+
+            rescheduleTask(TASK_TELEMETRY, (1000000 / (500)));
+        }
+    }
+
+
+
     setTaskEnabled(TASK_LEDSTRIP, featureIsEnabled(FEATURE_LED_STRIP));
-# 355 "./src/main/fc/tasks.c"
+
+
+
+
+
+
+
+    rescheduleTask(TASK_OSD, (1000000 / (osdConfig()->task_frequency)));
+    setTaskEnabled(TASK_OSD, featureIsEnabled(FEATURE_OSD) && osdGetDisplayPort(
+# 339 "./src/main/fc/tasks.c" 3 4
+                                                                               ((void *)0)
+# 339 "./src/main/fc/tasks.c"
+                                                                                   ));
+
+
+
+
+
+
+
+    setTaskEnabled(TASK_ESC_SENSOR, featureIsEnabled(FEATURE_ESC_SENSOR));
+
+
+
+    setTaskEnabled(TASK_ADC_INTERNAL, 
+# 351 "./src/main/fc/tasks.c" 3 4
+                                     1
+# 351 "./src/main/fc/tasks.c"
+                                         );
+
+
+
     pinioBoxTaskControl();
 
 
@@ -18325,7 +18545,30 @@ void tasksInit(void)
                             1
 # 360 "./src/main/fc/tasks.c"
                                 );
-# 377 "./src/main/fc/tasks.c"
+
+
+
+
+
+
+
+    setTaskEnabled(TASK_VTXCTRL, 
+# 368 "./src/main/fc/tasks.c" 3 4
+                                1
+# 368 "./src/main/fc/tasks.c"
+                                    );
+
+
+
+
+    setTaskEnabled(TASK_CAMCTRL, 
+# 373 "./src/main/fc/tasks.c" 3 4
+                                1
+# 373 "./src/main/fc/tasks.c"
+                                    );
+
+
+
     setTaskEnabled(TASK_RCDEVICE, rcdeviceIsEnabled());
 
 }
@@ -18450,7 +18693,59 @@ task_t tasks[TASK_COUNT] = {
                    ((void *)0)
 # 427 "./src/main/fc/tasks.c"
                    , .taskFunc = beeperUpdate, .desiredPeriodUs = (1000000 / (100)), .staticPriority = TASK_PRIORITY_LOW },
-# 459 "./src/main/fc/tasks.c"
+
+
+
+    [TASK_GPS] = { .taskName = "GPS", .subTaskName = 
+# 431 "./src/main/fc/tasks.c" 3 4
+                ((void *)0)
+# 431 "./src/main/fc/tasks.c"
+                , .checkFunc = 
+# 431 "./src/main/fc/tasks.c" 3 4
+                ((void *)0)
+# 431 "./src/main/fc/tasks.c"
+                , .taskFunc = gpsUpdate, .desiredPeriodUs = (1000000 / (100)), .staticPriority = TASK_PRIORITY_MEDIUM },
+# 443 "./src/main/fc/tasks.c"
+    [TASK_ALTITUDE] = { .taskName = "ALTITUDE", .subTaskName = 
+# 443 "./src/main/fc/tasks.c" 3 4
+                     ((void *)0)
+# 443 "./src/main/fc/tasks.c"
+                     , .checkFunc = 
+# 443 "./src/main/fc/tasks.c" 3 4
+                     ((void *)0)
+# 443 "./src/main/fc/tasks.c"
+                     , .taskFunc = taskCalculateAltitude, .desiredPeriodUs = (1000000 / (40)), .staticPriority = TASK_PRIORITY_LOW },
+
+
+
+
+
+
+
+    [TASK_OSD] = { .taskName = "OSD", .subTaskName = 
+# 451 "./src/main/fc/tasks.c" 3 4
+                ((void *)0)
+# 451 "./src/main/fc/tasks.c"
+                , .checkFunc = 
+# 451 "./src/main/fc/tasks.c" 3 4
+                ((void *)0)
+# 451 "./src/main/fc/tasks.c"
+                , .taskFunc = osdUpdate, .desiredPeriodUs = (1000000 / (60)), .staticPriority = TASK_PRIORITY_LOW },
+
+
+
+    [TASK_TELEMETRY] = { .taskName = "TELEMETRY", .subTaskName = 
+# 455 "./src/main/fc/tasks.c" 3 4
+                      ((void *)0)
+# 455 "./src/main/fc/tasks.c"
+                      , .checkFunc = 
+# 455 "./src/main/fc/tasks.c" 3 4
+                      ((void *)0)
+# 455 "./src/main/fc/tasks.c"
+                      , .taskFunc = taskTelemetry, .desiredPeriodUs = (1000000 / (250)), .staticPriority = TASK_PRIORITY_LOW },
+
+
+
     [TASK_LEDSTRIP] = { .taskName = "LEDSTRIP", .subTaskName = 
 # 459 "./src/main/fc/tasks.c" 3 4
                      ((void *)0)
@@ -18460,7 +18755,25 @@ task_t tasks[TASK_COUNT] = {
                      ((void *)0)
 # 459 "./src/main/fc/tasks.c"
                      , .taskFunc = ledStripUpdate, .desiredPeriodUs = (1000000 / (100)), .staticPriority = TASK_PRIORITY_LOW },
-# 471 "./src/main/fc/tasks.c"
+
+
+
+
+
+
+
+    [TASK_ESC_SENSOR] = { .taskName = "ESC_SENSOR", .subTaskName = 
+# 467 "./src/main/fc/tasks.c" 3 4
+                       ((void *)0)
+# 467 "./src/main/fc/tasks.c"
+                       , .checkFunc = 
+# 467 "./src/main/fc/tasks.c" 3 4
+                       ((void *)0)
+# 467 "./src/main/fc/tasks.c"
+                       , .taskFunc = escSensorProcess, .desiredPeriodUs = (1000000 / (100)), .staticPriority = TASK_PRIORITY_LOW },
+
+
+
     [TASK_CMS] = { .taskName = "CMS", .subTaskName = 
 # 471 "./src/main/fc/tasks.c" 3 4
                 ((void *)0)
@@ -18473,7 +18786,15 @@ task_t tasks[TASK_COUNT] = {
 
 
 
-
+    [TASK_VTXCTRL] = { .taskName = "VTXCTRL", .subTaskName = 
+# 475 "./src/main/fc/tasks.c" 3 4
+                    ((void *)0)
+# 475 "./src/main/fc/tasks.c"
+                    , .checkFunc = 
+# 475 "./src/main/fc/tasks.c" 3 4
+                    ((void *)0)
+# 475 "./src/main/fc/tasks.c"
+                    , .taskFunc = vtxUpdate, .desiredPeriodUs = (1000000 / (5)), .staticPriority = TASK_PRIORITY_IDLE },
 
 
 
@@ -18486,7 +18807,33 @@ task_t tasks[TASK_COUNT] = {
                      ((void *)0)
 # 479 "./src/main/fc/tasks.c"
                      , .taskFunc = rcdeviceUpdate, .desiredPeriodUs = (1000000 / (20)), .staticPriority = TASK_PRIORITY_MEDIUM },
-# 491 "./src/main/fc/tasks.c"
+
+
+
+    [TASK_CAMCTRL] = { .taskName = "CAMCTRL", .subTaskName = 
+# 483 "./src/main/fc/tasks.c" 3 4
+                    ((void *)0)
+# 483 "./src/main/fc/tasks.c"
+                    , .checkFunc = 
+# 483 "./src/main/fc/tasks.c" 3 4
+                    ((void *)0)
+# 483 "./src/main/fc/tasks.c"
+                    , .taskFunc = taskCameraControl, .desiredPeriodUs = (1000000 / (5)), .staticPriority = TASK_PRIORITY_IDLE },
+
+
+
+    [TASK_ADC_INTERNAL] = { .taskName = "ADCINTERNAL", .subTaskName = 
+# 487 "./src/main/fc/tasks.c" 3 4
+                         ((void *)0)
+# 487 "./src/main/fc/tasks.c"
+                         , .checkFunc = 
+# 487 "./src/main/fc/tasks.c" 3 4
+                         ((void *)0)
+# 487 "./src/main/fc/tasks.c"
+                         , .taskFunc = adcInternalProcess, .desiredPeriodUs = (1000000 / (1)), .staticPriority = TASK_PRIORITY_IDLE },
+
+
+
     [TASK_PINIOBOX] = { .taskName = "PINIOBOX", .subTaskName = 
 # 491 "./src/main/fc/tasks.c" 3 4
                      ((void *)0)

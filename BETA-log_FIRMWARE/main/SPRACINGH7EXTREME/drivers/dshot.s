@@ -9,14 +9,14 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"dshot.c"
-	.section	.gnu.lto_.profile.41118db6,"e",%progbits
+	.section	.gnu.lto_.profile.41583965,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.41118db6,"e",%progbits
+	.section	.gnu.lto_.icf.41583965,"e",%progbits
 	.ascii	"x\234\343``d\340`@\000F\206\207s\257\264\3611\000\000"
 	.ascii	"\016\353\002\371"
 	.text
-	.section	.gnu.lto_.jmpfuncs.41118db6,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41583965,"e",%progbits
 	.ascii	"x\234\343``dHc@\000F\006&FF\346\372\371\314\014@\314"
 	.ascii	"\310\004\0248\300\302\310\000\304\377\201\200\237\201"
 	.ascii	"\205\305c:3\343\275\246\271?x\372\230\347331\2620\356"
@@ -24,16 +24,16 @@
 	.ascii	"\0205\012\214\273\031\245\301J\024@\312\200\000\000"
 	.ascii	"\241\313\033?"
 	.text
-	.section	.gnu.lto_.inline.41118db6,"e",%progbits
+	.section	.gnu.lto_.inline.41583965,"e",%progbits
 	.ascii	"x\234\343``d\360a@\000F\006\006\245\2173\016\234f\312"
 	.ascii	"bddT\000\362\230\255\200\334\303LY\014\014l\015@\300"
 	.ascii	"\224\302\304\000\204`f2\003\013\020\3024N\360c\004*"
 	.ascii	"g`\232\340\007\023\002\000\317\352\016r"
 	.text
-	.section	.gnu.lto_.pureconst.41118db6,"e",%progbits
+	.section	.gnu.lto_.pureconst.41583965,"e",%progbits
 	.ascii	"x\234\343``d`a`\000\222\263X\001\001\323\000\256"
 	.text
-	.section	.gnu.lto_validateAndfixMotorOutputReordering.41118db6,"e",%progbits
+	.section	.gnu.lto_validateAndfixMotorOutputReordering.41583965,"e",%progbits
 	.ascii	"x\234\225V]L\024W\024\276g\356\354\356\354\354\354."
 	.ascii	"`5\324\215\212\011\304hZ\2614\251M\332\007\373\326\246"
 	.ascii	"I\373\320\276\264o\244\220\224\244\265\011\264\366\347"
@@ -128,17 +128,17 @@
 	.ascii	"\037\322c\327\245~\361Mz\326;Y\357\255MK\377.=k\345"
 	.ascii	"k\3369\022G\306Z\224d\244A\306\177\346\235\304\234"
 	.text
-	.section	.gnu.lto_.symbol_nodes.41118db6,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41583965,"e",%progbits
 	.ascii	"x\234\343``d\350`\000\002\246\345\334\365\014kn?2c\234"
 	.ascii	"p\216\201\241\236\201aW\203#P\016\010\030Wq\3273\376"
 	.ascii	"\207\002y\2604\003CC\203\003Pf%w=\023v\231\025\334\365"
 	.ascii	"\314Xe\230\031\230\301\266,acf`\002\263\236\000Y\214"
 	.ascii	"`\326\021!\006\000\251p5\333"
 	.text
-	.section	.gnu.lto_.refs.41118db6,"e",%progbits
+	.section	.gnu.lto_.refs.41583965,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.41118db6,"e",%progbits
+	.section	.gnu.lto_.decls.41583965,"e",%progbits
 	.ascii	"x\234\205\224_L\333U\024\307\357\371\3352hWV\266\020"
 	.ascii	"1v\017d\032_\314\350\026c\346\213\211\316\007\367\242"
 	.ascii	"&&3\301\227\246\266?\340\027K\273\264\277\326=^\213"
@@ -200,7 +200,7 @@
 	.ascii	"&\034#X\365\203\211~GP.\263\357\366z\335\377\001\223"
 	.ascii	"\262\375\274"
 	.text
-	.section	.gnu.lto_.symtab.41118db6,"e",%progbits
+	.section	.gnu.lto_.symtab.41583965,"e",%progbits
 	.ascii	"validateAndfixMotorOutputReordering\000"
 	.ascii	"\000"
 	.ascii	"\000"

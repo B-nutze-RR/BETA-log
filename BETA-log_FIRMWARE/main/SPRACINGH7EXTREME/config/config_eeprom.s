@@ -9,10 +9,10 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"config_eeprom.c"
-	.section	.gnu.lto_.profile.411198c5,"e",%progbits
+	.section	.gnu.lto_.profile.41583f3a,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.411198c5,"e",%progbits
+	.section	.gnu.lto_.icf.41583f3a,"e",%progbits
 	.ascii	"x\234\343``d\360g@\000^\206\246\035G*\230\016\035\370"
 	.ascii	"y\226\203\271u\353\211\267\374l\263zO\315db?\363\365"
 	.ascii	"\322f\016\216\356\017{\376\360s\316x0\355*\023\327\355"
@@ -20,7 +20,7 @@
 	.ascii	"\247\267\276z\304\317\367\263\377\374tV\376\371\367"
 	.ascii	"\326-\346`\000\000FK'\206"
 	.text
-	.section	.gnu.lto_.jmpfuncs.411198c5,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41583f3a,"e",%progbits
 	.ascii	"x\234\255TMK\303@\020\235\227m\323\264j\373\003z\320"
 	.ascii	"\213 \236\375u^,x\220\242\366*\036J\241\242\240^U\304"
 	.ascii	"j\255Z\255\237\210\342E\241\242\236D\220Bo\0051\316"
@@ -48,7 +48,7 @@
 	.ascii	"\356\341\033\017\227^\211\244JL\231B&X\310\253\200\012"
 	.ascii	"\352\371\002\017\364\231\342"
 	.text
-	.section	.gnu.lto_.inline.411198c5,"e",%progbits
+	.section	.gnu.lto_.inline.41583f3a,"e",%progbits
 	.ascii	"x\234uQMK\002Q\024=\357\276\227h\343G\0137I\264\013"
 	.ascii	"Z\366K\374\023\245\242\365#\006A('H\302U\237\270\211"
 	.ascii	"hU\020\205\241Qn\263@\010\027\201\264l\025\032\341\252"
@@ -69,12 +69,12 @@
 	.ascii	"_Z\224\327\303t.\332\037\224c\207\342\324\201\214\242"
 	.ascii	"\360#~\000\360\232\177N"
 	.text
-	.section	.gnu.lto_.pureconst.411198c5,"e",%progbits
+	.section	.gnu.lto_.pureconst.41583f3a,"e",%progbits
 	.ascii	"x\234\005\301\313\015\000\020\024E\301KN\304_\017j\245"
 	.ascii	"\007\257\020\013\335\231\211r\232\222\212.\336\010\217"
 	.ascii	"\370H\207\274)F]4\243\033\343\360\001\2070\007\213"
 	.text
-	.section	.gnu.lto_findEEPROM.411198c5,"e",%progbits
+	.section	.gnu.lto_findEEPROM.41583f3a,"e",%progbits
 	.ascii	"x\234\225TmO\034U\024\276\347\236\231\235\231]X\300"
 	.ascii	"\306h$Fb$\004\023\201\324\244151\372\003\364\027\230"
 	.ascii	"\030B(\222X \340\367^\026(\"\004Z\323\026\232f\272("
@@ -134,7 +134,7 @@
 	.ascii	".\373\240\264\256\256rWeY\351\207\225\325UP\263mK\\"
 	.ascii	"M\005\375\212\336\027\377\003\275\375\014G"
 	.text
-	.section	.gnu.lto_writeSettingsToEEPROM.411198c5,"e",%progbits
+	.section	.gnu.lto_writeSettingsToEEPROM.41583f3a,"e",%progbits
 	.ascii	"x\234\225V[PTG\032\356\377\364\\\016\303\014\220MbH"
 	.ascii	"\206U\314\006V\263\033\204\302(\276\245\262\265[\225"
 	.ascii	"\207\335\247}\330\207\335JQ81<\010\251\301\335\227\255"
@@ -252,7 +252,7 @@
 	.ascii	"\357:\262W;\234j\301:\247#{-\2569\035kLNGN\276s\365"
 	.ascii	"\263\021V\336[\203\377\322\336e\377\003\235L\007I"
 	.text
-	.section	.gnu.lto_isEEPROMStructureValid.part.0.411198c5,"e",%progbits
+	.section	.gnu.lto_isEEPROMStructureValid.part.0.41583f3a,"e",%progbits
 	.ascii	"x\234\225V[LTW\024=\373\236\271\217\2710(\217\252\311"
 	.ascii	"\304\304\264%\215?bl\343\207M\033\033\177\332\244i\372"
 	.ascii	"\325\337\306\340\330\366C1\243\377\036\207\227\200\212"
@@ -335,7 +335,7 @@
 	.ascii	"\012\326\004\2024\037\305\317\003K\227\005\202\260\312"
 	.ascii	"\010\006\362\013\202\313\376\006\307,F\036"
 	.text
-	.section	.gnu.lto_loadEEPROMFromExternalFlash.411198c5,"e",%progbits
+	.section	.gnu.lto_loadEEPROMFromExternalFlash.41583f3a,"e",%progbits
 	.ascii	"x\234uT]LTG\024\236s\317\275w\357\376\001\002\005\312"
 	.ascii	"\372@\232\360`\023\205\320\244mR\036\264\017\355k\323"
 	.ascii	"\276\364\301\264\241\260X\022\201\206\335>\370\324\013"
@@ -401,7 +401,7 @@
 	.ascii	"@\202\030\275C\313%\376\222\362\262\377\000\367\301"
 	.ascii	"8\227"
 	.text
-	.section	.gnu.lto_initEEPROM.411198c5,"e",%progbits
+	.section	.gnu.lto_initEEPROM.41583f3a,"e",%progbits
 	.ascii	"x\234]\217\273JCA\020\206\347?\263\211GQ\004APb%\246"
 	.ascii	"\320\302(6\202\215\017\340;HH\242\244\320H|\0007\311"
 	.ascii	"\321\200\212\026*\222\"\234\200\021\003\202\227J\274"
@@ -425,7 +425,7 @@
 	.ascii	"\221\310D<6\326\035\242z7\032\212\005\303\221\360\037"
 	.ascii	"\230\332\225R"
 	.text
-	.section	.gnu.lto_isEEPROMVersionValid.411198c5,"e",%progbits
+	.section	.gnu.lto_isEEPROMVersionValid.41583f3a,"e",%progbits
 	.ascii	"x\234MP\273JcQ\024\335\353\354\223\230\2102`5p\213\021"
 	.ascii	"\261Ic\002\202\215 S\373\023\"A\007\013\037\350\007"
 	.ascii	"\344$F4$\250\215\250E\270\242\204QdF\246\031\301\347"
@@ -450,7 +450,7 @@
 	.ascii	"_w\317\217\367\320\321\32550\330\337\333\024\2477\336"
 	.ascii	"x\225\373"
 	.text
-	.section	.gnu.lto_isEEPROMStructureValid.411198c5,"e",%progbits
+	.section	.gnu.lto_isEEPROMStructureValid.41583f3a,"e",%progbits
 	.ascii	"x\234MPKK[Q\020\236\357\314\271\311\365\265)\010\205"
 	.ascii	",\024q\223.L@\350F(\335\373#\244\204T\\\370@\177@Nb"
 	.ascii	"\244\265\212v\023\323,\302U\322\264\202\240\350\322"
@@ -476,7 +476,7 @@
 	.ascii	"\360\213\241\221Xbt\344\345\320\340\377k \231\034\033"
 	.ascii	"\037\035\356I\320?\350\217\237\226"
 	.text
-	.section	.gnu.lto_getEEPROMConfigSize.411198c5,"e",%progbits
+	.section	.gnu.lto_getEEPROMConfigSize.41583f3a,"e",%progbits
 	.ascii	"x\234E\216\275J\003Q\020\205\347\354\315\317*\006\254"
 	.ascii	"l\202 b\023\220\354+\370\032V\"K\224\024I$>@f\327\260"
 	.ascii	"\026+1\215\006\205%\204 \332\211\026\026\306\237m\024"
@@ -494,7 +494,7 @@
 	.ascii	"\1777\321l\336Y\257\272Ni\271Xv\334Jy\245\270:z\226"
 	.ascii	"\012\205\265j\245\224w\351\007L\260b\221"
 	.text
-	.section	.gnu.lto_getEEPROMStorageSize.411198c5,"e",%progbits
+	.section	.gnu.lto_getEEPROMStorageSize.41583f3a,"e",%progbits
 	.ascii	"x\234\225RMk\023Q\024\275w\356$\231i'\023W.\014B\021"
 	.ascii	"\262(bS\350\037\360'\270v\241\204\320j\300&\222v\347"
 	.ascii	"\242/\037\244\213j\353\242\322\006L\247\022JUh\255X"
@@ -528,7 +528,7 @@
 	.ascii	"\2164\270=\347R}gO\244\362\375\231\376L.\373\013\006"
 	.ascii	"\211\001B"
 	.text
-	.section	.gnu.lto_loadEEPROM.411198c5,"e",%progbits
+	.section	.gnu.lto_loadEEPROM.41583f3a,"e",%progbits
 	.ascii	"x\234\225T\335O\024W\024\277g\316|\355\354\256\273\355"
 	.ascii	"j1\335\027\322\204\007\223V\350\307\003\217\376\005"
 	.ascii	"\375\003|1\315\206\032\233\210\015\244\317^\226]\021"
@@ -587,7 +587,7 @@
 	.ascii	"a\357s\250\252\352\343\232cG\367\307\230Q\373I,VU[\213"
 	.ascii	"5U\207\351\215\375\007\223\312\377\324"
 	.text
-	.section	.gnu.lto_writeConfigToEEPROM.411198c5,"e",%progbits
+	.section	.gnu.lto_writeConfigToEEPROM.41583f3a,"e",%progbits
 	.ascii	"x\234eS\335KTA\024\2373s\277v\357\025\205\010\202\015"
 	.ascii	"\221\300\007\255T\252G\037\374K\012Y\266\360\301\017"
 	.ascii	"\\{\352\301\321\335\024]q\303\024\331j]\301 {\311\012"
@@ -632,7 +632,7 @@
 	.ascii	"9\237;>_Ssc}\205\227\350\376\373^\257\317\357\327k["
 	.ascii	"Z|\365M-\377\000\375\206q<"
 	.text
-	.section	.gnu.lto_.symbol_nodes.411198c5,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41583f3a,"e",%progbits
 	.ascii	"x\234u\222\317k\023Q\020\307\347\275I6\233\035\223\264"
 	.ascii	"\2336i\365\320\020r\355UzT\360/\021\377\217Y$\365\327"
 	.ascii	"\301z\021\021O\302Z\212\224B\253VS5\2326\032\333B\375"
@@ -660,14 +660,14 @@
 	.ascii	"|\331\0039\250\340\365\326v\277\201:/\230:\267\366+"
 	.ascii	"jU\324\370\\s\367\262d<\370\013\253\227W\375"
 	.text
-	.section	.gnu.lto_.refs.411198c5,"e",%progbits
+	.section	.gnu.lto_.refs.41583f3a,"e",%progbits
 	.ascii	"x\234\035\311\261\015\2000\020\004\301\333\343\315["
 	.ascii	"\006!\010,\022\350\206\376k\002\223\314\006[\205\036"
 	.ascii	"I\226\261\311\370\260\246p\334.W\231\015\377\250\246"
 	.ascii	"\223\347h\243\011X\006\253\022o\216\303e\327\013=\364"
 	.ascii	"\001\221"
 	.text
-	.section	.gnu.lto_.decls.411198c5,"e",%progbits
+	.section	.gnu.lto_.decls.41583f3a,"e",%progbits
 	.ascii	"x\234\225Z\011T\025W\232~\267\356{\274\307c3b\022\323"
 	.ascii	"\3323N\232,g:Q3\351\351\236\364\311\314d\222n\323\323"
 	.ascii	"\253\223d\372L\322g\016M\360\211L+p\340\231n\273\373"
@@ -1024,7 +1024,7 @@
 	.ascii	"\010\223\200zC\257H\352\234Lg\236\006'\352.\343Q\023"
 	.ascii	"\034\216\020\021v\371\177N\356\233\372"
 	.text
-	.section	.gnu.lto_.symtab.411198c5,"e",%progbits
+	.section	.gnu.lto_.symtab.41583f3a,"e",%progbits
 	.ascii	"loadEEPROMFromExternalFlash\000"
 	.ascii	"\000"
 	.ascii	"\000"

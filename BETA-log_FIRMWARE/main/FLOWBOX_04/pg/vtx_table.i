@@ -4822,3 +4822,501 @@ extern uint8_t __config_end;
 # 1 "./src/main/target/common_defaults_post.h" 1
 # 153 "./src/main/platform.h" 2
 # 25 "./src/main/pg/vtx_table.c" 2
+
+
+
+# 1 "./src/main/pg/pg.h" 1
+# 21 "./src/main/pg/pg.h"
+       
+
+
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdbool.h" 1 3 4
+# 25 "./src/main/pg/pg.h" 2
+
+# 1 "./src/main/build/build_config.h" 1
+# 21 "./src/main/build/build_config.h"
+       
+# 44 "./src/main/build/build_config.h"
+typedef enum {
+    MCU_TYPE_SIMULATOR = 0,
+    MCU_TYPE_F103,
+    MCU_TYPE_F303,
+    MCU_TYPE_F40X,
+    MCU_TYPE_F411,
+    MCU_TYPE_F446,
+    MCU_TYPE_F722,
+    MCU_TYPE_F745,
+    MCU_TYPE_F746,
+    MCU_TYPE_F765,
+    MCU_TYPE_H750,
+    MCU_TYPE_H743_REV_UNKNOWN,
+    MCU_TYPE_H743_REV_Y,
+    MCU_TYPE_H743_REV_X,
+    MCU_TYPE_H743_REV_V,
+    MCU_TYPE_H7A3,
+    MCU_TYPE_H723_725,
+    MCU_TYPE_UNKNOWN = 255,
+} mcuTypeId_e;
+
+mcuTypeId_e getMcuTypeId(void);
+# 27 "./src/main/pg/pg.h" 2
+
+typedef uint16_t pgn_t;
+
+
+typedef enum {
+    PGRF_NONE = 0,
+    PGRF_CLASSIFICATON_BIT = (1 << 0)
+} pgRegistryFlags_e;
+
+typedef enum {
+    PGR_PGN_MASK = 0x0fff,
+    PGR_PGN_VERSION_MASK = 0xf000,
+    PGR_SIZE_MASK = 0x0fff,
+    PGR_SIZE_SYSTEM_FLAG = 0x0000
+} pgRegistryInternal_e;
+
+
+typedef void (pgResetFunc)(void * );
+
+typedef struct pgRegistry_s {
+    pgn_t pgn;
+    uint8_t length;
+    uint16_t size;
+    uint8_t *address;
+    uint8_t *copy;
+    uint8_t **ptr;
+    union {
+        void *ptr;
+        pgResetFunc *fn;
+    } reset;
+} pgRegistry_t;
+
+static inline uint16_t pgN(const pgRegistry_t* reg) {return reg->pgn & PGR_PGN_MASK;}
+static inline uint8_t pgVersion(const pgRegistry_t* reg) {return (uint8_t)(reg->pgn >> 12);}
+static inline uint16_t pgSize(const pgRegistry_t* reg) {return reg->size & PGR_SIZE_MASK;}
+static inline uint16_t pgElementSize(const pgRegistry_t* reg) {return (reg->size & PGR_SIZE_MASK) / reg->length;}
+# 75 "./src/main/pg/pg.h"
+extern const pgRegistry_t __pg_registry_start[];
+extern const pgRegistry_t __pg_registry_end[];
+
+
+extern const uint8_t __pg_resetdata_start[];
+extern const uint8_t __pg_resetdata_end[];
+# 194 "./src/main/pg/pg.h"
+const pgRegistry_t* pgFind(pgn_t pgn);
+
+
+# 196 "./src/main/pg/pg.h" 3 4
+_Bool 
+# 196 "./src/main/pg/pg.h"
+    pgLoad(const pgRegistry_t* reg, const void *from, int size, int version);
+int pgStore(const pgRegistry_t* reg, void *to, int size);
+void pgResetAll(void);
+void pgResetInstance(const pgRegistry_t *reg, uint8_t *base);
+
+# 200 "./src/main/pg/pg.h" 3 4
+_Bool 
+# 200 "./src/main/pg/pg.h"
+    pgResetCopy(void *copy, pgn_t pgn);
+void pgReset(const pgRegistry_t* reg);
+# 29 "./src/main/pg/vtx_table.c" 2
+# 1 "./src/main/pg/pg_ids.h" 1
+# 21 "./src/main/pg/pg_ids.h"
+       
+# 30 "./src/main/pg/vtx_table.c" 2
+# 1 "./src/main/pg/vtx_table.h" 1
+# 21 "./src/main/pg/vtx_table.h"
+       
+
+
+
+
+
+
+
+# 1 "./src/main/drivers/vtx_table.h" 1
+# 27 "./src/main/drivers/vtx_table.h"
+# 1 "./src/main/drivers/vtx_common.h" 1
+# 23 "./src/main/drivers/vtx_common.h"
+       
+
+
+
+
+# 1 "./src/main/common/time.h" 1
+# 21 "./src/main/common/time.h"
+       
+# 31 "./src/main/common/time.h"
+typedef int32_t timeDelta_t;
+
+typedef uint32_t timeMs_t ;
+
+
+
+
+
+typedef uint32_t timeUs_t;
+
+
+
+
+
+
+static inline timeDelta_t cmpTimeUs(timeUs_t a, timeUs_t b) { return (timeDelta_t)(a - b); }
+
+
+
+
+
+typedef struct timeConfig_s {
+    int16_t tz_offsetMinutes;
+} timeConfig_t;
+
+extern timeConfig_t timeConfig_System; extern timeConfig_t timeConfig_Copy; static inline const timeConfig_t* timeConfig(void) { return &timeConfig_System; } static inline timeConfig_t* timeConfigMutable(void) { return &timeConfig_System; } struct _dummy;
+
+
+typedef int64_t rtcTime_t;
+
+rtcTime_t rtcTimeMake(int32_t secs, uint16_t millis);
+int32_t rtcTimeGetSeconds(rtcTime_t *t);
+uint16_t rtcTimeGetMillis(rtcTime_t *t);
+
+typedef struct _dateTime_s {
+
+    uint16_t year;
+
+    uint8_t month;
+
+    uint8_t day;
+
+    uint8_t hours;
+
+    uint8_t minutes;
+
+    uint8_t seconds;
+
+    uint16_t millis;
+} dateTime_t;
+
+
+
+# 83 "./src/main/common/time.h" 3 4
+_Bool 
+# 83 "./src/main/common/time.h"
+    dateTimeFormatUTC(char *buf, dateTime_t *dt);
+
+# 84 "./src/main/common/time.h" 3 4
+_Bool 
+# 84 "./src/main/common/time.h"
+    dateTimeFormatLocal(char *buf, dateTime_t *dt);
+
+# 85 "./src/main/common/time.h" 3 4
+_Bool 
+# 85 "./src/main/common/time.h"
+    dateTimeFormatLocalShort(char *buf, dateTime_t *dt);
+
+void dateTimeUTCToLocal(dateTime_t *utcDateTime, dateTime_t *localDateTime);
+
+
+
+
+# 91 "./src/main/common/time.h" 3 4
+_Bool 
+# 91 "./src/main/common/time.h"
+    dateTimeSplitFormatted(char *formatted, char **date, char **time);
+
+
+# 93 "./src/main/common/time.h" 3 4
+_Bool 
+# 93 "./src/main/common/time.h"
+    rtcHasTime(void);
+
+
+# 95 "./src/main/common/time.h" 3 4
+_Bool 
+# 95 "./src/main/common/time.h"
+    rtcGet(rtcTime_t *t);
+
+# 96 "./src/main/common/time.h" 3 4
+_Bool 
+# 96 "./src/main/common/time.h"
+    rtcSet(rtcTime_t *t);
+
+
+# 98 "./src/main/common/time.h" 3 4
+_Bool 
+# 98 "./src/main/common/time.h"
+    rtcGetDateTime(dateTime_t *dt);
+
+# 99 "./src/main/common/time.h" 3 4
+_Bool 
+# 99 "./src/main/common/time.h"
+    rtcSetDateTime(dateTime_t *dt);
+
+void rtcPersistWrite(int16_t offsetMinutes);
+
+# 102 "./src/main/common/time.h" 3 4
+_Bool 
+# 102 "./src/main/common/time.h"
+    rtcPersistRead(rtcTime_t *t);
+# 29 "./src/main/drivers/vtx_common.h" 2
+# 1 "./src/main/common/streambuf.h" 1
+# 21 "./src/main/common/streambuf.h"
+       
+
+
+
+
+
+typedef struct sbuf_s {
+    uint8_t *ptr;
+    uint8_t *end;
+} sbuf_t;
+
+sbuf_t *sbufInit(sbuf_t *sbuf, uint8_t *ptr, uint8_t *end);
+
+void sbufWriteU8(sbuf_t *dst, uint8_t val);
+void sbufWriteU16(sbuf_t *dst, uint16_t val);
+void sbufWriteU32(sbuf_t *dst, uint32_t val);
+void sbufWriteU16BigEndian(sbuf_t *dst, uint16_t val);
+void sbufWriteU32BigEndian(sbuf_t *dst, uint32_t val);
+void sbufFill(sbuf_t *dst, uint8_t data, int len);
+void sbufWriteData(sbuf_t *dst, const void *data, int len);
+void sbufWriteString(sbuf_t *dst, const char *string);
+void sbufWriteStringWithZeroTerminator(sbuf_t *dst, const char *string);
+
+uint8_t sbufReadU8(sbuf_t *src);
+uint16_t sbufReadU16(sbuf_t *src);
+uint32_t sbufReadU32(sbuf_t *src);
+void sbufReadData(sbuf_t *dst, void *data, int len);
+
+int sbufBytesRemaining(sbuf_t *buf);
+uint8_t* sbufPtr(sbuf_t *buf);
+const uint8_t* sbufConstPtr(const sbuf_t *buf);
+void sbufAdvance(sbuf_t *buf, int size);
+
+void sbufSwitchToReader(sbuf_t *buf, uint8_t * base);
+# 30 "./src/main/drivers/vtx_common.h" 2
+# 49 "./src/main/drivers/vtx_common.h"
+typedef enum {
+    VTXDEV_UNSUPPORTED = 0,
+    VTXDEV_RTC6705 = 1,
+
+    VTXDEV_SMARTAUDIO = 3,
+    VTXDEV_TRAMP = 4,
+    VTXDEV_UNKNOWN = 0xFF,
+} vtxDevType_e;
+# 86 "./src/main/drivers/vtx_common.h"
+enum {
+    VTX_STATUS_PIT_MODE = 1 << 0,
+    VTX_STATUS_LOCKED = 1 << 1,
+};
+
+struct vtxVTable_s;
+typedef struct vtxDevice_s {
+    const struct vtxVTable_s *const vTable;
+} vtxDevice_t;
+
+
+
+
+
+
+typedef struct vtxVTable_s {
+    void (*process)(vtxDevice_t *vtxDevice, timeUs_t currentTimeUs);
+    vtxDevType_e (*getDeviceType)(const vtxDevice_t *vtxDevice);
+    
+# 104 "./src/main/drivers/vtx_common.h" 3 4
+   _Bool 
+# 104 "./src/main/drivers/vtx_common.h"
+        (*isReady)(const vtxDevice_t *vtxDevice);
+
+    void (*setBandAndChannel)(vtxDevice_t *vtxDevice, uint8_t band, uint8_t channel);
+    void (*setPowerByIndex)(vtxDevice_t *vtxDevice, uint8_t level);
+    void (*setPitMode)(vtxDevice_t *vtxDevice, uint8_t onoff);
+    void (*setFrequency)(vtxDevice_t *vtxDevice, uint16_t freq);
+
+    
+# 111 "./src/main/drivers/vtx_common.h" 3 4
+   _Bool 
+# 111 "./src/main/drivers/vtx_common.h"
+        (*getBandAndChannel)(const vtxDevice_t *vtxDevice, uint8_t *pBand, uint8_t *pChannel);
+    
+# 112 "./src/main/drivers/vtx_common.h" 3 4
+   _Bool 
+# 112 "./src/main/drivers/vtx_common.h"
+        (*getPowerIndex)(const vtxDevice_t *vtxDevice, uint8_t *pIndex);
+    
+# 113 "./src/main/drivers/vtx_common.h" 3 4
+   _Bool 
+# 113 "./src/main/drivers/vtx_common.h"
+        (*getFrequency)(const vtxDevice_t *vtxDevice, uint16_t *pFreq);
+    
+# 114 "./src/main/drivers/vtx_common.h" 3 4
+   _Bool 
+# 114 "./src/main/drivers/vtx_common.h"
+        (*getStatus)(const vtxDevice_t *vtxDevice, unsigned *status);
+    uint8_t (*getPowerLevels)(const vtxDevice_t *vtxDevice, uint16_t *levels, uint16_t *powers);
+
+    void (*serializeCustomDeviceStatus)(const vtxDevice_t *vtxDevice, sbuf_t *dst);
+} vtxVTable_t;
+
+
+
+
+
+
+void vtxCommonInit(void);
+void vtxCommonSetDevice(vtxDevice_t *vtxDevice);
+vtxDevice_t *vtxCommonDevice(void);
+
+
+void vtxCommonProcess(vtxDevice_t *vtxDevice, timeUs_t currentTimeUs);
+vtxDevType_e vtxCommonGetDeviceType(const vtxDevice_t *vtxDevice);
+
+# 132 "./src/main/drivers/vtx_common.h" 3 4
+_Bool 
+# 132 "./src/main/drivers/vtx_common.h"
+    vtxCommonDeviceIsReady(const vtxDevice_t *vtxDevice);
+
+void vtxCommonSetBandAndChannel(vtxDevice_t *vtxDevice, uint8_t band, uint8_t channel);
+void vtxCommonSetPowerByIndex(vtxDevice_t *vtxDevice, uint8_t level);
+void vtxCommonSetPitMode(vtxDevice_t *vtxDevice, uint8_t onoff);
+void vtxCommonSetFrequency(vtxDevice_t *vtxDevice, uint16_t freq);
+
+
+# 139 "./src/main/drivers/vtx_common.h" 3 4
+_Bool 
+# 139 "./src/main/drivers/vtx_common.h"
+    vtxCommonGetBandAndChannel(const vtxDevice_t *vtxDevice, uint8_t *pBand, uint8_t *pChannel);
+
+# 140 "./src/main/drivers/vtx_common.h" 3 4
+_Bool 
+# 140 "./src/main/drivers/vtx_common.h"
+    vtxCommonGetPowerIndex(const vtxDevice_t *vtxDevice, uint8_t *pIndex);
+
+# 141 "./src/main/drivers/vtx_common.h" 3 4
+_Bool 
+# 141 "./src/main/drivers/vtx_common.h"
+    vtxCommonGetFrequency(const vtxDevice_t *vtxDevice, uint16_t *pFreq);
+
+# 142 "./src/main/drivers/vtx_common.h" 3 4
+_Bool 
+# 142 "./src/main/drivers/vtx_common.h"
+    vtxCommonGetStatus(const vtxDevice_t *vtxDevice, unsigned *status);
+uint8_t vtxCommonGetVTXPowerLevels(const vtxDevice_t *vtxDevice, uint16_t *levels, uint16_t *powers);
+
+
+const char *vtxCommonLookupBandName(const vtxDevice_t *vtxDevice, int band);
+char vtxCommonLookupBandLetter(const vtxDevice_t *vtxDevice, int band);
+char vtxCommonGetBandLetter(const vtxDevice_t *vtxDevice, int band);
+const char *vtxCommonLookupChannelName(const vtxDevice_t *vtxDevice, int channel);
+uint16_t vtxCommonLookupFrequency(const vtxDevice_t *vtxDevice, int band, int channel);
+void vtxCommonLookupBandChan(const vtxDevice_t *vtxDevice, uint16_t freq, uint8_t *pBand, uint8_t *pChannel);
+const char *vtxCommonLookupPowerName(const vtxDevice_t *vtxDevice, int index);
+
+# 153 "./src/main/drivers/vtx_common.h" 3 4
+_Bool 
+# 153 "./src/main/drivers/vtx_common.h"
+    vtxCommonLookupPowerValue(const vtxDevice_t *vtxDevice, int index, uint16_t *pPowerValue);
+void vtxCommonSerializeDeviceStatus(const vtxDevice_t *vtxDevice, sbuf_t *dst);
+# 28 "./src/main/drivers/vtx_table.h" 2
+# 54 "./src/main/drivers/vtx_table.h"
+struct vtxTableConfig_s;
+void vtxTableInit(void);
+void vtxTableStrncpyWithPad(char *dst, const char *src, int length);
+void vtxTableConfigClearBand(struct vtxTableConfig_s *config, int band);
+void vtxTableConfigClearPowerValues(struct vtxTableConfig_s *config, int start);
+void vtxTableConfigClearPowerLabels(struct vtxTableConfig_s *config, int start);
+void vtxTableConfigClearChannels(struct vtxTableConfig_s *config, int band, int channels);
+
+
+
+
+extern int vtxTableBandCount;
+extern int vtxTableChannelCount;
+extern uint16_t vtxTableFrequency[8][8];
+extern const char *vtxTableBandNames[8 + 1];
+extern char vtxTableBandLetters[8 + 1];
+extern const char *vtxTableChannelNames[8 + 1];
+extern 
+# 71 "./src/main/drivers/vtx_table.h" 3 4
+      _Bool 
+# 71 "./src/main/drivers/vtx_table.h"
+                     vtxTableIsFactoryBand[8];
+extern int vtxTablePowerLevels;
+extern uint16_t vtxTablePowerValues[8];
+extern const char *vtxTablePowerLabels[8 + 1];
+# 30 "./src/main/pg/vtx_table.h" 2
+
+typedef struct vtxTableConfig_s {
+    uint8_t bands;
+    uint8_t channels;
+    uint16_t frequency[8][8];
+    char bandNames[8][8 + 1];
+    char bandLetters[8];
+    char channelNames[8][1 + 1];
+    
+# 38 "./src/main/pg/vtx_table.h" 3 4
+   _Bool 
+# 38 "./src/main/pg/vtx_table.h"
+            isFactoryBand[8];
+
+    uint8_t powerLevels;
+    uint16_t powerValues[8];
+    char powerLabels[8][3 + 1];
+} vtxTableConfig_t;
+
+struct vtxTableConfig_s;
+extern struct vtxTableConfig_s vtxTableConfig_System; extern struct vtxTableConfig_s vtxTableConfig_Copy; static inline const struct vtxTableConfig_s* vtxTableConfig(void) { return &vtxTableConfig_System; } static inline struct vtxTableConfig_s* vtxTableConfigMutable(void) { return &vtxTableConfig_System; } struct _dummy;
+# 31 "./src/main/pg/vtx_table.c" 2
+
+# 1 "./src/main/drivers/vtx_table.h" 1
+# 54 "./src/main/drivers/vtx_table.h"
+struct vtxTableConfig_s;
+void vtxTableInit(void);
+void vtxTableStrncpyWithPad(char *dst, const char *src, int length);
+void vtxTableConfigClearBand(struct vtxTableConfig_s *config, int band);
+void vtxTableConfigClearPowerValues(struct vtxTableConfig_s *config, int start);
+void vtxTableConfigClearPowerLabels(struct vtxTableConfig_s *config, int start);
+void vtxTableConfigClearChannels(struct vtxTableConfig_s *config, int band, int channels);
+
+
+
+
+extern int vtxTableBandCount;
+extern int vtxTableChannelCount;
+extern uint16_t vtxTableFrequency[8][8];
+extern const char *vtxTableBandNames[8 + 1];
+extern char vtxTableBandLetters[8 + 1];
+extern const char *vtxTableChannelNames[8 + 1];
+extern 
+# 71 "./src/main/drivers/vtx_table.h" 3 4
+      _Bool 
+# 71 "./src/main/drivers/vtx_table.h"
+                     vtxTableIsFactoryBand[8];
+extern int vtxTablePowerLevels;
+extern uint16_t vtxTablePowerValues[8];
+extern const char *vtxTablePowerLabels[8 + 1];
+# 33 "./src/main/pg/vtx_table.c" 2
+
+extern void pgResetFn_vtxTableConfig(vtxTableConfig_t *); vtxTableConfig_t vtxTableConfig_System; vtxTableConfig_t vtxTableConfig_Copy; extern const pgRegistry_t vtxTableConfig_Registry; const pgRegistry_t vtxTableConfig_Registry __attribute__ ((section(".pg_registry"), used, aligned(4))) = { .pgn = 546 | (0 << 12), .length = 1, .size = sizeof(vtxTableConfig_t) | PGR_SIZE_SYSTEM_FLAG, .address = (uint8_t*)&vtxTableConfig_System, .copy = (uint8_t*)&vtxTableConfig_Copy, .ptr = 0, .reset = {.fn = (pgResetFunc*)&pgResetFn_vtxTableConfig }, };
+
+void pgResetFn_vtxTableConfig(vtxTableConfig_t *config)
+{
+
+
+    config->bands = 0;
+    config->channels = 0;
+
+    for (int band = 0; band < 8; band++) {
+        vtxTableConfigClearBand(config, band);
+    }
+
+
+
+    config->powerLevels = 0;
+    vtxTableConfigClearPowerValues(config, 0);
+    vtxTableConfigClearPowerLabels(config, 0);
+}

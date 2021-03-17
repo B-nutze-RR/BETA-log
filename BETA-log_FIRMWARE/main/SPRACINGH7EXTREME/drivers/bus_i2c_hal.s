@@ -9,17 +9,17 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"bus_i2c_hal.c"
-	.section	.gnu.lto_.profile.4111a491,"e",%progbits
+	.section	.gnu.lto_.profile.41587e1b,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4111a491,"e",%progbits
+	.section	.gnu.lto_.icf.41587e1b,"e",%progbits
 	.ascii	"x\234\343``d\360d@\000\036\206Y/V_gbZ\177{\3575f\226"
 	.ascii	"\037\233\376>\345`\005\263\331\346]\274z\236\217\035"
 	.ascii	"Lr\354\277\333x\214\223s\372\222\367\033\330\271\032"
 	.ascii	"\376\037\377\312\315\015&y\300$o\303\362\243\"\014\000"
 	.ascii	"\207\003%q"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4111a491,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41587e1b,"e",%progbits
 	.ascii	"x\234\275R\273J\003Q\020\235sg7\331l\242\371\200-Lm"
 	.ascii	"!K>0\011\010J@\322\211v[X\210\011\202 *\030\037\361"
 	.ascii	"Q\010V\202\225\210\265\215X\332\370\232\273\257,7\211"
@@ -42,7 +42,7 @@
 	.ascii	"\301\305W\206\317\206?\241\243\352|\333\325\346\333"
 	.ascii	"nA\001\034\213\313\241_\240\311H`"
 	.text
-	.section	.gnu.lto_.inline.4111a491,"e",%progbits
+	.section	.gnu.lto_.inline.41587e1b,"e",%progbits
 	.ascii	"x\234\275T\335jSA\020\376fvO\262IkH\005\257\0049\370"
 	.ascii	"$\347\011|\006\233\244\355\215\245y\202\272\352\255"
 	.ascii	"T\203\245\305j\261\"\212E/\204\220^TK\245T\021\261B"
@@ -73,12 +73,12 @@
 	.ascii	"J\246l%6z~\271\336\222\341\0253\207\351\305O\011/\006"
 	.ascii	"\366"
 	.text
-	.section	.gnu.lto_.pureconst.4111a491,"e",%progbits
+	.section	.gnu.lto_.pureconst.41587e1b,"e",%progbits
 	.ascii	"x\234\005\301\211\021\2000\020\0031\303l \037e\320\263"
 	.ascii	"}\325F\352\272\364K\332*\356@h\3411\257\351\305\010"
 	.ascii	"\323,\263\315W\034\226\027\007\354"
 	.text
-	.section	.gnu.lto_i2cHandleHardwareFailure.isra.0.4111a491,"e",%progbits
+	.section	.gnu.lto_i2cHandleHardwareFailure.isra.0.41587e1b,"e",%progbits
 	.ascii	"x\234\215P=OBA\020\334\271\205\307\243\2407\2612\026"
 	.ascii	"\306\206g\364\017\370O\010\242\211$j\001\321\330q|D"
 	.ascii	"\203\030\264Qc\004)\010Q+\261\261\360\003Q\354\264 "
@@ -100,7 +100,7 @@
 	.ascii	"l,\2722\027\213[3\313\361Pt2\022\232\017/\004#\364\005"
 	.ascii	"\036\012\222\304"
 	.text
-	.section	.gnu.lto_i2cWriteBuffer.part.0.4111a491,"e",%progbits
+	.section	.gnu.lto_i2cWriteBuffer.part.0.41587e1b,"e",%progbits
 	.ascii	"x\234\215\224\177L[U\024\307\357y\367\365\275\276\322"
 	.ascii	"Ru\373c\246\211\321D\202\250\031\214%\213\211\211!\361"
 	.ascii	"\017\367\227\361\037\023\3770!\2256J\202\304\000\333"
@@ -167,7 +167,7 @@
 	.ascii	"<\025\305r\205\367\343b\271\314[^,{\334Un\245\262\312"
 	.ascii	"]u\240R\375l\277\273\334S\346\375\027d\226zo"
 	.text
-	.section	.gnu.lto_i2cRead.part.0.4111a491,"e",%progbits
+	.section	.gnu.lto_i2cRead.part.0.41587e1b,"e",%progbits
 	.ascii	"x\234\215T]LTW\020>s\317\335{\357\376\300\362gk\272"
 	.ascii	"/6)\241\264\211Pl|h\023c\3224\361\241\017}\351S\233"
 	.ascii	"\020\004jI(1 >5\361\260\200\212\030M\024e\261\335\256"
@@ -239,7 +239,7 @@
 	.ascii	"\266\202\242\242\362|\265\274xC>/-.\343\353+\337\327"
 	.ascii	"*6\025l\252\254\3207\256+(+*-\376\0335\004\256\255"
 	.text
-	.section	.gnu.lto_i2cReadBuffer.part.0.4111a491,"e",%progbits
+	.section	.gnu.lto_i2cReadBuffer.part.0.41587e1b,"e",%progbits
 	.ascii	"x\234\215\224]L\\U\020\307\317\334s\367~,\273\254\332"
 	.ascii	">\324lb4\221 \321\024\244I\243>4M\214I\037|\350\213"
 	.ascii	"o&\204\002*\011\022\003\245O&=\260\254HA\010X\262Ke"
@@ -309,7 +309,7 @@
 	.ascii	"\240\230\036*{C)=\234{\270\254T}\347@nq~Q\301\277O\206"
 	.ascii	"{\272"
 	.text
-	.section	.gnu.lto_I2C1_ER_IRQHandler.4111a491,"e",%progbits
+	.section	.gnu.lto_I2C1_ER_IRQHandler.41587e1b,"e",%progbits
 	.ascii	"x\234]\217\315K\002a\020\306\347y\307t\023:&\204t\210"
 	.ascii	"Nzp\305\277\240\277\242\253\230\005\011\325A\251\253"
 	.ascii	"\357\332\202\201a]\302\204j\005\221<\365q\011\372\336"
@@ -330,7 +330,7 @@
 	.ascii	"i}9\225Y\321\347\263\231\265\205lN\237[\315%3\211tr"
 	.ascii	"1\265\024K\323/!\307z\273"
 	.text
-	.section	.gnu.lto_I2C1_EV_IRQHandler.4111a491,"e",%progbits
+	.section	.gnu.lto_I2C1_EV_IRQHandler.41587e1b,"e",%progbits
 	.ascii	"x\234]\217\275KBa\024\306\317\363\036\323\233\320X\021"
 	.ascii	"\322\020M:\250\370\027\364W\264\212Y\220P\015J\255\276"
 	.ascii	"\332\005\003\303Z\302\204\342\012\"9\365\261D\337\335"
@@ -352,7 +352,7 @@
 	.ascii	"\013\351Ldn5\023O\305\222\361\305\304R8I\277\263\253"
 	.ascii	"{F"
 	.text
-	.section	.gnu.lto_i2cGetErrorCounter.4111a491,"e",%progbits
+	.section	.gnu.lto_i2cGetErrorCounter.41587e1b,"e",%progbits
 	.ascii	"x\234E\216OK\002Q\024\305\357\231\247\316\024(\355-"
 	.ascii	"(Z\271q\240O\3207\021\233\202\006\252\305\014\265\365"
 	.ascii	"\316(\2660l\010J\012LD\244va\313\354\317P\004A-$\250"
@@ -371,7 +371,7 @@
 	.ascii	"\350\271\033K\236o/\254\373\005w\316),\027W\362\016"
 	.ascii	"}\0035rb\013"
 	.text
-	.section	.gnu.lto_i2cWrite.4111a491,"e",%progbits
+	.section	.gnu.lto_i2cWrite.41587e1b,"e",%progbits
 	.ascii	"x\234\215T]LTW\020>s\317\335\373\263\354\012\245\210"
 	.ascii	"&\23344)\241\264\215Pl|i\322\232\366\245}\353K\337\232"
 	.ascii	"\220-KZ\022j\032@\037\353\205eE\224\202\362\023\240"
@@ -440,7 +440,7 @@
 	.ascii	"\366x\212r\345\242\374Ore\217\273\304\255\024\227\270"
 	.ascii	"Kv\026\253\237\277\347\336\341)\314\377\007x\036c\303"
 	.text
-	.section	.gnu.lto_i2cWriteBuffer.4111a491,"e",%progbits
+	.section	.gnu.lto_i2cWriteBuffer.41587e1b,"e",%progbits
 	.ascii	"x\234m\222\315K\224Q\024\306\357s\317}g\246i\314U`\314"
 	.ascii	"\246 0\013\2344h\023T\377@\313\326\30343\324\200\271"
 	.ascii	"\030\313\255\327/\304\024M\321F\213i\010\251\254\026"
@@ -477,7 +477,7 @@
 	.ascii	"\305\222a\225\214_\016\253\232xmX\305\"\327\"\177\000"
 	.ascii	"M\014\370y"
 	.text
-	.section	.gnu.lto_i2cRead.4111a491,"e",%progbits
+	.section	.gnu.lto_i2cRead.41587e1b,"e",%progbits
 	.ascii	"x\234m\222\335K\224A\024\306\347\2313\357\356fk^\005"
 	.ascii	"\322\336\024\004b\202[\006]\004E\377@\227]/\272\273"
 	.ascii	"\325\202y\261\242\267\316\256\232\230\242\031\312f\261"
@@ -513,7 +513,7 @@
 	.ascii	"\211D\033c\341\250S\035\211\304C*\036=\023\242\332h"
 	.ascii	"\035\3254\234\376\0155\253\373a"
 	.text
-	.section	.gnu.lto_i2cReadBuffer.4111a491,"e",%progbits
+	.section	.gnu.lto_i2cReadBuffer.41587e1b,"e",%progbits
 	.ascii	"x\234m\222\315K\224Q\024\306\357s\317}g&\035s\025\030"
 	.ascii	"\263)\010\304\002\247\014Z\004E\377@\313\326\203\316"
 	.ascii	"L5`.Ft\353\035G\021S\024C\031-\246!\244\357\205\030"
@@ -551,7 +551,7 @@
 	.ascii	"\243\347BT\033\255\243\232\206\263\277\000\314`\371"
 	.ascii	"-"
 	.text
-	.section	.gnu.lto_i2cBusy.4111a491,"e",%progbits
+	.section	.gnu.lto_i2cBusy.41587e1b,"e",%progbits
 	.ascii	"x\234\215T\337oTE\024\236\357\236\271?\272\273\335\232"
 	.ascii	"\030\023\223\365aMH*j\350\246$&\360`\374\003|\366\311"
 	.ascii	"\204`\251\261I\325d\033yev\333\315Z(\340\003\205\266"
@@ -603,7 +603,7 @@
 	.ascii	"oh\021\316\266\326\355m-\255vk:\375y\372\037\307\327"
 	.ascii	"\311 "
 	.text
-	.section	.gnu.lto_.symbol_nodes.4111a491,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41587e1b,"e",%progbits
 	.ascii	"x\234u\320\273N\303P\014\006`\373\234\223\244\211K\257"
 	.ascii	"0S!F\036\200\021^\205\027q\206J\014H(\010\036\000\301"
 	.ascii	"\336p-$\\\233F\014E01\262 `(\023ll\220@R\201t\216'K"
@@ -622,13 +622,13 @@
 	.ascii	"\351\3028\330]\300\035Ozb#Z]\023\270\"I\225]\325*:\370"
 	.ascii	"\006\015@\351\200"
 	.text
-	.section	.gnu.lto_.refs.4111a491,"e",%progbits
+	.section	.gnu.lto_.refs.41587e1b,"e",%progbits
 	.ascii	"x\234-\212\261\021\2000\020\303d;\011\237\"S\261\377"
 	.ascii	"N<\007*\254\302*\304\015\030\324\304vL\342\361{~\326"
 	.ascii	"r\244\353\235\352\322\333\031d\346\364G\026)\036)J\000"
 	.ascii	"\372"
 	.text
-	.section	.gnu.lto_.decls.4111a491,"e",%progbits
+	.section	.gnu.lto_.decls.41587e1b,"e",%progbits
 	.ascii	"x\234\275Z\011PUW\232~\347\235\367\340\261\0335\211"
 	.ascii	"\323v\325dRY\272\252\323\242\246:IO\325Li\324D\252\333"
 	.ascii	"\230A\223\356\231\252i\232\206\227\3004\202\365x$f\246"
@@ -916,7 +916,7 @@
 	.ascii	"\250ol\322\315>\001\236J\241\243\177\275~\337>h\267"
 	.ascii	"\377\005\302\010\027\275"
 	.text
-	.section	.gnu.lto_.symtab.4111a491,"e",%progbits
+	.section	.gnu.lto_.symtab.41587e1b,"e",%progbits
 	.ascii	"I2C1_ER_IRQHandler\000"
 	.ascii	"\000"
 	.ascii	"\000"

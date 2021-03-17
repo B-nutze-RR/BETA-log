@@ -22905,7 +22905,19 @@ void mspSerialReleasePortIfAllocated(serialPort_t *serialPort)
         }
     }
 }
-# 101 "./src/main/msp/msp_serial.c"
+
+
+void mspSerialReleaseSharedTelemetryPorts(void) {
+    for (uint8_t portIndex = 0; portIndex < 3; portIndex++) {
+        mspPort_t *candidateMspPort = &mspPorts[portIndex];
+        if (candidateMspPort->sharedWithTelemetry) {
+            closeSerialPort(candidateMspPort->port);
+            memset(candidateMspPort, 0, sizeof(mspPort_t));
+        }
+    }
+}
+
+
 static 
 # 101 "./src/main/msp/msp_serial.c" 3 4
       _Bool 

@@ -24645,7 +24645,19 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-# 351 "./src/main/flight/pid.h"
+# 343 "./src/main/flight/pid.h"
+    pt1Filter_t setpointDerivativePt1[3];
+    biquadFilter_t setpointDerivativeBiquad[3];
+    
+# 345 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 345 "./src/main/flight/pid.h"
+        setpointDerivativeLpfInitialized;
+    uint8_t rcSmoothingDebugAxis;
+    uint8_t rcSmoothingFilterType;
+
+
+
     float acroTrainerAngleLimit;
     float acroTrainerLookaheadTime;
     uint8_t acroTrainerDebugAxis;
@@ -31898,7 +31910,7 @@ static
     char buf[30];
 
 
-
+    rcSmoothingFilter_t *rcSmoothingData = getRcSmoothingData();
 
 
     const controlRateConfig_t *currentControlRateProfile = controlRateProfiles(systemConfig()->activeRateProfile);
@@ -32069,10 +32081,22 @@ static
         case 84: blackboxPrintfHeaderLine("dshot_idle_value", "%d", motorConfig()->digitalIdleOffsetValue); break;;
         case 85: blackboxPrintfHeaderLine("debug_mode", "%d", debugMode); break;;
         case 86: blackboxPrintfHeaderLine("features", "%d", featureConfig()->enabledFeatures); break;;
-# 1470 "./src/main/blackbox/blackbox.c"
-        case 87: blackboxPrintfHeaderLine("rates_type", "%d", currentControlRateProfile->rates_type); break;;
 
-        case 88: blackboxPrintfHeaderLine("fields_disabled_mask", "%d", blackboxConfig()->fields_disabled_mask); break;;
+
+        case 87: blackboxPrintfHeaderLine("rc_smoothing_type", "%d", rxConfig()->rc_smoothing_type); break;;
+        case 88: blackboxPrintfHeaderLine("rc_smoothing_debug_axis", "%d", rcSmoothingData->debugAxis); break;;
+        case 89: blackboxPrintfHeaderLine("rc_smoothing_cutoffs", "%d, %d", rcSmoothingData->inputCutoffSetting, rcSmoothingData->derivativeCutoffSetting); break;
+                                                                                                                     ;
+        case 90: blackboxPrintfHeaderLine("rc_smoothing_auto_factor", "%d", rcSmoothingData->autoSmoothnessFactor); break;;
+        case 91: blackboxPrintfHeaderLine("rc_smoothing_filter_type", "%d, %d", rcSmoothingData->inputFilterType, rcSmoothingData->derivativeFilterType); break;
+                                                                                                                  ;
+        case 92: blackboxPrintfHeaderLine("rc_smoothing_active_cutoffs", "%d, %d", rcSmoothingData->inputCutoffFrequency, rcSmoothingData->derivativeCutoffFrequency); break;
+                                                                                                                       ;
+        case 93: blackboxPrintfHeaderLine("rc_smoothing_rx_average", "%d", rcSmoothingData->averageFrameTimeUs); break;;
+
+        case 94: blackboxPrintfHeaderLine("rates_type", "%d", currentControlRateProfile->rates_type); break;;
+
+        case 95: blackboxPrintfHeaderLine("fields_disabled_mask", "%d", blackboxConfig()->fields_disabled_mask); break;;
 # 1482 "./src/main/blackbox/blackbox.c"
         default:
             return 

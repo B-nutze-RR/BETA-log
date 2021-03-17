@@ -9,23 +9,23 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"vcd.c"
-	.section	.gnu.lto_.profile.41118df4,"e",%progbits
+	.section	.gnu.lto_.profile.415824e1,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.41118df4,"e",%progbits
+	.section	.gnu.lto_.icf.415824e1,"e",%progbits
 	.ascii	"x\234\343``d\020f@\000f\206=\033\317)3^\377q\364.?\023"
 	.ascii	"\230d\000\000]\333\011\201"
 	.text
-	.section	.gnu.lto_.jmpfuncs.41118df4,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415824e1,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.inline.41118df4,"e",%progbits
+	.section	.gnu.lto_.inline.415824e1,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.pureconst.41118df4,"e",%progbits
+	.section	.gnu.lto_.pureconst.415824e1,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_vcdProfile_Registry.41118df4,"e",%progbits
+	.section	.gnu.lto_vcdProfile_Registry.415824e1,"e",%progbits
 	.ascii	"x\234\343``d\270\306\300\300 \306\000\001\323\231\031"
 	.ascii	"_\354?\374\204\325r{C\307\202\006\201\371\314\0143\230"
 	.ascii	"\031\030\365\244A\022}\315\357\357q\3641\317gfd\004"
@@ -40,15 +40,15 @@
 	.ascii	"\334\304\314<\375\202t\375\262\344\024\275d\006\000"
 	.ascii	"Y\323K\367"
 	.text
-	.section	.gnu.lto_.symbol_nodes.41118df4,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415824e1,"e",%progbits
 	.ascii	"x\234\343``d\320d\000\002\326\015\334\014\255J\014z"
 	.ascii	"\005\351\361E\251\351\231\305%E\225@\301\265\334\214"
 	.ascii	"\215J \331u\334L`\006\003\000\342\233\011;"
 	.text
-	.section	.gnu.lto_.refs.41118df4,"e",%progbits
+	.section	.gnu.lto_.refs.415824e1,"e",%progbits
 	.ascii	"x\234\343``d`g```b`bdbb\000\000\001\007\000\032"
 	.text
-	.section	.gnu.lto_.decls.41118df4,"e",%progbits
+	.section	.gnu.lto_.decls.415824e1,"e",%progbits
 	.ascii	"x\234\215U]LTG\024\276\347\316.,\313.(K\325d}\320\204"
 	.ascii	"\232\366\205\225\330\030\037\232\246\211I\333\247\246"
 	.ascii	"i\323\2276\351\206\300\262\220 \020v\261\241/^\026\272"
@@ -141,7 +141,7 @@
 	.ascii	"\214\364\300\214k+\240v\177\205\263\035\263\376\027"
 	.ascii	"\312#Z*"
 	.text
-	.section	.gnu.lto_.symtab.41118df4,"e",%progbits
+	.section	.gnu.lto_.symtab.415824e1,"e",%progbits
 	.ascii	"vcdProfile_Registry\000"
 	.ascii	"\000"
 	.ascii	"\000"

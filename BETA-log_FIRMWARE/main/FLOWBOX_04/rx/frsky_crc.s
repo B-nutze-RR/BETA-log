@@ -9,18 +9,18 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"frsky_crc.c"
-	.section	.gnu.lto_.profile.36d62ac6,"e",%progbits
+	.section	.gnu.lto_.profile.415f49f2,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.36d62ac6,"e",%progbits
+	.section	.gnu.lto_.icf.415f49f2,"e",%progbits
 	.ascii	"x\234\343``d\020a@\000f\206c\223\272\236\3603\316_u"
 	.ascii	"c\036?\323\307\303\207^\2603\000\000_$\011,"
 	.text
-	.section	.gnu.lto_.jmpfuncs.36d62ac6,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415f49f2,"e",%progbits
 	.ascii	"x\234\343``dPa@\000f\006&FF\346\372\371\314\014@\314"
 	.ascii	"\010\002 6\023T\220\011$\310\000\000k\025\005\356"
 	.text
-	.section	.gnu.lto_.inline.36d62ac6,"e",%progbits
+	.section	.gnu.lto_.inline.415f49f2,"e",%progbits
 	.ascii	"x\234E\216;\016\302@\020C\337x\003\004)\022\324\034"
 	.ascii	"\217\237\222[\214\004T\\\201\222:gHCE\305\025\350\351"
 	.ascii	"(Abv\205\300\225\355\031\331\2561N\374\221`\354\356"
@@ -29,11 +29,11 @@
 	.ascii	"sjaz\355\237wmsD jv\356\373\324\231\225*-B\276\324\305"
 	.ascii	"\220CN*UU\376\374\000\266\210\"\301"
 	.text
-	.section	.gnu.lto_.pureconst.36d62ac6,"e",%progbits
+	.section	.gnu.lto_.pureconst.415f49f2,"e",%progbits
 	.ascii	"x\234\343``d\340b```f\230\305\3028\213\205i+\013\000"
 	.ascii	"\012\324\002\017"
 	.text
-	.section	.gnu.lto_frskyCheckSumStep.36d62ac6,"e",%progbits
+	.section	.gnu.lto_frskyCheckSumStep.415f49f2,"e",%progbits
 	.ascii	"x\234}\220\301K\033A\024\306\337\267o7\331\266\261="
 	.ascii	"\364R\032\0029\210A\017F\350?\340\177R\332%\322\022"
 	.ascii	"\354!\251\320\234\234D0\320\210^\254A\350\262\202\306"
@@ -58,7 +58,7 @@
 	.ascii	"\364Y\266\360\";Q(\346K\017\275\2027\352\221\353=\311"
 	.ascii	"y\371\342\324\244\375\270\364<\367\017\312\037\237\275"
 	.text
-	.section	.gnu.lto_frskyCheckSumFini.36d62ac6,"e",%progbits
+	.section	.gnu.lto_frskyCheckSumFini.415f49f2,"e",%progbits
 	.ascii	"x\234]QAkSA\020\236\331\331}y\215\261\007\221\202\026"
 	.ascii	"\241\007\245\364\322\\{\364/\370\013\244<,J\211\207"
 	.ascii	"\004AO\335\2446!mi\240h\202\320g\012\032,\010V\321K"
@@ -90,7 +90,7 @@
 	.ascii	"b2}99\226\316\214_9\353\245\275a\017\\\357\3749o<s)"
 	.ascii	"\365\027\302\026\334["
 	.text
-	.section	.gnu.lto_frskyCheckSumIsGood.36d62ac6,"e",%progbits
+	.section	.gnu.lto_frskyCheckSumIsGood.415f49f2,"e",%progbits
 	.ascii	"x\234\205T[OTW\024\336\337\331{\316e`\006\344\362\""
 	.ascii	"iB\232\022B\322\212\251\017\265o}\350\377h\310\324V"
 	.ascii	"c\365\001l\322>y:\2033!N\275$\010-v:m,\221\304Dz\261"
@@ -150,15 +150,15 @@
 	.ascii	"\273\007v\273\211\335\273\022{\273\336\337\207=\377"
 	.ascii	"\002\210\240\375["
 	.text
-	.section	.gnu.lto_.symbol_nodes.36d62ac6,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415f49f2,"e",%progbits
 	.ascii	"x\234\343``d\010d\000\002\2466\306z\206\006 `a\234p"
 	.ascii	"\216\201\241\236\201aW\203#P\022$\325\316X\317\370\341"
 	.ascii	"\327\012\013L\231N\306z&\2542\014\000\225\221\025 "
 	.text
-	.section	.gnu.lto_.refs.36d62ac6,"e",%progbits
+	.section	.gnu.lto_.refs.415f49f2,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.36d62ac6,"e",%progbits
+	.section	.gnu.lto_.decls.415f49f2,"e",%progbits
 	.ascii	"x\234\215S_L\223W\024?\347\273\205\366\373,R\235\231"
 	.ascii	"n\360@H4&F*\231q>\354a\231\211n/K\026\263\207\355\205"
 	.ascii	"\230\212\001\265\324\224b\364e\271BTb\346V3\335\246"
@@ -215,7 +215,7 @@
 	.ascii	"m\316\253\370\314\347\333^0\347\344\035\277\223\305"
 	.ascii	"."
 	.text
-	.section	.gnu.lto_.symtab.36d62ac6,"e",%progbits
+	.section	.gnu.lto_.symtab.415f49f2,"e",%progbits
 	.ascii	"frskyCheckSumStep\000"
 	.ascii	"\000"
 	.ascii	"\000"

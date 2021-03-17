@@ -9,18 +9,18 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"gyro_sync.c"
-	.section	.gnu.lto_.profile.36d64e85,"e",%progbits
+	.section	.gnu.lto_.profile.415f2522,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.36d64e85,"e",%progbits
+	.section	.gnu.lto_.icf.415f2522,"e",%progbits
 	.ascii	"x\234\343``d\340c@\000&\206\307\277w/bf<v\353\354gn"
 	.ascii	"\006\0004G\006\304"
 	.text
-	.section	.gnu.lto_.jmpfuncs.36d64e85,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415f2522,"e",%progbits
 	.ascii	"x\234\343``d\020b@\000&\006FF\306\372\371\314 \012L"
 	.ascii	"3\000\000\026\345\002g"
 	.text
-	.section	.gnu.lto_.inline.36d64e85,"e",%progbits
+	.section	.gnu.lto_.inline.415f2522,"e",%progbits
 	.ascii	"x\234UP;N\0031\024\234\367\234\3358|\242MCC\303Q8\011"
 	.ascii	"\237\220\320\222\023 GT4\021\005\"\242@lA\303\005P\024"
 	.ascii	"\010\332\2222\351(\000%\007\010T\364\214\343]+X\266"
@@ -37,11 +37,11 @@
 	.ascii	"\025)\031d4\271\376\320\203=\366\375\212\224\254\272"
 	.ascii	"\323*\254F\002[\301\362\353J\022\276\016\177\335bi\227"
 	.text
-	.section	.gnu.lto_.pureconst.36d64e85,"e",%progbits
+	.section	.gnu.lto_.pureconst.415f2522,"e",%progbits
 	.ascii	"x\234\343``d`g```b\230\305\3028\213\005\000\005<\001"
 	.ascii	"P"
 	.text
-	.section	.gnu.lto_gyroSyncCheckUpdate.36d64e85,"e",%progbits
+	.section	.gnu.lto_gyroSyncCheckUpdate.415f2522,"e",%progbits
 	.ascii	"x\234\205R\317k\023A\024~\337\274\3314\206\2467O\021"
 	.ascii	"\351\301\020\352\241\033\364\"x\361\257\360Z\312Z\244"
 	.ascii	"\007+$R\350\251\263\251 %\241\036l\332\010\015+\326"
@@ -72,7 +72,7 @@
 	.ascii	"\362#C^\257G\332\002\316\015\234\373\003\313\334\325"
 	.ascii	"L"
 	.text
-	.section	.gnu.lto_gyroSetSampleRate.36d64e85,"e",%progbits
+	.section	.gnu.lto_gyroSetSampleRate.415f2522,"e",%progbits
 	.ascii	"x\234\235\225\337O\\E\024\307\347\334\271{\357\335]"
 	.ascii	"~\245\211M\310\032%\251\004\251Iw\343\037\240F_|3\321"
 	.ascii	"7_\014Ah\232X4`L\352\203\235\205B\255\340\012)\260\245"
@@ -140,15 +140,15 @@
 	.ascii	"\350\203\274\267s>\316{\363\3234>\271}\342\037\242\234"
 	.ascii	"\276\373"
 	.text
-	.section	.gnu.lto_.symbol_nodes.36d64e85,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415f2522,"e",%progbits
 	.ascii	"x\234\343``d\260`\000\002\246\036\306z\206\006 `a\234"
 	.ascii	"p\216\201\241\236\201aW\203#P\022$\325\313X\317\210"
 	.ascii	"]\212\001\000\240d\015\034"
 	.text
-	.section	.gnu.lto_.refs.36d64e85,"e",%progbits
+	.section	.gnu.lto_.refs.415f2522,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.36d64e85,"e",%progbits
+	.section	.gnu.lto_.decls.415f2522,"e",%progbits
 	.ascii	"x\234\305YiT\024Y\226\216\027/Ira\261\201R[j\372\324"
 	.ascii	"\251Cog\272\013\253\354\355\307\3149\335\243S\255\247"
 	.ascii	"\247\246m\355\3761\333\311\312\206P\362\024\333\311"
@@ -380,7 +380,7 @@
 	.ascii	"\372\344O\221P9\334\017\377\177{\014\363\035A\2273;"
 	.ascii	"\240\375/fd9\227"
 	.text
-	.section	.gnu.lto_.symtab.36d64e85,"e",%progbits
+	.section	.gnu.lto_.symtab.415f2522,"e",%progbits
 	.ascii	"gyroSyncCheckUpdate\000"
 	.ascii	"\000"
 	.ascii	"\000"

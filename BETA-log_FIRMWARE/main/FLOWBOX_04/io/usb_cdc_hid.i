@@ -5299,7 +5299,7 @@ typedef struct voltageMeter_s {
     uint16_t displayFiltered;
     uint16_t unfiltered;
 
-
+    uint16_t sagFiltered;
 
     
 # 49 "./src/main/sensors/voltage.h" 3 4

@@ -9,28 +9,28 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"config_helper.c"
-	.section	.gnu.lto_.profile.36d62554,"e",%progbits
+	.section	.gnu.lto_.profile.415f1108,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.36d62554,"e",%progbits
+	.section	.gnu.lto_.icf.415f1108,"e",%progbits
 	.ascii	"x\234\343``d\340`@\000F\206\203W\327us1\000\000\016"
 	.ascii	"\262\002\354"
 	.text
-	.section	.gnu.lto_.jmpfuncs.36d62554,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415f1108,"e",%progbits
 	.ascii	"x\234\343``d\220a@\000F\006&FF\346\372\371\314\014@"
 	.ascii	"\314\310\004\0248\300\302\310\000\304\365\014\014\000"
 	.ascii	"@\261\004}"
 	.text
-	.section	.gnu.lto_.inline.36d62554,"e",%progbits
+	.section	.gnu.lto_.inline.415f1108,"e",%progbits
 	.ascii	"x\234\343``d0f@\000F\006\006\201\205\307\357\336c\312"
 	.ascii	"bddT\000\362\230D.\237\350\331\310\224\311\300\300\326"
 	.ascii	"\332\320\320\300\224\302\304\300\304\300\002T\311\314"
 	.ascii	"\003\224e\234\340\307\000\000S{\012\302"
 	.text
-	.section	.gnu.lto_.pureconst.36d62554,"e",%progbits
+	.section	.gnu.lto_.pureconst.415f1108,"e",%progbits
 	.ascii	"x\234\343``d`a`\000\2223Y\000\001\320\000\254"
 	.text
-	.section	.gnu.lto_targetSerialPortFunctionConfig.36d62554,"e",%progbits
+	.section	.gnu.lto_targetSerialPortFunctionConfig.415f1108,"e",%progbits
 	.ascii	"x\234}T\337o\024U\024\276\337=wfg\227aA\372Bhb\032\223"
 	.ascii	"M\203AZ\032\037\360\315\377\304\220Z\261\211\026Skb"
 	.ascii	"\342C\247\333e\253\320\320\240\020\300\270N\223\315"
@@ -81,17 +81,17 @@
 	.ascii	"\272\347\275\216.\264;\355\035\257\267\275\377\030c"
 	.ascii	"r\224\012"
 	.text
-	.section	.gnu.lto_.symbol_nodes.36d62554,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415f1108,"e",%progbits
 	.ascii	"x\234\343``d\360d\000\002\246>\306z\206\017\277VX0N"
 	.ascii	"8\307\300P\317\300\260\253\301\021(\007\004\254\023"
 	.ascii	"\030\031\024\2004c?c=\343\177(\220\007+c`hhp```f`\352"
 	.ascii	"o\275~\234\231\261\205\221\001\000Z\002\027D"
 	.text
-	.section	.gnu.lto_.refs.36d62554,"e",%progbits
+	.section	.gnu.lto_.refs.415f1108,"e",%progbits
 	.ascii	"x\234\343``d`c`\000\222\214\214\354\014\000\000\341"
 	.ascii	"\000\032"
 	.text
-	.section	.gnu.lto_.decls.36d62554,"e",%progbits
+	.section	.gnu.lto_.decls.415f1108,"e",%progbits
 	.ascii	"x\234\215VkPTG\026\356s{d\306\313\014\0200\342\212\233"
 	.ascii	"\270\026yTm\022$I\355\372swS\265\233\374\330M*\251\375"
 	.ascii	"\221\324V\215\343p\221\331\310\243f.[\232?\2710\353"
@@ -201,7 +201,7 @@
 	.ascii	"d+\252{Y$\317T\250\032\027\221\234'\301\255,\312\315"
 	.ascii	"U\355\316,\207\333\341T\025w\344\274\372?\353\216C\227"
 	.text
-	.section	.gnu.lto_.symtab.36d62554,"e",%progbits
+	.section	.gnu.lto_.symtab.415f1108,"e",%progbits
 	.ascii	"targetSerialPortFunctionConfig\000"
 	.ascii	"\000"
 	.ascii	"\000"

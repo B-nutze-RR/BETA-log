@@ -22516,6 +22516,22 @@ void serialPassthrough(serialPort_t *left, serialPort_t *right, serialConsumer *
 # 45 "./src/main/rx/ibus.c" 2
 
 
+# 1 "./src/main/telemetry/telemetry.h" 1
+# 28 "./src/main/telemetry/telemetry.h"
+       
+
+# 1 "./src/main/common/unit.h" 1
+# 21 "./src/main/common/unit.h"
+       
+
+typedef enum {
+    UNIT_IMPERIAL = 0,
+    UNIT_METRIC,
+    UNIT_BRITISH
+} unit_e;
+# 31 "./src/main/telemetry/telemetry.h" 2
+
+
 
 
 
@@ -22703,33 +22719,8 @@ void resumeRxPwmPpmSignal(void);
 uint16_t rxGetRefreshRate(void);
 
 timeDelta_t rxGetFrameDelta(timeDelta_t *frameAgeUs);
-# 51 "./src/main/rx/ibus.c" 2
-# 1 "./src/main/rx/ibus.h" 1
-# 21 "./src/main/rx/ibus.h"
-       
+# 37 "./src/main/telemetry/telemetry.h" 2
 
-
-# 23 "./src/main/rx/ibus.h" 3 4
-_Bool 
-# 23 "./src/main/rx/ibus.h"
-    ibusInit(const rxConfig_t *rxConfig, rxRuntimeState_t *rxRuntimeState);
-# 52 "./src/main/rx/ibus.c" 2
-# 1 "./src/main/telemetry/ibus.h" 1
-# 21 "./src/main/telemetry/ibus.h"
-       
-
-void initIbusTelemetry(void);
-
-void handleIbusTelemetry(void);
-
-# 26 "./src/main/telemetry/ibus.h" 3 4
-_Bool 
-# 26 "./src/main/telemetry/ibus.h"
-    checkIbusTelemetryState(void);
-
-void configureIbusTelemetryPort(void);
-void freeIbusTelemetryPort(void);
-# 53 "./src/main/rx/ibus.c" 2
 # 1 "./src/main/telemetry/ibus_shared.h" 1
 # 29 "./src/main/telemetry/ibus_shared.h"
        
@@ -22777,19 +22768,133 @@ typedef enum {
 
     IBUS_SENSOR_TYPE_ALT_FLYSKY = 0xf9,
 
-
-
-
+    IBUS_SENSOR_TYPE_GPS_FULL = 0xfd,
+    IBUS_SENSOR_TYPE_VOLT_FULL = 0xf0,
+    IBUS_SENSOR_TYPE_ACC_FULL = 0xef,
 
     IBUS_SENSOR_TYPE_UNKNOWN = 0xff
 } ibusSensorType_e;
-# 89 "./src/main/telemetry/ibus_shared.h"
+
+
+
+uint8_t respondToIbusRequest(uint8_t const * const ibusPacket);
+void initSharedIbusTelemetry(serialPort_t * port);
+
+
+
+
 
 # 89 "./src/main/telemetry/ibus_shared.h" 3 4
 _Bool 
 # 89 "./src/main/telemetry/ibus_shared.h"
     isChecksumOkIa6b(const uint8_t *ibusPacket, const uint8_t length);
-# 54 "./src/main/rx/ibus.c" 2
+# 39 "./src/main/telemetry/telemetry.h" 2
+
+typedef enum {
+    FRSKY_FORMAT_DMS = 0,
+    FRSKY_FORMAT_NMEA
+} frskyGpsCoordFormat_e;
+
+typedef enum {
+    SENSOR_VOLTAGE = 1 << 0,
+    SENSOR_CURRENT = 1 << 1,
+    SENSOR_FUEL = 1 << 2,
+    SENSOR_MODE = 1 << 3,
+    SENSOR_ACC_X = 1 << 4,
+    SENSOR_ACC_Y = 1 << 5,
+    SENSOR_ACC_Z = 1 << 6,
+    SENSOR_PITCH = 1 << 7,
+    SENSOR_ROLL = 1 << 8,
+    SENSOR_HEADING = 1 << 9,
+    SENSOR_ALTITUDE = 1 << 10,
+    SENSOR_VARIO = 1 << 11,
+    SENSOR_LAT_LONG = 1 << 12,
+    SENSOR_GROUND_SPEED = 1 << 13,
+    SENSOR_DISTANCE = 1 << 14,
+    ESC_SENSOR_CURRENT = 1 << 15,
+    ESC_SENSOR_VOLTAGE = 1 << 16,
+    ESC_SENSOR_RPM = 1 << 17,
+    ESC_SENSOR_TEMPERATURE = 1 << 18,
+    ESC_SENSOR_ALL = ESC_SENSOR_CURRENT
+                            | ESC_SENSOR_VOLTAGE
+                            | ESC_SENSOR_RPM
+                            | ESC_SENSOR_TEMPERATURE,
+    SENSOR_TEMPERATURE = 1 << 19,
+    SENSOR_CAP_USED = 1 << 20,
+    SENSOR_ALL = (1 << 21) - 1,
+} sensor_e;
+
+typedef struct telemetryConfig_s {
+    int16_t gpsNoFixLatitude;
+    int16_t gpsNoFixLongitude;
+    uint8_t telemetry_inverted;
+    uint8_t halfDuplex;
+    uint8_t frsky_coordinate_format;
+    uint8_t frsky_unit;
+    uint8_t frsky_vfas_precision;
+    uint8_t hottAlarmSoundInterval;
+    uint8_t pidValuesAsTelemetry;
+    uint8_t report_cell_voltage;
+    uint8_t flysky_sensors[15];
+    uint16_t mavlink_mah_as_heading_divisor;
+    uint32_t disabledSensors;
+} telemetryConfig_t;
+
+extern telemetryConfig_t telemetryConfig_System; extern telemetryConfig_t telemetryConfig_Copy; static inline const telemetryConfig_t* telemetryConfig(void) { return &telemetryConfig_System; } static inline telemetryConfig_t* telemetryConfigMutable(void) { return &telemetryConfig_System; } struct _dummy;
+
+extern serialPort_t *telemetrySharedPort;
+
+void telemetryInit(void);
+
+# 95 "./src/main/telemetry/telemetry.h" 3 4
+_Bool 
+# 95 "./src/main/telemetry/telemetry.h"
+    telemetryCheckRxPortShared(const serialPortConfig_t *portConfig, const SerialRXType serialrxProvider);
+
+void telemetryCheckState(void);
+void telemetryProcess(uint32_t currentTime);
+
+
+# 100 "./src/main/telemetry/telemetry.h" 3 4
+_Bool 
+# 100 "./src/main/telemetry/telemetry.h"
+    telemetryDetermineEnabledState(portSharing_e portSharing);
+
+
+# 102 "./src/main/telemetry/telemetry.h" 3 4
+_Bool 
+# 102 "./src/main/telemetry/telemetry.h"
+    telemetryIsSensorEnabled(sensor_e sensor);
+# 48 "./src/main/rx/ibus.c" 2
+
+
+
+# 1 "./src/main/rx/ibus.h" 1
+# 21 "./src/main/rx/ibus.h"
+       
+
+
+# 23 "./src/main/rx/ibus.h" 3 4
+_Bool 
+# 23 "./src/main/rx/ibus.h"
+    ibusInit(const rxConfig_t *rxConfig, rxRuntimeState_t *rxRuntimeState);
+# 52 "./src/main/rx/ibus.c" 2
+# 1 "./src/main/telemetry/ibus.h" 1
+# 21 "./src/main/telemetry/ibus.h"
+       
+
+void initIbusTelemetry(void);
+
+void handleIbusTelemetry(void);
+
+# 26 "./src/main/telemetry/ibus.h" 3 4
+_Bool 
+# 26 "./src/main/telemetry/ibus.h"
+    checkIbusTelemetryState(void);
+
+void configureIbusTelemetryPort(void);
+void freeIbusTelemetryPort(void);
+# 53 "./src/main/rx/ibus.c" 2
 # 67 "./src/main/rx/ibus.c"
 static uint8_t ibusModel;
 static uint8_t ibusSyncByte;
@@ -22941,8 +23046,8 @@ static uint8_t ibusFrameStatus(rxRuntimeState_t *rxRuntimeState)
             frameStatus = RX_FRAME_COMPLETE;
             lastRcFrameTimeUs = lastFrameTimeUs;
 
-
-
+        } else {
+            rxBytesToIgnore = respondToIbusRequest(ibus);
 
         }
     }
@@ -22988,17 +23093,13 @@ _Bool
     }
 
 
-
-
     
-# 230 "./src/main/rx/ibus.c" 3 4
+# 228 "./src/main/rx/ibus.c" 3 4
    _Bool 
-# 230 "./src/main/rx/ibus.c"
-        portShared = 
-# 230 "./src/main/rx/ibus.c" 3 4
-                     0
-# 230 "./src/main/rx/ibus.c"
-                          ;
+# 228 "./src/main/rx/ibus.c"
+        portShared = isSerialPortShared(portConfig, FUNCTION_RX_SERIAL, FUNCTION_TELEMETRY_IBUS);
+
+
 
 
 
@@ -23017,9 +23118,9 @@ _Bool
         );
 
 
-
-
-
+    if (portShared) {
+        initSharedIbusTelemetry(ibusPort);
+    }
 
 
     return ibusPort != 

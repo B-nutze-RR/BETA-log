@@ -9,24 +9,24 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"build_config.c"
-	.section	.gnu.lto_.profile.411183f0,"e",%progbits
+	.section	.gnu.lto_.profile.41581edb,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.411183f0,"e",%progbits
+	.section	.gnu.lto_.icf.41581edb,"e",%progbits
 	.ascii	"x\234\343``d\340`@\000F\206\346\373\347_\2611\000\000"
 	.ascii	"\017\011\0034"
 	.text
-	.section	.gnu.lto_.jmpfuncs.411183f0,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41581edb,"e",%progbits
 	.ascii	"x\234\343``d`e@\000F\020\001\000\001*\000\020"
 	.text
-	.section	.gnu.lto_.inline.411183f0,"e",%progbits
+	.section	.gnu.lto_.inline.41581edb,"e",%progbits
 	.ascii	"x\234\343``dPe@\000F\006\006\346\006 `Jad`b`h\0042\353"
 	.ascii	"\030\030\330 BL ! \000\000\243'\007\213"
 	.text
-	.section	.gnu.lto_.pureconst.411183f0,"e",%progbits
+	.section	.gnu.lto_.pureconst.41581edb,"e",%progbits
 	.ascii	"x\234\343``d`a`\000\222\015,\000\001\236\000\223"
 	.text
-	.section	.gnu.lto_getMcuTypeId.411183f0,"e",%progbits
+	.section	.gnu.lto_getMcuTypeId.41581edb,"e",%progbits
 	.ascii	"x\234\343``dX\306\300\300\240\004\304\262@\314\310\314"
 	.ascii	"\300\310\324\320\320\340\300\336\310\301\304\310\010"
 	.ascii	"f5p02\32431\3263\3663Ogf\234\332\271\373:\257\346\362"
@@ -41,15 +41,15 @@
 	.ascii	"d\375\334\304\314<\375\244\322\314\234\024\010\031\237"
 	.ascii	"\234\237\227\226\231\256\227\314\000\000~\306Cy"
 	.text
-	.section	.gnu.lto_.symbol_nodes.411183f0,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41581edb,"e",%progbits
 	.ascii	"x\234\343``d\220e\000\002\246\345\334\365\014\015@\300"
 	.ascii	"\3028\341\034\003C=\003\303\256\006G\240$\010\000\000"
 	.ascii	"z\232\006\270"
 	.text
-	.section	.gnu.lto_.refs.411183f0,"e",%progbits
+	.section	.gnu.lto_.refs.41581edb,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.411183f0,"e",%progbits
+	.section	.gnu.lto_.decls.41581edb,"e",%progbits
 	.ascii	"x\234\205\220OHTQ\024\306\317\367\256\302c\324\224\010"
 	.ascii	"\024Fhp\027\241/\211p\033\264\210\026FH\271\025}>e\240"
 	.ascii	"\24729b\233\270\031\314\256\032\320\014q\221-\002\021"
@@ -79,7 +79,7 @@
 	.ascii	"\212\017w\270\366\305\313\327b\027:;\251\316\017\220"
 	.ascii	">/v\004D\377\000X\330\277'"
 	.text
-	.section	.gnu.lto_.symtab.411183f0,"e",%progbits
+	.section	.gnu.lto_.symtab.41581edb,"e",%progbits
 	.ascii	"getMcuTypeId\000"
 	.ascii	"\000"
 	.ascii	"\000"

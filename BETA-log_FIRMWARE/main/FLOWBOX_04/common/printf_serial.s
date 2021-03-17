@@ -9,15 +9,15 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"printf_serial.c"
-	.section	.gnu.lto_.profile.41244310,"e",%progbits
+	.section	.gnu.lto_.profile.415f0040,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.41244310,"e",%progbits
+	.section	.gnu.lto_.icf.415f0040,"e",%progbits
 	.ascii	"x\234\343``dP`@\000V\206\011\273v\315\340e\334\373\360"
 	.ascii	"];+\323\262\243/\377\3631\177\376\324p\205\205m\355"
 	.ascii	"\202\225K\330\030\000\377:\017:"
 	.text
-	.section	.gnu.lto_.jmpfuncs.41244310,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415f0040,"e",%progbits
 	.ascii	"x\234e\216;\016\203@\014Dg<\253h\253p\000n@\301\021"
 	.ascii	"\223\202\2366\242\332{Pq\222\\!-\005R\342\015\342\243"
 	.ascii	"\305\222e\351\3313\343\010\342N\354\025`\244!\011Lb"
@@ -26,7 +26,7 @@
 	.ascii	"\013Z\037.\0036GcS\357;\340\346\267\306\366@\363\337"
 	.ascii	"C\203\012\333\303\001?\223/E\261"
 	.text
-	.section	.gnu.lto_.inline.41244310,"e",%progbits
+	.section	.gnu.lto_.inline.415f0040,"e",%progbits
 	.ascii	"x\234\343``d8\312\200\000,\014\014\354\015\015\015\017"
 	.ascii	"\230\323\030\031\230\230\200\254\006\246d\006\00660"
 	.ascii	"#\205\211\201\011\244\206\231\007H0M\360\233\340\307"
@@ -36,11 +36,11 @@
 	.ascii	"\020\313\200Z\300\346\036\000\273\213\201\241\021\310"
 	.ascii	"\256\303\356. \006\000\351~'\215"
 	.text
-	.section	.gnu.lto_.pureconst.41244310,"e",%progbits
+	.section	.gnu.lto_.pureconst.415f0040,"e",%progbits
 	.ascii	"x\234\343``d\340e```a\230\301\3024\203\205y\007\013"
 	.ascii	"\333\014\026\000\022\177\002\266"
 	.text
-	.section	.gnu.lto__putc.41244310,"e",%progbits
+	.section	.gnu.lto__putc.415f0040,"e",%progbits
 	.ascii	"x\234]\220\337+\203a\024\307\317\367=\357\3465\\SK\226"
 	.ascii	"h\334\230\222{\377\211\264\250\225\375h\334{\366\232"
 	.ascii	"\020q\203\345bM\255En\026\271\361k^?\213\226$\355f\345"
@@ -63,7 +63,7 @@
 	.ascii	"\203\201p_(\022\010F\303\341h$\020\213\207\"\303\003"
 	.ascii	"\275C\375\361P\337`G\220\020C\360\033B\366\222\237"
 	.text
-	.section	.gnu.lto_setPrintfSerialPort.41244310,"e",%progbits
+	.section	.gnu.lto_setPrintfSerialPort.415f0040,"e",%progbits
 	.ascii	"x\234EOMK\002Q\024\275g\336X\223\330\262 $\210(\304"
 	.ascii	"\215\363\027\352\037\364\003\202\020)\020Rct\357s\022"
 	.ascii	"\\\030\266\310\220\0021\020\311\235Em\372\236$\202\""
@@ -84,7 +84,7 @@
 	.ascii	"H\"\026K\304\3155+\032O\255,%\227\255hx5\024!\357`Z"
 	.ascii	"HX\251_~\201w\342"
 	.text
-	.section	.gnu.lto_tfp_printf.41244310,"e",%progbits
+	.section	.gnu.lto_tfp_printf.415f0040,"e",%progbits
 	.ascii	"x\234\205S\355K\223Q\024\277\3479w\333\343\234\2632"
 	.ascii	"\373\342\027\211\206\330\007GD\240\337\352?\350?\010"
 	.ascii	"\021\205A\316\230\243>v\2353%C\277T2a,\035\242\225\024"
@@ -125,7 +125,7 @@
 	.ascii	"U^\367\025\237\307\353\257\270T]\356\363\224^.*cXQ\351"
 	.ascii	"\267]\363y\374\376r\257v\265\364\017\346z\\b"
 	.text
-	.section	.gnu.lto_printfSerialInit.41244310,"e",%progbits
+	.section	.gnu.lto_printfSerialInit.415f0040,"e",%progbits
 	.ascii	"x\234MM1K\303`\020\275\367]\215qp/\210 \352\322%\371"
 	.ascii	"\013\376\023)A!`RI\335{)\255U?A\027)\031$\203\203n\342"
 	.ascii	"\250U\010\316\342\340/\210\016N\342Oh\275&\202\036<"
@@ -141,7 +141,7 @@
 	.ascii	"=\277\233\004~\324\016c?\350DQ'\366\367\2230>\330\335"
 	.ascii	"\356\356$a{\317\013\350\007\020\007V\026"
 	.text
-	.section	.gnu.lto_.symbol_nodes.41244310,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415f0040,"e",%progbits
 	.ascii	"x\234m\317\273\015\0021\020\004\320\031\357}\201\036"
 	.ascii	"@\350\212 \004\211B\350d\035\020\363\377^D@@\011\210"
 	.ascii	"\214\006\250\202\002\210I\340\316\346\002$o\262#\275"
@@ -153,12 +153,12 @@
 	.ascii	"\364X\244\355>Z\210\264\\\230R$w\351\\\245\314\327\236"
 	.ascii	"\224\244\343c\201/M\343w\022"
 	.text
-	.section	.gnu.lto_.refs.41244310,"e",%progbits
+	.section	.gnu.lto_.refs.415f0040,"e",%progbits
 	.ascii	"x\234\343``d\220f`\000\222\014\214\214\214L@\314\314"
 	.ascii	"\314\300\302\304\300\312\314\300\310\306\310\306\004"
 	.ascii	"\224\000\000\006\316\000S"
 	.text
-	.section	.gnu.lto_.decls.41244310,"e",%progbits
+	.section	.gnu.lto_.decls.415f0040,"e",%progbits
 	.ascii	"x\234\255X{PT\327\031\277\347\236Ev\227\345Q5\304\006"
 	.ascii	"\233\261\031m\222i\022\264I\233L\223N;I\323&\3554q\022"
 	.ascii	"m'i\246\233\025\226\270\015\257Y\026k\373O/`\360\201"
@@ -341,7 +341,7 @@
 	.ascii	"%0,\322B4\011\227\275\007\271\021\221\202\376\007\352"
 	.ascii	"Cn\373"
 	.text
-	.section	.gnu.lto_.symtab.41244310,"e",%progbits
+	.section	.gnu.lto_.symtab.415f0040,"e",%progbits
 	.ascii	"setPrintfSerialPort\000"
 	.ascii	"\000"
 	.ascii	"\000"

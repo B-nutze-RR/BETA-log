@@ -9,23 +9,23 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"beeper_dev.c"
-	.section	.gnu.lto_.profile.411193a4,"e",%progbits
+	.section	.gnu.lto_.profile.41585481,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.411193a4,"e",%progbits
+	.section	.gnu.lto_.icf.41585481,"e",%progbits
 	.ascii	"x\234\343``d\220b@\000\026\206O\347\247\374eb\3740i"
 	.ascii	"\326Uf\246\366Ws^\3631\203I\006\000\256\037\014\202"
 	.text
-	.section	.gnu.lto_.jmpfuncs.411193a4,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41585481,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.inline.411193a4,"e",%progbits
+	.section	.gnu.lto_.inline.41585481,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.pureconst.411193a4,"e",%progbits
+	.section	.gnu.lto_.pureconst.41585481,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_pgResetTemplate_beeperDevConfig.411193a4,"e",%progbits
+	.section	.gnu.lto_pgResetTemplate_beeperDevConfig.41585481,"e",%progbits
 	.ascii	"x\234\343``d(``\000\222\0200\235\231\361\370\373\267"
 	.ascii	"W\030\373\230\3473\003\005\221\271\214`\356\276\236"
 	.ascii	"\013\247\231!\\F \367\376\265G\233\270!\334\343 \351"
@@ -33,7 +33,7 @@
 	.ascii	"\014\240!{\031\245g\000\245\367\200(&\306\335 \212\231"
 	.ascii	"q\027\2434\003\343>FK\006\000\006\334#\372"
 	.text
-	.section	.gnu.lto_beeperDevConfig_Registry.411193a4,"e",%progbits
+	.section	.gnu.lto_beeperDevConfig_Registry.41585481,"e",%progbits
 	.ascii	"x\234\343``d\370\314\300\300 \313\000\001\323\231\031"
 	.ascii	"w\177\331\373\212\263\205\261\251qFC\303\203\356\375"
 	.ascii	"b\235\314\363\231\031\0263C$\373\346-\350\347\267\334"
@@ -49,16 +49,16 @@
 	.ascii	"\220\326\323/.J\326\317M\314\314\323/H\327OJM-H-\212"
 	.ascii	"OI-\323Kf\000\000EtY-"
 	.text
-	.section	.gnu.lto_.symbol_nodes.411193a4,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41585481,"e",%progbits
 	.ascii	"x\234\343``d\260g\000\002\326M\334\014\255J\014z\005"
 	.ascii	"\351\361E\251\305\251%)\211%\211@\321\015\334\214p\321"
 	.ascii	"\364\314\342\222\242J\240\340Zn\246F%\220\236u\334\314"
 	.ascii	"`\006\003\000;\021\017\336"
 	.text
-	.section	.gnu.lto_.refs.411193a4,"e",%progbits
+	.section	.gnu.lto_.refs.41585481,"e",%progbits
 	.ascii	"x\234\343``d\340d```fdbbbfb`\000\000\001v\000\""
 	.text
-	.section	.gnu.lto_.decls.411193a4,"e",%progbits
+	.section	.gnu.lto_.decls.41585481,"e",%progbits
 	.ascii	"x\234\215UmPSg\026\276\347\276\011\2117\011\264\300"
 	.ascii	"\252-\235Q\332hw\366\207\350t\306ig\234\235\316\330"
 	.ascii	"\351\307t\246\335\351v\377\364\307f(\\cf4d\223\340\216"
@@ -169,7 +169,7 @@
 	.ascii	"]\353r\313\253\023\247\276^\216\305\374\006#\264\001"
 	.ascii	"\216"
 	.text
-	.section	.gnu.lto_.symtab.411193a4,"e",%progbits
+	.section	.gnu.lto_.symtab.41585481,"e",%progbits
 	.ascii	"pgResetTemplate_beeperDevConfig\000"
 	.ascii	"\000"
 	.ascii	"\000"

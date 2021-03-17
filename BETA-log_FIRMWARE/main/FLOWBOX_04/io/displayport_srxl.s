@@ -9,10 +9,10 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"displayport_srxl.c"
-	.section	.gnu.lto_.profile.36d629e3,"e",%progbits
+	.section	.gnu.lto_.profile.415f4e6b,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.36d629e3,"e",%progbits
+	.section	.gnu.lto_.icf.415f4e6b,"e",%progbits
 	.ascii	"x\234\343``dHg@\000A\206%\253V\037\341b\334\263h\303"
 	.ascii	"$>\246\035\223\247\\`d^2k\372l6\026\2608\353\205\365"
 	.ascii	"76\261\261\315\235\270\365;'{\317\306\331\273\3309^"
@@ -21,7 +21,7 @@
 	.ascii	"\016\017\337\312\025\333m\371\037\\|\264\202S\340\332"
 	.ascii	"\264\353\323Y\030\000\332\2700\312"
 	.text
-	.section	.gnu.lto_.jmpfuncs.36d629e3,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415f4e6b,"e",%progbits
 	.ascii	"x\234\215R\275J\003A\020\236og\357<M\342Y\331\\sO\340"
 	.ascii	"#&\021\261\012\006\004!X\305\037ba+6&j\324<\201\225"
 	.ascii	"X\010\212\266\021\354\002\202\316\356N\344.\011\301"
@@ -41,7 +41,7 @@
 	.ascii	"!\003\030S\\!\222\025\036\224\223x\216\307\217&\227"
 	.ascii	"{&\340\315\004#%4\003\203~\001\2008\234\361"
 	.text
-	.section	.gnu.lto_.inline.36d629e3,"e",%progbits
+	.section	.gnu.lto_.inline.415f4e6b,"e",%progbits
 	.ascii	"x\234\343``d8\315\304\000\007\374\014\014\314\015@\300"
 	.ascii	"\224\302\310\000\024n\0042\353\030\030\330 BL\014`\225"
 	.ascii	"\214`\376\001\246TF&\006\016F\006f\0070\351\301\216"
@@ -60,13 +60,13 @@
 	.ascii	"\027s*\272Z\240\261 \007\361\200\023'\224b\000\000P"
 	.ascii	"\025\225\035"
 	.text
-	.section	.gnu.lto_.pureconst.36d629e3,"e",%progbits
+	.section	.gnu.lto_.pureconst.415f4e6b,"e",%progbits
 	.ascii	"x\234\005\301\301\021\200 \020\004\301EFE\301\322\247"
 	.ascii	"I\230\343~\310\201\"\223\313\316\356\242\244O\322-\223"
 	.ascii	":\213\311\006\263\232\315\354\22328\2023\250A\233\\"
 	.ascii	"\203\347\375\001\313\220\011\025"
 	.text
-	.section	.gnu.lto_srxlDrawScreen.36d629e3,"e",%progbits
+	.section	.gnu.lto_srxlDrawScreen.415f4e6b,"e",%progbits
 	.ascii	"x\234\343``d\370\304\300\300\240\017\304\262@\314\310"
 	.ascii	"\314\300\310\324\320\320\340\300\336\310\301\304\310"
 	.ascii	"\010f5p02\32431\3263\3663Ogf\274\3274\367\007O\037\363"
@@ -85,7 +85,7 @@
 	.ascii	"\0059\211\225\005\371E%\361\305E\0259z\311\014\334P"
 	.ascii	"\261\000\240\030\000\375\001`M"
 	.text
-	.section	.gnu.lto_srxlScreenSize.36d629e3,"e",%progbits
+	.section	.gnu.lto_srxlScreenSize.415f4e6b,"e",%progbits
 	.ascii	"x\234\225\220\313+Dq\024\307\317\367\236\353\316\315"
 	.ascii	"kiaR\243\224l\\\376\003KK{E\032\233)\257f,X\371\315"
 	.ascii	"\214G!,\010\213\351\206\306l\344QJy^\217\024\013d\307"
@@ -110,7 +110,7 @@
 	.ascii	"\323\321\326\337\323\035\357mM\304\373:j\243T\364\255"
 	.ascii	"5\211\366\005A\257\251F"
 	.text
-	.section	.gnu.lto_srxlIsTransferInProgress.36d629e3,"e",%progbits
+	.section	.gnu.lto_srxlIsTransferInProgress.415f4e6b,"e",%progbits
 	.ascii	"x\234E\217\317J\002Q\024\306\3177g\232\206\312'\030"
 	.ascii	"\202\002A\3348A/\320#\364\006!\266\021,E[\324\312\243"
 	.ascii	"\005!\206m\022\023\012W\345&\250\240\225\323\237Y\011"
@@ -129,7 +129,7 @@
 	.ascii	"\226\012\271\364F!_\\[*\025\327s\251\014M\376\365\026"
 	.ascii	"\265\367\003\021\360f:"
 	.text
-	.section	.gnu.lto_srxlIsSynced.36d629e3,"e",%progbits
+	.section	.gnu.lto_srxlIsSynced.415f4e6b,"e",%progbits
 	.ascii	"x\234EO\275J\003a\020\334\271=\317\363'Op\010\012\201"
 	.ascii	"\220&'\370\002>\202o !6\007\321\204\304B\253l\202 !"
 	.ascii	"\242\215!\006\224TQ\004A\005\2610\376\\%F\033\261\021"
@@ -148,7 +148,7 @@
 	.ascii	"\245\374\331d0\347\007\031\177&\310g\323\311\305l&7"
 	.ascii	"?\235\317-\244\023)\032\372\343\246\224\373\001l+f\271"
 	.text
-	.section	.gnu.lto_srxlHeartbeat.36d629e3,"e",%progbits
+	.section	.gnu.lto_srxlHeartbeat.415f4e6b,"e",%progbits
 	.ascii	"x\234\343``d\370\302\300\300\240\017\304\262@\314\310"
 	.ascii	"\314\300\310\324\320\320\340\300\336\310\301\304\310"
 	.ascii	"\010f5p02\32431\3263\3663Ogf\274\3274\367\007O\037\363"
@@ -165,7 +165,7 @@
 	.ascii	"\353\247d\026\027\344$V\026\344\027\225\304\027\027"
 	.ascii	"U\344\350%3pC\305\002\200b\000\333\321`\334"
 	.text
-	.section	.gnu.lto_srxlRedraw.36d629e3,"e",%progbits
+	.section	.gnu.lto_srxlRedraw.415f4e6b,"e",%progbits
 	.ascii	"x\234\343``dx\311\300\300\240\017\304\262@\314\310\314"
 	.ascii	"\300\310\324\320\320\340\300\336\310\301\304\310\010"
 	.ascii	"f5p02\32431\3263\3663Ogf<\324\376l'\223\346r\240L\303"
@@ -183,7 +183,7 @@
 	.ascii	"\353\247d\026\027\344$V\026\344\027\225\304\027\027"
 	.ascii	"U\344\350%3pC\305\002\200b\000\276\201]C"
 	.text
-	.section	.gnu.lto_srxlTxBytesFree.36d629e3,"e",%progbits
+	.section	.gnu.lto_srxlTxBytesFree.415f4e6b,"e",%progbits
 	.ascii	"x\234UO1KBa\024\275\347\335\327\363eE?@\204\002A\\|"
 	.ascii	"\177\241\237\320?\010\261E\260\024m\250\311\253\011"
 	.ascii	"\021J-\2059\224\020d\004A\004.\225\325\233\202j\211"
@@ -203,7 +203,7 @@
 	.ascii	"\2670\223\317-\246\343I\032\371\345\246\225\373\001"
 	.ascii	"\020>k\256"
 	.text
-	.section	.gnu.lto_srxlGrab.36d629e3,"e",%progbits
+	.section	.gnu.lto_srxlGrab.415f4e6b,"e",%progbits
 	.ascii	"x\234UP]+DQ\024\335\353\236;3w|\226W\0215%)w~\202\237"
 	.ascii	"\340\037H\343\301\324\370h\306\003O\316\\J\214\306\013"
 	.ascii	"\031e\272\343cHiP\2220\343\242\024O\362\204\007\204"
@@ -226,7 +226,7 @@
 	.ascii	"\256p\254?\3229\324\337\027\035\350\210E\007#\255!*"
 	.ascii	"\377\355\265s\357\033\213o\205\270"
 	.text
-	.section	.gnu.lto_srxlWriteChar.36d629e3,"e",%progbits
+	.section	.gnu.lto_srxlWriteChar.415f4e6b,"e",%progbits
 	.ascii	"x\234m\321\317k\023Q\020\007\360\371\356l6k\254z\023"
 	.ascii	"$*\025\012\241\010M\305\036\274(\036=\372\037H\210\227"
 	.ascii	"@4e\023PO}\211\321B#-B%\315a\331*\304x\020\212\342A"
@@ -255,7 +255,7 @@
 	.ascii	"t\241\350]\315\017eio\224;/9\316\026\362\354\025\256"
 	.ascii	"\330\231R\311C\366\037\221,\275\030"
 	.text
-	.section	.gnu.lto_srxlWriteString.36d629e3,"e",%progbits
+	.section	.gnu.lto_srxlWriteString.415f4e6b,"e",%progbits
 	.ascii	"x\234m\222\333KTQ\024\306\367w\32693g\324\364\261\304"
 	.ascii	"\012\003A\354A\215z\360\245\350\261\307\372\013B\364"
 	.ascii	"E\260FF\241\202\300\3558\0329\346\020T:\331i\246\302"
@@ -296,7 +296,7 @@
 	.ascii	"L\327\216r\215*\374\325\024\360\2372\313\353\352\002"
 	.ascii	"\250\375\013C\313.\264"
 	.text
-	.section	.gnu.lto_srxlClearScreen.part.0.36d629e3,"e",%progbits
+	.section	.gnu.lto_srxlClearScreen.part.0.415f4e6b,"e",%progbits
 	.ascii	"x\234\235V\177LUU\034?\337{\356\257w\357{\217\334\332"
 	.ascii	"\242\275\326`\2239\347&n\265\346\374\253V6\334\262\261"
 	.ascii	"\206k\375\345\034\376\303F\301\240\255\372\313+\017"
@@ -375,7 +375,7 @@
 	.ascii	"f\332k\033_\315a\363\354M9/g\245m\311&\377\002E\020"
 	.ascii	"\203\257"
 	.text
-	.section	.gnu.lto_srxlClearScreen.36d629e3,"e",%progbits
+	.section	.gnu.lto_srxlClearScreen.415f4e6b,"e",%progbits
 	.ascii	"x\234\225U[lTU\024=\353\236\373\232\231;\323\027\037"
 	.ascii	"\220!\246\2154\015`h\023\215Q\374Q#\010\211\030\243"
 	.ascii	"\370m\010\374\220TKZ\022\365\253\2673\245\215\355\264"
@@ -451,7 +451,7 @@
 	.ascii	"\334\374\227\026\276\270`1\363/\232\367\362\353s\027"
 	.ascii	"/x\265x\321\302\027\330?\0007\250\005"
 	.text
-	.section	.gnu.lto_srxlRelease.36d629e3,"e",%progbits
+	.section	.gnu.lto_srxlRelease.415f4e6b,"e",%progbits
 	.ascii	"x\234UPMK\033Q\024\275gnf2~T\027.SQA\010\351\302\361"
 	.ascii	"'\370\023\372\017$\350&\020\253$.\332U\336\214\201B"
 	.ascii	"S\314\306\022\003\015\023?\242.D[p!\375\260S-\005\245"
@@ -476,7 +476,7 @@
 	.ascii	"|66\232\031\037\314f\236\246\373\206\250\345\266\366"
 	.ascii	"Xj\327hU\224\317"
 	.text
-	.section	.gnu.lto_displayPortSrxlInit.part.0.36d629e3,"e",%progbits
+	.section	.gnu.lto_displayPortSrxlInit.part.0.415f4e6b,"e",%progbits
 	.ascii	"x\234\225\222\313OSA\024\306\347\233\271\275\275-\030"
 	.ascii	"\215nL\272\301\005&lZ\\\271ei\342\037a\010&J\202\322"
 	.ascii	"\024\027\350\206ii\024\304T%\022`\201%V\"\013\203`\032"
@@ -515,7 +515,7 @@
 	.ascii	"\221\306\272`\015;\342P\204\317\205\"\215\301\363\354"
 	.ascii	"\027\326ar\344"
 	.text
-	.section	.gnu.lto_srxlVTable.36d629e3,"e",%progbits
+	.section	.gnu.lto_srxlVTable.415f4e6b,"e",%progbits
 	.ascii	"x\234e\320?K\303@\030\307\361\373\345I\232\244U'\267"
 	.ascii	"\"\".\376\243\231;\370Z\244\324%PmI\034t\213Z\241P\350"
 	.ascii	"t`\016\224\324I\301A\234\012V\255\377u\3605\210\340"
@@ -534,7 +534,7 @@
 	.ascii	"A\325\333\250\370\233\236_\367\326\375\260Q\253\354"
 	.ascii	"4\352\301\326Z\030l\327JU\361\017]\177\264\256"
 	.text
-	.section	.gnu.lto_displayPortSrxlInit.36d629e3,"e",%progbits
+	.section	.gnu.lto_displayPortSrxlInit.415f4e6b,"e",%progbits
 	.ascii	"x\234mR\315KTQ\024?\277{\337\273\357\3158\266i9.\014"
 	.ascii	"WF8.Z\264\212\376\223\020\333\010\226\242-j\223\327"
 	.ascii	"q*D\363\243\022\233`z\202\230BehFd\246c\232\251\031"
@@ -570,7 +570,7 @@
 	.ascii	"\325\225e\227\253\253j.\236\255\255\271TYRN\177\000"
 	.ascii	"\252\353\013L"
 	.text
-	.section	.gnu.lto_.symbol_nodes.36d629e3,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415f4e6b,"e",%progbits
 	.ascii	"x\234u\321\275N\002A\024\005\340{f`YvY]Wz\211\372\020"
 	.ascii	"\226j|\024\337\343\216\006I\250\244\303?\024qU,\214"
 	.ascii	"\204X\210\205\011\211\211\235\301Xhkc\253\265$\342\260"
@@ -589,13 +589,13 @@
 	.ascii	"7\035\247\025\351\027\277\267\370\305\207\352\313\253"
 	.ascii	"\320o}op~s\011\254[\364\005\261h\303\244"
 	.text
-	.section	.gnu.lto_.refs.36d629e3,"e",%progbits
+	.section	.gnu.lto_.refs.415f4e6b,"e",%progbits
 	.ascii	"x\234\005\301\201\021\200 \020\003\301\344\200\027G"
 	.ascii	"\014\332\213\375\327\346\356\224\365I\252\3331\201\215"
 	.ascii	"\323\234Njm\016\026\027\302\234L\2403h\224\037\275C"
 	.ascii	"?.X\001_"
 	.text
-	.section	.gnu.lto_.decls.36d629e3,"e",%progbits
+	.section	.gnu.lto_.decls.415f4e6b,"e",%progbits
 	.ascii	"x\234\325ZyXTYv\257[\267\240\240\330l\354Q\273\355\364"
 	.ascii	"\330=v\217\3712\335\332\313dz&\235\357\233n;\323\335"
 	.ascii	"\337$\231N\353Lf&\371BJ(\265\276\006\212T\025.\371g"
@@ -968,7 +968,7 @@
 	.ascii	"k\272\232^\0170\005\011&9'L0\004\246\357\026\212\212"
 	.ascii	"O\320\206\225\306-Ps\004M\263\013\177\372\037U\"@c"
 	.text
-	.section	.gnu.lto_.symtab.36d629e3,"e",%progbits
+	.section	.gnu.lto_.symtab.415f4e6b,"e",%progbits
 	.ascii	"srxlDisplayPort\000"
 	.ascii	"\000"
 	.ascii	"\000"

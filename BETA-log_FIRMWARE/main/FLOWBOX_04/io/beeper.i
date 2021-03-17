@@ -5242,9 +5242,13 @@ timeMs_t motorGetMotorEnableTimeMs(void);
 void motorShutdown(void);
 
 
+struct motorDevConfig_s;
+typedef struct motorDevConfig_s motorDevConfig_t;
 
-
-
+# 102 "./src/main/drivers/motor.h" 3 4
+_Bool 
+# 102 "./src/main/drivers/motor.h"
+    isDshotBitbangActive(const motorDevConfig_t *motorConfig);
 
 
 float getDigitalIdleOffset(const motorConfig_t *motorConfig);
@@ -5638,7 +5642,14 @@ _Bool
 # 1 "./src/main/fc/core.h" 1
 # 21 "./src/main/fc/core.h"
        
-# 30 "./src/main/fc/core.h"
+
+
+
+
+
+extern int16_t magHold;
+
+
 typedef struct throttleCorrectionConfig_s {
     uint16_t throttle_correction_angle;
     uint8_t throttle_correction_value;
@@ -5674,7 +5685,7 @@ typedef enum {
 
 
 
-
+extern const char * const osdLaunchControlModeNames[LAUNCH_CONTROL_MODE_COUNT];
 
 
 extern throttleCorrectionConfig_t throttleCorrectionConfig_System; extern throttleCorrectionConfig_t throttleCorrectionConfig_Copy; static inline const throttleCorrectionConfig_t* throttleCorrectionConfig(void) { return &throttleCorrectionConfig_System; } static inline throttleCorrectionConfig_t* throttleCorrectionConfigMutable(void) { return &throttleCorrectionConfig_System; } struct _dummy;
@@ -6041,7 +6052,202 @@ void handleVTXControlButton(void);
 # 45 "./src/main/io/beeper.c" 2
 
 
+# 1 "./src/main/io/gps.h" 1
+# 21 "./src/main/io/gps.h"
+       
 
+# 1 "./src/main/common/axis.h" 1
+# 21 "./src/main/common/axis.h"
+       
+
+typedef enum {
+    X = 0,
+    Y,
+    Z
+} axis_e;
+
+
+
+
+typedef enum {
+    FD_ROLL = 0,
+    FD_PITCH,
+    FD_YAW
+} flight_dynamics_index_t;
+
+
+
+typedef enum {
+    AI_ROLL = 0,
+    AI_PITCH
+} angle_index_t;
+# 24 "./src/main/io/gps.h" 2
+# 35 "./src/main/io/gps.h"
+typedef enum {
+    GPS_NMEA = 0,
+    GPS_UBLOX,
+    GPS_MSP
+} gpsProvider_e;
+
+typedef enum {
+    SBAS_AUTO = 0,
+    SBAS_EGNOS,
+    SBAS_WAAS,
+    SBAS_MSAS,
+    SBAS_GAGAN,
+    SBAS_NONE
+} sbasMode_e;
+
+
+
+typedef enum {
+    UBLOX_AIRBORNE = 0,
+    UBLOX_PEDESTRIAN,
+    UBLOX_DYNAMIC
+} ubloxMode_e;
+
+typedef enum {
+    GPS_BAUDRATE_115200 = 0,
+    GPS_BAUDRATE_57600,
+    GPS_BAUDRATE_38400,
+    GPS_BAUDRATE_19200,
+    GPS_BAUDRATE_9600
+} gpsBaudRate_e;
+
+typedef enum {
+    GPS_AUTOCONFIG_OFF = 0,
+    GPS_AUTOCONFIG_ON
+} gpsAutoConfig_e;
+
+typedef enum {
+    GPS_AUTOBAUD_OFF = 0,
+    GPS_AUTOBAUD_ON
+} gpsAutoBaud_e;
+
+typedef enum {
+    UBLOX_ACK_IDLE = 0,
+    UBLOX_ACK_WAITING,
+    UBLOX_ACK_GOT_ACK,
+    UBLOX_ACK_GOT_NACK,
+    UBLOX_ACK_GOT_TIMEOUT
+} ubloxAckState_e;
+
+
+
+typedef struct gpsConfig_s {
+    gpsProvider_e provider;
+    sbasMode_e sbasMode;
+    gpsAutoConfig_e autoConfig;
+    gpsAutoBaud_e autoBaud;
+    uint8_t gps_ublox_use_galileo;
+    ubloxMode_e gps_ublox_mode;
+    uint8_t gps_set_home_point_once;
+    uint8_t gps_use_3d_speed;
+    uint8_t sbas_integrity;
+} gpsConfig_t;
+
+extern gpsConfig_t gpsConfig_System; extern gpsConfig_t gpsConfig_Copy; static inline const gpsConfig_t* gpsConfig(void) { return &gpsConfig_System; } static inline gpsConfig_t* gpsConfigMutable(void) { return &gpsConfig_System; } struct _dummy;
+
+typedef struct gpsCoordinateDDDMMmmmm_s {
+    int16_t dddmm;
+    int16_t mmmm;
+} gpsCoordinateDDDMMmmmm_t;
+
+
+typedef struct gpsLocation_s {
+    int32_t lat;
+    int32_t lon;
+    int32_t altCm;
+} gpsLocation_t;
+
+typedef struct gpsSolutionData_s {
+    gpsLocation_t llh;
+    uint16_t speed3d;
+    uint16_t groundSpeed;
+    uint16_t groundCourse;
+    uint16_t hdop;
+    uint8_t numSat;
+} gpsSolutionData_t;
+
+typedef enum {
+    GPS_MESSAGE_STATE_IDLE = 0,
+    GPS_MESSAGE_STATE_INIT,
+    GPS_MESSAGE_STATE_SBAS,
+    GPS_MESSAGE_STATE_GNSS,
+    GPS_MESSAGE_STATE_INITIALIZED,
+    GPS_MESSAGE_STATE_PEDESTRIAN_TO_AIRBORNE,
+    GPS_MESSAGE_STATE_ENTRY_COUNT
+} gpsMessageState_e;
+
+typedef struct gpsData_s {
+    uint32_t errors;
+    uint32_t timeouts;
+    uint32_t lastMessage;
+    uint32_t lastLastMessage;
+
+    uint32_t state_position;
+    uint32_t state_ts;
+    uint8_t state;
+    uint8_t baudrateIndex;
+    gpsMessageState_e messageState;
+
+    uint8_t ackWaitingMsgId;
+    uint8_t ackTimeoutCounter;
+    ubloxAckState_e ackState;
+} gpsData_t;
+
+
+extern char gpsPacketLog[21];
+
+extern int32_t GPS_home[2];
+extern uint16_t GPS_distanceToHome;
+extern int16_t GPS_directionToHome;
+extern uint32_t GPS_distanceFlownInCm;
+extern int16_t GPS_verticalSpeedInCmS;
+extern int16_t GPS_angle[2];
+extern float dTnav;
+extern float GPS_scaleLonDown;
+extern int16_t nav_takeoff_bearing;
+
+typedef enum {
+    GPS_DIRECT_TICK = 1 << 0,
+    GPS_MSP_UPDATE = 1 << 1
+} gpsUpdateToggle_e;
+
+extern gpsData_t gpsData;
+extern gpsSolutionData_t gpsSol;
+
+extern uint8_t GPS_update;
+extern uint32_t GPS_packetCount;
+extern uint32_t GPS_svInfoReceivedCount;
+extern uint8_t GPS_numCh;
+extern uint8_t GPS_svinfo_chn[16];
+extern uint8_t GPS_svinfo_svid[16];
+extern uint8_t GPS_svinfo_quality[16];
+extern uint8_t GPS_svinfo_cno[16];
+
+
+
+
+void gpsInit(void);
+void gpsUpdate(timeUs_t currentTimeUs);
+
+# 183 "./src/main/io/gps.h" 3 4
+_Bool 
+# 183 "./src/main/io/gps.h"
+    gpsNewFrame(uint8_t c);
+
+# 184 "./src/main/io/gps.h" 3 4
+_Bool 
+# 184 "./src/main/io/gps.h"
+    gpsIsHealthy(void);
+struct serialPort_s;
+void gpsEnablePassthrough(struct serialPort_s *gpsPassthroughPort);
+void onGpsNewData(void);
+void GPS_reset_home_position(void);
+void GPS_calc_longitude_scaling(int32_t lat);
+void GPS_distance_cm_bearing(int32_t *currentLat1, int32_t *currentLon1, int32_t *destinationLat2, int32_t *destinationLon2, uint32_t *dist, int32_t *bearing);
+# 48 "./src/main/io/beeper.c" 2
 
 
 # 1 "./src/main/pg/beeper.h" 1
@@ -6408,7 +6614,7 @@ typedef struct voltageMeter_s {
     uint16_t displayFiltered;
     uint16_t unfiltered;
 
-
+    uint16_t sagFiltered;
 
     
 # 49 "./src/main/sensors/voltage.h" 3 4
@@ -6671,6 +6877,8 @@ _Bool
     isBeeperOn(void);
 timeUs_t getLastDshotBeaconCommandTimeUs(void);
 # 56 "./src/main/io/beeper.c" 2
+# 80 "./src/main/io/beeper.c"
+static timeUs_t lastDshotBeaconCommandTimeUs;
 # 93 "./src/main/io/beeper.c"
 static const uint8_t beep_shortBeep[] = {
     10, 10, 0xFF
@@ -6960,15 +7168,40 @@ void beeperWarningBeeps(uint8_t beepCount)
 
     beeper(BEEPER_MULTI_BEEPS);
 }
-# 376 "./src/main/io/beeper.c"
+
+
+static void beeperGpsStatus(void)
+{
+    if (!(beeperConfig()->beeper_off_flags & (1 << (BEEPER_GPS_STATUS - 1)))) {
+
+        if ((stateFlags & (GPS_FIX)) && gpsSol.numSat >= 5) {
+            uint8_t i = 0;
+            do {
+                beep_multiBeeps[i++] = 5;
+                beep_multiBeeps[i++] = 10;
+            } while (i < 64 && gpsSol.numSat > i / 2);
+
+            beep_multiBeeps[i - 1] = 50;
+            beep_multiBeeps[i] = 0xFF;
+
+            beeper(BEEPER_MULTI_BEEPS);
+        }
+    }
+}
+
+
+
+
+
+
 void beeperUpdate(timeUs_t currentTimeUs)
 {
 
     if (IS_RC_MODE_ACTIVE(BOXBEEPERON)) {
         beeper(BEEPER_RX_SET);
 
-
-
+    } else if (featureIsEnabled(FEATURE_GPS) && IS_RC_MODE_ACTIVE(BOXBEEPGPSCOUNT)) {
+        beeperGpsStatus();
 
     }
 
@@ -6986,7 +7219,18 @@ void beeperUpdate(timeUs_t currentTimeUs)
     }
 
     if (!beeperIsOn) {
-# 409 "./src/main/io/beeper.c"
+
+        if (!areMotorsRunning()
+            && ((currentBeeperEntry->mode == BEEPER_RX_SET && !(beeperConfig()->dshotBeaconOffFlags & (1 << (BEEPER_RX_SET - 1))))
+            || (currentBeeperEntry->mode == BEEPER_RX_LOST && !(beeperConfig()->dshotBeaconOffFlags & (1 << (BEEPER_RX_LOST - 1)))))) {
+
+            if ((currentTimeUs - getLastDisarmTimeUs() > 1200000) && !isTryingToArm()) {
+                lastDshotBeaconCommandTimeUs = currentTimeUs;
+                dshotCommandWrite(255, getMotorCount(), beeperConfig()->dshotBeaconTone, DSHOT_CMD_TYPE_INLINE);
+            }
+        }
+
+
         if (currentBeeperEntry->sequence[beeperPos] != 0) {
             if (!(beeperConfig()->beeper_off_flags & (1 << (currentBeeperEntry->mode - 1)))) {
                 systemBeep(
@@ -7108,4 +7352,9 @@ _Bool
     isBeeperOn(void)
 {
     return beeperIsOn;
+}
+# 526 "./src/main/io/beeper.c"
+timeUs_t getLastDshotBeaconCommandTimeUs(void)
+{
+    return lastDshotBeaconCommandTimeUs;
 }

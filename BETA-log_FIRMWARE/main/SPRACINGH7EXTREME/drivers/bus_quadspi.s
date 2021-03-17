@@ -9,23 +9,23 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"bus_quadspi.c"
-	.section	.gnu.lto_.profile.4111a590,"e",%progbits
+	.section	.gnu.lto_.profile.41580761,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4111a590,"e",%progbits
+	.section	.gnu.lto_.icf.41580761,"e",%progbits
 	.ascii	"x\234\343``d\260`@\000N\206Y=\013vp3\376zt\377\036\017"
 	.ascii	"\323\364\307\313\22621\317<\373p6\033\313\305\373[\367"
 	.ascii	"q\263\276\374~z.\033\333\331\251\177>1\263\337\352\337"
 	.ascii	"\366\235\207\343\305\333\353\347\370\031\000&(\034\306"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4111a590,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41580761,"e",%progbits
 	.ascii	"x\234\343``d\210b@\000v\006FF\306\372\371\314 \012D"
 	.ascii	"32Ci&\246\351\314\214}\315\357\357q\3641\003\271\214"
 	.ascii	"\014\214\273\030\245\031\030\017\26002\2000\003\013"
 	.ascii	"T\037+\224f\203\322\354\020\232\211\001\000\364\230"
 	.ascii	"\017\241"
 	.text
-	.section	.gnu.lto_.inline.4111a590,"e",%progbits
+	.section	.gnu.lto_.inline.41580761,"e",%progbits
 	.ascii	"x\234\255\221\277J\003A\020\306\277\231\331\313\215"
 	.ascii	"\330\330\333\334\243\244\362Ab\002\026\036\271'\320"
 	.ascii	"\034\222\366\020\033\033!\332\011\212`a\023\203\202"
@@ -44,11 +44,11 @@
 	.ascii	")\237\356\265\017%\374&\327\247\265\321\016\317\025"
 	.ascii	"\032|\000(R\211\012"
 	.text
-	.section	.gnu.lto_.pureconst.4111a590,"e",%progbits
+	.section	.gnu.lto_.pureconst.41580761,"e",%progbits
 	.ascii	"x\234\343``d\020c```gh`alaa\236\301\3022\213\205u\026"
 	.ascii	"\013\333,\026\366Y,\0000\245\004a"
 	.text
-	.section	.gnu.lto_quadSpiDeviceByInstance.4111a590,"e",%progbits
+	.section	.gnu.lto_quadSpiDeviceByInstance.41580761,"e",%progbits
 	.ascii	"x\234E\217\301K[A\020\306\347\333\331\350#\330\234*"
 	.ascii	"H\337\305B@\002b\004o\025\241\377\211\2441\207whh\363"
 	.ascii	"\264\327l\222F\017\021\365\240\204\012!\355\241\344"
@@ -72,7 +72,7 @@
 	.ascii	"\317\026\374\331\227\013\2119\377\2057\221$\307K\373"
 	.ascii	"\363\211t2u\013\302\012\213\374"
 	.text
-	.section	.gnu.lto_quadSpiInstanceByDevice.4111a590,"e",%progbits
+	.section	.gnu.lto_quadSpiInstanceByDevice.41580761,"e",%progbits
 	.ascii	"x\234MPMkSQ\020\235s\347\276|\224\250;7\331(\010%.\232"
 	.ascii	"XW\356\304\225+\377\202\304$\213,\024Mh\267\275I#-X"
 	.ascii	"\252\210mt\021c\033Z]Y\0057j\325g\223\266\264~P\213"
@@ -104,14 +104,14 @@
 	.ascii	"\303\347\372\322g/\365E\343\351\213\311\236\030y\342"
 	.ascii	"\211\376d,\361\017\2445\327\334"
 	.text
-	.section	.gnu.lto_quadSpiDevice.4111a590,"e",%progbits
+	.section	.gnu.lto_quadSpiDevice.41580761,"e",%progbits
 	.ascii	"x\234\343``dpc`\000\222\0200\235\231\261\257\371\375"
 	.ascii	"=\216>\346\371\314@A wW\353\2674\313\355\015\035\013"
 	.ascii	"\032\004\34633\316\000\212\356b\224\006I\314\332\373"
 	.ascii	"n?+\\\206\211\321P\232q7\243%\003\343\036 \001\000\225"
 	.ascii	"\352\027#"
 	.text
-	.section	.gnu.lto_quadSpiInit.4111a590,"e",%progbits
+	.section	.gnu.lto_quadSpiInit.41580761,"e",%progbits
 	.ascii	"x\234]P\315K[A\020\237\337\316\232>\213\322Sh%'I!\350"
 	.ascii	"\301\024z,\224\376'\305&9\344\240\330\004\275\272O\003"
 	.ascii	"\022\033\342)D\017!-EL/-\"\364Pm]\015\355\311\012M\013"
@@ -137,7 +137,7 @@
 	.ascii	"\012\305\364\243\311\342\303\307\223\243\331\342D~$"
 	.ascii	"C\261ln*\237\311\375\003\200\001\247K"
 	.text
-	.section	.gnu.lto_quadSpiTimeoutUserCallback.4111a590,"e",%progbits
+	.section	.gnu.lto_quadSpiTimeoutUserCallback.41580761,"e",%progbits
 	.ascii	"x\234\215\223\337KTA\024\307\347;gv\367\336E\011z*|"
 	.ascii	")\020\304\010W|\254\227\376\223\330\324\207\015Zj7{"
 	.ascii	"u\366\207J&\332CaI\333Z\242VD\265\240Qfu\363\267f\272"
@@ -172,7 +172,7 @@
 	.ascii	"?\031\251\252\025V$\032?\035\216\326\326\377\001\257"
 	.ascii	"+-c"
 	.text
-	.section	.gnu.lto_quadSpiGetErrorCounter.4111a590,"e",%progbits
+	.section	.gnu.lto_quadSpiGetErrorCounter.41580761,"e",%progbits
 	.ascii	"x\234UPMkSQ\020\235s\347\2764\206\006\\\012\331(\024"
 	.ascii	"JE\232\322\245.\364\237HL\273\310\302\240\211u\333\233"
 	.ascii	"4\215\240\245v\241D\205\220\324\222\326\225\032Q\220"
@@ -202,7 +202,7 @@
 	.ascii	"Dd,y)6\034%\177,\236\274\022\211G\307\377\002\231\000"
 	.ascii	"\316\253"
 	.text
-	.section	.gnu.lto_quadSpiResetErrorCounter.4111a590,"e",%progbits
+	.section	.gnu.lto_quadSpiResetErrorCounter.41580761,"e",%progbits
 	.ascii	"x\234UPMkSQ\020\235s\347\276\344\031\252\353B](\024"
 	.ascii	"JE\232\322\245n\374'\222\246]da\320<\353\266\367\275"
 	.ascii	"&-\330\022\273P\242\213\220\224\022\353J\015(\330\017"
@@ -231,7 +231,7 @@
 	.ascii	"\245F\274\313\231\2014\271\231\254w5\225M\217\376\005"
 	.ascii	"F\025\274\222"
 	.text
-	.section	.gnu.lto_quadSpiPinConfigure.4111a590,"e",%progbits
+	.section	.gnu.lto_quadSpiPinConfigure.41580761,"e",%progbits
 	.ascii	"x\234\235[gT\024I\273\356\252j\230a\210\"\"ID\005\021"
 	.ascii	"E\011\346\234s:\347\336\373\343\236{\317\361\333]\365"
 	.ascii	"\032vW\367\256g\367\356\277o\010\212\012k\026\023\303"
@@ -515,7 +515,7 @@
 	.ascii	"F\255\026\005\311jA\204\023\202\037&\324\232|\242\364"
 	.ascii	"\377\244\346\263Q"
 	.text
-	.section	.gnu.lto_quadSpiHardware.4111a590,"e",%progbits
+	.section	.gnu.lto_quadSpiHardware.41580761,"e",%progbits
 	.ascii	"x\234]\224[SRa\024\206Yl9\211HM\227\3344M\323EW\325"
 	.ascii	"\0355\323?\350\347t\217\211\216\232\007r\324p\322\220"
 	.ascii	"1'\233)\214\261\031Q\224P\320@$\023\025\024O\340\011"
@@ -560,7 +560,7 @@
 	.ascii	"\001\202X\312\301\207\305\010C\334x\241m\345Xsc\254"
 	.ascii	"E\343sf\014\027\354\353?s2\034\367"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4111a590,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41580761,"e",%progbits
 	.ascii	"x\234\343``d\370\303\000\004L\353\271\353\031\032\200"
 	.ascii	"\200\205q\3029\006\206z\006\206]\015\216@I\220\324\006"
 	.ascii	"\356zF\354R\254\353\270\031\032\225@j6r\3273\341\320"
@@ -569,7 +569,7 @@
 	.ascii	"\203\233I\001H3n\347\256g\377\017\005\362`\365\014@"
 	.ascii	"_:0003s]\372\360k\005#c\012\003\000\337\002C\246"
 	.text
-	.section	.gnu.lto_.refs.4111a590,"e",%progbits
+	.section	.gnu.lto_.refs.41580761,"e",%progbits
 	.ascii	"x\234\025\317=K\002\000\030\304\361\273\363\245K\"R"
 	.ascii	"\302B2\242\"R\244\"LB\243\357\346\356'h\252oR!\326\320"
 	.ascii	"\346f{\210D\270G\3449\374\236\377\255\217A|\001 \241"
@@ -581,7 +581,7 @@
 	.ascii	"\233\037\3514f\200>c\036\213\370\216\237X\306o\374\305"
 	.ascii	"\177\014\363\322(\036H=\306\023\261\002'\267\032\251"
 	.text
-	.section	.gnu.lto_.decls.4111a590,"e",%progbits
+	.section	.gnu.lto_.decls.41580761,"e",%progbits
 	.ascii	"x\234\275Z{T\025\311\231\277\325u/\\./G\234\014\031"
 	.ascii	"gs&s\214\233\335MF\320d'9\231s\022\0073\321d\334\030"
 	.ascii	"pf7\331\263!\014^\2053\370\010\340\304\311?i\036\202"
@@ -909,7 +909,7 @@
 	.ascii	"\015\370\312!\014z\317?\334\325\202\360\277\367\354"
 	.ascii	"\004\323"
 	.text
-	.section	.gnu.lto_.symtab.4111a590,"e",%progbits
+	.section	.gnu.lto_.symtab.41580761,"e",%progbits
 	.ascii	"quadSpiDeviceByInstance\000"
 	.ascii	"\000"
 	.ascii	"\000"

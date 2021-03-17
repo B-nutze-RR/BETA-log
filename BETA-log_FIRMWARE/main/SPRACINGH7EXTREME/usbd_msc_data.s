@@ -9,42 +9,42 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"usbd_msc_data.c"
-	.section	.gnu.lto_.profile.41122b89,"e",%progbits
+	.section	.gnu.lto_.profile.4158df51,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.41122b89,"e",%progbits
+	.section	.gnu.lto_.icf.4158df51,"e",%progbits
 	.ascii	"x\234\343``d\220`@\000\026\206\213\235\313m\030g6\374"
 	.ascii	"8\313\3054\361]\223\037\363\2163\335\313Y\030\000\203"
 	.ascii	"\247\012Z"
 	.text
-	.section	.gnu.lto_.jmpfuncs.41122b89,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.4158df51,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.inline.41122b89,"e",%progbits
+	.section	.gnu.lto_.inline.4158df51,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.pureconst.41122b89,"e",%progbits
+	.section	.gnu.lto_.pureconst.4158df51,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_MSC_Mode_Sense10_data.41122b89,"e",%progbits
+	.section	.gnu.lto_MSC_Mode_Sense10_data.4158df51,"e",%progbits
 	.ascii	"x\234\343``d\020e``\220e\200\200\351\314\214\257\347"
 	.ascii	"\\\276\307\247\3104\277\201c>3\003\003\343.FE\006i\006"
 	.ascii	"5\2104\207\020\003:\000\0000\005\007A"
 	.text
-	.section	.gnu.lto_MSC_Mode_Sense6_data.41122b89,"e",%progbits
+	.section	.gnu.lto_MSC_Mode_Sense6_data.4158df51,"e",%progbits
 	.ascii	"x\234\343``d\020e``\220d\200\200\351\314\214\207&\265"
 	.ascii	"v\361(2\315o\340\230\317\314\300\300\270\213Q\221A\\"
 	.ascii	"\011(\305!\304\200\016\000\357y\006^"
 	.text
-	.section	.gnu.lto_.symbol_nodes.41122b89,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.4158df51,"e",%progbits
 	.ascii	"x\234\343``dPc\000\002\3265\334\014\215J \306jnF\010"
 	.ascii	"c\0257\023\204\261\222\233\031\314`\000\000{\034\005"
 	.ascii	"\254"
 	.text
-	.section	.gnu.lto_.refs.41122b89,"e",%progbits
+	.section	.gnu.lto_.refs.4158df51,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.41122b89,"e",%progbits
+	.section	.gnu.lto_.decls.4158df51,"e",%progbits
 	.ascii	"x\234\265\223mHSQ\030\307\317\263\273\346mj\202XI\353"
 	.ascii	"\203~\020\372\344\235\011\325\307\310\240\202\214`\005"
 	.ascii	"\365\245\313t#\006j\264ia\364\341\226\021~(\251\314"
@@ -93,7 +93,7 @@
 	.ascii	"\304\002\035N[C\224\277i\343\374\364\037\210\376\235"
 	.ascii	"\013"
 	.text
-	.section	.gnu.lto_.symtab.41122b89,"e",%progbits
+	.section	.gnu.lto_.symtab.4158df51,"e",%progbits
 	.ascii	"MSC_Mode_Sense10_data\000"
 	.ascii	"\000"
 	.ascii	"\000"

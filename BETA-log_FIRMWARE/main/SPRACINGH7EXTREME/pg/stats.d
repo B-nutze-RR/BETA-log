@@ -61,7 +61,9 @@ BETA-log_FIRMWARE/main/SPRACINGH7EXTREME/pg/stats.o: src/main/pg/stats.c \
  src/main/drivers/stm32h7xx_ll_ex.h src/main/common/utils.h \
  src/main/target/common_pre.h src/main/target/SPRACINGH7EXTREME/target.h \
  src/main/target/common_deprecated_post.h src/main/target/common_post.h \
- src/main/build/version.h src/main/target/common_defaults_post.h
+ src/main/build/version.h src/main/target/common_defaults_post.h \
+ src/main/pg/pg.h src/main/build/build_config.h src/main/pg/pg_ids.h \
+ src/main/pg/stats.h src/main/drivers/io_types.h
 
 src/main/platform.h:
 
@@ -196,3 +198,13 @@ src/main/target/common_post.h:
 src/main/build/version.h:
 
 src/main/target/common_defaults_post.h:
+
+src/main/pg/pg.h:
+
+src/main/build/build_config.h:
+
+src/main/pg/pg_ids.h:
+
+src/main/pg/stats.h:
+
+src/main/drivers/io_types.h:

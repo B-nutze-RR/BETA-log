@@ -9,25 +9,25 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"sdio.c"
-	.section	.gnu.lto_.profile.4111817b,"e",%progbits
+	.section	.gnu.lto_.profile.41584364,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4111817b,"e",%progbits
+	.section	.gnu.lto_.icf.41584364,"e",%progbits
 	.ascii	"x\234\343``d0b@\000\016\206\005_\2574s2\256\270q\371"
 	.ascii	")7S\373\2539\257\371\230\301$\313\301]+\336\361\262"
 	.ascii	"\236\354\271\274\221\213\355\331\321\237\327\031\331"
 	.ascii	"\301$\003\000\206\232\031\235"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4111817b,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41584364,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.inline.4111817b,"e",%progbits
+	.section	.gnu.lto_.inline.41584364,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.pureconst.4111817b,"e",%progbits
+	.section	.gnu.lto_.pureconst.41584364,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_pgResetTemplate_sdioPinConfig.4111817b,"e",%progbits
+	.section	.gnu.lto_pgResetTemplate_sdioPinConfig.41584364,"e",%progbits
 	.ascii	"x\234\343``d\230\303\300\000$!`:3\343\251\235\227'\362"
 	.ascii	"\3641\317gf`\264\006r\017\0378;\211\033\302\265\002"
 	.ascii	"r\373\027^\333\001\345Z\002\271\027'\337\272\317\011"
@@ -37,7 +37,7 @@
 	.ascii	"\310\270\017D11\356\005Q\314\214{@\024\013\343n\020"
 	.ascii	"\305\312\270\213Q\232\201\361\000\243%\003\000l9/\373"
 	.text
-	.section	.gnu.lto_sdioPinConfig_Registry.4111817b,"e",%progbits
+	.section	.gnu.lto_sdioPinConfig_Registry.41584364,"e",%progbits
 	.ascii	"x\234\343``d\370\304\300\300 \316\000\001\323\231\031"
 	.ascii	"w\177\331\373\212\263\205\261\251qFC\303\203\356\233"
 	.ascii	"Ru\363\231\031\0263C\344\372\346-\350\347\267\334\336"
@@ -53,7 +53,7 @@
 	.ascii	"\323/.J\326\317M\314\314\323/H\327/N\311\314\327Kf\000"
 	.ascii	"\000LmV\350"
 	.text
-	.section	.gnu.lto_pgResetTemplate_sdioConfig.4111817b,"e",%progbits
+	.section	.gnu.lto_pgResetTemplate_sdioConfig.41584364,"e",%progbits
 	.ascii	"x\234\343``dHg`\000\222\0200\235\231q_\317\205\323\314"
 	.ascii	"}\314\363\231\031\030\031\201\334\267\307f\316g\001"
 	.ascii	"q\031\031\353\201\334\343\357\337^a\204\310\202\024"
@@ -61,7 +61,7 @@
 	.ascii	"\302{\030\245g\000\025\203)&\306] \212\231q7\210b\001"
 	.ascii	"\361\030\030\3672Z2\000\000]\214\037{"
 	.text
-	.section	.gnu.lto_sdioConfig_Registry.4111817b,"e",%progbits
+	.section	.gnu.lto_sdioConfig_Registry.41584364,"e",%progbits
 	.ascii	"x\234\343``d\370\304\300\300 \316\000\001\323\231\031"
 	.ascii	"w\177\331\373\212\263\205\261\251qFC\303\203\356}\022"
 	.ascii	"U\363\231\031\0263C\344\372\346-\350\347\267\334\336"
@@ -77,19 +77,19 @@
 	.ascii	"\326\317M\314\314\323/H\327/N\311\314\327Kf\000\000"
 	.ascii	"\3726Vj"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4111817b,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41584364,"e",%progbits
 	.ascii	"x\234\343``d\250a\000\002\326\275\334\014\255J\014z"
 	.ascii	"\005\351\361E\251\305\251%)\211%\211@\321\335\334\214"
 	.ascii	"p\321\364\314\342\222\242J\240\340\016n\246F%\220\236"
 	.ascii	"\235\334\314\020\306vn\026,\232\267r\263bj\336\304\315"
 	.ascii	"\006\321\263\231\233\035\314`\000\000]\313 \000"
 	.text
-	.section	.gnu.lto_.refs.4111817b,"e",%progbits
+	.section	.gnu.lto_.refs.41584364,"e",%progbits
 	.ascii	"x\234\005\301\301\001\000 \010\304\260\322C\361\353"
 	.ascii	"\376\313\222<\212\017\244\324H\216\327\261Y\003\327"
 	.ascii	"\000I"
 	.text
-	.section	.gnu.lto_.decls.4111817b,"e",%progbits
+	.section	.gnu.lto_.decls.41584364,"e",%progbits
 	.ascii	"x\234\245V{PT\327\031\277\347\236}\271,\220\200F\023"
 	.ascii	"4\321\016\232\374\321\021\215N&\323\332N#\266M\332\261"
 	.ascii	"\265&\235\316\344\2172;\313f\331\251\002\343\256\355"
@@ -234,7 +234,7 @@
 	.ascii	"\306\277\233\015F\3517k\240\304q)}]\362\215\211\364"
 	.ascii	"\227|!\012\377\013\022\011\273W"
 	.text
-	.section	.gnu.lto_.symtab.4111817b,"e",%progbits
+	.section	.gnu.lto_.symtab.41584364,"e",%progbits
 	.ascii	"pgResetTemplate_sdioPinConfig\000"
 	.ascii	"\000"
 	.ascii	"\000"

@@ -9,31 +9,31 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"usb.c"
-	.section	.gnu.lto_.profile.4111a324,"e",%progbits
+	.section	.gnu.lto_.profile.415848da,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4111a324,"e",%progbits
+	.section	.gnu.lto_.icf.415848da,"e",%progbits
 	.ascii	"x\234\343``d\220b@\000\026\206\303\353\373\256p0\276"
 	.ascii	"y\320\376\227\223i\357\303w\355\254\314`\222\001\000"
 	.ascii	"\254~\014\223"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4111a324,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415848da,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.inline.4111a324,"e",%progbits
+	.section	.gnu.lto_.inline.415848da,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.pureconst.4111a324,"e",%progbits
+	.section	.gnu.lto_.pureconst.415848da,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_pgResetTemplate_usbDevConfig.4111a324,"e",%progbits
+	.section	.gnu.lto_pgResetTemplate_usbDevConfig.415848da,"e",%progbits
 	.ascii	"x\234\343``d\010d`\000\222\0200\235\231\361\370\373"
 	.ascii	"\267W\030\373\230\3473\003\005\201\334}=\027N3C\270"
 	.ascii	"\214@\356\255o\267\372\230,\2677t,hp\230\317\3148\003"
 	.ascii	"(\274\213Qz\0063#\204bb\334\015\242\230A<\006\306=\214"
 	.ascii	"\226\014\000\263\204\030\361"
 	.text
-	.section	.gnu.lto_usbDevConfig_Registry.4111a324,"e",%progbits
+	.section	.gnu.lto_usbDevConfig_Registry.415848da,"e",%progbits
 	.ascii	"x\234\343``d\370\304\300\300 \306\000\001\323\231\031"
 	.ascii	"w\177\331\373\212\263\205\261\251qFC\303\203\356\375"
 	.ascii	"\"U\363\231\031\0263C\344\372\346-\350\347\267\334\336"
@@ -48,16 +48,16 @@
 	.ascii	"K\006\306C@BDO\277\270(Y?713O\277 ]\277\2648I/\231\001"
 	.ascii	"\000\362\335V\245"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4111a324,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415848da,"e",%progbits
 	.ascii	"x\234\343``d\260g\000\002\326M\334\014\255J\014z\005"
 	.ascii	"\351\361E\251\305\251%)\211%\211@\321\015\334\214p\321"
 	.ascii	"\364\314\342\222\242J\240\340Zn\246F%\220\236u\334\314"
 	.ascii	"`\006\003\000;\021\017\336"
 	.text
-	.section	.gnu.lto_.refs.4111a324,"e",%progbits
+	.section	.gnu.lto_.refs.415848da,"e",%progbits
 	.ascii	"x\234\343``d\340d```fdbbbfb`\000\000\001v\000\""
 	.text
-	.section	.gnu.lto_.decls.4111a324,"e",%progbits
+	.section	.gnu.lto_.decls.415848da,"e",%progbits
 	.ascii	"x\234\215VoPTU\024\177\347\335]X\036\273`\013\251\323"
 	.ascii	":\205\315\346\364It\234\251f\362\203\223M\371\251qJ"
 	.ascii	"\277\364!\206`[w\006\227\035\366Q\331\227\036\377\011"
@@ -163,7 +163,7 @@
 	.ascii	"l8\254\030g\240\225\034\023\024\326{\233\234\262e\343"
 	.ascii	"3A\337Vc<\377\000c\223\343\214"
 	.text
-	.section	.gnu.lto_.symtab.4111a324,"e",%progbits
+	.section	.gnu.lto_.symtab.415848da,"e",%progbits
 	.ascii	"pgResetTemplate_usbDevConfig\000"
 	.ascii	"\000"
 	.ascii	"\000"

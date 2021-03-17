@@ -9,15 +9,15 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"gyrodev.c"
-	.section	.gnu.lto_.profile.41118717,"e",%progbits
+	.section	.gnu.lto_.profile.41587434,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.41118717,"e",%progbits
+	.section	.gnu.lto_.icf.41587434,"e",%progbits
 	.ascii	"x\234\343``dP`@\000V\206\365;_}cf\234}\372V\0133\323"
 	.ascii	"\251\233\277\267\3602\277\371\263e-\017\013\230d\000"
 	.ascii	"\000\016\302\020T"
 	.text
-	.section	.gnu.lto_.jmpfuncs.41118717,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41587434,"e",%progbits
 	.ascii	"x\234}\220AK\303@\020\205\347\355\2541\201h\365\234"
 	.ascii	"C\375\001\305\277\340\331?U#\202 b\261'\361\024r\022"
 	.ascii	"z\020\275x\260\265\2556*x.\036[\320\223B\255\010B\321"
@@ -36,7 +36,7 @@
 	.ascii	"^\310R1\256\255\316Y*S\232x:\213\034\0233\343\277f\362"
 	.ascii	"\313<3\277\371}\3317\015\320\222\037"
 	.text
-	.section	.gnu.lto_.inline.41118717,"e",%progbits
+	.section	.gnu.lto_.inline.41587434,"e",%progbits
 	.ascii	"x\234\343``dhf@\000&\0066\221\206\206\206\003\314\351"
 	.ascii	"\214\014L\342@\326\007\2464\006\006n c\001S*\023P\032"
 	.ascii	"\010\230y\200\004\343\004?F\036y\240\370\011\346\014"
@@ -44,11 +44,11 @@
 	.ascii	"\002R\317\004b2%3\260\200tr\010\002\011\266\011~ \366"
 	.ascii	"\004?T\036\330T\220\371\000[\033\030)"
 	.text
-	.section	.gnu.lto_.pureconst.41118717,"e",%progbits
+	.section	.gnu.lto_.pureconst.41587434,"e",%progbits
 	.ascii	"x\234\343``d`g```b\230\305\3028\213\005\000\005<\001"
 	.ascii	"P"
 	.text
-	.section	.gnu.lto_gyroResetSpiDeviceConfig.41118717,"e",%progbits
+	.section	.gnu.lto_gyroResetSpiDeviceConfig.41587434,"e",%progbits
 	.ascii	"x\234\235\223\333OTW\024\306\367w\326\234sf\006(\017"
 	.ascii	"&\206H\265$\325\240\251\221I\214\017\306\027}\350\177"
 	.ascii	"\340S\343\013\231RBR\006\003\264\251I\023\367\014\243"
@@ -100,7 +100,7 @@
 	.ascii	"Y\355V}\322X\303\357H\345\2075\325\211\332\252Dcq\374"
 	.ascii	"\243\206\306\272\332-\363\361\337\300|\341\235"
 	.text
-	.section	.gnu.lto_pgResetFn_gyroDeviceConfig.41118717,"e",%progbits
+	.section	.gnu.lto_pgResetFn_gyroDeviceConfig.41587434,"e",%progbits
 	.ascii	"x\234\235TmO\024W\024\276\317\334\335a\201e\221\306"
 	.ascii	"\017\232M[\023K\214\211\201m\323/~\263I\177H\015ZbR"
 	.ascii	"\240A\333\244_\352\335\025A\002bmjaLp@\262\245%\025"
@@ -153,7 +153,7 @@
 	.ascii	"\273\257\254\344\215w\366\024\227\226\354.\335\367\332"
 	.ascii	"?\035\257\376\015\372_\364\013"
 	.text
-	.section	.gnu.lto_gyroDeviceConfig_Registry.41118717,"e",%progbits
+	.section	.gnu.lto_gyroDeviceConfig_Registry.41587434,"e",%progbits
 	.ascii	"x\234\343``d\370\314\300\300 \305\000\001\323\231\031"
 	.ascii	"\347\2568\363\237\263\205\261\251\261\243\241\341Aw"
 	.ascii	"/\363\017\303\371\314\0143\231!\222\017\016\315_\302"
@@ -168,7 +168,7 @@
 	.ascii	"\342\242d\375\334\304\314<\375\202t\375\364\312\242"
 	.ascii	"\374\224\3242\275d\006\000\256\261X\220"
 	.text
-	.section	.gnu.lto_.symbol_nodes.41118717,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41587434,"e",%progbits
 	.ascii	"x\234\343``d8\300\000\004L\017\270\353\031\032\200\200"
 	.ascii	"\205q\3029\006\206z\006\206\235\015\007\033\330\200"
 	.ascii	"\322 \311\247\334\365\214(\222\273\0268B\244X\237p3"
@@ -178,10 +178,10 @@
 	.ascii	"\230\031X!v\27203\262AXK\030\231\031\241\256<\204`6"
 	.ascii	"\2613\000\000\214J;\344"
 	.text
-	.section	.gnu.lto_.refs.41118717,"e",%progbits
+	.section	.gnu.lto_.refs.41587434,"e",%progbits
 	.ascii	"x\234\343``d\340d```fbbfbabd\000\000\001\212\000&"
 	.text
-	.section	.gnu.lto_.decls.41118717,"e",%progbits
+	.section	.gnu.lto_.decls.41587434,"e",%progbits
 	.ascii	"x\234\255XyP\224I\226\377\362\313\272(\256YtW\267q\""
 	.ascii	"zf\351cc\243\005uz\355\1776b{\320\3566\306\3315\300"
 	.ascii	"\351\235\355\215\030\202\206j$B\216\250*m\235?v>\216"
@@ -412,7 +412,7 @@
 	.ascii	"\327\204|\256\325\372\037|\317\246\321\033\214\243M"
 	.ascii	"\356\346\221\361\246\263]\212\372?=\305\230K"
 	.text
-	.section	.gnu.lto_.symtab.41118717,"e",%progbits
+	.section	.gnu.lto_.symtab.41587434,"e",%progbits
 	.ascii	"pgResetFn_gyroDeviceConfig\000"
 	.ascii	"\000"
 	.ascii	"\000"

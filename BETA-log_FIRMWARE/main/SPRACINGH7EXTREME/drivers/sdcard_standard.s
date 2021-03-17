@@ -9,27 +9,27 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"sdcard_standard.c"
-	.section	.gnu.lto_.profile.41127944,"e",%progbits
+	.section	.gnu.lto_.profile.4158f0e2,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.41127944,"e",%progbits
+	.section	.gnu.lto_.icf.4158f0e2,"e",%progbits
 	.ascii	"x\234\343``d\340`@\000F\206\303'\257>\344e\000\000\020"
 	.ascii	"&\003b"
 	.text
-	.section	.gnu.lto_.jmpfuncs.41127944,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.4158f0e2,"e",%progbits
 	.ascii	"x\234\343``d\020a@\000F\006fFFF\366\372\371\314\014"
 	.ascii	"@\314\010\302\014\000!V\003\221"
 	.text
-	.section	.gnu.lto_.inline.41127944,"e",%progbits
+	.section	.gnu.lto_.inline.4158f0e2,"e",%progbits
 	.ascii	"x\234\343``dpf@\000F\006\006\341\226\206\206\016\346"
 	.ascii	"LF&F\005 \217\001D\260H\001\305\2760e20\260\2656440"
 	.ascii	"\2450101\2604\200\231\014,\014L`V2\003\017\330\010\000"
 	.ascii	"\330'\015v"
 	.text
-	.section	.gnu.lto_.pureconst.41127944,"e",%progbits
+	.section	.gnu.lto_.pureconst.4158f0e2,"e",%progbits
 	.ascii	"x\234\343``d`a`\000\222[Y\000\002\010\000\310"
 	.text
-	.section	.gnu.lto_readBitfield.41127944,"e",%progbits
+	.section	.gnu.lto_readBitfield.4158f0e2,"e",%progbits
 	.ascii	"x\234mT_L[e\024\377\316=\367\366?-[\012\353(\032\036"
 	.ascii	"l\030\211YM|\341M\343\223\032\023\343\223\211/KGK\202"
 	.ascii	"Q\036\332\316\350\323.-\224\014\004&\233E\232t\214\000"
@@ -88,15 +88,15 @@
 	.ascii	"?\363V2\346\223Gl\275\330\332\232\210%m\361X\342\300"
 	.ascii	"kIm_\344o\321\177\352("
 	.text
-	.section	.gnu.lto_.symbol_nodes.41127944,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.4158f0e2,"e",%progbits
 	.ascii	"x\234\343``d\220a\000\002\246\225\334\365\014\037~\255"
 	.ascii	"\260`\234p\216\201\241\236\201aW\203#P\016\004\000\210"
 	.ascii	"r\007\177"
 	.text
-	.section	.gnu.lto_.refs.41127944,"e",%progbits
+	.section	.gnu.lto_.refs.4158f0e2,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.41127944,"e",%progbits
+	.section	.gnu.lto_.decls.4158f0e2,"e",%progbits
 	.ascii	"x\234\215RMHTQ\024>\337{\223\216\257\361\007\021\014"
 	.ascii	"\306\305 \205\013\321\321$l\031\265\250UAP`\233a\230"
 	.ascii	"\031a\240\261x3\212\313\327H\223\004\206\225\026\011"
@@ -136,7 +136,7 @@
 	.ascii	"`\340\254\337.\312[\366{\"\373\376\347/\364\007r\315"
 	.ascii	"\374\003"
 	.text
-	.section	.gnu.lto_.symtab.41127944,"e",%progbits
+	.section	.gnu.lto_.symtab.4158f0e2,"e",%progbits
 	.ascii	"readBitfield\000"
 	.ascii	"\000"
 	.ascii	"\000"

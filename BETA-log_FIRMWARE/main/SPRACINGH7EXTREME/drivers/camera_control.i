@@ -21320,3 +21320,1755 @@ extern uint8_t eepromData[4096];
 # 1 "./src/main/target/common_defaults_post.h" 1
 # 153 "./src/main/platform.h" 2
 # 22 "./src/main/drivers/camera_control.c" 2
+
+
+
+# 1 "./src/main/drivers/camera_control.h" 1
+# 21 "./src/main/drivers/camera_control.h"
+       
+
+# 1 "./src/main/drivers/io_types.h" 1
+# 21 "./src/main/drivers/io_types.h"
+       
+
+
+
+
+
+typedef uint8_t ioTag_t;
+typedef void* IO_t;
+# 48 "./src/main/drivers/io_types.h"
+typedef uint8_t ioConfig_t;
+# 24 "./src/main/drivers/camera_control.h" 2
+# 1 "./src/main/pg/pg.h" 1
+# 21 "./src/main/pg/pg.h"
+       
+
+
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdbool.h" 1 3 4
+# 25 "./src/main/pg/pg.h" 2
+
+# 1 "./src/main/build/build_config.h" 1
+# 21 "./src/main/build/build_config.h"
+       
+# 44 "./src/main/build/build_config.h"
+typedef enum {
+    MCU_TYPE_SIMULATOR = 0,
+    MCU_TYPE_F103,
+    MCU_TYPE_F303,
+    MCU_TYPE_F40X,
+    MCU_TYPE_F411,
+    MCU_TYPE_F446,
+    MCU_TYPE_F722,
+    MCU_TYPE_F745,
+    MCU_TYPE_F746,
+    MCU_TYPE_F765,
+    MCU_TYPE_H750,
+    MCU_TYPE_H743_REV_UNKNOWN,
+    MCU_TYPE_H743_REV_Y,
+    MCU_TYPE_H743_REV_X,
+    MCU_TYPE_H743_REV_V,
+    MCU_TYPE_H7A3,
+    MCU_TYPE_H723_725,
+    MCU_TYPE_UNKNOWN = 255,
+} mcuTypeId_e;
+
+mcuTypeId_e getMcuTypeId(void);
+# 27 "./src/main/pg/pg.h" 2
+
+typedef uint16_t pgn_t;
+
+
+typedef enum {
+    PGRF_NONE = 0,
+    PGRF_CLASSIFICATON_BIT = (1 << 0)
+} pgRegistryFlags_e;
+
+typedef enum {
+    PGR_PGN_MASK = 0x0fff,
+    PGR_PGN_VERSION_MASK = 0xf000,
+    PGR_SIZE_MASK = 0x0fff,
+    PGR_SIZE_SYSTEM_FLAG = 0x0000
+} pgRegistryInternal_e;
+
+
+typedef void (pgResetFunc)(void * );
+
+typedef struct pgRegistry_s {
+    pgn_t pgn;
+    uint8_t length;
+    uint16_t size;
+    uint8_t *address;
+    uint8_t *copy;
+    uint8_t **ptr;
+    union {
+        void *ptr;
+        pgResetFunc *fn;
+    } reset;
+} pgRegistry_t;
+
+static inline uint16_t pgN(const pgRegistry_t* reg) {return reg->pgn & PGR_PGN_MASK;}
+static inline uint8_t pgVersion(const pgRegistry_t* reg) {return (uint8_t)(reg->pgn >> 12);}
+static inline uint16_t pgSize(const pgRegistry_t* reg) {return reg->size & PGR_SIZE_MASK;}
+static inline uint16_t pgElementSize(const pgRegistry_t* reg) {return (reg->size & PGR_SIZE_MASK) / reg->length;}
+# 75 "./src/main/pg/pg.h"
+extern const pgRegistry_t __pg_registry_start[];
+extern const pgRegistry_t __pg_registry_end[];
+
+
+extern const uint8_t __pg_resetdata_start[];
+extern const uint8_t __pg_resetdata_end[];
+# 194 "./src/main/pg/pg.h"
+const pgRegistry_t* pgFind(pgn_t pgn);
+
+
+# 196 "./src/main/pg/pg.h" 3 4
+_Bool 
+# 196 "./src/main/pg/pg.h"
+    pgLoad(const pgRegistry_t* reg, const void *from, int size, int version);
+int pgStore(const pgRegistry_t* reg, void *to, int size);
+void pgResetAll(void);
+void pgResetInstance(const pgRegistry_t *reg, uint8_t *base);
+
+# 200 "./src/main/pg/pg.h" 3 4
+_Bool 
+# 200 "./src/main/pg/pg.h"
+    pgResetCopy(void *copy, pgn_t pgn);
+void pgReset(const pgRegistry_t* reg);
+# 25 "./src/main/drivers/camera_control.h" 2
+
+typedef enum {
+    CAMERA_CONTROL_KEY_ENTER,
+    CAMERA_CONTROL_KEY_LEFT,
+    CAMERA_CONTROL_KEY_UP,
+    CAMERA_CONTROL_KEY_RIGHT,
+    CAMERA_CONTROL_KEY_DOWN,
+    CAMERA_CONTROL_KEYS_COUNT
+} cameraControlKey_e;
+
+typedef enum {
+    CAMERA_CONTROL_MODE_HARDWARE_PWM,
+    CAMERA_CONTROL_MODE_SOFTWARE_PWM,
+    CAMERA_CONTROL_MODE_DAC,
+    CAMERA_CONTROL_MODES_COUNT
+} cameraControlMode_e;
+
+typedef struct cameraControlConfig_s {
+    cameraControlMode_e mode;
+
+    uint16_t refVoltage;
+    uint16_t keyDelayMs;
+
+    uint16_t internalResistance;
+
+    ioTag_t ioTag;
+    uint8_t inverted;
+    uint16_t buttonResistanceValues[CAMERA_CONTROL_KEYS_COUNT];
+} cameraControlConfig_t;
+
+extern cameraControlConfig_t cameraControlConfig_System; extern cameraControlConfig_t cameraControlConfig_Copy; static inline const cameraControlConfig_t* cameraControlConfig(void) { return &cameraControlConfig_System; } static inline cameraControlConfig_t* cameraControlConfigMutable(void) { return &cameraControlConfig_System; } struct _dummy;
+
+void cameraControlInit(void);
+
+void cameraControlProcess(uint32_t currentTimeUs);
+void cameraControlKeyPress(cameraControlKey_e key, uint32_t holdDurationMs);
+# 26 "./src/main/drivers/camera_control.c" 2
+# 1 "./src/main/drivers/io.h" 1
+# 21 "./src/main/drivers/io.h"
+       
+
+
+
+
+
+
+# 1 "./src/main/drivers/resource.h" 1
+# 21 "./src/main/drivers/resource.h"
+       
+
+typedef enum {
+    OWNER_FREE = 0,
+    OWNER_PWMINPUT,
+    OWNER_PPMINPUT,
+    OWNER_MOTOR,
+    OWNER_SERVO,
+    OWNER_LED,
+    OWNER_ADC,
+    OWNER_ADC_BATT,
+    OWNER_ADC_CURR,
+    OWNER_ADC_EXT,
+    OWNER_ADC_RSSI,
+    OWNER_SERIAL_TX,
+    OWNER_SERIAL_RX,
+    OWNER_PINDEBUG,
+    OWNER_TIMER,
+    OWNER_SONAR_TRIGGER,
+    OWNER_SONAR_ECHO,
+    OWNER_SYSTEM,
+    OWNER_SPI_SCK,
+    OWNER_SPI_MISO,
+    OWNER_SPI_MOSI,
+    OWNER_I2C_SCL,
+    OWNER_I2C_SDA,
+    OWNER_SDCARD,
+    OWNER_SDIO_CK,
+    OWNER_SDIO_CMD,
+    OWNER_SDIO_D0,
+    OWNER_SDIO_D1,
+    OWNER_SDIO_D2,
+    OWNER_SDIO_D3,
+    OWNER_SDCARD_CS,
+    OWNER_SDCARD_DETECT,
+    OWNER_FLASH_CS,
+    OWNER_BARO_CS,
+    OWNER_GYRO_CS,
+    OWNER_OSD_CS,
+    OWNER_RX_SPI_CS,
+    OWNER_SPI_CS,
+    OWNER_GYRO_EXTI,
+    OWNER_BARO_EOC,
+    OWNER_COMPASS_EXTI,
+    OWNER_USB,
+    OWNER_USB_DETECT,
+    OWNER_BEEPER,
+    OWNER_OSD,
+    OWNER_RX_BIND,
+    OWNER_INVERTER,
+    OWNER_LED_STRIP,
+    OWNER_TRANSPONDER,
+    OWNER_VTX_POWER,
+    OWNER_VTX_CS,
+    OWNER_VTX_DATA,
+    OWNER_VTX_CLK,
+    OWNER_COMPASS_CS,
+    OWNER_RX_BIND_PLUG,
+    OWNER_ESCSERIAL,
+    OWNER_CAMERA_CONTROL,
+    OWNER_TIMUP,
+    OWNER_RANGEFINDER,
+    OWNER_RX_SPI,
+    OWNER_PINIO,
+    OWNER_USB_MSC_PIN,
+    OWNER_MCO,
+    OWNER_RX_SPI_BIND,
+    OWNER_RX_SPI_LED,
+    OWNER_PREINIT,
+    OWNER_RX_SPI_EXTI,
+    OWNER_RX_SPI_CC2500_TX_EN,
+    OWNER_RX_SPI_CC2500_LNA_EN,
+    OWNER_RX_SPI_CC2500_ANT_SEL,
+    OWNER_QUADSPI_CLK,
+    OWNER_QUADSPI_BK1IO0,
+    OWNER_QUADSPI_BK1IO1,
+    OWNER_QUADSPI_BK1IO2,
+    OWNER_QUADSPI_BK1IO3,
+    OWNER_QUADSPI_BK1CS,
+    OWNER_QUADSPI_BK2IO0,
+    OWNER_QUADSPI_BK2IO1,
+    OWNER_QUADSPI_BK2IO2,
+    OWNER_QUADSPI_BK2IO3,
+    OWNER_QUADSPI_BK2CS,
+    OWNER_BARO_XCLR,
+    OWNER_PULLUP,
+    OWNER_PULLDOWN,
+    OWNER_DSHOT_BITBANG,
+    OWNER_SWD,
+    OWNER_TOTAL_COUNT
+} resourceOwner_e;
+
+typedef struct resourceOwner_s {
+    resourceOwner_e owner;
+    uint8_t resourceIndex;
+} resourceOwner_t;
+
+extern const char * const ownerNames[OWNER_TOTAL_COUNT];
+# 29 "./src/main/drivers/io.h" 2
+# 110 "./src/main/drivers/io.h"
+# 1 "./src/main/drivers/io_def.h" 1
+# 21 "./src/main/drivers/io_def.h"
+       
+# 54 "./src/main/drivers/io_def.h"
+# 1 "./src/main/drivers/io_def_generated.h" 1
+# 21 "./src/main/drivers/io_def_generated.h"
+       
+# 54 "./src/main/drivers/io_def.h" 2
+# 111 "./src/main/drivers/io.h" 2
+
+
+# 112 "./src/main/drivers/io.h" 3 4
+_Bool 
+# 112 "./src/main/drivers/io.h"
+    IORead(IO_t io);
+void IOWrite(IO_t io, 
+# 113 "./src/main/drivers/io.h" 3 4
+                     _Bool 
+# 113 "./src/main/drivers/io.h"
+                          value);
+void IOHi(IO_t io);
+void IOLo(IO_t io);
+void IOToggle(IO_t io);
+
+void IOInit(IO_t io, resourceOwner_e owner, uint8_t index);
+void IORelease(IO_t io);
+resourceOwner_e IOGetOwner(IO_t io);
+
+# 121 "./src/main/drivers/io.h" 3 4
+_Bool 
+# 121 "./src/main/drivers/io.h"
+    IOIsFreeOrPreinit(IO_t io);
+IO_t IOGetByTag(ioTag_t tag);
+
+void IOConfigGPIO(IO_t io, ioConfig_t cfg);
+
+void IOConfigGPIOAF(IO_t io, ioConfig_t cfg, uint8_t af);
+
+
+void IOInitGlobal(void);
+
+typedef void (*IOTraverseFuncPtr_t)(IO_t io);
+
+void IOTraversePins(IOTraverseFuncPtr_t func);
+
+GPIO_TypeDef* IO_GPIO(IO_t io);
+uint16_t IO_Pin(IO_t io);
+# 27 "./src/main/drivers/camera_control.c" 2
+
+# 1 "./src/main/drivers/nvic.h" 1
+# 21 "./src/main/drivers/nvic.h"
+       
+# 29 "./src/main/drivers/camera_control.c" 2
+# 1 "./src/main/drivers/pwm_output.h" 1
+# 21 "./src/main/drivers/pwm_output.h"
+       
+
+
+
+# 1 "./src/main/common/time.h" 1
+# 21 "./src/main/common/time.h"
+       
+# 31 "./src/main/common/time.h"
+typedef int32_t timeDelta_t;
+
+typedef uint32_t timeMs_t ;
+
+
+
+
+
+typedef uint32_t timeUs_t;
+
+
+
+
+
+
+static inline timeDelta_t cmpTimeUs(timeUs_t a, timeUs_t b) { return (timeDelta_t)(a - b); }
+
+
+
+
+
+typedef struct timeConfig_s {
+    int16_t tz_offsetMinutes;
+} timeConfig_t;
+
+extern timeConfig_t timeConfig_System; extern timeConfig_t timeConfig_Copy; static inline const timeConfig_t* timeConfig(void) { return &timeConfig_System; } static inline timeConfig_t* timeConfigMutable(void) { return &timeConfig_System; } struct _dummy;
+
+
+typedef int64_t rtcTime_t;
+
+rtcTime_t rtcTimeMake(int32_t secs, uint16_t millis);
+int32_t rtcTimeGetSeconds(rtcTime_t *t);
+uint16_t rtcTimeGetMillis(rtcTime_t *t);
+
+typedef struct _dateTime_s {
+
+    uint16_t year;
+
+    uint8_t month;
+
+    uint8_t day;
+
+    uint8_t hours;
+
+    uint8_t minutes;
+
+    uint8_t seconds;
+
+    uint16_t millis;
+} dateTime_t;
+
+
+
+# 83 "./src/main/common/time.h" 3 4
+_Bool 
+# 83 "./src/main/common/time.h"
+    dateTimeFormatUTC(char *buf, dateTime_t *dt);
+
+# 84 "./src/main/common/time.h" 3 4
+_Bool 
+# 84 "./src/main/common/time.h"
+    dateTimeFormatLocal(char *buf, dateTime_t *dt);
+
+# 85 "./src/main/common/time.h" 3 4
+_Bool 
+# 85 "./src/main/common/time.h"
+    dateTimeFormatLocalShort(char *buf, dateTime_t *dt);
+
+void dateTimeUTCToLocal(dateTime_t *utcDateTime, dateTime_t *localDateTime);
+
+
+
+
+# 91 "./src/main/common/time.h" 3 4
+_Bool 
+# 91 "./src/main/common/time.h"
+    dateTimeSplitFormatted(char *formatted, char **date, char **time);
+
+
+# 93 "./src/main/common/time.h" 3 4
+_Bool 
+# 93 "./src/main/common/time.h"
+    rtcHasTime(void);
+
+
+# 95 "./src/main/common/time.h" 3 4
+_Bool 
+# 95 "./src/main/common/time.h"
+    rtcGet(rtcTime_t *t);
+
+# 96 "./src/main/common/time.h" 3 4
+_Bool 
+# 96 "./src/main/common/time.h"
+    rtcSet(rtcTime_t *t);
+
+
+# 98 "./src/main/common/time.h" 3 4
+_Bool 
+# 98 "./src/main/common/time.h"
+    rtcGetDateTime(dateTime_t *dt);
+
+# 99 "./src/main/common/time.h" 3 4
+_Bool 
+# 99 "./src/main/common/time.h"
+    rtcSetDateTime(dateTime_t *dt);
+
+void rtcPersistWrite(int16_t offsetMinutes);
+
+# 102 "./src/main/common/time.h" 3 4
+_Bool 
+# 102 "./src/main/common/time.h"
+    rtcPersistRead(rtcTime_t *t);
+# 26 "./src/main/drivers/pwm_output.h" 2
+
+# 1 "./src/main/drivers/dma.h" 1
+# 21 "./src/main/drivers/dma.h"
+       
+# 32 "./src/main/drivers/dma.h"
+typedef struct dmaResource_s dmaResource_t;
+# 43 "./src/main/drivers/dma.h"
+struct dmaChannelDescriptor_s;
+typedef void (*dmaCallbackHandlerFuncPtr)(struct dmaChannelDescriptor_s *channelDescriptor);
+
+typedef struct dmaChannelDescriptor_s {
+    DMA_TypeDef* dma;
+    dmaResource_t *ref;
+
+    uint8_t stream;
+
+    dmaCallbackHandlerFuncPtr irqHandlerCallback;
+    uint8_t flagsShift;
+    IRQn_Type irqN;
+    uint32_t userParam;
+    resourceOwner_t owner;
+    uint8_t resourceIndex;
+    uint32_t completeFlag;
+} dmaChannelDescriptor_t;
+# 71 "./src/main/drivers/dma.h"
+typedef enum {
+    DMA_NONE = 0,
+    DMA1_ST0_HANDLER = 1,
+    DMA1_ST1_HANDLER,
+    DMA1_ST2_HANDLER,
+    DMA1_ST3_HANDLER,
+    DMA1_ST4_HANDLER,
+    DMA1_ST5_HANDLER,
+    DMA1_ST6_HANDLER,
+    DMA1_ST7_HANDLER,
+    DMA2_ST0_HANDLER,
+    DMA2_ST1_HANDLER,
+    DMA2_ST2_HANDLER,
+    DMA2_ST3_HANDLER,
+    DMA2_ST4_HANDLER,
+    DMA2_ST5_HANDLER,
+    DMA2_ST6_HANDLER,
+    DMA2_ST7_HANDLER,
+    DMA_LAST_HANDLER = DMA2_ST7_HANDLER
+} dmaIdentifier_e;
+# 127 "./src/main/drivers/dma.h"
+dmaIdentifier_e dmaGetIdentifier(const dmaResource_t *stream);
+dmaChannelDescriptor_t* dmaGetDmaDescriptor(const dmaResource_t *stream);
+dmaResource_t *dmaGetRefByIdentifier(const dmaIdentifier_e identifier);
+uint32_t dmaGetChannel(const uint8_t channel);
+# 265 "./src/main/drivers/dma.h"
+void dmaInit(dmaIdentifier_e identifier, resourceOwner_e owner, uint8_t resourceIndex);
+void dmaSetHandler(dmaIdentifier_e identifier, dmaCallbackHandlerFuncPtr callback, uint32_t priority, uint32_t userParam);
+
+const resourceOwner_t *dmaGetOwner(dmaIdentifier_e identifier);
+dmaChannelDescriptor_t* dmaGetDescriptorByIdentifier(const dmaIdentifier_e identifier);
+# 28 "./src/main/drivers/pwm_output.h" 2
+
+# 1 "./src/main/drivers/motor.h" 1
+# 23 "./src/main/drivers/motor.h"
+       
+
+
+
+# 1 "./src/main/pg/motor.h" 1
+# 21 "./src/main/pg/motor.h"
+       
+
+
+
+
+# 1 "./src/main/drivers/dshot_bitbang.h" 1
+# 21 "./src/main/drivers/dshot_bitbang.h"
+       
+
+# 1 "./src/main/drivers/timer.h" 1
+# 21 "./src/main/drivers/timer.h"
+       
+
+
+
+
+
+
+# 1 "./src/main/drivers/rcc_types.h" 1
+# 21 "./src/main/drivers/rcc_types.h"
+       
+
+
+typedef uint16_t rccPeriphTag_t;
+# 29 "./src/main/drivers/timer.h" 2
+
+# 1 "./src/main/drivers/timer_def.h" 1
+# 21 "./src/main/drivers/timer_def.h"
+       
+# 31 "./src/main/drivers/timer.h" 2
+
+# 1 "./src/main/pg/timerio.h" 1
+# 21 "./src/main/pg/timerio.h"
+       
+
+
+# 1 "./src/main/pg/pg_ids.h" 1
+# 21 "./src/main/pg/pg_ids.h"
+       
+# 25 "./src/main/pg/timerio.h" 2
+
+# 1 "./src/main/drivers/dma_reqmap.h" 1
+# 21 "./src/main/drivers/dma_reqmap.h"
+       
+
+
+
+
+
+
+typedef uint16_t dmaCode_t;
+
+typedef struct dmaChannelSpec_s {
+    dmaCode_t code;
+    dmaResource_t *ref;
+
+    uint32_t channel;
+
+} dmaChannelSpec_t;
+
+
+
+
+
+
+
+typedef enum {
+    DMA_PERIPH_SPI_TX,
+    DMA_PERIPH_SPI_RX,
+    DMA_PERIPH_ADC,
+    DMA_PERIPH_SDIO,
+    DMA_PERIPH_UART_TX,
+    DMA_PERIPH_UART_RX,
+    DMA_PERIPH_TIMUP,
+} dmaPeripheral_e;
+
+typedef int8_t dmaoptValue_t;
+# 66 "./src/main/drivers/dma_reqmap.h"
+struct timerHardware_s;
+
+dmaoptValue_t dmaoptByTag(ioTag_t ioTag);
+const dmaChannelSpec_t *dmaGetChannelSpecByPeripheral(dmaPeripheral_e device, uint8_t index, int8_t opt);
+const dmaChannelSpec_t *dmaGetChannelSpecByTimerValue(TIM_TypeDef *tim, uint8_t channel, dmaoptValue_t dmaopt);
+const dmaChannelSpec_t *dmaGetChannelSpecByTimer(const struct timerHardware_s *timer);
+dmaoptValue_t dmaGetOptionByTimer(const struct timerHardware_s *timer);
+dmaoptValue_t dmaGetUpOptionByTimer(const struct timerHardware_s *timer);
+# 27 "./src/main/pg/timerio.h" 2
+
+
+
+
+typedef struct timerIOConfig_s {
+    ioTag_t ioTag;
+    uint8_t index;
+    int8_t dmaopt;
+} timerIOConfig_t;
+
+extern timerIOConfig_t timerIOConfig_SystemArray[21]; extern timerIOConfig_t timerIOConfig_CopyArray[21]; static inline const timerIOConfig_t* timerIOConfig(int _index) { return &timerIOConfig_SystemArray[_index]; } static inline timerIOConfig_t* timerIOConfigMutable(int _index) { return &timerIOConfig_SystemArray[_index]; } static inline timerIOConfig_t (* timerIOConfig_array(void))[21] { return &timerIOConfig_SystemArray; } struct _dummy;
+# 33 "./src/main/drivers/timer.h" 2
+
+
+
+
+
+typedef uint16_t captureCompare_t;
+
+
+typedef uint32_t timCCR_t;
+typedef uint32_t timCCER_t;
+typedef uint32_t timSR_t;
+typedef uint32_t timCNT_t;
+# 54 "./src/main/drivers/timer.h"
+typedef enum {
+    TIM_USE_ANY = 0x0,
+    TIM_USE_NONE = 0x0,
+    TIM_USE_PPM = 0x1,
+    TIM_USE_PWM = 0x2,
+    TIM_USE_MOTOR = 0x4,
+    TIM_USE_SERVO = 0x8,
+    TIM_USE_LED = 0x10,
+    TIM_USE_TRANSPONDER = 0x20,
+    TIM_USE_BEEPER = 0x40,
+    TIM_USE_CAMERA_CONTROL = 0x80,
+} timerUsageFlag_e;
+
+
+struct timerCCHandlerRec_s;
+struct timerOvrHandlerRec_s;
+typedef void timerCCHandlerCallback(struct timerCCHandlerRec_s* self, uint16_t capture);
+typedef void timerOvrHandlerCallback(struct timerOvrHandlerRec_s* self, uint16_t capture);
+
+typedef struct timerCCHandlerRec_s {
+    timerCCHandlerCallback* fn;
+} timerCCHandlerRec_t;
+
+typedef struct timerOvrHandlerRec_s {
+    timerOvrHandlerCallback* fn;
+    struct timerOvrHandlerRec_s* next;
+} timerOvrHandlerRec_t;
+
+typedef struct timerDef_s {
+    TIM_TypeDef *TIMx;
+    rccPeriphTag_t rcc;
+    uint8_t inputIrq;
+} timerDef_t;
+
+typedef struct timerHardware_s {
+    TIM_TypeDef *tim;
+    ioTag_t tag;
+    uint8_t channel;
+    timerUsageFlag_e usageFlags;
+    uint8_t output;
+
+    uint8_t alternateFunction;
+
+
+
+
+
+
+    dmaResource_t *dmaRefConfigured;
+    uint32_t dmaChannelConfigured;
+
+
+
+
+
+
+
+    dmaResource_t *dmaTimUPRef;
+
+    uint32_t dmaTimUPChannel;
+
+    uint8_t dmaTimUPIrqHandler;
+
+} timerHardware_t;
+
+typedef enum {
+    TIMER_OUTPUT_NONE = 0,
+    TIMER_OUTPUT_INVERTED = (1 << 0),
+    TIMER_OUTPUT_N_CHANNEL = (1 << 1),
+} timerFlag_e;
+# 152 "./src/main/drivers/timer.h"
+extern const timerHardware_t timerHardware[];
+# 183 "./src/main/drivers/timer.h"
+extern const timerHardware_t fullTimerHardware[];
+# 223 "./src/main/drivers/timer.h"
+extern const timerDef_t timerDefinitions[];
+
+typedef enum {
+    TYPE_FREE,
+    TYPE_PWMINPUT,
+    TYPE_PPMINPUT,
+    TYPE_PWMOUTPUT_MOTOR,
+    TYPE_PWMOUTPUT_FAST,
+    TYPE_PWMOUTPUT_SERVO,
+    TYPE_SOFTSERIAL_RX,
+    TYPE_SOFTSERIAL_TX,
+    TYPE_SOFTSERIAL_RXTX,
+    TYPE_SOFTSERIAL_AUXTIMER,
+    TYPE_ADC,
+    TYPE_SERIAL_RX,
+    TYPE_SERIAL_TX,
+    TYPE_SERIAL_RXTX,
+    TYPE_TIMER
+} channelType_t;
+
+void timerConfigure(const timerHardware_t *timHw, uint16_t period, uint32_t hz);
+
+void timerChConfigIC(const timerHardware_t *timHw, 
+# 245 "./src/main/drivers/timer.h" 3 4
+                                                  _Bool 
+# 245 "./src/main/drivers/timer.h"
+                                                       polarityRising, unsigned inputFilterSamples);
+void timerChConfigICDual(const timerHardware_t* timHw, 
+# 246 "./src/main/drivers/timer.h" 3 4
+                                                      _Bool 
+# 246 "./src/main/drivers/timer.h"
+                                                           polarityRising, unsigned inputFilterSamples);
+void timerChICPolarity(const timerHardware_t *timHw, 
+# 247 "./src/main/drivers/timer.h" 3 4
+                                                    _Bool 
+# 247 "./src/main/drivers/timer.h"
+                                                         polarityRising);
+volatile timCCR_t* timerChCCR(const timerHardware_t* timHw);
+volatile timCCR_t* timerChCCRLo(const timerHardware_t* timHw);
+volatile timCCR_t* timerChCCRHi(const timerHardware_t* timHw);
+void timerChConfigOC(const timerHardware_t* timHw, 
+# 251 "./src/main/drivers/timer.h" 3 4
+                                                  _Bool 
+# 251 "./src/main/drivers/timer.h"
+                                                       outEnable, 
+# 251 "./src/main/drivers/timer.h" 3 4
+                                                                  _Bool 
+# 251 "./src/main/drivers/timer.h"
+                                                                       stateHigh);
+void timerChConfigGPIO(const timerHardware_t* timHw, ioConfig_t mode);
+
+void timerChCCHandlerInit(timerCCHandlerRec_t *self, timerCCHandlerCallback *fn);
+void timerChOvrHandlerInit(timerOvrHandlerRec_t *self, timerOvrHandlerCallback *fn);
+void timerChConfigCallbacks(const timerHardware_t *channel, timerCCHandlerRec_t *edgeCallback, timerOvrHandlerRec_t *overflowCallback);
+void timerChConfigCallbacksDual(const timerHardware_t *channel, timerCCHandlerRec_t *edgeCallbackLo, timerCCHandlerRec_t *edgeCallbackHi, timerOvrHandlerRec_t *overflowCallback);
+void timerChITConfigDualLo(const timerHardware_t* timHw, FunctionalState newState);
+void timerChITConfig(const timerHardware_t* timHw, FunctionalState newState);
+void timerChClearCCFlag(const timerHardware_t* timHw);
+
+void timerChInit(const timerHardware_t *timHw, channelType_t type, int irqPriority, uint8_t irq);
+
+void timerInit(void);
+void timerStart(void);
+void timerForceOverflow(TIM_TypeDef *tim);
+
+uint32_t timerClock(TIM_TypeDef *tim);
+
+void configTimeBase(TIM_TypeDef *tim, uint16_t period, uint32_t hz);
+
+rccPeriphTag_t timerRCC(TIM_TypeDef *tim);
+uint8_t timerInputIrq(TIM_TypeDef *tim);
+
+
+extern const resourceOwner_t freeOwner;
+
+struct timerIOConfig_s;
+
+struct timerIOConfig_s *timerIoConfigByTag(ioTag_t ioTag);
+const resourceOwner_t *timerGetOwner(int8_t timerNumber, uint16_t timerChannel);
+
+const timerHardware_t *timerGetByTag(ioTag_t ioTag);
+const timerHardware_t *timerAllocate(ioTag_t ioTag, resourceOwner_e owner, uint8_t resourceIndex);
+const timerHardware_t *timerGetByTagAndIndex(ioTag_t ioTag, unsigned timerIndex);
+ioTag_t timerioTagGetByUsage(timerUsageFlag_e usageFlag, uint8_t index);
+
+
+TIM_HandleTypeDef* timerFindTimerHandle(TIM_TypeDef *tim);
+HAL_StatusTypeDef TIM_DMACmd(TIM_HandleTypeDef *htim, uint32_t Channel, FunctionalState NewState);
+HAL_StatusTypeDef DMA_SetCurrDataCounter(TIM_HandleTypeDef *htim, uint32_t Channel, uint32_t *pData, uint16_t Length);
+uint16_t timerDmaIndex(uint8_t channel);
+
+
+
+
+
+volatile timCCR_t *timerCCR(TIM_TypeDef *tim, uint8_t channel);
+uint16_t timerDmaSource(uint8_t channel);
+
+uint16_t timerGetPrescalerByDesiredHertz(TIM_TypeDef *tim, uint32_t hz);
+uint16_t timerGetPrescalerByDesiredMhz(TIM_TypeDef *tim, uint16_t mhz);
+uint16_t timerGetPeriodByPrescaler(TIM_TypeDef *tim, uint16_t prescaler, uint32_t hz);
+
+int8_t timerGetNumberByIndex(uint8_t index);
+int8_t timerGetTIMNumber(const TIM_TypeDef *tim);
+uint8_t timerLookupChannelIndex(const uint16_t channel);
+# 24 "./src/main/drivers/dshot_bitbang.h" 2
+
+typedef enum {
+    DSHOT_BITBANG_OFF,
+    DSHOT_BITBANG_ON,
+    DSHOT_BITBANG_AUTO,
+} dshotBitbangMode_e;
+
+typedef enum {
+    DSHOT_BITBANG_STATUS_OK,
+    DSHOT_BITBANG_STATUS_MOTOR_PIN_CONFLICT,
+    DSHOT_BITBANG_STATUS_NO_PACER,
+    DSHOT_BITBANG_STATUS_TOO_MANY_PORTS,
+} dshotBitbangStatus_e;
+
+struct motorDevConfig_s;
+struct motorDevice_s;
+struct motorDevice_s *dshotBitbangDevInit(const struct motorDevConfig_s *motorConfig, uint8_t motorCount);
+dshotBitbangStatus_e dshotBitbangGetStatus();
+const resourceOwner_t *dshotBitbangTimerGetOwner(int8_t timerNumber, uint16_t timerChannel);
+# 27 "./src/main/pg/motor.h" 2
+
+typedef enum {
+    DSHOT_BITBANGED_TIMER_AUTO = 0,
+    DSHOT_BITBANGED_TIMER_TIM1,
+    DSHOT_BITBANGED_TIMER_TIM8,
+} dshotBitbangedTimer_e;
+
+typedef enum {
+    DSHOT_DMAR_OFF,
+    DSHOT_DMAR_ON,
+    DSHOT_DMAR_AUTO
+} dshotDmar_e;
+
+typedef struct motorDevConfig_s {
+    uint16_t motorPwmRate;
+    uint8_t motorPwmProtocol;
+    uint8_t motorPwmInversion;
+    uint8_t useUnsyncedPwm;
+    uint8_t useBurstDshot;
+    uint8_t useDshotTelemetry;
+    ioTag_t ioTags[8];
+    uint8_t motorTransportProtocol;
+    uint8_t useDshotBitbang;
+    uint8_t useDshotBitbangedTimer;
+    uint8_t motorOutputReordering[8];
+} motorDevConfig_t;
+
+typedef struct motorConfig_s {
+    motorDevConfig_t dev;
+    uint16_t digitalIdleOffsetValue;
+    uint16_t minthrottle;
+    uint16_t maxthrottle;
+    uint16_t mincommand;
+    uint8_t motorPoleCount;
+} motorConfig_t;
+
+extern motorConfig_t motorConfig_System; extern motorConfig_t motorConfig_Copy; static inline const motorConfig_t* motorConfig(void) { return &motorConfig_System; } static inline motorConfig_t* motorConfigMutable(void) { return &motorConfig_System; } struct _dummy;
+# 28 "./src/main/drivers/motor.h" 2
+
+typedef enum {
+    PWM_TYPE_STANDARD = 0,
+    PWM_TYPE_ONESHOT125,
+    PWM_TYPE_ONESHOT42,
+    PWM_TYPE_MULTISHOT,
+    PWM_TYPE_BRUSHED,
+    PWM_TYPE_DSHOT150,
+    PWM_TYPE_DSHOT300,
+    PWM_TYPE_DSHOT600,
+
+    PWM_TYPE_PROSHOT1000,
+    PWM_TYPE_DISABLED,
+    PWM_TYPE_MAX
+} motorPwmProtocolTypes_e;
+
+
+typedef struct motorVTable_s {
+
+    void (*postInit)(void);
+    float (*convertExternalToMotor)(uint16_t externalValue);
+    uint16_t (*convertMotorToExternal)(float motorValue);
+    
+# 50 "./src/main/drivers/motor.h" 3 4
+   _Bool 
+# 50 "./src/main/drivers/motor.h"
+        (*enable)(void);
+    void (*disable)(void);
+    
+# 52 "./src/main/drivers/motor.h" 3 4
+   _Bool 
+# 52 "./src/main/drivers/motor.h"
+        (*isMotorEnabled)(uint8_t index);
+    
+# 53 "./src/main/drivers/motor.h" 3 4
+   _Bool 
+# 53 "./src/main/drivers/motor.h"
+        (*updateStart)(void);
+    void (*write)(uint8_t index, float value);
+    void (*writeInt)(uint8_t index, uint16_t value);
+    void (*updateComplete)(void);
+    void (*shutdown)(void);
+
+
+
+} motorVTable_t;
+
+typedef struct motorDevice_s {
+    motorVTable_t vTable;
+    uint8_t count;
+    
+# 66 "./src/main/drivers/motor.h" 3 4
+   _Bool 
+# 66 "./src/main/drivers/motor.h"
+                 initialized;
+    
+# 67 "./src/main/drivers/motor.h" 3 4
+   _Bool 
+# 67 "./src/main/drivers/motor.h"
+                 enabled;
+    timeMs_t motorEnableTimeMs;
+} motorDevice_t;
+
+void motorPostInitNull();
+void motorWriteNull(uint8_t index, float value);
+
+# 73 "./src/main/drivers/motor.h" 3 4
+_Bool 
+# 73 "./src/main/drivers/motor.h"
+    motorUpdateStartNull(void);
+void motorUpdateCompleteNull(void);
+
+void motorPostInit();
+void motorWriteAll(float *values);
+
+void motorInitEndpoints(const motorConfig_t *motorConfig, float outputLimit, float *outputLow, float *outputHigh, float *disarm, float *deadbandMotor3DHigh, float *deadbandMotor3DLow);
+
+float motorConvertFromExternal(uint16_t externalValue);
+uint16_t motorConvertToExternal(float motorValue);
+
+struct motorDevConfig_s;
+void motorDevInit(const struct motorDevConfig_s *motorConfig, uint16_t idlePulse, uint8_t motorCount);
+unsigned motorDeviceCount(void);
+motorVTable_t motorGetVTable(void);
+
+# 88 "./src/main/drivers/motor.h" 3 4
+_Bool 
+# 88 "./src/main/drivers/motor.h"
+    checkMotorProtocolEnabled(const motorDevConfig_t *motorConfig, 
+# 88 "./src/main/drivers/motor.h" 3 4
+                                                                   _Bool 
+# 88 "./src/main/drivers/motor.h"
+                                                                        *protocolIsDshot);
+
+# 89 "./src/main/drivers/motor.h" 3 4
+_Bool 
+# 89 "./src/main/drivers/motor.h"
+    isMotorProtocolDshot(void);
+
+# 90 "./src/main/drivers/motor.h" 3 4
+_Bool 
+# 90 "./src/main/drivers/motor.h"
+    isMotorProtocolEnabled(void);
+
+void motorDisable(void);
+void motorEnable(void);
+
+# 94 "./src/main/drivers/motor.h" 3 4
+_Bool 
+# 94 "./src/main/drivers/motor.h"
+    motorIsEnabled(void);
+
+# 95 "./src/main/drivers/motor.h" 3 4
+_Bool 
+# 95 "./src/main/drivers/motor.h"
+    motorIsMotorEnabled(uint8_t index);
+timeMs_t motorGetMotorEnableTimeMs(void);
+void motorShutdown(void);
+
+
+
+
+
+
+
+float getDigitalIdleOffset(const motorConfig_t *motorConfig);
+# 30 "./src/main/drivers/pwm_output.h" 2
+# 42 "./src/main/drivers/pwm_output.h"
+struct timerHardware_s;
+
+typedef struct {
+    volatile timCCR_t *ccr;
+    TIM_TypeDef *tim;
+} timerChannel_t;
+
+typedef struct {
+    timerChannel_t channel;
+    float pulseScale;
+    float pulseOffset;
+    
+# 53 "./src/main/drivers/pwm_output.h" 3 4
+   _Bool 
+# 53 "./src/main/drivers/pwm_output.h"
+        forceOverflow;
+    
+# 54 "./src/main/drivers/pwm_output.h" 3 4
+   _Bool 
+# 54 "./src/main/drivers/pwm_output.h"
+        enabled;
+    IO_t io;
+} pwmOutputPort_t;
+
+extern __attribute__ ((section(".fastram_bss"), aligned(4))) pwmOutputPort_t motors[8];
+
+struct motorDevConfig_s;
+motorDevice_t *motorPwmDevInit(const struct motorDevConfig_s *motorDevConfig, uint16_t idlePulse, uint8_t motorCount, 
+# 61 "./src/main/drivers/pwm_output.h" 3 4
+                                                                                                                     _Bool 
+# 61 "./src/main/drivers/pwm_output.h"
+                                                                                                                          useUnsyncedPwm);
+
+typedef struct servoDevConfig_s {
+
+    uint16_t servoCenterPulse;
+    uint16_t servoPwmRate;
+    ioTag_t ioTags[8];
+} servoDevConfig_t;
+
+void servoDevInit(const servoDevConfig_t *servoDevConfig);
+
+void pwmServoConfig(const struct timerHardware_s *timerHardware, uint8_t servoIndex, uint16_t servoPwmRate, uint16_t servoCenterPulse);
+
+void pwmOutConfig(timerChannel_t *channel, const timerHardware_t *timerHardware, uint32_t hz, uint16_t period, uint16_t value, uint8_t inversion);
+
+void pwmWriteServo(uint8_t index, float value);
+
+pwmOutputPort_t *pwmGetMotors(void);
+
+# 79 "./src/main/drivers/pwm_output.h" 3 4
+_Bool 
+# 79 "./src/main/drivers/pwm_output.h"
+    pwmIsSynced(void);
+# 30 "./src/main/drivers/camera_control.c" 2
+# 1 "./src/main/drivers/time.h" 1
+# 21 "./src/main/drivers/time.h"
+       
+
+
+
+
+
+void delayMicroseconds(timeUs_t us);
+void delay(timeMs_t ms);
+
+timeUs_t micros(void);
+timeUs_t microsISR(void);
+timeMs_t millis(void);
+
+uint32_t ticks(void);
+timeDelta_t ticks_diff_us(uint32_t begin, uint32_t end);
+# 31 "./src/main/drivers/camera_control.c" 2
+# 51 "./src/main/drivers/camera_control.c"
+# 1 "./src/main/osd/osd.h" 1
+# 21 "./src/main/osd/osd.h"
+       
+
+
+# 1 "./src/main/common/unit.h" 1
+# 21 "./src/main/common/unit.h"
+       
+
+typedef enum {
+    UNIT_IMPERIAL = 0,
+    UNIT_METRIC,
+    UNIT_BRITISH
+} unit_e;
+# 25 "./src/main/osd/osd.h" 2
+
+# 1 "./src/main/drivers/display.h" 1
+# 21 "./src/main/drivers/display.h"
+       
+
+typedef enum {
+    DISPLAYPORT_DEVICE_TYPE_MAX7456 = 0,
+    DISPLAYPORT_DEVICE_TYPE_OLED,
+    DISPLAYPORT_DEVICE_TYPE_MSP,
+    DISPLAYPORT_DEVICE_TYPE_FRSKYOSD,
+    DISPLAYPORT_DEVICE_TYPE_CRSF,
+    DISPLAYPORT_DEVICE_TYPE_HOTT,
+    DISPLAYPORT_DEVICE_TYPE_SRXL,
+} displayPortDeviceType_e;
+
+typedef enum {
+    DISPLAYPORT_ATTR_NONE = 0,
+    DISPLAYPORT_ATTR_INFO,
+    DISPLAYPORT_ATTR_WARNING,
+    DISPLAYPORT_ATTR_CRITICAL,
+} displayPortAttr_e;
+
+
+
+typedef enum {
+    DISPLAYPORT_LAYER_FOREGROUND,
+    DISPLAYPORT_LAYER_BACKGROUND,
+    DISPLAYPORT_LAYER_COUNT,
+} displayPortLayer_e;
+
+typedef enum {
+    DISPLAY_TRANSACTION_OPT_NONE = 0,
+    DISPLAY_TRANSACTION_OPT_PROFILED = 1 << 0,
+    DISPLAY_TRANSACTION_OPT_RESET_DRAWING = 1 << 1,
+} displayTransactionOption_e;
+
+typedef enum {
+    DISPLAY_BACKGROUND_TRANSPARENT,
+    DISPLAY_BACKGROUND_BLACK,
+    DISPLAY_BACKGROUND_GRAY,
+    DISPLAY_BACKGROUND_LTGRAY,
+    DISPLAY_BACKGROUND_COUNT
+} displayPortBackground_e;
+
+struct displayCanvas_s;
+struct osdCharacter_s;
+struct displayPortVTable_s;
+
+typedef struct displayPort_s {
+    const struct displayPortVTable_s *vTable;
+    void *device;
+    uint8_t rows;
+    uint8_t cols;
+    uint8_t posX;
+    uint8_t posY;
+
+
+    
+# 75 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 75 "./src/main/drivers/display.h"
+        useFullscreen;
+    
+# 76 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 76 "./src/main/drivers/display.h"
+        cleared;
+    int8_t cursorRow;
+    int8_t grabCount;
+
+
+    
+# 81 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 81 "./src/main/drivers/display.h"
+        useDeviceBlink;
+
+
+    displayPortDeviceType_e deviceType;
+} displayPort_t;
+
+typedef struct displayPortVTable_s {
+    int (*grab)(displayPort_t *displayPort);
+    int (*release)(displayPort_t *displayPort);
+    int (*clearScreen)(displayPort_t *displayPort);
+    int (*drawScreen)(displayPort_t *displayPort);
+    int (*screenSize)(const displayPort_t *displayPort);
+    int (*writeString)(displayPort_t *displayPort, uint8_t x, uint8_t y, uint8_t attr, const char *text);
+    int (*writeChar)(displayPort_t *displayPort, uint8_t x, uint8_t y, uint8_t attr, uint8_t c);
+    
+# 95 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 95 "./src/main/drivers/display.h"
+        (*isTransferInProgress)(const displayPort_t *displayPort);
+    int (*heartbeat)(displayPort_t *displayPort);
+    void (*redraw)(displayPort_t *displayPort);
+    
+# 98 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 98 "./src/main/drivers/display.h"
+        (*isSynced)(const displayPort_t *displayPort);
+    uint32_t (*txBytesFree)(const displayPort_t *displayPort);
+    
+# 100 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 100 "./src/main/drivers/display.h"
+        (*layerSupported)(displayPort_t *displayPort, displayPortLayer_e layer);
+    
+# 101 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 101 "./src/main/drivers/display.h"
+        (*layerSelect)(displayPort_t *displayPort, displayPortLayer_e layer);
+    
+# 102 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 102 "./src/main/drivers/display.h"
+        (*layerCopy)(displayPort_t *displayPort, displayPortLayer_e destLayer, displayPortLayer_e sourceLayer);
+    
+# 103 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 103 "./src/main/drivers/display.h"
+        (*writeFontCharacter)(displayPort_t *instance, uint16_t addr, const struct osdCharacter_s *chr);
+    
+# 104 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 104 "./src/main/drivers/display.h"
+        (*checkReady)(displayPort_t *displayPort, 
+# 104 "./src/main/drivers/display.h" 3 4
+                                                  _Bool 
+# 104 "./src/main/drivers/display.h"
+                                                       rescan);
+    void (*beginTransaction)(displayPort_t *displayPort, displayTransactionOption_e opts);
+    void (*commitTransaction)(displayPort_t *displayPort);
+    
+# 107 "./src/main/drivers/display.h" 3 4
+   _Bool 
+# 107 "./src/main/drivers/display.h"
+        (*getCanvas)(struct displayCanvas_s *canvas, const displayPort_t *displayPort);
+    void (*setBackgroundType)(displayPort_t *displayPort, displayPortBackground_e backgroundType);
+} displayPortVTable_t;
+
+void displayGrab(displayPort_t *instance);
+void displayRelease(displayPort_t *instance);
+void displayReleaseAll(displayPort_t *instance);
+
+# 114 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 114 "./src/main/drivers/display.h"
+    displayIsGrabbed(const displayPort_t *instance);
+void displayClearScreen(displayPort_t *instance);
+void displayDrawScreen(displayPort_t *instance);
+int displayScreenSize(const displayPort_t *instance);
+void displaySetXY(displayPort_t *instance, uint8_t x, uint8_t y);
+int displayWrite(displayPort_t *instance, uint8_t x, uint8_t y, uint8_t attr, const char *s);
+int displayWriteChar(displayPort_t *instance, uint8_t x, uint8_t y, uint8_t attr, uint8_t c);
+
+# 121 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 121 "./src/main/drivers/display.h"
+    displayIsTransferInProgress(const displayPort_t *instance);
+void displayHeartbeat(displayPort_t *instance);
+void displayRedraw(displayPort_t *instance);
+
+# 124 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 124 "./src/main/drivers/display.h"
+    displayIsSynced(const displayPort_t *instance);
+uint16_t displayTxBytesFree(const displayPort_t *instance);
+
+# 126 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 126 "./src/main/drivers/display.h"
+    displayWriteFontCharacter(displayPort_t *instance, uint16_t addr, const struct osdCharacter_s *chr);
+
+# 127 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 127 "./src/main/drivers/display.h"
+    displayCheckReady(displayPort_t *instance, 
+# 127 "./src/main/drivers/display.h" 3 4
+                                               _Bool 
+# 127 "./src/main/drivers/display.h"
+                                                    rescan);
+void displayBeginTransaction(displayPort_t *instance, displayTransactionOption_e opts);
+void displayCommitTransaction(displayPort_t *instance);
+
+# 130 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 130 "./src/main/drivers/display.h"
+    displayGetCanvas(struct displayCanvas_s *canvas, const displayPort_t *instance);
+void displayInit(displayPort_t *instance, const displayPortVTable_t *vTable, displayPortDeviceType_e deviceType);
+
+# 132 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 132 "./src/main/drivers/display.h"
+    displayLayerSupported(displayPort_t *instance, displayPortLayer_e layer);
+
+# 133 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 133 "./src/main/drivers/display.h"
+    displayLayerSelect(displayPort_t *instance, displayPortLayer_e layer);
+
+# 134 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 134 "./src/main/drivers/display.h"
+    displayLayerCopy(displayPort_t *instance, displayPortLayer_e destLayer, displayPortLayer_e sourceLayer);
+void displaySetBackgroundType(displayPort_t *instance, displayPortBackground_e backgroundType);
+
+# 136 "./src/main/drivers/display.h" 3 4
+_Bool 
+# 136 "./src/main/drivers/display.h"
+    displaySupportsOsdSymbols(displayPort_t *instance);
+# 27 "./src/main/osd/osd.h" 2
+
+
+
+# 1 "./src/main/sensors/esc_sensor.h" 1
+# 21 "./src/main/sensors/esc_sensor.h"
+       
+
+
+
+typedef struct escSensorConfig_s {
+    uint8_t halfDuplex;
+    uint16_t offset;
+
+} escSensorConfig_t;
+
+extern escSensorConfig_t escSensorConfig_System; extern escSensorConfig_t escSensorConfig_Copy; static inline const escSensorConfig_t* escSensorConfig(void) { return &escSensorConfig_System; } static inline escSensorConfig_t* escSensorConfigMutable(void) { return &escSensorConfig_System; } struct _dummy;
+
+typedef struct {
+    uint8_t dataAge;
+    int8_t temperature;
+    int16_t voltage;
+    int32_t current;
+    int32_t consumption;
+    int16_t rpm;
+} escSensorData_t;
+
+
+
+
+
+
+# 46 "./src/main/sensors/esc_sensor.h" 3 4
+_Bool 
+# 46 "./src/main/sensors/esc_sensor.h"
+    escSensorInit(void);
+void escSensorProcess(timeUs_t currentTime);
+
+
+
+escSensorData_t *getEscSensorData(uint8_t motorNumber);
+
+void startEscDataRead(uint8_t *frameBuffer, uint8_t frameLength);
+uint8_t getNumberEscBytesRead(void);
+
+uint8_t calculateCrc8(const uint8_t *Buf, const uint8_t BufLen);
+
+int calcEscRpm(int erpm);
+# 31 "./src/main/osd/osd.h" 2
+
+
+extern const char * const osdTimerSourceNames[4];
+# 101 "./src/main/osd/osd.h"
+typedef enum {
+    OSD_RSSI_VALUE,
+    OSD_MAIN_BATT_VOLTAGE,
+    OSD_CROSSHAIRS,
+    OSD_ARTIFICIAL_HORIZON,
+    OSD_HORIZON_SIDEBARS,
+    OSD_ITEM_TIMER_1,
+    OSD_ITEM_TIMER_2,
+    OSD_FLYMODE,
+    OSD_CRAFT_NAME,
+    OSD_THROTTLE_POS,
+    OSD_VTX_CHANNEL,
+    OSD_CURRENT_DRAW,
+    OSD_MAH_DRAWN,
+    OSD_GPS_SPEED,
+    OSD_GPS_SATS,
+    OSD_ALTITUDE,
+    OSD_ROLL_PIDS,
+    OSD_PITCH_PIDS,
+    OSD_YAW_PIDS,
+    OSD_POWER,
+    OSD_PIDRATE_PROFILE,
+    OSD_WARNINGS,
+    OSD_AVG_CELL_VOLTAGE,
+    OSD_GPS_LON,
+    OSD_GPS_LAT,
+    OSD_DEBUG,
+    OSD_PITCH_ANGLE,
+    OSD_ROLL_ANGLE,
+    OSD_MAIN_BATT_USAGE,
+    OSD_DISARMED,
+    OSD_HOME_DIR,
+    OSD_HOME_DIST,
+    OSD_NUMERICAL_HEADING,
+    OSD_NUMERICAL_VARIO,
+    OSD_COMPASS_BAR,
+    OSD_ESC_TMP,
+    OSD_ESC_RPM,
+    OSD_REMAINING_TIME_ESTIMATE,
+    OSD_RTC_DATETIME,
+    OSD_ADJUSTMENT_RANGE,
+    OSD_CORE_TEMPERATURE,
+    OSD_ANTI_GRAVITY,
+    OSD_G_FORCE,
+    OSD_MOTOR_DIAG,
+    OSD_LOG_STATUS,
+    OSD_FLIP_ARROW,
+    OSD_LINK_QUALITY,
+    OSD_FLIGHT_DIST,
+    OSD_STICK_OVERLAY_LEFT,
+    OSD_STICK_OVERLAY_RIGHT,
+    OSD_DISPLAY_NAME,
+    OSD_ESC_RPM_FREQ,
+    OSD_RATE_PROFILE_NAME,
+    OSD_PID_PROFILE_NAME,
+    OSD_PROFILE_NAME,
+    OSD_RSSI_DBM_VALUE,
+    OSD_RC_CHANNELS,
+    OSD_CAMERA_FRAME,
+    OSD_EFFICIENCY,
+    OSD_TOTAL_FLIGHTS,
+    OSD_UP_DOWN_REFERENCE,
+    OSD_ITEM_COUNT
+} osd_items_e;
+# 177 "./src/main/osd/osd.h"
+typedef enum {
+    OSD_STAT_RTC_DATE_TIME,
+    OSD_STAT_TIMER_1,
+    OSD_STAT_TIMER_2,
+    OSD_STAT_MAX_SPEED,
+    OSD_STAT_MAX_DISTANCE,
+    OSD_STAT_MIN_BATTERY,
+    OSD_STAT_END_BATTERY,
+    OSD_STAT_BATTERY,
+    OSD_STAT_MIN_RSSI,
+    OSD_STAT_MAX_CURRENT,
+    OSD_STAT_USED_MAH,
+    OSD_STAT_MAX_ALTITUDE,
+    OSD_STAT_BLACKBOX,
+    OSD_STAT_BLACKBOX_NUMBER,
+    OSD_STAT_MAX_G_FORCE,
+    OSD_STAT_MAX_ESC_TEMP,
+    OSD_STAT_MAX_ESC_RPM,
+    OSD_STAT_MIN_LINK_QUALITY,
+    OSD_STAT_FLIGHT_DISTANCE,
+    OSD_STAT_MAX_FFT,
+    OSD_STAT_TOTAL_FLIGHTS,
+    OSD_STAT_TOTAL_TIME,
+    OSD_STAT_TOTAL_DIST,
+    OSD_STAT_MIN_RSSI_DBM,
+    OSD_STAT_COUNT
+} osd_stats_e;
+
+
+_Static_assert((OSD_STAT_COUNT <= 32), "osdstats_overflow");
+
+typedef enum {
+    OSD_TIMER_1,
+    OSD_TIMER_2,
+    OSD_TIMER_COUNT
+} osd_timer_e;
+
+typedef enum {
+    OSD_TIMER_SRC_ON,
+    OSD_TIMER_SRC_TOTAL_ARMED,
+    OSD_TIMER_SRC_LAST_ARMED,
+    OSD_TIMER_SRC_ON_OR_ARMED,
+    OSD_TIMER_SRC_COUNT
+} osd_timer_source_e;
+
+typedef enum {
+    OSD_TIMER_PREC_SECOND,
+    OSD_TIMER_PREC_HUNDREDTHS,
+    OSD_TIMER_PREC_TENTHS,
+    OSD_TIMER_PREC_COUNT
+} osd_timer_precision_e;
+
+typedef enum {
+    OSD_WARNING_ARMING_DISABLE,
+    OSD_WARNING_BATTERY_NOT_FULL,
+    OSD_WARNING_BATTERY_WARNING,
+    OSD_WARNING_BATTERY_CRITICAL,
+    OSD_WARNING_VISUAL_BEEPER,
+    OSD_WARNING_CRASH_FLIP,
+    OSD_WARNING_ESC_FAIL,
+    OSD_WARNING_CORE_TEMPERATURE,
+    OSD_WARNING_RC_SMOOTHING,
+    OSD_WARNING_FAIL_SAFE,
+    OSD_WARNING_LAUNCH_CONTROL,
+    OSD_WARNING_GPS_RESCUE_UNAVAILABLE,
+    OSD_WARNING_GPS_RESCUE_DISABLED,
+    OSD_WARNING_RSSI,
+    OSD_WARNING_LINK_QUALITY,
+    OSD_WARNING_RSSI_DBM,
+    OSD_WARNING_OVER_CAP,
+    OSD_WARNING_COUNT
+} osdWarningsFlags_e;
+
+typedef enum {
+    OSD_DISPLAYPORT_DEVICE_NONE = 0,
+    OSD_DISPLAYPORT_DEVICE_AUTO,
+    OSD_DISPLAYPORT_DEVICE_MAX7456,
+    OSD_DISPLAYPORT_DEVICE_MSP,
+    OSD_DISPLAYPORT_DEVICE_FRSKYOSD,
+} osdDisplayPortDevice_e;
+
+
+_Static_assert((OSD_WARNING_COUNT <= 32), "osdwarnings_overflow");
+
+
+
+
+
+
+
+extern const uint16_t osdTimerDefault[OSD_TIMER_COUNT];
+extern const osd_stats_e osdStatsDisplayOrder[OSD_STAT_COUNT];
+
+typedef struct osdConfig_s {
+
+    uint16_t cap_alarm;
+    uint16_t alt_alarm;
+    uint8_t rssi_alarm;
+
+    uint8_t units;
+
+    uint16_t timers[OSD_TIMER_COUNT];
+    uint32_t enabledWarnings;
+
+    uint8_t ahMaxPitch;
+    uint8_t ahMaxRoll;
+    uint32_t enabled_stats;
+    int8_t esc_temp_alarm;
+    int16_t esc_rpm_alarm;
+    int16_t esc_current_alarm;
+    uint8_t core_temp_alarm;
+    uint8_t ahInvert;
+    uint8_t osdProfileIndex;
+    uint8_t overlay_radio_mode;
+    char profile[3][16 + 1];
+    uint16_t link_quality_alarm;
+    int16_t rssi_dbm_alarm;
+    uint8_t gps_sats_show_hdop;
+    int8_t rcChannels[4];
+    uint8_t displayPortDevice;
+    uint16_t distance_alarm;
+    uint8_t logo_on_arming;
+    uint8_t logo_on_arming_duration;
+    uint8_t camera_frame_width;
+    uint8_t camera_frame_height;
+    uint16_t task_frequency;
+    uint8_t cms_background_type;
+    uint8_t stat_show_cell_value;
+} osdConfig_t;
+
+extern osdConfig_t osdConfig_System; extern osdConfig_t osdConfig_Copy; static inline const osdConfig_t* osdConfig(void) { return &osdConfig_System; } static inline osdConfig_t* osdConfigMutable(void) { return &osdConfig_System; } struct _dummy;
+
+typedef struct osdElementConfig_s {
+    uint16_t item_pos[OSD_ITEM_COUNT];
+} osdElementConfig_t;
+
+extern osdElementConfig_t osdElementConfig_System; extern osdElementConfig_t osdElementConfig_Copy; static inline const osdElementConfig_t* osdElementConfig(void) { return &osdElementConfig_System; } static inline osdElementConfig_t* osdElementConfigMutable(void) { return &osdElementConfig_System; } struct _dummy;
+
+typedef struct statistic_s {
+    timeUs_t armed_time;
+    int16_t max_speed;
+    int16_t min_voltage;
+    uint16_t end_voltage;
+    int16_t max_current;
+    uint8_t min_rssi;
+    int32_t max_altitude;
+    int16_t max_distance;
+    float max_g_force;
+    int16_t max_esc_temp;
+    int32_t max_esc_rpm;
+    uint16_t min_link_quality;
+    int16_t min_rssi_dbm;
+} statistic_t;
+
+extern timeUs_t resumeRefreshAt;
+extern timeUs_t osdFlyTime;
+
+extern float osdGForce;
+
+
+
+
+
+void osdInit(displayPort_t *osdDisplayPort, osdDisplayPortDevice_e displayPortDevice);
+void osdUpdate(timeUs_t currentTimeUs);
+
+void osdStatSetState(uint8_t statIndex, 
+# 343 "./src/main/osd/osd.h" 3 4
+                                       _Bool 
+# 343 "./src/main/osd/osd.h"
+                                            enabled);
+
+# 344 "./src/main/osd/osd.h" 3 4
+_Bool 
+# 344 "./src/main/osd/osd.h"
+    osdStatGetState(uint8_t statIndex);
+void osdSuppressStats(
+# 345 "./src/main/osd/osd.h" 3 4
+                     _Bool 
+# 345 "./src/main/osd/osd.h"
+                          flag);
+void osdAnalyzeActiveElements(void);
+void changeOsdProfileIndex(uint8_t profileIndex);
+uint8_t getCurrentOsdProfileIndex(void);
+displayPort_t *osdGetDisplayPort(osdDisplayPortDevice_e *displayPortDevice);
+
+void osdWarnSetState(uint8_t warningIndex, 
+# 351 "./src/main/osd/osd.h" 3 4
+                                          _Bool 
+# 351 "./src/main/osd/osd.h"
+                                               enabled);
+
+# 352 "./src/main/osd/osd.h" 3 4
+_Bool 
+# 352 "./src/main/osd/osd.h"
+    osdWarnGetState(uint8_t warningIndex);
+
+# 353 "./src/main/osd/osd.h" 3 4
+_Bool 
+# 353 "./src/main/osd/osd.h"
+    osdElementVisible(uint16_t value);
+
+# 354 "./src/main/osd/osd.h" 3 4
+_Bool 
+# 354 "./src/main/osd/osd.h"
+    osdGetVisualBeeperState(void);
+statistic_t *osdGetStats(void);
+
+# 356 "./src/main/osd/osd.h" 3 4
+_Bool 
+# 356 "./src/main/osd/osd.h"
+    osdNeedsAccelerometer(void);
+int osdPrintFloat(char *buffer, char leadingSymbol, float value, char *formatString, unsigned decimalPlaces, 
+# 357 "./src/main/osd/osd.h" 3 4
+                                                                                                            _Bool 
+# 357 "./src/main/osd/osd.h"
+                                                                                                                 round, char trailingSymbol);
+# 52 "./src/main/drivers/camera_control.c" 2
+
+
+extern void pgResetFn_cameraControlConfig(cameraControlConfig_t *); cameraControlConfig_t cameraControlConfig_System; cameraControlConfig_t cameraControlConfig_Copy; extern const pgRegistry_t cameraControlConfig_Registry; const pgRegistry_t cameraControlConfig_Registry __attribute__ ((section(".pg_registry"), used, aligned(4))) = { .pgn = 522 | (0 << 12), .length = 1, .size = sizeof(cameraControlConfig_t) | PGR_SIZE_SYSTEM_FLAG, .address = (uint8_t*)&cameraControlConfig_System, .copy = (uint8_t*)&cameraControlConfig_Copy, .ptr = 0, .reset = {.fn = (pgResetFunc*)&pgResetFn_cameraControlConfig }, };
+
+void pgResetFn_cameraControlConfig(cameraControlConfig_t *cameraControlConfig)
+{
+    cameraControlConfig->mode = CAMERA_CONTROL_MODE_HARDWARE_PWM;
+    cameraControlConfig->refVoltage = 330;
+    cameraControlConfig->keyDelayMs = 180;
+    cameraControlConfig->internalResistance = 470;
+    cameraControlConfig->ioTag = timerioTagGetByUsage(TIM_USE_CAMERA_CONTROL, 0);
+    cameraControlConfig->inverted = 0;
+    cameraControlConfig->buttonResistanceValues[CAMERA_CONTROL_KEY_ENTER] = 450;
+    cameraControlConfig->buttonResistanceValues[CAMERA_CONTROL_KEY_LEFT] = 270;
+    cameraControlConfig->buttonResistanceValues[CAMERA_CONTROL_KEY_UP] = 150;
+    cameraControlConfig->buttonResistanceValues[CAMERA_CONTROL_KEY_RIGHT] = 68;
+    cameraControlConfig->buttonResistanceValues[CAMERA_CONTROL_KEY_DOWN] = 0;
+}
+
+static struct {
+    
+# 72 "./src/main/drivers/camera_control.c" 3 4
+   _Bool 
+# 72 "./src/main/drivers/camera_control.c"
+        enabled;
+    IO_t io;
+    timerChannel_t channel;
+    uint32_t period;
+    uint8_t inverted;
+} cameraControlRuntime;
+
+static uint32_t endTimeMillis;
+# 115 "./src/main/drivers/camera_control.c"
+void cameraControlInit(void)
+{
+    if (cameraControlConfig()->ioTag == 0)
+        return;
+
+    cameraControlRuntime.inverted = cameraControlConfig()->inverted;
+    cameraControlRuntime.io = IOGetByTag(cameraControlConfig()->ioTag);
+    IOInit(cameraControlRuntime.io, OWNER_CAMERA_CONTROL, 0);
+
+    if (CAMERA_CONTROL_MODE_HARDWARE_PWM == cameraControlConfig()->mode) {
+
+        const timerHardware_t *timerHardware = timerAllocate(cameraControlConfig()->ioTag, OWNER_CAMERA_CONTROL, 0);
+
+        if (!timerHardware) {
+            return;
+        }
+
+
+
+
+            IOConfigGPIOAF(cameraControlRuntime.io, (((0x00000002U)) | (((0x00000000U)) << 2) | (((0x00000000U)) << 5)), timerHardware->alternateFunction);
+
+
+        pwmOutConfig(&cameraControlRuntime.channel, timerHardware, timerClock(((TIM_TypeDef *) ((0x40000000UL) + 0x1000UL))), 128, 0, cameraControlRuntime.inverted);
+
+        cameraControlRuntime.period = 128;
+        *cameraControlRuntime.channel.ccr = cameraControlRuntime.period;
+        cameraControlRuntime.enabled = 
+# 142 "./src/main/drivers/camera_control.c" 3 4
+                                      1
+# 142 "./src/main/drivers/camera_control.c"
+                                          ;
+
+    } else if (CAMERA_CONTROL_MODE_SOFTWARE_PWM == cameraControlConfig()->mode) {
+# 166 "./src/main/drivers/camera_control.c"
+    } else if (CAMERA_CONTROL_MODE_DAC == cameraControlConfig()->mode) {
+
+    }
+}
+
+void cameraControlProcess(uint32_t currentTimeUs)
+{
+    if (endTimeMillis && currentTimeUs >= 1000 * endTimeMillis) {
+        if (CAMERA_CONTROL_MODE_HARDWARE_PWM == cameraControlConfig()->mode) {
+            *cameraControlRuntime.channel.ccr = cameraControlRuntime.period;
+        } else if (CAMERA_CONTROL_MODE_SOFTWARE_PWM == cameraControlConfig()->mode) {
+
+        }
+
+        endTimeMillis = 0;
+    }
+}
+
+static float calculateKeyPressVoltage(const cameraControlKey_e key)
+{
+    const int buttonResistance = cameraControlConfig()->buttonResistanceValues[key] * 100;
+    return 1.0e-2f * cameraControlConfig()->refVoltage * buttonResistance / (100 * cameraControlConfig()->internalResistance + buttonResistance);
+}
+
+
+static float calculatePWMDutyCycle(const cameraControlKey_e key)
+{
+    const float voltage = calculateKeyPressVoltage(key);
+
+    return voltage / 3.3f;
+}
+
+
+void cameraControlKeyPress(cameraControlKey_e key, uint32_t holdDurationMs)
+{
+    if (!cameraControlRuntime.enabled)
+        return;
+
+    if (key >= CAMERA_CONTROL_KEYS_COUNT)
+        return;
+
+
+    const float dutyCycle = calculatePWMDutyCycle(key);
+
+
+
+
+
+
+    resumeRefreshAt = 0;
+
+
+    if (CAMERA_CONTROL_MODE_HARDWARE_PWM == cameraControlConfig()->mode) {
+
+        *cameraControlRuntime.channel.ccr = lrintf(dutyCycle * cameraControlRuntime.period);
+        endTimeMillis = millis() + cameraControlConfig()->keyDelayMs + holdDurationMs;
+
+    } else if (CAMERA_CONTROL_MODE_SOFTWARE_PWM == cameraControlConfig()->mode) {
+# 263 "./src/main/drivers/camera_control.c"
+    } else if (CAMERA_CONTROL_MODE_DAC == cameraControlConfig()->mode) {
+
+    }
+}

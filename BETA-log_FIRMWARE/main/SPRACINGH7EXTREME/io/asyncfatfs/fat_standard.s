@@ -9,23 +9,23 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"fat_standard.c"
-	.section	.gnu.lto_.profile.41125816,"e",%progbits
+	.section	.gnu.lto_.profile.4158efeb,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.41125816,"e",%progbits
+	.section	.gnu.lto_.icf.4158efeb,"e",%progbits
 	.ascii	"x\234\343``d\320f@\000v\206e\247{7s1\276x\262{1\017"
 	.ascii	"\323\232\245GC\230/\035z}\213\217\345O\307\232\351l"
 	.ascii	"\254\313\027\375>\303\315\266}\337\277\347\374\014\000"
 	.ascii	"\322\230\025d"
 	.text
-	.section	.gnu.lto_.jmpfuncs.41125816,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.4158efeb,"e",%progbits
 	.ascii	"x\234\343``d\250f@\000v\006FF\306\372\371\314 \012D"
 	.ascii	"32Aif(\315\002\241\231X\2414\033P\0013\220\001\302,"
 	.ascii	"L\014\014\214\007X\030\031\200\370?#P\253\266\364tf"
 	.ascii	"\306\003\017z\1772\3671\317gf\005\011\356b\224\306T"
 	.ascii	"\005\022e\000\0007Y\027)"
 	.text
-	.section	.gnu.lto_.inline.41125816,"e",%progbits
+	.section	.gnu.lto_.inline.4158efeb,"e",%progbits
 	.ascii	"x\234\343``d\250fd\200\003v\006\006\226\006 `Nadd\020"
 	.ascii	"\000J0304\002\371u\014\014l q\246\024&\006 \0043\223"
 	.ascii	"\031X@Z\030\221t(\020\245\203\211d\035\314$\353`a`\005"
@@ -35,11 +35,11 @@
 	.ascii	"A\032A^\342\001\372\203q\202\037\214f\000\000\363\245"
 	.ascii	"N\014"
 	.text
-	.section	.gnu.lto_.pureconst.41125816,"e",%progbits
+	.section	.gnu.lto_.pureconst.4158efeb,"e",%progbits
 	.ascii	"x\234\343``d\020c```gh`al`aj`an`aieamea\233\305\002"
 	.ascii	"\000,\265\003\374"
 	.text
-	.section	.gnu.lto_fat16_isEndOfChainMarker.41125816,"e",%progbits
+	.section	.gnu.lto_fat16_isEndOfChainMarker.4158efeb,"e",%progbits
 	.ascii	"x\234E\217\277KBQ\024\307\317\367\0363A^\005\271I\340"
 	.ascii	"f\022\370\202\226\306\376\202\376\205x=\025\2044xO\207"
 	.ascii	"&\257\006I\030\025\224\230\203IC\0244D\253\366\343-"
@@ -60,7 +60,7 @@
 	.ascii	"\336\005\267`\345S\226\223J\332d\330KE\267\220v\346"
 	.ascii	"\213\271\305\264\363\003\370vo:"
 	.text
-	.section	.gnu.lto_fat32_isEndOfChainMarker.41125816,"e",%progbits
+	.section	.gnu.lto_fat32_isEndOfChainMarker.4158efeb,"e",%progbits
 	.ascii	"x\234E\217\277KBQ\024\307\317\367\235\227JeK5I \021"
 	.ascii	"\230\004\276\240\245\261\277\240\177!^O\005!\015\336"
 	.ascii	"\323\241\311\253\015\322\017\012R1\007\261\241(Z\242"
@@ -81,7 +81,7 @@
 	.ascii	"\211\233v<fQ\320Z\3139\331\204\275\234K\257&\354\037"
 	.ascii	"\014\304p\334"
 	.text
-	.section	.gnu.lto_fat32_decodeClusterNumber.41125816,"e",%progbits
+	.section	.gnu.lto_fat32_decodeClusterNumber.4158efeb,"e",%progbits
 	.ascii	"x\234U\217\277KBQ\024\307\317\367\336\227Je[4H\340 "
 	.ascii	"\230\004\276\265\261\261\251\177!^O\005!\015|:4y\325"
 	.ascii	"\242\301\250\241\037\342`\322 AK$\021\224\375xk\266"
@@ -102,7 +102,7 @@
 	.ascii	"&\377sN\326J\307\254L,j\223\337^\3109\331xf6\227\232"
 	.ascii	"\217g~\000-\200r\361"
 	.text
-	.section	.gnu.lto_fat_isFreeSpace.41125816,"e",%progbits
+	.section	.gnu.lto_fat_isFreeSpace.4158efeb,"e",%progbits
 	.ascii	"x\234E\217\277KBQ\024\307\317\367\235\227>*\333jy\024"
 	.ascii	"\016\201I\340\013Z\032\373\013\374\027\342\365T\020"
 	.ascii	"\322\340=\035\232\274\352 \375\300\206\022s\020\207"
@@ -123,7 +123,7 @@
 	.ascii	"^\316\316&l7\021s(\344\254\345\275\\\322\215\3473\253"
 	.ascii	"I\367\007\272\224mj"
 	.text
-	.section	.gnu.lto_fat_isDirectoryEntryTerminator.41125816,"e",%progbits
+	.section	.gnu.lto_fat_isDirectoryEntryTerminator.4158efeb,"e",%progbits
 	.ascii	"x\234]P\313+DQ\030\377~\367\2733s\023vl&\232\205\032"
 	.ascii	"\217r'\376\001\377\211n3\224\205Q3\223\232\2253c!\021"
 	.ascii	"\033\302b\272J\203$\217\262\220\347\365\330\220\"\033"
@@ -147,7 +147,7 @@
 	.ascii	"\356t\306I&\234T\242=N\201\236d&\225\375\0064\205\225"
 	.ascii	"*"
 	.text
-	.section	.gnu.lto_fat_isDirectoryEntryEmpty.41125816,"e",%progbits
+	.section	.gnu.lto_fat_isDirectoryEntryEmpty.4158efeb,"e",%progbits
 	.ascii	"x\234EP9K\003A\024~\337\316&.^\235X\0041\205\340\005"
 	.ascii	"n\320?\340?\221%1`a\204$\215\225\223X\210(\332(j\021"
 	.ascii	"V\221\250\205\232\010\"\342\221\254\306F\033\305\306"
@@ -173,7 +173,7 @@
 	.ascii	"\317\236X\334\212\204\254h\250#H\236\336H<:\370\013"
 	.ascii	"\005\347\226\344"
 	.text
-	.section	.gnu.lto_fat_convertFilenameToFATStyle.41125816,"e",%progbits
+	.section	.gnu.lto_fat_convertFilenameToFATStyle.4158efeb,"e",%progbits
 	.ascii	"x\234\215U\377O[U\024\277\347\335\327\276\327\327\366"
 	.ascii	"\265\345KB(\231\015H\012\314\300b4\331\217\363\027\377"
 	.ascii	"\015\323\300HH\034&\203\230\350/{|\031$\302P3d\320\370"
@@ -247,7 +247,7 @@
 	.ascii	"J\242V\327\274}\2706t\344\260\0237\336\024k\250\371"
 	.ascii	"\033t\353\225>"
 	.text
-	.section	.gnu.lto_.symbol_nodes.41125816,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.4158efeb,"e",%progbits
 	.ascii	"x\234\343``dx\307\000\004L\313\271\353\031\032\200\200"
 	.ascii	"\205q\3029\006\206z\006\206]\015\216@I\220\324\012\356"
 	.ascii	"zF\034R+\271\353\231pH\255\342\256g\306!\265\232\273"
@@ -256,10 +256,10 @@
 	.ascii	"@\2778000\263\261\367M\2341\215\221\361\010#\220y\370"
 	.ascii	"\344\312\253\014\214K\370\031\000n\302BZ"
 	.text
-	.section	.gnu.lto_.refs.41125816,"e",%progbits
+	.section	.gnu.lto_.refs.4158efeb,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.41125816,"e",%progbits
+	.section	.gnu.lto_.decls.4158efeb,"e",%progbits
 	.ascii	"x\234\265V{PT\327\031\277\337=+\273,\213\020\260U\213"
 	.ascii	"\2156a*\235\232\020\353\264\311\037\351LS\243\311\037"
 	.ascii	"m:\023I;\343t\206\256\313\245\354\004v\351\335\213)"
@@ -389,7 +389,7 @@
 	.ascii	"\225$\331\375A\244!8\207\222\236*a\246\376\015\236\207"
 	.ascii	"\311\262"
 	.text
-	.section	.gnu.lto_.symtab.41125816,"e",%progbits
+	.section	.gnu.lto_.symtab.4158efeb,"e",%progbits
 	.ascii	"fat16_isEndOfChainMarker\000"
 	.ascii	"\000"
 	.ascii	"\000"

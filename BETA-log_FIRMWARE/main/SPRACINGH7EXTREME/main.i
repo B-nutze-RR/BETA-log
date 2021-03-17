@@ -21743,7 +21743,7 @@ typedef enum {
     TASK_DASHBOARD,
 
 
-
+    TASK_TELEMETRY,
 
 
     TASK_LEDSTRIP,
@@ -21758,7 +21758,15 @@ typedef enum {
     TASK_OSD,
 # 127 "./src/main/scheduler/scheduler.h"
     TASK_CMS,
-# 137 "./src/main/scheduler/scheduler.h"
+
+
+
+
+
+    TASK_CAMCTRL,
+
+
+
     TASK_RCDEVICE,
 
 

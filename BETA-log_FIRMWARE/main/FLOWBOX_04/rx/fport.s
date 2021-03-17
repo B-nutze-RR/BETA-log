@@ -9,10 +9,10 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"fport.c"
-	.section	.gnu.lto_.profile.36d65440,"e",%progbits
+	.section	.gnu.lto_.profile.415f01b4,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.36d65440,"e",%progbits
+	.section	.gnu.lto_.icf.415f01b4,"e",%progbits
 	.ascii	"x\234\343``d\350f@\000q\206\305\263[o\3630~\372q\376"
 	.ascii	":7\323\256\025\235\017\271Y\366>|\327\316\312\272\363"
 	.ascii	"u\343\022~v\2608\357\233iW?p\362u5\0379\311*\000\026"
@@ -21,7 +21,7 @@
 	.ascii	"%\301\244\024\230\224\006\2232\313\327\357<\312&\273"
 	.ascii	"\363\327\2013\314r_&|=\314\314\000\000\332?G\206"
 	.text
-	.section	.gnu.lto_.jmpfuncs.36d65440,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415f01b4,"e",%progbits
 	.ascii	"x\234\205\222;K\003A\024\205\347\314\235\354n\2421`"
 	.ascii	"a\023\374\003\026\376\304<\320N\014B\010j\025$\330\304"
 	.ascii	"\302\336G\\\343\253\260\260\022b#\026\001\213\200\026"
@@ -45,7 +45,7 @@
 	.ascii	"\236%\366q\013\035X\247v\277\347\204[%\334\261\017i"
 	.ascii	"\273\376\255\303\252\202T\323\277\001\021\315\004%"
 	.text
-	.section	.gnu.lto_.inline.36d65440,"e",%progbits
+	.section	.gnu.lto_.inline.415f01b4,"e",%progbits
 	.ascii	"x\234\343``d\230\306\310\000\007l\014\014,\015@\300"
 	.ascii	"\234\302\310\300\304\004b1%\003E\301\214\024&\006&\220"
 	.ascii	"\032&&Q \367\007S\006P\011\017Xq*\272\022\026^ \301"
@@ -62,11 +62,11 @@
 	.ascii	"\234B@\212\035b\0220p\240\2420\213\200\342\000\355\214"
 	.ascii	"OI"
 	.text
-	.section	.gnu.lto_.pureconst.36d65440,"e",%progbits
+	.section	.gnu.lto_.pureconst.415f01b4,"e",%progbits
 	.ascii	"x\234\343``d\020f```chaa\232\305\302:\213Eh\026\213"
 	.ascii	"\330,\026\331Y,\000&\252\004\015"
 	.text
-	.section	.gnu.lto_fportFrameTimeUs.36d65440,"e",%progbits
+	.section	.gnu.lto_fportFrameTimeUs.415f01b4,"e",%progbits
 	.ascii	"x\234E\216\275K\003A\024\304\337\354\236\311Eb+b\020"
 	.ascii	"\322\246\3115\376\001\376+\022\020-\374\340\264\260"
 	.ascii	"\313\273\363\300\"\2324jP8\203\004\321T\"\244\361\373"
@@ -84,7 +84,7 @@
 	.ascii	"U,\376\273\211F\213\336\262_\362\346\247\347\026<\177"
 	.ascii	"\325\233YZ\364W\212%\372\006\221\222^\216"
 	.text
-	.section	.gnu.lto_smartPortWriteFrameFport.36d65440,"e",%progbits
+	.section	.gnu.lto_smartPortWriteFrameFport.415f01b4,"e",%progbits
 	.ascii	"x\234\215\222\337K\024Q\024\307\357w\316\2543\273\272"
 	.ascii	"\331S\024[d\017\"\276\270\317>\004\375+\262\025E\231"
 	.ascii	"\242\005\365\344\335U40\314 \333\014\266I\226\305\355"
@@ -121,7 +121,7 @@
 	.ascii	"\260\352k.\234\256\2539jGN\034\213\234j<W\373\023\202"
 	.ascii	"\371H\271"
 	.text
-	.section	.gnu.lto_fportDataReceive.36d65440,"e",%progbits
+	.section	.gnu.lto_fportDataReceive.415f01b4,"e",%progbits
 	.ascii	"x\234\225YYp\224\307\021\376{fW\273\332\325\352\276"
 	.ascii	"V\253c\205!\004\207\200\020\345\007\362\220\362\013"
 	.ascii	"\266\261\261yI*eW\345\201`R\241*@\012+)^R^t @\334\227"
@@ -279,7 +279,7 @@
 	.ascii	"\025L\0343\345\323\211\323\335\246\345\023\246N\236"
 	.ascii	"<u\312\360\002\2347\354o\332\177\001j\344\252W"
 	.text
-	.section	.gnu.lto_fportProcessFrame.36d65440,"e",%progbits
+	.section	.gnu.lto_fportProcessFrame.415f01b4,"e",%progbits
 	.ascii	"x\234\215U[OTW\024\336\353\3543\347\006\303\255Ud\006"
 	.ascii	"Z\036j\254M\003\255M\323\370\326\177\320\244\255o}1"
 	.ascii	"\204\246>\000\315\210\211o\036\006\"\205\241Z\023\001"
@@ -346,14 +346,14 @@
 	.ascii	"\015\273\366\346\270\366\024\225\225\224\224\225\026"
 	.ascii	"Rd\301g\354\177\231j\277\313"
 	.text
-	.section	.gnu.lto_emptySmartPortFrame.36d65440,"e",%progbits
+	.section	.gnu.lto_emptySmartPortFrame.415f01b4,"e",%progbits
 	.ascii	"x\234\343``d\210d`\000\222\0200\235\231\361\370\373"
 	.ascii	"\267W\030\373\230\3473\003\005\221\271\214\250\\&0\267"
 	.ascii	"\357\347\376;\374\226\333\033:\0264\030\314gf\236\001"
 	.ascii	"\324\264\207Qz\006P\361n\020\305\304\270\213Q\232\201"
 	.ascii	"q/\243%\003\000\353l\035I"
 	.text
-	.section	.gnu.lto_fportFrameStatus.36d65440,"e",%progbits
+	.section	.gnu.lto_fportFrameStatus.415f01b4,"e",%progbits
 	.ascii	"x\234\215ZiTTW\266\276\373\234\242\252\250*@@\220A\006"
 	.ascii	"\031d\036\363\362\372%\257\373u\257\365\376d\365\313"
 	.ascii	"\257t~\244\207tGm5\246\243&\266Y+\277\272\213\301\001"
@@ -612,7 +612,7 @@
 	.ascii	"\361\201X\003\326\244\231\323\247\317\234Q\200\010\371"
 	.ascii	"\357*\377\017\352<Zs"
 	.text
-	.section	.gnu.lto_fportRxInit.36d65440,"e",%progbits
+	.section	.gnu.lto_fportRxInit.415f01b4,"e",%progbits
 	.ascii	"x\234\235VYPTW\020\275\347\335\367\346\275\031f0Bb\324"
 	.ascii	"Q\203F%\250%\244\222\277\244R\251\312W~\223_\177,KS"
 	.ascii	"|\210)B\252\374\363\261X*\022\265\022\225\214\011\031"
@@ -690,7 +690,7 @@
 	.ascii	".\374\354\353\234\274\354\371s?\317\233\2357\327\307"
 	.ascii	"vm\371\037l\226g\361"
 	.text
-	.section	.gnu.lto_.symbol_nodes.36d65440,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415f01b4,"e",%progbits
 	.ascii	"x\234u\223;O\033Q\020F\357\267\343]\277\300\200\201"
 	.ascii	"\005\012\003!\346\021\010P\246M\244\374\"\376\300\270"
 	.ascii	"pAIA\0330`b\213\360&<\302\033\262\011\201\004\012Z$"
@@ -718,7 +718,7 @@
 	.ascii	"\202\037\243\324\333\373\247\261+=S\\\275\000\265aY"
 	.ascii	"\231"
 	.text
-	.section	.gnu.lto_.refs.36d65440,"e",%progbits
+	.section	.gnu.lto_.refs.415f01b4,"e",%progbits
 	.ascii	"x\234\025\221[k\024A\024\204\277\352\236\235\351\351"
 	.ascii	"\231\331\333dw&\273\211\0334\032#(\2561^\020\375o\""
 	.ascii	"\370 \010>\344\007)\2137\342\015E\210\006\021\037T\304"
@@ -742,7 +742,7 @@
 	.ascii	"\015\355\0333\327\251\225,97V\3330k5\233\220L\371\017"
 	.ascii	"\\w>Q"
 	.text
-	.section	.gnu.lto_.decls.36d65440,"e",%progbits
+	.section	.gnu.lto_.decls.415f01b4,"e",%progbits
 	.ascii	"x\234\315|iXTY\226`\334\270\021,\301f\252\351\222\332"
 	.ascii	"\331\3319Ve\326\327Y\245\271TeVO}\323]\225Y]\235=_N"
 	.ascii	"\347\230Y]\3235\375\015EB\250L!\330\021a\226\331\375"
@@ -1387,7 +1387,7 @@
 	.ascii	"\267}\227\321\252\206MR\0245\256\333\204)\307\0270Q"
 	.ascii	"YkiS\211\364\377\001\374:\336\251"
 	.text
-	.section	.gnu.lto_.symtab.36d65440,"e",%progbits
+	.section	.gnu.lto_.symtab.415f01b4,"e",%progbits
 	.ascii	"fportRxInit\000"
 	.ascii	"\000"
 	.ascii	"\000"

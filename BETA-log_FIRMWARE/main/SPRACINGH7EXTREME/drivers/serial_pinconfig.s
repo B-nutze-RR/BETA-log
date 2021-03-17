@@ -9,27 +9,27 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"serial_pinconfig.c"
-	.section	.gnu.lto_.profile.4111912b,"e",%progbits
+	.section	.gnu.lto_.profile.415895ca,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4111912b,"e",%progbits
+	.section	.gnu.lto_.icf.415895ca,"e",%progbits
 	.ascii	"x\234\343``d\220g@\000V\206[\323\236\334\342b\334\324"
 	.ascii	"{n>\013\323\305\267\223,\231W<^\362\224\207\005L2\000"
 	.ascii	"\000\360\252\016\351"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4111912b,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415895ca,"e",%progbits
 	.ascii	"x\234\343``d\340b@\000F\006FF\306\372\371\314\014\014"
 	.ascii	"\000\006\375\0019"
 	.text
-	.section	.gnu.lto_.inline.4111912b,"e",%progbits
+	.section	.gnu.lto_.inline.415895ca,"e",%progbits
 	.ascii	"x\234\343``dPe@\000F\006\006\201\306\206\206wL\231\214"
 	.ascii	"\014L\342@\326\036\246L\006\006N c\002s\032\023\003"
 	.ascii	"\023X\021\000\272\376\010c"
 	.text
-	.section	.gnu.lto_.pureconst.4111912b,"e",%progbits
+	.section	.gnu.lto_.pureconst.415895ca,"e",%progbits
 	.ascii	"x\234\343``d`a`\000\222\263X\000\001\322\000\255"
 	.text
-	.section	.gnu.lto_pgResetFn_serialPinConfig.4111912b,"e",%progbits
+	.section	.gnu.lto_pgResetFn_serialPinConfig.415895ca,"e",%progbits
 	.ascii	"x\234\235UML\\U\024\276\337\273\367\375\3140\205\261"
 	.ascii	"\013c\303\246\013\333\206M!\270P7\306\304\205\211n4"
 	.ascii	".]\230\206\242\231\244\216\006\022\343\306\364\316\014"
@@ -84,7 +84,7 @@
 	.ascii	"\324\363\211d\313s\311\247\023\317\354l\021uv\357\261"
 	.ascii	"D\362!\263\345&\222\273[_\374\013L\2160\214"
 	.text
-	.section	.gnu.lto_serialDefaultPin.4111912b,"e",%progbits
+	.section	.gnu.lto_serialDefaultPin.415895ca,"e",%progbits
 	.ascii	"x\234]\222\313JBQ\024\206]n3\255\364\005\3160\032V\324"
 	.ascii	"\240p\326#\365\010f\330\0351*/\205i\205\221\342 \241"
 	.ascii	"<`jY^\323R+\355\"\025AM\012\023\212\240\240\333\332"
@@ -112,7 +112,7 @@
 	.ascii	"8\301<\306<\302\314c\3460S\230\007\230\273\230\0110"
 	.ascii	"\251\240\216\257_q\004\365\203"
 	.text
-	.section	.gnu.lto_serialPinConfig_Registry.4111912b,"e",%progbits
+	.section	.gnu.lto_serialPinConfig_Registry.415895ca,"e",%progbits
 	.ascii	"x\234\343``d\370\314\300\300\240\301\000\001\323\231"
 	.ascii	"\031\347\2568\363\237\263\205\261\251\261\243\241\341"
 	.ascii	"A\367\016\316\271\206\363\231\031f2C$\037\034\232\277"
@@ -129,19 +129,19 @@
 	.ascii	"\0132\363\222\363\363\3222\323\365\222\031\000E\271"
 	.ascii	"_\227"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4111912b,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415895ca,"e",%progbits
 	.ascii	"x\234\343``d\360e\000\002\246-\334\365\014\015\015\015"
 	.ascii	"\007\030\030'\234c`\250g`\330\265\300\021(\011\004\254"
 	.ascii	"\353\271\031\032\224\030\030\230Y7s3\266*1\350\025\244"
 	.ascii	"\307\027\245\246g\026\227\024U\002e7p35*\201\224m\344"
 	.ascii	"f\0063\030\000\002w\021\311"
 	.text
-	.section	.gnu.lto_.refs.4111912b,"e",%progbits
+	.section	.gnu.lto_.refs.415895ca,"e",%progbits
 	.ascii	"x\234\005\301\201\015\000 \010\004\261\273\207D\215"
 	.ascii	"\003\260\377\246\264\027\031\240A\361\340\303_I\245"
 	.ascii	"\003\013\006\014\000W"
 	.text
-	.section	.gnu.lto_.decls.4111912b,"e",%progbits
+	.section	.gnu.lto_.decls.415895ca,"e",%progbits
 	.ascii	"x\234\225X}PT\327\025\177\347\336\205]\027\2265\310"
 	.ascii	"(\031\234\326d\320\3114\023\221\232\306:\355LM\315\264"
 	.ascii	"5\1774\035\233v&\351L)\003+\356\214\256\314\356j\265"
@@ -287,7 +287,7 @@
 	.ascii	"\265\326\250\017Fm\377\363:\233\335\2642`|\363b\264"
 	.ascii	"\312\233Y\023f\377/+\303\252\257"
 	.text
-	.section	.gnu.lto_.symtab.4111912b,"e",%progbits
+	.section	.gnu.lto_.symtab.415895ca,"e",%progbits
 	.ascii	"pgResetFn_serialPinConfig\000"
 	.ascii	"\000"
 	.ascii	"\000"

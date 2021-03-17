@@ -9,24 +9,24 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"piniobox.c"
-	.section	.gnu.lto_.profile.41118a0e,"e",%progbits
+	.section	.gnu.lto_.profile.41585fdc,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.41118a0e,"e",%progbits
+	.section	.gnu.lto_.icf.41585fdc,"e",%progbits
 	.ascii	"x\234\343``d\220b@\000\026\206\256'\257wq0>\234s\376"
 	.ascii	"#\017\323\336\207\357\332Y\231\301$\003\000\260q\014"
 	.ascii	"\302"
 	.text
-	.section	.gnu.lto_.jmpfuncs.41118a0e,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41585fdc,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.inline.41118a0e,"e",%progbits
+	.section	.gnu.lto_.inline.41585fdc,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.pureconst.41118a0e,"e",%progbits
+	.section	.gnu.lto_.pureconst.41585fdc,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_pinioBoxConfig_Registry.41118a0e,"e",%progbits
+	.section	.gnu.lto_pinioBoxConfig_Registry.41585fdc,"e",%progbits
 	.ascii	"x\234\343``d\370\314\300\300 \315\000\001\323\231\031"
 	.ascii	"w\177\331\373\212\263\205\261\251qFC\303\203\356S\002"
 	.ascii	"\035\314\363\231\031\0263C$\373\346-\350\347\267\334"
@@ -42,16 +42,16 @@
 	.ascii	"\326\317M\314\314\323/H\327/\310\314\313\314O\312\257"
 	.ascii	"\320Kf\000\000\025\347Yq"
 	.text
-	.section	.gnu.lto_.symbol_nodes.41118a0e,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41585fdc,"e",%progbits
 	.ascii	"x\234\343``d\260g\000\002\326\355\334\014\255J\014z"
 	.ascii	"\005\351\361E\251\305\251%)\211%\211@\321\255\334\214"
 	.ascii	"p\321\364\314\342\222\242J\240\340&n\246F%\220\236\315"
 	.ascii	"\334\314`\006\003\000=\214\017\362"
 	.text
-	.section	.gnu.lto_.refs.41118a0e,"e",%progbits
+	.section	.gnu.lto_.refs.41585fdc,"e",%progbits
 	.ascii	"x\234\343``d\340d```fdbbbfb`\000\000\001v\000\""
 	.text
-	.section	.gnu.lto_.decls.41118a0e,"e",%progbits
+	.section	.gnu.lto_.decls.41585fdc,"e",%progbits
 	.ascii	"x\234\215VkL\024W\024\2363w\226]\207]\240@\325\212\265"
 	.ascii	"\232\240\361G\343J\232\230\232\366G\243I\037\177\232"
 	.ascii	"\306\266\177\372\243\204\302\272l\242\313\206]Sm\322"
@@ -154,7 +154,7 @@
 	.ascii	"\312\361\3768b\337\257\261;L+C\306\365.EN\377\003\305"
 	.ascii	"\310\307 "
 	.text
-	.section	.gnu.lto_.symtab.41118a0e,"e",%progbits
+	.section	.gnu.lto_.symtab.41585fdc,"e",%progbits
 	.ascii	"pgResetTemplate_pinioBoxConfig\000"
 	.ascii	"\000"
 	.ascii	"\000"

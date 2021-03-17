@@ -9,10 +9,10 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"sound_beeper.c"
-	.section	.gnu.lto_.profile.4111ec3c,"e",%progbits
+	.section	.gnu.lto_.profile.41584ec2,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4111ec3c,"e",%progbits
+	.section	.gnu.lto_.icf.41584ec2,"e",%progbits
 	.ascii	"x\234\343``d\210f@\000~\206\253\275\273b\030\257\257"
 	.ascii	"]\363\220\225iC\317\202\343L\314\275\263/_\344a9\374"
 	.ascii	"\361\366\011N\326\323\353\037\254ae\233\373t\307c^\366"
@@ -21,7 +21,7 @@
 	.ascii	"\216\225\333\0339\371\336=~\263\202\237\001\000:\014"
 	.ascii	"-P"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4111ec3c,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41584ec2,"e",%progbits
 	.ascii	"x\234\205R\261J\003A\020\2357\2639\367B\316\220\372"
 	.ascii	">! \371\001\177M\321\330\210\220N\242\325A\202\205\225"
 	.ascii	"\235\2051\361\264\267\267\262\021,D\261\265\020\316"
@@ -39,7 +39,7 @@
 	.ascii	"\347\317~\025\032\340\021){[\266\272\345'O#q\213\333"
 	.ascii	"\255\375\032\317o\360Z\264G\204~\376\000\037?\247\216"
 	.text
-	.section	.gnu.lto_.inline.4111ec3c,"e",%progbits
+	.section	.gnu.lto_.inline.41584ec2,"e",%progbits
 	.ascii	"x\234uQ=K\003A\020}3\273\271l.\227pXX\230&\235\377&"
 	.ascii	"\377\301|\231.\371\011\027\005\005\213\020ll\004\025"
 	.ascii	"-\254D\26026)R\004\004\261\023,D\202\026\026be\027\305"
@@ -62,12 +62,12 @@
 	.ascii	"\3131o\357?mR\336!#cU\224\025\205 '\322\232a\224\345"
 	.ascii	"O\"\011\222\211\314\317\000\332N\207/\371\207\222\002"
 	.text
-	.section	.gnu.lto_.pureconst.4111ec3c,"e",%progbits
+	.section	.gnu.lto_.pureconst.41584ec2,"e",%progbits
 	.ascii	"x\234\005\301\201\015\000\020\020\004\301\023K\370\240"
 	.ascii	"\005m\237\257\326\314P\321\225\024JjB\322L7\323\204"
 	.ascii	"Y\217m\316\343\003iR\006\237"
 	.text
-	.section	.gnu.lto_beeperPwmInit.4111ec3c,"e",%progbits
+	.section	.gnu.lto_beeperPwmInit.41584ec2,"e",%progbits
 	.ascii	"x\234\215U\337O\\E\024\236s\347\336\335\313\376`kAK"
 	.ascii	"\273V)\206\020R-\2334\276i\3247}\321?A+\335\032\036"
 	.ascii	"\212\355\322\232\370\324\273\313v!\356\006I\243\355"
@@ -132,7 +132,7 @@
 	.ascii	"\345\214\037\332\363Q\316>\237\367\340aoe\371\247\272"
 	.ascii	"\214\277\363\236v\250b\277\327\367/\373\356s\356"
 	.text
-	.section	.gnu.lto_pwmWriteBeeper.part.0.4111ec3c,"e",%progbits
+	.section	.gnu.lto_pwmWriteBeeper.part.0.41584ec2,"e",%progbits
 	.ascii	"x\234\205S\317k\023A\024\236og\262\335\304\2127\021"
 	.ascii	"r\021!\204\"4\021\351E\021<\373O\210\266Az0\225\004"
 	.ascii	"\213\267N\322\330\264F\252\010\265Q\250\021C\321x\250"
@@ -167,7 +167,7 @@
 	.ascii	"\351\236\263\311\256\343'\023\2113\211T{\247\260z\222"
 	.ascii	"\277\000a\251\020L"
 	.text
-	.section	.gnu.lto_pwmWriteBeeper.4111ec3c,"e",%progbits
+	.section	.gnu.lto_pwmWriteBeeper.41584ec2,"e",%progbits
 	.ascii	"x\234\215\222\317k\023A\034\305\347\315\354N61\036\013"
 	.ascii	"B\020\252 \245\227&\240\336=\372'x\023m\243\364`*\011"
 	.ascii	"\366\332\331\030i \245\026\2414=\224\024C\361\307\241"
@@ -202,7 +202,7 @@
 	.ascii	"{\343\311T4\325s!\321u\362t<~>\236\354\350d\274'\361"
 	.ascii	"\033\320\270\027s"
 	.text
-	.section	.gnu.lto_pwmToggleBeeper.4111ec3c,"e",%progbits
+	.section	.gnu.lto_pwmToggleBeeper.41584ec2,"e",%progbits
 	.ascii	"x\234]\217\275K\003A\020\305\347\355&\361D\254\025D"
 	.ascii	"\014b\223&\227\306^\374/\254D\223+R\030\345\016\255"
 	.ascii	"\204\354\305H\304H\004A\222\024\341\204 Z\371Q\032\243"
@@ -222,7 +222,7 @@
 	.ascii	"\261\323\346\302\\6gf\354\354\212e;\246\263\270\234"
 	.ascii	"\313\314\316[\326\222e'\323\364\003\363\026q\012"
 	.text
-	.section	.gnu.lto_systemBeep.part.0.4111ec3c,"e",%progbits
+	.section	.gnu.lto_systemBeep.part.0.41584ec2,"e",%progbits
 	.ascii	"x\234m\222MkSA\024\206\317;g\346\346Vt\341\256\320M"
 	.ascii	"\021$\304E#\372\007\374\007\356\273\021mS\350\242\211"
 	.ascii	"$\350\266\223\230\032\241!\256j\333E\270J\010\355\256"
@@ -251,7 +251,7 @@
 	.ascii	"\205r%_)]+\216_\272R(\\-\224G\306\310\224\212\245\211"
 	.ascii	"\211?W\006\323\015"
 	.text
-	.section	.gnu.lto_systemBeepToggle.part.0.4111ec3c,"e",%progbits
+	.section	.gnu.lto_systemBeepToggle.part.0.41584ec2,"e",%progbits
 	.ascii	"x\234]N\277K\202Q\024\275\347\335\247~\015\015mAKD\213"
 	.ascii	"\213\037\255M\375\037\015Q\352\340\220\305'\265\372"
 	.ascii	"4\313A\321\251\304@\276@\302\266h\314~YCSC4\004\021"
@@ -270,7 +270,7 @@
 	.ascii	"\246\274\314v\332\313\271\271\215\255lje-\235\336L{"
 	.ascii	"\211$\375\001\267\215v\335"
 	.text
-	.section	.gnu.lto_systemBeep.4111ec3c,"e",%progbits
+	.section	.gnu.lto_systemBeep.41584ec2,"e",%progbits
 	.ascii	"x\234m\220\315K\233A\020\207\347\267\263o\362\246Xo"
 	.ascii	"\205Zo\005\011z0\005\377\001/\376\023\275H\325\010\036"
 	.ascii	"\232H\202\275\272\211\261\202\037\311\311j\016!J\010"
@@ -297,7 +297,7 @@
 	.ascii	"b}\335=\321\350`4\321\336KN<\026\357\357\277\006\033"
 	.ascii	"$\251h"
 	.text
-	.section	.gnu.lto_beeperInit.part.0.4111ec3c,"e",%progbits
+	.section	.gnu.lto_beeperInit.part.0.41584ec2,"e",%progbits
 	.ascii	"x\234\225S]O\224G\024\236g\346\375ZX@\350w6&\304H\011"
 	.ascii	"\321\010Ic\342\245\227\375\001\275\352M\243H\015\027"
 	.ascii	"\242\201\350\255\303\202 \205\210M\264\270I\311kC6\226"
@@ -349,7 +349,7 @@
 	.ascii	"\352\355u\337\326n\215X\307W\233\266\376\013\260\256"
 	.ascii	"\331!"
 	.text
-	.section	.gnu.lto_systemBeepToggle.4111ec3c,"e",%progbits
+	.section	.gnu.lto_systemBeepToggle.41584ec2,"e",%progbits
 	.ascii	"x\234mP\273J\003Q\020\235sg7Y\305G\253h!b\223\306\374"
 	.ascii	"\202\215\337!j\266H\341\203\004m\275\233DSD\222JC\004"
 	.ascii	"\211\022B\354\304\322\367\372\300\312B,D\020\024\004"
@@ -372,7 +372,7 @@
 	.ascii	"D|\336M$\243\311\231\271\351\330\330\204\353\316\272"
 	.ascii	"\211\341I\372\001H\032\216\257"
 	.text
-	.section	.gnu.lto_beeperInit.4111ec3c,"e",%progbits
+	.section	.gnu.lto_beeperInit.41584ec2,"e",%progbits
 	.ascii	"x\234}RMk\023Q\024}g\356L2I\023\335V\262)b(\005i\002"
 	.ascii	"\342\276\033\377\201{\251i,Y\230J\202n\373\222\266\026"
 	.ascii	"\264\324\202\221\230E:\301\020\352\252\251\"H\264jL"
@@ -407,7 +407,7 @@
 	.ascii	"b|\350\314\331h\364B4\321\037\021\256\310H\374\\l\330"
 	.ascii	"\343\004N\017\016\377\006\016d\014N"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4111ec3c,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41584ec2,"e",%progbits
 	.ascii	"x\234u\222\313N\302@\024\206\317\231\323\026\350i\201"
 	.ascii	"\342e\2531>\210&<\211/rF\203+M\324W0,\\\272\361\002"
 	.ascii	"\242\010\342\335\230\340F\343\322\304\275k78t*\201d"
@@ -427,14 +427,14 @@
 	.ascii	"-~\356~\035(l\032L,6\002\212j\377\3718}\207q>\3667S"
 	.ascii	"2\371r\244'\010\366k\037\341\017#\357\362\002"
 	.text
-	.section	.gnu.lto_.refs.4111ec3c,"e",%progbits
+	.section	.gnu.lto_.refs.41584ec2,"e",%progbits
 	.ascii	"x\234\035\212\301\021\2000\014\303\254\204\222\264\005"
 	.ascii	"\016\216\341\330\177\023\002/[\226S\350\221\264\012"
 	.ascii	"\232\010l\030\247\270\340v\227!\032\244/\345\377\032"
 	.ascii	"\337\015[\025(\215^\311\320\3047\302\311\332;{1\007"
 	.ascii	"\323\364\002V\256\001\251"
 	.text
-	.section	.gnu.lto_.decls.4111ec3c,"e",%progbits
+	.section	.gnu.lto_.decls.41584ec2,"e",%progbits
 	.ascii	"x\234\235Y\013PTG\272\236>=\003\3030\200Q\263\361\006"
 	.ascii	"\367\256\233\220\304\272\273\212\271I\356\246jS\267"
 	.ascii	"\222\230\322P\273\271x\263fS\265\273U\204\205\001\251"
@@ -690,7 +690,7 @@
 	.ascii	"\027\2134\274\364\177\373\3227\324?X\247\377?\273c\262"
 	.ascii	"Q"
 	.text
-	.section	.gnu.lto_.symtab.4111ec3c,"e",%progbits
+	.section	.gnu.lto_.symtab.41584ec2,"e",%progbits
 	.ascii	"systemBeep\000"
 	.ascii	"\000"
 	.ascii	"\000"

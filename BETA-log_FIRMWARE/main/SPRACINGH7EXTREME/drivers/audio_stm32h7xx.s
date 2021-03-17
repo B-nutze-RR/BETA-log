@@ -9,16 +9,16 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"audio_stm32h7xx.c"
-	.section	.gnu.lto_.profile.4111b054,"e",%progbits
+	.section	.gnu.lto_.profile.4158038e,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4111b054,"e",%progbits
+	.section	.gnu.lto_.icf.4158038e,"e",%progbits
 	.ascii	"x\234\343``d\320f@\000v\206\277\223\267~fa\\\271b\273"
 	.ascii	"-\323\357g\037vr2OZ\262y.\023\313\227\011_\0173\263"
 	.ascii	"6v\257\275\315\302\366\366\315\257\335l\014\000\332"
 	.ascii	"\005\025X"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4111b054,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.4158038e,"e",%progbits
 	.ascii	"x\234\225\223\315J\002Q\030\206\277\367\234q4\301l!"
 	.ascii	"mf\343\025\204\227\320\245t'\215\271\211\002!(\214\""
 	.ascii	"\264\004\027JD\021-\312\312~4k\347\242M\213\026a\344"
@@ -41,7 +41,7 @@
 	.ascii	"$23E\031\345,\314?\20362A\365\332#4k\344\321\3237\360"
 	.ascii	"\037\364\347"
 	.text
-	.section	.gnu.lto_.inline.4111b054,"e",%progbits
+	.section	.gnu.lto_.inline.4158038e,"e",%progbits
 	.ascii	"x\234\343``d\370\307\200\000,\0142R\015\015\0157\230"
 	.ascii	"2\030\031\230T\200\254\005L\351\014\014l@F\003S\012"
 	.ascii	"\023\003\023H\0153\017\220\000\262\230\270\2014P\031"
@@ -51,11 +51,11 @@
 	.ascii	"\311\020\003&\3701\2601p\000\205'0\2473\202\314k\004"
 	.ascii	"\262\353\320\335\205f'\003\000q\037$\037"
 	.text
-	.section	.gnu.lto_.pureconst.4111b054,"e",%progbits
+	.section	.gnu.lto_.pureconst.4158038e,"e",%progbits
 	.ascii	"x\234\343``d\340e```a\230\305\3024\203\205u\006\013"
 	.ascii	"\333\014\026\000\022\001\002\232"
 	.text
-	.section	.gnu.lto_audioSetupIO.4111b054,"e",%progbits
+	.section	.gnu.lto_audioSetupIO.4158038e,"e",%progbits
 	.ascii	"x\234\225TMlTU\024\276\337\273o\336<:3\024\023\022\243"
 	.ascii	"\215\011\233&\342\2026\272@6\306\235a\245I\023\267\204"
 	.ascii	"\024\324.\212f:\010;\356L\007;\0263&DZ\212ifp\250VM"
@@ -109,7 +109,7 @@
 	.ascii	"\324\276\362\332\306W7m\334\326\222hJ\304\2677'\234"
 	.ascii	"D\353;\361\255o>\000 zB,"
 	.text
-	.section	.gnu.lto_audioGenerateWhiteNoise.4111b054,"e",%progbits
+	.section	.gnu.lto_audioGenerateWhiteNoise.4158038e,"e",%progbits
 	.ascii	"x\234\215\226\333O\024W\034\307\317w\316\262\314.\227"
 	.ascii	"\265Hi\325\230\360BRc\"\304\306\030\337L\372\334\177"
 	.ascii	"\300\027C\324Z\036D\263k\215\351C=\013+PA\214\246\012"
@@ -167,7 +167,7 @@
 	.ascii	"\237\227\207V/\013~\266\262\362\213\212\345\377\003"
 	.ascii	"\251\3658\344"
 	.text
-	.section	.gnu.lto_audioPlayTone.4111b054,"e",%progbits
+	.section	.gnu.lto_audioPlayTone.4158038e,"e",%progbits
 	.ascii	"x\234\215R\337K\024Q\024>\337\334\331\331q\325\327\210"
 	.ascii	"\226\300\2272!\334!\241\036\353?\011Q\241}p\205]\013"
 	.ascii	"\337\274\373\303]\323Z!(]h\030s\021\213\250\\\242\007"
@@ -202,7 +202,7 @@
 	.ascii	"\311\324`\177\327\221S\307\206\206:{H\037\034H\364\375"
 	.ascii	"\001,Y\010b"
 	.text
-	.section	.gnu.lto_audioSilence.4111b054,"e",%progbits
+	.section	.gnu.lto_audioSilence.4158038e,"e",%progbits
 	.ascii	"x\234m\220MK\002Q\024\206\317;g\234\031\027\356#\011"
 	.ascii	"\332D\270Q\250E\333\376I\210\006\271\260@+\334y5\315"
 	.ascii	"\300\264U\210\213\030K\242v\321.\373\234\254\\\265\210"
@@ -224,7 +224,7 @@
 	.ascii	"\360\\463\221\234\215\217\216L\215\245R\301\010}\002"
 	.ascii	"\347.\231\201"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4111b054,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.4158038e,"e",%progbits
 	.ascii	"x\234u\320KN\002A\020\306\361\257\253\230\236a>^r\001"
 	.ascii	"\023\342A0x\257\232\205\007\360\020n| \240\"\017\267"
 	.ascii	"\254=\205\367\320\016\335qU\326\352\237\372U&\223n\020"
@@ -238,13 +238,13 @@
 	.ascii	"\234\367\255V\223\222Q\3434\347\225\306\213\\7\370\005"
 	.ascii	"r\006\317\242"
 	.text
-	.section	.gnu.lto_.refs.4111b054,"e",%progbits
+	.section	.gnu.lto_.refs.4158038e,"e",%progbits
 	.ascii	"x\234\035\312\311\001\200 \000\003\301l\202\20076f\377"
 	.ascii	"\345x|\3465]\350\226d\301i\3060\201\274\206\0242\221"
 	.ascii	"\3524gqV\312F\331\315\341r\370\357\346\372JS\2723\273"
 	.ascii	"\032\034\353\001O\344\001\250"
 	.text
-	.section	.gnu.lto_.decls.4111b054,"e",%progbits
+	.section	.gnu.lto_.decls.4158038e,"e",%progbits
 	.ascii	"x\234\355|kTUI\226&\347\306\275\\\336(\230\217N\355"
 	.ascii	"\325\271j\254U\325\323Se\201\231\2359\263\272z\312\004"
 	.ascii	"3\261RS\353bUVM\327Z\026\2457SV!Z\2109Y=\363\343\362"
@@ -801,7 +801,7 @@
 	.ascii	"\326\026\301\033\350 \246n\315\373\262\243\275\221D"
 	.ascii	"[\232\346\352\001\221\014Ow\377\007C$\277\014"
 	.text
-	.section	.gnu.lto_.symtab.4111b054,"e",%progbits
+	.section	.gnu.lto_.symtab.4158038e,"e",%progbits
 	.ascii	"audioSetupIO\000"
 	.ascii	"\000"
 	.ascii	"\000"

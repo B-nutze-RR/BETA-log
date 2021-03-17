@@ -9,10 +9,10 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"vtx_common.c"
-	.section	.gnu.lto_.profile.36d6b368,"e",%progbits
+	.section	.gnu.lto_.profile.415f13aa,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.36d6b368,"e",%progbits
+	.section	.gnu.lto_.icf.415f13aa,"e",%progbits
 	.ascii	"x\234\343``d8\316\200\000\212\014\353\346\337i\345e"
 	.ascii	"\374\371\367\302\026f\2469\307\336\274\343d=\365x\307"
 	.ascii	",>\266\206\305\323\026p\263_|\177\252\207\227\343\323"
@@ -27,7 +27,7 @@
 	.ascii	"\347P\003\253\3248~t\316wV\255\206\376\267/9\031\000"
 	.ascii	"^\221c\313"
 	.text
-	.section	.gnu.lto_.jmpfuncs.36d6b368,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415f13aa,"e",%progbits
 	.ascii	"x\234\255UKN\3030\020\235\261\323|\012U\221\370J\025"
 	.ascii	"P\004T\250w\244Y\260bA\267,\273\346\002,\370v\307\005"
 	.ascii	"X#.Pu\215T\265\314$N\342$N\342R\"Y\212\307\363\236\307"
@@ -56,7 +56,7 @@
 	.ascii	"=\016\364\327\364\252xj\177\250u4\264\354h\360\013\250"
 	.ascii	"5wa"
 	.text
-	.section	.gnu.lto_.inline.36d6b368,"e",%progbits
+	.section	.gnu.lto_.inline.415f13aa,"e",%progbits
 	.ascii	"x\234\305VmKTA\024>sf\366z\327]\365\226o\201d\033Z\204"
 	.ascii	"\277\302_\260\277\301\325U\263\027\362\027\304.bI\205"
 	.ascii	"m\240\310f\026\261\020YF\202}\010E\220U\214%+e\013\221"
@@ -106,14 +106,14 @@
 	.ascii	"\202\241\212/\304\240\001\364xb\370\015\301\311_\330"
 	.ascii	"|\357\313\334\252\005\213@\370\003\027\276R\265"
 	.text
-	.section	.gnu.lto_.pureconst.36d6b368,"e",%progbits
+	.section	.gnu.lto_.pureconst.415f13aa,"e",%progbits
 	.ascii	"x\234\005\301i\012\202`\024\206\321\253<V\016Q`\016"
 	.ascii	" j\321\200\264\2456\323\217\273\210\373~\253\365\234"
 	.ascii	"\223e\3663\263\305D&r\247\020\207?\307\240t*Q\213F\234"
 	.ascii	"\203\213\270\212V\334D'z1\004\24339\263\263&\356\301"
 	.ascii	"C<\203\227\363\026\037gK|\203\035\240v\024\241"
 	.text
-	.section	.gnu.lto_vtxCommonSerializeCustomDeviceStatus.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonSerializeCustomDeviceStatus.415f13aa,"e",%progbits
 	.ascii	"x\234\225\222\337KTA\024\307\347{\317\375\345\346j\024"
 	.ascii	"Aq!\204\020\311J\215\336z2\350\261\267\376\200\260\315"
 	.ascii	"\300\360\007\270\253\365\326\354\252\010)\032\375\300"
@@ -158,7 +158,7 @@
 	.ascii	"\350\236\332\222\262\362\222\203\345\245\277\0016k|"
 	.ascii	"\263"
 	.text
-	.section	.gnu.lto_vtxCommonSetPowerByIndex.part.0.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonSetPowerByIndex.part.0.415f13aa,"e",%progbits
 	.ascii	"x\234m\222\317k\2231\030\307\363\315\223\266\357j+x"
 	.ascii	"\033\364RP(=\270\326\355\346i\007\017\373/D\272\012"
 	.ascii	"=\264\203n\224\335\226u\314\202\033\325\301dN,\357@"
@@ -189,7 +189,7 @@
 	.ascii	"\374bf$\237\037)\364eD\017g\027\262\245\\&\033\310\025"
 	.ascii	"\206\263\343\177\001\371v\334\250"
 	.text
-	.section	.gnu.lto_vtxCommonLookupFrequency.part.0.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonLookupFrequency.part.0.415f13aa,"e",%progbits
 	.ascii	"x\234uR\337K\223Q\030>\3179\337\267o\023g\201\004\305"
 	.ascii	"n\204\222\251\220\013\357\272\353\302\213.\372\037\304"
 	.ascii	"\346 !'hHw\036\247LR1/,Q\374\\\266V]D\231D\027Y:\233"
@@ -231,7 +231,7 @@
 	.ascii	"M\224\253\325\336\032\315}\255\332\353\365\\\267\011"
 	.ascii	"W\245\247\251\326\355\371\013y\355L\023"
 	.text
-	.section	.gnu.lto_vtxCommonSetBandAndChannel.part.0.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonSetBandAndChannel.part.0.415f13aa,"e",%progbits
 	.ascii	"x\234mS\337KTA\030\235s\277\273\273\327\037\333\217"
 	.ascii	"7\303\036\204\222\305\207\\\253\267\036\244\207\036"
 	.ascii	"\372/\302\326\215\204\\i\215\2457\307\225\364A3\205"
@@ -270,7 +270,7 @@
 	.ascii	"\241\260y\262.R\357\013\235\256\213D\302g\314S\321\360"
 	.ascii	"\331\377\3630/\351"
 	.text
-	.section	.gnu.lto_vtxCommonInit.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonInit.415f13aa,"e",%progbits
 	.ascii	"x\234\343``d\350a``P\002bY fdf`djhhp`o\344`bd\004\263"
 	.ascii	"\0328\030\031\352\231\030\353\031\373\231\24733\036"
 	.ascii	"j\177\266\223Is9P\246\341\300\364M\222\015+\0160\316"
@@ -282,7 +282,7 @@
 	.ascii	"\270(Y?713O?\245(\263,\265\250X\277\254\244\">9?77?"
 	.ascii	"O/\231\001\000\352\220:\351"
 	.text
-	.section	.gnu.lto_vtxCommonSetDevice.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonSetDevice.415f13aa,"e",%progbits
 	.ascii	"x\234EOMK\002Q\024\275g\336\250\323\327\262EI \024\210"
 	.ascii	"-\234\177\020\005\375\217\010s\341B\015\015i\347s\022"
 	.ascii	"\204\014kQH\201L`\222\273\010\332d_\223\213\240h\021"
@@ -303,7 +303,7 @@
 	.ascii	"\246\322ffaq&\222\214\307\223\211p\204|\363\323\321"
 	.ascii	"L,\022\375\005\022 ua"
 	.text
-	.section	.gnu.lto_vtxCommonDevice.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonDevice.415f13aa,"e",%progbits
 	.ascii	"x\234E\216\277K\303@\034\305\277\357.\326Ttu\011Bp\353"
 	.ascii	"\322\254\2729\372_\210D\207\016i!\225\342\326K\032q"
 	.ascii	"\250\324E-\016\261H\021\305E\004\027\177\337$(\016\""
@@ -322,7 +322,7 @@
 	.ascii	"Rm1\254z\265\245\3459\277\022\004\225r\321\247o\216"
 	.ascii	"\224a\015"
 	.text
-	.section	.gnu.lto_vtxCommonGetDeviceType.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonGetDeviceType.415f13aa,"e",%progbits
 	.ascii	"x\234m\221\301k\023Q\020\306\347{\3636\331\204\246'"
 	.ascii	"A!\007\003*\245 M\300S\021\241\007\377\012/\"1\207\034"
 	.ascii	"\322B*\301[\337\246\225\"\226\352\301\322V\254+H\010"
@@ -351,7 +351,7 @@
 	.ascii	"\225S\345\301\374\351j\271V\252\016\347kg\316\236,\016"
 	.ascii	"U*C\203}EJIv\274T+\027K\177\000;\237\3022"
 	.text
-	.section	.gnu.lto_vtxCommonDeviceIsReady.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonDeviceIsReady.415f13aa,"e",%progbits
 	.ascii	"x\234m\221\317k\023Q\020\307\347\373\346m\263\011\211"
 	.ascii	"\027\021\204 \004\025j\2414\001\301\253\036<\353\237"
 	.ascii	"\240\022s\310!-\244\022\274\365%\026K1D\021K\022\261"
@@ -382,7 +382,7 @@
 	.ascii	"l!\223\037M\026\216\035?\224\036\311\345F\206\207\322"
 	.ascii	"\024\226l\177\246\220Mg~\001\314W\331N"
 	.text
-	.section	.gnu.lto_vtxCommonProcess.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonProcess.415f13aa,"e",%progbits
 	.ascii	"x\234m\220\301k\023A\024\306\337\267o\262\331\306\304"
 	.ascii	"K/J/\001\205P\320&\347z\351\301?A\317\"1B\016I!\251"
 	.ascii	"\301['\321\332CKU\260\304\250a+\032r\253\225\012\242"
@@ -411,7 +411,7 @@
 	.ascii	"Y\0329y$=\234\313\015\347\007\322\324#\352`\246\224"
 	.ascii	"Mgb\351\023\205B&?r(\233\313\034.\376\006T\244\321\324"
 	.text
-	.section	.gnu.lto_vtxCommonSetPowerByIndex.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonSetPowerByIndex.415f13aa,"e",%progbits
 	.ascii	"x\234EQMk\023Q\024\275\347\3357\311\244\244\256\205"
 	.ascii	"t\021P\010]\330\210\356\\\271\360\177\210\244Yd\221"
 	.ascii	"\024R\011]\010}\031\243\201\266T\004m\0118\214\245\004"
@@ -440,7 +440,7 @@
 	.ascii	"\342\314\371\322T\265:U\233(QF\320\271r\243R*{\225\332"
 	.ascii	"dy\346\0370\013\262B"
 	.text
-	.section	.gnu.lto_vtxCommonSetPitMode.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonSetPitMode.415f13aa,"e",%progbits
 	.ascii	"x\234m\220\301kSA\020\306\347\333y/\3575m\352M\204P"
 	.ascii	"\010T\010=\230\004\375\007z\360\356\237 \022S\310!\011"
 	.ascii	"\244\022\274u\223Rs\250D\221\226Zh|\225\032z\253\012"
@@ -467,7 +467,7 @@
 	.ascii	"\265k\327/\347+\245R\245\234\311S\217\250\213\205Z1"
 	.ascii	"_p+\345K##\177\001\320{\264m"
 	.text
-	.section	.gnu.lto_vtxCommonSetFrequency.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonSetFrequency.415f13aa,"e",%progbits
 	.ascii	"x\234m\221\317k\023A\024\307\337w'\335\335$\215z\020"
 	.ascii	"\021J!\240\020z0\351\311\263\007\377\017\221\030!\207"
 	.ascii	"\244\230j\320S'k\333\034*m\017J*\030\266%\204x\252\012"
@@ -499,7 +499,7 @@
 	.ascii	"\357K\245\372\322\3218\371Y\235Ld\223\361\204\377l&"
 	.ascii	"q\356B\"\035\277\364\033\270X\370)"
 	.text
-	.section	.gnu.lto_vtxCommonGetPowerIndex.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonGetPowerIndex.415f13aa,"e",%progbits
 	.ascii	"x\234m\220\315K\033Q\024\305\357yw\222\214\321\324\215"
 	.ascii	"P!\010\001\205\324EM\300\265\340\242\033\377\212Rb\026"
 	.ascii	"Y$J,\301\235/\221P\212b\245T\324b\030K\031\334\245\212"
@@ -527,7 +527,7 @@
 	.ascii	"\020u/]\310\244\322\301\301\276\\\177z\370\037\255\234"
 	.ascii	"\266\361"
 	.text
-	.section	.gnu.lto_vtxCommonGetFrequency.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonGetFrequency.415f13aa,"e",%progbits
 	.ascii	"x\234m\220\301K\024Q\034\307\177\337\367\233\335\035"
 	.ascii	"w\335NA\302\022,\024l\036t\027:t\012:D\377F\3044\207"
 	.ascii	"=\354Z\243-v\362\355\312\022bX\007E+\227Id\360f\005"
@@ -556,7 +556,7 @@
 	.ascii	"\024\0357y\355\222\347^\277\341\226\235\233\373\260"
 	.ascii	"L\271i"
 	.text
-	.section	.gnu.lto_vtxCommonGetStatus.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonGetStatus.415f13aa,"e",%progbits
 	.ascii	"x\234m\220\315k\023Q\024\305\357yw\222\231\244\215\253"
 	.ascii	"\202\205P\010T\010Y\330\004\272\026\272\350\377!%f\221"
 	.ascii	"EZHbp\327\227)\241\210R-X\252\245\303(2\324\215m\005"
@@ -584,7 +584,7 @@
 	.ascii	"k\227\213#\225\312\310p_\221\022\242\006K\215r\261\024"
 	.ascii	"\257\325\207\352Wk\177\001\214E\266\223"
 	.text
-	.section	.gnu.lto_vtxCommonGetVTXPowerLevels.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonGetVTXPowerLevels.415f13aa,"e",%progbits
 	.ascii	"x\234m\220\313k\023Q\024\207\317o\316d2I;\356\272\220"
 	.ascii	" \004\024B\005\233\200\256\004\301\205\377G\2218\213"
 	.ascii	"@\323H\"\321]o\"(Z\251.,\265\325a|\020\253\202\265\202"
@@ -613,7 +613,7 @@
 	.ascii	"}\007\372\363\245b\2614\330\227\247\204D\273\374j!\357"
 	.ascii	";\003~\325\037\2508{K\373\345\326o\365\177\320\005"
 	.text
-	.section	.gnu.lto_vtxCommonSerializePowerLevels.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonSerializePowerLevels.415f13aa,"e",%progbits
 	.ascii	"x\234\205\224MLTW\024\307\317\377\2357\363f\306\031"
 	.ascii	"\300\015\013\307\005\211\022b?\244\325\215n\254\215"
 	.ascii	".\\\264\261[WM\203\263 \021h\030\304\356\2743\016b\264"
@@ -665,7 +665,7 @@
 	.ascii	"~\336\260.\326\370Q\2549\266fY\303\332\372&\277k\307"
 	.ascii	"\375k\364I\034\265\377\002\200\360\240$"
 	.text
-	.section	.gnu.lto_vtxCommonLookupBandName.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonLookupBandName.415f13aa,"e",%progbits
 	.ascii	"x\234uQ\335K\223a\024\177~\317\363\354\335G\023\"\010"
 	.ascii	"\002o&\005\246\220\013\361\276\240\356\373\023\302\246"
 	.ascii	"\027^\250\240!\335\371l-\212\024\355\"?i\255\224e\204"
@@ -704,7 +704,7 @@
 	.ascii	"\255)\011\011/Ug+\033\252B\225\372ByM\205<%~\003\002"
 	.ascii	"~\025\244"
 	.text
-	.section	.gnu.lto_vtxCommonLookupBandLetter.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonLookupBandLetter.415f13aa,"e",%progbits
 	.ascii	"x\234eRAKTa\024\275\347\373\336\274\031\007g\323B\204"
 	.ascii	"Y$\024\210E\216\031-Z\325\242}?!lt\341B\005\015i\347"
 	.ascii	"7\243Y\246\351&\265\211\206\241d*(\312\262 \262ttll"
@@ -741,7 +741,7 @@
 	.ascii	"\306\246@\363\331s\247\203\015uu\015\365\345A*\340\352"
 	.ascii	"dMsm\260\306:SU_\375\007\206f\374C"
 	.text
-	.section	.gnu.lto_vtxCommonLookupChannelName.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonLookupChannelName.415f13aa,"e",%progbits
 	.ascii	"x\234uQ\335K\223Q\030?\277s\316\336m:!\010\202\360f"
 	.ascii	"R`\006\272\220\242\313\202\3727\"d\015\022r\202\206"
 	.ascii	"t\347\331\232\030)\332E\371Es\225\230]\030\032\255\240"
@@ -780,7 +780,7 @@
 	.ascii	"\0174T\373\003N\377\345\252`0pE\236\021\277\001\343"
 	.ascii	"\321\026Y"
 	.text
-	.section	.gnu.lto_vtxCommonLookupBandChan.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonLookupBandChan.415f13aa,"e",%progbits
 	.ascii	"x\234}U\353OTG\024\237s\347\276w\227\"\017K\205&&-!"
 	.ascii	"\332\012\015\037\2326\351\207\276\322O\355\177\320\244"
 	.ascii	"A\304\226D\320bC\372\315\273\313\253UbMck0\336\254\210"
@@ -847,7 +847,7 @@
 	.ascii	"G\005\245\245E\007\344\275\270\322\012\305\342\037\313"
 	.ascii	"\300Rs"
 	.text
-	.section	.gnu.lto_vtxCommonGetBandAndChannel.part.0.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonGetBandAndChannel.part.0.415f13aa,"e",%progbits
 	.ascii	"x\234uT[KTQ\024\336\337Y{\346\034/C\005\005\221=\010"
 	.ascii	"\025b\220\006\275\024\004I\005\365\326O\010\261\211"
 	.ascii	"\204\234j,\351\255\355\250\331E2\242\333D\323Q\242\224"
@@ -894,7 +894,7 @@
 	.ascii	"\326U\233JC\241\340f\1778X\271c\363v\2711\034\334\366"
 	.ascii	"\007\352d\202\271"
 	.text
-	.section	.gnu.lto_vtxCommonGetBandAndChannel.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonGetBandAndChannel.415f13aa,"e",%progbits
 	.ascii	"x\234mT[oTU\024\336\337\331\347:\355\351E4\251\214\017"
 	.ascii	"M\2244\230@\033x\365\201\240O\372#LS&\261\011\035H\213"
 	.ascii	"\215o\354\231\2266X\322\232(b\015\323i2\251\2501\265"
@@ -951,7 +951,7 @@
 	.ascii	"\007_|\2555\231L\354\267;\023]\257\357?\364?\313^\364"
 	.ascii	"\314"
 	.text
-	.section	.gnu.lto_vtxCommonSerializeDeviceStatus.part.0.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonSerializeDeviceStatus.part.0.415f13aa,"e",%progbits
 	.ascii	"x\234\205\225[TTU\030\307\3677{\230+\303e,/\321\205"
 	.ascii	".\306\362!\311\325\223o\272\362!_z\250\336[#L+V:\032"
 	.ascii	" \351\352\301\303pS1\361A\203!\361\250-\224A\315K\272"
@@ -1042,7 +1042,7 @@
 	.ascii	"\304\232\241M\230\331\2723\223'\362\221\327\223\271"
 	.ascii	"\326\212\330O\326\256\362\376\007d\355VQ"
 	.text
-	.section	.gnu.lto_vtxCommonLookupFrequency.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonLookupFrequency.415f13aa,"e",%progbits
 	.ascii	"x\234mR\337KTQ\020\2369\347\334\037\212\033A/\225\004"
 	.ascii	"B\205\030\345FO\371\"=\364\177\204\255\013\011\271\202"
 	.ascii	"\206\364\346\331M4J\314\007KV\332\026\223\255\036\012"
@@ -1080,7 +1080,7 @@
 	.ascii	"\237\012\325\325\326\326E\312CP@\321\311pcM(\254NWE"
 	.ascii	"\252\235\320\231\252H$|\366\027\250\301\031R"
 	.text
-	.section	.gnu.lto_vtxCommonSetBandAndChannel.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonSetBandAndChannel.415f13aa,"e",%progbits
 	.ascii	"x\234mTKk\024Y\024\276_\235zu\322\025\337\340\030\027"
 	.ascii	"\015*\301\205&dv.\304\205+\177\201;\211m\213\001\323"
 	.ascii	"b\2240;owb\262\360\015\212&\330\224\261\011\272P'\202"
@@ -1130,7 +1130,7 @@
 	.ascii	"%W\325\245\323\251\325\366\312\306\324\332\357\221\036"
 	.ascii	"\245\250"
 	.text
-	.section	.gnu.lto_vtxCommonLookupPowerName.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonLookupPowerName.415f13aa,"e",%progbits
 	.ascii	"x\234uQ\313KTa\024?\347\373\276{g\306\256\021\355B\202"
 	.ascii	"\221\0023\310\011\253M\233\202\372'Z\205\214\263\230"
 	.ascii	"\205\012\032\342\316o\306\211\"elQ\276\3506\245\230"
@@ -1168,7 +1168,7 @@
 	.ascii	"\026\004\037U\027C\365\341`\310\010WW\206\032\3049\370"
 	.ascii	"\015=\"\025\355"
 	.text
-	.section	.gnu.lto_vtxCommonLookupPowerValue.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonLookupPowerValue.415f13aa,"e",%progbits
 	.ascii	"x\234eR\335K\223a\024\177\316\363\274\037\333\234\322"
 	.ascii	"\245\264\033\241@\014ta\335\025\322E\177@WAt\0212\027"
 	.ascii	"\014\374\210Y\346\235\3176\255\246\242^\244\2428\026"
@@ -1212,7 +1212,7 @@
 	.ascii	"\3122wm\326\215KU\267\335\336\313\245\345\267\334\377"
 	.ascii	"\001\345P6\226"
 	.text
-	.section	.gnu.lto_vtxCommonSerializeDeviceStatus.36d6b368,"e",%progbits
+	.section	.gnu.lto_vtxCommonSerializeDeviceStatus.415f13aa,"e",%progbits
 	.ascii	"x\234e\220\275K\233Q\024\306\317\363\236\233\370F\242"
 	.ascii	"\203S\213\010\322\012!\203\306\331\251\203\203\377\205"
 	.ascii	"H\314\220!\012\211\0047obZ\221\210b\211D\213\341\245"
@@ -1239,7 +1239,7 @@
 	.ascii	"\207\206{\243\203\211\304\340@G\224\002\242\272c\351"
 	.ascii	"x4\306\375\251\241{\317\352\235\222"
 	.text
-	.section	.gnu.lto_.symbol_nodes.36d6b368,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415f13aa,"e",%progbits
 	.ascii	"x\234u\224Ko\323@\020\307\367\357\265\235\324I\033\350"
 	.ascii	"#\201\362H\0327\227\246\3349!\250\370$|\007\316c\252"
 	.ascii	" q\000\372\200\322\2067\346U\236-\204\002\351\255i$"
@@ -1272,7 +1272,7 @@
 	.ascii	"h@\226F;\266S\262\344\234Q\0044\\\273\024hZI\0109\346"
 	.ascii	"o\235o\315X\230\020\177\001\334\004\215/"
 	.text
-	.section	.gnu.lto_.refs.36d6b368,"e",%progbits
+	.section	.gnu.lto_.refs.415f13aa,"e",%progbits
 	.ascii	"x\234\025\312\313\022\2020\020\005\321\2763\231\030"
 	.ascii	"\312\022MV\"\250%\345\213\237\363\377\227\302\246\317"
 	.ascii	"\246\013\342\007\230\341\"\205v*R\307\232\003\275\331"
@@ -1280,7 +1280,7 @@
 	.ascii	"\315\037\324\216\266g>\352\271^\376R\013\325\314\\\354"
 	.ascii	"M\357|\302\276\233K\346\017\354w\004y"
 	.text
-	.section	.gnu.lto_.decls.36d6b368,"e",%progbits
+	.section	.gnu.lto_.decls.415f13aa,"e",%progbits
 	.ascii	"x\234\255Z\011TTW\232\256[\267\240\250\262\000\203Y"
 	.ascii	"\234\330\235\230\014I{\246\323Q\273M'\347tfN\272\323"
 	.ascii	"\223\356\244{\372t\272\223\236N\2379\355\320Z\235x\242"
@@ -1639,7 +1639,7 @@
 	.ascii	"\231\247\002\265\226\3065lr\222\036\354\323\331\370"
 	.ascii	"\005\233\233\213\002]\227\302\377\005A?\325\202"
 	.text
-	.section	.gnu.lto_.symtab.36d6b368,"e",%progbits
+	.section	.gnu.lto_.symtab.415f13aa,"e",%progbits
 	.ascii	"vtxCommonInit\000"
 	.ascii	"\000"
 	.ascii	"\000"

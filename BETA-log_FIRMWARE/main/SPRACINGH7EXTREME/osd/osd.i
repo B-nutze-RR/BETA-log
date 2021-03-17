@@ -29021,7 +29021,7 @@ typedef struct osdConfig_s {
     uint8_t ahInvert;
     uint8_t osdProfileIndex;
     uint8_t overlay_radio_mode;
-    char profile[1][16 + 1];
+    char profile[3][16 + 1];
     uint16_t link_quality_alarm;
     int16_t rssi_dbm_alarm;
     uint8_t gps_sats_show_hdop;
@@ -30746,7 +30746,7 @@ timeUs_t resumeRefreshAt = 0;
 
 static uint8_t armState;
 
-
+static uint8_t osdProfile = 1;
 
 static displayPort_t *osdDisplayPort;
 static osdDisplayPortDevice_e osdDisplayPortDeviceType;
@@ -30900,7 +30900,37 @@ _Bool
 {
     return osdConfig()->enabledWarnings & (1 << warningIndex);
 }
-# 286 "./src/main/osd/osd.c"
+
+
+void setOsdProfile(uint8_t value)
+{
+
+
+
+    if (value <= 3) {
+        if (value == 0) {
+            osdProfile = 1;
+        } else {
+            osdProfile = 1 << (value - 1);
+        }
+    }
+ }
+
+uint8_t getCurrentOsdProfileIndex(void)
+{
+    return osdConfig()->osdProfileIndex;
+}
+
+void changeOsdProfileIndex(uint8_t profileIndex)
+{
+    if (profileIndex <= 3) {
+        osdConfigMutable()->osdProfileIndex = profileIndex;
+        setOsdProfile(profileIndex);
+        osdAnalyzeActiveElements();
+    }
+}
+
+
 void osdAnalyzeActiveElements(void)
 {
     osdAddActiveElements();
@@ -31038,7 +31068,7 @@ void pgResetFn_osdConfig(osdConfig_t *osdConfig)
                          0
 # 362 "./src/main/osd/osd.c"
                               ;
-    for (int i=0; i < 1; i++) {
+    for (int i=0; i < 3; i++) {
         osdConfig->profile[i][0] = '\0';
     }
     osdConfig->rssi_dbm_alarm = -60;
@@ -31079,7 +31109,7 @@ void pgResetFn_osdElementConfig(osdElementConfig_t *osdElementConfig)
 
 
     uint16_t profileFlags = 0;
-    for (unsigned i = 1; i <= 1; i++) {
+    for (unsigned i = 1; i <= 3; i++) {
         profileFlags |= (1 << ((i) - 1 + 11));
     }
     osdElementConfig->item_pos[OSD_WARNINGS] = ((9 & ((1 << 5) - 1)) | ((10 & ((1 << 5) - 1)) << 5)) | profileFlags;
@@ -31136,7 +31166,7 @@ static void osdCompleteInitialization(void)
 
     resumeRefreshAt = micros() + (4 * 1000 * 1000);
 
-
+    setOsdProfile(osdConfig()->osdProfileIndex);
 
 
     osdElementsInit(backgroundLayerSupported);
@@ -31222,7 +31252,16 @@ static void osdUpdateStats(void)
     if (stats.max_g_force < osdGForce) {
         stats.max_g_force = osdGForce;
     }
-# 574 "./src/main/osd/osd.c"
+
+
+
+    value = rxGetLinkQualityPercent();
+    if (stats.min_link_quality > value) {
+        stats.min_link_quality = value;
+    }
+
+
+
     value = getRssiDbm();
     if (stats.min_rssi_dbm > value) {
         stats.min_rssi_dbm = value;
@@ -31509,7 +31548,19 @@ static
                       ;
         }
         break;
-# 827 "./src/main/osd/osd.c"
+# 819 "./src/main/osd/osd.c"
+    case OSD_STAT_MIN_LINK_QUALITY:
+        tfp_sprintf(buff, "%d", stats.min_link_quality);
+        strcat(buff, "%");
+        osdDisplayStatisticLabel(displayRow, "MIN LINK", buff);
+        return 
+# 823 "./src/main/osd/osd.c" 3 4
+              1
+# 823 "./src/main/osd/osd.c"
+                  ;
+
+
+
     case OSD_STAT_MAX_FFT:
         if (featureIsEnabled(FEATURE_DYNAMIC_FILTER)) {
             int value = getMaxFFT();
@@ -31537,7 +31588,44 @@ static
               1
 # 845 "./src/main/osd/osd.c"
                   ;
-# 872 "./src/main/osd/osd.c"
+
+
+
+    case OSD_STAT_TOTAL_FLIGHTS:
+        itoa(statsConfig()->stats_total_flights, buff, 10);
+        osdDisplayStatisticLabel(displayRow, "TOTAL FLIGHTS", buff);
+        return 
+# 852 "./src/main/osd/osd.c" 3 4
+              1
+# 852 "./src/main/osd/osd.c"
+                  ;
+
+    case OSD_STAT_TOTAL_TIME: {
+        int minutes = statsConfig()->stats_total_time_s / 60;
+        tfp_sprintf(buff, "%d:%02dH", minutes / 60, minutes % 60);
+        osdDisplayStatisticLabel(displayRow, "TOTAL FLIGHT TIME", buff);
+        return 
+# 858 "./src/main/osd/osd.c" 3 4
+              1
+# 858 "./src/main/osd/osd.c"
+                  ;
+    }
+
+    case OSD_STAT_TOTAL_DIST:
+
+
+        if (osdConfig()->units == UNIT_IMPERIAL) {
+            tfp_sprintf(buff, "%d%c", statsConfig()->stats_total_dist_m / 1609, 0x7E);
+        } else {
+            tfp_sprintf(buff, "%d%c", statsConfig()->stats_total_dist_m / 1000, 0x7D);
+        }
+        osdDisplayStatisticLabel(displayRow, "TOTAL DISTANCE", buff);
+        return 
+# 870 "./src/main/osd/osd.c" 3 4
+              1
+# 870 "./src/main/osd/osd.c"
+                  ;
+
     }
     return 
 # 873 "./src/main/osd/osd.c" 3 4
@@ -31660,7 +31748,7 @@ static void osdRefresh(timeUs_t currentTimeUs)
         } else if (isSomeStatEnabled()
                    && !suppressStatsDisplay
                    && (!(getArmingDisableFlags() & (ARMING_DISABLED_RUNAWAY_TAKEOFF | ARMING_DISABLED_CRASH_DETECTED))
-                       || !((osdElementConfig()->item_pos[OSD_WARNINGS]) & (((1 << 1) - 1) << 11)))) {
+                       || !osdElementVisible(osdElementConfig()->item_pos[OSD_WARNINGS]))) {
             osdStatsEnabled = 
 # 955 "./src/main/osd/osd.c" 3 4
                              1
@@ -31738,7 +31826,7 @@ static void osdRefresh(timeUs_t currentTimeUs)
     }
 # 1018 "./src/main/osd/osd.c"
     if (sensors(SENSOR_ACC)
-       && (((osdElementConfig()->item_pos[OSD_G_FORCE]) & (((1 << 1) - 1) << 11)) || osdStatGetState(OSD_STAT_MAX_G_FORCE))) {
+       && (osdElementVisible(osdElementConfig()->item_pos[OSD_G_FORCE]) || osdStatGetState(OSD_STAT_MAX_G_FORCE))) {
 
         for (int axis = 0; axis < 3; axis++) {
             const float a = accAverage[axis];
@@ -31826,7 +31914,22 @@ void osdSuppressStats(
 {
     suppressStatsDisplay = flag;
 }
-# 1108 "./src/main/osd/osd.c"
+
+
+
+# 1102 "./src/main/osd/osd.c" 3 4
+_Bool 
+# 1102 "./src/main/osd/osd.c"
+    osdElementVisible(uint16_t value)
+{
+    return (
+# 1104 "./src/main/osd/osd.c" 3 4
+           _Bool
+# 1104 "./src/main/osd/osd.c"
+               )((((value & (((1 << 3) - 1) << 11)) >> 11) & osdProfile) != 0);
+}
+
+
 
 # 1108 "./src/main/osd/osd.c" 3 4
 _Bool 

@@ -9,15 +9,15 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"transponder_ir_ilap.c"
-	.section	.gnu.lto_.profile.411190ed,"e",%progbits
+	.section	.gnu.lto_.profile.4158af06,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.411190ed,"e",%progbits
+	.section	.gnu.lto_.icf.4158af06,"e",%progbits
 	.ascii	"x\234\343``d\220b@\000\026\206\015\037Wodb<\363\365"
 	.ascii	"\322f\016\246\366\263\213>q1\037k_\323\300\303\000\000"
 	.ascii	"\2520\013\362"
 	.text
-	.section	.gnu.lto_.jmpfuncs.411190ed,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.4158af06,"e",%progbits
 	.ascii	"x\234\343``d(`@\000&\006&FF\346\372\371\314\014@\314"
 	.ascii	"\010d3\202\330l\014\014\214\007X\030\031\200\370?\020"
 	.ascii	"\36032Ogf\354k~\177\217\243\217y>3\023#\003\343.Fi\020"
@@ -25,7 +25,7 @@
 	.ascii	"f\306\003b\214\273\031!\362\007\304\300\012\030\000"
 	.ascii	"\347\311\032\213"
 	.text
-	.section	.gnu.lto_.inline.411190ed,"e",%progbits
+	.section	.gnu.lto_.inline.4158af06,"e",%progbits
 	.ascii	"x\234\343``d(f@\000&\006\006\325W3.\274d\316gdd\020"
 	.ascii	"`d`N`\261\2773{\375>\346|\006\006\316gk\333_1e3\001"
 	.ascii	"\0251\376Y\334q\212)\213\211\201\005\316f`\201\350\347"
@@ -33,11 +33,11 @@
 	.ascii	"\014\334@\306\002\246T\220n `\341\005\022\314\023\374"
 	.ascii	"\200$\000\\\217\033\265"
 	.text
-	.section	.gnu.lto_.pureconst.411190ed,"e",%progbits
+	.section	.gnu.lto_.pureconst.4158af06,"e",%progbits
 	.ascii	"x\234\343``d`g```b\230\305\3024\213\005\000\005?\001"
 	.ascii	"Q"
 	.text
-	.section	.gnu.lto_updateTransponderDMABufferIlap.411190ed,"e",%progbits
+	.section	.gnu.lto_updateTransponderDMABufferIlap.4158af06,"e",%progbits
 	.ascii	"x\234\235VkL\024W\024\2363wfvfw\366\001Hl\335j1\221"
 	.ascii	"(\266\025Jc_\277\372\243?\332\337\365g\233\006\205\030"
 	.ascii	"\022\013\006H\323\246?\034@!(\276)\017a\013\026\241"
@@ -130,7 +130,7 @@
 	.ascii	"4.\262\322\335\222\344\317\022\222\342\265\370\344%"
 	.ascii	"\3146\365\177\247\207\324\262"
 	.text
-	.section	.gnu.lto_transponderIrInitIlap.411190ed,"e",%progbits
+	.section	.gnu.lto_transponderIrInitIlap.4158af06,"e",%progbits
 	.ascii	"x\234\235\223\315KTQ\030\306\317s\317|\334\031uh%\306"
 	.ascii	"\024\270\010\304\010gvm\3737Z\205\250\013\241&\031\243"
 	.ascii	"U\340\231Q\222\232\322\315\250\343b\270C2f\011Y\020"
@@ -169,7 +169,7 @@
 	.ascii	"\212\236\252\246\337\351\362\232\262\012\221\367\307"
 	.ascii	"\362O\020Ma\305"
 	.text
-	.section	.gnu.lto_ilapTansponderVTable.411190ed,"e",%progbits
+	.section	.gnu.lto_ilapTansponderVTable.4158af06,"e",%progbits
 	.ascii	"x\234\343``d\260f``\320f\200\200\351\314\214sW\234\371"
 	.ascii	"\317\331\302\330\324\330\321\320\360\240{-3\333|f\206"
 	.ascii	"\231\314\020\271\007\207\346/a\261\334\336\320\261\240"
@@ -178,19 +178,19 @@
 	.ascii	"\212\365K\212\022\363\212\013\362\363RR\213\3423\201"
 	.ascii	"('\261@/\231\001\000\210\020$3"
 	.text
-	.section	.gnu.lto_.symbol_nodes.411190ed,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.4158af06,"e",%progbits
 	.ascii	"x\234\343``d\310c\000\002\246\225\334\365\014\377\032"
 	.ascii	"n30N8\307\300P\317\300\260k\201#P\016\010X\227s34(1"
 	.ascii	"003\255\340\256gl\000\002\026\270\232\006\230\232U\334"
 	.ascii	"\214\215@5\014\214\253\271\353\231\376C\201<X\035\003"
 	.ascii	"CC\203\003H;\013D\357\023F\006\000\237\253\037\256"
 	.text
-	.section	.gnu.lto_.refs.411190ed,"e",%progbits
+	.section	.gnu.lto_.refs.4158af06,"e",%progbits
 	.ascii	"x\234\005\301!\016\000 \014\000\261\273M\200B,!\010"
 	.ascii	"\004A\361\377\037\322v\344\002\015\034X8u\341\326\243"
 	.ascii	"\317\210L3\340\003\024\267\000\372"
 	.text
-	.section	.gnu.lto_.decls.411190ed,"e",%progbits
+	.section	.gnu.lto_.decls.4158af06,"e",%progbits
 	.ascii	"x\234\215WkPT\311\025\276\347\366<`x\251\020\327\210"
 	.ascii	"\331r7\350\232\007\202\232\215Ij\177\354nR\225\370#"
 	.ascii	"\331\374p\267\312-\023v\204A\246\002\003;\014&e\345"
@@ -328,7 +328,7 @@
 	.ascii	"\306\237\206\231S\376$<\034\275\371QJ\253\247\004d\376"
 	.ascii	"\314\013U\207|\034\035\035\371\177\316\224\"\356"
 	.text
-	.section	.gnu.lto_.symtab.411190ed,"e",%progbits
+	.section	.gnu.lto_.symtab.4158af06,"e",%progbits
 	.ascii	"updateTransponderDMABufferIlap\000"
 	.ascii	"\000"
 	.ascii	"\000"

@@ -26039,7 +26039,19 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-# 351 "./src/main/flight/pid.h"
+# 343 "./src/main/flight/pid.h"
+    pt1Filter_t setpointDerivativePt1[3];
+    biquadFilter_t setpointDerivativeBiquad[3];
+    
+# 345 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 345 "./src/main/flight/pid.h"
+        setpointDerivativeLpfInitialized;
+    uint8_t rcSmoothingDebugAxis;
+    uint8_t rcSmoothingFilterType;
+
+
+
     float acroTrainerAngleLimit;
     float acroTrainerLookaheadTime;
     uint8_t acroTrainerDebugAxis;
@@ -27887,7 +27899,7 @@ typedef struct osdConfig_s {
     uint8_t ahInvert;
     uint8_t osdProfileIndex;
     uint8_t overlay_radio_mode;
-    char profile[1][16 + 1];
+    char profile[3][16 + 1];
     uint16_t link_quality_alarm;
     int16_t rssi_dbm_alarm;
     uint8_t gps_sats_show_hdop;
@@ -33062,7 +33074,7 @@ typedef enum {
     TASK_DASHBOARD,
 
 
-
+    TASK_TELEMETRY,
 
 
     TASK_LEDSTRIP,
@@ -33077,7 +33089,15 @@ typedef enum {
     TASK_OSD,
 # 127 "./src/main/scheduler/scheduler.h"
     TASK_CMS,
-# 137 "./src/main/scheduler/scheduler.h"
+
+
+
+
+
+    TASK_CAMCTRL,
+
+
+
     TASK_RCDEVICE,
 
 
@@ -33212,13 +33232,21 @@ typedef enum {
 
     IBUS_SENSOR_TYPE_ALT_FLYSKY = 0xf9,
 
-
-
-
+    IBUS_SENSOR_TYPE_GPS_FULL = 0xfd,
+    IBUS_SENSOR_TYPE_VOLT_FULL = 0xf0,
+    IBUS_SENSOR_TYPE_ACC_FULL = 0xef,
 
     IBUS_SENSOR_TYPE_UNKNOWN = 0xff
 } ibusSensorType_e;
-# 89 "./src/main/telemetry/ibus_shared.h"
+
+
+
+uint8_t respondToIbusRequest(uint8_t const * const ibusPacket);
+void initSharedIbusTelemetry(serialPort_t * port);
+
+
+
+
 
 # 89 "./src/main/telemetry/ibus_shared.h" 3 4
 _Bool 
@@ -33397,7 +33425,30 @@ static void taskCalculateAltitude(timeUs_t currentTimeUs)
 {
     calculateEstimatedAltitude(currentTimeUs);
 }
-# 236 "./src/main/fc/tasks.c"
+
+
+
+static void taskTelemetry(timeUs_t currentTimeUs)
+{
+    if (!cliMode && featureIsEnabled(FEATURE_TELEMETRY)) {
+        subTaskTelemetryPollSensors(currentTimeUs);
+
+        telemetryProcess(currentTimeUs);
+    }
+}
+
+
+
+static void taskCameraControl(uint32_t currentTime)
+{
+    if ((armingFlags & (ARMED))) {
+        return;
+    }
+
+    cameraControlProcess(currentTime);
+}
+
+
 void tasksInit(void)
 {
     schedulerInit();
@@ -33510,7 +33561,26 @@ void tasksInit(void)
 
 
     setTaskEnabled(TASK_DASHBOARD, featureIsEnabled(FEATURE_DASHBOARD));
-# 330 "./src/main/fc/tasks.c"
+
+
+
+    if (featureIsEnabled(FEATURE_TELEMETRY)) {
+        setTaskEnabled(TASK_TELEMETRY, 
+# 318 "./src/main/fc/tasks.c" 3 4
+                                      1
+# 318 "./src/main/fc/tasks.c"
+                                          );
+        if (rxRuntimeState.serialrxProvider == SERIALRX_JETIEXBUS) {
+
+            rescheduleTask(TASK_TELEMETRY, (1000000 / (500)));
+        } else if (rxRuntimeState.serialrxProvider == SERIALRX_CRSF) {
+
+            rescheduleTask(TASK_TELEMETRY, (1000000 / (500)));
+        }
+    }
+
+
+
     setTaskEnabled(TASK_LEDSTRIP, featureIsEnabled(FEATURE_LED_STRIP));
 
 
@@ -33544,7 +33614,15 @@ void tasksInit(void)
                             1
 # 360 "./src/main/fc/tasks.c"
                                 );
-# 377 "./src/main/fc/tasks.c"
+# 373 "./src/main/fc/tasks.c"
+    setTaskEnabled(TASK_CAMCTRL, 
+# 373 "./src/main/fc/tasks.c" 3 4
+                                1
+# 373 "./src/main/fc/tasks.c"
+                                    );
+
+
+
     setTaskEnabled(TASK_RCDEVICE, rcdeviceIsEnabled());
 
 }
@@ -33752,7 +33830,15 @@ task_t tasks[TASK_COUNT] = {
 
 
 
-
+    [TASK_TELEMETRY] = { .taskName = "TELEMETRY", .subTaskName = 
+# 455 "./src/main/fc/tasks.c" 3 4
+                      ((void *)0)
+# 455 "./src/main/fc/tasks.c"
+                      , .checkFunc = 
+# 455 "./src/main/fc/tasks.c" 3 4
+                      ((void *)0)
+# 455 "./src/main/fc/tasks.c"
+                      , .taskFunc = taskTelemetry, .desiredPeriodUs = (1000000 / (250)), .staticPriority = TASK_PRIORITY_LOW },
 
 
 
@@ -33794,7 +33880,15 @@ task_t tasks[TASK_COUNT] = {
 
 
 
-
+    [TASK_CAMCTRL] = { .taskName = "CAMCTRL", .subTaskName = 
+# 483 "./src/main/fc/tasks.c" 3 4
+                    ((void *)0)
+# 483 "./src/main/fc/tasks.c"
+                    , .checkFunc = 
+# 483 "./src/main/fc/tasks.c" 3 4
+                    ((void *)0)
+# 483 "./src/main/fc/tasks.c"
+                    , .taskFunc = taskCameraControl, .desiredPeriodUs = (1000000 / (5)), .staticPriority = TASK_PRIORITY_IDLE },
 
 
 

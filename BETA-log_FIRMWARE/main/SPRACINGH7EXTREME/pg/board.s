@@ -9,15 +9,15 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"board.c"
-	.section	.gnu.lto_.profile.41118a30,"e",%progbits
+	.section	.gnu.lto_.profile.4158159c,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.41118a30,"e",%progbits
+	.section	.gnu.lto_.icf.4158159c,"e",%progbits
 	.ascii	"x\234\343``dP`@\000V\206}\227\257?fa<8q\346:n\346\227"
 	.ascii	"\313\356\364s\260\034\353\273\270\217\203\025L2\000"
 	.ascii	"\000\377\201\017\007"
 	.text
-	.section	.gnu.lto_.jmpfuncs.41118a30,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.4158159c,"e",%progbits
 	.ascii	"x\234\343``dpcd\200\003&\006FF\306\372\371\314\014\014"
 	.ascii	"l\014\014\214\007X\030\031\200\370?\020\3603\240\363"
 	.ascii	"\231\24633\036yx\253\225\247\217y>3#\243\002\343.Fi"
@@ -27,7 +27,7 @@
 	.ascii	"l)\246\2718\015B\323I\212V\240\033\346\336}\377\212"
 	.ascii	"\021\342\006V\306\275P\223X!&10\000\000\364tX\021"
 	.text
-	.section	.gnu.lto_.inline.41118a30,"e",%progbits
+	.section	.gnu.lto_.inline.4158159c,"e",%progbits
 	.ascii	"x\234\343``dX\302\200\000L\014\014\\\015\015\015\033"
 	.ascii	"\230\323\031\031\031\024\030\201\002\214@n\003S\022"
 	.ascii	"\003\003;\220>\300\224\302\004R\003\024\347\006\221"
@@ -36,11 +36,11 @@
 	.ascii	"\325\3108\301\017\303\000$&\206\034D\000B2\000\000|"
 	.ascii	",\0343"
 	.text
-	.section	.gnu.lto_.pureconst.41118a30,"e",%progbits
+	.section	.gnu.lto_.pureconst.4158159c,"e",%progbits
 	.ascii	"x\234\343``d`g```b\230\305\3028\213\005\000\005<\001"
 	.ascii	"P"
 	.text
-	.section	.gnu.lto_pgResetFn_boardConfig.part.0.41118a30,"e",%progbits
+	.section	.gnu.lto_pgResetFn_boardConfig.part.0.4158159c,"e",%progbits
 	.ascii	"x\234\215\222\317OSA\020\307\347\273\363Z^\201r4\222"
 	.ascii	"^H$iz\241\365?0\361\302\277\201\030\010\007\301\340"
 	.ascii	"\037\300\266\240\004k\360\002B\243\315kb\032\361\002"
@@ -71,7 +71,7 @@
 	.ascii	"7\332\237>\32374\234>;\230>5\3227z\272\247\237\332\234"
 	.ascii	"qrdx`h\360\000Mc\337\376"
 	.text
-	.section	.gnu.lto_pgResetFn_boardConfig.41118a30,"e",%progbits
+	.section	.gnu.lto_pgResetFn_boardConfig.4158159c,"e",%progbits
 	.ascii	"x\234\235\224[KTQ\024\307\367\377\254sSG\255LS|\021"
 	.ascii	"2\304\036R\372\004A\237\304\212\244\2074\352\003xf\264"
 	.ascii	"\304F\364\245\262\241\206#\210d\017i7\242\213\326d\226"
@@ -119,7 +119,7 @@
 	.ascii	"\252\2568\270g\333n\221\241\214\235\325U{\367U\376\004"
 	.ascii	"\274 \363\261"
 	.text
-	.section	.gnu.lto_boardConfig_Registry.41118a30,"e",%progbits
+	.section	.gnu.lto_boardConfig_Registry.4158159c,"e",%progbits
 	.ascii	"x\234\343``d\370\304\300\300 \301\000\001\323\231\031"
 	.ascii	"\347\2568\363\237\263\205\261\251\261\243\241\341A\367"
 	.ascii	"\031\241\232\371\314\0143\231!r\017\016\315_\302b\271"
@@ -134,7 +134,7 @@
 	.ascii	"\304\314<\375\202t\375\244\374\304\242\024\275d\006"
 	.ascii	"\000?\216X\317"
 	.text
-	.section	.gnu.lto_.symbol_nodes.41118a30,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.4158159c,"e",%progbits
 	.ascii	"x\234m\317=\016AA\024\206\341\357\314p\357\345\330\003"
 	.ascii	"\021\2655\220\330\207\206\210N\320\250\016r5*KP(4\304"
 	.ascii	"\377_'Q\213EX\200Z\303\\#\241\230i\346\315y\2223\231"
@@ -147,11 +147,11 @@
 	.ascii	"\011\233\023\223I\233\367\3374\364~\351k\012\354\202"
 	.ascii	"\213I\334\036\317)Q?\2117\300 \2104"
 	.text
-	.section	.gnu.lto_.refs.41118a30,"e",%progbits
+	.section	.gnu.lto_.refs.4158159c,"e",%progbits
 	.ascii	"x\234\343``d\340c```dd`\342fffbabebd\000\000\002\364"
 	.ascii	"\000="
 	.text
-	.section	.gnu.lto_.decls.41118a30,"e",%progbits
+	.section	.gnu.lto_.decls.4158159c,"e",%progbits
 	.ascii	"x\234\215W\013PT\327\031\276\347\236\205]\026\026\014"
 	.ascii	">\342\014fj\034\222\232I\024\264\223&\355\264\2356\231"
 	.ascii	"i\233\2316\323I\246\351$1\241+,\217\014,dw15m\247\227"
@@ -352,7 +352,7 @@
 	.ascii	"\251\012\325{/\265MP\010\011\213\\\312\344*w\365\343"
 	.ascii	"\255F\223.h\211|\350}\360\346\277\234@\322\305"
 	.text
-	.section	.gnu.lto_.symtab.41118a30,"e",%progbits
+	.section	.gnu.lto_.symtab.4158159c,"e",%progbits
 	.ascii	"pgResetFn_boardConfig\000"
 	.ascii	"\000"
 	.ascii	"\000"

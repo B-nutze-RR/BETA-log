@@ -9,10 +9,10 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"sdcard_sdio_baremetal.c"
-	.section	.gnu.lto_.profile.41124503,"e",%progbits
+	.section	.gnu.lto_.profile.4158ef25,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.41124503,"e",%progbits
+	.section	.gnu.lto_.icf.4158ef25,"e",%progbits
 	.ascii	"x\234\001\262\000M\377\010\000\001\000\242\000\000\000"
 	.ascii	"\000\000\000\000\000\000\000\000\033\000\311\304\371"
 	.ascii	"\320\010\002\223\252\352\331\016\003\373\275\235\270"
@@ -29,7 +29,7 @@
 	.ascii	"\006\035\337\242\326\007\036\253\337\201\206\001\000"
 	.ascii	"\332*R\322"
 	.text
-	.section	.gnu.lto_.jmpfuncs.41124503,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.4158ef25,"e",%progbits
 	.ascii	"x\234\215R\273N\303@\020\334\275;;\027 \004\304S\030"
 	.ascii	"\244|\004\337\027GJ\205\204\334RZ\242@\202\017\240\340"
 	.ascii	"\031\036\005\005_@\021\211\026\011\321\2463\263g\003"
@@ -50,7 +50,7 @@
 	.ascii	"Q\014\004b@[\370\025\222\033\3266CU/\351Zf\373D\007"
 	.ascii	"h\367\015\231e\3741"
 	.text
-	.section	.gnu.lto_.inline.41124503,"e",%progbits
+	.section	.gnu.lto_.inline.4158ef25,"e",%progbits
 	.ascii	"x\234\215\224\337N\023A\024\306\2773\263\320e\013R\376"
 	.ascii	"7\370\377\206\230\370\010\276\202\351C\210\010\274\204"
 	.ascii	"\021\215\232T\0236\262\251i4hB\024\324\213F\003\245"
@@ -81,14 +81,14 @@
 	.ascii	"\257\034\334Qjn\337U\320\305s\342\310\301\377\224\243"
 	.ascii	"0\274\213\241\020\301#\203~\004\377\000j\001\362Y"
 	.text
-	.section	.gnu.lto_.pureconst.41124503,"e",%progbits
+	.section	.gnu.lto_.pureconst.4158ef25,"e",%progbits
 	.ascii	"x\234\005\301\331\021@P\020E\301\301QvE\331^Y\002\222"
 	.ascii	"\225\217\011\342\022\311\013Owi\211\335f\026\314I\235"
 	.ascii	"\314\341!\027\205\250>j\321\210Vt\242\177\031\304(&"
 	.ascii	"1\213E\254\221M\004\261\213#r:\227\370\001G\207\020"
 	.ascii	"P"
 	.text
-	.section	.gnu.lto_sdcardSdio_isFunctional.41124503,"e",%progbits
+	.section	.gnu.lto_sdcardSdio_isFunctional.4158ef25,"e",%progbits
 	.ascii	"x\234]\216AK\002Q\024\205\357\2317\215S\344\017\010"
 	.ascii	"\011\334J\344H\375\201\376\211L\216\013!\013f\242\255"
 	.ascii	"\317Q\260(\014\0021!\031B\244Ve\233\026j5\020\264j!"
@@ -109,7 +109,7 @@
 	.ascii	"\347\3446\322\253\266\233\315g7\355\265d\206~\000\017"
 	.ascii	"?pw"
 	.text
-	.section	.gnu.lto_sdcard_isReady.41124503,"e",%progbits
+	.section	.gnu.lto_sdcard_isReady.4158ef25,"e",%progbits
 	.ascii	"x\234EPMK[A\024\275g\356L\372\224jW\256\336\306\205"
 	.ascii	"\033\025M\240\177\240\340\306U\377\202\244I\026\001"
 	.ascii	"\255\360\"\335:\211\001\025\203EQ\242`\014%\304\266"
@@ -135,7 +135,7 @@
 	.ascii	"/\025N\305cQ/>\220\212'\207\007>D\275\304Pb$:\330\033"
 	.ascii	"\243\377\375\266\236\272"
 	.text
-	.section	.gnu.lto_sdcardSdio_isInitialized.41124503,"e",%progbits
+	.section	.gnu.lto_sdcardSdio_isInitialized.4158ef25,"e",%progbits
 	.ascii	"x\234E\216\277K\303@\034\305\277/\027\3338\364\017\220"
 	.ascii	"\"t\223\"6\001q\367?)\261\351\020\260\012\211\270\366"
 	.ascii	"\222\026\253V*\212\245v(A\212X\034\374\201[[5.N\016"
@@ -156,7 +156,7 @@
 	.ascii	"\325]+g:V\326\265\354\325\354\222\351\344\013\3715s"
 	.ascii	"9\223\243_\210\223r!"
 	.text
-	.section	.gnu.lto_sdcardSdio_getMetadata.41124503,"e",%progbits
+	.section	.gnu.lto_sdcardSdio_getMetadata.4158ef25,"e",%progbits
 	.ascii	"x\234E\216OK\002Q\024\305\357\2317\332$\365\005\222"
 	.ascii	"\240]H\344\270\350\003\364MdR\027B\026\314D[\237&&\032"
 	.ascii	"\366\207\302Z\330\010\022\265\262\2026\331\277Q\"0Z"
@@ -177,7 +177,7 @@
 	.ascii	"O\330\216\351\304c\226\035\217:\361\344jt\311\262\023"
 	.ascii	"\251\304\232\265\034\216\321/\345\273w\253"
 	.text
-	.section	.gnu.lto_sdcard_checkInitDone.41124503,"e",%progbits
+	.section	.gnu.lto_sdcard_checkInitDone.4158ef25,"e",%progbits
 	.ascii	"x\234\205\223_HSQ\034\307\317\367\374\356\277M\367\030"
 	.ascii	"\004{\351\305\007\215\234\020\204\020D\257=\007\275"
 	.ascii	"\312r{\0204\341Nz\314\343&\230n(D6\205\326\244!\351"
@@ -217,7 +217,7 @@
 	.ascii	"jjm\270\034\264\303-\341\266`sm#\363\206m\273\325\276"
 	.ascii	"\330\026l\013\377\004I\370Q\016"
 	.text
-	.section	.gnu.lto_sdcard_fetchCSD.41124503,"e",%progbits
+	.section	.gnu.lto_sdcard_fetchCSD.4158ef25,"e",%progbits
 	.ascii	"x\234eQMk\023Q\024\275\347\335I2I[p\343*\0337]\324B"
 	.ascii	"\022(\270\021\304\177Rb\222E\300\2660\021\267}\371\200"
 	.ascii	"\032\033*\210\265\251\030G\010AK\213\326\202.\332Z\243"
@@ -250,7 +250,7 @@
 	.ascii	"\360\271\250\225\030I\\\210\236\017\305\310\223\260"
 	.ascii	"\2541\353?\333:\355W"
 	.text
-	.section	.gnu.lto_sdcard_receiveCID.41124503,"e",%progbits
+	.section	.gnu.lto_sdcard_receiveCID.4158ef25,"e",%progbits
 	.ascii	"x\234\225\227\373WTU\024\307\317\276\347\316\233\031"
 	.ascii	"\006\020|\214o\227\313\324\226LZ\375\322\017\365'\324"
 	.ascii	"_\340B\341\007\327J]kh\365\253\227\001A\224\324L\021"
@@ -337,7 +337,7 @@
 	.ascii	"A\250he\321{\005\357.Z\316lE\241\320\352\320\177^6\232"
 	.ascii	"\270"
 	.text
-	.section	.gnu.lto_sdcard_receiveDataBlock.isra.0.41124503,"e",%progbits
+	.section	.gnu.lto_sdcard_receiveDataBlock.isra.0.4158ef25,"e",%progbits
 	.ascii	"x\234]\222\317k\023Q\020\307\347\373\346m\223V\003\236"
 	.ascii	"D\311\271\207PH\252^<\372\027\370\017x(1\011\030\260"
 	.ascii	"\012\233\342\265\257I@JB{*5\207t\245R\177\200\240B\361"
@@ -368,7 +368,7 @@
 	.ascii	"\233K\344\322\251\244\233\036\312\245\263W\207.&\335"
 	.ascii	"\314pf$y9\236\"v3#{\277\372\324\247"
 	.text
-	.section	.gnu.lto_sdcard_reset.part.0.41124503,"e",%progbits
+	.section	.gnu.lto_sdcard_reset.part.0.4158ef25,"e",%progbits
 	.ascii	"x\234\205P\273J\003Q\020\235\263\263\331l\012\005;\301"
 	.ascii	"/\010\242\211~\201\277a\025b\222\"\340\0036b\233k\024"
 	.ascii	"\3423\202 j\021\022\010\022m|4\202\361\025\343\243\262"
@@ -392,7 +392,7 @@
 	.ascii	"\235\344H\302I\205R\361X\324\211GR\361\344P\244/\352"
 	.ascii	"$\006\022\303\321\376\316\030}\001\371,\254\037"
 	.text
-	.section	.gnu.lto_sdcard_reset.41124503,"e",%progbits
+	.section	.gnu.lto_sdcard_reset.4158ef25,"e",%progbits
 	.ascii	"x\234\215RKOSA\024\236o\346\276Z\333\356\\(\033\266"
 	.ascii	"h\244]\272\324_Bj\333E\243h\322\032\227r\373\210U\250"
 	.ascii	"mbb\260\321\2465\004\221M\325\215\312\323J\021A1AcX"
@@ -426,7 +426,7 @@
 	.ascii	"\214\306/\364\235\011'b\375\261\213\341s\275\021\366"
 	.ascii	"\037\242\012%\340"
 	.text
-	.section	.gnu.lto_sdcardSdio_init.part.0.41124503,"e",%progbits
+	.section	.gnu.lto_sdcardSdio_init.part.0.4158ef25,"e",%progbits
 	.ascii	"x\234\215\223MHTQ\024\307\357\377\236\347|\350\214\213"
 	.ascii	" \250\334\264h\020\011fl\321^h\325\256E{\231f\314\006"
 	.ascii	"\362\203\231h\353u\0344u\320\024\303,\306g\230Y\233"
@@ -465,7 +465,7 @@
 	.ascii	"\015\225;#\325\241\023\332\332\237\345\\]\356S\016\336"
 	.ascii	"s\3547\365\223U\014"
 	.text
-	.section	.gnu.lto_sdcardSdio_init.41124503,"e",%progbits
+	.section	.gnu.lto_sdcardSdio_init.4158ef25,"e",%progbits
 	.ascii	"x\234\235V\335oTE\024\237s\347~\357\207TE\205\306\330"
 	.ascii	"\007\223\006M\332}1\361\311\230\3707\370Lj[\315&R\314"
 	.ascii	"\326\370(\323\335\246\265\320\200\222*\256a\3676.\265"
@@ -527,7 +527,7 @@
 	.ascii	"~\303\273u\215Do\334\330\362v\370\035\253\365\275\360"
 	.ascii	"\033\302\372\027\356\315\336o"
 	.text
-	.section	.gnu.lto_sdcard_endWriteBlocks.part.0.41124503,"e",%progbits
+	.section	.gnu.lto_sdcard_endWriteBlocks.part.0.4158ef25,"e",%progbits
 	.ascii	"x\234\205\222OK\033Q\024\305\357ywf2A\334H\027B>\201"
 	.ascii	"\224&i\373\005\212\373~\006\211I\026\001\377\300D\\"
 	.ascii	"6\317\030\250\377\210\"\004u\021\"\210\330UM7\202I\332"
@@ -554,7 +554,7 @@
 	.ascii	"\274\314t\332\313\306\262\251d\302K\215dS\231\311\221"
 	.ascii	"\321\204\227\036OO%\306\242I\372\007\211\012\300l"
 	.text
-	.section	.gnu.lto_sdcard_endWriteBlocks.41124503,"e",%progbits
+	.section	.gnu.lto_sdcard_endWriteBlocks.4158ef25,"e",%progbits
 	.ascii	"x\234\215S\315k\023A\024\237\337\314\356\354\246m<\364"
 	.ascii	"\032\220z\021\212\330\004\374\007\274\372W\224\230\364"
 	.ascii	"\020\260\025\022\361\330N\323\202\225\224\212BIs\010"
@@ -591,7 +591,7 @@
 	.ascii	"O\234\355?\035M\016\014\016\234\213\236\351\213\261"
 	.ascii	"?\371a4\301"
 	.text
-	.section	.gnu.lto_sdcardSdio_beginWriteBlocks.41124503,"e",%progbits
+	.section	.gnu.lto_sdcardSdio_beginWriteBlocks.4158ef25,"e",%progbits
 	.ascii	"x\234\215T\337KSq\024\377\236\373\275\333\275\233\233"
 	.ascii	"\217!\254\007\241\007\221\302\255z\251\267\300\247\376"
 	.ascii	"\012\231\333\036$\235\260Y\364\020x7G\265\234\232\241"
@@ -637,7 +637,7 @@
 	.ascii	"E\305V\227\243\314Qa--\260\021}qi\271\355\314i\247\335"
 	.ascii	"q^]\026\226\237uV\374\005C\350\231\262"
 	.text
-	.section	.gnu.lto_sdcardSdio_readBlock.part.0.41124503,"e",%progbits
+	.section	.gnu.lto_sdcardSdio_readBlock.part.0.4158ef25,"e",%progbits
 	.ascii	"x\234\215\224\357kSW\030\307\317\367\234{oobZ_\364\315"
 	.ascii	" \214\011[\025\331h\003c\357}1\030\276r\177\200\340"
 	.ascii	"n\223\010\305\252\220\304\261w\036\333\254u\2138\361"
@@ -690,7 +690,7 @@
 	.ascii	";\315\315\215NxK\240\030|\354$\234\177\0014\262\366"
 	.ascii	"\224"
 	.text
-	.section	.gnu.lto_sdcardSdio_readBlock.41124503,"e",%progbits
+	.section	.gnu.lto_sdcardSdio_readBlock.4158ef25,"e",%progbits
 	.ascii	"x\234\215\225\357OSW\030\307\317\367\236\373\253x\013"
 	.ascii	"\216\241\313\322,\362bJt\0114\361\325\222\275\360\305"
 	.ascii	"\336\370\017\354\325\022S\012&D\324\244\305e\257\364"
@@ -755,7 +755,7 @@
 	.ascii	"\367\030\313\203\317]e.\325[\346*;\340\375\027ch\241"
 	.ascii	"\206"
 	.text
-	.section	.gnu.lto_sdcardSdio_poll.part.0.41124503,"e",%progbits
+	.section	.gnu.lto_sdcardSdio_poll.part.0.4158ef25,"e",%progbits
 	.ascii	"x\234\225\231[T\024G\032\200\373\257\036\346\3160\334"
 	.ascii	"/\303\375f\314&\3129\311n6\017\273'{\366i\317\236=\273"
 	.ascii	"\217{M\216\033}\310\236d\263G\367\354k\032D\020\301"
@@ -925,7 +925,7 @@
 	.ascii	"\322%\357-\371\367\242w\027\274-\231\027\277\377\273"
 	.ascii	"\367\227.\371/\305\330\331\351"
 	.text
-	.section	.gnu.lto_sdcardSdio_poll.41124503,"e",%progbits
+	.section	.gnu.lto_sdcardSdio_poll.4158ef25,"e",%progbits
 	.ascii	"x\234\215\221\317k\023A\024\307\337w\336\356\272\376"
 	.ascii	"(\010\305S@\204\236\252\220\004\364\017\020\004o\375"
 	.ascii	"\027Zb\222C\300\032\330\210G3I#*\206*\332\322V\232F"
@@ -955,7 +955,7 @@
 	.ascii	"I\247\202L_!\223\313\367\035H\005\331\376\354\341\324"
 	.ascii	"\301x\232\274L\276'\037d\277\003b\320\325T"
 	.text
-	.section	.gnu.lto_cache_write.41124503,"e",%progbits
+	.section	.gnu.lto_cache_write.4158ef25,"e",%progbits
 	.ascii	"x\234\215R\317KTQ\024>\337;o\336\374p\334\012!D\213"
 	.ascii	"@$\230\001i\327\246?\243\235\214\316\010B\026\274\251"
 	.ascii	"\266\336\031\007\005\215\231\215%B\2171\006Q*\251\300"
@@ -989,7 +989,7 @@
 	.ascii	"7\273{\022vj u+q=\326KV\317\355\276\276\224}\014wO\373"
 	.ascii	"\303"
 	.text
-	.section	.gnu.lto_sdcardSdio_writeBlock.part.0.41124503,"e",%progbits
+	.section	.gnu.lto_sdcardSdio_writeBlock.part.0.4158ef25,"e",%progbits
 	.ascii	"x\234\225X[P\224G\026\376O\367?\367\013\010\010\310"
 	.ascii	"\240X\345Z.\271(\251}\311\326\356\203\017\373\260y\330"
 	.ascii	"\252}\332\332\227\254\205@j\255\030\251B\223\332\267"
@@ -1114,7 +1114,7 @@
 	.ascii	"\235\373\247\334\274\034\233\200\257\312\312\375p\335"
 	.ascii	"\206\377\001\250\276\013j"
 	.text
-	.section	.gnu.lto_sdcardSdio_writeBlock.41124503,"e",%progbits
+	.section	.gnu.lto_sdcardSdio_writeBlock.4158ef25,"e",%progbits
 	.ascii	"x\234\215TolSU\024\277\277w_\337{\355\332\315\304h\242"
 	.ascii	"Kt\011&\013\032\267\031>\371\205\360\301/|\360\253\237"
 	.ascii	"\214\244kK\2620X\322\2411\372\301\333\256\021\227-\030"
@@ -1174,7 +1174,7 @@
 	.ascii	"\315\355\333#Q'\024\254\255\255\016\206v\370\013\306"
 	.ascii	"+\301\335A+\\\367j]4\3627\232\322\331\364"
 	.text
-	.section	.gnu.lto_cache_getCount.41124503,"e",%progbits
+	.section	.gnu.lto_cache_getCount.4158ef25,"e",%progbits
 	.ascii	"x\234E\217OK\002Q\024\305\357\2317\332\030\010\355Z"
 	.ascii	"H\3202\211\234\257\320\262o!\243\343B\310\212\231h\353"
 	.ascii	"s\264\0212\314\026%-d\010\211\332E\333\354\317\264("
@@ -1196,7 +1196,7 @@
 	.ascii	"\345\330i\327\316/\2473\226\223+\344V\255\305T\226~"
 	.ascii	"\001\027\301v!"
 	.text
-	.section	.gnu.lto_cache_reset.41124503,"e",%progbits
+	.section	.gnu.lto_cache_reset.4158ef25,"e",%progbits
 	.ascii	"x\234MN=K\303P\024\275\347\275\032\243\350^\220\376"
 	.ascii	"\200\"6\177\301\177Rb\222!`-\274\210k_\322j\207\206"
 	.ascii	"\272(\305A\242\024\321M:\210\370\035\034\234\034\304"
@@ -1214,7 +1214,7 @@
 	.ascii	"\277\346\251\300\012\\\307Vn9p\375jy\311V^\305[\265"
 	.ascii	"\227K\016\375\000\344G`\257"
 	.text
-	.section	.gnu.lto_sdcardSdioVTable.41124503,"e",%progbits
+	.section	.gnu.lto_sdcardSdioVTable.4158ef25,"e",%progbits
 	.ascii	"x\234e\311\275J\303P\030\306\361\367\311\223/\301\325"
 	.ascii	"\311K\020\233\271W\340\354\025\224\230d\010X\205\023"
 	.ascii	"q\216\332\241 \0247s\006I\035\004\035:8\011~\325\217"
@@ -1229,7 +1229,7 @@
 	.ascii	"\312w3UDE\232\304*\355\025i\276\335\333\210U\326\317"
 	.ascii	"v\342\315N\"\1779\014\201n"
 	.text
-	.section	.gnu.lto_.symbol_nodes.41124503,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.4158ef25,"e",%progbits
 	.ascii	"x\234u\223]O\023Q\020\206\317\354\264[\350\224JK\273"
 	.ascii	"`\253P\012~po\242\211\321h\342/\021\023\023M\364'Li"
 	.ascii	"\010\2127\242\001\023\324\013%E!\"\032I\220\017\021"
@@ -1269,7 +1269,7 @@
 	.ascii	"m\026\337\306\375?5\260V*\320\357j\031\\\227\267\221"
 	.ascii	"\004\364\373\306\302\335\367\244T\305_\031N\377\006"
 	.text
-	.section	.gnu.lto_.refs.41124503,"e",%progbits
+	.section	.gnu.lto_.refs.4158ef25,"e",%progbits
 	.ascii	"x\2345\220\311N\003A\014D\353yf2\316\016\223}!\211 "
 	.ascii	"\221@$\001!\256\300\267\003\007\216\210\023\207\374"
 	.ascii	"\014\356\211\220\332v\267\335vU\331\205NH\351\200%\227"
@@ -1288,7 +1288,7 @@
 	.ascii	";\233m\224\360\017\342h\213ZY\3012\246\305\267\012_"
 	.ascii	"Y\317F6\260\205ML\226Y\256?\313\035\024\204"
 	.text
-	.section	.gnu.lto_.decls.41124503,"e",%progbits
+	.section	.gnu.lto_.decls.4158ef25,"e",%progbits
 	.ascii	"x\234\315|\013TU\327\265\350Yg\235\017\034\016`\324"
 	.ascii	"$\336\230\327\332\3246\271m\243&\351m\373::\306\213"
 	.ascii	"\301$\365\265\246\271\232\333\216\364\366\225\0228*"
@@ -1888,7 +1888,7 @@
 	.ascii	"\241\314.\317\220\331\374\256\260\304\222S\230\0156"
 	.ascii	"\277\377/\267M\203A"
 	.text
-	.section	.gnu.lto_.symtab.41124503,"e",%progbits
+	.section	.gnu.lto_.symtab.4158ef25,"e",%progbits
 	.ascii	"cacheCount\000"
 	.ascii	"\000"
 	.ascii	"\000"

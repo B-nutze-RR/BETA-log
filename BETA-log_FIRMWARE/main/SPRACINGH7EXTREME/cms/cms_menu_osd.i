@@ -21659,7 +21659,7 @@ typedef enum {
     TABLE_FAILSAFE_SWITCH_MODE,
     TABLE_CRASH_RECOVERY,
 
-
+    TABLE_CAMERA_CONTROL_MODE,
 
     TABLE_BUS_TYPE,
 
@@ -21687,7 +21687,16 @@ typedef enum {
 
 
     TABLE_ACRO_TRAINER_DEBUG,
-# 121 "./src/main/cli/settings.h"
+
+
+    TABLE_RC_SMOOTHING_TYPE,
+    TABLE_RC_SMOOTHING_DEBUG,
+    TABLE_RC_SMOOTHING_INPUT_TYPE,
+    TABLE_RC_SMOOTHING_DERIVATIVE_TYPE,
+
+
+
+
     TABLE_GYRO_HARDWARE,
 
     TABLE_SDCARD_MODE,
@@ -22706,7 +22715,7 @@ typedef struct osdConfig_s {
     uint8_t ahInvert;
     uint8_t osdProfileIndex;
     uint8_t overlay_radio_mode;
-    char profile[1][16 + 1];
+    char profile[3][16 + 1];
     uint16_t link_quality_alarm;
     int16_t rssi_dbm_alarm;
     uint8_t gps_sats_show_hdop;
@@ -23405,7 +23414,628 @@ void batteryUpdateCurrentMeter(timeUs_t currentTimeUs);
 
 const lowVoltageCutoff_t *getLowVoltageCutoff(void);
 # 53 "./src/main/cms/cms_menu_osd.c" 2
-# 307 "./src/main/cms/cms_menu_osd.c"
+
+
+static uint16_t osdConfig_item_pos[OSD_ITEM_COUNT];
+
+static const void *menuOsdActiveElemsOnEnter(displayPort_t *pDisp)
+{
+    ((void)(pDisp));
+
+    memcpy(&osdConfig_item_pos[0], &osdElementConfig()->item_pos[0], sizeof(uint16_t) * OSD_ITEM_COUNT);
+    return 
+# 62 "./src/main/cms/cms_menu_osd.c" 3 4
+          ((void *)0)
+# 62 "./src/main/cms/cms_menu_osd.c"
+              ;
+}
+
+static const void *menuOsdActiveElemsOnExit(displayPort_t *pDisp, const OSD_Entry *self)
+{
+    ((void)(pDisp));
+    ((void)(self));
+
+    memcpy(&osdElementConfigMutable()->item_pos[0], &osdConfig_item_pos[0], sizeof(uint16_t) * OSD_ITEM_COUNT);
+    osdAnalyzeActiveElements();
+    return 
+# 72 "./src/main/cms/cms_menu_osd.c" 3 4
+          ((void *)0)
+# 72 "./src/main/cms/cms_menu_osd.c"
+              ;
+}
+
+const OSD_Entry menuOsdActiveElemsEntries[] =
+{
+    {"--- ACTIV ELEM ---", OME_Label, 
+# 77 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 77 "./src/main/cms/cms_menu_osd.c"
+                                           , 
+# 77 "./src/main/cms/cms_menu_osd.c" 3 4
+                                             ((void *)0)
+# 77 "./src/main/cms/cms_menu_osd.c"
+                                                 , 0},
+    {"RSSI", OME_VISIBLE, 
+# 78 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 78 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_RSSI_VALUE], 0x04},
+
+    {"RSSI DBM", OME_VISIBLE, 
+# 80 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 80 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_RSSI_DBM_VALUE], 0x04},
+
+    {"BATTERY VOLTAGE", OME_VISIBLE, 
+# 82 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 82 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_MAIN_BATT_VOLTAGE], 0x04},
+    {"BATTERY USAGE", OME_VISIBLE, 
+# 83 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 83 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_MAIN_BATT_USAGE], 0x04},
+    {"AVG CELL VOLTAGE", OME_VISIBLE, 
+# 84 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 84 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_AVG_CELL_VOLTAGE], 0x04},
+
+
+
+    {"CROSSHAIRS", OME_VISIBLE, 
+# 88 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 88 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_CROSSHAIRS], 0x04},
+    {"HORIZON", OME_VISIBLE, 
+# 89 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 89 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_ARTIFICIAL_HORIZON], 0x04},
+    {"HORIZON SIDEBARS", OME_VISIBLE, 
+# 90 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 90 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_HORIZON_SIDEBARS], 0x04},
+    {"UP/DOWN REFERENCE", OME_VISIBLE, 
+# 91 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 91 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_UP_DOWN_REFERENCE], 0x04},
+    {"TIMER 1", OME_VISIBLE, 
+# 92 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 92 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_ITEM_TIMER_1], 0x04},
+    {"TIMER 2", OME_VISIBLE, 
+# 93 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 93 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_ITEM_TIMER_2], 0x04},
+    {"REMAINING TIME ESTIMATE", OME_VISIBLE, 
+# 94 "./src/main/cms/cms_menu_osd.c" 3 4
+                                                  ((void *)0)
+# 94 "./src/main/cms/cms_menu_osd.c"
+                                                      , &osdConfig_item_pos[OSD_REMAINING_TIME_ESTIMATE], 0x04},
+
+    {"RTC DATETIME", OME_VISIBLE, 
+# 96 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 96 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_RTC_DATETIME], 0x04},
+
+
+    {"ADJUSTMENT RANGE", OME_VISIBLE, 
+# 99 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 99 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_ADJUSTMENT_RANGE], 0x04},
+
+
+    {"CORE TEMPERATURE", OME_VISIBLE, 
+# 102 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 102 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_CORE_TEMPERATURE], 0x04},
+
+    {"ANTI GRAVITY", OME_VISIBLE, 
+# 104 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 104 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_ANTI_GRAVITY], 0x04},
+    {"FLY MODE", OME_VISIBLE, 
+# 105 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 105 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_FLYMODE], 0x04},
+    {"NAME", OME_VISIBLE, 
+# 106 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 106 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_CRAFT_NAME], 0x04},
+    {"THROTTLE", OME_VISIBLE, 
+# 107 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 107 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_THROTTLE_POS], 0x04},
+
+
+
+    {"CURRENT (A)", OME_VISIBLE, 
+# 111 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 111 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_CURRENT_DRAW], 0x04},
+    {"USED MAH", OME_VISIBLE, 
+# 112 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 112 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_MAH_DRAWN], 0x04},
+# 122 "./src/main/cms/cms_menu_osd.c"
+    {"COMPASS BAR", OME_VISIBLE, 
+# 122 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 122 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_COMPASS_BAR], 0x04},
+
+
+
+
+    {"ALTITUDE", OME_VISIBLE, 
+# 127 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 127 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_ALTITUDE], 0x04},
+    {"POWER", OME_VISIBLE, 
+# 128 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 128 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_POWER], 0x04},
+    {"ROLL PID", OME_VISIBLE, 
+# 129 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 129 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_ROLL_PIDS], 0x04},
+    {"PITCH PID", OME_VISIBLE, 
+# 130 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 130 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_PITCH_PIDS], 0x04},
+    {"YAW PID", OME_VISIBLE, 
+# 131 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 131 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_YAW_PIDS], 0x04},
+    {"PROFILES", OME_VISIBLE, 
+# 132 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 132 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_PIDRATE_PROFILE], 0x04},
+
+    {"PID PROFILE NAME", OME_VISIBLE, 
+# 134 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 134 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_PID_PROFILE_NAME], 0x04},
+    {"RATE PROFILE NAME", OME_VISIBLE, 
+# 135 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 135 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_RATE_PROFILE_NAME], 0x04},
+
+
+    {"OSD PROFILE NAME", OME_VISIBLE, 
+# 138 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 138 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_PROFILE_NAME], 0x04},
+
+    {"DEBUG", OME_VISIBLE, 
+# 140 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 140 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_DEBUG], 0x04},
+    {"WARNINGS", OME_VISIBLE, 
+# 141 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 141 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_WARNINGS], 0x04},
+    {"DISARMED", OME_VISIBLE, 
+# 142 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 142 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_DISARMED], 0x04},
+    {"PIT ANG", OME_VISIBLE, 
+# 143 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 143 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_PITCH_ANGLE], 0x04},
+    {"ROL ANG", OME_VISIBLE, 
+# 144 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 144 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_ROLL_ANGLE], 0x04},
+    {"HEADING", OME_VISIBLE, 
+# 145 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 145 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_NUMERICAL_HEADING], 0x04},
+
+    {"VARIO", OME_VISIBLE, 
+# 147 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 147 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_NUMERICAL_VARIO], 0x04},
+
+    {"G-FORCE", OME_VISIBLE, 
+# 149 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 149 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_G_FORCE], 0x04},
+    {"MOTOR DIAGNOSTIC", OME_VISIBLE, 
+# 150 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 150 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_MOTOR_DIAG], 0x04},
+
+    {"LOG STATUS", OME_VISIBLE, 
+# 152 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 152 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_LOG_STATUS], 0x04},
+
+    {"FLIP ARROW", OME_VISIBLE, 
+# 154 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 154 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_FLIP_ARROW], 0x04},
+
+    {"LINK QUALITY", OME_VISIBLE, 
+# 156 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 156 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_LINK_QUALITY], 0x04},
+
+
+    {"STICK OVERLAY LEFT", OME_VISIBLE, 
+# 159 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 159 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_STICK_OVERLAY_LEFT], 0x04},
+    {"STICK OVERLAY RIGHT",OME_VISIBLE, 
+# 160 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 160 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_STICK_OVERLAY_RIGHT], 0x04},
+
+    {"DISPLAY NAME", OME_VISIBLE, 
+# 162 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 162 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_DISPLAY_NAME], 0x04},
+    {"RC CHANNELS", OME_VISIBLE, 
+# 163 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 163 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_RC_CHANNELS], 0x04},
+    {"CAMERA FRAME", OME_VISIBLE, 
+# 164 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 164 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_CAMERA_FRAME], 0x04},
+    {"TOTAL FLIGHTS", OME_VISIBLE, 
+# 165 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 165 "./src/main/cms/cms_menu_osd.c"
+                                           , &osdConfig_item_pos[OSD_TOTAL_FLIGHTS], 0x04},
+    {"BACK", OME_Back, 
+# 166 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 166 "./src/main/cms/cms_menu_osd.c"
+                                           , 
+# 166 "./src/main/cms/cms_menu_osd.c" 3 4
+                                             ((void *)0)
+# 166 "./src/main/cms/cms_menu_osd.c"
+                                                 , 0},
+    {
+# 167 "./src/main/cms/cms_menu_osd.c" 3 4
+    ((void *)0)
+# 167 "./src/main/cms/cms_menu_osd.c"
+        , OME_END, 
+# 167 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 167 "./src/main/cms/cms_menu_osd.c"
+                                           , 
+# 167 "./src/main/cms/cms_menu_osd.c" 3 4
+                                             ((void *)0)
+# 167 "./src/main/cms/cms_menu_osd.c"
+                                                 , 0}
+};
+
+static CMS_Menu menuOsdActiveElems = {
+
+
+
+
+    .onEnter = menuOsdActiveElemsOnEnter,
+    .onExit = menuOsdActiveElemsOnExit,
+    .onDisplayUpdate = 
+# 177 "./src/main/cms/cms_menu_osd.c" 3 4
+                      ((void *)0)
+# 177 "./src/main/cms/cms_menu_osd.c"
+                          ,
+    .entries = menuOsdActiveElemsEntries
+};
+
+static uint8_t osdConfig_rssi_alarm;
+static uint16_t osdConfig_link_quality_alarm;
+static uint8_t osdConfig_rssi_dbm_alarm;
+static uint16_t osdConfig_cap_alarm;
+static uint16_t osdConfig_alt_alarm;
+static uint16_t osdConfig_distance_alarm;
+static uint8_t batteryConfig_vbatDurationForWarning;
+static uint8_t batteryConfig_vbatDurationForCritical;
+
+static const void *menuAlarmsOnEnter(displayPort_t *pDisp)
+{
+    ((void)(pDisp));
+
+    osdConfig_rssi_alarm = osdConfig()->rssi_alarm;
+    osdConfig_link_quality_alarm = osdConfig()->link_quality_alarm;
+    osdConfig_rssi_dbm_alarm = osdConfig()->rssi_dbm_alarm;
+    osdConfig_cap_alarm = osdConfig()->cap_alarm;
+    osdConfig_alt_alarm = osdConfig()->alt_alarm;
+    osdConfig_distance_alarm = osdConfig()->distance_alarm;
+    batteryConfig_vbatDurationForWarning = batteryConfig()->vbatDurationForWarning;
+    batteryConfig_vbatDurationForCritical = batteryConfig()->vbatDurationForCritical;
+
+    return 
+# 203 "./src/main/cms/cms_menu_osd.c" 3 4
+          ((void *)0)
+# 203 "./src/main/cms/cms_menu_osd.c"
+              ;
+}
+
+static const void *menuAlarmsOnExit(displayPort_t *pDisp, const OSD_Entry *self)
+{
+    ((void)(pDisp));
+    ((void)(self));
+
+    osdConfigMutable()->rssi_alarm = osdConfig_rssi_alarm;
+    osdConfigMutable()->link_quality_alarm = osdConfig_link_quality_alarm;
+    osdConfigMutable()->rssi_dbm_alarm = osdConfig_rssi_dbm_alarm;
+    osdConfigMutable()->cap_alarm = osdConfig_cap_alarm;
+    osdConfigMutable()->alt_alarm = osdConfig_alt_alarm;
+    osdConfigMutable()->distance_alarm = osdConfig_distance_alarm;
+    batteryConfigMutable()->vbatDurationForWarning = batteryConfig_vbatDurationForWarning;
+    batteryConfigMutable()->vbatDurationForCritical = batteryConfig_vbatDurationForCritical;
+
+    return 
+# 220 "./src/main/cms/cms_menu_osd.c" 3 4
+          ((void *)0)
+# 220 "./src/main/cms/cms_menu_osd.c"
+              ;
+}
+
+const OSD_Entry menuAlarmsEntries[] =
+{
+    {"--- ALARMS ---", OME_Label, 
+# 225 "./src/main/cms/cms_menu_osd.c" 3 4
+                                 ((void *)0)
+# 225 "./src/main/cms/cms_menu_osd.c"
+                                     , 
+# 225 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 225 "./src/main/cms/cms_menu_osd.c"
+                                           , 0},
+    {"RSSI", OME_UINT8, 
+# 226 "./src/main/cms/cms_menu_osd.c" 3 4
+                            ((void *)0)
+# 226 "./src/main/cms/cms_menu_osd.c"
+                                , &(OSD_UINT8_t){&osdConfig_rssi_alarm, 5, 90, 5}, 0},
+    {"LINK QUALITY", OME_UINT16, 
+# 227 "./src/main/cms/cms_menu_osd.c" 3 4
+                                 ((void *)0)
+# 227 "./src/main/cms/cms_menu_osd.c"
+                                     , &(OSD_UINT16_t){&osdConfig_link_quality_alarm, 5, 300, 5}, 0},
+    {"RSSI DBM", OME_UINT8, 
+# 228 "./src/main/cms/cms_menu_osd.c" 3 4
+                            ((void *)0)
+# 228 "./src/main/cms/cms_menu_osd.c"
+                                , &(OSD_UINT8_t){&osdConfig_rssi_dbm_alarm, 5, 130, 5}, 0},
+    {"MAIN BAT", OME_UINT16, 
+# 229 "./src/main/cms/cms_menu_osd.c" 3 4
+                            ((void *)0)
+# 229 "./src/main/cms/cms_menu_osd.c"
+                                , &(OSD_UINT16_t){&osdConfig_cap_alarm, 50, 30000, 50}, 0},
+    {"MAX ALT", OME_UINT16, 
+# 230 "./src/main/cms/cms_menu_osd.c" 3 4
+                            ((void *)0)
+# 230 "./src/main/cms/cms_menu_osd.c"
+                                , &(OSD_UINT16_t){&osdConfig_alt_alarm, 1, 200, 1}, 0},
+    {"MAX DISTANCE", OME_UINT16, 
+# 231 "./src/main/cms/cms_menu_osd.c" 3 4
+                                ((void *)0)
+# 231 "./src/main/cms/cms_menu_osd.c"
+                                    , &(OSD_UINT16_t){&osdConfig_distance_alarm, 0, 
+# 231 "./src/main/cms/cms_menu_osd.c" 3 4
+                                                                                    (0xffff)
+# 231 "./src/main/cms/cms_menu_osd.c"
+                                                                                              , 10}, 0},
+    {"VBAT WARN DUR", OME_UINT8, 
+# 232 "./src/main/cms/cms_menu_osd.c" 3 4
+                                ((void *)0)
+# 232 "./src/main/cms/cms_menu_osd.c"
+                                    , &(OSD_UINT8_t){ &batteryConfig_vbatDurationForWarning, 0, 200, 1 }, 0 },
+    {"VBAT CRIT DUR", OME_UINT8, 
+# 233 "./src/main/cms/cms_menu_osd.c" 3 4
+                                ((void *)0)
+# 233 "./src/main/cms/cms_menu_osd.c"
+                                    , &(OSD_UINT8_t){ &batteryConfig_vbatDurationForCritical, 0, 200, 1 }, 0 },
+    {"BACK", OME_Back, 
+# 234 "./src/main/cms/cms_menu_osd.c" 3 4
+                      ((void *)0)
+# 234 "./src/main/cms/cms_menu_osd.c"
+                          , 
+# 234 "./src/main/cms/cms_menu_osd.c" 3 4
+                            ((void *)0)
+# 234 "./src/main/cms/cms_menu_osd.c"
+                                , 0},
+    {
+# 235 "./src/main/cms/cms_menu_osd.c" 3 4
+    ((void *)0)
+# 235 "./src/main/cms/cms_menu_osd.c"
+        , OME_END, 
+# 235 "./src/main/cms/cms_menu_osd.c" 3 4
+                   ((void *)0)
+# 235 "./src/main/cms/cms_menu_osd.c"
+                       , 
+# 235 "./src/main/cms/cms_menu_osd.c" 3 4
+                         ((void *)0)
+# 235 "./src/main/cms/cms_menu_osd.c"
+                             , 0}
+};
+
+static CMS_Menu menuAlarms = {
+
+
+
+
+    .onEnter = menuAlarmsOnEnter,
+    .onExit = menuAlarmsOnExit,
+    .onDisplayUpdate = 
+# 245 "./src/main/cms/cms_menu_osd.c" 3 4
+                      ((void *)0)
+# 245 "./src/main/cms/cms_menu_osd.c"
+                          ,
+    .entries = menuAlarmsEntries,
+};
+
+osd_timer_source_e timerSource[OSD_TIMER_COUNT];
+osd_timer_precision_e timerPrecision[OSD_TIMER_COUNT];
+uint8_t timerAlarm[OSD_TIMER_COUNT];
+
+static const void *menuTimersOnEnter(displayPort_t *pDisp)
+{
+    ((void)(pDisp));
+
+    for (int i = 0; i < OSD_TIMER_COUNT; i++) {
+        const uint16_t timer = osdConfig()->timers[i];
+        timerSource[i] = (timer & 0x0F);
+        timerPrecision[i] = ((timer >> 4) & 0x0F);
+        timerAlarm[i] = ((timer >> 8) & 0xFF);
+    }
+
+    return 
+# 264 "./src/main/cms/cms_menu_osd.c" 3 4
+          ((void *)0)
+# 264 "./src/main/cms/cms_menu_osd.c"
+              ;
+}
+
+static const void *menuTimersOnExit(displayPort_t *pDisp, const OSD_Entry *self)
+{
+    ((void)(pDisp));
+    ((void)(self));
+
+    for (int i = 0; i < OSD_TIMER_COUNT; i++) {
+        osdConfigMutable()->timers[i] = ((timerSource[i] & 0x0F) | ((timerPrecision[i] & 0x0F) << 4) | ((timerAlarm[i] & 0xFF ) << 8));
+    }
+
+    return 
+# 276 "./src/main/cms/cms_menu_osd.c" 3 4
+          ((void *)0)
+# 276 "./src/main/cms/cms_menu_osd.c"
+              ;
+}
+
+static const char * osdTimerPrecisionNames[] = {"SCND", "HDTH"};
+
+const OSD_Entry menuTimersEntries[] =
+{
+    {"--- TIMERS ---", OME_Label, 
+# 283 "./src/main/cms/cms_menu_osd.c" 3 4
+                                 ((void *)0)
+# 283 "./src/main/cms/cms_menu_osd.c"
+                                     , 
+# 283 "./src/main/cms/cms_menu_osd.c" 3 4
+                                       ((void *)0)
+# 283 "./src/main/cms/cms_menu_osd.c"
+                                           , 0},
+    {"1 SRC", OME_TAB, 
+# 284 "./src/main/cms/cms_menu_osd.c" 3 4
+                                 ((void *)0)
+# 284 "./src/main/cms/cms_menu_osd.c"
+                                     , &(OSD_TAB_t){&timerSource[OSD_TIMER_1], OSD_TIMER_SRC_COUNT - 1, osdTimerSourceNames}, 0 },
+    {"1 PREC", OME_TAB, 
+# 285 "./src/main/cms/cms_menu_osd.c" 3 4
+                                 ((void *)0)
+# 285 "./src/main/cms/cms_menu_osd.c"
+                                     , &(OSD_TAB_t){&timerPrecision[OSD_TIMER_1], OSD_TIMER_PREC_COUNT - 1, osdTimerPrecisionNames}, 0},
+    {"1 ALARM", OME_UINT8, 
+# 286 "./src/main/cms/cms_menu_osd.c" 3 4
+                                 ((void *)0)
+# 286 "./src/main/cms/cms_menu_osd.c"
+                                     , &(OSD_UINT8_t){&timerAlarm[OSD_TIMER_1], 0, 0xFF, 1}, 0},
+    {"2 SRC", OME_TAB, 
+# 287 "./src/main/cms/cms_menu_osd.c" 3 4
+                                 ((void *)0)
+# 287 "./src/main/cms/cms_menu_osd.c"
+                                     , &(OSD_TAB_t){&timerSource[OSD_TIMER_2], OSD_TIMER_SRC_COUNT - 1, osdTimerSourceNames}, 0 },
+    {"2 PREC", OME_TAB, 
+# 288 "./src/main/cms/cms_menu_osd.c" 3 4
+                                 ((void *)0)
+# 288 "./src/main/cms/cms_menu_osd.c"
+                                     , &(OSD_TAB_t){&timerPrecision[OSD_TIMER_2], OSD_TIMER_PREC_COUNT - 1, osdTimerPrecisionNames}, 0},
+    {"2 ALARM", OME_UINT8, 
+# 289 "./src/main/cms/cms_menu_osd.c" 3 4
+                                 ((void *)0)
+# 289 "./src/main/cms/cms_menu_osd.c"
+                                     , &(OSD_UINT8_t){&timerAlarm[OSD_TIMER_2], 0, 0xFF, 1}, 0},
+    {"BACK", OME_Back, 
+# 290 "./src/main/cms/cms_menu_osd.c" 3 4
+                      ((void *)0)
+# 290 "./src/main/cms/cms_menu_osd.c"
+                          , 
+# 290 "./src/main/cms/cms_menu_osd.c" 3 4
+                            ((void *)0)
+# 290 "./src/main/cms/cms_menu_osd.c"
+                                , 0},
+    {
+# 291 "./src/main/cms/cms_menu_osd.c" 3 4
+    ((void *)0)
+# 291 "./src/main/cms/cms_menu_osd.c"
+        , OME_END, 
+# 291 "./src/main/cms/cms_menu_osd.c" 3 4
+                   ((void *)0)
+# 291 "./src/main/cms/cms_menu_osd.c"
+                       , 
+# 291 "./src/main/cms/cms_menu_osd.c" 3 4
+                         ((void *)0)
+# 291 "./src/main/cms/cms_menu_osd.c"
+                             , 0}
+};
+
+static CMS_Menu menuTimers = {
+
+
+
+
+    .onEnter = menuTimersOnEnter,
+    .onExit = menuTimersOnExit,
+    .onDisplayUpdate = 
+# 301 "./src/main/cms/cms_menu_osd.c" 3 4
+                      ((void *)0)
+# 301 "./src/main/cms/cms_menu_osd.c"
+                          ,
+    .entries = menuTimersEntries,
+};
+
+
+
 static 
 # 307 "./src/main/cms/cms_menu_osd.c" 3 4
       _Bool 
@@ -23416,7 +24046,7 @@ static uint8_t displayPortProfileMax7456_whiteBrightness;
 
 
 
-
+static uint8_t osdConfig_osdProfileIndex;
 
 
 static displayPortBackground_e osdMenuBackgroundType;
@@ -23426,7 +24056,7 @@ static const void *cmsx_menuOsdOnEnter(displayPort_t *pDisp)
     ((void)(pDisp));
 
 
-
+    osdConfig_osdProfileIndex = osdConfig()->osdProfileIndex;
 
 
 
@@ -23449,7 +24079,7 @@ static const void *cmsx_menuOsdOnExit(displayPort_t *pDisp, const OSD_Entry *sel
     ((void)(self));
 
 
-
+    changeOsdProfileIndex(osdConfig_osdProfileIndex);
 
 
     return 
@@ -23501,7 +24131,19 @@ const OSD_Entry cmsx_menuOsdEntries[] =
                                                ((void *)0)
 # 373 "./src/main/cms/cms_menu_osd.c"
                                                    , 0},
-# 383 "./src/main/cms/cms_menu_osd.c"
+
+    {"OSD PROFILE", OME_UINT8, 
+# 375 "./src/main/cms/cms_menu_osd.c" 3 4
+                              ((void *)0)
+# 375 "./src/main/cms/cms_menu_osd.c"
+                                  , &(OSD_UINT8_t){&osdConfig_osdProfileIndex, 1, 3, 1}, 0},
+
+
+    {"ACTIVE ELEM", OME_Submenu, cmsMenuChange, &menuOsdActiveElems, 0},
+    {"TIMERS", OME_Submenu, cmsMenuChange, &menuTimers, 0},
+    {"ALARMS", OME_Submenu, cmsMenuChange, &menuAlarms, 0},
+
+
     {"INVERT", OME_Bool, cmsx_max7456Update, &displayPortProfileMax7456_invert, 0},
     {"BRT BLACK", OME_UINT8, cmsx_max7456Update, &(OSD_UINT8_t){&displayPortProfileMax7456_blackBrightness, 0, 3, 1}, 0},
     {"BRT WHITE", OME_UINT8, cmsx_max7456Update, &(OSD_UINT8_t){&displayPortProfileMax7456_whiteBrightness, 0, 3, 1}, 0},

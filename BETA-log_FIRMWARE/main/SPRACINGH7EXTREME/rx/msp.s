@@ -9,20 +9,20 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"msp.c"
-	.section	.gnu.lto_.profile.4111c524,"e",%progbits
+	.section	.gnu.lto_.profile.41588a16,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4111c524,"e",%progbits
+	.section	.gnu.lto_.icf.41588a16,"e",%progbits
 	.ascii	"x\234\343``dPc@\0006\2069/\367Ncg\3742\341\353af\246"
 	.ascii	"\367=\023\376q0w5\0379\311\312r\366\367\356y\\\254\027"
 	.ascii	"\027=\277\302\316\000\000jU\022s"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4111c524,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41588a16,"e",%progbits
 	.ascii	"x\234\343``d0d@\000\026\006&FF&\206\371\314\014\365"
 	.ascii	"\363\231\031\201l\006 \233\211\005\310`\006\012\200"
 	.ascii	"0\013+T\005+\220\303\304\000\000\241\376\006\332"
 	.text
-	.section	.gnu.lto_.inline.4111c524,"e",%progbits
+	.section	.gnu.lto_.inline.41588a16,"e",%progbits
 	.ascii	"x\234\343``d\230\305\200\000,@\324\000\004\314)\214"
 	.ascii	"\214\214\034\214\014\014LL .S2\003\003\033\230\221\302"
 	.ascii	"\304\300\004V\307\304\300>\365\316\274WL\251\214\014"
@@ -31,11 +31,11 @@
 	.ascii	"\215\014\254\014\354`KAf\261@\214``\340\0023R\241f1"
 	.ascii	"\000\000QW \256"
 	.text
-	.section	.gnu.lto_.pureconst.4111c524,"e",%progbits
+	.section	.gnu.lto_.pureconst.41588a16,"e",%progbits
 	.ascii	"x\234\343``d\340e```ahaa\232\301\3022\223\205u\026\013"
 	.ascii	"\000\021\017\002\205"
 	.text
-	.section	.gnu.lto_rxMspReadRawRC.4111c524,"e",%progbits
+	.section	.gnu.lto_rxMspReadRawRC.41588a16,"e",%progbits
 	.ascii	"x\234EPMK[A\024\275\347\315K|j\"]TE\202\220E1\246\013"
 	.ascii	"#\351\037\3607\330_\020B\240.\022$Fp\347\344i\223E\212"
 	.ascii	"\037`\215.b(\342\307F\214P\020\264\325\247\215\251\025"
@@ -61,7 +61,7 @@
 	.ascii	"\221\201D(9\022\212\017\015\366D\251%9\322?\234H\015"
 	.ascii	"\304c\257S\221TL\217\276\211$\036\000\207'\241\037"
 	.text
-	.section	.gnu.lto_rxMspFrameStatus.4111c524,"e",%progbits
+	.section	.gnu.lto_rxMspFrameStatus.41588a16,"e",%progbits
 	.ascii	"x\234\215R\317K\224Q\024\275\347\3357\323\247\251+\303"
 	.ascii	"\344\333$\030\242\013Gp\023\270\351o\250\277@\304\205"
 	.ascii	"\213\221\030Gp\347\233o&D\032\246\215?r1\315b\230~\254"
@@ -89,7 +89,7 @@
 	.ascii	"Cw:\373\250!2rkx0:\020\356\277\035\355\215\366\237\000"
 	.ascii	"\235O\270\214"
 	.text
-	.section	.gnu.lto_rxMspFrameReceive.4111c524,"e",%progbits
+	.section	.gnu.lto_rxMspFrameReceive.41588a16,"e",%progbits
 	.ascii	"x\234\215T[kTW\024\336\337^\347\226q&\304\"#%\010>("
 	.ascii	"\301\013\006\362\344S)\370'\212o!(\025\232T\242B\337"
 	.ascii	"\3343\211\0115\251\212\244\015-\216)\216\223Fhj\014"
@@ -137,7 +137,7 @@
 	.ascii	"\224\273\265\271\276qK\274\341\363\372\246\246-_l\372"
 	.ascii	"rW\323Nl\373\027\276n\225\330"
 	.text
-	.section	.gnu.lto_rxMspInit.4111c524,"e",%progbits
+	.section	.gnu.lto_rxMspInit.41588a16,"e",%progbits
 	.ascii	"x\234\235\221_KTA\030\306\337\347\314\331\263Gm7\220"
 	.ascii	"\240B\202\275\010\026ov\375\010A\337 ?\201\210\305^"
 	.ascii	"\354\026\353\006{\347\234\243ed\331\215i\013\235\316"
@@ -168,7 +168,7 @@
 	.ascii	"\342\211\263\271B&\333\325^\350(t\375\001\306\026\376"
 	.ascii	"\253"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4111c524,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41588a16,"e",%progbits
 	.ascii	"x\234\343``dhd\000\002\246\035\334\365\014\015@\300"
 	.ascii	"\3028\341\034\003C=\003\303\256\005\216@I `\335\306"
 	.ascii	"\315\320\240\304\300\300\314\264\213\273\236\021E\315"
@@ -176,12 +176,12 @@
 	.ascii	"\360k\205\005\334\240\006\250AL\273\271\353\231Q\355"
 	.ascii	"\200I1\000\000~\307 \001"
 	.text
-	.section	.gnu.lto_.refs.4111c524,"e",%progbits
+	.section	.gnu.lto_.refs.41588a16,"e",%progbits
 	.ascii	"x\234\015\310\261\021\0000\010\0031\277\015w\241\310"
 	.ascii	"\020\331\177\311\320\250\320\021z\322*l+\220\244\240"
 	.ascii	"a\310u\357\331\245\017\012\350\000|"
 	.text
-	.section	.gnu.lto_.decls.4111c524,"e",%progbits
+	.section	.gnu.lto_.decls.41588a16,"e",%progbits
 	.ascii	"x\234\315Y{PSY\232\277\347\036\002!\004\242\350\214"
 	.ascii	"\316hMuM9==\325;M;\275\2733\177m\315\254n\367\316T\365"
 	.ascii	"\326\224\323\263\265;\377\244\323!H\252!a\222\340\262"
@@ -401,7 +401,7 @@
 	.ascii	"l\201\372\213\244=\277\205E\242M\226Gb\024\241\325v"
 	.ascii	"\233\345\177\001\276\235\323*"
 	.text
-	.section	.gnu.lto_.symtab.4111c524,"e",%progbits
+	.section	.gnu.lto_.symtab.41588a16,"e",%progbits
 	.ascii	"rxMspReadRawRC\000"
 	.ascii	"\000"
 	.ascii	"\000"

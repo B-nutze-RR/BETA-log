@@ -9,15 +9,15 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"initialisation.c"
-	.section	.gnu.lto_.profile.41123aea,"e",%progbits
+	.section	.gnu.lto_.profile.4158ed3d,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.41123aea,"e",%progbits
+	.section	.gnu.lto_.icf.4158ed3d,"e",%progbits
 	.ascii	"x\234\343``d\220b@\000\026\206\306'\007\347\2611\036"
 	.ascii	"Z\3217\237\205\265c\341\356\315\334l`\222\001\000\226"
 	.ascii	"\335\012\335"
 	.text
-	.section	.gnu.lto_.jmpfuncs.41123aea,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.4158ed3d,"e",%progbits
 	.ascii	"x\234\343``d\310e@\000&\010\305\010\304,\314\323\231"
 	.ascii	"\031\233\232\327/\3425\320\233\317\314\260\230\231a"
 	.ascii	"\0063Xn\027\243\001\003\343\001\026F\006 \376\363\377"
@@ -25,18 +25,18 @@
 	.ascii	"0\356f\224\006a\006\270\272\377\214`\263\341\334\377"
 	.ascii	" \243\000!\323\030\302"
 	.text
-	.section	.gnu.lto_.inline.41123aea,"e",%progbits
+	.section	.gnu.lto_.inline.4158ed3d,"e",%progbits
 	.ascii	"x\234\343``d\250e@\000&\006\006\266\006 `\312`\004\261"
 	.ascii	"\033\201\314:\230P\012\023H\210\201\201\221\013\203"
 	.ascii	"d\020\230\320z}>3H\023\307\324;\363V1\247`\327\304\314"
 	.ascii	"\003\266c\202\037\204\313\304\015\222\231\340\007\246"
 	.ascii	"\031\030\000\205\000\022\254"
 	.text
-	.section	.gnu.lto_.pureconst.41123aea,"e",%progbits
+	.section	.gnu.lto_.pureconst.4158ed3d,"e",%progbits
 	.ascii	"x\234\343``d`g```b\230\301\3028\203\005\000\005.\001"
 	.ascii	"L"
 	.text
-	.section	.gnu.lto_sensorsPreInit.41123aea,"e",%progbits
+	.section	.gnu.lto_sensorsPreInit.4158ed3d,"e",%progbits
 	.ascii	"x\234u\216?K\003Q\020\304g\336&\361,\322\012\026v\""
 	.ascii	"\004!\367\025\374*g\260x\240\027\310K\237w1\0200\001"
 	.ascii	"+\011)\344\002\026\246\023K\377\037\251\255,--\004A"
@@ -52,7 +52,7 @@
 	.ascii	"\254\206\256Q\013\017\"\033\207n/v\365\206\013ml\233"
 	.ascii	"6\332\267.j\332z\\\255\341\033\344\254b\222"
 	.text
-	.section	.gnu.lto_sensorsAutodetect.41123aea,"e",%progbits
+	.section	.gnu.lto_sensorsAutodetect.4158ed3d,"e",%progbits
 	.ascii	"x\234m\222\313O\023Q\024\306\3577g:\014\205\3267\232"
 	.ascii	"\340\202D\211\301\005m\302\306\304\015\013\377\221\212"
 	.ascii	"\215i\242mB\273q\305\245\017\345Q\036Q\0114\006\247"
@@ -89,7 +89,7 @@
 	.ascii	"C\211H,\332\336%\032/^\351\216\235\013'\302]\211\360"
 	.ascii	"\205?\264\023%O"
 	.text
-	.section	.gnu.lto_.symbol_nodes.41123aea,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.4158ed3d,"e",%progbits
 	.ascii	"x\234m\320M\016\001A\020\206\341\257\272\347W\341\012"
 	.ascii	"D\034\204\304Q\334\243F2\261v\010\013gp\010\013g\260"
 	.ascii	"\305\370g,\350\351fW\265\2517\375$\335Ig \314\011\200"
@@ -101,10 +101,10 @@
 	.ascii	"\325+\242\222,\265\303\341\322%\207\334\271l\205,\023"
 	.ascii	"|\001\304\016\214i"
 	.text
-	.section	.gnu.lto_.refs.41123aea,"e",%progbits
+	.section	.gnu.lto_.refs.4158ed3d,"e",%progbits
 	.ascii	"x\234\343``d\340a```fd`bf`fcbag\000\000\0021\0005"
 	.text
-	.section	.gnu.lto_.decls.41123aea,"e",%progbits
+	.section	.gnu.lto_.decls.4158ed3d,"e",%progbits
 	.ascii	"x\234\315|YtT\331\221\240^\336\334\264\003\242\2502"
 	.ascii	"T\267\227\306\335\356\031\333\024T\267\335\037\323s"
 	.ascii	"\\\256r\271\352\214k\\\003e\2373\335\343\223N\244\004"
@@ -674,7 +674,7 @@
 	.ascii	"\211\2654y\256\223\261\377\203\221=)\3724N\304\337\332"
 	.ascii	"=\260\230yi\264\206\206\377\007\265\222\232V"
 	.text
-	.section	.gnu.lto_.symtab.41123aea,"e",%progbits
+	.section	.gnu.lto_.symtab.4158ed3d,"e",%progbits
 	.ascii	"sensorsPreInit\000"
 	.ascii	"\000"
 	.ascii	"\000"

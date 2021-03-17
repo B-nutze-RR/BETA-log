@@ -9,15 +9,15 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"acceleration.c"
-	.section	.gnu.lto_.profile.4112495f,"e",%progbits
+	.section	.gnu.lto_.profile.41589bf7,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4112495f,"e",%progbits
+	.section	.gnu.lto_.icf.41589bf7,"e",%progbits
 	.ascii	"x\234\343``dPc@\0006\206\351\367?\337\346`l~\377\341"
 	.ascii	"\035\007\323\247\351[\226q\260\315\373t\3515\023\373"
 	.ascii	"\3027s?1rt\277k\272\317\306\000\000\200\273\023)"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4112495f,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41589bf7,"e",%progbits
 	.ascii	"x\234uQ\273\012\302@\020\334\271\275<\032\365\003l\374"
 	.ascii	"\002\311\027\0320}\300*\001\213\003\005[\013;\237\251"
 	.ascii	"-\374\002\261\263\366\007\004\335\215\03241\007\313"
@@ -31,7 +31,7 @@
 	.ascii	"DC\331R\007\212\366\035\342A\370\266\327,\250\177\323"
 	.ascii	"\023&\034u\020"
 	.text
-	.section	.gnu.lto_.inline.4112495f,"e",%progbits
+	.section	.gnu.lto_.inline.41589bf7,"e",%progbits
 	.ascii	"x\234]N1\012\302@\020\234\233K\364D\003Q,-|\211/\220"
 	.ascii	"\274\300J\305D_\021\360\003W\244\261\363\011\202\"Z"
 	.ascii	"\010v6\226\202\255\215\026\276\302\27331\230-vggvwV"
@@ -45,11 +45,11 @@
 	.ascii	"(t\227\367\313\233\211\371\273\367\274\256\266L\252"
 	.ascii	"\033\337wt\204\017-!BC"
 	.text
-	.section	.gnu.lto_.pureconst.4112495f,"e",%progbits
+	.section	.gnu.lto_.pureconst.41589bf7,"e",%progbits
 	.ascii	"x\234\343``d\020````e\230\311\3024\203\205m\026\013"
 	.ascii	"\373\014\026\216Y,\000\033|\003G"
 	.text
-	.section	.gnu.lto_applyAccelerationTrims.4112495f,"e",%progbits
+	.section	.gnu.lto_applyAccelerationTrims.41589bf7,"e",%progbits
 	.ascii	"x\234\225\224\337K\024Q\024\307\357w\356\314\354\354"
 	.ascii	"\017\205\202@\222@\202\020\013\334e\241\236\373#\242"
 	.ascii	"\247(d\361AH\205\335\336\275\273\232\206\206I\024V\262"
@@ -91,7 +91,7 @@
 	.ascii	"T^\256\214V\\\251\252\255)\217\260C\331\371\271hUu\354"
 	.ascii	"\0375\273\310\265"
 	.text
-	.section	.gnu.lto_accUpdate.part.0.4112495f,"e",%progbits
+	.section	.gnu.lto_accUpdate.part.0.41589bf7,"e",%progbits
 	.ascii	"x\234\255\227[p\223\307\025\307\277\263\253\313\247"
 	.ascii	"O\237\356\222m0M\3344\016\341R[\345\245\323\267\366"
 	.ascii	"\2413\355[\037\322\207>\022\327\235z\006\314\214Mg2"
@@ -205,7 +205,7 @@
 	.ascii	"\306\346\215\2175\255o"
 	.ascii	"\374e\253c\355\023M\255\377\003\234v\243\222"
 	.text
-	.section	.gnu.lto_accGetAccumulationAverage.part.0.4112495f,"e",%progbits
+	.section	.gnu.lto_accGetAccumulationAverage.part.0.41589bf7,"e",%progbits
 	.ascii	"x\234\215T]KTQ\024=\353\354\3731\214\012A\021\301 H"
 	.ascii	"$b\205#\364\324CPo\276\365\027\032\206!\004?\302\311"
 	.ascii	"\350!\360\350\370Ae\323C\212TN\003\331\024\325\203\025"
@@ -244,7 +244,7 @@
 	.ascii	"C\015\241\226\300\331\372\346\246\232\240\330\315\343"
 	.ascii	"\326\306\326\0063>q\216\023\247CV\340|}\370786?\267"
 	.text
-	.section	.gnu.lto_accUpdate.4112495f,"e",%progbits
+	.section	.gnu.lto_accUpdate.41589bf7,"e",%progbits
 	.ascii	"x\234\215RMk\023Q\024\275g\336$\235\306\244 \250 \335"
 	.ascii	"\210(\241.\232\200kA\301\037\340\242\376\2000\006L\311"
 	.ascii	"\007\314T\267y\215\301\026+\025\245\222V\210S\010\265"
@@ -278,7 +278,7 @@
 	.ascii	"/\221Iw\233\0242/XV<\335\327\223H\305\317\332{\255L"
 	.ascii	"2y*}\356L\242\317<\337c%R\366O\310\302\376U"
 	.text
-	.section	.gnu.lto_accGetAccumulationAverage.4112495f,"e",%progbits
+	.section	.gnu.lto_accGetAccumulationAverage.41589bf7,"e",%progbits
 	.ascii	"x\234\215T\357K\\G\024\235\363\356\274_\033\305\200"
 	.ascii	"!\224.iC\251\2044%.\346C\351\207\226\366O\021\221\""
 	.ascii	"M\014\270M\3517gw\325\324\374\260\020\0146\324\355\212"
@@ -331,7 +331,7 @@
 	.ascii	"\032\0167\356\257S\225<>r\350\310A;~\367C\236x\257^"
 	.ascii	"\327~\324\220\374\027&\300\271\311"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4112495f,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41589bf7,"e",%progbits
 	.ascii	"x\234u\320=N\303@\020\005\3407\263\216\355x \221\270"
 	.ascii	"\000\021%H\234\001\016A\215\222\202\216\006\247\037"
 	.ascii	"\023\371\0004\264\320\320p\003\002$\304!\020HA\205\004"
@@ -348,14 +348,14 @@
 	.ascii	"\2167h.\206\353\226G6\024\231\200\363\207@=\362\202"
 	.ascii	"\362\220;0\241\377n\017\007\352\340\007\373h\251\207"
 	.text
-	.section	.gnu.lto_.refs.4112495f,"e",%progbits
+	.section	.gnu.lto_.refs.41589bf7,"e",%progbits
 	.ascii	"x\234%\214Q\012\302@\024\003g^7\265Xq\021\024\373'\242"
 	.ascii	"\342\331\274\377\005\\4\344k\302dA>\300\014\216\004"
 	.ascii	"g\335\343\252\375\\\2030\0256\333\177Y\310\241r\304"
 	.ascii	"\256'\274\224\327_7r#w\363 O|\231w\355\306cYm8\222f"
 	.ascii	"V\323\371\002\235\333\002\336"
 	.text
-	.section	.gnu.lto_.decls.4112495f,"e",%progbits
+	.section	.gnu.lto_.decls.41589bf7,"e",%progbits
 	.ascii	"x\234\245Z\011PTI\232\256\254\254*\240\270z\200\356"
 	.ascii	"\266\307\236\235\356^\272\347\332i\217\236k#v#\326\355"
 	.ascii	"\236\231\356\330v\246\3039bg\"6\350\022\212\226\010"
@@ -731,7 +731,7 @@
 	.ascii	"?\376\363\253\012P\274LN+\357\267\300/6)\262\230\377"
 	.ascii	"\017\230\266\2646"
 	.text
-	.section	.gnu.lto_.symtab.4112495f,"e",%progbits
+	.section	.gnu.lto_.symtab.41589bf7,"e",%progbits
 	.ascii	"acc\000"
 	.ascii	"\000"
 	.ascii	"\000"

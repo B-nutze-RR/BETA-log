@@ -9,15 +9,15 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"transponder_ir_erlt.c"
-	.section	.gnu.lto_.profile.4111f308,"e",%progbits
+	.section	.gnu.lto_.profile.4158cc08,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4111f308,"e",%progbits
+	.section	.gnu.lto_.icf.4158cc08,"e",%progbits
 	.ascii	"x\234\343``dP`@\000V\206\377\363\266\336\344e<\326\276"
 	.ascii	"\246\201\207\351\303\375\363\373\370\230\317|\275\264"
 	.ascii	"\231\203\345\345\244\233Oy\030\000\007\027\017\363"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4111f308,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.4158cc08,"e",%progbits
 	.ascii	"x\234\215\2201\012\302@\024Dg\362\2275\244\261\226\275"
 	.ascii	"\201\207T\301>\225\020,$9G\324`a/z\000\013/\340\001"
 	.ascii	",\364\377D\326h\023\027\246\330\331\371o\330\237\202"
@@ -29,7 +29,7 @@
 	.ascii	"\007A\0142\015\362\327T\233l\275,\3766.Et)\015\373\313"
 	.ascii	"0\004\007\020_\235x\001\201\375Zm"
 	.text
-	.section	.gnu.lto_.inline.4111f308,"e",%progbits
+	.section	.gnu.lto_.inline.4158cc08,"e",%progbits
 	.ascii	"x\234\343``dx\305\200\000\314\014\014\334\015\015\015"
 	.ascii	"\033\230\322\031\031\031\024\030\031\030\230X\200\334"
 	.ascii	"\006\246\024\006\006.0#\225\211\201\011\244\220\205"
@@ -42,11 +42,11 @@
 	.ascii	"\003\007\302I\375~ \310\302\013t\004s3\357\004\277\011"
 	.ascii	"~\010\247\302Y@\004\000\211,1\216"
 	.text
-	.section	.gnu.lto_.pureconst.4111f308,"e",%progbits
+	.section	.gnu.lto_.pureconst.4158cc08,"e",%progbits
 	.ascii	"x\234\343``d\340b```f\230\305\3024\213\205e\026\013"
 	.ascii	"\000\012\252\001\367"
 	.text
-	.section	.gnu.lto_transponderIrInitERLT.4111f308,"e",%progbits
+	.section	.gnu.lto_transponderIrInitERLT.4158cc08,"e",%progbits
 	.ascii	"x\234\235R]KTQ\024=\353\236\231;w\306\017\242\207(\206"
 	.ascii	"\300\207@\214p\346\255\327\376A?AD}\030\250)\256\322"
 	.ascii	"\253g&IhB_F\035\037\206;$\243\023BfTh\246]5KM3\315\350"
@@ -81,7 +81,7 @@
 	.ascii	"\215\221&\2736\336x\366L\274\276\301\256\211\3315\015"
 	.ascii	"\366\251\246\352:Q\362G\372\007\345\220A\262"
 	.text
-	.section	.gnu.lto_erltTansponderVTable.4111f308,"e",%progbits
+	.section	.gnu.lto_erltTansponderVTable.4158cc08,"e",%progbits
 	.ascii	"x\234\343``d\260f``\320f\200\200\351\314\214sW\234\371"
 	.ascii	"\317\331\302\330\324\330\321\320\360\240{53\333|f\206"
 	.ascii	"\231\314\020\271\007\207\346/a\261\334\336\320\261\240"
@@ -90,7 +90,7 @@
 	.ascii	"\212\365K\212\022\363\212\013\362\363RR\213\3423\213"
 	.ascii	"\342S\213rJ\364\222\031\000\207\265$B"
 	.text
-	.section	.gnu.lto_addBitToBuffer.4111f308,"e",%progbits
+	.section	.gnu.lto_addBitToBuffer.4158cc08,"e",%progbits
 	.ascii	"x\234\215S[KTQ\024\336\337Y\347\314\305\231\014\204"
 	.ascii	"\036\314\027\037\022\261$'{\361\255\236\353'\364 \242"
 	.ascii	"\003\015\230\311\214\025=\271g\034\033*Q\212\312)\032"
@@ -135,7 +135,7 @@
 	.ascii	"\337\334\216\322\203\245\345\376PZ\345\276\362\220\377"
 	.ascii	"@\240\254j7\002\277\000]WX\210"
 	.text
-	.section	.gnu.lto_updateTransponderDMABufferERLT.4111f308,"e",%progbits
+	.section	.gnu.lto_updateTransponderDMABufferERLT.4158cc08,"e",%progbits
 	.ascii	"x\234\225UoL\225U\030?\317{\336\367\276\357{\377p\371"
 	.ascii	"\2434\274n\261\011C7\023f[\353c\037Z\353s\365\245\266"
 	.ascii	"\346P\371@Kt\027r\363\223/\027\202\011h\177\246x1\357"
@@ -218,7 +218,7 @@
 	.ascii	"M\305o\255s\257\336TR\360\312\372\227\013\212\326B\241"
 	.ascii	"\266z\343?S\250A\341"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4111f308,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.4158cc08,"e",%progbits
 	.ascii	"x\234\343``d\330\312\000\004L+\270\353\031\032\200\200"
 	.ascii	"\205q\3029\006\206z\006\206]\015\216@I `]\315\315\320"
 	.ascii	"\250\004R\263\222\273\236\361\303\257\025\026\230J\226"
@@ -228,12 +228,12 @@
 	.ascii	"\021\210\371\345\363\253m\314\214\213\270\201\314n\260"
 	.ascii	"h\223\020\003\000\035\2415D"
 	.text
-	.section	.gnu.lto_.refs.4111f308,"e",%progbits
+	.section	.gnu.lto_.refs.4158cc08,"e",%progbits
 	.ascii	"x\234\015\304\261\021\000 \020\3030;\371\202%(8\366"
 	.ascii	"\337\021Th!\033\3761\232I\250\266\235\037=\366\362\000"
 	.ascii	"\011\003\000\235"
 	.text
-	.section	.gnu.lto_.decls.4111f308,"e",%progbits
+	.section	.gnu.lto_.decls.4158cc08,"e",%progbits
 	.ascii	"x\234\215W{P\224\327\025\377\316w\227]X^\006\250\032"
 	.ascii	"\261\031\223Ac\233A\036ib\332\351\037I\332N\232\231"
 	.ascii	"\266\351tlf\3148%+,\262SX\311\262\330\216\323\351|\260"
@@ -378,7 +378,7 @@
 	.ascii	"\251-\233\022\217y3\023\243Y\342\255\317\"#\221\335"
 	.ascii	"\377\001\021\252Y\310"
 	.text
-	.section	.gnu.lto_.symtab.4111f308,"e",%progbits
+	.section	.gnu.lto_.symtab.4158cc08,"e",%progbits
 	.ascii	"transponderIrInitERLT\000"
 	.ascii	"\000"
 	.ascii	"\000"

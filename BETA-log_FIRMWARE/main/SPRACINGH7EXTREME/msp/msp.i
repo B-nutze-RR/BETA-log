@@ -23040,7 +23040,19 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-# 351 "./src/main/flight/pid.h"
+# 343 "./src/main/flight/pid.h"
+    pt1Filter_t setpointDerivativePt1[3];
+    biquadFilter_t setpointDerivativeBiquad[3];
+    
+# 345 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 345 "./src/main/flight/pid.h"
+        setpointDerivativeLpfInitialized;
+    uint8_t rcSmoothingDebugAxis;
+    uint8_t rcSmoothingFilterType;
+
+
+
     float acroTrainerAngleLimit;
     float acroTrainerLookaheadTime;
     uint8_t acroTrainerDebugAxis;
@@ -28667,7 +28679,7 @@ typedef struct osdConfig_s {
     uint8_t ahInvert;
     uint8_t osdProfileIndex;
     uint8_t overlay_radio_mode;
-    char profile[1][16 + 1];
+    char profile[3][16 + 1];
     uint16_t link_quality_alarm;
     int16_t rssi_dbm_alarm;
     uint8_t gps_sats_show_hdop;
@@ -29312,7 +29324,7 @@ typedef enum {
     TASK_DASHBOARD,
 
 
-
+    TASK_TELEMETRY,
 
 
     TASK_LEDSTRIP,
@@ -29327,7 +29339,15 @@ typedef enum {
     TASK_OSD,
 # 127 "./src/main/scheduler/scheduler.h"
     TASK_CMS,
-# 137 "./src/main/scheduler/scheduler.h"
+
+
+
+
+
+    TASK_CAMCTRL,
+
+
+
     TASK_RCDEVICE,
 
 
@@ -34252,13 +34272,21 @@ typedef enum {
 
     IBUS_SENSOR_TYPE_ALT_FLYSKY = 0xf9,
 
-
-
-
+    IBUS_SENSOR_TYPE_GPS_FULL = 0xfd,
+    IBUS_SENSOR_TYPE_VOLT_FULL = 0xf0,
+    IBUS_SENSOR_TYPE_ACC_FULL = 0xef,
 
     IBUS_SENSOR_TYPE_UNKNOWN = 0xff
 } ibusSensorType_e;
-# 89 "./src/main/telemetry/ibus_shared.h"
+
+
+
+uint8_t respondToIbusRequest(uint8_t const * const ibusPacket);
+void initSharedIbusTelemetry(serialPort_t * port);
+
+
+
+
 
 # 89 "./src/main/telemetry/ibus_shared.h" 3 4
 _Bool 
@@ -35011,7 +35039,7 @@ static
         int currentMeterCount = 1;
 
 
-
+        currentMeterCount++;
 
         sbufWriteU8(dst, currentMeterCount);
 
@@ -35021,7 +35049,17 @@ static
         sbufWriteU8(dst, CURRENT_SENSOR_ADC);
         sbufWriteU16(dst, currentSensorADCConfig()->scale);
         sbufWriteU16(dst, currentSensorADCConfig()->offset);
-# 852 "./src/main/msp/msp.c"
+
+
+        const int8_t virtualSensorSubframeLength = 1 + 1 + 2 + 2;
+        sbufWriteU8(dst, virtualSensorSubframeLength);
+        sbufWriteU8(dst, CURRENT_METER_ID_VIRTUAL_1);
+        sbufWriteU8(dst, CURRENT_SENSOR_VIRTUAL);
+        sbufWriteU16(dst, currentSensorVirtualConfig()->scale);
+        sbufWriteU16(dst, currentSensorVirtualConfig()->offset);
+
+
+
         break;
     }
 
@@ -35151,18 +35189,18 @@ static
         sbufWriteU32(dst, osdConfig()->enabledWarnings);
 
 
-
-
-
-
-        sbufWriteU8(dst, 1);
-        sbufWriteU8(dst, 1);
+        sbufWriteU8(dst, 3);
+        sbufWriteU8(dst, osdConfig()->osdProfileIndex);
 
 
 
 
 
-        sbufWriteU8(dst, 0);
+
+
+        sbufWriteU8(dst, osdConfig()->overlay_radio_mode);
+
+
 
 
 
@@ -35418,9 +35456,9 @@ static
     case 109:
         sbufWriteU32(dst, getEstimatedAltitudeCm());
 
+        sbufWriteU16(dst, getEstimatedVario());
 
 
-        sbufWriteU16(dst, 0);
 
         break;
 
@@ -35582,28 +35620,21 @@ static
         sbufWriteU8(dst, rxConfig()->fpvCamAngleDegrees);
         sbufWriteU8(dst, rxConfig()->rcInterpolationChannels);
 
-
-
-
-
-
-
-        sbufWriteU8(dst, 0);
-        sbufWriteU8(dst, 0);
-        sbufWriteU8(dst, 0);
-        sbufWriteU8(dst, 0);
-        sbufWriteU8(dst, 0);
-
-
+        sbufWriteU8(dst, rxConfig()->rc_smoothing_type);
+        sbufWriteU8(dst, rxConfig()->rc_smoothing_input_cutoff);
+        sbufWriteU8(dst, rxConfig()->rc_smoothing_derivative_cutoff);
+        sbufWriteU8(dst, rxConfig()->rc_smoothing_input_type);
+        sbufWriteU8(dst, rxConfig()->rc_smoothing_derivative_type);
+# 1516 "./src/main/msp/msp.c"
         sbufWriteU8(dst, usbDevConfig()->type);
 
 
 
 
 
+        sbufWriteU8(dst, rxConfig()->rc_smoothing_auto_factor);
 
 
-        sbufWriteU8(dst, 0);
 
         break;
     case 75:
@@ -36825,13 +36856,25 @@ static mspResult_e mspProcessInCommand(mspDescriptor_t srcDesc, int16_t cmdMSP, 
             }
         }
         break;
-# 3124 "./src/main/msp/msp.c"
+# 3112 "./src/main/msp/msp.c"
+    case 98:
+        {
+            if ((armingFlags & (ARMED))) {
+                return MSP_RESULT_ERROR;
+            }
+
+            const uint8_t key = sbufReadU8(src);
+            cameraControlKeyPress(key, 0);
+        }
+        break;
+
+
     case 99:
         {
             const uint8_t command = sbufReadU8(src);
             uint8_t disableRunawayTakeoff = 0;
 
-            ((void)(disableRunawayTakeoff));
+
 
             if (sbufBytesRemaining(src)) {
                 disableRunawayTakeoff = sbufReadU8(src);
@@ -36843,14 +36886,18 @@ static mspResult_e mspProcessInCommand(mspDescriptor_t srcDesc, int16_t cmdMSP, 
                     disarm(DISARM_REASON_ARMING_DISABLED);
                 }
 
-
+                runawayTakeoffTemporaryDisable(
+# 3141 "./src/main/msp/msp.c" 3 4
+                                              0
+# 3141 "./src/main/msp/msp.c"
+                                                   );
 
             } else {
                 mspArmingEnableByDescriptor(srcDesc);
                 if (mspIsMspArmingEnabled()) {
                     unsetArmingDisabled(ARMING_DISABLED_MSP);
 
-
+                    runawayTakeoffTemporaryDisable(disableRunawayTakeoff);
 
                 }
             }
@@ -36929,17 +36976,17 @@ static mspResult_e mspProcessInCommand(mspDescriptor_t srcDesc, int16_t cmdMSP, 
 
             rxConfigMutable()->rcInterpolationChannels = sbufReadU8(src);
 
+            configRebootUpdateCheckU8(&rxConfigMutable()->rc_smoothing_type, sbufReadU8(src));
+            configRebootUpdateCheckU8(&rxConfigMutable()->rc_smoothing_input_cutoff, sbufReadU8(src));
+            configRebootUpdateCheckU8(&rxConfigMutable()->rc_smoothing_derivative_cutoff, sbufReadU8(src));
+            configRebootUpdateCheckU8(&rxConfigMutable()->rc_smoothing_input_type, sbufReadU8(src));
+            configRebootUpdateCheckU8(&rxConfigMutable()->rc_smoothing_derivative_type, sbufReadU8(src));
 
 
 
 
 
 
-            sbufReadU8(src);
-            sbufReadU8(src);
-            sbufReadU8(src);
-            sbufReadU8(src);
-            sbufReadU8(src);
 
         }
         if (sbufBytesRemaining(src) >= 1) {
@@ -36952,8 +36999,15 @@ static mspResult_e mspProcessInCommand(mspDescriptor_t srcDesc, int16_t cmdMSP, 
 
         }
         if (sbufBytesRemaining(src) >= 1) {
-# 3274 "./src/main/msp/msp.c"
-            sbufReadU8(src);
+
+
+
+
+
+
+            configRebootUpdateCheckU8(&rxConfigMutable()->rc_smoothing_auto_factor, constrain(sbufReadU8(src), 0, 50));
+
+
 
         }
 
@@ -37260,10 +37314,10 @@ static mspResult_e mspCommonProcessInCommand(mspDescriptor_t srcDesc, int16_t cm
                 currentSensorADCConfigMutable()->offset = sbufReadU16(src);
                 break;
 
-
-
-
-
+            case CURRENT_METER_ID_VIRTUAL_1:
+                currentSensorVirtualConfigMutable()->scale = sbufReadU16(src);
+                currentSensorVirtualConfigMutable()->offset = sbufReadU16(src);
+                break;
 
             default:
                 sbufReadU16(src);
@@ -37323,9 +37377,9 @@ static mspResult_e mspCommonProcessInCommand(mspDescriptor_t srcDesc, int16_t cm
 
 
 
+                    changeOsdProfileIndex(sbufReadU8(src));
 
 
-                    sbufReadU8(src);
 
                 }
 
@@ -37334,9 +37388,9 @@ static mspResult_e mspCommonProcessInCommand(mspDescriptor_t srcDesc, int16_t cm
 
 
 
+                    osdConfigMutable()->overlay_radio_mode = sbufReadU8(src);
 
 
-                    sbufReadU8(src);
 
 
                 }

@@ -22834,8 +22834,8 @@ int16_t currentSensorADCConfig_scale;
 int16_t currentSensorADCConfig_offset;
 
 
-
-
+int16_t currentSensorVirtualConfig_scale;
+uint16_t currentSensorVirtualConfig_offset;
 
 
 static const void *cmsx_Power_onEnter(displayPort_t *pDisp)
@@ -22855,8 +22855,8 @@ static const void *cmsx_Power_onEnter(displayPort_t *pDisp)
     currentSensorADCConfig_offset = currentSensorADCConfig()->offset;
 
 
-
-
+    currentSensorVirtualConfig_scale = currentSensorVirtualConfig()->scale;
+    currentSensorVirtualConfig_offset = currentSensorVirtualConfig()->offset;
 
 
     return 
@@ -22884,8 +22884,8 @@ static const void *cmsx_Power_onExit(displayPort_t *pDisp, const OSD_Entry *self
     currentSensorADCConfigMutable()->offset = currentSensorADCConfig_offset;
 
 
-
-
+    currentSensorVirtualConfigMutable()->scale = currentSensorVirtualConfig_scale;
+    currentSensorVirtualConfigMutable()->offset = currentSensorVirtualConfig_offset;
 
 
     return 
@@ -22952,8 +22952,16 @@ static const OSD_Entry cmsx_menuPowerEntries[] =
                                    , &(OSD_INT16_t){ &currentSensorADCConfig_offset, -32000, 32000, 5 }, 0 },
 
 
-
-
+    { "IBAT VIRT SCALE", OME_INT16, 
+# 125 "./src/main/cms/cms_menu_power.c" 3 4
+                                   ((void *)0)
+# 125 "./src/main/cms/cms_menu_power.c"
+                                       , &(OSD_INT16_t){ &currentSensorVirtualConfig_scale, -16000, 16000, 5 }, 0 },
+    { "IBAT VIRT OFFSET", OME_UINT16, 
+# 126 "./src/main/cms/cms_menu_power.c" 3 4
+                                     ((void *)0)
+# 126 "./src/main/cms/cms_menu_power.c"
+                                         , &(OSD_UINT16_t){ &currentSensorVirtualConfig_offset, 0, 16000, 5 }, 0 },
 
 
     { "BACK", OME_Back, 

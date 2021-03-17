@@ -9,14 +9,14 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"compass_hmc5883l.c"
-	.section	.gnu.lto_.profile.41118112,"e",%progbits
+	.section	.gnu.lto_.profile.41580789,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.41118112,"e",%progbits
+	.section	.gnu.lto_.icf.41580789,"e",%progbits
 	.ascii	"x\234\343``d\020f@\000f\206y\013:\356s3^\331\263+\214"
 	.ascii	"i\353\377/\213x\030\000U\350\010\311"
 	.text
-	.section	.gnu.lto_.jmpfuncs.41118112,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41580789,"e",%progbits
 	.ascii	"x\234\215\221\275j\002Q\020\205\347\314\310e\225\210"
 	.ascii	"\017`\343\013\344\235\362&\022B\012\021l\305\"\250\001"
 	.ascii	"\013\323\372SD\0235\246Hkk\021H\260\015.\326B2w\357"
@@ -32,7 +32,7 @@
 	.ascii	"\001\273V\364W\340N\373nc\027/am&\245\334\237:Ks\272"
 	.ascii	"\031\375\000\255\033\207-"
 	.text
-	.section	.gnu.lto_.inline.41118112,"e",%progbits
+	.section	.gnu.lto_.inline.41580789,"e",%progbits
 	.ascii	"x\234\343``d\330\312\200\000\314\014lR\347fn>\307\234"
 	.ascii	"\316\310\310\240\300\310\300\300$\337\275\256\377.S"
 	.ascii	"\032\003\003\347\276)w\3761\245010\201\024\262\361\003"
@@ -42,11 +42,11 @@
 	.ascii	"\275\236\016\262\237\373\333\305\017]\314X\354g\000"
 	.ascii	"\0007r\"\225"
 	.text
-	.section	.gnu.lto_.pureconst.41118112,"e",%progbits
+	.section	.gnu.lto_.pureconst.41580789,"e",%progbits
 	.ascii	"x\234\343``d\340b```f\230\305\3028\203\205i\026\013"
 	.ascii	"\000\012\224\001\362"
 	.text
-	.section	.gnu.lto_hmc5883lRead.41118112,"e",%progbits
+	.section	.gnu.lto_hmc5883lRead.41580789,"e",%progbits
 	.ascii	"x\234uTkLTG\024\236s\347\356\356]\366\345\003\210v5"
 	.ascii	"1M\011\2216@56\222\246\255M\372\243I\177\367g\323\254"
 	.ascii	"h[\323\3226P\375\353\360\210\270BP[,%\351\262*]_5\202"
@@ -112,7 +112,7 @@
 	.ascii	"[\310x\221\357c\033~\357\370\276\362q_\341\247\326\355"
 	.ascii	"\273Kv\354\334\303\267\357\376\350\177\354hd\365"
 	.text
-	.section	.gnu.lto_hmc5883lInit.41118112,"e",%progbits
+	.section	.gnu.lto_hmc5883lInit.41580789,"e",%progbits
 	.ascii	"x\234}\222\337KTA\024\307\317wf\367\356\256\355\346"
 	.ascii	"KoK\261\017\211\330\203k\210 \024\324\177\022\333*%"
 	.ascii	"\264\025.\371\352x\327\012S\014B1\241\335\273hK\365"
@@ -147,7 +147,7 @@
 	.ascii	"%\316\307\222\177\377'N'\3425\265\265\325g*\343$\023"
 	.ascii	"\261S\306\311\013\311\272\372\246_X\350\003\236"
 	.text
-	.section	.gnu.lto_hmc5883lDetect.41118112,"e",%progbits
+	.section	.gnu.lto_hmc5883lDetect.41580789,"e",%progbits
 	.ascii	"x\234\235T]O\\U\024=\353\236\3735_\305\266\232\230L"
 	.ascii	"\242<H\2326\021\30645\345\301\332\304\037b\350\264\251"
 	.ascii	"DQ\003\261o\312\201\001\351\000\231>\224\226\316\303"
@@ -209,7 +209,7 @@
 	.ascii	"\214WU\034\344\025\3017yM\345A}\337{5\373\017\034\372"
 	.ascii	"\007\260\342OK"
 	.text
-	.section	.gnu.lto_.symbol_nodes.41118112,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41580789,"e",%progbits
 	.ascii	"x\234\343``dx\302\000\004L\233\271\353\031\032\200\200"
 	.ascii	"\205q\3029\006\206z\006\206\035\013\0166\260\001\245"
 	.ascii	"A\222[\270\353\031qJn\345\256gB\221\334\325\340\010"
@@ -218,11 +218,11 @@
 	.ascii	"\261\306\205\231\221\025\235\225\002g\265023\262@\230"
 	.ascii	"K\030\231\231\240zZ\330\030\000\350\360I\366"
 	.text
-	.section	.gnu.lto_.refs.41118112,"e",%progbits
+	.section	.gnu.lto_.refs.41580789,"e",%progbits
 	.ascii	"x\234\343``d\340d```bbb\344ab\340e\000\000\001\261\000"
 	.ascii	"5"
 	.text
-	.section	.gnu.lto_.decls.41118112,"e",%progbits
+	.section	.gnu.lto_.decls.41580789,"e",%progbits
 	.ascii	"x\234\225XkPTG\026\276}{\206\031\006\030\214\230h$?"
 	.ascii	"R)R\331\252M$&\233\307\217\375\221\327nb\355\272q5\273"
 	.ascii	"\251\312\217\235L`\324\251\345U\314\350&\251\335\344"
@@ -425,7 +425,7 @@
 	.ascii	"\231d\307'+\226.5\305\252\303M\021\306\037\274\305\214"
 	.ascii	"0\005\3523@\354\353X\263\325$\311\375\037?\220gP"
 	.text
-	.section	.gnu.lto_.symtab.41118112,"e",%progbits
+	.section	.gnu.lto_.symtab.41580789,"e",%progbits
 	.ascii	"hmc5883lDetect\000"
 	.ascii	"\000"
 	.ascii	"\000"

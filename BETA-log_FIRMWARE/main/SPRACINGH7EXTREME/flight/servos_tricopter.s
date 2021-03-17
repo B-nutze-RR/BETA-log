@@ -9,27 +9,27 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"servos_tricopter.c"
-	.section	.gnu.lto_.profile.4111d1fe,"e",%progbits
+	.section	.gnu.lto_.profile.4158b372,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4111d1fe,"e",%progbits
+	.section	.gnu.lto_.icf.4158b372,"e",%progbits
 	.ascii	"x\234\343``d\020f@\000f\206\327?\177\035ea\232?\277"
 	.ascii	"\323\203\371\354\215\266\025<\014\000^$\010\272"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4111d1fe,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.4158b372,"e",%progbits
 	.ascii	"x\234\343``d\340a@\000f f\202\322\000\002v\000\036"
 	.text
-	.section	.gnu.lto_.inline.4111d1fe,"e",%progbits
+	.section	.gnu.lto_.inline.4158b372,"e",%progbits
 	.ascii	"x\234\343``d(d@\000f\006\006\326\006 `Jed`b\001\263"
 	.ascii	"R\030\030\330 \014&\006&\220\032&\006\260\004s\032#"
 	.ascii	"\210\337\010d\326\241+a\344\202\030\306\014\021\305"
 	.ascii	"\255\220\001\000g\212\026\221"
 	.text
-	.section	.gnu.lto_.pureconst.4111d1fe,"e",%progbits
+	.section	.gnu.lto_.pureconst.4158b372,"e",%progbits
 	.ascii	"x\234\343``d\340b```fhaa\232\301\302\334\300\002\000"
 	.ascii	"\011\271\001\304"
 	.text
-	.section	.gnu.lto_servosTricopterIsEnabledServoUnarmed.4111d1fe,"e",%progbits
+	.section	.gnu.lto_servosTricopterIsEnabledServoUnarmed.4158b372,"e",%progbits
 	.ascii	"x\234-\216OK\002Q\024\305\357\2317\331\264pU\255$p\023"
 	.ascii	"\341\306\021\372\002}\223\010\261\022*c\224\266^GA\372"
 	.ascii	"\203E \332Bf!\222\253\242mZ\315\252\026\265\220\010"
@@ -49,7 +49,7 @@
 	.ascii	"\263\263)g'\223]\3169\351df;\227r\342I\372\003\354\350"
 	.ascii	"m\003"
 	.text
-	.section	.gnu.lto_servosTricopterMixer.4111d1fe,"e",%progbits
+	.section	.gnu.lto_servosTricopterMixer.4158b372,"e",%progbits
 	.ascii	"x\234\343``d\330\301\300\300\240\016\304\262@\314\310"
 	.ascii	"\314\300\310\324\320\320\340\300\336\310\301\304\310"
 	.ascii	"\010f5p02\32431\3263\3663Ogf<\324\376l'\223\346r\240"
@@ -64,7 +64,7 @@
 	.ascii	"UO\277\270(Y?713O?-'3=\243D\2778\265\250,\2778\276\244"
 	.ascii	"(39\277\240$\265H/\231\001\000\030\242J\277"
 	.text
-	.section	.gnu.lto_servosTricopterInit.4111d1fe,"e",%progbits
+	.section	.gnu.lto_servosTricopterInit.4158b372,"e",%progbits
 	.ascii	"x\234\343``d\350a``P\007bY fdf`djhhp`o\344`bd\004\263"
 	.ascii	"\0328\030\031\352\231\030\353\031\373\231\24733\036"
 	.ascii	"j\177\266\223Is9P\246\341\300\364m\222\015+\0160\316"
@@ -76,18 +76,18 @@
 	.ascii	"\270(Y?713O?-'3=\243D\2778\265\250,\2778\276\244(39"
 	.ascii	"\277\240$\265H/\231\001\000\0336<\372"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4111d1fe,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.4158b372,"e",%progbits
 	.ascii	"x\234\343``d\250g\000\002\246\303\334\365\014\015@\300"
 	.ascii	"\3028\341\034\003HlW\203#P\022\010X\217q3(\200\224\034"
 	.ascii	"\341\256g\304\256\204\351(w=\023v)\306\343\334\365\314"
 	.ascii	"\377\241@\036,\315\000\264\310\201\201\201\231\211\005"
 	.ascii	"\242E\205\001\000\205b#\311"
 	.text
-	.section	.gnu.lto_.refs.4111d1fe,"e",%progbits
+	.section	.gnu.lto_.refs.4158b372,"e",%progbits
 	.ascii	"x\234\343``d`c`\000\222\014\214\214\014\000\000\321"
 	.ascii	"\000\023"
 	.text
-	.section	.gnu.lto_.decls.4111d1fe,"e",%progbits
+	.section	.gnu.lto_.decls.4158b372,"e",%progbits
 	.ascii	"x\234\215T[L\224G\024\236\263\303rY\027\241`+)4!f5&"
 	.ascii	"\255\256\244i\365\261\255\366\366\320\306x\351\353\272"
 	.ascii	"\205\0056\201]\272\373\003\366m\004\274T\203B\001\013"
@@ -175,7 +175,7 @@
 	.ascii	"\360\231\335\221jv\304Xmq\253\025\263CY.\275Sb\225\377"
 	.ascii	"\000\366&9a"
 	.text
-	.section	.gnu.lto_.symtab.4111d1fe,"e",%progbits
+	.section	.gnu.lto_.symtab.4158b372,"e",%progbits
 	.ascii	"servosTricopterIsEnabledServoUnarmed\000"
 	.ascii	"\000"
 	.ascii	"\000"

@@ -9,10 +9,10 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"system_stm32f4xx.c"
-	.section	.gnu.lto_.profile.4123edd4,"e",%progbits
+	.section	.gnu.lto_.profile.415f3f49,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4123edd4,"e",%progbits
+	.section	.gnu.lto_.icf.415f3f49,"e",%progbits
 	.ascii	"x\234\343``d(a@\000a\206\023\017\377\335cd\354\335\366"
 	.ascii	"\354\"\023\323\206\007\215\223\370\231/\316{\373\216"
 	.ascii	"\215\245a\332\225~6\326\227k&N\340a{\277\272e)'\373"
@@ -21,7 +21,7 @@
 	.ascii	"\253;\231\371\177\316\\?\237]x\303\324\007G\270D\300"
 	.ascii	"\262\242`\222\001\000s\304:\213"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4123edd4,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415f3f49,"e",%progbits
 	.ascii	"x\234}\221=\016\3020\014\205\337\213\013*\252\012\003"
 	.ascii	"c\356\012\003\023\002ue\254\004b\340\0000\264\374\364"
 	.ascii	"\030L\234\000\304\021\300Q\0015)`\311Rd\373\363\213"
@@ -35,7 +35,7 @@
 	.ascii	"\254Cg\362D\353\035\007z\234\312[Y\3732\341\334x\002"
 	.ascii	"FIq\000"
 	.text
-	.section	.gnu.lto_.inline.4123edd4,"e",%progbits
+	.section	.gnu.lto_.inline.415f3f49,"e",%progbits
 	.ascii	"x\234\225\2211K\303P\024\205\317\2757\326XM,\272(.\335"
 	.ascii	"\375%:\364O4\266R\024\374\005\362\034\304\242\240\005"
 	.ascii	"\007uR\324\352(\"\202X\020\021\204nRp\260\340PA'Q\\"
@@ -54,12 +54,12 @@
 	.ascii	"G\361\206\323\343\333\226\224TyE\367\345\332\252\224"
 	.ascii	"T\272\374]\352\206K\034*9lt~\234\033\001_y_xC"
 	.text
-	.section	.gnu.lto_.pureconst.4123edd4,"e",%progbits
+	.section	.gnu.lto_.pureconst.415f3f49,"e",%progbits
 	.ascii	"x\234\005\301\301\015\300 \014\004\301\003\326\022\222"
 	.ascii	"E\362H\007\251\032\256\017\367\307\314T\323/)U\321*"
 	.ascii	"z\3050\2308\344am\036\363\232\317\\\210J\007\250"
 	.text
-	.section	.gnu.lto___NVIC_SystemReset.4123edd4,"e",%progbits
+	.section	.gnu.lto___NVIC_SystemReset.415f3f49,"e",%progbits
 	.ascii	"x\234\205\222AH\024Q\030\307\277\377\274\267\273C\246"
 	.ascii	"\247n^\364\270\035\2349\324E*\012!\360\320\311CG\313"
 	.ascii	"q\311\205\235\335p\011\352\324[\326ZRQ(\324\355P\023"
@@ -90,7 +90,7 @@
 	.ascii	"h\367\177H7\035Ow\237p\034F\315\336tO\213}\3720E\334"
 	.ascii	"\230\233\352?C2\231:I\277\001\273\254\354\355"
 	.text
-	.section	.gnu.lto_OverclockRebootIfNecessary.part.0.4123edd4,"e",%progbits
+	.section	.gnu.lto_OverclockRebootIfNecessary.part.0.415f3f49,"e",%progbits
 	.ascii	"x\234m\222\317O\023A\024\307\347\273o\373\003l\275j"
 	.ascii	"l\242%\021\233z\350&j\242G\023.\222\350\211?\200\340"
 	.ascii	"\262bcK\233nA81\224\"F\214\277\")=4k$\015\\\324h\364"
@@ -123,7 +123,7 @@
 	.ascii	";t=t\226\271\365\270\031n\367\207\231+jDc\211^\366\007"
 	.ascii	"\3547\355\327"
 	.text
-	.section	.gnu.lto_systemClockSetHSEValue.part.0.4123edd4,"e",%progbits
+	.section	.gnu.lto_systemClockSetHSEValue.part.0.415f3f49,"e",%progbits
 	.ascii	"x\234m\222Mh\023A\024\307\347\277o\233\017\033\361\250"
 	.ascii	"R\321\024\254!\036\262`=\213\320\213=x\252\367\020\267"
 	.ascii	"[\023h\3226\233\224\344\324i\332ZE\361\003\2244\207"
@@ -157,7 +157,7 @@
 	.ascii	"C\323\243f\304\014\236\322\365@\230\271\364n3\322\356"
 	.ascii	"\2150g\324\210v\305\323\354\017'\364\357r"
 	.text
-	.section	.gnu.lto_SystemSYSCLKSource.4123edd4,"e",%progbits
+	.section	.gnu.lto_SystemSYSCLKSource.415f3f49,"e",%progbits
 	.ascii	"x\234EOMKBA\024\275gFM\242\372\001I\340*\022B\243\242"
 	.ascii	"]\320\262\177\021\021\025\021F\370\014j\325<-\355\323"
 	.ascii	"ZT\326B\036\025\342.\011Z\204Z\275\204\240\2026-Z\266"
@@ -180,7 +180,7 @@
 	.ascii	"2\242\341\236\356\261\336\331\331\340\010\375\000\333"
 	.ascii	"}\210\025"
 	.text
-	.section	.gnu.lto_SystemPLLSource.4123edd4,"e",%progbits
+	.section	.gnu.lto_SystemPLLSource.415f3f49,"e",%progbits
 	.ascii	"x\234EO\317+DQ\030\375\316\275\363\236IX\332\274\324"
 	.ascii	"\254dRfBv\312\322\177\241iB\026#y\243X\271o\306\257"
 	.ascii	"\214\037\033\014\213\361B\330\231\224\205\337\036\013"
@@ -204,7 +204,7 @@
 	.ascii	"&\232\032\273\232\007\007\033\342\364\015\314\225\210"
 	.ascii	"\214"
 	.text
-	.section	.gnu.lto_SystemInitPLLParameters.4123edd4,"e",%progbits
+	.section	.gnu.lto_SystemInitPLLParameters.415f3f49,"e",%progbits
 	.ascii	"x\234\225T\357KSQ\030>\357}\317\266\273\345F\004B`\224"
 	.ascii	"_\014\214rR}\213 \372\034\365'\204\214\005\321\264\330"
 	.ascii	"\246X_<\233k\202J\372\301R?\330\2641\012\242\262\337"
@@ -250,7 +250,7 @@
 	.ascii	"\244\273\012\275^w\201\177O\221\333\353\362\034t\035"
 	.ascii	"\330\345.r{~\003@\376\246/"
 	.text
-	.section	.gnu.lto_overclockLevels.4123edd4,"e",%progbits
+	.section	.gnu.lto_overclockLevels.415f3f49,"e",%progbits
 	.ascii	"x\234\343``dHed\000\222\0200\235\231\361\340\341I\327"
 	.ascii	"\030\373\230\347330r\001\271\367\232\346\376\340\201"
 	.ascii	"pY\200\334\276U\213_qA\270\017\230\201\374\236\336\251"
@@ -267,7 +267,7 @@
 	.ascii	"\3610\220\332\317(\315\270\217\321\222\201\361\004\220"
 	.ascii	"\000\000=\213n]"
 	.text
-	.section	.gnu.lto_OverclockRebootIfNecessary.4123edd4,"e",%progbits
+	.section	.gnu.lto_OverclockRebootIfNecessary.415f3f49,"e",%progbits
 	.ascii	"x\234]R[KTQ\024\336\353\254sf\216\323\214\325C\020\371"
 	.ascii	"\220\017\231\330C#\345C\020]^z\353\007\364\0262\030"
 	.ascii	"Dc\2123\211A\340vfRH1\011M\015t\252\303d/^\212D\314"
@@ -308,7 +308,7 @@
 	.ascii	"\037K-(\316+\362\371\013|\347N\346\025\347\371\261\320"
 	.ascii	"\357\377\007\237\352-\267"
 	.text
-	.section	.gnu.lto_systemClockSetHSEValue.4123edd4,"e",%progbits
+	.section	.gnu.lto_systemClockSetHSEValue.415f3f49,"e",%progbits
 	.ascii	"x\234]\220\317KTQ\024\307\317\367\235;\343\0333\332"
 	.ascii	"F\023\324\"\223\3318\241\255B\260?\242\275\014\303\223"
 	.ascii	"\202Fj\336L\350&\217\317)\011\245\010\012\033\342\361"
@@ -337,7 +337,7 @@
 	.ascii	"\311\341\341\356<\245\006\213\336\305\2627\224\037I"
 	.ascii	"\235\365\275\201K\271\363eo\027q\336\261."
 	.text
-	.section	.gnu.lto_SystemCoreClockUpdate.4123edd4,"e",%progbits
+	.section	.gnu.lto_SystemCoreClockUpdate.415f3f49,"e",%progbits
 	.ascii	"x\234\225VkLTG\024\236\263s\367\356\335\027\017\323"
 	.ascii	"\370\302T\033\243\255M#\366\361\243\177\214\376\350"
 	.ascii	"\217\3765m\322\237\306\020\332\232H%.\032\375\345\354"
@@ -420,7 +420,7 @@
 	.ascii	"*\232Mi\353iVF\246\371KG\372\352Mk\326mL\377\007\327"
 	.ascii	"s{e"
 	.text
-	.section	.gnu.lto_SystemInit.4123edd4,"e",%progbits
+	.section	.gnu.lto_SystemInit.415f3f49,"e",%progbits
 	.ascii	"x\234\245U[O\023Q\020>\263\247\227\205\266\020\023\037"
 	.ascii	"H\210\221\027\215\274@\275\305\350\223\377\304\020\242"
 	.ascii	"F\023\324\320\232\340\023[\212\024\001\321\230\0006"
@@ -469,7 +469,7 @@
 	.ascii	"\332\354i\231\366\313\227RmWl\366\323\031\247l\366\214"
 	.ascii	"\303\207\316\034\311\312JIg\377\001=r\226\376"
 	.text
-	.section	.gnu.lto_SetSysClock.4123edd4,"e",%progbits
+	.section	.gnu.lto_SetSysClock.415f3f49,"e",%progbits
 	.ascii	"x\234\255XiPUG\026\276\347\336\267\361\026\366\375\241"
 	.ascii	"!FT\342T\240\314\244\222\331j\246j\374\021\023\343\022"
 	.ascii	"\265*\177\246,+e*V\251\223\022\234\311LMU.\213 \262"
@@ -619,7 +619,7 @@
 	.ascii	"\374}\301\242\330?\377u\371\322\330\205\313\376\013"
 	.ascii	"2?[\027"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4123edd4,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415f3f49,"e",%progbits
 	.ascii	"x\234u\220;N\303@\020\206\347\337\215\235\304\3066\310"
 	.ascii	"EB@\"\212\302\035(\341*\034\200\034a\026\024\336\257"
 	.ascii	"\360\210x\204g@\210#\020:(h\220\270\000mjD\001\022\320"
@@ -640,7 +640,7 @@
 	.ascii	"3\244\376\214\364G\"j6\244\357F\324m\320\017\177%\317"
 	.ascii	"\355"
 	.text
-	.section	.gnu.lto_.refs.4123edd4,"e",%progbits
+	.section	.gnu.lto_.refs.415f3f49,"e",%progbits
 	.ascii	"x\234\015\302Q\016\2020\020\005\300\367\026\332ma\003"
 	.ascii	"\226v\365\233\020\023\21570\306\363xO\303!\274\215L"
 	.ascii	"&\201\370\000\010Ab\017U\246\314l\034f\031%v0\355'Z"
@@ -648,7 +648,7 @@
 	.ascii	"^\3306\372\225~\203\337\251\017\244'\374\205\374F\373"
 	.ascii	"\002\303\016\350\017\370\003\026\014\007\202"
 	.text
-	.section	.gnu.lto_.decls.4123edd4,"e",%progbits
+	.section	.gnu.lto_.decls.415f3f49,"e",%progbits
 	.ascii	"x\234\315Z{TTG\232\357\272\325M7\357\014\032\315\216"
 	.ascii	"\331sL\306I2;\023Q\343\314d\346\314\316\321`\014\236"
 	.ascii	"\274<\220\311lrr\226!\330Ff\001\015`\306\314\037\273"
@@ -1019,7 +1019,7 @@
 	.ascii	"_\375\321JwW\031\256q'i\324\325}\313\177\002\205\366"
 	.ascii	"W\224"
 	.text
-	.section	.gnu.lto_.symtab.4123edd4,"e",%progbits
+	.section	.gnu.lto_.symtab.415f3f49,"e",%progbits
 	.ascii	"SystemSYSCLKSource\000"
 	.ascii	"\000"
 	.ascii	"\000"

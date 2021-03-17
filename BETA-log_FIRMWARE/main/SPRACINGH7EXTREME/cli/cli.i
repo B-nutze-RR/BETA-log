@@ -22265,7 +22265,7 @@ typedef enum {
     TABLE_FAILSAFE_SWITCH_MODE,
     TABLE_CRASH_RECOVERY,
 
-
+    TABLE_CAMERA_CONTROL_MODE,
 
     TABLE_BUS_TYPE,
 
@@ -22293,7 +22293,16 @@ typedef enum {
 
 
     TABLE_ACRO_TRAINER_DEBUG,
-# 121 "./src/main/cli/settings.h"
+
+
+    TABLE_RC_SMOOTHING_TYPE,
+    TABLE_RC_SMOOTHING_DEBUG,
+    TABLE_RC_SMOOTHING_INPUT_TYPE,
+    TABLE_RC_SMOOTHING_DERIVATIVE_TYPE,
+
+
+
+
     TABLE_GYRO_HARDWARE,
 
     TABLE_SDCARD_MODE,
@@ -23605,7 +23614,19 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-# 351 "./src/main/flight/pid.h"
+# 343 "./src/main/flight/pid.h"
+    pt1Filter_t setpointDerivativePt1[3];
+    biquadFilter_t setpointDerivativeBiquad[3];
+    
+# 345 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 345 "./src/main/flight/pid.h"
+        setpointDerivativeLpfInitialized;
+    uint8_t rcSmoothingDebugAxis;
+    uint8_t rcSmoothingFilterType;
+
+
+
     float acroTrainerAngleLimit;
     float acroTrainerLookaheadTime;
     uint8_t acroTrainerDebugAxis;
@@ -25333,7 +25354,7 @@ extern uint32_t dshotDmaBuffer[8][18];
 extern uint32_t dshotDmaInputBuffer[8][18];
 
 
-
+extern uint32_t dshotBurstDmaBuffer[8][18 * 4];
 
 
 typedef struct {
@@ -29529,7 +29550,7 @@ typedef struct osdConfig_s {
     uint8_t ahInvert;
     uint8_t osdProfileIndex;
     uint8_t overlay_radio_mode;
-    char profile[1][16 + 1];
+    char profile[3][16 + 1];
     uint16_t link_quality_alarm;
     int16_t rssi_dbm_alarm;
     uint8_t gps_sats_show_hdop;
@@ -30464,7 +30485,7 @@ typedef enum {
     TASK_DASHBOARD,
 
 
-
+    TASK_TELEMETRY,
 
 
     TASK_LEDSTRIP,
@@ -30479,7 +30500,15 @@ typedef enum {
     TASK_OSD,
 # 127 "./src/main/scheduler/scheduler.h"
     TASK_CMS,
-# 137 "./src/main/scheduler/scheduler.h"
+
+
+
+
+
+    TASK_CAMCTRL,
+
+
+
     TASK_RCDEVICE,
 
 
@@ -34907,13 +34936,21 @@ typedef enum {
 
     IBUS_SENSOR_TYPE_ALT_FLYSKY = 0xf9,
 
-
-
-
+    IBUS_SENSOR_TYPE_GPS_FULL = 0xfd,
+    IBUS_SENSOR_TYPE_VOLT_FULL = 0xf0,
+    IBUS_SENSOR_TYPE_ACC_FULL = 0xef,
 
     IBUS_SENSOR_TYPE_UNKNOWN = 0xff
 } ibusSensorType_e;
-# 89 "./src/main/telemetry/ibus_shared.h"
+
+
+
+uint8_t respondToIbusRequest(uint8_t const * const ibusPacket);
+void initSharedIbusTelemetry(serialPort_t * port);
+
+
+
+
 
 # 89 "./src/main/telemetry/ibus_shared.h" 3 4
 _Bool 
@@ -39748,7 +39785,58 @@ static void cliVersion(const char *cmdName, char *cmdline)
 # 4936 "./src/main/cli/cli.c"
                              );
 }
-# 4990 "./src/main/cli/cli.c"
+
+
+static void cliRcSmoothing(const char *cmdName, char *cmdline)
+{
+    ((void)(cmdName));
+    ((void)(cmdline));
+    rcSmoothingFilter_t *rcSmoothingData = getRcSmoothingData();
+    cliPrint("# RC Smoothing Type: ");
+    if (rxConfig()->rc_smoothing_type == RC_SMOOTHING_TYPE_FILTER) {
+        cliPrintLine("FILTER");
+        if (rcSmoothingAutoCalculate()) {
+            const uint16_t avgRxFrameUs = rcSmoothingData->averageFrameTimeUs;
+            cliPrint("# Detected RX frame rate: ");
+            if (avgRxFrameUs == 0) {
+                cliPrintLine("NO SIGNAL");
+            } else {
+                cliPrintLinef("%d.%03dms", avgRxFrameUs / 1000, avgRxFrameUs % 1000);
+            }
+        }
+        cliPrintLinef("# Input filter type: %s", lookupTables[TABLE_RC_SMOOTHING_INPUT_TYPE].values[rcSmoothingData->inputFilterType]);
+        cliPrintf("# Active input cutoff: %dhz ", rcSmoothingData->inputCutoffFrequency);
+        if (rcSmoothingData->inputCutoffSetting == 0) {
+            cliPrintLine("(auto)");
+        } else {
+            cliPrintLine("(manual)");
+        }
+        cliPrintf("# Derivative filter type: %s", lookupTables[TABLE_RC_SMOOTHING_DERIVATIVE_TYPE].values[rcSmoothingData->derivativeFilterType]);
+        if (rcSmoothingData->derivativeFilterTypeSetting == RC_SMOOTHING_DERIVATIVE_AUTO) {
+            cliPrintLine(" (auto)");
+        } else {
+            cliPrintLinefeed();
+        }
+        cliPrintf("# Active derivative cutoff: %dhz (", rcSmoothingData->derivativeCutoffFrequency);
+        if (rcSmoothingData->derivativeFilterType == RC_SMOOTHING_DERIVATIVE_OFF) {
+            cliPrintLine("off)");
+        } else {
+            if (rcSmoothingData->derivativeCutoffSetting == 0) {
+                cliPrintLine("auto)");
+            } else {
+                cliPrintLine("manual)");
+            }
+        }
+    } else {
+        cliPrintLine("INTERPOLATION");
+    }
+}
+
+
+
+
+
+
 typedef struct {
     const uint8_t owner;
     pgn_t pgn;
@@ -40005,7 +40093,26 @@ const cliResourceValue_t resourceTable[] = {
    )
 # 5055 "./src/main/cli/cli.c"
    , 6 },
-# 5064 "./src/main/cli/cli.c"
+
+
+
+
+
+    { OWNER_CAMERA_CONTROL, 522, 0, 
+# 5061 "./src/main/cli/cli.c" 3 4
+   __builtin_offsetof (
+# 5061 "./src/main/cli/cli.c"
+   cameraControlConfig_t
+# 5061 "./src/main/cli/cli.c" 3 4
+   , 
+# 5061 "./src/main/cli/cli.c"
+   ioTag
+# 5061 "./src/main/cli/cli.c" 3 4
+   )
+# 5061 "./src/main/cli/cli.c"
+   , 0 },
+
+
     { OWNER_ADC_BATT, 510, 0, 
 # 5064 "./src/main/cli/cli.c" 3 4
    __builtin_offsetof (
@@ -40354,8 +40461,32 @@ const cliResourceValue_t resourceTable[] = {
    , 0 },
 
 
-
-
+    { OWNER_PULLUP, 551, sizeof(ioTag_t), 
+# 5133 "./src/main/cli/cli.c" 3 4
+   __builtin_offsetof (
+# 5133 "./src/main/cli/cli.c"
+   pinPullUpDownConfig_t
+# 5133 "./src/main/cli/cli.c" 3 4
+   , 
+# 5133 "./src/main/cli/cli.c"
+   ioTag
+# 5133 "./src/main/cli/cli.c" 3 4
+   )
+# 5133 "./src/main/cli/cli.c"
+   , 4 },
+    { OWNER_PULLDOWN, 552, sizeof(ioTag_t), 
+# 5134 "./src/main/cli/cli.c" 3 4
+   __builtin_offsetof (
+# 5134 "./src/main/cli/cli.c"
+   pinPullUpDownConfig_t
+# 5134 "./src/main/cli/cli.c" 3 4
+   , 
+# 5134 "./src/main/cli/cli.c"
+   ioTag
+# 5134 "./src/main/cli/cli.c" 3 4
+   )
+# 5134 "./src/main/cli/cli.c"
+   , 4 },
 
 };
 
@@ -42030,7 +42161,11 @@ const clicmd_t cmdTable[] = {
     { "profile" , "change profile" , "[<index>]" , cliProfile },
     { "rateprofile" , "change rate profile" , "[<index>]" , cliRateProfile },
 
-
+    { "rc_smoothing_info" , "show rc_smoothing operational settings" , 
+# 6507 "./src/main/cli/cli.c" 3 4
+   ((void *)0) 
+# 6507 "./src/main/cli/cli.c"
+   , cliRcSmoothing },
 
 
     { "resource" , "show/set resources" , "<> | <resource name> <index> [<pin>|none] | show [all]" , cliResource },

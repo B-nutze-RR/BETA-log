@@ -23480,9 +23480,9 @@ static
 
 
 
-
-
-
+                    if (linkQualitySource == LQ_SOURCE_RX_PROTOCOL_GHST) {
+                        setLinkQualityDirect(rssiFrame->lq);
+                    }
 
                     break;
                 }
@@ -23584,9 +23584,9 @@ _Bool
     }
 
 
-
-
-
+    if (linkQualitySource == LQ_SOURCE_NONE) {
+        linkQualitySource = LQ_SOURCE_RX_PROTOCOL_GHST;
+    }
 
 
     return serialPort != 

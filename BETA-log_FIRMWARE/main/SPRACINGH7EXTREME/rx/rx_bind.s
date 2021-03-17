@@ -9,15 +9,15 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"rx_bind.c"
-	.section	.gnu.lto_.profile.4112490d,"e",%progbits
+	.section	.gnu.lto_.profile.4158ba18,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4112490d,"e",%progbits
+	.section	.gnu.lto_.icf.4158ba18,"e",%progbits
 	.ascii	"x\234\343``d\220b@\000\026\206\206\3073\367\2613u\234"
 	.ascii	"\352\331\305\317<a\316\336\227L,\313\267\334\270\315"
 	.ascii	"\313\000\000\231\376\013\210"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4112490d,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.4158ba18,"e",%progbits
 	.ascii	"x\234\343``d\310d@\000\026\006FF\306\372\371\314\014"
 	.ascii	"\014L@\006#\220\301\304R\007\024g<\300\302\310\000\304"
 	.ascii	"\214\014 )\246\351\314\214\333:\337\256\344\354c\006"
@@ -25,7 +25,7 @@
 	.ascii	"\371\375=\016\210\022\006\306\335P%\014`%\014\000\245"
 	.ascii	"n\022\213"
 	.text
-	.section	.gnu.lto_.inline.4112490d,"e",%progbits
+	.section	.gnu.lto_.inline.4158ba18,"e",%progbits
 	.ascii	"x\234\343``d\270\311\200\000,\014\014\234\277\376\256"
 	.ascii	"\334\314\234\312\310\314\300Q0\235\231\261\257\371\375"
 	.ascii	"=\216>\346\371\314@\225\214\273\030\245\031\0308\362"
@@ -35,11 +35,11 @@
 	.ascii	"z\200\200\231\007\244|\202\0373X\374\0003H)\003\003"
 	.ascii	"\310\330:\354J\201\346\022\253\222\001\000Yu,\312"
 	.text
-	.section	.gnu.lto_.pureconst.4112490d,"e",%progbits
+	.section	.gnu.lto_.pureconst.4158ba18,"e",%progbits
 	.ascii	"x\234\343``d\340e```a\230\301\3024\203\205y\006\013"
 	.ascii	"\313\014\026\000\021\331\002\224"
 	.text
-	.section	.gnu.lto_doRxBind.part.0.4112490d,"e",%progbits
+	.section	.gnu.lto_doRxBind.part.0.4158ba18,"e",%progbits
 	.ascii	"x\234}R\317KTQ\024\276\337=\357\275\031\247\\\006\302"
 	.ascii	"l\014\027\303\264\320\241 h\027\375\023-\243t\221\213"
 	.ascii	"\014\254E\253\274o~P\243\242\030\015*2N1\014\345f,\210"
@@ -73,7 +73,7 @@
 	.ascii	"\352lm9q\264\275\243\245\363\014?G\216\265w\2645\267"
 	.ascii	"\012\253\355\344!\216~\003(\210\013\002"
 	.text
-	.section	.gnu.lto_doRxBind.4112490d,"e",%progbits
+	.section	.gnu.lto_doRxBind.4158ba18,"e",%progbits
 	.ascii	"x\234]Q\315KTQ\024?\277{\356\274y\211\263\222@x\004"
 	.ascii	"\211\0131\302\031p\347*\332\366GD\351\306E\012\352\302"
 	.ascii	"\235\367\215#\245#\023E\203\272\030\0372H\037\013\255"
@@ -100,7 +100,7 @@
 	.ascii	"\373\373:\323O\036u\367\244\373\006e=|\334\335\323\325"
 	.ascii	"\326I^W\357}\251\256\000A\362\256\365"
 	.text
-	.section	.gnu.lto_startRxBind.4112490d,"e",%progbits
+	.section	.gnu.lto_startRxBind.4158ba18,"e",%progbits
 	.ascii	"x\234E\216?K\303`\020\306\237\347\275\230\246C\367b"
 	.ascii	"\024\\\2734\202_\300o\"Z\227\016v\250\213[/i\212\204"
 	.ascii	"\212N\245t(\031\325I\\\034\254B\246\202\342\344\"8\251"
@@ -117,7 +117,7 @@
 	.ascii	"\016v\333\235\250{d}g\257\335\331o\266\360\003\362\033"
 	.ascii	"N\023"
 	.text
-	.section	.gnu.lto_getRxBindSupported.4112490d,"e",%progbits
+	.section	.gnu.lto_getRxBindSupported.4158ba18,"e",%progbits
 	.ascii	"x\234E\216\275J\003Q\020\205\317\331Y\263\327\"}p\015"
 	.ascii	"\330\246\311\012\276\200o\"\032\233\024\246\210\215"
 	.ascii	"]f\177\202\204H\254BL\021\266\324Nl\215\302>\200D\260"
@@ -132,7 +132,7 @@
 	.ascii	"\207\005\223\235\277c\254I\374'\001\225zt\332nD'\207"
 	.ascii	"\315V\324>\263~p\324l\035\327\033\370\001\270\272M\347"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4112490d,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.4158ba18,"e",%progbits
 	.ascii	"x\234m\215\261\015\302@\020\004w\377\336\010\351\212"
 	.ascii	"\300\242\0132\250\354N\204D\320\000%\020\363\006\007"
 	.ascii	"H\304\256\201\220.\314\031\236\000\211\211V\232\221"
@@ -142,11 +142,11 @@
 	.ascii	"\363PV\274S\022\036\307\335\211\334R\244^,%\177\027"
 	.ascii	"^\355\3047A"
 	.text
-	.section	.gnu.lto_.refs.4112490d,"e",%progbits
+	.section	.gnu.lto_.refs.4158ba18,"e",%progbits
 	.ascii	"x\234\343``d\340f`\000\222\014\214L\214L\014\214\214"
 	.ascii	"\014\000\001\227\000\036"
 	.text
-	.section	.gnu.lto_.decls.4112490d,"e",%progbits
+	.section	.gnu.lto_.decls.4158ba18,"e",%progbits
 	.ascii	"x\234\235VkP\024W\026\356\323\027df`\030\012\\\265V"
 	.ascii	"+\353\022\263I\325VD\223\332Mjw\177\244\222-\223\037"
 	.ascii	"[[)L\266\366\037\316\302\030\250\222G\015\203\313\376"
@@ -266,7 +266,7 @@
 	.ascii	"\257\004\213Aeww#l\372\3354\000\312\037\342\271\006"
 	.ascii	"X>\317\354l\377\003\340\220\260&"
 	.text
-	.section	.gnu.lto_.symtab.4112490d,"e",%progbits
+	.section	.gnu.lto_.symtab.4158ba18,"e",%progbits
 	.ascii	"startRxBind\000"
 	.ascii	"\000"
 	.ascii	"\000"

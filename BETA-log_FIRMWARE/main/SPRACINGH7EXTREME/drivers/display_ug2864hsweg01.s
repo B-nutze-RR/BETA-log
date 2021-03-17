@@ -9,10 +9,10 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"display_ug2864hsweg01.c"
-	.section	.gnu.lto_.profile.411230bc,"e",%progbits
+	.section	.gnu.lto_.profile.41589a4f,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.411230bc,"e",%progbits
+	.section	.gnu.lto_.icf.41589a4f,"e",%progbits
 	.ascii	"x\234\343``dHe@\000A\206\335\017;\25702\336;<\353\037"
 	.ascii	"\017S\343\333\323>\3147\356\367G\262|<xq;\037\353\217"
 	.ascii	"\333\367w\362\261\355;\336\364\205\207}\371\265\253"
@@ -21,7 +21,7 @@
 	.ascii	"w\377d\345]\365\340\255\003_W\363\221\223\254\3743\027"
 	.ascii	"\374\236\310\"\260{\312\244\325\314\014\000\247B4O"
 	.text
-	.section	.gnu.lto_.jmpfuncs.411230bc,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41589a4f,"e",%progbits
 	.ascii	"x\234\215\223=O\002A\020\206\347\335Y\216\023\210X\321"
 	.ascii	"\360_\201\234=\261\243\"\024&6\022\214\205\301\0178"
 	.ascii	"\317\237`AK\343\0170\2412\321Dg?\224c\263\347\261\311"
@@ -41,7 +41,7 @@
 	.ascii	"\177\310\356\264\233\347\005\360\342/\267p\377)\375"
 	.ascii	"\000\026\004\363\317"
 	.text
-	.section	.gnu.lto_.inline.411230bc,"e",%progbits
+	.section	.gnu.lto_.inline.41589a4f,"e",%progbits
 	.ascii	"x\234\275R\275J\003A\020\376f\366<7\311%g\336 \245O"
 	.ascii	"\263\017\241\211\211J^AVPD\010dAl\254\254\025D\254\322"
 	.ascii	"H\254-$\340\003he\343Y\031\324\302\302\331=\314y\\\243"
@@ -61,12 +61,12 @@
 	.ascii	"}\315\231\025$\317\017\331\013{\201\242\274H\365Q~\250"
 	.ascii	"\312~\252/\316)\220\210"
 	.text
-	.section	.gnu.lto_.pureconst.411230bc,"e",%progbits
+	.section	.gnu.lto_.pureconst.41589a4f,"e",%progbits
 	.ascii	"x\234\005\301\201\015\000\020\020\004\301\303J\304K"
 	.ascii	"\250A\325\367\245\350\316\314P\321\225\024JJR\223f\272"
 	.ascii	"\031f\2320\313\354\3071\037~\215\007b"
 	.text
-	.section	.gnu.lto_i2c_OLED_send_cmd.411230bc,"e",%progbits
+	.section	.gnu.lto_i2c_OLED_send_cmd.41589a4f,"e",%progbits
 	.ascii	"x\234\205\222\317k\023A\024\307\337w\337&\3314\251W"
 	.ascii	"\017A\310A\010EHb\025\321\233\377\211\304\244\324\200"
 	.ascii	"\251\222P\305S'ik\250J{\261\266\005\343FJ\260\024lZ"
@@ -99,7 +99,7 @@
 	.ascii	"o\367\311\023\307\317\025.\367\364&\217\306\323\304"
 	.ascii	"g\373\013\201\364\205\\.\325\227\371\015\357%\347\307"
 	.text
-	.section	.gnu.lto_i2c_OLED_send_cmdarray.411230bc,"e",%progbits
+	.section	.gnu.lto_i2c_OLED_send_cmdarray.41589a4f,"e",%progbits
 	.ascii	"x\234e\223\357KSQ\030\307\317s\237s\267\273\315\031"
 	.ascii	"\324\233ho|\221\210\024\233YHP\220\377Boz\027a*6P\013"
 	.ascii	"\227E\257<\333\324\362\007\366\203t\030\336\006\331"
@@ -140,7 +140,7 @@
 	.ascii	"\270K\031\236\256\365\031\245g\253\252J\252\313|XY^"
 	.ascii	"\015\336\277r^3\216"
 	.text
-	.section	.gnu.lto_i2c_OLED_send_byte.411230bc,"e",%progbits
+	.section	.gnu.lto_i2c_OLED_send_byte.41589a4f,"e",%progbits
 	.ascii	"x\234\205\221\315k\023Q\024\305\357\231;\311L\332\244"
 	.ascii	"\377@\024\262\020B\021\222X?\350\322\377Db[j\240\212"
 	.ascii	"$\264\342\252/ik\260j-hM\013\306I\221`\251\330V\020"
@@ -172,7 +172,7 @@
 	.ascii	"wu\037:p,w\252\257?\265/\321C|t0\307C\351\201\337W@"
 	.ascii	"\345\275"
 	.text
-	.section	.gnu.lto_i2c_OLED_clear_display_quick.411230bc,"e",%progbits
+	.section	.gnu.lto_i2c_OLED_clear_display_quick.41589a4f,"e",%progbits
 	.ascii	"x\234m\222[KTQ\024\307\367\377\254}f\216\343\005!\210"
 	.ascii	"b\010zHD\012\247,\302\267\372\012}\0021\025\033\250"
 	.ascii	"\010\007\213\236\3343\243#\231\227\210\312\014\2473"
@@ -210,7 +210,7 @@
 	.ascii	"\272\262\250\370\370\2613\201K\025\225\207\217\024\226"
 	.ascii	"\011:]\035\200\377\017!\212\006\024"
 	.text
-	.section	.gnu.lto_i2c_OLED_clear_display.411230bc,"e",%progbits
+	.section	.gnu.lto_i2c_OLED_clear_display.41589a4f,"e",%progbits
 	.ascii	"x\234}\221\301k\023A\024\306\3377o\223n\223Z<\012\301"
 	.ascii	"\342A(EH\254\210\210'\377\023\251M\250\201*\222\245"
 	.ascii	"JO\235l\323\364P\211\0275\346\220ld\211\366 \210 \210"
@@ -239,7 +239,7 @@
 	.ascii	"N&\233wN\017\366\015\037\033\0328p\370\320\301\023\316"
 	.ascii	"\331\334\300\376\336t?\361\361!\347'\205w\323\327"
 	.text
-	.section	.gnu.lto_ug2864hsweg01InitI2C.part.0.411230bc,"e",%progbits
+	.section	.gnu.lto_ug2864hsweg01InitI2C.part.0.41589a4f,"e",%progbits
 	.ascii	"x\234m\221\317k\023Q\020\307\347\373f\263\335D\013\342"
 	.ascii	"A\204\275x\020B\020\222V\245x\354\321\243\177\201R\333"
 	.ascii	"R\003*\222\245\212\247\276\374\252\224\226z\261\306"
@@ -269,7 +269,7 @@
 	.ascii	"\003\307Ou\235\274\340]\353\037\350\350L\366\022\237"
 	.ascii	"\037\364v\000\312\011\311f"
 	.text
-	.section	.gnu.lto_i2c_OLED_set_xy.411230bc,"e",%progbits
+	.section	.gnu.lto_i2c_OLED_set_xy.41589a4f,"e",%progbits
 	.ascii	"x\234\205R[KTQ\024\336\337Yg\31693\243)\364\022I\324"
 	.ascii	"C!\02186\205T\020\364PoE?a\250QJ\350\206cYOm\307<S\331"
 	.ascii	"M*Ej:J7\203J\245\213\225V\243\335\257v3\010\313\207"
@@ -314,7 +314,7 @@
 	.ascii	"g\026\305\005-_\237\240\370\332UT\261\266j|y4\036[\272"
 	.ascii	"x\321\302X|ui,QV\031\333\270\351\007\320\023c\277"
 	.text
-	.section	.gnu.lto_i2c_OLED_set_line.411230bc,"e",%progbits
+	.section	.gnu.lto_i2c_OLED_set_line.41589a4f,"e",%progbits
 	.ascii	"x\234E\220\313+Dq\024\307\317\367\236{\3075\310VMb\241"
 	.ascii	"\246I\315xg%\377\211<&\246\274\232\033\262\362\233\301"
 	.ascii	"X\214Ha\262\030\227\"\263\223\262\361\276X\221\015\331"
@@ -338,7 +338,7 @@
 	.ascii	"9\3361\322\333\320\332\322\324g\215E{\353\352\303\335"
 	.ascii	"\304]#\026\307\207\306~\001\202\202\205w"
 	.text
-	.section	.gnu.lto_i2c_OLED_send_char.411230bc,"e",%progbits
+	.section	.gnu.lto_i2c_OLED_send_char.41589a4f,"e",%progbits
 	.ascii	"x\234\215S[kTW\024^\337Y\373\314=\306'\261\315\213\017"
 	.ascii	"\206T\224\304\216\027|\323?\322\326\030\243\035\260"
 	.ascii	"\"\031R\351\223{&\223L\305\324KkM\005\307\023\231\304"
@@ -387,7 +387,7 @@
 	.ascii	"\370\343\332\006\3425\315i\267>\335\220J\205\3264\257"
 	.ascii	"[\327\330\204\324\277o@w\324"
 	.text
-	.section	.gnu.lto_multiWiiFont.411230bc,"e",%progbits
+	.section	.gnu.lto_multiWiiFont.41589a4f,"e",%progbits
 	.ascii	"x\234e\230yPU\331\235\307\357}\357\035x,\202\335\301"
 	.ascii	"\216\211&\315!\235\244\333\311d\354N\342\330\023\203"
 	.ascii	"`\260K2S\025\273\252MU\272\222\211\223\344\217\251\371"
@@ -583,7 +583,7 @@
 	.ascii	"\340\214\356\314\273\304A\207?\"Y\342\017+\344\327\222"
 	.ascii	"\364\177\3504u\322"
 	.text
-	.section	.gnu.lto_i2c_OLED_send_string.411230bc,"e",%progbits
+	.section	.gnu.lto_i2c_OLED_send_string.41589a4f,"e",%progbits
 	.ascii	"x\234mQMk\023Q\024\275\347\3357\223I\254.\\)\335tQ\010"
 	.ascii	"EHj\021\311\322\255K\177\201\324\266\304\200\026\315"
 	.ascii	"X\305\205\364%i\322E\244YT\033*L\023\261!\331X?pc\375"
@@ -615,7 +615,7 @@
 	.ascii	"\316\332W\206\342\275G#\003\304gFl\323\276\224L\014"
 	.ascii	"\307\377\000\314\247\312\360"
 	.text
-	.section	.gnu.lto_ug2864hsweg01InitI2C.411230bc,"e",%progbits
+	.section	.gnu.lto_ug2864hsweg01InitI2C.41589a4f,"e",%progbits
 	.ascii	"x\234]\220\317KTQ\024\307\317\367\236\373\3067\246\033"
 	.ascii	"W\301,t\021\210\0103Z\"\321B\\\367O\210\251\330@J\314"
 	.ascii	"\303\304\225w~%\242\350F\033f1=\002CW\206\240\240Y\371"
@@ -642,7 +642,7 @@
 	.ascii	"\367\037vv<\365F\007\006\333\332\343}\304OF\274\177"
 	.ascii	"VZ\242X"
 	.text
-	.section	.gnu.lto_.symbol_nodes.411230bc,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41589a4f,"e",%progbits
 	.ascii	"x\234u\220\275N\303@\014\200\355s\256\011q%\312\023"
 	.ascii	"\20023#F\340Q\"\336\303\007\002!\261\024\211'\200\205"
 	.ascii	"RB\371\377)[Y\200\005\011!\304\300VF\030\272!e)\327"
@@ -660,12 +660,12 @@
 	.ascii	".\332\324}~\335\247\351j}\363\375\201,\257Aa\326\202"
 	.ascii	"\307\376^\212\030\303/\224t\223\370"
 	.text
-	.section	.gnu.lto_.refs.411230bc,"e",%progbits
+	.section	.gnu.lto_.refs.41589a4f,"e",%progbits
 	.ascii	"x\234\005\301\207\021\000 \014\003\261\267C(\007d\004"
 	.ascii	"\366\037\023i\"\036\240p\223\323]\036\241\351\2458\334"
 	.ascii	"F%\265\371\014!\000\260"
 	.text
-	.section	.gnu.lto_.decls.411230bc,"e",%progbits
+	.section	.gnu.lto_.decls.41589a4f,"e",%progbits
 	.ascii	"x\234\265Y\013TTG\232\276u\253\201\246i\301W4\273\270"
 	.ascii	"3\3501\331\234L\242\230h\222\235\235\315\23013c\316"
 	.ascii	"\231L\262\2113\263\33133\275\014tb\237\001t\350\326"
@@ -890,7 +890,7 @@
 	.ascii	";\037\351~\366\301G\357\277\263AM&\332\252"
 	.ascii	"7t\246\377\005\273X/Y"
 	.text
-	.section	.gnu.lto_.symtab.411230bc,"e",%progbits
+	.section	.gnu.lto_.symtab.41589a4f,"e",%progbits
 	.ascii	"i2c_OLED_clear_display_quick\000"
 	.ascii	"\000"
 	.ascii	"\000"

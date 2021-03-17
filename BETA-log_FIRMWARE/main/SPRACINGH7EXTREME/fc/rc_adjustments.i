@@ -22877,7 +22877,19 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-# 351 "./src/main/flight/pid.h"
+# 343 "./src/main/flight/pid.h"
+    pt1Filter_t setpointDerivativePt1[3];
+    biquadFilter_t setpointDerivativeBiquad[3];
+    
+# 345 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 345 "./src/main/flight/pid.h"
+        setpointDerivativeLpfInitialized;
+    uint8_t rcSmoothingDebugAxis;
+    uint8_t rcSmoothingFilterType;
+
+
+
     float acroTrainerAngleLimit;
     float acroTrainerLookaheadTime;
     uint8_t acroTrainerDebugAxis;
@@ -23798,7 +23810,7 @@ typedef struct osdConfig_s {
     uint8_t ahInvert;
     uint8_t osdProfileIndex;
     uint8_t overlay_radio_mode;
-    char profile[1][16 + 1];
+    char profile[3][16 + 1];
     uint16_t link_quality_alarm;
     int16_t rssi_dbm_alarm;
     uint8_t gps_sats_show_hdop;
@@ -24560,7 +24572,48 @@ static const adjustmentConfig_t defaultAdjustmentConfigs[ADJUSTMENT_FUNCTION_COU
         .data = { .switchPositions = 3 }
     }
 };
-# 271 "./src/main/fc/rc_adjustments.c"
+
+
+static const char * const adjustmentLabels[] = {
+    "RC RATE",
+    "RC EXPO",
+    "THROTTLE EXPO",
+    "ROLL RATE",
+    "YAW RATE",
+    "PITCH/ROLL P",
+    "PITCH/ROLL I",
+    "PITCH/ROLL D",
+    "YAW P",
+    "YAW I",
+    "YAW D",
+    "RATE PROFILE",
+    "PITCH RATE",
+    "ROLL RATE",
+    "PITCH P",
+    "PITCH I",
+    "PITCH D",
+    "ROLL P",
+    "ROLL I",
+    "ROLL D",
+    "RC RATE YAW",
+    "PITCH/ROLL F",
+    "FF TRANSITION",
+    "HORIZON STRENGTH",
+    "ROLL RC RATE",
+    "PITCH RC RATE",
+    "ROLL RC EXPO",
+    "PITCH RC EXPO",
+    "PID AUDIO",
+    "PITCH F",
+    "ROLL F",
+    "YAW F",
+    "OSD PROFILE",
+};
+
+static int adjustmentRangeNameIndex = 0;
+static int adjustmentRangeValue = -1;
+
+
 static int applyStepAdjustment(controlRateConfig_t *controlRateConfig, uint8_t adjustmentFunction, int delta)
 {
     beeperConfirmationBeeps(delta > 0 ? 2 : 1);
@@ -24918,9 +24971,9 @@ static uint8_t applySelectAdjustment(adjustmentFunction_e adjustmentFunction, ui
         break;
     case ADJUSTMENT_OSD_PROFILE:
 
-
-
-
+        if (getCurrentOsdProfileIndex() != (position + 1)) {
+            changeOsdProfileIndex(position+1);
+        }
 
         break;
     case ADJUSTMENT_LED_PROFILE:
@@ -24972,7 +25025,35 @@ static void calcActiveAdjustmentRanges(void)
         }
     }
 }
-# 707 "./src/main/fc/rc_adjustments.c"
+
+
+
+
+static void updateOsdAdjustmentData(int newValue, adjustmentFunction_e adjustmentFunction)
+{
+    static timeMs_t lastValueChangeMs;
+
+    timeMs_t currentTimeMs = millis();
+    if (newValue != -1
+        && adjustmentFunction != ADJUSTMENT_RATE_PROFILE
+
+        && adjustmentFunction != ADJUSTMENT_OSD_PROFILE
+
+        ) {
+        adjustmentRangeNameIndex = adjustmentFunction;
+        adjustmentRangeValue = newValue;
+
+        lastValueChangeMs = currentTimeMs;
+    }
+
+    if (cmp32(currentTimeMs, lastValueChangeMs + 2000) >= 0) {
+        adjustmentRangeNameIndex = 0;
+    }
+}
+
+
+
+
 static void processStepwiseAdjustments(controlRateConfig_t *controlRateConfig, const 
 # 707 "./src/main/fc/rc_adjustments.c" 3 4
                                                                                     _Bool 
@@ -25042,9 +25123,9 @@ static void processStepwiseAdjustments(controlRateConfig_t *controlRateConfig, c
                                          ;
 
 
+            updateOsdAdjustmentData(newValue, adjustmentConfig->adjustmentFunction);
 
 
-            ((void)(newValue));
 
         }
     }
@@ -25097,9 +25178,9 @@ static void processContinuosAdjustments(controlRateConfig_t *controlRateConfig)
                     }
                 }
 
+                updateOsdAdjustmentData(newValue, adjustmentConfig->adjustmentFunction);
 
 
-                ((void)(newValue));
 
                 adjustmentState->lastRcData = rcData[channelIndex];
             }
@@ -25130,10 +25211,30 @@ void processRcAdjustments(controlRateConfig_t *controlRateConfig)
 
 
 
-
+    updateOsdAdjustmentData(-1, 0);
 
 }
-# 864 "./src/main/fc/rc_adjustments.c"
+
+
+const char *getAdjustmentsRangeName(void)
+{
+    if (adjustmentRangeNameIndex > 0) {
+        return &adjustmentLabels[adjustmentRangeNameIndex - 1][0];
+    } else {
+        return 
+# 854 "./src/main/fc/rc_adjustments.c" 3 4
+              ((void *)0)
+# 854 "./src/main/fc/rc_adjustments.c"
+                  ;
+    }
+}
+
+int getAdjustmentsRangeValue(void)
+{
+    return adjustmentRangeValue;
+}
+
+
 void activeAdjustmentRangeReset(void)
 {
     stepwiseAdjustmentCount = -1;

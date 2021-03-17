@@ -9,17 +9,17 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"vtx_rtc6705.c"
-	.section	.gnu.lto_.profile.4111a1f7,"e",%progbits
+	.section	.gnu.lto_.profile.4158690e,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4111a1f7,"e",%progbits
+	.section	.gnu.lto_.icf.4158690e,"e",%progbits
 	.ascii	"x\234\343``d\260a@\000.\206\331\253'\237\340g<\324|"
 	.ascii	"1\207\351\323\217\363\327\271\231Wm\333\360\222\223"
 	.ascii	"\005\314f}\364\263k\015?[\333\261\366\020\366\337\037"
 	.ascii	"\346\237e\346\350Z\327v\215\231\023L2\000\000\247\004"
 	.ascii	"\035\266"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4111a1f7,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.4158690e,"e",%progbits
 	.ascii	"x\234\265R=KC1\024\275'y}}\255\225\342\374\026\267\316"
 	.ascii	"\355.\3763\213(\210\010\265\010RD\344\211\"\"8\210C"
 	.ascii	"\005kk\265\025'\207:u(\016\352T\374@\377@L^\242<\323"
@@ -40,7 +40,7 @@
 	.ascii	"\325\336\304gm\005\\!\034+kT\305\267\346\006\216\317"
 	.ascii	"\3148|\364\001\377L\014\357"
 	.text
-	.section	.gnu.lto_.inline.4111a1f7,"e",%progbits
+	.section	.gnu.lto_.inline.4158690e,"e",%progbits
 	.ascii	"x\234\343``d\010`b\200\003v\006\006\356\375\033\232"
 	.ascii	"[\230\262\031\031\230\004\200\254&\246l\006\006\266"
 	.ascii	"\373\377\377\377gNfb\000\253dd\320lhhx\302\234\311\310"
@@ -58,11 +58,11 @@
 	.ascii	"i$\007\003\307\275\035\263\3570\245\001\205`q\207l\032"
 	.ascii	"\222\031\234\304+e\000\000\347\026o\203"
 	.text
-	.section	.gnu.lto_.pureconst.4111a1f7,"e",%progbits
+	.section	.gnu.lto_.pureconst.4158690e,"e",%progbits
 	.ascii	"x\234\343``d\020c```gh`a\234\311\302<\213\205m&\013"
 	.ascii	"\373L\026\216\031,\2343X\0002A\004z"
 	.text
-	.section	.gnu.lto_reverse32.4111a1f7,"e",%progbits
+	.section	.gnu.lto_reverse32.4158690e,"e",%progbits
 	.ascii	"x\234eR\355K\223Q\024\277\347\236\373l\317\346V\037"
 	.ascii	"\352S\0232\320D\022'D\365-\372G\"\302\372\260\017\031"
 	.ascii	"L\223\276y\335l\353\305\014\354\305\324\246\215\222"
@@ -101,7 +101,7 @@
 	.ascii	"\316\206\353\202\015\365\027O\205\353k\216\036\253>"
 	.ascii	"RU#d\250\026\317_\250\207\320/\350*\022)"
 	.text
-	.section	.gnu.lto_rtc6705Transfer.4111a1f7,"e",%progbits
+	.section	.gnu.lto_rtc6705Transfer.4158690e,"e",%progbits
 	.ascii	"x\234\215\326\315O\023A\024\000\360y;\333v\373]\300"
 	.ascii	"V\023b\304\304\204\240\011pQ\257\376\033\236\214A\017"
 	.ascii	"\034\300\244\020\343\215m\0059@\340\"bc\232\255\037"
@@ -155,7 +155,7 @@
 	.ascii	"\263z{e\015s\324\034\250\253\333[\277\357/\250\227\270"
 	.ascii	"W"
 	.text
-	.section	.gnu.lto_rtc6705IOInit.4111a1f7,"e",%progbits
+	.section	.gnu.lto_rtc6705IOInit.4158690e,"e",%progbits
 	.ascii	"x\234\235V\353oTE\024\237s\347\276v\273\273\325\202"
 	.ascii	"\012.\325\2024Hb\350\252A\343\027%1~\340\223$\376\001"
 	.ascii	"\206T0\375`5-A?\030\270}Q\332\0220\310\243KZoe\323\360"
@@ -236,7 +236,7 @@
 	.ascii	"\244`na\361\242\371\205\371\013\364\374\342\302y\005"
 	.ascii	"\205\377\0025\374\212\251"
 	.text
-	.section	.gnu.lto_rtc6705SetFrequency.4111a1f7,"e",%progbits
+	.section	.gnu.lto_rtc6705SetFrequency.4158690e,"e",%progbits
 	.ascii	"x\234}T\335O\\U\020?s\317\275w\357~\360\275\026\352"
 	.ascii	"\366\001\023I\323h\026Ll}P\243\276\370o4\00416Q\022"
 	.ascii	"i%\355S\017\313v\267\011\025\321\360\2654\333]\\6\324"
@@ -300,7 +300,7 @@
 	.ascii	"\373^m]\315\021GC\365\333\373\337\252=\254\321\177\235"
 	.ascii	"%\253\377\0052( \245"
 	.text
-	.section	.gnu.lto_rtc6705SetRFPower.4111a1f7,"e",%progbits
+	.section	.gnu.lto_rtc6705SetRFPower.4158690e,"e",%progbits
 	.ascii	"x\234mTmO\034U\024\276\317=3\263\263/T\251\266\232\256"
 	.ascii	"5\230H\232\326\010\033\215o\037L\374\007\376\004\322"
 	.ascii	" \206&R\314Bh\277uvY\330\010\233jL\025\326\272\316\342"
@@ -356,7 +356,7 @@
 	.ascii	"!\352k\333\377R]c\303\341]\377q\251onjj>\310\373\326"
 	.ascii	"\306\226\232F\361\01725\262o"
 	.text
-	.section	.gnu.lto_rtc6705Disable.4111a1f7,"e",%progbits
+	.section	.gnu.lto_rtc6705Disable.4158690e,"e",%progbits
 	.ascii	"x\234mO=KBa\024>\317=\257v\213j.\302\241\232\\\264\245"
 	.ascii	"\202Z\372\031m\021\326\340P\203\212\264\371j\226\203"
 	.ascii	"b4\224\010\311U$l*\032\032\372\364R\321RC4D\0248\030"
@@ -377,7 +377,7 @@
 	.ascii	".\315\373\227\275\013\001\177x1\020\364\206C+s\201\220"
 	.ascii	"obrl\334\343\243_I\036\201\020"
 	.text
-	.section	.gnu.lto_rtc6705Enable.4111a1f7,"e",%progbits
+	.section	.gnu.lto_rtc6705Enable.4158690e,"e",%progbits
 	.ascii	"x\234mO\277KBQ\024>\337;W{E5\027QPM.\332R\015.\375\031"
 	.ascii	"m\021\326\340P\203\212\264y\265W\016\212\321P\022dO"
 	.ascii	"\221\260-\032\032\372a=*Zj\210\206\206\002\007#\251"
@@ -397,7 +397,7 @@
 	.ascii	"\276p(\340[\230\015.\372\346B\301\350|(\354\213F\226"
 	.ascii	"fB\221\300\304\344\330\2707@\2779V\200\354"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4111a1f7,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.4158690e,"e",%progbits
 	.ascii	"x\234u\221KJ\003A\020\206\253\246\222\231d*\231\311"
 	.ascii	"S\227B\216\340\011\024<\212\367\250!\004\004q\241\270"
 	.ascii	"q\343*9\200\370\316KM\0345.\242KAD0d\223,\005q\251="
@@ -420,13 +420,13 @@
 	.ascii	"\321\025\235\362\340k4\244\350\021\234\222\306\261B"
 	.ascii	"\324Xu)\305\257;\243=K\315Jgc\202_\337\010O!"
 	.text
-	.section	.gnu.lto_.refs.4111a1f7,"e",%progbits
+	.section	.gnu.lto_.refs.4158690e,"e",%progbits
 	.ascii	"x\234\015\312A\016@@\020D\321_\245\273\315\260\220\014"
 	.ascii	"\022\342>\356\177$\336\3725\304\013\224\260q\342\005"
 	.ascii	"o\370\300w\237\024Etb\225\207s(w|\342\013?*,\315\270"
 	.ascii	"\324\010\351_\342\003H\346\001\257"
 	.text
-	.section	.gnu.lto_.decls.4111a1f7,"e",%progbits
+	.section	.gnu.lto_.decls.4158690e,"e",%progbits
 	.ascii	"x\234\255Z{TTG\232\277\325\325M7\315+>ftcr\216\223!"
 	.ascii	"\031\317\256\021\037\2331\273\233\235\223DM\302N2z\320"
 	.ascii	"\314f\362\017K\240\215\234Ep\351\306\350\236\335\235"
@@ -726,7 +726,7 @@
 	.ascii	"\255\335\267\017\\j\015\023F\253\363\005S\342I\343\356"
 	.ascii	"\263{\267\2177\224u\273\210\337\377\027FM\213B"
 	.text
-	.section	.gnu.lto_.symtab.4111a1f7,"e",%progbits
+	.section	.gnu.lto_.symtab.4158690e,"e",%progbits
 	.ascii	"rtc6705IOInit\000"
 	.ascii	"\000"
 	.ascii	"\000"

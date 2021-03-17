@@ -9,10 +9,10 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"rx_pwm.c"
-	.section	.gnu.lto_.profile.4111e83f,"e",%progbits
+	.section	.gnu.lto_.profile.4158cbcf,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4111e83f,"e",%progbits
+	.section	.gnu.lto_.icf.4158cbcf,"e",%progbits
 	.ascii	"x\234\343``d\230\306\200\000\222\014\033\026\317J`<"
 	.ascii	"}\355\376Y6\246yS\277\376da\276\276v\315CV\226\351\213"
 	.ascii	"\216\364\362\26365\256\235\317\302v\366\330\347\331"
@@ -23,7 +23,7 @@
 	.ascii	")\263;\030E\272\3366\274\347\023\375\266\377\343,>\261"
 	.ascii	"\246\326\277\261\342\017w=>\300\"\001&\031\000:NL\011"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4111e83f,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.4158cbcf,"e",%progbits
 	.ascii	"x\234\245TMO\024A\020\255\327=\314\316..\013\030?\222"
 	.ascii	"\375\017\206\203W\377\232\004\330\203\304\204\203\027"
 	.ascii	"\345`6\221\254\321x\361\344\001\004\361\203\017\025"
@@ -56,7 +56,7 @@
 	.ascii	"\315\202g\307'\203\235\001\223+n:\302\253\311[\376\002"
 	.ascii	"\224\274\355)"
 	.text
-	.section	.gnu.lto_.inline.4111e83f,"e",%progbits
+	.section	.gnu.lto_.inline.4158cbcf,"e",%progbits
 	.ascii	"x\234\215RMK\033Q\024\275\037\243N\242c\207\250\211"
 	.ascii	"\264\024\372\033Dp\333_0\377\301\346\313@\241\375\011"
 	.ascii	"i\300\225 \263hi\253\213\250HIW\272\021\202D\252B\220"
@@ -86,13 +86,13 @@
 	.ascii	"G\306\374N\2343\226\002\221v,\033[\250\003\223\367\005"
 	.ascii	"\302\025\205\016\304\247"
 	.text
-	.section	.gnu.lto_.pureconst.4111e83f,"e",%progbits
+	.section	.gnu.lto_.pureconst.4158cbcf,"e",%progbits
 	.ascii	"x\234\005\301\213\015@P\024D\301%'\202\004/\304\247"
 	.ascii	"\015=\336\"\326VkfT\247WR\223\351\003a(&3\233\305\254"
 	.ascii	"f+\232\331\303\021\316\217+\334\305S\374\010\366\012"
 	.ascii	"\236"
 	.text
-	.section	.gnu.lto_ppmResetDevice.4111e83f,"e",%progbits
+	.section	.gnu.lto_ppmResetDevice.4158cbcf,"e",%progbits
 	.ascii	"x\234\225\324\313O\023A\034\007\360\337wgw\273\370\340"
 	.ascii	"\340\325\030\343\301\003!\241\375\023\374O\214\001\016"
 	.ascii	"\034 \246$\352\215i\305\200\251\301\204\304\240\007"
@@ -123,7 +123,7 @@
 	.ascii	"\343\311k\374\\\274|\265\263\245\225\376\001\257\016"
 	.ascii	"\227#"
 	.text
-	.section	.gnu.lto_pwmOverflowCallback.4111e83f,"e",%progbits
+	.section	.gnu.lto_pwmOverflowCallback.4158cbcf,"e",%progbits
 	.ascii	"x\234\225\222ML\023A\024\307\347\277\263\335~\022\214"
 	.ascii	"\236\014\007\2111\251\\h\303\325\213wo\336<\031\254"
 	.ascii	"\0348`H\361\353\306t!\220\012A\017h\255\272)H( \211"
@@ -163,7 +163,7 @@
 	.ascii	"\336x\256\241:\302\\\221\023G\353\"\356Hm\343\3513\321"
 	.ascii	"\272\237\232}HA"
 	.text
-	.section	.gnu.lto_ppmAvoidPWMTimerClash.part.0.4111e83f,"e",%progbits
+	.section	.gnu.lto_ppmAvoidPWMTimerClash.part.0.4158cbcf,"e",%progbits
 	.ascii	"x\234}\222MHTQ\024\307\357\377\2357o\236\223\266\214"
 	.ascii	"H!\211D$p\264\226\265hY\2536\355#\324\205\213\321\032"
 	.ascii	"\243\204\026\336\371H)\315\010\012\233lx\225\015\005"
@@ -201,7 +201,7 @@
 	.ascii	"\317\234\273\024\252\256\023.O\247\033C\015a'\324|\241"
 	.ascii	"9\334\022\320\323\311\246\372\206\326?\233\2341\246"
 	.text
-	.section	.gnu.lto_isPPMDataBeingReceived.4111e83f,"e",%progbits
+	.section	.gnu.lto_isPPMDataBeingReceived.4158cbcf,"e",%progbits
 	.ascii	"x\234e\217?O\002A\020\305\337\273=\340(\320\326\204"
 	.ascii	"\370\257\244\341L\374\002\326~\011c\320\202\002c\216"
 	.ascii	"D\355X\016\0101\032\254\220X\220\213!F;c+\242WYY\020"
@@ -221,7 +221,7 @@
 	.ascii	"\362{\333^\321\365\016do\354\356\027\2629\374\001\274"
 	.ascii	"\233q\010"
 	.text
-	.section	.gnu.lto_resetPPMDataReceivedState.4111e83f,"e",%progbits
+	.section	.gnu.lto_resetPPMDataReceivedState.4158cbcf,"e",%progbits
 	.ascii	"x\234eO=K\003A\020\235\267s&+\"\266\202H\260\214E\356"
 	.ascii	"/\370OD\242E\212\210\\@\355\262wF\003F\222J\203E8%\210"
 	.ascii	"v\301\322\357\303\302\312B,\322\010)\024\004-\024\265"
@@ -239,7 +239,7 @@
 	.ascii	"|\242T\306-xY7\277\220[v\027\275\334\352\222Wp\275u"
 	.ascii	"\271\363+k\371L\226\376\000>\027l#"
 	.text
-	.section	.gnu.lto_ppmISREvent.4111e83f,"e",%progbits
+	.section	.gnu.lto_ppmISREvent.4158cbcf,"e",%progbits
 	.ascii	"x\234\215SaKSQ\030>\317=w\273\327\271\354\203\005\301"
 	.ascii	"\210\"\2021\0027\354\017\364\007\372\015!k\037\374`"
 	.ascii	"\311\226%}\361l\316-2\354KfVc\332\322\254\310\222\372"
@@ -274,7 +274,7 @@
 	.ascii	"\243\235\364\036i?\325\326\024\026\356\330\361\216h"
 	.ascii	"8b\204[\332OtD#\177\000\224\244$\311"
 	.text
-	.section	.gnu.lto_ppmOverflowCallback.4111e83f,"e",%progbits
+	.section	.gnu.lto_ppmOverflowCallback.4158cbcf,"e",%progbits
 	.ascii	"x\234\215\222\315O\023A\030\306\347\331wviK!^<\030\016"
 	.ascii	"\022\243AL\244=x\363\342\337\340?`\260\366\300\001C"
 	.ascii	"\212_'\031\012\202P\202\306 H\264\254H\000\321\010j"
@@ -309,7 +309,7 @@
 	.ascii	"\354d\350D\254\354L4V\031\212\235\343\357X\305\331\362"
 	.ascii	"\222\2100#\307\217F#9\221\322\212S\247c\321_X\324%9"
 	.text
-	.section	.gnu.lto_ppmEdgeCallback.4111e83f,"e",%progbits
+	.section	.gnu.lto_ppmEdgeCallback.4158cbcf,"e",%progbits
 	.ascii	"x\234\235XYPT\351\025\276\347\277\267\367f\355fmvD4"
 	.ascii	"\017\212\226\013\245yH\225OS\246*U\251<$\251J\245f\010"
 	.ascii	"\017>h,\\\222'\247E\024QF\304q\031p\020\021\035D\035"
@@ -456,7 +456,7 @@
 	.ascii	"-kMNN\366\212\325\177X\266<;deN\366\332e\177_\263j\011"
 	.ascii	"\337\263{\336\351&,\373/x\317+#"
 	.text
-	.section	.gnu.lto_isPWMDataBeingReceived.4111e83f,"e",%progbits
+	.section	.gnu.lto_isPWMDataBeingReceived.4158cbcf,"e",%progbits
 	.ascii	"x\234mRMh\023Q\020\236\357\315\333\335\244\244\227^"
 	.ascii	"\024\366`\021z\250J#\025\274\350\301\253W\017^\245\324"
 	.ascii	"\202\2056H\012\352\255/?\255DK\004\261\024\321%H\025"
@@ -489,7 +489,7 @@
 	.ascii	"p\337`\"~69xa 9\022O^\322\357\231\363\027\207{\372\311"
 	.ascii	"\351?\327\227H\014\014\375\0055\313\334\366"
 	.text
-	.section	.gnu.lto_pwmICConfig.4111e83f,"e",%progbits
+	.section	.gnu.lto_pwmICConfig.4158cbcf,"e",%progbits
 	.ascii	"x\234\215TmL[e\024~\237{nooK\0138\204\230\360CbD2\023"
 	.ascii	"\241\211&f\377\226\370Gb\374a\364\207\177\314\202\214"
 	.ascii	"\304&\320-]7\365\327^j\201aI7\003\2161S\012i\226m\342"
@@ -545,7 +545,7 @@
 	.ascii	"~qS\365s\325\001\177\350\345Pp{mh{\260\316x\276&\260"
 	.ascii	"\271\276\356oM\205\361>"
 	.text
-	.section	.gnu.lto_pwmEdgeCallback.4111e83f,"e",%progbits
+	.section	.gnu.lto_pwmEdgeCallback.4158cbcf,"e",%progbits
 	.ascii	"x\234\235\225\357O[U\030\307\317\367\236{\373\273\300"
 	.ascii	"\2541*/l\214\013\356\315h\366\027\360\312\370\322\370"
 	.ascii	"\017\030\326\325\204\027\230\245C\347\273]\012\201\000"
@@ -606,7 +606,7 @@
 	.ascii	"6\307\367\354o\216\307\236k\213\377\003\352\231\233"
 	.ascii	"h"
 	.text
-	.section	.gnu.lto_pwmRxInit.4111e83f,"e",%progbits
+	.section	.gnu.lto_pwmRxInit.4158cbcf,"e",%progbits
 	.ascii	"x\234\215V\375STU\030>\3579w\367\336\335\0055,\025W"
 	.ascii	"\023L2?\022\"\235q\232\232i\246\037\353_\250\3061,f"
 	.ascii	"\022\033l\252\337\274\300\362\215\344\224\251\353D\027"
@@ -693,7 +693,7 @@
 	.ascii	"\351\357\253\313?X\226\221\221\366\241\355\343\364\225"
 	.ascii	"i\231<}\325\377eu\002\353"
 	.text
-	.section	.gnu.lto_ppmAvoidPWMTimerClash.4111e83f,"e",%progbits
+	.section	.gnu.lto_ppmAvoidPWMTimerClash.4158cbcf,"e",%progbits
 	.ascii	"x\234}SIL\024A\024\375\277\252\272\273\030f\274\030"
 	.ascii	"\023\"D\215\321\030\320\010\361`<\230\350QO^\274\033"
 	.ascii	"#\034\210\301e0\352\215\032@\210B\306%(\233\343\000"
@@ -739,7 +739,7 @@
 	.ascii	"\264\213v\356\331\031,\366\231\327\306\035\371\005\373"
 	.ascii	"\377\002\223\033pZ"
 	.text
-	.section	.gnu.lto_ppmRxInit.4111e83f,"e",%progbits
+	.section	.gnu.lto_ppmRxInit.4158cbcf,"e",%progbits
 	.ascii	"x\234\215Vms\023U\024\276g\317n\336H\212\265X\212A\251"
 	.ascii	"H\255\325\322D\307o\342\2143\376\020\307A`\362!\320"
 	.ascii	"\011\214\372I6mZ\252\005d\034\024\326\231\314\006b\247"
@@ -805,7 +805,7 @@
 	.ascii	"\274Y\373n\260f%s\326\326\006\337X\267vu`\215\022X\247"
 	.ascii	"m\010\004W\205\376\003S\320\007\232"
 	.text
-	.section	.gnu.lto_ppmRead.4111e83f,"e",%progbits
+	.section	.gnu.lto_ppmRead.4158cbcf,"e",%progbits
 	.ascii	"x\234EO=K\003A\024|s{\027/b\300>\250\301F\322\030\321"
 	.ascii	"Z\360\237\210D\301\200\011r\202\212\215\233S\222B\361"
 	.ascii	"\243\020Q\010G\010A\013\203\306\322\370q\032\025\013"
@@ -828,7 +828,7 @@
 	.ascii	"l\302\212\307\222C\211Tl\330JL\216X\0231k\232\317\340"
 	.ascii	"\370T\262;NM\361\321\241Tjd\354\007\334\322\206\006"
 	.text
-	.section	.gnu.lto_pwmRead.4111e83f,"e",%progbits
+	.section	.gnu.lto_pwmRead.4158cbcf,"e",%progbits
 	.ascii	"x\234EO=K\003A\024|s{\211\0271`\037\374\300F\322$\022"
 	.ascii	"k\301\177\"\022\005\003&\310\011*6\331\\BR(Q\013\021"
 	.ascii	"\205p\004\021-\004\215\245\361\343\374\304\302\342\014"
@@ -852,7 +852,7 @@
 	.ascii	"\234\340\32372\236\214\304\251!>\324\237J\015\016\377"
 	.ascii	"\000\201\033\206\274"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4111e83f,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.4158cbcf,"e",%progbits
 	.ascii	"x\234u\224KS\023A\024F\273\373Nfb>\211#cFy&\204\370"
 	.ascii	"\037\\*\277\305\377q\007\212ri\271`\257U\340RtI@\300"
 	.ascii	"\340(\210\202\242\370\004\027\244\262\221\035K6j\027"
@@ -880,7 +880,7 @@
 	.ascii	"\305\011A\373`i\303\005\026\353.\2608.h\317\235\216"
 	.ascii	"\271\326b,8\003\365\033\270M\221\256"
 	.text
-	.section	.gnu.lto_.refs.4111e83f,"e",%progbits
+	.section	.gnu.lto_.refs.4158cbcf,"e",%progbits
 	.ascii	"x\234\025\216\313J\004Q\014D\353\344v\317\275\375\232"
 	.ascii	"\356\036\343\314\340\302\307 n\004QA\304\205\037/\212"
 	.ascii	"\272\020D\375!\323!'\024\024\251\244\010\235 \265b)"
@@ -893,7 +893,7 @@
 	.ascii	"\007s\267\315\261\371\326lW\266x\306\213\371h\353\321"
 	.ascii	"|\262a2\237\243\331)\031\373\030\372\007j\203\020\257"
 	.text
-	.section	.gnu.lto_.decls.4111e83f,"e",%progbits
+	.section	.gnu.lto_.decls.4158cbcf,"e",%progbits
 	.ascii	"x\234\305|\011X\224\331\231.\247NU\001\305\246h\333"
 	.ascii	"&:7y2f\222Y\322\3662Y\236\334\231;\261i\273\333I\333"
 	.ascii	"\366`\367\314$wf\010-e\313\035\004\003\3301yf\356\024"
@@ -1542,7 +1542,7 @@
 	.ascii	"\320\224\364\205Tv\323b\177\367\257\234%\030[|\177\315"
 	.ascii	"\247\261\377\003\224\267\307\015"
 	.text
-	.section	.gnu.lto_.symtab.4111e83f,"e",%progbits
+	.section	.gnu.lto_.symtab.4158cbcf,"e",%progbits
 	.ascii	"isPPMDataBeingReceived\000"
 	.ascii	"\000"
 	.ascii	"\000"

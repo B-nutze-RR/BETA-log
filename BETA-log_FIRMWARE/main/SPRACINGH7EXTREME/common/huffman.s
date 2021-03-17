@@ -9,19 +9,19 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"huffman.c"
-	.section	.gnu.lto_.profile.4111e6e9,"e",%progbits
+	.section	.gnu.lto_.profile.41585b3a,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.4111e6e9,"e",%progbits
+	.section	.gnu.lto_.icf.41585b3a,"e",%progbits
 	.ascii	"x\234\343``d\340c@\000&\206/'\337^\346f\374\364\341"
 	.ascii	"e\023\023\003\0007[\006\362"
 	.text
-	.section	.gnu.lto_.jmpfuncs.4111e6e9,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41585b3a,"e",%progbits
 	.ascii	"x\234\343``d0e@\000&\006VF\020\220\257\237\317\314\000"
 	.ascii	"\304\214@\314\004\245\231\031Y@R\374@&\013\2620\003"
 	.ascii	"\000\022\016\012\274"
 	.text
-	.section	.gnu.lto_.inline.4111e6e9,"e",%progbits
+	.section	.gnu.lto_.inline.41585b3a,"e",%progbits
 	.ascii	"x\234\343``d\350d@\000&\006\006\215{\3576\177g\316a"
 	.ascii	"ddV`d``v\377\372y\366\013\346\034\006\006\366\271\015"
 	.ascii	"\015\007\230R\230\200j\230\026\336\372\267\2279\235"
@@ -30,11 +30,11 @@
 	.ascii	"\273\2313A\272\031\033\200\200)\211\211\201\005\316"
 	.ascii	"\006\231tfY\363^\3464\006\011 \004\002\0001\004\"["
 	.text
-	.section	.gnu.lto_.pureconst.4111e6e9,"e",%progbits
+	.section	.gnu.lto_.pureconst.41585b3a,"e",%progbits
 	.ascii	"x\234\343``d`g```b\230\305\3028\213\005\000\005<\001"
 	.ascii	"P"
 	.text
-	.section	.gnu.lto_huffmanEncodeBuf.4111e6e9,"e",%progbits
+	.section	.gnu.lto_huffmanEncodeBuf.41585b3a,"e",%progbits
 	.ascii	"x\234}V]PU\327\025\336k\357\363w\377\357E\004\345\322"
 	.ascii	"\251\343\004Q\324p\035c\247\017>d\332\247\316\364\241"
 	.ascii	"\017}\350Cg:\326`K\246`&\301\207\316t\232\003(LDc\212"
@@ -141,7 +141,7 @@
 	.ascii	"\344\0252;\344\372\323\225/\224\0042\023\304\363\027"
 	.ascii	"_\374\037\360\022\335\214"
 	.text
-	.section	.gnu.lto_huffmanEncodeBufStreaming.4111e6e9,"e",%progbits
+	.section	.gnu.lto_huffmanEncodeBufStreaming.41585b3a,"e",%progbits
 	.ascii	"x\234\245W]PU\327\025\336\353\354s\3569\367\377\202"
 	.ascii	"\006!\244-Q\011\241\266J\314C\237\332\351\330\227\316"
 	.ascii	"\2643\315C^:\235N\207\"NM*v\302\2653}\312\201\033\357"
@@ -250,15 +250,15 @@
 	.ascii	"+\203\313V\006-B\376h\365\362rwr\202t\332s\317\375\007"
 	.ascii	"&+\327`"
 	.text
-	.section	.gnu.lto_.symbol_nodes.4111e6e9,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41585b3a,"e",%progbits
 	.ascii	"x\234\343``d0c\000\002\246\345\334\365\014\217?_\343"
 	.ascii	"`\234p\216\201\241\236\201aW\203#P\016$\263\202\273"
 	.ascii	"\236q\337\233^a\014\031\006\000\306:\016Z"
 	.text
-	.section	.gnu.lto_.refs.4111e6e9,"e",%progbits
+	.section	.gnu.lto_.refs.41585b3a,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.4111e6e9,"e",%progbits
+	.section	.gnu.lto_.decls.41585b3a,"e",%progbits
 	.ascii	"x\234\205VkLTG\024\236sgw\331\275\002k\305D\033lj\014"
 	.ascii	"\2616\215.\244ii\223\246?\332\2645m\323?\366\221\372"
 	.ascii	"\307 ]*Iwi\361b\355\277\013\256\212\317\240\202(\265"
@@ -340,7 +340,7 @@
 	.ascii	"\250\001?p\263\003b\236\347\034-\223\2748\032=O\311"
 	.ascii	"uf\270\262\335\337R\254\354\177\340\251\376\020"
 	.text
-	.section	.gnu.lto_.symtab.4111e6e9,"e",%progbits
+	.section	.gnu.lto_.symtab.41585b3a,"e",%progbits
 	.ascii	"huffmanEncodeBuf\000"
 	.ascii	"\000"
 	.ascii	"\000"

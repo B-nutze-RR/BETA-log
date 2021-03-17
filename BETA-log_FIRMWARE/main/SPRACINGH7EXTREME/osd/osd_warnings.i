@@ -24648,7 +24648,19 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-# 351 "./src/main/flight/pid.h"
+# 343 "./src/main/flight/pid.h"
+    pt1Filter_t setpointDerivativePt1[3];
+    biquadFilter_t setpointDerivativeBiquad[3];
+    
+# 345 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 345 "./src/main/flight/pid.h"
+        setpointDerivativeLpfInitialized;
+    uint8_t rcSmoothingDebugAxis;
+    uint8_t rcSmoothingFilterType;
+
+
+
     float acroTrainerAngleLimit;
     float acroTrainerLookaheadTime;
     uint8_t acroTrainerDebugAxis;
@@ -25035,7 +25047,7 @@ typedef struct osdConfig_s {
     uint8_t ahInvert;
     uint8_t osdProfileIndex;
     uint8_t overlay_radio_mode;
-    char profile[1][16 + 1];
+    char profile[3][16 + 1];
     uint16_t link_quality_alarm;
     int16_t rssi_dbm_alarm;
     uint8_t gps_sats_show_hdop;
@@ -26689,7 +26701,22 @@ void renderOsdWarning(char *warningText,
                        ;;
         return;
     }
-# 191 "./src/main/osd/osd_warnings.c"
+
+
+
+
+    if (osdWarnGetState(OSD_WARNING_LINK_QUALITY) && (rxGetLinkQualityPercent() < osdConfig()->link_quality_alarm)) {
+        tfp_sprintf(warningText, "LINK QUALITY");
+        *displayAttr = DISPLAYPORT_ATTR_WARNING;
+        *blinking = 
+# 186 "./src/main/osd/osd_warnings.c" 3 4
+                   1
+# 186 "./src/main/osd/osd_warnings.c"
+                       ;;
+        return;
+    }
+
+
     if (osdWarnGetState(OSD_WARNING_BATTERY_CRITICAL) && batteryState == BATTERY_CRITICAL) {
         tfp_sprintf(warningText, " LAND NOW");
         *displayAttr = DISPLAYPORT_ATTR_CRITICAL;
@@ -26735,7 +26762,22 @@ void renderOsdWarning(char *warningText,
                        ;;
         return;
     }
-# 315 "./src/main/osd/osd_warnings.c"
+
+
+
+    if (osdWarnGetState(OSD_WARNING_RC_SMOOTHING) && (armingFlags & (ARMED)) && !rcSmoothingInitializationComplete()) {
+        tfp_sprintf(warningText, "RCSMOOTHING");
+        *displayAttr = DISPLAYPORT_ATTR_WARNING;
+        *blinking = 
+# 309 "./src/main/osd/osd_warnings.c" 3 4
+                   1
+# 309 "./src/main/osd/osd_warnings.c"
+                       ;;
+        return;
+    }
+
+
+
     if (osdWarnGetState(OSD_WARNING_OVER_CAP) && (armingFlags & (ARMED)) && osdConfig()->cap_alarm > 0 && getMAhDrawn() >= osdConfig()->cap_alarm) {
         tfp_sprintf(warningText, "OVER CAP");
         *displayAttr = DISPLAYPORT_ATTR_WARNING;

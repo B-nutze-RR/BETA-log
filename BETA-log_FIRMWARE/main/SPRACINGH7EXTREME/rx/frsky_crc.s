@@ -9,15 +9,15 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"frsky_crc.c"
-	.section	.gnu.lto_.profile.41121e82,"e",%progbits
+	.section	.gnu.lto_.profile.41589b00,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.41121e82,"e",%progbits
+	.section	.gnu.lto_.icf.41589b00,"e",%progbits
 	.ascii	"x\234\343``d\220b@\000\026\206G?\177n\345b|\337\374"
 	.ascii	"\3431/\323\313\331Wfq2_\231\267\376\000\033\003\000"
 	.ascii	"\272g\014\375"
 	.text
-	.section	.gnu.lto_.jmpfuncs.41121e82,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41589b00,"e",%progbits
 	.ascii	"x\234E\2141\016\200@\010\004w\201\342:\037\340_\261"
 	.ascii	"\260\277\326\322\177X\371\022\277\340\017DH.9\222I6"
 	.ascii	"\013C\003\341\230c\020R\267S\221\260\246\262\214R\252"
@@ -25,7 +25,7 @@
 	.ascii	"\274%xq-\264,\246\225\320\314k5\304(\021\346\234\277"
 	.ascii	"\"\363\017\365&\034\305"
 	.text
-	.section	.gnu.lto_.inline.41121e82,"e",%progbits
+	.section	.gnu.lto_.inline.41589b00,"e",%progbits
 	.ascii	"x\234E\217=\016\3020\014\205\237_\002\004QT\006\316"
 	.ascii	"\325C\360\333\336\"\013\023K\305\031\230s\206. \001"
 	.ascii	"\013\\\201\235-+\022\211U\300\223e?\177\357\331Ap\307"
@@ -36,11 +36,11 @@
 	.ascii	"\225\315\302\211\002\015\234:l\023\362\353\245\231{"
 	.ascii	"i~b\232\345m\325V\370\000n\212-\304"
 	.text
-	.section	.gnu.lto_.pureconst.41121e82,"e",%progbits
+	.section	.gnu.lto_.pureconst.41589b00,"e",%progbits
 	.ascii	"x\234\343``d\340e```a\230\305\3028\213\205i&\013\363"
 	.ascii	"\014\026\000\021\362\002\226"
 	.text
-	.section	.gnu.lto_frskyCheckSumStep.41121e82,"e",%progbits
+	.section	.gnu.lto_frskyCheckSumStep.41589b00,"e",%progbits
 	.ascii	"x\234}\220\301K\033A\024\306\337\267o7\331\266\261="
 	.ascii	"\364R\032\0029\210A\017F\350?\340\177R\332%\322\022"
 	.ascii	"\354!\251\320\234\234D0\320\210^\254A\350\262\202\306"
@@ -65,7 +65,7 @@
 	.ascii	"\364Y\266\360\";Q(\346K\017\275\2027\352\221\353=\311"
 	.ascii	"y\371\342\324\244\375\270\364<\367\017\312\037\237\275"
 	.text
-	.section	.gnu.lto_frskyCheckSumFini.41121e82,"e",%progbits
+	.section	.gnu.lto_frskyCheckSumFini.41589b00,"e",%progbits
 	.ascii	"x\234]QAkSA\020\236\331\331}y\215\261\007\221\202\026"
 	.ascii	"\241\007\245\364\322\\{\364/\370\013\244<,J\211\207"
 	.ascii	"\004AO\335\2446!mi\240h\202\320g\012\032,\010V\321K"
@@ -97,7 +97,7 @@
 	.ascii	"b2}99\226\316\214_9\353\245\275a\017\\\357\3749o<s)"
 	.ascii	"\365\027\302\026\334["
 	.text
-	.section	.gnu.lto_frskyCheckSum.41121e82,"e",%progbits
+	.section	.gnu.lto_frskyCheckSum.41589b00,"e",%progbits
 	.ascii	"x\234]S]OTW\024=\353\356{g.\323a\300\257\246\2214\241"
 	.ascii	"\246\204\020[1\362\002\211\017\246\361\177\0302j5V\036"
 	.ascii	"\300&\366\311\303\3140j!\340\203HPoF\203\244&&Z[M\023"
@@ -145,7 +145,7 @@
 	.ascii	"nS\2621\271&\251\334\315\365\273\352#\337li\370z\327"
 	.ascii	"6?\271mKrG\323\267;\261\3755G\250pU"
 	.text
-	.section	.gnu.lto_frskyCheckSumIsGood.41121e82,"e",%progbits
+	.section	.gnu.lto_frskyCheckSumIsGood.41589b00,"e",%progbits
 	.ascii	"x\234E\220;K\003Q\020\205\347\354l6\253h\251\205! \""
 	.ascii	"D\033#\370\007,\374\037\022\342\023\037E\264\320\312"
 	.ascii	"\233\207\0061\304\306\340#,k\241(X\210`e|\254\017\220"
@@ -169,17 +169,17 @@
 	.ascii	"\037\215E\273\242d\016D\246#\326\370\340\344\360\364"
 	.ascii	"\310\037\022\302\207\337"
 	.text
-	.section	.gnu.lto_.symbol_nodes.41121e82,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41589b00,"e",%progbits
 	.ascii	"x\234\343``dhb\000\002\246\345\334\365\014\015@\300"
 	.ascii	"\3028\341\034\003C=\003\303\256\006G\240$Hj\005w=\343"
 	.ascii	"\207_+,0eVr\3273!\313\354l8\330\300\006\225[\305]\317"
 	.ascii	"\214\335@f&\306\217 M\213\330\231\231\231 J\224\030"
 	.ascii	"\000f\311#\027"
 	.text
-	.section	.gnu.lto_.refs.41121e82,"e",%progbits
+	.section	.gnu.lto_.refs.41589b00,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.41121e82,"e",%progbits
+	.section	.gnu.lto_.decls.41589b00,"e",%progbits
 	.ascii	"x\234\215T]LTG\024\236sg\027v/ \324\022i\273<\020\023"
 	.ascii	"M\023#+iZ\372\320\247\222\324\366\245ib4\251/hV\014"
 	.ascii	"D\2275\313b\354\203\311\000Q\210)\024#b55J0\012\246"
@@ -237,7 +237,7 @@
 	.ascii	"\3710\301\372\256b\247\307s\300Z\374\265\307s\370\015"
 	.ascii	"\227\026\345O"
 	.text
-	.section	.gnu.lto_.symtab.41121e82,"e",%progbits
+	.section	.gnu.lto_.symtab.41589b00,"e",%progbits
 	.ascii	"frskyCheckSumStep\000"
 	.ascii	"\000"
 	.ascii	"\000"

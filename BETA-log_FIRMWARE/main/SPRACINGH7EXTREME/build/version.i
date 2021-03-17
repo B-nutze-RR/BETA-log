@@ -21326,4 +21326,4 @@ extern uint8_t eepromData[4096];
 const char * const targetName = "SPRACINGH7EXTREME";
 const char * const shortGitRevision = "BETAlog_no_FLIGHT";
 const char * const buildDate = "Mar 17 2021";
-const char * const buildTime = "17:43:00";
+const char * const buildTime = "19:00:12";

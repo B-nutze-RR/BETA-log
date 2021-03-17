@@ -22287,7 +22287,19 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-# 351 "./src/main/flight/pid.h"
+# 343 "./src/main/flight/pid.h"
+    pt1Filter_t setpointDerivativePt1[3];
+    biquadFilter_t setpointDerivativeBiquad[3];
+    
+# 345 "./src/main/flight/pid.h" 3 4
+   _Bool 
+# 345 "./src/main/flight/pid.h"
+        setpointDerivativeLpfInitialized;
+    uint8_t rcSmoothingDebugAxis;
+    uint8_t rcSmoothingFilterType;
+
+
+
     float acroTrainerAngleLimit;
     float acroTrainerLookaheadTime;
     uint8_t acroTrainerDebugAxis;
@@ -29212,8 +29224,15 @@ __attribute__ ((section(".fastram_bss"), aligned(4))) pidAxisData_t pidData[3];
 __attribute__ ((section(".fastram_bss"), aligned(4))) pidRuntime_t pidRuntime;
 # 91 "./src/main/flight/pid.c"
 extern const pidConfig_t pgResetTemplate_pidConfig; pidConfig_t pidConfig_System; pidConfig_t pidConfig_Copy; extern const pgRegistry_t pidConfig_Registry; const pgRegistry_t pidConfig_Registry __attribute__ ((section(".pg_registry"), used, aligned(4))) = { .pgn = 504 | (2 << 12), .length = 1, .size = sizeof(pidConfig_t) | PGR_SIZE_SYSTEM_FLAG, .address = (uint8_t*)&pidConfig_System, .copy = (uint8_t*)&pidConfig_Copy, .ptr = 0, .reset = {.ptr = (void*)&pgResetTemplate_pidConfig}, };
-# 111 "./src/main/flight/pid.c"
-const pidConfig_t pgResetTemplate_pidConfig __attribute__ ((section(".pg_resetdata"), used, aligned(2))) = { .pid_process_denom = 1 }
+# 104 "./src/main/flight/pid.c"
+const pidConfig_t pgResetTemplate_pidConfig __attribute__ ((section(".pg_resetdata"), used, aligned(2))) = { .pid_process_denom = 1, .runaway_takeoff_prevention = 
+# 104 "./src/main/flight/pid.c" 3 4
+1
+# 104 "./src/main/flight/pid.c"
+, .runaway_takeoff_deactivate_throttle = 20, .runaway_takeoff_deactivate_delay = 500 }
+
+
+
 
  ;
 # 125 "./src/main/flight/pid.c"
@@ -29687,6 +29706,29 @@ static void rotateItermAndAxisError()
         }
     }
 }
+
+
+float __attribute__((section(".tcm_code"))) applyRcSmoothingDerivativeFilter(int axis, float pidSetpointDelta)
+{
+    float ret = pidSetpointDelta;
+    if (axis == pidRuntime.rcSmoothingDebugAxis) {
+        {if (debugMode == (DEBUG_RC_SMOOTHING)) {debug[(1)] = (lrintf(pidSetpointDelta * 100.0f));}};
+    }
+    if (pidRuntime.setpointDerivativeLpfInitialized) {
+        switch (pidRuntime.rcSmoothingFilterType) {
+            case RC_SMOOTHING_DERIVATIVE_PT1:
+                ret = pt1FilterApply(&pidRuntime.setpointDerivativePt1[axis], pidSetpointDelta);
+                break;
+            case RC_SMOOTHING_DERIVATIVE_BIQUAD:
+                ret = biquadFilterApplyDF1(&pidRuntime.setpointDerivativeBiquad[axis], pidSetpointDelta);
+                break;
+        }
+        if (axis == pidRuntime.rcSmoothingDebugAxis) {
+            {if (debugMode == (DEBUG_RC_SMOOTHING)) {debug[(2)] = (lrintf(ret * 100.0f));}};
+        }
+    }
+    return ret;
+}
 # 803 "./src/main/flight/pid.c"
 void __attribute__((section(".tcm_code"))) pidController(const pidProfile_t *pidProfile, timeUs_t currentTimeUs)
 {
@@ -29922,7 +29964,14 @@ void __attribute__((section(".tcm_code"))) pidController(const pidProfile_t *pid
 
 
         pidRuntime.previousPidSetpoint[axis] = currentPidSetpoint;
-# 1052 "./src/main/flight/pid.c"
+
+
+
+        pidSetpointDelta = applyRcSmoothingDerivativeFilter(axis, pidSetpointDelta);
+
+
+
+
         if ((pidRuntime.pidCoefficient[axis].Kd > 0) && !launchControlActive) {
 
 

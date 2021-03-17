@@ -24605,7 +24605,7 @@ typedef struct osdConfig_s {
     uint8_t ahInvert;
     uint8_t osdProfileIndex;
     uint8_t overlay_radio_mode;
-    char profile[1][16 + 1];
+    char profile[3][16 + 1];
     uint16_t link_quality_alarm;
     int16_t rssi_dbm_alarm;
     uint8_t gps_sats_show_hdop;
@@ -25321,8 +25321,8 @@ static int cmsDrawMenuEntry(displayPort_t *pDisplay, const OSD_Entry *p, uint8_t
            _Bool 
 # 501 "./src/main/cms/cms.c"
                 cursorBlink = millis() % (2 * 500) < 500;
-            for (unsigned x = 1; x < 1 + 1; x++) {
-                if (((*val) & (((1 << 1) - 1) << 11))) {
+            for (unsigned x = 1; x < 3 + 1; x++) {
+                if (((*val) & (((1 << ((1) - 1 + 11))) << ((x)-1)))) {
                     if (osdElementEditing && cursorBlink && selectedRow && (x == osdProfileCursor)) {
                         strcpy(buff + x - 1, " ");
                     } else {
@@ -26023,7 +26023,18 @@ static uint16_t cmsHandleKey(displayPort_t *pDisplay, cms_key_e key)
                                            ;
                     osdProfileCursor = 1;
                 } else if (osdElementEditing) {
-# 1120 "./src/main/cms/cms.c"
+
+                    if (key == CMS_KEY_RIGHT) {
+                        if (osdProfileCursor < 3) {
+                            osdProfileCursor++;
+                        }
+                    }
+                    if (key == CMS_KEY_LEFT) {
+                        if (osdProfileCursor > 1) {
+                            osdProfileCursor--;
+                        }
+                    }
+
                     if (key == CMS_KEY_UP) {
                         *val |= (1 << ((osdProfileCursor) - 1 + 11));
                     }

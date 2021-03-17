@@ -21320,3 +21320,415 @@ extern uint8_t eepromData[4096];
 # 1 "./src/main/target/common_defaults_post.h" 1
 # 153 "./src/main/platform.h" 2
 # 24 "./src/main/drivers/pin_pull_up_down.c" 2
+
+
+
+# 1 "./src/main/build/debug.h" 1
+# 21 "./src/main/build/debug.h"
+       
+
+
+extern int16_t debug[4];
+extern uint8_t debugMode;
+
+
+
+
+
+
+extern uint32_t sectionTimes[2][4];
+# 51 "./src/main/build/debug.h"
+typedef enum {
+    DEBUG_NONE,
+    DEBUG_CYCLETIME,
+    DEBUG_BATTERY,
+    DEBUG_GYRO_FILTERED,
+    DEBUG_ACCELEROMETER,
+    DEBUG_PIDLOOP,
+    DEBUG_GYRO_SCALED,
+    DEBUG_RC_INTERPOLATION,
+    DEBUG_ANGLERATE,
+    DEBUG_ESC_SENSOR,
+    DEBUG_SCHEDULER,
+    DEBUG_STACK,
+    DEBUG_ESC_SENSOR_RPM,
+    DEBUG_ESC_SENSOR_TMP,
+    DEBUG_ALTITUDE,
+    DEBUG_FFT,
+    DEBUG_FFT_TIME,
+    DEBUG_FFT_FREQ,
+    DEBUG_RX_FRSKY_SPI,
+    DEBUG_RX_SFHSS_SPI,
+    DEBUG_GYRO_RAW,
+    DEBUG_DUAL_GYRO_RAW,
+    DEBUG_DUAL_GYRO_DIFF,
+    DEBUG_MAX7456_SIGNAL,
+    DEBUG_MAX7456_SPICLOCK,
+    DEBUG_SBUS,
+    DEBUG_FPORT,
+    DEBUG_RANGEFINDER,
+    DEBUG_RANGEFINDER_QUALITY,
+    DEBUG_LIDAR_TF,
+    DEBUG_ADC_INTERNAL,
+    DEBUG_RUNAWAY_TAKEOFF,
+    DEBUG_SDIO,
+    DEBUG_CURRENT_SENSOR,
+    DEBUG_USB,
+    DEBUG_SMARTAUDIO,
+    DEBUG_RTH,
+    DEBUG_ITERM_RELAX,
+    DEBUG_ACRO_TRAINER,
+    DEBUG_RC_SMOOTHING,
+    DEBUG_RX_SIGNAL_LOSS,
+    DEBUG_RC_SMOOTHING_RATE,
+    DEBUG_ANTI_GRAVITY,
+    DEBUG_DYN_LPF,
+    DEBUG_RX_SPEKTRUM_SPI,
+    DEBUG_DSHOT_RPM_TELEMETRY,
+    DEBUG_RPM_FILTER,
+    DEBUG_D_MIN,
+    DEBUG_AC_CORRECTION,
+    DEBUG_AC_ERROR,
+    DEBUG_DUAL_GYRO_SCALED,
+    DEBUG_DSHOT_RPM_ERRORS,
+    DEBUG_CRSF_LINK_STATISTICS_UPLINK,
+    DEBUG_CRSF_LINK_STATISTICS_PWR,
+    DEBUG_CRSF_LINK_STATISTICS_DOWN,
+    DEBUG_BARO,
+    DEBUG_GPS_RESCUE_THROTTLE_PID,
+    DEBUG_DYN_IDLE,
+    DEBUG_FF_LIMIT,
+    DEBUG_FF_INTERPOLATED,
+    DEBUG_BLACKBOX_OUTPUT,
+    DEBUG_GYRO_SAMPLE,
+    DEBUG_RX_TIMING,
+    DEBUG_D_LPF,
+    DEBUG_VTX_TRAMP,
+    DEBUG_GHST,
+    DEBUG_COUNT
+} debugType_e;
+
+extern const char * const debugModeNames[DEBUG_COUNT];
+# 28 "./src/main/drivers/pin_pull_up_down.c" 2
+# 1 "./src/main/drivers/io.h" 1
+# 21 "./src/main/drivers/io.h"
+       
+
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdbool.h" 1 3 4
+# 24 "./src/main/drivers/io.h" 2
+
+
+
+
+# 1 "./src/main/drivers/resource.h" 1
+# 21 "./src/main/drivers/resource.h"
+       
+
+typedef enum {
+    OWNER_FREE = 0,
+    OWNER_PWMINPUT,
+    OWNER_PPMINPUT,
+    OWNER_MOTOR,
+    OWNER_SERVO,
+    OWNER_LED,
+    OWNER_ADC,
+    OWNER_ADC_BATT,
+    OWNER_ADC_CURR,
+    OWNER_ADC_EXT,
+    OWNER_ADC_RSSI,
+    OWNER_SERIAL_TX,
+    OWNER_SERIAL_RX,
+    OWNER_PINDEBUG,
+    OWNER_TIMER,
+    OWNER_SONAR_TRIGGER,
+    OWNER_SONAR_ECHO,
+    OWNER_SYSTEM,
+    OWNER_SPI_SCK,
+    OWNER_SPI_MISO,
+    OWNER_SPI_MOSI,
+    OWNER_I2C_SCL,
+    OWNER_I2C_SDA,
+    OWNER_SDCARD,
+    OWNER_SDIO_CK,
+    OWNER_SDIO_CMD,
+    OWNER_SDIO_D0,
+    OWNER_SDIO_D1,
+    OWNER_SDIO_D2,
+    OWNER_SDIO_D3,
+    OWNER_SDCARD_CS,
+    OWNER_SDCARD_DETECT,
+    OWNER_FLASH_CS,
+    OWNER_BARO_CS,
+    OWNER_GYRO_CS,
+    OWNER_OSD_CS,
+    OWNER_RX_SPI_CS,
+    OWNER_SPI_CS,
+    OWNER_GYRO_EXTI,
+    OWNER_BARO_EOC,
+    OWNER_COMPASS_EXTI,
+    OWNER_USB,
+    OWNER_USB_DETECT,
+    OWNER_BEEPER,
+    OWNER_OSD,
+    OWNER_RX_BIND,
+    OWNER_INVERTER,
+    OWNER_LED_STRIP,
+    OWNER_TRANSPONDER,
+    OWNER_VTX_POWER,
+    OWNER_VTX_CS,
+    OWNER_VTX_DATA,
+    OWNER_VTX_CLK,
+    OWNER_COMPASS_CS,
+    OWNER_RX_BIND_PLUG,
+    OWNER_ESCSERIAL,
+    OWNER_CAMERA_CONTROL,
+    OWNER_TIMUP,
+    OWNER_RANGEFINDER,
+    OWNER_RX_SPI,
+    OWNER_PINIO,
+    OWNER_USB_MSC_PIN,
+    OWNER_MCO,
+    OWNER_RX_SPI_BIND,
+    OWNER_RX_SPI_LED,
+    OWNER_PREINIT,
+    OWNER_RX_SPI_EXTI,
+    OWNER_RX_SPI_CC2500_TX_EN,
+    OWNER_RX_SPI_CC2500_LNA_EN,
+    OWNER_RX_SPI_CC2500_ANT_SEL,
+    OWNER_QUADSPI_CLK,
+    OWNER_QUADSPI_BK1IO0,
+    OWNER_QUADSPI_BK1IO1,
+    OWNER_QUADSPI_BK1IO2,
+    OWNER_QUADSPI_BK1IO3,
+    OWNER_QUADSPI_BK1CS,
+    OWNER_QUADSPI_BK2IO0,
+    OWNER_QUADSPI_BK2IO1,
+    OWNER_QUADSPI_BK2IO2,
+    OWNER_QUADSPI_BK2IO3,
+    OWNER_QUADSPI_BK2CS,
+    OWNER_BARO_XCLR,
+    OWNER_PULLUP,
+    OWNER_PULLDOWN,
+    OWNER_DSHOT_BITBANG,
+    OWNER_SWD,
+    OWNER_TOTAL_COUNT
+} resourceOwner_e;
+
+typedef struct resourceOwner_s {
+    resourceOwner_e owner;
+    uint8_t resourceIndex;
+} resourceOwner_t;
+
+extern const char * const ownerNames[OWNER_TOTAL_COUNT];
+# 29 "./src/main/drivers/io.h" 2
+
+# 1 "./src/main/drivers/io_types.h" 1
+# 21 "./src/main/drivers/io_types.h"
+       
+
+
+
+
+
+typedef uint8_t ioTag_t;
+typedef void* IO_t;
+# 48 "./src/main/drivers/io_types.h"
+typedef uint8_t ioConfig_t;
+# 31 "./src/main/drivers/io.h" 2
+# 110 "./src/main/drivers/io.h"
+# 1 "./src/main/drivers/io_def.h" 1
+# 21 "./src/main/drivers/io_def.h"
+       
+# 54 "./src/main/drivers/io_def.h"
+# 1 "./src/main/drivers/io_def_generated.h" 1
+# 21 "./src/main/drivers/io_def_generated.h"
+       
+# 54 "./src/main/drivers/io_def.h" 2
+# 111 "./src/main/drivers/io.h" 2
+
+
+# 112 "./src/main/drivers/io.h" 3 4
+_Bool 
+# 112 "./src/main/drivers/io.h"
+    IORead(IO_t io);
+void IOWrite(IO_t io, 
+# 113 "./src/main/drivers/io.h" 3 4
+                     _Bool 
+# 113 "./src/main/drivers/io.h"
+                          value);
+void IOHi(IO_t io);
+void IOLo(IO_t io);
+void IOToggle(IO_t io);
+
+void IOInit(IO_t io, resourceOwner_e owner, uint8_t index);
+void IORelease(IO_t io);
+resourceOwner_e IOGetOwner(IO_t io);
+
+# 121 "./src/main/drivers/io.h" 3 4
+_Bool 
+# 121 "./src/main/drivers/io.h"
+    IOIsFreeOrPreinit(IO_t io);
+IO_t IOGetByTag(ioTag_t tag);
+
+void IOConfigGPIO(IO_t io, ioConfig_t cfg);
+
+void IOConfigGPIOAF(IO_t io, ioConfig_t cfg, uint8_t af);
+
+
+void IOInitGlobal(void);
+
+typedef void (*IOTraverseFuncPtr_t)(IO_t io);
+
+void IOTraversePins(IOTraverseFuncPtr_t func);
+
+GPIO_TypeDef* IO_GPIO(IO_t io);
+uint16_t IO_Pin(IO_t io);
+# 29 "./src/main/drivers/pin_pull_up_down.c" 2
+# 1 "./src/main/pg/pin_pull_up_down.h" 1
+# 21 "./src/main/pg/pin_pull_up_down.h"
+       
+
+
+# 1 "./src/main/drivers/pin_pull_up_down.h" 1
+# 21 "./src/main/drivers/pin_pull_up_down.h"
+       
+
+
+
+
+
+
+
+struct pinPullUpDownConfig_s;
+
+void pinPullupPulldownInit();
+# 25 "./src/main/pg/pin_pull_up_down.h" 2
+# 1 "./src/main/pg/pg.h" 1
+# 21 "./src/main/pg/pg.h"
+       
+
+
+
+
+# 1 "./src/main/build/build_config.h" 1
+# 21 "./src/main/build/build_config.h"
+       
+# 44 "./src/main/build/build_config.h"
+typedef enum {
+    MCU_TYPE_SIMULATOR = 0,
+    MCU_TYPE_F103,
+    MCU_TYPE_F303,
+    MCU_TYPE_F40X,
+    MCU_TYPE_F411,
+    MCU_TYPE_F446,
+    MCU_TYPE_F722,
+    MCU_TYPE_F745,
+    MCU_TYPE_F746,
+    MCU_TYPE_F765,
+    MCU_TYPE_H750,
+    MCU_TYPE_H743_REV_UNKNOWN,
+    MCU_TYPE_H743_REV_Y,
+    MCU_TYPE_H743_REV_X,
+    MCU_TYPE_H743_REV_V,
+    MCU_TYPE_H7A3,
+    MCU_TYPE_H723_725,
+    MCU_TYPE_UNKNOWN = 255,
+} mcuTypeId_e;
+
+mcuTypeId_e getMcuTypeId(void);
+# 27 "./src/main/pg/pg.h" 2
+
+typedef uint16_t pgn_t;
+
+
+typedef enum {
+    PGRF_NONE = 0,
+    PGRF_CLASSIFICATON_BIT = (1 << 0)
+} pgRegistryFlags_e;
+
+typedef enum {
+    PGR_PGN_MASK = 0x0fff,
+    PGR_PGN_VERSION_MASK = 0xf000,
+    PGR_SIZE_MASK = 0x0fff,
+    PGR_SIZE_SYSTEM_FLAG = 0x0000
+} pgRegistryInternal_e;
+
+
+typedef void (pgResetFunc)(void * );
+
+typedef struct pgRegistry_s {
+    pgn_t pgn;
+    uint8_t length;
+    uint16_t size;
+    uint8_t *address;
+    uint8_t *copy;
+    uint8_t **ptr;
+    union {
+        void *ptr;
+        pgResetFunc *fn;
+    } reset;
+} pgRegistry_t;
+
+static inline uint16_t pgN(const pgRegistry_t* reg) {return reg->pgn & PGR_PGN_MASK;}
+static inline uint8_t pgVersion(const pgRegistry_t* reg) {return (uint8_t)(reg->pgn >> 12);}
+static inline uint16_t pgSize(const pgRegistry_t* reg) {return reg->size & PGR_SIZE_MASK;}
+static inline uint16_t pgElementSize(const pgRegistry_t* reg) {return (reg->size & PGR_SIZE_MASK) / reg->length;}
+# 75 "./src/main/pg/pg.h"
+extern const pgRegistry_t __pg_registry_start[];
+extern const pgRegistry_t __pg_registry_end[];
+
+
+extern const uint8_t __pg_resetdata_start[];
+extern const uint8_t __pg_resetdata_end[];
+# 194 "./src/main/pg/pg.h"
+const pgRegistry_t* pgFind(pgn_t pgn);
+
+
+# 196 "./src/main/pg/pg.h" 3 4
+_Bool 
+# 196 "./src/main/pg/pg.h"
+    pgLoad(const pgRegistry_t* reg, const void *from, int size, int version);
+int pgStore(const pgRegistry_t* reg, void *to, int size);
+void pgResetAll(void);
+void pgResetInstance(const pgRegistry_t *reg, uint8_t *base);
+
+# 200 "./src/main/pg/pg.h" 3 4
+_Bool 
+# 200 "./src/main/pg/pg.h"
+    pgResetCopy(void *copy, pgn_t pgn);
+void pgReset(const pgRegistry_t* reg);
+# 26 "./src/main/pg/pin_pull_up_down.h" 2
+
+typedef struct pinPullUpDownConfig_s {
+    ioTag_t ioTag;
+} pinPullUpDownConfig_t;
+
+extern pinPullUpDownConfig_t pinPullupConfig_SystemArray[4]; extern pinPullUpDownConfig_t pinPullupConfig_CopyArray[4]; static inline const pinPullUpDownConfig_t* pinPullupConfig(int _index) { return &pinPullupConfig_SystemArray[_index]; } static inline pinPullUpDownConfig_t* pinPullupConfigMutable(int _index) { return &pinPullupConfig_SystemArray[_index]; } static inline pinPullUpDownConfig_t (* pinPullupConfig_array(void))[4] { return &pinPullupConfig_SystemArray; } struct _dummy;
+extern pinPullUpDownConfig_t pinPulldownConfig_SystemArray[4]; extern pinPullUpDownConfig_t pinPulldownConfig_CopyArray[4]; static inline const pinPullUpDownConfig_t* pinPulldownConfig(int _index) { return &pinPulldownConfig_SystemArray[_index]; } static inline pinPullUpDownConfig_t* pinPulldownConfigMutable(int _index) { return &pinPulldownConfig_SystemArray[_index]; } static inline pinPullUpDownConfig_t (* pinPulldownConfig_array(void))[4] { return &pinPulldownConfig_SystemArray; } struct _dummy;
+# 30 "./src/main/drivers/pin_pull_up_down.c" 2
+
+
+
+static void initPin(const pinPullUpDownConfig_t* config, resourceOwner_e owner, uint8_t index)
+{
+    IO_t io = IOGetByTag(config->ioTag);
+    if (!io) {
+        return;
+    }
+
+    IOInit(io, owner, (index + 1));
+
+    if (owner == OWNER_PULLUP) {
+        IOConfigGPIO(io, (((0x00000000U)) | (((0x00000000U)) << 2) | (((0x00000001U)) << 5)));
+    } else if (owner == OWNER_PULLDOWN) {
+        IOConfigGPIO(io, (((0x00000000U)) | (((0x00000000U)) << 2) | (((0x00000002U)) << 5)));
+    }
+}
+
+void pinPullupPulldownInit()
+{
+    for (uint8_t i = 0; i < 4; i++) {
+        initPin(pinPullupConfig(i), OWNER_PULLUP, i);
+        initPin(pinPulldownConfig(i), OWNER_PULLDOWN, i);
+    }
+}

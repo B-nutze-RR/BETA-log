@@ -9,10 +9,10 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"stm32f4xx_rtc.c"
-	.section	.gnu.lto_.profile.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_.profile.415f2d87,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_.icf.415f2d87,"e",%progbits
 	.ascii	"x\234\001t\001\213\376\010\000\001\000d\001\000\000"
 	.ascii	"\000\000\000\000\000\000\000\000<\000\361\243\365\232"
 	.ascii	"\017\001\320\212\305\233\002\002\256\302\275\204\012"
@@ -42,7 +42,7 @@
 	.ascii	"\006:\303\367\224\272\016;\311\302\323\336\006\000\317"
 	.ascii	"\302\272\312"
 	.text
-	.section	.gnu.lto_.jmpfuncs.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.415f2d87,"e",%progbits
 	.ascii	"x\234mQ\011R\002A\014\354\235\231eA9\024E\221\033T@"
 	.ascii	"\301[N\375\010\237\301\247\360\025\177\206\231\232^"
 	.ascii	"*\200S\225\352\244\323\333Ij\263\210\2602\330\275o\211"
@@ -57,7 +57,7 @@
 	.ascii	"t\357\346\231\336bN\311\202\270$~\021\361\007\337\341"
 	.ascii	"gj"
 	.text
-	.section	.gnu.lto_.inline.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_.inline.415f2d87,"e",%progbits
 	.ascii	"x\234\265X\353oTU\020\237\363\330\355\351\223\005\255"
 	.ascii	"\026\012\355\025\021\001\025\020\360\205~\330\277\300"
 	.ascii	"\350\177\320\307\266\335~\261\375\013\314\335*\266\232"
@@ -136,7 +136,7 @@
 	.ascii	"\360\316:y\274[l\364(w\345:F\342V\014\204\356\362\322"
 	.ascii	"l\305\243\220\3424k\017\377\215W\300\177+v\263?"
 	.text
-	.section	.gnu.lto_.pureconst.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_.pureconst.415f2d87,"e",%progbits
 	.ascii	"x\234\005\301\005\242AQ\000\000\321\213\301\323\335"
 	.ascii	"\335~\350\216\225\316>\354\3179Q\210\205O\010\341\035"
 	.ascii	"$&qI\010\222\224\224\244%\222\214d%'y)HQJR\226\212T"
@@ -144,7 +144,7 @@
 	.ascii	"sY\310RV\262\226\037\371\225?\371\227\215le'{9\310Q"
 	.ascii	"Nr\226\213\\\345&wy\310S^\362\005q\240,\355"
 	.text
-	.section	.gnu.lto_RTC_EnterInitMode.part.0.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_EnterInitMode.part.0.415f2d87,"e",%progbits
 	.ascii	"x\234}S\317KTQ\024\276\337;o\306q\322\332\006\003!\204"
 	.ascii	"\201\033g\322\376\000\027\322\"\020\002[\264\023\233"
 	.ascii	"\214&\322b\346\031\356\274:\246L\376\212\310Lh\232B"
@@ -184,7 +184,7 @@
 	.ascii	"\005\254\220UnU\207\234z\333\245n\374\347\252\253\254"
 	.ascii	"\212\340\037\034\276?#"
 	.text
-	.section	.gnu.lto_RTC_TamperTriggerConfig.part.0.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_TamperTriggerConfig.part.0.415f2d87,"e",%progbits
 	.ascii	"x\234\215S]HSa\030\376\236\363\236\315i\206\005]D\273"
 	.ascii	"\011\312\306\010\334\324 \272\013\212\210@\210\334E"
 	.ascii	"wb\272l\320B\316Fx\347\327\214\226:4\2506\003\327\014"
@@ -218,7 +218,7 @@
 	.ascii	"\034\360\355j\363\265\007\273\375\306\332%\3503\002"
 	.ascii	"]]~\343/\361a\002\250"
 	.text
-	.section	.gnu.lto_RTC_TamperCmd.part.0.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_TamperCmd.part.0.415f2d87,"e",%progbits
 	.ascii	"x\234\215RMkSA\024\235\363\356K\223\226H]\270(d\343"
 	.ascii	"\302\032\262\351K\023\177\200\240\210\010\0251Y\270"
 	.ascii	"\2131\215\0300R\222\240\335uL\013\2516\244\202\332V"
@@ -252,7 +252,7 @@
 	.ascii	"\035\241`8>\022M8\366FO\004R\341T\364\017\236\233\365"
 	.ascii	"i"
 	.text
-	.section	.gnu.lto_RTC_TimeStampOnTamperDetectionCmd.part.0.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_TimeStampOnTamperDetectionCmd.part.0.415f2d87,"e",%progbits
 	.ascii	"x\234\215PMkSA\024\2353w\322>\241\022\027.\012Y\327"
 	.ascii	"P\204\276\330\370\003\\\210\013\241\"\244\256K\215\021"
 	.ascii	"\003V\344\345\241\335\365\332\026\"6$\245 QJ|J\011\256"
@@ -282,7 +282,7 @@
 	.ascii	"\211\354\360qK{~~(\257\234C\205\2639\177\334/\374\006"
 	.ascii	"\251\"\305\214"
 	.text
-	.section	.gnu.lto_RTC_TamperPullUpCmd.part.0.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_TamperPullUpCmd.part.0.415f2d87,"e",%progbits
 	.ascii	"x\234\215PMh\023A\024\236o\336\246]\241\022\017\036"
 	.ascii	"\0129\227\332K66\336\274x\020\017BE\210\236K\215\021"
 	.ascii	"\003Vd\263ho}\266\225\024\033\322^4z\210\253\224\340"
@@ -311,7 +311,7 @@
 	.ascii	"\237;=\032qN\301\315:\005o<=|\312\320\256\227Mf\225"
 	.ascii	"}$w!\343\215y\271\015\010\363\310j"
 	.text
-	.section	.gnu.lto_RTC_StructInit.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_StructInit.415f2d87,"e",%progbits
 	.ascii	"x\234\235\220\317KTQ\024\307\317\367\236\3615\224\012"
 	.ascii	"\325&\220\310\205 n|\242\375\001A\021\024\010\321\270"
 	.ascii	"k1\324d\364 %\336\274\302\335\334\231H\003K7\205E\310"
@@ -340,7 +340,7 @@
 	.ascii	"d\2323T\273\277cgzO\267\027\244\002\377D&\370\013\207"
 	.ascii	"\253\326p"
 	.text
-	.section	.gnu.lto_RTC_WriteProtectionCmd.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_WriteProtectionCmd.415f2d87,"e",%progbits
 	.ascii	"x\234\235Q\315k\023A\024\177\277y\223f\255\025\361&"
 	.ascii	"\344R\274\224^\272\241\361\017\360 =\010-B\364\\j\214"
 	.ascii	"\030\260\"\233E{\353\244V\252\355\222\352Aj\0175\005"
@@ -371,7 +371,7 @@
 	.ascii	"]\031\262\372\262\347\322\356\200\233\375\011x\207\366"
 	.ascii	"\003"
 	.text
-	.section	.gnu.lto_RTC_EnterInitMode.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_EnterInitMode.415f2d87,"e",%progbits
 	.ascii	"x\234\225S]HUY\024^\353\254\363w\315\254\036\007{\010"
 	.ascii	"\302\207`\350\3362z\232\207\036\206\036\006\202\240"
 	.ascii	"\036z\2232cnL\026\367\336\242\267\366\365\336\014\353"
@@ -423,7 +423,7 @@
 	.ascii	"[\2449\022+]Z\012y\341\362p,\032\333\030\333\031\265"
 	.ascii	"\365g\216<)\335\276\263<V\026\371\004\257\305\271&"
 	.text
-	.section	.gnu.lto_RTC_Init.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_Init.415f2d87,"e",%progbits
 	.ascii	"x\234\235\225mlSU\030\307\317\377\236\333\366\366e\324"
 	.ascii	"\204/\314&\260\017\022\302\027\2720\276\221\030\023"
 	.ascii	"\215\211&$\306\361\321d\201\211\261\211,\246-\006\023"
@@ -482,7 +482,7 @@
 	.ascii	"n\251ek\236\337\371d\3153u\201pu8\270\2576l\017\205"
 	.ascii	"w\205\367\205\376\005\360J\247\010"
 	.text
-	.section	.gnu.lto_RTC_ExitInitMode.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_ExitInitMode.415f2d87,"e",%progbits
 	.ascii	"x\234\225\220\277KBQ\024\307\317\367\335\247\271\204"
 	.ascii	"4\206\004M\201\213O\264?\240!\032\242 \260]\312\214"
 	.ascii	"\204\214xJ8\3455\003!%k(+0\203\220\266~\320Ri\365\022"
@@ -505,7 +505,7 @@
 	.ascii	"x=\341\221\001\277\032\230\034\363\0323%\244\372\224"
 	.ascii	"P8\350v\215\352c5\354s\370\350\007{G\231\024"
 	.text
-	.section	.gnu.lto_RTC_WaitForSynchro.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_WaitForSynchro.415f2d87,"e",%progbits
 	.ascii	"x\234\235T]l\223U\030>\317w\276\277\316UH\274\263\\"
 	.ascii	"\364f1\334\320\312\210W\\`b\2740!1\301;/\010\324\031"
 	.ascii	"\226\310 m1x\305\351:!\333\352P\303\217K\250E'!\023"
@@ -561,7 +561,7 @@
 	.ascii	"dE\204\371c\257\325E6E\267\304\342\033\342\333b\266"
 	.ascii	"\376<\352mF\266l\253\213\327D\377\006+\3375\310"
 	.text
-	.section	.gnu.lto_RTC_DeInit.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_DeInit.415f2d87,"e",%progbits
 	.ascii	"x\234\235\226]LTG\024\307\347\334\271{\277\0264iRk$"
 	.ascii	"\251\274\220\306\246\021*\246}\351C\2334}hb\322D\337"
 	.ascii	"\251RHi\2526\260V\337\274\273P\015\362\3254\025\305"
@@ -636,7 +636,7 @@
 	.ascii	"z\317\226,\367\326-\236\255\351\242o\260~\352\346-\233"
 	.ascii	"<i\231\377\0010\353\035_"
 	.text
-	.section	.gnu.lto_RTC_RefClockCmd.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_RefClockCmd.415f2d87,"e",%progbits
 	.ascii	"x\234\245TKlSG\024\235\363\346}l\212\025\210\350\006"
 	.ascii	"w\221\015B\260\300\026\241{\026\210\005\022\025U\020"
 	.ascii	"+$DCP#\001\002\333\005\026\225\230\330\346\357&m\004"
@@ -688,7 +688,7 @@
 	.ascii	"\265\362u(R>\257\234y>\251\330R\026Y\035\251\260\303"
 	.ascii	"4~\021~\015\357\216\020\260"
 	.text
-	.section	.gnu.lto_RTC_BypassShadowCmd.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_BypassShadowCmd.415f2d87,"e",%progbits
 	.ascii	"x\234\245S]HSQ\034?\277{\316\325m)\321\363^\366&\276"
 	.ascii	"l\303\005\275\366\020>\004F`=\213\331\242AFl\243|\363"
 	.ascii	"L\215E\223Ya\251\340\232\020#*\310\212\300\334,\257"
@@ -724,7 +724,7 @@
 	.ascii	"H\2645PwDn\207\243-\336\026\342\330\027<\325\030m\216"
 	.ascii	"\006\277\003\337\314k\325"
 	.text
-	.section	.gnu.lto_RTC_SetTime.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_SetTime.415f2d87,"e",%progbits
 	.ascii	"x\234\235XkPUG\022>}\346\276\237\274\321@\242\211\242"
 	.ascii	"\345Z+lL)\276\320\250!\306D+\273Z[\373\3172\306U\252"
 	.ascii	"b6\213\270\225\252}\344py-\212`\\\225hr\005K\335\370"
@@ -864,7 +864,7 @@
 	.ascii	"\214\277\237\377\326\262\205\3467\026\274\2718e\321"
 	.ascii	"\342\377\003\303\337\312\356"
 	.text
-	.section	.gnu.lto_RTC_TimeStructInit.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_TimeStructInit.415f2d87,"e",%progbits
 	.ascii	"x\234\235\221OHTQ\024\306\317w\357\3148X\011\255Ep!"
 	.ascii	"\210\033\337\240B\333\240p\021\010\321\314\316\305\240"
 	.ascii	"\343\210\017\234\2107\257p\347\235\261p\341\237\010"
@@ -893,7 +893,7 @@
 	.ascii	"R\315J:1+\351&\232\233\272u\331qc\2151\252\272\025\271"
 	.ascii	"\026\215\330\211x\330u\356\306\334\177\331\205\356\372"
 	.text
-	.section	.gnu.lto_RTC_GetTime.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_GetTime.415f2d87,"e",%progbits
 	.ascii	"x\234\245TmL[U\030>\357=\267\267\027Z\267\261\220\205"
 	.ascii	"\255\0140\331B\026\223\225\014\023\023\215q\211f?L\226"
 	.ascii	"\250\360\303\177d2\234$c\316R\315\374\265CaT\03525B"
@@ -958,7 +958,7 @@
 	.ascii	"P\370t\321\216W=e\273\274\253h[XZVR\340\365\274^\354"
 	.ascii	"5\274e\373=%{8\376\374\005\3510\312G"
 	.text
-	.section	.gnu.lto_RTC_GetSubSecond.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_GetSubSecond.415f2d87,"e",%progbits
 	.ascii	"x\234\205\217\275K[a\024\306\317s\3175^$\305?@*.\016"
 	.ascii	".^\321NN\016\305\241 \024\342.\032\243\006L\221\233"
 	.ascii	"P\334|\223\332JU\374\000%\012\306(\"\016BT\020\304j"
@@ -984,7 +984,7 @@
 	.ascii	"\311\353\331Q'hGc\221\232\3526\335vb\301\312 \371b\221"
 	.ascii	".'\324\376\017\361\324\266\324"
 	.text
-	.section	.gnu.lto_RTC_SetDate.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_SetDate.415f2d87,"e",%progbits
 	.ascii	"x\234\235XiPTW\026~\347\335\336WV\243\301\270D\321\322"
 	.ascii	"d\204\211\031\305\335\304-\032\255\231\304Tj\376Y\306"
 	.ascii	"8jUL2\210S\251\232\231\312\243A\020$\342\030\225h\331"
@@ -1123,7 +1123,7 @@
 	.ascii	"\030\337\234\373\316\322\371\346\267\346\275\275p\321"
 	.ascii	"\202\205\377\007\204\271\221\200"
 	.text
-	.section	.gnu.lto_RTC_DateStructInit.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_DateStructInit.415f2d87,"e",%progbits
 	.ascii	"x\234\235\221\317KTQ\024\307\317\367\335\231q\312Rp"
 	.ascii	"+\201\204`n|\203\372\007\010\212\213@\220\306]\213A"
 	.ascii	"\247\211\0064\342\3153f\347\235\011\024Q\024\"\261\026"
@@ -1152,7 +1152,7 @@
 	.ascii	"pE\230\012\3564\325\206\352\232\355H\320\266\332\303"
 	.ascii	"\3669\016\266\362p"
 	.text
-	.section	.gnu.lto_RTC_GetDate.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_GetDate.415f2d87,"e",%progbits
 	.ascii	"x\234\235U]L\\U\020>s\317\335\273\227\345\257\261\015"
 	.ascii	"iX\376\265!\215I\227\024\237\364\245\211M\037L\232\250"
 	.ascii	"\364\3017\202H+I\251uYM}\352a\251K\245\033\252\321."
@@ -1219,7 +1219,7 @@
 	.ascii	"\227y*J<\356w\312=\206\247j\277\273b\017\307\237\177"
 	.ascii	"\000\356\273\332a"
 	.text
-	.section	.gnu.lto_RTC_SetAlarm.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_SetAlarm.415f2d87,"e",%progbits
 	.ascii	"x\234\235XipUE\026\276\347\366\333\223\227}%\250\240"
 	.ascii	"\354[\202\314X\324`\225N\261(\233\354\233\210l2B\025"
 	.ascii	"8V\210S\372\213K\002\304\000\002\";<\202\002\012\244"
@@ -1370,7 +1370,7 @@
 	.ascii	"O\306\331\307\214\375`\374\204\017\307\377\037[\016"
 	.ascii	"+-"
 	.text
-	.section	.gnu.lto_RTC_AlarmStructInit.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_AlarmStructInit.415f2d87,"e",%progbits
 	.ascii	"x\234\235\223\313kSA\030\305\347\334In\036\370\000\267"
 	.ascii	"E\350B(E\310\015\255\177\200\242\270\020\012b\272\024"
 	.ascii	"B\215\025\003\215\310M\224\272\352$.\212T*H\245q\021"
@@ -1403,7 +1403,7 @@
 	.ascii	"\211X{\333>)\233\211H \302\326\356\352\334\032\336\322"
 	.ascii	"\323e\306B\011\363P$\361\013'\247u\204"
 	.text
-	.section	.gnu.lto_RTC_GetAlarm.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_GetAlarm.415f2d87,"e",%progbits
 	.ascii	"x\234\245ViLTW\024\276\347\3357oV\230\272\220\264q)"
 	.ascii	"1*\242\302\214\313\257\376\251M\033\17741i\252?\332"
 	.ascii	"_F\321\266$b\3158m4i\342c\260P\201\250$\012\330:\214"
@@ -1491,7 +1491,7 @@
 	.ascii	"\234\005^+-\337Z\262\300\223\343\214\256\346z=\237e"
 	.ascii	"y5o\3162\317\342\2179\376\374\003\015\333V\233"
 	.text
-	.section	.gnu.lto_RTC_AlarmCmd.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_AlarmCmd.415f2d87,"e",%progbits
 	.ascii	"x\234\235U]L\024W\024\276g\356\314\316\314\262\300\223"
 	.ascii	"\304dM\303C\0111ie\205\246}\351\003\246M\037\232\330"
 	.ascii	"4\305\244\351\023\245\224\266$b\233em}\343\302R\020"
@@ -1559,7 +1559,7 @@
 	.ascii	"E\206/\313\227\343\310\307\2703?&\213v\255g\227|\316"
 	.ascii	"\376t\347\016_\216\367\037\255\214\311C"
 	.text
-	.section	.gnu.lto_RTC_AlarmSubSecondConfig.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_AlarmSubSecondConfig.415f2d87,"e",%progbits
 	.ascii	"x\234\235R_HSQ\030?\337=\367n\2675\021\202\352a\017"
 	.ascii	"\371\220\210=8\321\240W\243\360!\020\242I=\312\234\253"
 	.ascii	"FNe\233\341\233gj\256R\2660\315\014\267\0312\014\264"
@@ -1603,7 +1603,7 @@
 	.ascii	"\027\233\217\374}\236e\264_S9\254E6\363\225?i\275\227"
 	.ascii	"\025"
 	.text
-	.section	.gnu.lto_RTC_GetAlarmSubSecond.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_GetAlarmSubSecond.415f2d87,"e",%progbits
 	.ascii	"x\234\225QMHTQ\024\276\337;\367\315Lb\271\212\026\266"
 	.ascii	"p\221\210-\034\321vm\214\302E D\012\255B\314\254\006"
 	.ascii	"\034\221\347\020\356\274\243\226d\203JLMI\316\2042\024"
@@ -1640,7 +1640,7 @@
 	.ascii	"\2549Z{\244\261\316\012zB\301f\253\341\374\037\020\226"
 	.ascii	"\016m"
 	.text
-	.section	.gnu.lto_RTC_WakeUpClockConfig.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_WakeUpClockConfig.415f2d87,"e",%progbits
 	.ascii	"x\234\235\223_HSQ\034\307\317\367\236\3536\377\204\320"
 	.ascii	"K\017\022\354!\020_\274C{\216\300\350!\020\"\215^\202"
 	.ascii	"ak\321PK\266\021\276y6\203A\312\014\251\314\2075\251"
@@ -1676,7 +1676,7 @@
 	.ascii	"\260\257\336\307\252\217\2646y\217\265\265\373\217v"
 	.ascii	"5u\234\365\265\377\002\264\235X\314"
 	.text
-	.section	.gnu.lto_RTC_SetWakeUpCounter.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_SetWakeUpCounter.415f2d87,"e",%progbits
 	.ascii	"x\234\235\221OHTQ\024\306\317\367\356\363\315dE\330"
 	.ascii	"V\002\027\201\270\361\015\332\276\300h\021\010\222F"
 	.ascii	"\273\006\233&\032J\2237c\270\363\316\024\270PF\215\302"
@@ -1707,7 +1707,7 @@
 	.ascii	"\311TWs\323\031UvR\261\306\030\325\034\353h\211\236"
 	.ascii	"\350<\027?\336\323r\241\267;\025w\376\000}\324\001\365"
 	.text
-	.section	.gnu.lto_RTC_GetWakeUpCounter.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_GetWakeUpCounter.415f2d87,"e",%progbits
 	.ascii	"x\234E\216\317+DQ\024\307\317\367\235gL\"\177\200\324"
 	.ascii	"dg\343\011\013K\013Y\210Rca'\006\231Bz3\311\316\235"
 	.ascii	"!dd\246\214_e\314B\330\371Q6\314\340\241\024%\262\260"
@@ -1729,7 +1729,7 @@
 	.ascii	"\243\235\376pO[\257\035\034\356\357t5+d\007\254Px\260"
 	.ascii	"\266\246O\313v8P\025\240o\306O\213m"
 	.text
-	.section	.gnu.lto_RTC_WakeUpCmd.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_WakeUpCmd.415f2d87,"e",%progbits
 	.ascii	"x\234\245TmL\233U\024\276\347\275\357W\337\262\220,"
 	.ascii	"\373a\322\305\020\023\262,1k\035\306\370\303\03731\376"
 	.ascii	"0\2311\301\370\317\220\211]l\342\246\266E\366o\267\300"
@@ -1794,7 +1794,7 @@
 	.ascii	"\340\216\240W\017\240-\0138\313\313\202\345;\345\332"
 	.ascii	"\302u\351{e\273\203^\377_9w\253\222"
 	.text
-	.section	.gnu.lto_RTC_DayLightSavingConfig.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_DayLightSavingConfig.415f2d87,"e",%progbits
 	.ascii	"x\234\235\223]H\024Q\024\307\357\177\356\254\273\255"
 	.ascii	"\225P/\205\004>T\342\213\273h\020\275\005I\017\221\024"
 	.ascii	"\255\357\266\331\246\013\371\301\354\"\366\344]\015"
@@ -1833,7 +1833,7 @@
 	.ascii	"\364x\253\375\025\245\326\226'Xi\370\216T\371\014o\320"
 	.ascii	"_Y\361\033T\337|n"
 	.text
-	.section	.gnu.lto_RTC_GetStoreOperation.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_GetStoreOperation.415f2d87,"e",%progbits
 	.ascii	"x\234EPM(DQ\030\375\316\273\317\230D\354\245f'\033\217"
 	.ascii	"acg!\013Qjl\254\304 SHo&\315n\356\314\2102\023j\374"
 	.ascii	".\306[L\223\235\237\262\361\377\214R\224H\262\234\205"
@@ -1856,7 +1856,7 @@
 	.ascii	"\371B\203\335Cf`b\244\317\341\214\240\3517\202\241\261"
 	.ascii	"&\357\260\242\315\220\277\336O\337\215\326\214h"
 	.text
-	.section	.gnu.lto_RTC_OutputConfig.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_OutputConfig.415f2d87,"e",%progbits
 	.ascii	"x\234\235\223MHTQ\024\307\357\377\3357\037\214\251P"
 	.ascii	"\253\220\300E \0228\203\326\246UP\264\010$I\027\355"
 	.ascii	"\304\314hBKf\306\260\225w\234`\"E\3032s1)\224J\237\246"
@@ -1895,7 +1895,7 @@
 	.ascii	"\353@\321\356\342\375U\201\312\252\300Fk[p\242\274\304"
 	.ascii	"\347\015\234\372\015\037\374x\240"
 	.text
-	.section	.gnu.lto_RTC_CoarseCalibConfig.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_CoarseCalibConfig.415f2d87,"e",%progbits
 	.ascii	"x\234\235S[H\223a\030\376\236\377\3737\267\331\264\273"
 	.ascii	"\002\013\274(\244\033\267\264\273n\202\242\213 \210"
 	.ascii	"\214n\272\220eV\203\212\330Vx\021\364\271\255,\023\013"
@@ -1945,7 +1945,7 @@
 	.ascii	"\356!\272\022\357\222\025\226\371\236e\253\312\255\376"
 	.ascii	"\200'\260\312\377\0032\265\276\351"
 	.text
-	.section	.gnu.lto_RTC_CoarseCalibCmd.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_CoarseCalibCmd.415f2d87,"e",%progbits
 	.ascii	"x\234\245T[hSI\030\236\357\314\271$j)\026_$\"}\021\361"
 	.ascii	"\305\204\326G\037|\020\037\004e\241\342\223 n\255lA"
 	.ascii	"\027I\242\253 8M\242\265\032j\361V\213\324\024JQ\221"
@@ -1996,7 +1996,7 @@
 	.ascii	"\245\314\263\264\354\267\222\360\252p\231\035\242qC"
 	.ascii	"\350\0331\354\011\320"
 	.text
-	.section	.gnu.lto_RTC_CalibOutputCmd.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_CalibOutputCmd.415f2d87,"e",%progbits
 	.ascii	"x\234\245S]HSQ\034?\277{\316u\233)>\364\270\227\275"
 	.ascii	"\211/n\270^\203\036\302\207\300\010V\317bk\321 #\266"
 	.ascii	"Q\366\344\231\032\2136f\364e>\330\004\031\021\321\367"
@@ -2033,7 +2033,7 @@
 	.ascii	"\215\265\372\033\016\313\355H,X\037$\316\275\241\223"
 	.ascii	"\201XK,\364\035\342\316r\276"
 	.text
-	.section	.gnu.lto_RTC_CalibOutputConfig.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_CalibOutputConfig.415f2d87,"e",%progbits
 	.ascii	"x\234\235\223_HSQ\034\307\317\367\236\3536\315\332C"
 	.ascii	"\217\022\354!\020_\334\320\210^\202\300\350!\220\"}"
 	.ascii	"\014\206-\243A\206l3\204\036<\233\302 eF\1774\037\326"
@@ -2069,7 +2069,7 @@
 	.ascii	"l8$\323\201\220\257\336\307\234\373Z\233\274Mm$\267"
 	.ascii	"\247+\324\331\025\372\005\315=X*"
 	.text
-	.section	.gnu.lto_RTC_SmoothCalibConfig.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_SmoothCalibConfig.415f2d87,"e",%progbits
 	.ascii	"x\234\235T[L\234E\024\236\363\317\277\377e\005i\233"
 	.ascii	"\360`\266Iy\220\220\306\244\273\226&\372`\264I\215\017"
 	.ascii	"&$U\032_\011niJ\262@\263\227\246/\246\003\264E`\001"
@@ -2133,7 +2133,7 @@
 	.ascii	"\003\356\222@\261_\363\371\363\375\001\337\277\343;"
 	.ascii	"\210\200"
 	.text
-	.section	.gnu.lto_RTC_TimeStampCmd.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_TimeStampCmd.415f2d87,"e",%progbits
 	.ascii	"x\234\235S[HTQ\024=\373\236{g\256fZ\364\023\030\344"
 	.ascii	"G\"\3768\203\366\327GB\345G`D\372/\246\223\0164\"\343"
 	.ascii	"P\376y\306\007\366\030fz\230\217\310F\260!z\331\003"
@@ -2178,7 +2178,7 @@
 	.ascii	"\303\226\345\312u\024\037\310/\260\351\207l'\321p\331"
 	.ascii	"L.G\261\323V\360\013\224\237\236\212"
 	.text
-	.section	.gnu.lto_RTC_GetTimeStamp.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_GetTimeStamp.415f2d87,"e",%progbits
 	.ascii	"x\234\245V[L\224G\024\236\363\317\2777\330\005\0221"
 	.ascii	"i\264\211\304@\010^X\004\257\370\240I\215\017ML\232"
 	.ascii	"\342C\337\014E\233\222Hkp\333\330'\177\026\004\254T"
@@ -2269,7 +2269,7 @@
 	.ascii	"\326d\272t\237\305\225\263e#\316\350\333\205\221\034"
 	.ascii	"\277\377\005k\244\304\013"
 	.text
-	.section	.gnu.lto_RTC_GetTimeStampSubSecond.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_GetTimeStampSubSecond.415f2d87,"e",%progbits
 	.ascii	"x\234E\216\277KBQ\024\307\317y\367i\2170\372\003$\220"
 	.ascii	"6\027\237h\177@CDDA`\273\224\031\275\310\210\247\204"
 	.ascii	"\233W\223\002\02550\254\301\037P\322\326\017h1\255^"
@@ -2291,7 +2291,7 @@
 	.ascii	"\365\373\"sSA][Y\360\233=5\254\007\324p$\344\365\314"
 	.ascii	"\213\266\036\011\270\002\360\015\330\302\177\350"
 	.text
-	.section	.gnu.lto_RTC_TamperTriggerConfig.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_TamperTriggerConfig.415f2d87,"e",%progbits
 	.ascii	"x\234\225QMHTQ\024>\337;\357\215\317\311\220\240\235"
 	.ascii	"\033\241@$pL\203\266A?P D\316\242\335`:\331@\023\362"
 	.ascii	"\224p\347\235q\310Jq\242,\023\234\246\250\301V\375Q"
@@ -2325,7 +2325,7 @@
 	.ascii	"a\277N;]\255u\255\024\334\023\336\032\011\267\304;\242"
 	.ascii	"\316\232\222\031vb\355\355Q\347\027\371h\376\317"
 	.text
-	.section	.gnu.lto_RTC_TamperCmd.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_TamperCmd.415f2d87,"e",%progbits
 	.ascii	"x\234\225\222\317k\023Q\020\307\347\273\263\233lB\304"
 	.ascii	"\213\267^z\020C/Mh\375\003\004\177\200BEl\016\336jL"
 	.ascii	"#\006\254\2244ho}I\003)\266\244\242\325Z5\256R\202\236"
@@ -2360,7 +2360,7 @@
 	.ascii	"Ts\212\302\207\023\273;\022\311\256\356t\326>\230>\323"
 	.ascii	"\236K\346\322\177\000)\232\361\""
 	.text
-	.section	.gnu.lto_RTC_TamperFilterConfig.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_TamperFilterConfig.415f2d87,"e",%progbits
 	.ascii	"x\234\235\221\317k\023A\024\307\337w\3366\211\277\250"
 	.ascii	"\007oE\350A\010\275tC\353\037 (\005\205\202\330\\%\324"
 	.ascii	"\030q\241\221\262\011\322['\251\020\260\245\025\023"
@@ -2392,7 +2392,7 @@
 	.ascii	"M\307\373\343\264\373X\364`,:\232\034O\270C\316X:\341"
 	.ascii	"\376\003\007\367\362{"
 	.text
-	.section	.gnu.lto_RTC_TamperSamplingFreqConfig.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_TamperSamplingFreqConfig.415f2d87,"e",%progbits
 	.ascii	"x\234\235QMkSA\024\275\347\335\227\017\305\322\215\270"
 	.ascii	")B\027B\251\213\276\320\372\003\004\245\213BAL\366\241"
 	.ascii	"\306\250\017\232R_\202t\327I*\004liKI\254bc\004\011"
@@ -2423,7 +2423,7 @@
 	.ascii	"r6v*\036\033J\215&\235\250\324a{\344b\277\223\274\274"
 	.ascii	"\003+\361\363y"
 	.text
-	.section	.gnu.lto_RTC_TamperPinsPrechargeDuration.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_TamperPinsPrechargeDuration.415f2d87,"e",%progbits
 	.ascii	"x\234\235\221\315kSA\024\305\357y\367\345\303\242t\343"
 	.ascii	".\024\272\020J\021\372B\353\037 X\\\024\012\305f\037"
 	.ascii	"b\214&`jy\211\322]'\251\020\350\247\224\306V$>A\202"
@@ -2453,7 +2453,7 @@
 	.ascii	"\247\320\231\310\251h$\226\036M\330Cv\"\236\214\331"
 	.ascii	"\027\022\375\227\355X6ui\344\037\274\270\365\003"
 	.text
-	.section	.gnu.lto_RTC_TimeStampOnTamperDetectionCmd.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_TimeStampOnTamperDetectionCmd.415f2d87,"e",%progbits
 	.ascii	"x\234\225QMh\023A\024~\337\314l\262\225H/\336r\351\255"
 	.ascii	"\024\241\033\032/\336<\250\007\245\"D\317\245\306\210"
 	.ascii	"\001+\222,\332['i bC\352\241\032\005\343*\022\364\344"
@@ -2484,7 +2484,7 @@
 	.ascii	"\245\235\274;\221\0349c\31297=\234&\373X\346R\312\035"
 	.ascii	"w3\177\001d\210\330\263"
 	.text
-	.section	.gnu.lto_RTC_TamperPullUpCmd.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_TamperPullUpCmd.415f2d87,"e",%progbits
 	.ascii	"x\234\225QMh\023A\024~\337\314l\262\325\210\027o\271"
 	.ascii	"\364Vz\311\206F\360\352A=(\025!z.5F\014X\221d\321\336"
 	.ascii	":I#\021\033R\021%z\210\253H\374\271\370s\0201\251\272"
@@ -2514,7 +2514,7 @@
 	.ascii	"\346s'\217M\2045\247\220\3178\005w*5v\324\224\363n&"
 	.ascii	"\221!{\177\366t\332\235t\263\277\001\240\201\326\017"
 	.text
-	.section	.gnu.lto_RTC_WriteBackupRegister.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_WriteBackupRegister.415f2d87,"e",%progbits
 	.ascii	"x\234mQ_HSQ\030?\277{\356\235\323i\020\004=\210\320"
 	.ascii	"C2|\361\206\366\032H\215\036*A\324\207^b\255e4h!\333"
 	.ascii	"\010\337<\233\342Rc\021Z\262\341P\330\206OQ\302\012"
@@ -2547,7 +2547,7 @@
 	.ascii	"\351@\310\333\356e\015\275\375\307\334GO\366\270]\275"
 	.ascii	"\252\313\023\362\360\220\177\360\027\226\027\367Y"
 	.text
-	.section	.gnu.lto_RTC_ReadBackupRegister.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_ReadBackupRegister.415f2d87,"e",%progbits
 	.ascii	"x\234]QMkSA\024\275\347\315{m\322\304\265\213R\310\302"
 	.ascii	"R\272\351\203\324\037P\264\270P\013\245\355Bp\0214V"
 	.ascii	"\0144R\223 \335u\362A\252\215T\301h\0104f\321\006W~"
@@ -2580,7 +2580,7 @@
 	.ascii	"`\340\300\221\301@\377\220\210\205\307\177\001\022\324"
 	.ascii	"\343\266"
 	.text
-	.section	.gnu.lto_RTC_TamperPinSelection.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_TamperPinSelection.415f2d87,"e",%progbits
 	.ascii	"x\234\235QMkSA\024\275\347\335\227\017\245\245\033w"
 	.ascii	"E\350B(\335\364\205\306\037 (.\204@\261Y\271\0115F|"
 	.ascii	"`Jy\011\322]'\251\220\326\226\306\217h\225\222F\320"
@@ -2610,7 +2610,7 @@
 	.ascii	"\2475\355d\223\375I\352<\036?\234\210\017\247GS\316"
 	.ascii	"\240=\362\017\326\213\357\341"
 	.text
-	.section	.gnu.lto_RTC_TimeStampPinSelection.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_TimeStampPinSelection.415f2d87,"e",%progbits
 	.ascii	"x\234\235QMHTQ\030\375\316\373\2363cT\272h'\201\213"
 	.ascii	"@\334\370\006\215\326A\321\"\030\220f\2661\3504\321"
 	.ascii	"\203F\344\315\020\356\2743\006\003)\332\217e\"\323\004"
@@ -2640,7 +2640,7 @@
 	.ascii	"5\355d\022]\011j=\023;\021\217\331\251d4\323\227\032"
 	.ascii	"\354\265\007\376\001\177\016\3622"
 	.text
-	.section	.gnu.lto_RTC_OutputTypeConfig.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_OutputTypeConfig.415f2d87,"e",%progbits
 	.ascii	"x\234\235\221Oh\023A\024\306\337\267o\363GQs\361V\204"
 	.ascii	"\036\224\322K7\264\342YPz\020\202bs\363\0204F\014X\011"
 	.ascii	"\311V\352\251\223\244\020\260\245\225\022\255Rc\204"
@@ -2670,7 +2670,7 @@
 	.ascii	"\007\342\264\347d\364H\354\370\230\235\032\263\243\227"
 	.ascii	"S\211\177\323\250\360\260"
 	.text
-	.section	.gnu.lto_RTC_SynchroShiftConfig.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_SynchroShiftConfig.415f2d87,"e",%progbits
 	.ascii	"x\234\235Tml\223U\024\276\347\275o\337\257\026\025\320"
 	.ascii	"hRb\372\303e\340\017\3321~\031\0221\030~\230`\324\362"
 	.ascii	"\323d\201\215e\213\202\244\355\010\211?\270[\007\313"
@@ -2739,7 +2739,7 @@
 	.ascii	"\273l\377n\267\352-9\\\\\370N\331!\237\344\365\355\363"
 	.ascii	"\225y\377\005\006\275\253\023"
 	.text
-	.section	.gnu.lto_RTC_ITConfig.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_ITConfig.415f2d87,"e",%progbits
 	.ascii	"x\234\235TMHTQ\024\276\347\335\367f\236\343\250\013"
 	.ascii	"m\223\233Y\004\342\246\231\262\326\005\205P`D\272h\021"
 	.ascii	"\210\331T\003\0311\016\345\316\253FZM\032Q\231\221\215"
@@ -2788,7 +2788,7 @@
 	.ascii	"\327\0263\333\256\202-\205\333\012\364\035\336c\371"
 	.ascii	"\201\242\200\3677:]+ "
 	.text
-	.section	.gnu.lto_RTC_GetFlagStatus.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_GetFlagStatus.415f2d87,"e",%progbits
 	.ascii	"x\234]R\317KTQ\024\276\337;wf\236\277\360\017\230EB"
 	.ascii	"\211\010\341\014\352\256\215Q\030DB\244\004-B\324\264"
 	.ascii	"\0062d\346\025\356\274\343X\342\217\306\026\231\025"
@@ -2827,7 +2827,7 @@
 	.ascii	"\376Cn\253\261)X\177:\2436`\205\254\032\353|\350/\004"
 	.ascii	"\201\005\312"
 	.text
-	.section	.gnu.lto_RTC_ClearFlag.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_ClearFlag.415f2d87,"e",%progbits
 	.ascii	"x\234}QMh\023Q\020\236o\337nv)JN\236\212\320\203Xz\351"
 	.ascii	"\206V\357\212RA,\210\251\007\017\0224V\014X\221M\220"
 	.ascii	"\336\3726\025\002\2664\"\255m\2255\205\020\365R\255"
@@ -2859,7 +2859,7 @@
 	.ascii	"\\\2723M\316\201\276]\251\236};\367\374\001\377\015"
 	.ascii	"\333\347"
 	.text
-	.section	.gnu.lto_RTC_GetITStatus.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_GetITStatus.415f2d87,"e",%progbits
 	.ascii	"x\234\225\223]hSY\020\307\317\334\2717\271\371hS\367"
 	.ascii	"5\017\366\301R|XS\254>\310\"\010+\202\202\342G}\361"
 	.ascii	"\245\2645j\300\212&q\361\315\223V[RK\025\265V\205lV"
@@ -2912,7 +2912,7 @@
 	.ascii	"W\305w\307\\\361\332\235\321\360VOu$\256\035_\001\323"
 	.ascii	"\345\275\366"
 	.text
-	.section	.gnu.lto_RTC_ClearITPendingBit.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_RTC_ClearITPendingBit.415f2d87,"e",%progbits
 	.ascii	"x\234}\221_H\323Q\024\307\317\367w\177\333~\245\342"
 	.ascii	"SO\022\370\220\210=8\321z\027\212\240@\250\334\223/"
 	.ascii	"\243\326\252A\013\231#|\363nV#5\215\310?Qk\302\222B"
@@ -2947,7 +2947,7 @@
 	.ascii	"-\315'\225;\022\0154\006\310}\324\267\317\177\320\347"
 	.ascii	"\216\206;#\301S\177\000\340L\003Y"
 	.text
-	.section	.gnu.lto_.symbol_nodes.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.415f2d87,"e",%progbits
 	.ascii	"x\234u\325\311OSQ\030\005\360{z+\257\276b\321\207\342"
 	.ascii	"\200\002\202 \203\014N\025e\245\177\012,\3703NCP\231"
 	.ascii	"\005\024\005E\206:\013\216 \002\321\005F\022\203\011"
@@ -2976,10 +2976,10 @@
 	.ascii	"\312\207+\266\302\227\250\242\260\325v\253Y\343\337"
 	.ascii	"\252\302n\327\352_\027MA\363\037\303\206\324\011"
 	.text
-	.section	.gnu.lto_.refs.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_.refs.415f2d87,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_.decls.415f2d87,"e",%progbits
 	.ascii	"x\234\325ZyTT\311\271\357\333\325@\263;\3528\3168I\234"
 	.ascii	"9\316\233\311\313\211\313h\342\314\231\344%\256\031"
 	.ascii	"_b\306\003\314\313\311\344\344M\210\266\312\031\005"
@@ -3393,7 +3393,7 @@
 	.ascii	"v/\356\354p\314\222M\202?~\354\350\376\004\007\235\333"
 	.ascii	"\352\315[>\244E\370\002E\250\374\037\360\313\001["
 	.text
-	.section	.gnu.lto_.symtab.36d6ceb2,"e",%progbits
+	.section	.gnu.lto_.symtab.415f2d87,"e",%progbits
 	.ascii	"RTC_StructInit\000"
 	.ascii	"\000"
 	.ascii	"\000"

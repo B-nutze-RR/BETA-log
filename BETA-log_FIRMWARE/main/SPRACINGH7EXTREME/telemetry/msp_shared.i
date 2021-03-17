@@ -21495,3 +21495,819 @@ extern uint8_t eepromData[4096];
 # 1 "./src/main/target/common_defaults_post.h" 1
 # 153 "./src/main/platform.h" 2
 # 26 "./src/main/telemetry/msp_shared.c" 2
+
+
+
+# 1 "./src/main/build/build_config.h" 1
+# 21 "./src/main/build/build_config.h"
+       
+# 44 "./src/main/build/build_config.h"
+typedef enum {
+    MCU_TYPE_SIMULATOR = 0,
+    MCU_TYPE_F103,
+    MCU_TYPE_F303,
+    MCU_TYPE_F40X,
+    MCU_TYPE_F411,
+    MCU_TYPE_F446,
+    MCU_TYPE_F722,
+    MCU_TYPE_F745,
+    MCU_TYPE_F746,
+    MCU_TYPE_F765,
+    MCU_TYPE_H750,
+    MCU_TYPE_H743_REV_UNKNOWN,
+    MCU_TYPE_H743_REV_Y,
+    MCU_TYPE_H743_REV_X,
+    MCU_TYPE_H743_REV_V,
+    MCU_TYPE_H7A3,
+    MCU_TYPE_H723_725,
+    MCU_TYPE_UNKNOWN = 255,
+} mcuTypeId_e;
+
+mcuTypeId_e getMcuTypeId(void);
+# 30 "./src/main/telemetry/msp_shared.c" 2
+
+
+
+# 1 "./src/main/msp/msp.h" 1
+# 21 "./src/main/msp/msp.h"
+       
+
+# 1 "./src/main/common/streambuf.h" 1
+# 21 "./src/main/common/streambuf.h"
+       
+
+
+
+
+
+typedef struct sbuf_s {
+    uint8_t *ptr;
+    uint8_t *end;
+} sbuf_t;
+
+sbuf_t *sbufInit(sbuf_t *sbuf, uint8_t *ptr, uint8_t *end);
+
+void sbufWriteU8(sbuf_t *dst, uint8_t val);
+void sbufWriteU16(sbuf_t *dst, uint16_t val);
+void sbufWriteU32(sbuf_t *dst, uint32_t val);
+void sbufWriteU16BigEndian(sbuf_t *dst, uint16_t val);
+void sbufWriteU32BigEndian(sbuf_t *dst, uint32_t val);
+void sbufFill(sbuf_t *dst, uint8_t data, int len);
+void sbufWriteData(sbuf_t *dst, const void *data, int len);
+void sbufWriteString(sbuf_t *dst, const char *string);
+void sbufWriteStringWithZeroTerminator(sbuf_t *dst, const char *string);
+
+uint8_t sbufReadU8(sbuf_t *src);
+uint16_t sbufReadU16(sbuf_t *src);
+uint32_t sbufReadU32(sbuf_t *src);
+void sbufReadData(sbuf_t *dst, void *data, int len);
+
+int sbufBytesRemaining(sbuf_t *buf);
+uint8_t* sbufPtr(sbuf_t *buf);
+const uint8_t* sbufConstPtr(const sbuf_t *buf);
+void sbufAdvance(sbuf_t *buf, int size);
+
+void sbufSwitchToReader(sbuf_t *buf, uint8_t * base);
+# 24 "./src/main/msp/msp.h" 2
+
+
+
+typedef enum {
+    MSP_V1 = 0,
+    MSP_V2_OVER_V1 = 1,
+    MSP_V2_NATIVE = 2,
+    MSP_VERSION_COUNT
+} mspVersion_e;
+
+
+
+
+typedef enum {
+    MSP_RESULT_ACK = 1,
+    MSP_RESULT_ERROR = -1,
+    MSP_RESULT_NO_REPLY = 0,
+    MSP_RESULT_CMD_UNKNOWN = -2,
+} mspResult_e;
+
+typedef enum {
+    MSP_DIRECTION_REPLY = 0,
+    MSP_DIRECTION_REQUEST = 1
+} mspDirection_e;
+
+typedef struct mspPacket_s {
+    sbuf_t buf;
+    int16_t cmd;
+    uint8_t flags;
+    int16_t result;
+    uint8_t direction;
+} mspPacket_t;
+
+typedef int mspDescriptor_t;
+
+struct serialPort_s;
+typedef void (*mspPostProcessFnPtr)(struct serialPort_s *port);
+typedef mspResult_e (*mspProcessCommandFnPtr)(mspDescriptor_t srcDesc, mspPacket_t *cmd, mspPacket_t *reply, mspPostProcessFnPtr *mspPostProcessFn);
+typedef void (*mspProcessReplyFnPtr)(mspPacket_t *cmd);
+
+
+void mspInit(void);
+mspResult_e mspFcProcessCommand(mspDescriptor_t srcDesc, mspPacket_t *cmd, mspPacket_t *reply, mspPostProcessFnPtr *mspPostProcessFn);
+void mspFcProcessReply(mspPacket_t *reply);
+
+mspDescriptor_t mspDescriptorAlloc(void);
+# 34 "./src/main/telemetry/msp_shared.c" 2
+# 1 "./src/main/msp/msp_protocol.h" 1
+# 56 "./src/main/msp/msp_protocol.h"
+       
+# 35 "./src/main/telemetry/msp_shared.c" 2
+
+# 1 "./src/main/telemetry/crsf.h" 1
+# 21 "./src/main/telemetry/crsf.h"
+       
+
+
+
+
+# 1 "./src/main/common/time.h" 1
+# 21 "./src/main/common/time.h"
+       
+
+
+
+
+
+
+# 1 "./src/main/pg/pg.h" 1
+# 21 "./src/main/pg/pg.h"
+       
+
+
+
+
+
+
+typedef uint16_t pgn_t;
+
+
+typedef enum {
+    PGRF_NONE = 0,
+    PGRF_CLASSIFICATON_BIT = (1 << 0)
+} pgRegistryFlags_e;
+
+typedef enum {
+    PGR_PGN_MASK = 0x0fff,
+    PGR_PGN_VERSION_MASK = 0xf000,
+    PGR_SIZE_MASK = 0x0fff,
+    PGR_SIZE_SYSTEM_FLAG = 0x0000
+} pgRegistryInternal_e;
+
+
+typedef void (pgResetFunc)(void * );
+
+typedef struct pgRegistry_s {
+    pgn_t pgn;
+    uint8_t length;
+    uint16_t size;
+    uint8_t *address;
+    uint8_t *copy;
+    uint8_t **ptr;
+    union {
+        void *ptr;
+        pgResetFunc *fn;
+    } reset;
+} pgRegistry_t;
+
+static inline uint16_t pgN(const pgRegistry_t* reg) {return reg->pgn & PGR_PGN_MASK;}
+static inline uint8_t pgVersion(const pgRegistry_t* reg) {return (uint8_t)(reg->pgn >> 12);}
+static inline uint16_t pgSize(const pgRegistry_t* reg) {return reg->size & PGR_SIZE_MASK;}
+static inline uint16_t pgElementSize(const pgRegistry_t* reg) {return (reg->size & PGR_SIZE_MASK) / reg->length;}
+# 75 "./src/main/pg/pg.h"
+extern const pgRegistry_t __pg_registry_start[];
+extern const pgRegistry_t __pg_registry_end[];
+
+
+extern const uint8_t __pg_resetdata_start[];
+extern const uint8_t __pg_resetdata_end[];
+# 194 "./src/main/pg/pg.h"
+const pgRegistry_t* pgFind(pgn_t pgn);
+
+
+# 196 "./src/main/pg/pg.h" 3 4
+_Bool 
+# 196 "./src/main/pg/pg.h"
+    pgLoad(const pgRegistry_t* reg, const void *from, int size, int version);
+int pgStore(const pgRegistry_t* reg, void *to, int size);
+void pgResetAll(void);
+void pgResetInstance(const pgRegistry_t *reg, uint8_t *base);
+
+# 200 "./src/main/pg/pg.h" 3 4
+_Bool 
+# 200 "./src/main/pg/pg.h"
+    pgResetCopy(void *copy, pgn_t pgn);
+void pgReset(const pgRegistry_t* reg);
+# 29 "./src/main/common/time.h" 2
+
+
+typedef int32_t timeDelta_t;
+
+typedef uint32_t timeMs_t ;
+
+
+
+
+
+typedef uint32_t timeUs_t;
+
+
+
+
+
+
+static inline timeDelta_t cmpTimeUs(timeUs_t a, timeUs_t b) { return (timeDelta_t)(a - b); }
+
+
+
+
+
+typedef struct timeConfig_s {
+    int16_t tz_offsetMinutes;
+} timeConfig_t;
+
+extern timeConfig_t timeConfig_System; extern timeConfig_t timeConfig_Copy; static inline const timeConfig_t* timeConfig(void) { return &timeConfig_System; } static inline timeConfig_t* timeConfigMutable(void) { return &timeConfig_System; } struct _dummy;
+
+
+typedef int64_t rtcTime_t;
+
+rtcTime_t rtcTimeMake(int32_t secs, uint16_t millis);
+int32_t rtcTimeGetSeconds(rtcTime_t *t);
+uint16_t rtcTimeGetMillis(rtcTime_t *t);
+
+typedef struct _dateTime_s {
+
+    uint16_t year;
+
+    uint8_t month;
+
+    uint8_t day;
+
+    uint8_t hours;
+
+    uint8_t minutes;
+
+    uint8_t seconds;
+
+    uint16_t millis;
+} dateTime_t;
+
+
+
+# 83 "./src/main/common/time.h" 3 4
+_Bool 
+# 83 "./src/main/common/time.h"
+    dateTimeFormatUTC(char *buf, dateTime_t *dt);
+
+# 84 "./src/main/common/time.h" 3 4
+_Bool 
+# 84 "./src/main/common/time.h"
+    dateTimeFormatLocal(char *buf, dateTime_t *dt);
+
+# 85 "./src/main/common/time.h" 3 4
+_Bool 
+# 85 "./src/main/common/time.h"
+    dateTimeFormatLocalShort(char *buf, dateTime_t *dt);
+
+void dateTimeUTCToLocal(dateTime_t *utcDateTime, dateTime_t *localDateTime);
+
+
+
+
+# 91 "./src/main/common/time.h" 3 4
+_Bool 
+# 91 "./src/main/common/time.h"
+    dateTimeSplitFormatted(char *formatted, char **date, char **time);
+
+
+# 93 "./src/main/common/time.h" 3 4
+_Bool 
+# 93 "./src/main/common/time.h"
+    rtcHasTime(void);
+
+
+# 95 "./src/main/common/time.h" 3 4
+_Bool 
+# 95 "./src/main/common/time.h"
+    rtcGet(rtcTime_t *t);
+
+# 96 "./src/main/common/time.h" 3 4
+_Bool 
+# 96 "./src/main/common/time.h"
+    rtcSet(rtcTime_t *t);
+
+
+# 98 "./src/main/common/time.h" 3 4
+_Bool 
+# 98 "./src/main/common/time.h"
+    rtcGetDateTime(dateTime_t *dt);
+
+# 99 "./src/main/common/time.h" 3 4
+_Bool 
+# 99 "./src/main/common/time.h"
+    rtcSetDateTime(dateTime_t *dt);
+
+void rtcPersistWrite(int16_t offsetMinutes);
+
+# 102 "./src/main/common/time.h" 3 4
+_Bool 
+# 102 "./src/main/common/time.h"
+    rtcPersistRead(rtcTime_t *t);
+# 27 "./src/main/telemetry/crsf.h" 2
+
+# 1 "./src/main/rx/crsf_protocol.h" 1
+# 25 "./src/main/rx/crsf_protocol.h"
+       
+
+
+
+
+
+
+enum { CRSF_SYNC_BYTE = 0xC8 };
+
+enum { CRSF_FRAME_SIZE_MAX = 64 };
+enum { CRSF_PAYLOAD_SIZE_MAX = CRSF_FRAME_SIZE_MAX - 6 };
+
+typedef enum {
+    CRSF_FRAMETYPE_GPS = 0x02,
+    CRSF_FRAMETYPE_BATTERY_SENSOR = 0x08,
+    CRSF_FRAMETYPE_LINK_STATISTICS = 0x14,
+    CRSF_FRAMETYPE_RC_CHANNELS_PACKED = 0x16,
+    CRSF_FRAMETYPE_ATTITUDE = 0x1E,
+    CRSF_FRAMETYPE_FLIGHT_MODE = 0x21,
+
+    CRSF_FRAMETYPE_DEVICE_PING = 0x28,
+    CRSF_FRAMETYPE_DEVICE_INFO = 0x29,
+    CRSF_FRAMETYPE_PARAMETER_SETTINGS_ENTRY = 0x2B,
+    CRSF_FRAMETYPE_PARAMETER_READ = 0x2C,
+    CRSF_FRAMETYPE_PARAMETER_WRITE = 0x2D,
+    CRSF_FRAMETYPE_COMMAND = 0x32,
+
+    CRSF_FRAMETYPE_MSP_REQ = 0x7A,
+    CRSF_FRAMETYPE_MSP_RESP = 0x7B,
+    CRSF_FRAMETYPE_MSP_WRITE = 0x7C,
+    CRSF_FRAMETYPE_DISPLAYPORT_CMD = 0x7D,
+} crsfFrameType_e;
+
+enum {
+    CRSF_DISPLAYPORT_SUBCMD_UPDATE = 0x01,
+    CRSF_DISPLAYPORT_SUBCMD_CLEAR = 0X02,
+    CRSF_DISPLAYPORT_SUBCMD_OPEN = 0x03,
+    CRSF_DISPLAYPORT_SUBCMD_CLOSE = 0x04,
+    CRSF_DISPLAYPORT_SUBCMD_POLL = 0x05,
+};
+
+enum {
+    CRSF_DISPLAYPORT_OPEN_ROWS_OFFSET = 1,
+    CRSF_DISPLAYPORT_OPEN_COLS_OFFSET = 2,
+};
+
+enum {
+    CRSF_FRAME_GPS_PAYLOAD_SIZE = 15,
+    CRSF_FRAME_BATTERY_SENSOR_PAYLOAD_SIZE = 8,
+    CRSF_FRAME_LINK_STATISTICS_PAYLOAD_SIZE = 10,
+    CRSF_FRAME_RC_CHANNELS_PAYLOAD_SIZE = 22,
+    CRSF_FRAME_ATTITUDE_PAYLOAD_SIZE = 6,
+};
+
+enum {
+    CRSF_FRAME_LENGTH_ADDRESS = 1,
+    CRSF_FRAME_LENGTH_FRAMELENGTH = 1,
+    CRSF_FRAME_LENGTH_TYPE = 1,
+    CRSF_FRAME_LENGTH_CRC = 1,
+    CRSF_FRAME_LENGTH_TYPE_CRC = 2,
+    CRSF_FRAME_LENGTH_EXT_TYPE_CRC = 4,
+    CRSF_FRAME_LENGTH_NON_PAYLOAD = 4,
+};
+
+enum {
+    CRSF_FRAME_TX_MSP_FRAME_SIZE = 58,
+    CRSF_FRAME_RX_MSP_FRAME_SIZE = 8,
+    CRSF_FRAME_ORIGIN_DEST_SIZE = 2,
+};
+
+
+
+
+typedef enum {
+    CRSF_ADDRESS_BROADCAST = 0x00,
+    CRSF_ADDRESS_USB = 0x10,
+    CRSF_ADDRESS_TBS_CORE_PNP_PRO = 0x80,
+    CRSF_ADDRESS_RESERVED1 = 0x8A,
+    CRSF_ADDRESS_CURRENT_SENSOR = 0xC0,
+    CRSF_ADDRESS_GPS = 0xC2,
+    CRSF_ADDRESS_TBS_BLACKBOX = 0xC4,
+    CRSF_ADDRESS_FLIGHT_CONTROLLER = 0xC8,
+    CRSF_ADDRESS_RESERVED2 = 0xCA,
+    CRSF_ADDRESS_RACE_TAG = 0xCC,
+    CRSF_ADDRESS_RADIO_TRANSMITTER = 0xEA,
+    CRSF_ADDRESS_CRSF_RECEIVER = 0xEC,
+    CRSF_ADDRESS_CRSF_TRANSMITTER = 0xEE
+} crsfAddress_e;
+# 29 "./src/main/telemetry/crsf.h" 2
+
+
+
+
+void initCrsfTelemetry(void);
+
+# 34 "./src/main/telemetry/crsf.h" 3 4
+_Bool 
+# 34 "./src/main/telemetry/crsf.h"
+    checkCrsfTelemetryState(void);
+void handleCrsfTelemetry(timeUs_t currentTimeUs);
+void crsfScheduleDeviceInfoResponse(void);
+void crsfScheduleMspResponse(void);
+
+void crsfProcessDisplayPortCmd(uint8_t *frameStart);
+
+
+void initCrsfMspBuffer(void);
+
+# 43 "./src/main/telemetry/crsf.h" 3 4
+_Bool 
+# 43 "./src/main/telemetry/crsf.h"
+    bufferCrsfMspFrame(uint8_t *frameStart, int frameLength);
+# 37 "./src/main/telemetry/msp_shared.c" 2
+# 1 "./src/main/telemetry/msp_shared.h" 1
+# 21 "./src/main/telemetry/msp_shared.h"
+       
+
+
+
+# 1 "./src/main/telemetry/smartport.h" 1
+# 28 "./src/main/telemetry/smartport.h"
+       
+
+
+
+
+
+
+
+enum
+{
+    FSSP_START_STOP = 0x7E,
+
+    FSSP_DLE = 0x7D,
+    FSSP_DLE_XOR = 0x20,
+
+    FSSP_DATA_FRAME = 0x10,
+    FSSP_MSPC_FRAME_SMARTPORT = 0x30,
+    FSSP_MSPC_FRAME_FPORT = 0x31,
+    FSSP_MSPS_FRAME = 0x32,
+
+
+    FSSP_SENSOR_ID1 = 0x1B,
+    FSSP_SENSOR_ID2 = 0x0D,
+    FSSP_SENSOR_ID3 = 0x34,
+    FSSP_SENSOR_ID4 = 0x67
+
+
+};
+
+typedef struct smartPortPayload_s {
+    uint8_t frameId;
+    uint16_t valueId;
+    uint32_t data;
+} __attribute__((packed)) smartPortPayload_t;
+
+typedef void smartPortWriteFrameFn(const smartPortPayload_t *payload);
+typedef 
+# 64 "./src/main/telemetry/smartport.h" 3 4
+       _Bool 
+# 64 "./src/main/telemetry/smartport.h"
+            smartPortReadyToSendFn(void);
+
+
+# 66 "./src/main/telemetry/smartport.h" 3 4
+_Bool 
+# 66 "./src/main/telemetry/smartport.h"
+    initSmartPortTelemetry(void);
+void checkSmartPortTelemetryState(void);
+
+# 68 "./src/main/telemetry/smartport.h" 3 4
+_Bool 
+# 68 "./src/main/telemetry/smartport.h"
+    initSmartPortTelemetryExternal(smartPortWriteFrameFn *smartPortWriteFrameExternal);
+
+void handleSmartPortTelemetry(void);
+void processSmartPortTelemetry(smartPortPayload_t *payload, volatile 
+# 71 "./src/main/telemetry/smartport.h" 3 4
+                                                                    _Bool 
+# 71 "./src/main/telemetry/smartport.h"
+                                                                         *hasRequest, const uint32_t *requestTimeout);
+
+smartPortPayload_t *smartPortDataReceive(uint16_t c, 
+# 73 "./src/main/telemetry/smartport.h" 3 4
+                                                    _Bool 
+# 73 "./src/main/telemetry/smartport.h"
+                                                         *clearToSend, smartPortReadyToSendFn *checkQueueEmpty, 
+# 73 "./src/main/telemetry/smartport.h" 3 4
+                                                                                                                _Bool 
+# 73 "./src/main/telemetry/smartport.h"
+                                                                                                                     withChecksum);
+
+struct serialPort_s;
+void smartPortWriteFrameSerial(const smartPortPayload_t *payload, struct serialPort_s *port, uint16_t checksum);
+void smartPortSendByte(uint8_t c, uint16_t *checksum, struct serialPort_s *port);
+
+# 78 "./src/main/telemetry/smartport.h" 3 4
+_Bool 
+# 78 "./src/main/telemetry/smartport.h"
+    smartPortPayloadContainsMSP(const smartPortPayload_t *payload);
+# 26 "./src/main/telemetry/msp_shared.h" 2
+
+typedef void (*mspResponseFnPtr)(uint8_t *payload);
+
+struct mspPacket_s;
+typedef struct mspPackage_s {
+    sbuf_t requestFrame;
+    uint8_t *requestBuffer;
+    uint8_t *responseBuffer;
+    struct mspPacket_s *requestPacket;
+    struct mspPacket_s *responsePacket;
+} mspPackage_t;
+
+typedef union mspRxBuffer_u {
+    uint8_t smartPortMspRxBuffer[64];
+    uint8_t crsfMspRxBuffer[128];
+} mspRxBuffer_t;
+
+typedef union mspTxBuffer_u {
+    uint8_t smartPortMspTxBuffer[256];
+    uint8_t crsfMspTxBuffer[128];
+} mspTxBuffer_t;
+
+void initSharedMsp(void);
+
+# 49 "./src/main/telemetry/msp_shared.h" 3 4
+_Bool 
+# 49 "./src/main/telemetry/msp_shared.h"
+    handleMspFrame(uint8_t *frameStart, int frameLength, uint8_t *skipsBeforeResponse);
+
+# 50 "./src/main/telemetry/msp_shared.h" 3 4
+_Bool 
+# 50 "./src/main/telemetry/msp_shared.h"
+    sendMspReply(uint8_t payloadSize, mspResponseFnPtr responseFn);
+# 38 "./src/main/telemetry/msp_shared.c" 2
+# 50 "./src/main/telemetry/msp_shared.c"
+enum {
+    TELEMETRY_MSP_VER_MISMATCH=0,
+    TELEMETRY_MSP_CRC_ERROR=1,
+    TELEMETRY_MSP_ERROR=2
+};
+
+static uint8_t checksum = 0;
+static mspPackage_t mspPackage;
+static mspRxBuffer_t mspRxBuffer;
+static mspTxBuffer_t mspTxBuffer;
+static mspPacket_t mspRxPacket;
+static mspPacket_t mspTxPacket;
+static mspDescriptor_t mspSharedDescriptor;
+
+void initSharedMsp(void)
+{
+    mspPackage.requestBuffer = (uint8_t *)&mspRxBuffer;
+    mspPackage.requestPacket = &mspRxPacket;
+    mspPackage.requestPacket->buf.ptr = mspPackage.requestBuffer;
+    mspPackage.requestPacket->buf.end = mspPackage.requestBuffer;
+
+    mspPackage.responseBuffer = (uint8_t *)&mspTxBuffer;
+    mspPackage.responsePacket = &mspTxPacket;
+    mspPackage.responsePacket->buf.ptr = mspPackage.responseBuffer;
+    mspPackage.responsePacket->buf.end = mspPackage.responseBuffer;
+
+    mspSharedDescriptor = mspDescriptorAlloc();
+}
+
+static void processMspPacket(void)
+{
+    mspPackage.responsePacket->cmd = 0;
+    mspPackage.responsePacket->result = 0;
+    mspPackage.responsePacket->buf.end = mspPackage.responseBuffer;
+
+    mspPostProcessFnPtr mspPostProcessFn = 
+# 85 "./src/main/telemetry/msp_shared.c" 3 4
+                                          ((void *)0)
+# 85 "./src/main/telemetry/msp_shared.c"
+                                              ;
+    if (mspFcProcessCommand(mspSharedDescriptor, mspPackage.requestPacket, mspPackage.responsePacket, &mspPostProcessFn) == MSP_RESULT_ERROR) {
+        sbufWriteU8(&mspPackage.responsePacket->buf, TELEMETRY_MSP_ERROR);
+    }
+    if (mspPostProcessFn) {
+        mspPostProcessFn(
+# 90 "./src/main/telemetry/msp_shared.c" 3 4
+                        ((void *)0)
+# 90 "./src/main/telemetry/msp_shared.c"
+                            );
+    }
+
+    sbufSwitchToReader(&mspPackage.responsePacket->buf, mspPackage.responseBuffer);
+}
+
+void sendMspErrorResponse(uint8_t error, int16_t cmd)
+{
+    mspPackage.responsePacket->cmd = cmd;
+    mspPackage.responsePacket->result = 0;
+    mspPackage.responsePacket->buf.end = mspPackage.responseBuffer;
+
+    sbufWriteU8(&mspPackage.responsePacket->buf, error);
+    mspPackage.responsePacket->result = (-10);
+    sbufSwitchToReader(&mspPackage.responsePacket->buf, mspPackage.responseBuffer);
+}
+
+
+# 107 "./src/main/telemetry/msp_shared.c" 3 4
+_Bool 
+# 107 "./src/main/telemetry/msp_shared.c"
+    handleMspFrame(uint8_t *frameStart, int frameLength, uint8_t *skipsBeforeResponse)
+{
+    static uint8_t mspStarted = 0;
+    static uint8_t lastSeq = 0;
+
+    if (sbufBytesRemaining(&mspPackage.responsePacket->buf) > 0) {
+        mspStarted = 0;
+    }
+
+    if (mspStarted == 0) {
+        initSharedMsp();
+    }
+
+    mspPacket_t *packet = mspPackage.requestPacket;
+    sbuf_t *frameBuf = sbufInit(&mspPackage.requestFrame, frameStart, frameStart + (uint8_t)frameLength);
+    sbuf_t *rxBuf = &mspPackage.requestPacket->buf;
+    const uint8_t header = sbufReadU8(frameBuf);
+    const uint8_t seqNumber = header & 0x0F;
+    const uint8_t version = (header & (0x7 << 5)) >> 5;
+
+    if (version != 1) {
+        sendMspErrorResponse(TELEMETRY_MSP_VER_MISMATCH, 0);
+        return 
+# 129 "./src/main/telemetry/msp_shared.c" 3 4
+              1
+# 129 "./src/main/telemetry/msp_shared.c"
+                  ;
+    }
+
+    if (header & (1 << 4)) {
+
+        uint8_t mspPayloadSize = sbufReadU8(frameBuf);
+
+        packet->cmd = sbufReadU8(frameBuf);
+        packet->result = 0;
+        packet->buf.ptr = mspPackage.requestBuffer;
+        packet->buf.end = mspPackage.requestBuffer + mspPayloadSize;
+
+        checksum = mspPayloadSize ^ packet->cmd;
+        mspStarted = 1;
+    } else if (!mspStarted) {
+
+        return 
+# 145 "./src/main/telemetry/msp_shared.c" 3 4
+              0
+# 145 "./src/main/telemetry/msp_shared.c"
+                   ;
+    } else if (((lastSeq + 1) & 0x0F) != seqNumber) {
+
+        mspStarted = 0;
+        return 
+# 149 "./src/main/telemetry/msp_shared.c" 3 4
+              0
+# 149 "./src/main/telemetry/msp_shared.c"
+                   ;
+    }
+
+    const uint8_t bufferBytesRemaining = sbufBytesRemaining(rxBuf);
+    const uint8_t frameBytesRemaining = sbufBytesRemaining(frameBuf);
+    uint8_t payload[frameBytesRemaining];
+
+    if (bufferBytesRemaining >= frameBytesRemaining) {
+        sbufReadData(frameBuf, payload, frameBytesRemaining);
+        sbufAdvance(frameBuf, frameBytesRemaining);
+        sbufWriteData(rxBuf, payload, frameBytesRemaining);
+        lastSeq = seqNumber;
+
+        return 
+# 162 "./src/main/telemetry/msp_shared.c" 3 4
+              0
+# 162 "./src/main/telemetry/msp_shared.c"
+                   ;
+    } else {
+        sbufReadData(frameBuf, payload, bufferBytesRemaining);
+        sbufAdvance(frameBuf, bufferBytesRemaining);
+        sbufWriteData(rxBuf, payload, bufferBytesRemaining);
+        sbufSwitchToReader(rxBuf, mspPackage.requestBuffer);
+        while (sbufBytesRemaining(rxBuf)) {
+            checksum ^= sbufReadU8(rxBuf);
+        }
+
+        if (checksum != *frameBuf->ptr) {
+            mspStarted = 0;
+            sendMspErrorResponse(TELEMETRY_MSP_CRC_ERROR, packet->cmd);
+            return 
+# 175 "./src/main/telemetry/msp_shared.c" 3 4
+                  1
+# 175 "./src/main/telemetry/msp_shared.c"
+                      ;
+        }
+    }
+
+
+    if (packet->cmd == 250 && skipsBeforeResponse) {
+        *skipsBeforeResponse = 5;
+    }
+
+    mspStarted = 0;
+    sbufSwitchToReader(rxBuf, mspPackage.requestBuffer);
+    processMspPacket();
+    return 
+# 187 "./src/main/telemetry/msp_shared.c" 3 4
+          1
+# 187 "./src/main/telemetry/msp_shared.c"
+              ;
+}
+
+
+# 190 "./src/main/telemetry/msp_shared.c" 3 4
+_Bool 
+# 190 "./src/main/telemetry/msp_shared.c"
+    sendMspReply(uint8_t payloadSize, mspResponseFnPtr responseFn)
+{
+    static uint8_t checksum = 0;
+    static uint8_t seq = 0;
+
+    uint8_t payloadOut[payloadSize];
+    sbuf_t payload;
+    sbuf_t *payloadBuf = sbufInit(&payload, payloadOut, payloadOut + payloadSize);
+    sbuf_t *txBuf = &mspPackage.responsePacket->buf;
+
+
+    if (txBuf->ptr == mspPackage.responseBuffer) {
+
+
+        uint8_t head = (1 << 4) | (seq++ & 0x0F);
+        if (mspPackage.responsePacket->result < 0) {
+            head |= (1 << 5);
+        }
+        sbufWriteU8(payloadBuf, head);
+
+        uint8_t size = sbufBytesRemaining(txBuf);
+        sbufWriteU8(payloadBuf, size);
+    } else {
+
+        sbufWriteU8(payloadBuf, (seq++ & 0x0F));
+    }
+
+    const uint8_t bufferBytesRemaining = sbufBytesRemaining(txBuf);
+    const uint8_t payloadBytesRemaining = sbufBytesRemaining(payloadBuf);
+    uint8_t frame[payloadBytesRemaining];
+
+    if (bufferBytesRemaining >= payloadBytesRemaining) {
+
+        sbufReadData(txBuf, frame, payloadBytesRemaining);
+        sbufAdvance(txBuf, payloadBytesRemaining);
+        sbufWriteData(payloadBuf, frame, payloadBytesRemaining);
+        responseFn(payloadOut);
+
+        return 
+# 228 "./src/main/telemetry/msp_shared.c" 3 4
+              1
+# 228 "./src/main/telemetry/msp_shared.c"
+                  ;
+
+    } else {
+
+        sbufReadData(txBuf, frame, bufferBytesRemaining);
+        sbufAdvance(txBuf, bufferBytesRemaining);
+        sbufWriteData(payloadBuf, frame, bufferBytesRemaining);
+        sbufSwitchToReader(txBuf, mspPackage.responseBuffer);
+
+        checksum = sbufBytesRemaining(txBuf) ^ mspPackage.responsePacket->cmd;
+
+        while (sbufBytesRemaining(txBuf)) {
+            checksum ^= sbufReadU8(txBuf);
+        }
+        sbufWriteU8(payloadBuf, checksum);
+
+        while (sbufBytesRemaining(payloadBuf)>1) {
+            sbufWriteU8(payloadBuf, 0);
+        }
+
+    }
+
+    responseFn(payloadOut);
+    return 
+# 251 "./src/main/telemetry/msp_shared.c" 3 4
+          0
+# 251 "./src/main/telemetry/msp_shared.c"
+               ;
+}
