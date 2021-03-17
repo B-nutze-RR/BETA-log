@@ -109,7 +109,7 @@ PRE_PUSH_TARGET_LIST ?= STM32F405 STM32F411 STM32F7X2 STM32F745 NUCLEOH743 SITL 
 
 include $(ROOT)/make/targets.mk
 
-REVISION := BETAlog_no_FLIGHT
+REVISION := BETA-log_no_FLIGHT
 ifeq ($(shell git diff --shortstat),)
 REVISION := $(shell git log -1 --format="%h")
 endif
