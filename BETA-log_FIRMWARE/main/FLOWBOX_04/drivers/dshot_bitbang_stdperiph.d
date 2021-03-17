@@ -32,19 +32,7 @@ BETA-log_FIRMWARE/main/FLOWBOX_04/drivers/dshot_bitbang_stdperiph.o: \
  src/main/target/common_pre.h src/main/target/FLOWBOX_04/target.h \
  src/main/target/common_deprecated_post.h src/main/target/common_post.h \
  src/main/build/version.h src/main/common/utils.h \
- src/main/target/common_defaults_post.h src/main/build/atomic.h \
- src/main/build/debug.h src/main/drivers/io.h src/main/drivers/resource.h \
- src/main/drivers/io_types.h src/main/drivers/io_def.h \
- src/main/drivers/io_def_generated.h src/main/drivers/io_impl.h \
- src/main/drivers/dma.h src/main/drivers/dma_reqmap.h \
- src/main/drivers/timer.h src/main/drivers/rcc_types.h \
- src/main/drivers/timer_def.h src/main/pg/timerio.h src/main/pg/pg.h \
- src/main/build/build_config.h src/main/pg/pg_ids.h \
- src/main/drivers/dshot.h src/main/common/time.h src/main/pg/motor.h \
- src/main/drivers/dshot_bitbang.h src/main/drivers/dshot_bitbang_impl.h \
- src/main/drivers/motor.h src/main/drivers/dshot_command.h \
- src/main/drivers/nvic.h src/main/drivers/pwm_output.h \
- src/main/drivers/time.h
+ src/main/target/common_defaults_post.h
 
 src/main/platform.h:
 
@@ -119,57 +107,3 @@ src/main/build/version.h:
 src/main/common/utils.h:
 
 src/main/target/common_defaults_post.h:
-
-src/main/build/atomic.h:
-
-src/main/build/debug.h:
-
-src/main/drivers/io.h:
-
-src/main/drivers/resource.h:
-
-src/main/drivers/io_types.h:
-
-src/main/drivers/io_def.h:
-
-src/main/drivers/io_def_generated.h:
-
-src/main/drivers/io_impl.h:
-
-src/main/drivers/dma.h:
-
-src/main/drivers/dma_reqmap.h:
-
-src/main/drivers/timer.h:
-
-src/main/drivers/rcc_types.h:
-
-src/main/drivers/timer_def.h:
-
-src/main/pg/timerio.h:
-
-src/main/pg/pg.h:
-
-src/main/build/build_config.h:
-
-src/main/pg/pg_ids.h:
-
-src/main/drivers/dshot.h:
-
-src/main/common/time.h:
-
-src/main/pg/motor.h:
-
-src/main/drivers/dshot_bitbang.h:
-
-src/main/drivers/dshot_bitbang_impl.h:
-
-src/main/drivers/motor.h:
-
-src/main/drivers/dshot_command.h:
-
-src/main/drivers/nvic.h:
-
-src/main/drivers/pwm_output.h:
-
-src/main/drivers/time.h:

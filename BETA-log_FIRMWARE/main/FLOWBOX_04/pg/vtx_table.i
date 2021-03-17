@@ -3,94 +3,94 @@
 # 1 "<command-line>"
 # 1 "./src/main/pg/vtx_table.c"
 # 21 "./src/main/pg/vtx_table.c"
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 1 3
-# 10 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
-# 10 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\newlib.h" 1 3
-# 14 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\newlib.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_newlib_version.h" 1 3
-# 15 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\newlib.h" 2 3
-# 11 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 1 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 1 3
+# 10 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
+# 10 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\newlib.h" 1 3
+# 14 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\newlib.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_newlib_version.h" 1 3
+# 15 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\newlib.h" 2 3
+# 11 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 1 3
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\ieeefp.h" 1 3
-# 5 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 1 3
-# 6 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 2 3
-# 12 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
-# 11 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 1 3
-# 13 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
-# 14 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 143 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\ieeefp.h" 1 3
+# 5 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 1 3
+# 6 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 2 3
+# 12 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
+# 11 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 1 3
+# 13 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
+# 14 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 143 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 
-# 143 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 143 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef int ptrdiff_t;
-# 209 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 209 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef unsigned int size_t;
-# 321 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 321 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef unsigned int wchar_t;
-# 415 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 415 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef struct {
   long long __max_align_ll __attribute__((__aligned__(__alignof__(long long))));
   long double __max_align_ld __attribute__((__aligned__(__alignof__(long double))));
-# 426 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 426 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 } max_align_t;
-# 15 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 1 3
-# 24 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 350 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 15 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 1 3
+# 24 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 350 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef unsigned int wint_t;
-# 25 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
+# 25 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_types.h" 1 3
-
-
-
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_types.h" 1 3
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 1 3
-# 41 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
+
+
+
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 1 3
+# 41 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
 typedef signed char __int8_t;
 
 typedef unsigned char __uint8_t;
-# 55 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
+# 55 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
 typedef short int __int16_t;
 
 typedef short unsigned int __uint16_t;
-# 77 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
+# 77 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
 typedef long int __int32_t;
 
 typedef long unsigned int __uint32_t;
-# 103 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
+# 103 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
 typedef long long int __int64_t;
 
 typedef long long unsigned int __uint64_t;
-# 134 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
+# 134 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
 typedef signed char __int_least8_t;
 
 typedef unsigned char __uint_least8_t;
-# 160 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
+# 160 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
 typedef short int __int_least16_t;
 
 typedef short unsigned int __uint_least16_t;
-# 182 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
+# 182 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
 typedef long int __int_least32_t;
 
 typedef long unsigned int __uint_least32_t;
-# 200 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
+# 200 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
 typedef long long int __int_least64_t;
 
 typedef long long unsigned int __uint_least64_t;
-# 214 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
+# 214 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
 typedef long long int __intmax_t;
 
 
@@ -110,8 +110,8 @@ typedef long long unsigned int __uintmax_t;
 typedef int __intptr_t;
 
 typedef unsigned int __uintptr_t;
-# 8 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_types.h" 2 3
-# 28 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
+# 8 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_types.h" 2 3
+# 28 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
 
 
 typedef long __blkcnt_t;
@@ -160,7 +160,7 @@ typedef __uint32_t __id_t;
 
 
 typedef unsigned short __ino_t;
-# 90 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 90 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef __uint32_t __mode_t;
 
 
@@ -188,11 +188,11 @@ typedef long __key_t;
 
 
 typedef long _fpos_t;
-# 131 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 131 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef unsigned int __size_t;
-# 147 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 147 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef signed int _ssize_t;
-# 158 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 158 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef _ssize_t __ssize_t;
 
 
@@ -255,7 +255,7 @@ typedef unsigned long __useconds_t;
 
 
 typedef __builtin_va_list __va_list;
-# 16 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 16 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
 
 
 
@@ -263,9 +263,9 @@ typedef __builtin_va_list __va_list;
 
 
 typedef unsigned long __ULong;
-# 34 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 1 3
-# 33 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 3
+# 34 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 1 3
+# 33 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 3
 struct __lock;
 typedef struct __lock * _LOCK_T;
 
@@ -294,7 +294,7 @@ extern int __retarget_lock_try_acquire_recursive(_LOCK_T lock);
 extern void __retarget_lock_release(_LOCK_T lock);
 
 extern void __retarget_lock_release_recursive(_LOCK_T lock);
-# 35 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 35 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
 typedef _LOCK_T _flock_t;
 
 
@@ -348,7 +348,7 @@ struct _on_exit_args {
 
  __ULong _is_cxa;
 };
-# 98 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 98 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct _atexit {
  struct _atexit *_next;
  int _ind;
@@ -356,12 +356,12 @@ struct _atexit {
  void (*_fns[32])(void);
         struct _on_exit_args _on_exit_args;
 };
-# 122 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 122 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct __sbuf {
  unsigned char *_base;
  int _size;
 };
-# 186 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 186 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct __sFILE {
   unsigned char *_p;
   int _r;
@@ -412,7 +412,7 @@ struct __sFILE {
   _mbstate_t _mbstate;
   int _flags2;
 };
-# 292 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 292 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 typedef struct __sFILE __FILE;
 
 
@@ -423,7 +423,7 @@ struct _glue
   int _niobs;
   __FILE *_iobs;
 };
-# 324 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 324 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct _rand48 {
   unsigned short _seed[3];
   unsigned short _mult[3];
@@ -433,7 +433,7 @@ struct _rand48 {
 
 
 };
-# 613 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 613 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct _reent
 {
   int _errno;
@@ -516,35 +516,35 @@ struct _reent
   __FILE __sf[3];
 
 };
-# 819 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 819 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 extern struct _reent *_impure_ptr ;
 extern struct _reent *const _global_impure_ptr ;
 
 void _reclaim_reent (struct _reent *);
-# 12 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 1 3
-# 47 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 48 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 2 3
-# 13 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 12 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 1 3
+# 47 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 48 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 2 3
+# 13 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 18 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 18 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 1 3
-# 9 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 1 3
+# 9 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 3
 struct __locale_t;
 typedef struct __locale_t *locale_t;
-# 21 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 21 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 1 3
-# 44 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 1 3
+# 44 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 3
 
 
 int bcmp(const void *, const void *, size_t) __attribute__((__pure__));
@@ -576,7 +576,7 @@ int strcasecmp_l (const char *, const char *, locale_t);
 int strncasecmp_l (const char *, const char *, size_t, locale_t);
 
 
-# 25 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 25 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 
@@ -650,7 +650,7 @@ char *_strndup_r (struct _reent *, const char *, size_t);
 
 
 char *strerror_r (int, char *, size_t);
-# 112 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
+# 112 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
 char * _strerror_r (struct _reent *, int, int, int *);
 
 
@@ -682,12 +682,12 @@ char *strsignal (int __signo);
 
 
 int strverscmp (const char *, const char *);
-# 172 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
+# 172 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
 char *__attribute__((__nonnull__ (1))) basename (const char *) __asm__("" "__gnu_basename");
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\string.h" 1 3
-# 176 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\string.h" 1 3
+# 176 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 # 22 "./src/main/pg/vtx_table.c" 2
@@ -695,10 +695,10 @@ char *__attribute__((__nonnull__ (1))) basename (const char *) __asm__("" "__gnu
 # 105 "./src/main/common/printf.h"
        
 
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdarg.h" 1 3 4
-# 40 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdarg.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdarg.h" 1 3 4
+# 40 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdarg.h" 3 4
 typedef __builtin_va_list __gnuc_va_list;
-# 99 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdarg.h" 3 4
+# 99 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdarg.h" 3 4
 typedef __gnuc_va_list va_list;
 # 108 "./src/main/common/printf.h" 2
 
@@ -808,12 +808,12 @@ typedef enum IRQn
 
 # 1 "./lib/main/CMSIS/Core/Include/core_cm4.h" 1
 # 34 "./lib/main/CMSIS/Core/Include/core_cm4.h"
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 1 3 4
-# 9 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 1 3 4
-# 13 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 1 3 4
-# 35 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 1 3 4
+# 9 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 1 3 4
+# 13 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 1 3 4
+# 35 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
        
        
        
@@ -822,7 +822,7 @@ typedef enum IRQn
        
        
        
-# 190 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
+# 190 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
        
        
        
@@ -831,11 +831,11 @@ typedef enum IRQn
        
        
        
-# 14 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 1 3 4
-# 20 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 3 4
+# 14 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 1 3 4
+# 20 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 3 4
 
-# 20 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 3 4
+# 20 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 3 4
 typedef __int8_t int8_t ;
 
 
@@ -899,7 +899,7 @@ typedef __intptr_t intptr_t;
 
 
 typedef __uintptr_t uintptr_t;
-# 15 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
+# 15 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
 
 
 
@@ -926,19 +926,19 @@ typedef __uint_least32_t uint_least32_t;
 
 typedef __int_least64_t int_least64_t;
 typedef __uint_least64_t uint_least64_t;
-# 51 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 51 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef int int_fast8_t;
   typedef unsigned int uint_fast8_t;
-# 61 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 61 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef int int_fast16_t;
   typedef unsigned int uint_fast16_t;
-# 71 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 71 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef int int_fast32_t;
   typedef unsigned int uint_fast32_t;
-# 81 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 81 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef long long int int_fast64_t;
   typedef long long unsigned int uint_fast64_t;
-# 10 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 2 3 4
+# 10 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 2 3 4
 # 35 "./lib/main/CMSIS/Core/Include/core_cm4.h" 2
 # 63 "./lib/main/CMSIS/Core/Include/core_cm4.h"
 # 1 "./lib/main/CMSIS/Core/Include/cmsis_version.h" 1
@@ -4795,7 +4795,7 @@ void __attribute__((section(".RamFunc"))) FLASH_FlashSleepModeCmd(FunctionalStat
 # 21 "./src/main/common/utils.h"
        
 
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
 # 24 "./src/main/common/utils.h" 2
 # 100 "./src/main/common/utils.h"
 static inline int16_t cmp16(uint16_t a, uint16_t b) { return (int16_t)(a-b); }
@@ -4822,501 +4822,3 @@ extern uint8_t __config_end;
 # 1 "./src/main/target/common_defaults_post.h" 1
 # 153 "./src/main/platform.h" 2
 # 25 "./src/main/pg/vtx_table.c" 2
-
-
-
-# 1 "./src/main/pg/pg.h" 1
-# 21 "./src/main/pg/pg.h"
-       
-
-
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdbool.h" 1 3 4
-# 25 "./src/main/pg/pg.h" 2
-
-# 1 "./src/main/build/build_config.h" 1
-# 21 "./src/main/build/build_config.h"
-       
-# 44 "./src/main/build/build_config.h"
-typedef enum {
-    MCU_TYPE_SIMULATOR = 0,
-    MCU_TYPE_F103,
-    MCU_TYPE_F303,
-    MCU_TYPE_F40X,
-    MCU_TYPE_F411,
-    MCU_TYPE_F446,
-    MCU_TYPE_F722,
-    MCU_TYPE_F745,
-    MCU_TYPE_F746,
-    MCU_TYPE_F765,
-    MCU_TYPE_H750,
-    MCU_TYPE_H743_REV_UNKNOWN,
-    MCU_TYPE_H743_REV_Y,
-    MCU_TYPE_H743_REV_X,
-    MCU_TYPE_H743_REV_V,
-    MCU_TYPE_H7A3,
-    MCU_TYPE_H723_725,
-    MCU_TYPE_UNKNOWN = 255,
-} mcuTypeId_e;
-
-mcuTypeId_e getMcuTypeId(void);
-# 27 "./src/main/pg/pg.h" 2
-
-typedef uint16_t pgn_t;
-
-
-typedef enum {
-    PGRF_NONE = 0,
-    PGRF_CLASSIFICATON_BIT = (1 << 0)
-} pgRegistryFlags_e;
-
-typedef enum {
-    PGR_PGN_MASK = 0x0fff,
-    PGR_PGN_VERSION_MASK = 0xf000,
-    PGR_SIZE_MASK = 0x0fff,
-    PGR_SIZE_SYSTEM_FLAG = 0x0000
-} pgRegistryInternal_e;
-
-
-typedef void (pgResetFunc)(void * );
-
-typedef struct pgRegistry_s {
-    pgn_t pgn;
-    uint8_t length;
-    uint16_t size;
-    uint8_t *address;
-    uint8_t *copy;
-    uint8_t **ptr;
-    union {
-        void *ptr;
-        pgResetFunc *fn;
-    } reset;
-} pgRegistry_t;
-
-static inline uint16_t pgN(const pgRegistry_t* reg) {return reg->pgn & PGR_PGN_MASK;}
-static inline uint8_t pgVersion(const pgRegistry_t* reg) {return (uint8_t)(reg->pgn >> 12);}
-static inline uint16_t pgSize(const pgRegistry_t* reg) {return reg->size & PGR_SIZE_MASK;}
-static inline uint16_t pgElementSize(const pgRegistry_t* reg) {return (reg->size & PGR_SIZE_MASK) / reg->length;}
-# 75 "./src/main/pg/pg.h"
-extern const pgRegistry_t __pg_registry_start[];
-extern const pgRegistry_t __pg_registry_end[];
-
-
-extern const uint8_t __pg_resetdata_start[];
-extern const uint8_t __pg_resetdata_end[];
-# 194 "./src/main/pg/pg.h"
-const pgRegistry_t* pgFind(pgn_t pgn);
-
-
-# 196 "./src/main/pg/pg.h" 3 4
-_Bool 
-# 196 "./src/main/pg/pg.h"
-    pgLoad(const pgRegistry_t* reg, const void *from, int size, int version);
-int pgStore(const pgRegistry_t* reg, void *to, int size);
-void pgResetAll(void);
-void pgResetInstance(const pgRegistry_t *reg, uint8_t *base);
-
-# 200 "./src/main/pg/pg.h" 3 4
-_Bool 
-# 200 "./src/main/pg/pg.h"
-    pgResetCopy(void *copy, pgn_t pgn);
-void pgReset(const pgRegistry_t* reg);
-# 29 "./src/main/pg/vtx_table.c" 2
-# 1 "./src/main/pg/pg_ids.h" 1
-# 21 "./src/main/pg/pg_ids.h"
-       
-# 30 "./src/main/pg/vtx_table.c" 2
-# 1 "./src/main/pg/vtx_table.h" 1
-# 21 "./src/main/pg/vtx_table.h"
-       
-
-
-
-
-
-
-
-# 1 "./src/main/drivers/vtx_table.h" 1
-# 27 "./src/main/drivers/vtx_table.h"
-# 1 "./src/main/drivers/vtx_common.h" 1
-# 23 "./src/main/drivers/vtx_common.h"
-       
-
-
-
-
-# 1 "./src/main/common/time.h" 1
-# 21 "./src/main/common/time.h"
-       
-# 31 "./src/main/common/time.h"
-typedef int32_t timeDelta_t;
-
-typedef uint32_t timeMs_t ;
-
-
-
-
-
-typedef uint32_t timeUs_t;
-
-
-
-
-
-
-static inline timeDelta_t cmpTimeUs(timeUs_t a, timeUs_t b) { return (timeDelta_t)(a - b); }
-
-
-
-
-
-typedef struct timeConfig_s {
-    int16_t tz_offsetMinutes;
-} timeConfig_t;
-
-extern timeConfig_t timeConfig_System; extern timeConfig_t timeConfig_Copy; static inline const timeConfig_t* timeConfig(void) { return &timeConfig_System; } static inline timeConfig_t* timeConfigMutable(void) { return &timeConfig_System; } struct _dummy;
-
-
-typedef int64_t rtcTime_t;
-
-rtcTime_t rtcTimeMake(int32_t secs, uint16_t millis);
-int32_t rtcTimeGetSeconds(rtcTime_t *t);
-uint16_t rtcTimeGetMillis(rtcTime_t *t);
-
-typedef struct _dateTime_s {
-
-    uint16_t year;
-
-    uint8_t month;
-
-    uint8_t day;
-
-    uint8_t hours;
-
-    uint8_t minutes;
-
-    uint8_t seconds;
-
-    uint16_t millis;
-} dateTime_t;
-
-
-
-# 83 "./src/main/common/time.h" 3 4
-_Bool 
-# 83 "./src/main/common/time.h"
-    dateTimeFormatUTC(char *buf, dateTime_t *dt);
-
-# 84 "./src/main/common/time.h" 3 4
-_Bool 
-# 84 "./src/main/common/time.h"
-    dateTimeFormatLocal(char *buf, dateTime_t *dt);
-
-# 85 "./src/main/common/time.h" 3 4
-_Bool 
-# 85 "./src/main/common/time.h"
-    dateTimeFormatLocalShort(char *buf, dateTime_t *dt);
-
-void dateTimeUTCToLocal(dateTime_t *utcDateTime, dateTime_t *localDateTime);
-
-
-
-
-# 91 "./src/main/common/time.h" 3 4
-_Bool 
-# 91 "./src/main/common/time.h"
-    dateTimeSplitFormatted(char *formatted, char **date, char **time);
-
-
-# 93 "./src/main/common/time.h" 3 4
-_Bool 
-# 93 "./src/main/common/time.h"
-    rtcHasTime(void);
-
-
-# 95 "./src/main/common/time.h" 3 4
-_Bool 
-# 95 "./src/main/common/time.h"
-    rtcGet(rtcTime_t *t);
-
-# 96 "./src/main/common/time.h" 3 4
-_Bool 
-# 96 "./src/main/common/time.h"
-    rtcSet(rtcTime_t *t);
-
-
-# 98 "./src/main/common/time.h" 3 4
-_Bool 
-# 98 "./src/main/common/time.h"
-    rtcGetDateTime(dateTime_t *dt);
-
-# 99 "./src/main/common/time.h" 3 4
-_Bool 
-# 99 "./src/main/common/time.h"
-    rtcSetDateTime(dateTime_t *dt);
-
-void rtcPersistWrite(int16_t offsetMinutes);
-
-# 102 "./src/main/common/time.h" 3 4
-_Bool 
-# 102 "./src/main/common/time.h"
-    rtcPersistRead(rtcTime_t *t);
-# 29 "./src/main/drivers/vtx_common.h" 2
-# 1 "./src/main/common/streambuf.h" 1
-# 21 "./src/main/common/streambuf.h"
-       
-
-
-
-
-
-typedef struct sbuf_s {
-    uint8_t *ptr;
-    uint8_t *end;
-} sbuf_t;
-
-sbuf_t *sbufInit(sbuf_t *sbuf, uint8_t *ptr, uint8_t *end);
-
-void sbufWriteU8(sbuf_t *dst, uint8_t val);
-void sbufWriteU16(sbuf_t *dst, uint16_t val);
-void sbufWriteU32(sbuf_t *dst, uint32_t val);
-void sbufWriteU16BigEndian(sbuf_t *dst, uint16_t val);
-void sbufWriteU32BigEndian(sbuf_t *dst, uint32_t val);
-void sbufFill(sbuf_t *dst, uint8_t data, int len);
-void sbufWriteData(sbuf_t *dst, const void *data, int len);
-void sbufWriteString(sbuf_t *dst, const char *string);
-void sbufWriteStringWithZeroTerminator(sbuf_t *dst, const char *string);
-
-uint8_t sbufReadU8(sbuf_t *src);
-uint16_t sbufReadU16(sbuf_t *src);
-uint32_t sbufReadU32(sbuf_t *src);
-void sbufReadData(sbuf_t *dst, void *data, int len);
-
-int sbufBytesRemaining(sbuf_t *buf);
-uint8_t* sbufPtr(sbuf_t *buf);
-const uint8_t* sbufConstPtr(const sbuf_t *buf);
-void sbufAdvance(sbuf_t *buf, int size);
-
-void sbufSwitchToReader(sbuf_t *buf, uint8_t * base);
-# 30 "./src/main/drivers/vtx_common.h" 2
-# 49 "./src/main/drivers/vtx_common.h"
-typedef enum {
-    VTXDEV_UNSUPPORTED = 0,
-    VTXDEV_RTC6705 = 1,
-
-    VTXDEV_SMARTAUDIO = 3,
-    VTXDEV_TRAMP = 4,
-    VTXDEV_UNKNOWN = 0xFF,
-} vtxDevType_e;
-# 86 "./src/main/drivers/vtx_common.h"
-enum {
-    VTX_STATUS_PIT_MODE = 1 << 0,
-    VTX_STATUS_LOCKED = 1 << 1,
-};
-
-struct vtxVTable_s;
-typedef struct vtxDevice_s {
-    const struct vtxVTable_s *const vTable;
-} vtxDevice_t;
-
-
-
-
-
-
-typedef struct vtxVTable_s {
-    void (*process)(vtxDevice_t *vtxDevice, timeUs_t currentTimeUs);
-    vtxDevType_e (*getDeviceType)(const vtxDevice_t *vtxDevice);
-    
-# 104 "./src/main/drivers/vtx_common.h" 3 4
-   _Bool 
-# 104 "./src/main/drivers/vtx_common.h"
-        (*isReady)(const vtxDevice_t *vtxDevice);
-
-    void (*setBandAndChannel)(vtxDevice_t *vtxDevice, uint8_t band, uint8_t channel);
-    void (*setPowerByIndex)(vtxDevice_t *vtxDevice, uint8_t level);
-    void (*setPitMode)(vtxDevice_t *vtxDevice, uint8_t onoff);
-    void (*setFrequency)(vtxDevice_t *vtxDevice, uint16_t freq);
-
-    
-# 111 "./src/main/drivers/vtx_common.h" 3 4
-   _Bool 
-# 111 "./src/main/drivers/vtx_common.h"
-        (*getBandAndChannel)(const vtxDevice_t *vtxDevice, uint8_t *pBand, uint8_t *pChannel);
-    
-# 112 "./src/main/drivers/vtx_common.h" 3 4
-   _Bool 
-# 112 "./src/main/drivers/vtx_common.h"
-        (*getPowerIndex)(const vtxDevice_t *vtxDevice, uint8_t *pIndex);
-    
-# 113 "./src/main/drivers/vtx_common.h" 3 4
-   _Bool 
-# 113 "./src/main/drivers/vtx_common.h"
-        (*getFrequency)(const vtxDevice_t *vtxDevice, uint16_t *pFreq);
-    
-# 114 "./src/main/drivers/vtx_common.h" 3 4
-   _Bool 
-# 114 "./src/main/drivers/vtx_common.h"
-        (*getStatus)(const vtxDevice_t *vtxDevice, unsigned *status);
-    uint8_t (*getPowerLevels)(const vtxDevice_t *vtxDevice, uint16_t *levels, uint16_t *powers);
-
-    void (*serializeCustomDeviceStatus)(const vtxDevice_t *vtxDevice, sbuf_t *dst);
-} vtxVTable_t;
-
-
-
-
-
-
-void vtxCommonInit(void);
-void vtxCommonSetDevice(vtxDevice_t *vtxDevice);
-vtxDevice_t *vtxCommonDevice(void);
-
-
-void vtxCommonProcess(vtxDevice_t *vtxDevice, timeUs_t currentTimeUs);
-vtxDevType_e vtxCommonGetDeviceType(const vtxDevice_t *vtxDevice);
-
-# 132 "./src/main/drivers/vtx_common.h" 3 4
-_Bool 
-# 132 "./src/main/drivers/vtx_common.h"
-    vtxCommonDeviceIsReady(const vtxDevice_t *vtxDevice);
-
-void vtxCommonSetBandAndChannel(vtxDevice_t *vtxDevice, uint8_t band, uint8_t channel);
-void vtxCommonSetPowerByIndex(vtxDevice_t *vtxDevice, uint8_t level);
-void vtxCommonSetPitMode(vtxDevice_t *vtxDevice, uint8_t onoff);
-void vtxCommonSetFrequency(vtxDevice_t *vtxDevice, uint16_t freq);
-
-
-# 139 "./src/main/drivers/vtx_common.h" 3 4
-_Bool 
-# 139 "./src/main/drivers/vtx_common.h"
-    vtxCommonGetBandAndChannel(const vtxDevice_t *vtxDevice, uint8_t *pBand, uint8_t *pChannel);
-
-# 140 "./src/main/drivers/vtx_common.h" 3 4
-_Bool 
-# 140 "./src/main/drivers/vtx_common.h"
-    vtxCommonGetPowerIndex(const vtxDevice_t *vtxDevice, uint8_t *pIndex);
-
-# 141 "./src/main/drivers/vtx_common.h" 3 4
-_Bool 
-# 141 "./src/main/drivers/vtx_common.h"
-    vtxCommonGetFrequency(const vtxDevice_t *vtxDevice, uint16_t *pFreq);
-
-# 142 "./src/main/drivers/vtx_common.h" 3 4
-_Bool 
-# 142 "./src/main/drivers/vtx_common.h"
-    vtxCommonGetStatus(const vtxDevice_t *vtxDevice, unsigned *status);
-uint8_t vtxCommonGetVTXPowerLevels(const vtxDevice_t *vtxDevice, uint16_t *levels, uint16_t *powers);
-
-
-const char *vtxCommonLookupBandName(const vtxDevice_t *vtxDevice, int band);
-char vtxCommonLookupBandLetter(const vtxDevice_t *vtxDevice, int band);
-char vtxCommonGetBandLetter(const vtxDevice_t *vtxDevice, int band);
-const char *vtxCommonLookupChannelName(const vtxDevice_t *vtxDevice, int channel);
-uint16_t vtxCommonLookupFrequency(const vtxDevice_t *vtxDevice, int band, int channel);
-void vtxCommonLookupBandChan(const vtxDevice_t *vtxDevice, uint16_t freq, uint8_t *pBand, uint8_t *pChannel);
-const char *vtxCommonLookupPowerName(const vtxDevice_t *vtxDevice, int index);
-
-# 153 "./src/main/drivers/vtx_common.h" 3 4
-_Bool 
-# 153 "./src/main/drivers/vtx_common.h"
-    vtxCommonLookupPowerValue(const vtxDevice_t *vtxDevice, int index, uint16_t *pPowerValue);
-void vtxCommonSerializeDeviceStatus(const vtxDevice_t *vtxDevice, sbuf_t *dst);
-# 28 "./src/main/drivers/vtx_table.h" 2
-# 54 "./src/main/drivers/vtx_table.h"
-struct vtxTableConfig_s;
-void vtxTableInit(void);
-void vtxTableStrncpyWithPad(char *dst, const char *src, int length);
-void vtxTableConfigClearBand(struct vtxTableConfig_s *config, int band);
-void vtxTableConfigClearPowerValues(struct vtxTableConfig_s *config, int start);
-void vtxTableConfigClearPowerLabels(struct vtxTableConfig_s *config, int start);
-void vtxTableConfigClearChannels(struct vtxTableConfig_s *config, int band, int channels);
-
-
-
-
-extern int vtxTableBandCount;
-extern int vtxTableChannelCount;
-extern uint16_t vtxTableFrequency[8][8];
-extern const char *vtxTableBandNames[8 + 1];
-extern char vtxTableBandLetters[8 + 1];
-extern const char *vtxTableChannelNames[8 + 1];
-extern 
-# 71 "./src/main/drivers/vtx_table.h" 3 4
-      _Bool 
-# 71 "./src/main/drivers/vtx_table.h"
-                     vtxTableIsFactoryBand[8];
-extern int vtxTablePowerLevels;
-extern uint16_t vtxTablePowerValues[8];
-extern const char *vtxTablePowerLabels[8 + 1];
-# 30 "./src/main/pg/vtx_table.h" 2
-
-typedef struct vtxTableConfig_s {
-    uint8_t bands;
-    uint8_t channels;
-    uint16_t frequency[8][8];
-    char bandNames[8][8 + 1];
-    char bandLetters[8];
-    char channelNames[8][1 + 1];
-    
-# 38 "./src/main/pg/vtx_table.h" 3 4
-   _Bool 
-# 38 "./src/main/pg/vtx_table.h"
-            isFactoryBand[8];
-
-    uint8_t powerLevels;
-    uint16_t powerValues[8];
-    char powerLabels[8][3 + 1];
-} vtxTableConfig_t;
-
-struct vtxTableConfig_s;
-extern struct vtxTableConfig_s vtxTableConfig_System; extern struct vtxTableConfig_s vtxTableConfig_Copy; static inline const struct vtxTableConfig_s* vtxTableConfig(void) { return &vtxTableConfig_System; } static inline struct vtxTableConfig_s* vtxTableConfigMutable(void) { return &vtxTableConfig_System; } struct _dummy;
-# 31 "./src/main/pg/vtx_table.c" 2
-
-# 1 "./src/main/drivers/vtx_table.h" 1
-# 54 "./src/main/drivers/vtx_table.h"
-struct vtxTableConfig_s;
-void vtxTableInit(void);
-void vtxTableStrncpyWithPad(char *dst, const char *src, int length);
-void vtxTableConfigClearBand(struct vtxTableConfig_s *config, int band);
-void vtxTableConfigClearPowerValues(struct vtxTableConfig_s *config, int start);
-void vtxTableConfigClearPowerLabels(struct vtxTableConfig_s *config, int start);
-void vtxTableConfigClearChannels(struct vtxTableConfig_s *config, int band, int channels);
-
-
-
-
-extern int vtxTableBandCount;
-extern int vtxTableChannelCount;
-extern uint16_t vtxTableFrequency[8][8];
-extern const char *vtxTableBandNames[8 + 1];
-extern char vtxTableBandLetters[8 + 1];
-extern const char *vtxTableChannelNames[8 + 1];
-extern 
-# 71 "./src/main/drivers/vtx_table.h" 3 4
-      _Bool 
-# 71 "./src/main/drivers/vtx_table.h"
-                     vtxTableIsFactoryBand[8];
-extern int vtxTablePowerLevels;
-extern uint16_t vtxTablePowerValues[8];
-extern const char *vtxTablePowerLabels[8 + 1];
-# 33 "./src/main/pg/vtx_table.c" 2
-
-extern void pgResetFn_vtxTableConfig(vtxTableConfig_t *); vtxTableConfig_t vtxTableConfig_System; vtxTableConfig_t vtxTableConfig_Copy; extern const pgRegistry_t vtxTableConfig_Registry; const pgRegistry_t vtxTableConfig_Registry __attribute__ ((section(".pg_registry"), used, aligned(4))) = { .pgn = 546 | (0 << 12), .length = 1, .size = sizeof(vtxTableConfig_t) | PGR_SIZE_SYSTEM_FLAG, .address = (uint8_t*)&vtxTableConfig_System, .copy = (uint8_t*)&vtxTableConfig_Copy, .ptr = 0, .reset = {.fn = (pgResetFunc*)&pgResetFn_vtxTableConfig }, };
-
-void pgResetFn_vtxTableConfig(vtxTableConfig_t *config)
-{
-
-
-    config->bands = 0;
-    config->channels = 0;
-
-    for (int band = 0; band < 8; band++) {
-        vtxTableConfigClearBand(config, band);
-    }
-
-
-
-    config->powerLevels = 0;
-    vtxTableConfigClearPowerValues(config, 0);
-    vtxTableConfigClearPowerLabels(config, 0);
-}

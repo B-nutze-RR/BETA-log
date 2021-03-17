@@ -3,95 +3,95 @@
 # 1 "<command-line>"
 # 1 "./src/main/drivers/pwm_output_dshot_shared.c"
 # 22 "./src/main/drivers/pwm_output_dshot_shared.c"
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 1 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 1 3
 
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 1 3
-# 13 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
-# 10 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\newlib.h" 1 3
-# 14 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\newlib.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_newlib_version.h" 1 3
-# 15 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\newlib.h" 2 3
-# 11 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 1 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 1 3
+# 13 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
+# 10 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\newlib.h" 1 3
+# 14 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\newlib.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_newlib_version.h" 1 3
+# 15 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\newlib.h" 2 3
+# 11 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 1 3
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\ieeefp.h" 1 3
-# 5 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 1 3
-# 6 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 2 3
-# 12 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
-# 14 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 143 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\ieeefp.h" 1 3
+# 5 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 1 3
+# 6 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 2 3
+# 12 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
+# 14 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 143 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 
-# 143 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 143 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef int ptrdiff_t;
-# 209 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 209 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef unsigned int size_t;
-# 321 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 321 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef unsigned int wchar_t;
-# 415 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 415 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef struct {
   long long __max_align_ll __attribute__((__aligned__(__alignof__(long long))));
   long double __max_align_ld __attribute__((__aligned__(__alignof__(long double))));
-# 426 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 426 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 } max_align_t;
-# 15 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 1 3
-# 24 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 350 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 15 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 1 3
+# 24 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 350 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef unsigned int wint_t;
-# 25 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
+# 25 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_types.h" 1 3
-
-
-
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_types.h" 1 3
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 1 3
-# 41 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
+
+
+
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 1 3
+# 41 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
 typedef signed char __int8_t;
 
 typedef unsigned char __uint8_t;
-# 55 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
+# 55 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
 typedef short int __int16_t;
 
 typedef short unsigned int __uint16_t;
-# 77 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
+# 77 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
 typedef long int __int32_t;
 
 typedef long unsigned int __uint32_t;
-# 103 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
+# 103 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
 typedef long long int __int64_t;
 
 typedef long long unsigned int __uint64_t;
-# 134 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
+# 134 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
 typedef signed char __int_least8_t;
 
 typedef unsigned char __uint_least8_t;
-# 160 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
+# 160 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
 typedef short int __int_least16_t;
 
 typedef short unsigned int __uint_least16_t;
-# 182 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
+# 182 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
 typedef long int __int_least32_t;
 
 typedef long unsigned int __uint_least32_t;
-# 200 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
+# 200 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
 typedef long long int __int_least64_t;
 
 typedef long long unsigned int __uint_least64_t;
-# 214 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
+# 214 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3
 typedef long long int __intmax_t;
 
 
@@ -111,8 +111,8 @@ typedef long long unsigned int __uintmax_t;
 typedef int __intptr_t;
 
 typedef unsigned int __uintptr_t;
-# 8 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_types.h" 2 3
-# 28 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
+# 8 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_types.h" 2 3
+# 28 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
 
 
 typedef long __blkcnt_t;
@@ -161,7 +161,7 @@ typedef __uint32_t __id_t;
 
 
 typedef unsigned short __ino_t;
-# 90 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 90 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef __uint32_t __mode_t;
 
 
@@ -189,11 +189,11 @@ typedef long __key_t;
 
 
 typedef long _fpos_t;
-# 131 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 131 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef unsigned int __size_t;
-# 147 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 147 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef signed int _ssize_t;
-# 158 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 158 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef _ssize_t __ssize_t;
 
 
@@ -256,7 +256,7 @@ typedef unsigned long __useconds_t;
 
 
 typedef __builtin_va_list __va_list;
-# 16 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 16 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
 
 
 
@@ -264,9 +264,9 @@ typedef __builtin_va_list __va_list;
 
 
 typedef unsigned long __ULong;
-# 34 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 1 3
-# 33 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 3
+# 34 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 1 3
+# 33 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 3
 struct __lock;
 typedef struct __lock * _LOCK_T;
 
@@ -295,7 +295,7 @@ extern int __retarget_lock_try_acquire_recursive(_LOCK_T lock);
 extern void __retarget_lock_release(_LOCK_T lock);
 
 extern void __retarget_lock_release_recursive(_LOCK_T lock);
-# 35 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 35 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
 typedef _LOCK_T _flock_t;
 
 
@@ -349,7 +349,7 @@ struct _on_exit_args {
 
  __ULong _is_cxa;
 };
-# 98 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 98 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct _atexit {
  struct _atexit *_next;
  int _ind;
@@ -357,12 +357,12 @@ struct _atexit {
  void (*_fns[32])(void);
         struct _on_exit_args _on_exit_args;
 };
-# 122 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 122 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct __sbuf {
  unsigned char *_base;
  int _size;
 };
-# 186 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 186 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct __sFILE {
   unsigned char *_p;
   int _r;
@@ -413,7 +413,7 @@ struct __sFILE {
   _mbstate_t _mbstate;
   int _flags2;
 };
-# 292 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 292 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 typedef struct __sFILE __FILE;
 
 
@@ -424,7 +424,7 @@ struct _glue
   int _niobs;
   __FILE *_iobs;
 };
-# 324 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 324 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct _rand48 {
   unsigned short _seed[3];
   unsigned short _mult[3];
@@ -434,7 +434,7 @@ struct _rand48 {
 
 
 };
-# 613 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 613 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct _reent
 {
   int _errno;
@@ -517,24 +517,24 @@ struct _reent
   __FILE __sf[3];
 
 };
-# 819 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 819 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 extern struct _reent *_impure_ptr ;
 extern struct _reent *const _global_impure_ptr ;
 
 void _reclaim_reent (struct _reent *);
-# 6 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 1 3
-# 47 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 48 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 2 3
-# 7 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\ieeefp.h" 1 3
-# 8 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
-# 9 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 2 3
+# 6 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 1 3
+# 47 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 48 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 2 3
+# 7 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\ieeefp.h" 1 3
+# 8 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
+# 9 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 2 3
 
 
-# 86 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 86 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
 extern double atan (double);
 extern double cos (double);
 extern double sin (double);
@@ -583,10 +583,10 @@ extern int isinf (double);
 
 
 extern int isnan (double);
-# 150 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 150 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
     typedef float float_t;
     typedef double double_t;
-# 194 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 194 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
 extern int __isinff (float x);
 extern int __isinfd (double x);
 extern int __isnanf (float x);
@@ -595,7 +595,7 @@ extern int __fpclassifyf (float x);
 extern int __fpclassifyd (double x);
 extern int __signbitf (float x);
 extern int __signbitd (double x);
-# 290 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 290 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
 extern double infinity (void);
 extern double nan (const char *);
 extern double copysign (double, double);
@@ -718,7 +718,7 @@ extern float erff (float);
 extern float erfcf (float);
 extern float log2f (float);
 extern float hypotf (float, float);
-# 422 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 422 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
 extern long double atanl (long double);
 extern long double cosl (long double);
 extern long double sinl (long double);
@@ -785,7 +785,7 @@ extern long double remainderl (long double, long double);
 extern long double lgammal (long double);
 extern long double erfl (long double);
 extern long double erfcl (long double);
-# 503 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 503 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
 extern double drem (double, double);
 extern float dremf (float, float);
 
@@ -833,9 +833,9 @@ extern float exp10f (float);
 
 
 extern float pow10f (float);
-# 565 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 565 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
 extern int *__signgam (void);
-# 607 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 607 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
 enum __fdlibm_version
 {
   __fdlibm_ieee = -1,
@@ -855,17 +855,17 @@ extern enum __fdlibm_version __fdlib_version;
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\fastmath.h" 1 3
-# 627 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\fastmath.h" 1 3
+# 627 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 2 3
 # 23 "./src/main/drivers/pwm_output_dshot_shared.c" 2
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdbool.h" 1 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdbool.h" 1 3 4
 # 24 "./src/main/drivers/pwm_output_dshot_shared.c" 2
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 1 3 4
-# 9 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 1 3 4
-# 13 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 1 3 4
-# 35 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 1 3 4
+# 9 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 1 3 4
+# 13 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 1 3 4
+# 35 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
        
        
        
@@ -874,7 +874,7 @@ extern enum __fdlibm_version __fdlib_version;
        
        
        
-# 190 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
+# 190 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
        
        
        
@@ -883,9 +883,9 @@ extern enum __fdlibm_version __fdlib_version;
        
        
        
-# 14 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 1 3 4
-# 20 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 3 4
+# 14 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 1 3 4
+# 20 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 3 4
 typedef __int8_t int8_t ;
 
 
@@ -949,7 +949,7 @@ typedef __intptr_t intptr_t;
 
 
 typedef __uintptr_t uintptr_t;
-# 15 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
+# 15 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
 
 
 
@@ -976,36 +976,36 @@ typedef __uint_least32_t uint_least32_t;
 
 typedef __int_least64_t int_least64_t;
 typedef __uint_least64_t uint_least64_t;
-# 51 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 51 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef int int_fast8_t;
   typedef unsigned int uint_fast8_t;
-# 61 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 61 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef int int_fast16_t;
   typedef unsigned int uint_fast16_t;
-# 71 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 71 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef int int_fast32_t;
   typedef unsigned int uint_fast32_t;
-# 81 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 81 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef long long int int_fast64_t;
   typedef long long unsigned int uint_fast64_t;
-# 10 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 2 3 4
+# 10 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 2 3 4
 # 25 "./src/main/drivers/pwm_output_dshot_shared.c" 2
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 1 3
-# 17 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 18 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 1 3
+# 17 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 18 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 1 3
-# 9 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 1 3
+# 9 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 3
 struct __locale_t;
 typedef struct __locale_t *locale_t;
-# 21 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 21 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 1 3
-# 44 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 1 3
+# 44 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 3
 
 
 int bcmp(const void *, const void *, size_t) __attribute__((__pure__));
@@ -1037,7 +1037,7 @@ int strcasecmp_l (const char *, const char *, locale_t);
 int strncasecmp_l (const char *, const char *, size_t, locale_t);
 
 
-# 25 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 25 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 
@@ -1111,7 +1111,7 @@ char *_strndup_r (struct _reent *, const char *, size_t);
 
 
 char *strerror_r (int, char *, size_t);
-# 112 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
+# 112 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
 char * _strerror_r (struct _reent *, int, int, int *);
 
 
@@ -1143,12 +1143,12 @@ char *strsignal (int __signo);
 
 
 int strverscmp (const char *, const char *);
-# 172 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
+# 172 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
 char *__attribute__((__nonnull__ (1))) basename (const char *) __asm__("" "__gnu_basename");
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\string.h" 1 3
-# 176 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\string.h" 1 3
+# 176 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 # 26 "./src/main/drivers/pwm_output_dshot_shared.c" 2
@@ -5101,7 +5101,7 @@ void __attribute__((section(".RamFunc"))) FLASH_FlashSleepModeCmd(FunctionalStat
 # 21 "./src/main/common/utils.h"
        
 
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
 # 24 "./src/main/common/utils.h" 2
 # 100 "./src/main/common/utils.h"
 static inline int16_t cmp16(uint16_t a, uint16_t b) { return (int16_t)(a-b); }
@@ -5128,1748 +5128,3 @@ extern uint8_t __config_end;
 # 1 "./src/main/target/common_defaults_post.h" 1
 # 153 "./src/main/platform.h" 2
 # 28 "./src/main/drivers/pwm_output_dshot_shared.c" 2
-
-
-
-# 1 "./src/main/build/debug.h" 1
-# 21 "./src/main/build/debug.h"
-       
-
-
-extern int16_t debug[4];
-extern uint8_t debugMode;
-
-
-
-
-
-
-extern uint32_t sectionTimes[2][4];
-# 51 "./src/main/build/debug.h"
-typedef enum {
-    DEBUG_NONE,
-    DEBUG_CYCLETIME,
-    DEBUG_BATTERY,
-    DEBUG_GYRO_FILTERED,
-    DEBUG_ACCELEROMETER,
-    DEBUG_PIDLOOP,
-    DEBUG_GYRO_SCALED,
-    DEBUG_RC_INTERPOLATION,
-    DEBUG_ANGLERATE,
-    DEBUG_ESC_SENSOR,
-    DEBUG_SCHEDULER,
-    DEBUG_STACK,
-    DEBUG_ESC_SENSOR_RPM,
-    DEBUG_ESC_SENSOR_TMP,
-    DEBUG_ALTITUDE,
-    DEBUG_FFT,
-    DEBUG_FFT_TIME,
-    DEBUG_FFT_FREQ,
-    DEBUG_RX_FRSKY_SPI,
-    DEBUG_RX_SFHSS_SPI,
-    DEBUG_GYRO_RAW,
-    DEBUG_DUAL_GYRO_RAW,
-    DEBUG_DUAL_GYRO_DIFF,
-    DEBUG_MAX7456_SIGNAL,
-    DEBUG_MAX7456_SPICLOCK,
-    DEBUG_SBUS,
-    DEBUG_FPORT,
-    DEBUG_RANGEFINDER,
-    DEBUG_RANGEFINDER_QUALITY,
-    DEBUG_LIDAR_TF,
-    DEBUG_ADC_INTERNAL,
-    DEBUG_RUNAWAY_TAKEOFF,
-    DEBUG_SDIO,
-    DEBUG_CURRENT_SENSOR,
-    DEBUG_USB,
-    DEBUG_SMARTAUDIO,
-    DEBUG_RTH,
-    DEBUG_ITERM_RELAX,
-    DEBUG_ACRO_TRAINER,
-    DEBUG_RC_SMOOTHING,
-    DEBUG_RX_SIGNAL_LOSS,
-    DEBUG_RC_SMOOTHING_RATE,
-    DEBUG_ANTI_GRAVITY,
-    DEBUG_DYN_LPF,
-    DEBUG_RX_SPEKTRUM_SPI,
-    DEBUG_DSHOT_RPM_TELEMETRY,
-    DEBUG_RPM_FILTER,
-    DEBUG_D_MIN,
-    DEBUG_AC_CORRECTION,
-    DEBUG_AC_ERROR,
-    DEBUG_DUAL_GYRO_SCALED,
-    DEBUG_DSHOT_RPM_ERRORS,
-    DEBUG_CRSF_LINK_STATISTICS_UPLINK,
-    DEBUG_CRSF_LINK_STATISTICS_PWR,
-    DEBUG_CRSF_LINK_STATISTICS_DOWN,
-    DEBUG_BARO,
-    DEBUG_GPS_RESCUE_THROTTLE_PID,
-    DEBUG_DYN_IDLE,
-    DEBUG_FF_LIMIT,
-    DEBUG_FF_INTERPOLATED,
-    DEBUG_BLACKBOX_OUTPUT,
-    DEBUG_GYRO_SAMPLE,
-    DEBUG_RX_TIMING,
-    DEBUG_D_LPF,
-    DEBUG_VTX_TRAMP,
-    DEBUG_GHST,
-    DEBUG_COUNT
-} debugType_e;
-
-extern const char * const debugModeNames[DEBUG_COUNT];
-# 32 "./src/main/drivers/pwm_output_dshot_shared.c" 2
-
-# 1 "./src/main/drivers/dma.h" 1
-# 21 "./src/main/drivers/dma.h"
-       
-
-# 1 "./src/main/drivers/resource.h" 1
-# 21 "./src/main/drivers/resource.h"
-       
-
-typedef enum {
-    OWNER_FREE = 0,
-    OWNER_PWMINPUT,
-    OWNER_PPMINPUT,
-    OWNER_MOTOR,
-    OWNER_SERVO,
-    OWNER_LED,
-    OWNER_ADC,
-    OWNER_ADC_BATT,
-    OWNER_ADC_CURR,
-    OWNER_ADC_EXT,
-    OWNER_ADC_RSSI,
-    OWNER_SERIAL_TX,
-    OWNER_SERIAL_RX,
-    OWNER_PINDEBUG,
-    OWNER_TIMER,
-    OWNER_SONAR_TRIGGER,
-    OWNER_SONAR_ECHO,
-    OWNER_SYSTEM,
-    OWNER_SPI_SCK,
-    OWNER_SPI_MISO,
-    OWNER_SPI_MOSI,
-    OWNER_I2C_SCL,
-    OWNER_I2C_SDA,
-    OWNER_SDCARD,
-    OWNER_SDIO_CK,
-    OWNER_SDIO_CMD,
-    OWNER_SDIO_D0,
-    OWNER_SDIO_D1,
-    OWNER_SDIO_D2,
-    OWNER_SDIO_D3,
-    OWNER_SDCARD_CS,
-    OWNER_SDCARD_DETECT,
-    OWNER_FLASH_CS,
-    OWNER_BARO_CS,
-    OWNER_GYRO_CS,
-    OWNER_OSD_CS,
-    OWNER_RX_SPI_CS,
-    OWNER_SPI_CS,
-    OWNER_GYRO_EXTI,
-    OWNER_BARO_EOC,
-    OWNER_COMPASS_EXTI,
-    OWNER_USB,
-    OWNER_USB_DETECT,
-    OWNER_BEEPER,
-    OWNER_OSD,
-    OWNER_RX_BIND,
-    OWNER_INVERTER,
-    OWNER_LED_STRIP,
-    OWNER_TRANSPONDER,
-    OWNER_VTX_POWER,
-    OWNER_VTX_CS,
-    OWNER_VTX_DATA,
-    OWNER_VTX_CLK,
-    OWNER_COMPASS_CS,
-    OWNER_RX_BIND_PLUG,
-    OWNER_ESCSERIAL,
-    OWNER_CAMERA_CONTROL,
-    OWNER_TIMUP,
-    OWNER_RANGEFINDER,
-    OWNER_RX_SPI,
-    OWNER_PINIO,
-    OWNER_USB_MSC_PIN,
-    OWNER_MCO,
-    OWNER_RX_SPI_BIND,
-    OWNER_RX_SPI_LED,
-    OWNER_PREINIT,
-    OWNER_RX_SPI_EXTI,
-    OWNER_RX_SPI_CC2500_TX_EN,
-    OWNER_RX_SPI_CC2500_LNA_EN,
-    OWNER_RX_SPI_CC2500_ANT_SEL,
-    OWNER_QUADSPI_CLK,
-    OWNER_QUADSPI_BK1IO0,
-    OWNER_QUADSPI_BK1IO1,
-    OWNER_QUADSPI_BK1IO2,
-    OWNER_QUADSPI_BK1IO3,
-    OWNER_QUADSPI_BK1CS,
-    OWNER_QUADSPI_BK2IO0,
-    OWNER_QUADSPI_BK2IO1,
-    OWNER_QUADSPI_BK2IO2,
-    OWNER_QUADSPI_BK2IO3,
-    OWNER_QUADSPI_BK2CS,
-    OWNER_BARO_XCLR,
-    OWNER_PULLUP,
-    OWNER_PULLDOWN,
-    OWNER_DSHOT_BITBANG,
-    OWNER_SWD,
-    OWNER_TOTAL_COUNT
-} resourceOwner_e;
-
-typedef struct resourceOwner_s {
-    resourceOwner_e owner;
-    uint8_t resourceIndex;
-} resourceOwner_t;
-
-extern const char * const ownerNames[OWNER_TOTAL_COUNT];
-# 24 "./src/main/drivers/dma.h" 2
-# 32 "./src/main/drivers/dma.h"
-typedef struct dmaResource_s dmaResource_t;
-# 43 "./src/main/drivers/dma.h"
-struct dmaChannelDescriptor_s;
-typedef void (*dmaCallbackHandlerFuncPtr)(struct dmaChannelDescriptor_s *channelDescriptor);
-
-typedef struct dmaChannelDescriptor_s {
-    DMA_TypeDef* dma;
-    dmaResource_t *ref;
-
-    uint8_t stream;
-
-    dmaCallbackHandlerFuncPtr irqHandlerCallback;
-    uint8_t flagsShift;
-    IRQn_Type irqN;
-    uint32_t userParam;
-    resourceOwner_t owner;
-    uint8_t resourceIndex;
-    uint32_t completeFlag;
-} dmaChannelDescriptor_t;
-# 71 "./src/main/drivers/dma.h"
-typedef enum {
-    DMA_NONE = 0,
-    DMA1_ST0_HANDLER = 1,
-    DMA1_ST1_HANDLER,
-    DMA1_ST2_HANDLER,
-    DMA1_ST3_HANDLER,
-    DMA1_ST4_HANDLER,
-    DMA1_ST5_HANDLER,
-    DMA1_ST6_HANDLER,
-    DMA1_ST7_HANDLER,
-    DMA2_ST0_HANDLER,
-    DMA2_ST1_HANDLER,
-    DMA2_ST2_HANDLER,
-    DMA2_ST3_HANDLER,
-    DMA2_ST4_HANDLER,
-    DMA2_ST5_HANDLER,
-    DMA2_ST6_HANDLER,
-    DMA2_ST7_HANDLER,
-    DMA_LAST_HANDLER = DMA2_ST7_HANDLER
-} dmaIdentifier_e;
-# 127 "./src/main/drivers/dma.h"
-dmaIdentifier_e dmaGetIdentifier(const dmaResource_t *stream);
-dmaChannelDescriptor_t* dmaGetDmaDescriptor(const dmaResource_t *stream);
-dmaResource_t *dmaGetRefByIdentifier(const dmaIdentifier_e identifier);
-uint32_t dmaGetChannel(const uint8_t channel);
-# 265 "./src/main/drivers/dma.h"
-void dmaInit(dmaIdentifier_e identifier, resourceOwner_e owner, uint8_t resourceIndex);
-void dmaSetHandler(dmaIdentifier_e identifier, dmaCallbackHandlerFuncPtr callback, uint32_t priority, uint32_t userParam);
-
-const resourceOwner_t *dmaGetOwner(dmaIdentifier_e identifier);
-dmaChannelDescriptor_t* dmaGetDescriptorByIdentifier(const dmaIdentifier_e identifier);
-# 34 "./src/main/drivers/pwm_output_dshot_shared.c" 2
-# 1 "./src/main/drivers/dma_reqmap.h" 1
-# 21 "./src/main/drivers/dma_reqmap.h"
-       
-
-
-
-
-# 1 "./src/main/drivers/timer.h" 1
-# 21 "./src/main/drivers/timer.h"
-       
-
-
-
-
-
-# 1 "./src/main/drivers/io_types.h" 1
-# 21 "./src/main/drivers/io_types.h"
-       
-
-
-
-
-
-typedef uint8_t ioTag_t;
-typedef void* IO_t;
-# 48 "./src/main/drivers/io_types.h"
-typedef uint8_t ioConfig_t;
-# 28 "./src/main/drivers/timer.h" 2
-# 1 "./src/main/drivers/rcc_types.h" 1
-# 21 "./src/main/drivers/rcc_types.h"
-       
-
-
-
-
-typedef uint8_t rccPeriphTag_t;
-# 29 "./src/main/drivers/timer.h" 2
-
-# 1 "./src/main/drivers/timer_def.h" 1
-# 21 "./src/main/drivers/timer_def.h"
-       
-# 31 "./src/main/drivers/timer.h" 2
-
-# 1 "./src/main/pg/timerio.h" 1
-# 21 "./src/main/pg/timerio.h"
-       
-
-# 1 "./src/main/pg/pg.h" 1
-# 21 "./src/main/pg/pg.h"
-       
-
-
-
-
-# 1 "./src/main/build/build_config.h" 1
-# 21 "./src/main/build/build_config.h"
-       
-# 44 "./src/main/build/build_config.h"
-typedef enum {
-    MCU_TYPE_SIMULATOR = 0,
-    MCU_TYPE_F103,
-    MCU_TYPE_F303,
-    MCU_TYPE_F40X,
-    MCU_TYPE_F411,
-    MCU_TYPE_F446,
-    MCU_TYPE_F722,
-    MCU_TYPE_F745,
-    MCU_TYPE_F746,
-    MCU_TYPE_F765,
-    MCU_TYPE_H750,
-    MCU_TYPE_H743_REV_UNKNOWN,
-    MCU_TYPE_H743_REV_Y,
-    MCU_TYPE_H743_REV_X,
-    MCU_TYPE_H743_REV_V,
-    MCU_TYPE_H7A3,
-    MCU_TYPE_H723_725,
-    MCU_TYPE_UNKNOWN = 255,
-} mcuTypeId_e;
-
-mcuTypeId_e getMcuTypeId(void);
-# 27 "./src/main/pg/pg.h" 2
-
-typedef uint16_t pgn_t;
-
-
-typedef enum {
-    PGRF_NONE = 0,
-    PGRF_CLASSIFICATON_BIT = (1 << 0)
-} pgRegistryFlags_e;
-
-typedef enum {
-    PGR_PGN_MASK = 0x0fff,
-    PGR_PGN_VERSION_MASK = 0xf000,
-    PGR_SIZE_MASK = 0x0fff,
-    PGR_SIZE_SYSTEM_FLAG = 0x0000
-} pgRegistryInternal_e;
-
-
-typedef void (pgResetFunc)(void * );
-
-typedef struct pgRegistry_s {
-    pgn_t pgn;
-    uint8_t length;
-    uint16_t size;
-    uint8_t *address;
-    uint8_t *copy;
-    uint8_t **ptr;
-    union {
-        void *ptr;
-        pgResetFunc *fn;
-    } reset;
-} pgRegistry_t;
-
-static inline uint16_t pgN(const pgRegistry_t* reg) {return reg->pgn & PGR_PGN_MASK;}
-static inline uint8_t pgVersion(const pgRegistry_t* reg) {return (uint8_t)(reg->pgn >> 12);}
-static inline uint16_t pgSize(const pgRegistry_t* reg) {return reg->size & PGR_SIZE_MASK;}
-static inline uint16_t pgElementSize(const pgRegistry_t* reg) {return (reg->size & PGR_SIZE_MASK) / reg->length;}
-# 75 "./src/main/pg/pg.h"
-extern const pgRegistry_t __pg_registry_start[];
-extern const pgRegistry_t __pg_registry_end[];
-
-
-extern const uint8_t __pg_resetdata_start[];
-extern const uint8_t __pg_resetdata_end[];
-# 194 "./src/main/pg/pg.h"
-const pgRegistry_t* pgFind(pgn_t pgn);
-
-
-# 196 "./src/main/pg/pg.h" 3 4
-_Bool 
-# 196 "./src/main/pg/pg.h"
-    pgLoad(const pgRegistry_t* reg, const void *from, int size, int version);
-int pgStore(const pgRegistry_t* reg, void *to, int size);
-void pgResetAll(void);
-void pgResetInstance(const pgRegistry_t *reg, uint8_t *base);
-
-# 200 "./src/main/pg/pg.h" 3 4
-_Bool 
-# 200 "./src/main/pg/pg.h"
-    pgResetCopy(void *copy, pgn_t pgn);
-void pgReset(const pgRegistry_t* reg);
-# 24 "./src/main/pg/timerio.h" 2
-# 1 "./src/main/pg/pg_ids.h" 1
-# 21 "./src/main/pg/pg_ids.h"
-       
-# 25 "./src/main/pg/timerio.h" 2
-
-
-# 1 "./src/main/drivers/io.h" 1
-# 21 "./src/main/drivers/io.h"
-       
-# 110 "./src/main/drivers/io.h"
-# 1 "./src/main/drivers/io_def.h" 1
-# 21 "./src/main/drivers/io_def.h"
-       
-# 54 "./src/main/drivers/io_def.h"
-# 1 "./src/main/drivers/io_def_generated.h" 1
-# 21 "./src/main/drivers/io_def_generated.h"
-       
-# 54 "./src/main/drivers/io_def.h" 2
-# 111 "./src/main/drivers/io.h" 2
-
-
-# 112 "./src/main/drivers/io.h" 3 4
-_Bool 
-# 112 "./src/main/drivers/io.h"
-    IORead(IO_t io);
-void IOWrite(IO_t io, 
-# 113 "./src/main/drivers/io.h" 3 4
-                     _Bool 
-# 113 "./src/main/drivers/io.h"
-                          value);
-void IOHi(IO_t io);
-void IOLo(IO_t io);
-void IOToggle(IO_t io);
-
-void IOInit(IO_t io, resourceOwner_e owner, uint8_t index);
-void IORelease(IO_t io);
-resourceOwner_e IOGetOwner(IO_t io);
-
-# 121 "./src/main/drivers/io.h" 3 4
-_Bool 
-# 121 "./src/main/drivers/io.h"
-    IOIsFreeOrPreinit(IO_t io);
-IO_t IOGetByTag(ioTag_t tag);
-
-void IOConfigGPIO(IO_t io, ioConfig_t cfg);
-
-void IOConfigGPIOAF(IO_t io, ioConfig_t cfg, uint8_t af);
-
-
-void IOInitGlobal(void);
-
-typedef void (*IOTraverseFuncPtr_t)(IO_t io);
-
-void IOTraversePins(IOTraverseFuncPtr_t func);
-
-GPIO_TypeDef* IO_GPIO(IO_t io);
-uint16_t IO_Pin(IO_t io);
-# 28 "./src/main/pg/timerio.h" 2
-
-
-
-typedef struct timerIOConfig_s {
-    ioTag_t ioTag;
-    uint8_t index;
-    int8_t dmaopt;
-} timerIOConfig_t;
-
-extern timerIOConfig_t timerIOConfig_SystemArray[21]; extern timerIOConfig_t timerIOConfig_CopyArray[21]; static inline const timerIOConfig_t* timerIOConfig(int _index) { return &timerIOConfig_SystemArray[_index]; } static inline timerIOConfig_t* timerIOConfigMutable(int _index) { return &timerIOConfig_SystemArray[_index]; } static inline timerIOConfig_t (* timerIOConfig_array(void))[21] { return &timerIOConfig_SystemArray; } struct _dummy;
-# 33 "./src/main/drivers/timer.h" 2
-
-
-
-
-
-typedef uint16_t captureCompare_t;
-
-
-typedef uint32_t timCCR_t;
-typedef uint32_t timCCER_t;
-typedef uint32_t timSR_t;
-typedef uint32_t timCNT_t;
-# 54 "./src/main/drivers/timer.h"
-typedef enum {
-    TIM_USE_ANY = 0x0,
-    TIM_USE_NONE = 0x0,
-    TIM_USE_PPM = 0x1,
-    TIM_USE_PWM = 0x2,
-    TIM_USE_MOTOR = 0x4,
-    TIM_USE_SERVO = 0x8,
-    TIM_USE_LED = 0x10,
-    TIM_USE_TRANSPONDER = 0x20,
-    TIM_USE_BEEPER = 0x40,
-    TIM_USE_CAMERA_CONTROL = 0x80,
-} timerUsageFlag_e;
-
-
-struct timerCCHandlerRec_s;
-struct timerOvrHandlerRec_s;
-typedef void timerCCHandlerCallback(struct timerCCHandlerRec_s* self, uint16_t capture);
-typedef void timerOvrHandlerCallback(struct timerOvrHandlerRec_s* self, uint16_t capture);
-
-typedef struct timerCCHandlerRec_s {
-    timerCCHandlerCallback* fn;
-} timerCCHandlerRec_t;
-
-typedef struct timerOvrHandlerRec_s {
-    timerOvrHandlerCallback* fn;
-    struct timerOvrHandlerRec_s* next;
-} timerOvrHandlerRec_t;
-
-typedef struct timerDef_s {
-    TIM_TypeDef *TIMx;
-    rccPeriphTag_t rcc;
-    uint8_t inputIrq;
-} timerDef_t;
-
-typedef struct timerHardware_s {
-    TIM_TypeDef *tim;
-    ioTag_t tag;
-    uint8_t channel;
-    timerUsageFlag_e usageFlags;
-    uint8_t output;
-
-    uint8_t alternateFunction;
-
-
-
-
-
-
-    dmaResource_t *dmaRefConfigured;
-    uint32_t dmaChannelConfigured;
-
-
-
-
-
-
-
-    dmaResource_t *dmaTimUPRef;
-
-    uint32_t dmaTimUPChannel;
-
-    uint8_t dmaTimUPIrqHandler;
-
-} timerHardware_t;
-
-typedef enum {
-    TIMER_OUTPUT_NONE = 0,
-    TIMER_OUTPUT_INVERTED = (1 << 0),
-    TIMER_OUTPUT_N_CHANNEL = (1 << 1),
-} timerFlag_e;
-# 152 "./src/main/drivers/timer.h"
-extern const timerHardware_t timerHardware[];
-# 183 "./src/main/drivers/timer.h"
-extern const timerHardware_t fullTimerHardware[];
-# 223 "./src/main/drivers/timer.h"
-extern const timerDef_t timerDefinitions[];
-
-typedef enum {
-    TYPE_FREE,
-    TYPE_PWMINPUT,
-    TYPE_PPMINPUT,
-    TYPE_PWMOUTPUT_MOTOR,
-    TYPE_PWMOUTPUT_FAST,
-    TYPE_PWMOUTPUT_SERVO,
-    TYPE_SOFTSERIAL_RX,
-    TYPE_SOFTSERIAL_TX,
-    TYPE_SOFTSERIAL_RXTX,
-    TYPE_SOFTSERIAL_AUXTIMER,
-    TYPE_ADC,
-    TYPE_SERIAL_RX,
-    TYPE_SERIAL_TX,
-    TYPE_SERIAL_RXTX,
-    TYPE_TIMER
-} channelType_t;
-
-void timerConfigure(const timerHardware_t *timHw, uint16_t period, uint32_t hz);
-
-void timerChConfigIC(const timerHardware_t *timHw, 
-# 245 "./src/main/drivers/timer.h" 3 4
-                                                  _Bool 
-# 245 "./src/main/drivers/timer.h"
-                                                       polarityRising, unsigned inputFilterSamples);
-void timerChConfigICDual(const timerHardware_t* timHw, 
-# 246 "./src/main/drivers/timer.h" 3 4
-                                                      _Bool 
-# 246 "./src/main/drivers/timer.h"
-                                                           polarityRising, unsigned inputFilterSamples);
-void timerChICPolarity(const timerHardware_t *timHw, 
-# 247 "./src/main/drivers/timer.h" 3 4
-                                                    _Bool 
-# 247 "./src/main/drivers/timer.h"
-                                                         polarityRising);
-volatile timCCR_t* timerChCCR(const timerHardware_t* timHw);
-volatile timCCR_t* timerChCCRLo(const timerHardware_t* timHw);
-volatile timCCR_t* timerChCCRHi(const timerHardware_t* timHw);
-void timerChConfigOC(const timerHardware_t* timHw, 
-# 251 "./src/main/drivers/timer.h" 3 4
-                                                  _Bool 
-# 251 "./src/main/drivers/timer.h"
-                                                       outEnable, 
-# 251 "./src/main/drivers/timer.h" 3 4
-                                                                  _Bool 
-# 251 "./src/main/drivers/timer.h"
-                                                                       stateHigh);
-void timerChConfigGPIO(const timerHardware_t* timHw, ioConfig_t mode);
-
-void timerChCCHandlerInit(timerCCHandlerRec_t *self, timerCCHandlerCallback *fn);
-void timerChOvrHandlerInit(timerOvrHandlerRec_t *self, timerOvrHandlerCallback *fn);
-void timerChConfigCallbacks(const timerHardware_t *channel, timerCCHandlerRec_t *edgeCallback, timerOvrHandlerRec_t *overflowCallback);
-void timerChConfigCallbacksDual(const timerHardware_t *channel, timerCCHandlerRec_t *edgeCallbackLo, timerCCHandlerRec_t *edgeCallbackHi, timerOvrHandlerRec_t *overflowCallback);
-void timerChITConfigDualLo(const timerHardware_t* timHw, FunctionalState newState);
-void timerChITConfig(const timerHardware_t* timHw, FunctionalState newState);
-void timerChClearCCFlag(const timerHardware_t* timHw);
-
-void timerChInit(const timerHardware_t *timHw, channelType_t type, int irqPriority, uint8_t irq);
-
-void timerInit(void);
-void timerStart(void);
-void timerForceOverflow(TIM_TypeDef *tim);
-
-uint32_t timerClock(TIM_TypeDef *tim);
-
-void configTimeBase(TIM_TypeDef *tim, uint16_t period, uint32_t hz);
-
-rccPeriphTag_t timerRCC(TIM_TypeDef *tim);
-uint8_t timerInputIrq(TIM_TypeDef *tim);
-
-
-extern const resourceOwner_t freeOwner;
-
-struct timerIOConfig_s;
-
-struct timerIOConfig_s *timerIoConfigByTag(ioTag_t ioTag);
-const resourceOwner_t *timerGetOwner(int8_t timerNumber, uint16_t timerChannel);
-
-const timerHardware_t *timerGetByTag(ioTag_t ioTag);
-const timerHardware_t *timerAllocate(ioTag_t ioTag, resourceOwner_e owner, uint8_t resourceIndex);
-const timerHardware_t *timerGetByTagAndIndex(ioTag_t ioTag, unsigned timerIndex);
-ioTag_t timerioTagGetByUsage(timerUsageFlag_e usageFlag, uint8_t index);
-
-
-
-
-
-
-
-void timerOCInit(TIM_TypeDef *tim, uint8_t channel, TIM_OCInitTypeDef *init);
-void timerOCPreloadConfig(TIM_TypeDef *tim, uint8_t channel, uint16_t preload);
-
-
-volatile timCCR_t *timerCCR(TIM_TypeDef *tim, uint8_t channel);
-uint16_t timerDmaSource(uint8_t channel);
-
-uint16_t timerGetPrescalerByDesiredHertz(TIM_TypeDef *tim, uint32_t hz);
-uint16_t timerGetPrescalerByDesiredMhz(TIM_TypeDef *tim, uint16_t mhz);
-uint16_t timerGetPeriodByPrescaler(TIM_TypeDef *tim, uint16_t prescaler, uint32_t hz);
-
-int8_t timerGetNumberByIndex(uint8_t index);
-int8_t timerGetTIMNumber(const TIM_TypeDef *tim);
-uint8_t timerLookupChannelIndex(const uint16_t channel);
-# 27 "./src/main/drivers/dma_reqmap.h" 2
-
-typedef uint16_t dmaCode_t;
-
-typedef struct dmaChannelSpec_s {
-    dmaCode_t code;
-    dmaResource_t *ref;
-
-    uint32_t channel;
-
-} dmaChannelSpec_t;
-
-
-
-
-
-
-
-typedef enum {
-    DMA_PERIPH_SPI_TX,
-    DMA_PERIPH_SPI_RX,
-    DMA_PERIPH_ADC,
-    DMA_PERIPH_SDIO,
-    DMA_PERIPH_UART_TX,
-    DMA_PERIPH_UART_RX,
-    DMA_PERIPH_TIMUP,
-} dmaPeripheral_e;
-
-typedef int8_t dmaoptValue_t;
-# 66 "./src/main/drivers/dma_reqmap.h"
-struct timerHardware_s;
-
-dmaoptValue_t dmaoptByTag(ioTag_t ioTag);
-const dmaChannelSpec_t *dmaGetChannelSpecByPeripheral(dmaPeripheral_e device, uint8_t index, int8_t opt);
-const dmaChannelSpec_t *dmaGetChannelSpecByTimerValue(TIM_TypeDef *tim, uint8_t channel, dmaoptValue_t dmaopt);
-const dmaChannelSpec_t *dmaGetChannelSpecByTimer(const struct timerHardware_s *timer);
-dmaoptValue_t dmaGetOptionByTimer(const struct timerHardware_s *timer);
-dmaoptValue_t dmaGetUpOptionByTimer(const struct timerHardware_s *timer);
-# 35 "./src/main/drivers/pwm_output_dshot_shared.c" 2
-
-# 1 "./src/main/drivers/nvic.h" 1
-# 21 "./src/main/drivers/nvic.h"
-       
-# 37 "./src/main/drivers/pwm_output_dshot_shared.c" 2
-# 1 "./src/main/drivers/rcc.h" 1
-# 21 "./src/main/drivers/rcc.h"
-       
-
-
-
-enum rcc_reg {
-    RCC_EMPTY = 0,
-# 50 "./src/main/drivers/rcc.h"
-    RCC_AHB,
-    RCC_APB2,
-    RCC_APB1,
-    RCC_AHB1,
-
-};
-# 89 "./src/main/drivers/rcc.h"
-void RCC_ClockCmd(rccPeriphTag_t periphTag, FunctionalState NewState);
-void RCC_ResetCmd(rccPeriphTag_t periphTag, FunctionalState NewState);
-# 38 "./src/main/drivers/pwm_output_dshot_shared.c" 2
-# 1 "./src/main/drivers/time.h" 1
-# 21 "./src/main/drivers/time.h"
-       
-
-
-
-# 1 "./src/main/common/time.h" 1
-# 21 "./src/main/common/time.h"
-       
-# 31 "./src/main/common/time.h"
-typedef int32_t timeDelta_t;
-
-typedef uint32_t timeMs_t ;
-
-
-
-
-
-typedef uint32_t timeUs_t;
-
-
-
-
-
-
-static inline timeDelta_t cmpTimeUs(timeUs_t a, timeUs_t b) { return (timeDelta_t)(a - b); }
-
-
-
-
-
-typedef struct timeConfig_s {
-    int16_t tz_offsetMinutes;
-} timeConfig_t;
-
-extern timeConfig_t timeConfig_System; extern timeConfig_t timeConfig_Copy; static inline const timeConfig_t* timeConfig(void) { return &timeConfig_System; } static inline timeConfig_t* timeConfigMutable(void) { return &timeConfig_System; } struct _dummy;
-
-
-typedef int64_t rtcTime_t;
-
-rtcTime_t rtcTimeMake(int32_t secs, uint16_t millis);
-int32_t rtcTimeGetSeconds(rtcTime_t *t);
-uint16_t rtcTimeGetMillis(rtcTime_t *t);
-
-typedef struct _dateTime_s {
-
-    uint16_t year;
-
-    uint8_t month;
-
-    uint8_t day;
-
-    uint8_t hours;
-
-    uint8_t minutes;
-
-    uint8_t seconds;
-
-    uint16_t millis;
-} dateTime_t;
-
-
-
-# 83 "./src/main/common/time.h" 3 4
-_Bool 
-# 83 "./src/main/common/time.h"
-    dateTimeFormatUTC(char *buf, dateTime_t *dt);
-
-# 84 "./src/main/common/time.h" 3 4
-_Bool 
-# 84 "./src/main/common/time.h"
-    dateTimeFormatLocal(char *buf, dateTime_t *dt);
-
-# 85 "./src/main/common/time.h" 3 4
-_Bool 
-# 85 "./src/main/common/time.h"
-    dateTimeFormatLocalShort(char *buf, dateTime_t *dt);
-
-void dateTimeUTCToLocal(dateTime_t *utcDateTime, dateTime_t *localDateTime);
-
-
-
-
-# 91 "./src/main/common/time.h" 3 4
-_Bool 
-# 91 "./src/main/common/time.h"
-    dateTimeSplitFormatted(char *formatted, char **date, char **time);
-
-
-# 93 "./src/main/common/time.h" 3 4
-_Bool 
-# 93 "./src/main/common/time.h"
-    rtcHasTime(void);
-
-
-# 95 "./src/main/common/time.h" 3 4
-_Bool 
-# 95 "./src/main/common/time.h"
-    rtcGet(rtcTime_t *t);
-
-# 96 "./src/main/common/time.h" 3 4
-_Bool 
-# 96 "./src/main/common/time.h"
-    rtcSet(rtcTime_t *t);
-
-
-# 98 "./src/main/common/time.h" 3 4
-_Bool 
-# 98 "./src/main/common/time.h"
-    rtcGetDateTime(dateTime_t *dt);
-
-# 99 "./src/main/common/time.h" 3 4
-_Bool 
-# 99 "./src/main/common/time.h"
-    rtcSetDateTime(dateTime_t *dt);
-
-void rtcPersistWrite(int16_t offsetMinutes);
-
-# 102 "./src/main/common/time.h" 3 4
-_Bool 
-# 102 "./src/main/common/time.h"
-    rtcPersistRead(rtcTime_t *t);
-# 26 "./src/main/drivers/time.h" 2
-
-void delayMicroseconds(timeUs_t us);
-void delay(timeMs_t ms);
-
-timeUs_t micros(void);
-timeUs_t microsISR(void);
-timeMs_t millis(void);
-
-uint32_t ticks(void);
-timeDelta_t ticks_diff_us(uint32_t begin, uint32_t end);
-# 39 "./src/main/drivers/pwm_output_dshot_shared.c" 2
-
-
-
-
-
-
-
-# 1 "./src/main/drivers/pwm_output.h" 1
-# 21 "./src/main/drivers/pwm_output.h"
-       
-
-
-
-
-
-
-
-# 1 "./src/main/drivers/motor.h" 1
-# 23 "./src/main/drivers/motor.h"
-       
-
-
-
-# 1 "./src/main/pg/motor.h" 1
-# 21 "./src/main/pg/motor.h"
-       
-
-
-
-
-# 1 "./src/main/drivers/dshot_bitbang.h" 1
-# 21 "./src/main/drivers/dshot_bitbang.h"
-       
-
-
-
-typedef enum {
-    DSHOT_BITBANG_OFF,
-    DSHOT_BITBANG_ON,
-    DSHOT_BITBANG_AUTO,
-} dshotBitbangMode_e;
-
-typedef enum {
-    DSHOT_BITBANG_STATUS_OK,
-    DSHOT_BITBANG_STATUS_MOTOR_PIN_CONFLICT,
-    DSHOT_BITBANG_STATUS_NO_PACER,
-    DSHOT_BITBANG_STATUS_TOO_MANY_PORTS,
-} dshotBitbangStatus_e;
-
-struct motorDevConfig_s;
-struct motorDevice_s;
-struct motorDevice_s *dshotBitbangDevInit(const struct motorDevConfig_s *motorConfig, uint8_t motorCount);
-dshotBitbangStatus_e dshotBitbangGetStatus();
-const resourceOwner_t *dshotBitbangTimerGetOwner(int8_t timerNumber, uint16_t timerChannel);
-# 27 "./src/main/pg/motor.h" 2
-
-typedef enum {
-    DSHOT_BITBANGED_TIMER_AUTO = 0,
-    DSHOT_BITBANGED_TIMER_TIM1,
-    DSHOT_BITBANGED_TIMER_TIM8,
-} dshotBitbangedTimer_e;
-
-typedef enum {
-    DSHOT_DMAR_OFF,
-    DSHOT_DMAR_ON,
-    DSHOT_DMAR_AUTO
-} dshotDmar_e;
-
-typedef struct motorDevConfig_s {
-    uint16_t motorPwmRate;
-    uint8_t motorPwmProtocol;
-    uint8_t motorPwmInversion;
-    uint8_t useUnsyncedPwm;
-    uint8_t useBurstDshot;
-    uint8_t useDshotTelemetry;
-    ioTag_t ioTags[8];
-    uint8_t motorTransportProtocol;
-    uint8_t useDshotBitbang;
-    uint8_t useDshotBitbangedTimer;
-    uint8_t motorOutputReordering[8];
-} motorDevConfig_t;
-
-typedef struct motorConfig_s {
-    motorDevConfig_t dev;
-    uint16_t digitalIdleOffsetValue;
-    uint16_t minthrottle;
-    uint16_t maxthrottle;
-    uint16_t mincommand;
-    uint8_t motorPoleCount;
-} motorConfig_t;
-
-extern motorConfig_t motorConfig_System; extern motorConfig_t motorConfig_Copy; static inline const motorConfig_t* motorConfig(void) { return &motorConfig_System; } static inline motorConfig_t* motorConfigMutable(void) { return &motorConfig_System; } struct _dummy;
-# 28 "./src/main/drivers/motor.h" 2
-
-typedef enum {
-    PWM_TYPE_STANDARD = 0,
-    PWM_TYPE_ONESHOT125,
-    PWM_TYPE_ONESHOT42,
-    PWM_TYPE_MULTISHOT,
-    PWM_TYPE_BRUSHED,
-    PWM_TYPE_DSHOT150,
-    PWM_TYPE_DSHOT300,
-    PWM_TYPE_DSHOT600,
-
-    PWM_TYPE_PROSHOT1000,
-    PWM_TYPE_DISABLED,
-    PWM_TYPE_MAX
-} motorPwmProtocolTypes_e;
-
-
-typedef struct motorVTable_s {
-
-    void (*postInit)(void);
-    float (*convertExternalToMotor)(uint16_t externalValue);
-    uint16_t (*convertMotorToExternal)(float motorValue);
-    
-# 50 "./src/main/drivers/motor.h" 3 4
-   _Bool 
-# 50 "./src/main/drivers/motor.h"
-        (*enable)(void);
-    void (*disable)(void);
-    
-# 52 "./src/main/drivers/motor.h" 3 4
-   _Bool 
-# 52 "./src/main/drivers/motor.h"
-        (*isMotorEnabled)(uint8_t index);
-    
-# 53 "./src/main/drivers/motor.h" 3 4
-   _Bool 
-# 53 "./src/main/drivers/motor.h"
-        (*updateStart)(void);
-    void (*write)(uint8_t index, float value);
-    void (*writeInt)(uint8_t index, uint16_t value);
-    void (*updateComplete)(void);
-    void (*shutdown)(void);
-
-
-
-} motorVTable_t;
-
-typedef struct motorDevice_s {
-    motorVTable_t vTable;
-    uint8_t count;
-    
-# 66 "./src/main/drivers/motor.h" 3 4
-   _Bool 
-# 66 "./src/main/drivers/motor.h"
-                 initialized;
-    
-# 67 "./src/main/drivers/motor.h" 3 4
-   _Bool 
-# 67 "./src/main/drivers/motor.h"
-                 enabled;
-    timeMs_t motorEnableTimeMs;
-} motorDevice_t;
-
-void motorPostInitNull();
-void motorWriteNull(uint8_t index, float value);
-
-# 73 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 73 "./src/main/drivers/motor.h"
-    motorUpdateStartNull(void);
-void motorUpdateCompleteNull(void);
-
-void motorPostInit();
-void motorWriteAll(float *values);
-
-void motorInitEndpoints(const motorConfig_t *motorConfig, float outputLimit, float *outputLow, float *outputHigh, float *disarm, float *deadbandMotor3DHigh, float *deadbandMotor3DLow);
-
-float motorConvertFromExternal(uint16_t externalValue);
-uint16_t motorConvertToExternal(float motorValue);
-
-struct motorDevConfig_s;
-void motorDevInit(const struct motorDevConfig_s *motorConfig, uint16_t idlePulse, uint8_t motorCount);
-unsigned motorDeviceCount(void);
-motorVTable_t motorGetVTable(void);
-
-# 88 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 88 "./src/main/drivers/motor.h"
-    checkMotorProtocolEnabled(const motorDevConfig_t *motorConfig, 
-# 88 "./src/main/drivers/motor.h" 3 4
-                                                                   _Bool 
-# 88 "./src/main/drivers/motor.h"
-                                                                        *protocolIsDshot);
-
-# 89 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 89 "./src/main/drivers/motor.h"
-    isMotorProtocolDshot(void);
-
-# 90 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 90 "./src/main/drivers/motor.h"
-    isMotorProtocolEnabled(void);
-
-void motorDisable(void);
-void motorEnable(void);
-
-# 94 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 94 "./src/main/drivers/motor.h"
-    motorIsEnabled(void);
-
-# 95 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 95 "./src/main/drivers/motor.h"
-    motorIsMotorEnabled(uint8_t index);
-timeMs_t motorGetMotorEnableTimeMs(void);
-void motorShutdown(void);
-
-
-struct motorDevConfig_s;
-typedef struct motorDevConfig_s motorDevConfig_t;
-
-# 102 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 102 "./src/main/drivers/motor.h"
-    isDshotBitbangActive(const motorDevConfig_t *motorConfig);
-
-
-float getDigitalIdleOffset(const motorConfig_t *motorConfig);
-# 30 "./src/main/drivers/pwm_output.h" 2
-# 42 "./src/main/drivers/pwm_output.h"
-struct timerHardware_s;
-
-typedef struct {
-    volatile timCCR_t *ccr;
-    TIM_TypeDef *tim;
-} timerChannel_t;
-
-typedef struct {
-    timerChannel_t channel;
-    float pulseScale;
-    float pulseOffset;
-    
-# 53 "./src/main/drivers/pwm_output.h" 3 4
-   _Bool 
-# 53 "./src/main/drivers/pwm_output.h"
-        forceOverflow;
-    
-# 54 "./src/main/drivers/pwm_output.h" 3 4
-   _Bool 
-# 54 "./src/main/drivers/pwm_output.h"
-        enabled;
-    IO_t io;
-} pwmOutputPort_t;
-
-extern pwmOutputPort_t motors[8];
-
-struct motorDevConfig_s;
-motorDevice_t *motorPwmDevInit(const struct motorDevConfig_s *motorDevConfig, uint16_t idlePulse, uint8_t motorCount, 
-# 61 "./src/main/drivers/pwm_output.h" 3 4
-                                                                                                                     _Bool 
-# 61 "./src/main/drivers/pwm_output.h"
-                                                                                                                          useUnsyncedPwm);
-
-typedef struct servoDevConfig_s {
-
-    uint16_t servoCenterPulse;
-    uint16_t servoPwmRate;
-    ioTag_t ioTags[8];
-} servoDevConfig_t;
-
-void servoDevInit(const servoDevConfig_t *servoDevConfig);
-
-void pwmServoConfig(const struct timerHardware_s *timerHardware, uint8_t servoIndex, uint16_t servoPwmRate, uint16_t servoCenterPulse);
-
-void pwmOutConfig(timerChannel_t *channel, const timerHardware_t *timerHardware, uint32_t hz, uint16_t period, uint16_t value, uint8_t inversion);
-
-void pwmWriteServo(uint8_t index, float value);
-
-pwmOutputPort_t *pwmGetMotors(void);
-
-# 79 "./src/main/drivers/pwm_output.h" 3 4
-_Bool 
-# 79 "./src/main/drivers/pwm_output.h"
-    pwmIsSynced(void);
-# 47 "./src/main/drivers/pwm_output_dshot_shared.c" 2
-# 1 "./src/main/drivers/dshot.h" 1
-# 21 "./src/main/drivers/dshot.h"
-       
-# 43 "./src/main/drivers/dshot.h"
-typedef struct dshotTelemetryQuality_s {
-    uint32_t packetCountSum;
-    uint32_t invalidCountSum;
-    uint32_t packetCountArray[(1 * 1000 / 100)];
-    uint32_t invalidCountArray[(1 * 1000 / 100)];
-    uint8_t lastBucketIndex;
-} dshotTelemetryQuality_t;
-
-extern dshotTelemetryQuality_t dshotTelemetryQuality[8];
-
-
-typedef struct dshotProtocolControl_s {
-    uint16_t value;
-    
-# 56 "./src/main/drivers/dshot.h" 3 4
-   _Bool 
-# 56 "./src/main/drivers/dshot.h"
-        requestTelemetry;
-} dshotProtocolControl_t;
-
-void dshotInitEndpoints(const motorConfig_t *motorConfig, float outputLimit, float *outputLow, float *outputHigh, float *disarm, float *deadbandMotor3dHigh, float *deadbandMotor3dLow);
-float dshotConvertFromExternal(uint16_t externalValue);
-uint16_t dshotConvertToExternal(float motorValue);
-
-uint16_t prepareDshotPacket(dshotProtocolControl_t *pcb);
-
-
-extern 
-# 66 "./src/main/drivers/dshot.h" 3 4
-      _Bool 
-# 66 "./src/main/drivers/dshot.h"
-           useDshotTelemetry;
-
-typedef struct dshotTelemetryMotorState_s {
-    uint16_t telemetryValue;
-    
-# 70 "./src/main/drivers/dshot.h" 3 4
-   _Bool 
-# 70 "./src/main/drivers/dshot.h"
-        telemetryActive;
-} dshotTelemetryMotorState_t;
-
-
-typedef struct dshotTelemetryState_s {
-    
-# 75 "./src/main/drivers/dshot.h" 3 4
-   _Bool 
-# 75 "./src/main/drivers/dshot.h"
-        useDshotTelemetry;
-    uint32_t invalidPacketCount;
-    uint32_t readCount;
-    dshotTelemetryMotorState_t motorState[8];
-    uint32_t inputBuffer[22];
-} dshotTelemetryState_t;
-
-extern dshotTelemetryState_t dshotTelemetryState;
-
-
-void updateDshotTelemetryQuality(dshotTelemetryQuality_t *qualityStats, 
-# 85 "./src/main/drivers/dshot.h" 3 4
-                                                                       _Bool 
-# 85 "./src/main/drivers/dshot.h"
-                                                                            packetValid, timeMs_t currentTimeMs);
-
-
-
-uint16_t getDshotTelemetry(uint8_t index);
-
-# 90 "./src/main/drivers/dshot.h" 3 4
-_Bool 
-# 90 "./src/main/drivers/dshot.h"
-    isDshotMotorTelemetryActive(uint8_t motorIndex);
-
-# 91 "./src/main/drivers/dshot.h" 3 4
-_Bool 
-# 91 "./src/main/drivers/dshot.h"
-    isDshotTelemetryActive(void);
-
-int16_t getDshotTelemetryMotorInvalidPercent(uint8_t motorIndex);
-
-void validateAndfixMotorOutputReordering(uint8_t *array, const unsigned size);
-# 48 "./src/main/drivers/pwm_output_dshot_shared.c" 2
-# 1 "./src/main/drivers/dshot_dpwm.h" 1
-# 23 "./src/main/drivers/dshot_dpwm.h"
-       
-# 44 "./src/main/drivers/dshot_dpwm.h"
-typedef uint8_t loadDmaBufferFn(uint32_t *dmaBuffer, int stride, uint16_t packet);
-extern loadDmaBufferFn *loadDmaBuffer;
-uint8_t loadDmaBufferDshot(uint32_t *dmaBuffer, int stride, uint16_t packet);
-uint8_t loadDmaBufferProshot(uint32_t *dmaBuffer, int stride, uint16_t packet);
-
-uint32_t getDshotHz(motorPwmProtocolTypes_e pwmProtocolType);
-
-struct motorDevConfig_s;
-motorDevice_t *dshotPwmDevInit(const struct motorDevConfig_s *motorConfig, uint16_t idlePulse, uint8_t motorCount, 
-# 52 "./src/main/drivers/dshot_dpwm.h" 3 4
-                                                                                                                  _Bool 
-# 52 "./src/main/drivers/dshot_dpwm.h"
-                                                                                                                       useUnsyncedPwm);
-# 81 "./src/main/drivers/dshot_dpwm.h"
-_Static_assert((22 >= 18), "dshotBufferSizeConstrait");
-
-
-
-
-
-extern uint32_t dshotDmaBuffer[8][22];
-extern uint32_t dshotDmaInputBuffer[8][22];
-
-
-extern uint32_t dshotBurstDmaBuffer[8][18 * 4];
-
-
-typedef struct {
-    TIM_TypeDef *timer;
-
-    uint16_t outputPeriod;
-
-
-
-
-
-    dmaResource_t *dmaBurstRef;
-    uint16_t dmaBurstLength;
-    uint32_t *dmaBurstBuffer;
-
-
-    uint16_t timerDmaSources;
-} motorDmaTimer_t;
-
-typedef struct motorDmaOutput_s {
-    dshotProtocolControl_t protocolControl;
-    ioTag_t ioTag;
-    const timerHardware_t *timerHardware;
-
-    uint16_t timerDmaSource;
-    uint8_t timerDmaIndex;
-    
-# 118 "./src/main/drivers/dshot_dpwm.h" 3 4
-   _Bool 
-# 118 "./src/main/drivers/dshot_dpwm.h"
-        configured;
-
-
-
-
-
-    uint8_t output;
-    uint8_t index;
-    uint32_t iocfg;
-
-
-
-
-
-    DMA_InitTypeDef dmaInitStruct;
-
-
-
-    volatile 
-# 136 "./src/main/drivers/dshot_dpwm.h" 3 4
-            _Bool 
-# 136 "./src/main/drivers/dshot_dpwm.h"
-                 isInput;
-    timeDelta_t dshotTelemetryDeadtimeUs;
-    uint8_t dmaInputLen;
-
-
-
-
-
-    TIM_OCInitTypeDef ocInitStruct;
-    TIM_ICInitTypeDef icInitStruct;
-
-
-
-
-    dmaResource_t *dmaRef;
-
-
-    motorDmaTimer_t *timer;
-    uint32_t *dmaBuffer;
-} motorDmaOutput_t;
-
-motorDmaOutput_t *getMotorDmaOutput(uint8_t index);
-
-void pwmWriteDshotInt(uint8_t index, uint16_t value);
-
-# 160 "./src/main/drivers/dshot_dpwm.h" 3 4
-_Bool 
-# 160 "./src/main/drivers/dshot_dpwm.h"
-    pwmDshotMotorHardwareConfig(const timerHardware_t *timerHardware, uint8_t motorIndex, uint8_t reorderedMotorIndex, motorPwmProtocolTypes_e pwmProtocolType, uint8_t output);
-
-
-# 162 "./src/main/drivers/dshot_dpwm.h" 3 4
-_Bool 
-# 162 "./src/main/drivers/dshot_dpwm.h"
-    pwmStartDshotMotorUpdate(void);
-
-void pwmCompleteDshotMotorUpdate(void);
-
-extern 
-# 166 "./src/main/drivers/dshot_dpwm.h" 3 4
-      _Bool 
-# 166 "./src/main/drivers/dshot_dpwm.h"
-           useBurstDshot;
-
-extern motorDevice_t dshotPwmDevice;
-# 49 "./src/main/drivers/pwm_output_dshot_shared.c" 2
-# 1 "./src/main/drivers/dshot_command.h" 1
-# 21 "./src/main/drivers/dshot_command.h"
-       
-# 34 "./src/main/drivers/dshot_command.h"
-typedef enum {
-    DSHOT_CMD_MOTOR_STOP = 0,
-    DSHOT_CMD_BEACON1,
-    DSHOT_CMD_BEACON2,
-    DSHOT_CMD_BEACON3,
-    DSHOT_CMD_BEACON4,
-    DSHOT_CMD_BEACON5,
-    DSHOT_CMD_ESC_INFO,
-    DSHOT_CMD_SPIN_DIRECTION_1,
-    DSHOT_CMD_SPIN_DIRECTION_2,
-    DSHOT_CMD_3D_MODE_OFF,
-    DSHOT_CMD_3D_MODE_ON,
-    DSHOT_CMD_SETTINGS_REQUEST,
-    DSHOT_CMD_SAVE_SETTINGS,
-    DSHOT_CMD_SPIN_DIRECTION_NORMAL = 20,
-    DSHOT_CMD_SPIN_DIRECTION_REVERSED = 21,
-    DSHOT_CMD_LED0_ON,
-    DSHOT_CMD_LED1_ON,
-    DSHOT_CMD_LED2_ON,
-    DSHOT_CMD_LED3_ON,
-    DSHOT_CMD_LED0_OFF,
-    DSHOT_CMD_LED1_OFF,
-    DSHOT_CMD_LED2_OFF,
-    DSHOT_CMD_LED3_OFF,
-    DSHOT_CMD_AUDIO_STREAM_MODE_ON_OFF = 30,
-    DSHOT_CMD_SILENT_MODE_ON_OFF = 31,
-    DSHOT_CMD_MAX = 47
-} dshotCommands_e;
-
-typedef enum {
-    DSHOT_CMD_TYPE_INLINE = 0,
-    DSHOT_CMD_TYPE_BLOCKING
-} dshotCommandType_e;
-
-void dshotCommandWrite(uint8_t index, uint8_t motorCount, uint8_t command, dshotCommandType_e commandType);
-void dshotSetPidLoopTime(uint32_t pidLoopTime);
-
-# 70 "./src/main/drivers/dshot_command.h" 3 4
-_Bool 
-# 70 "./src/main/drivers/dshot_command.h"
-    dshotCommandQueueEmpty(void);
-
-# 71 "./src/main/drivers/dshot_command.h" 3 4
-_Bool 
-# 71 "./src/main/drivers/dshot_command.h"
-    dshotCommandIsProcessing(void);
-uint8_t dshotCommandGetCurrent(uint8_t index);
-
-# 73 "./src/main/drivers/dshot_command.h" 3 4
-_Bool 
-# 73 "./src/main/drivers/dshot_command.h"
-    dshotCommandOutputIsEnabled(uint8_t motorCount);
-
-# 74 "./src/main/drivers/dshot_command.h" 3 4
-_Bool 
-# 74 "./src/main/drivers/dshot_command.h"
-    dshotStreamingCommandsAreEnabled(void);
-# 50 "./src/main/drivers/pwm_output_dshot_shared.c" 2
-
-
-# 1 "./src/main/drivers/pwm_output_dshot_shared.h" 1
-# 23 "./src/main/drivers/pwm_output_dshot_shared.h"
-extern uint8_t dmaMotorTimerCount;
-
-
-
-
-extern motorDmaTimer_t dmaMotorTimers[8];
-extern motorDmaOutput_t dmaMotors[8];
-
-
-
-extern uint32_t readDoneCount;
-
- extern uint32_t inputStampUs;
-
-typedef struct dshotDMAHandlerCycleCounters_s {
-    uint32_t irqAt;
-    uint32_t changeDirectionCompletedAt;
-} dshotDMAHandlerCycleCounters_t;
-
- extern dshotDMAHandlerCycleCounters_t dshotDMAHandlerCycleCounters;
-
-
-
-uint8_t getTimerIndex(TIM_TypeDef *timer);
-motorDmaOutput_t *getMotorDmaOutput(uint8_t index);
-void dshotEnableChannels(uint8_t motorCount);
-
-
-void pwmDshotSetDirectionOutput(
-    motorDmaOutput_t * const motor
-
-
-
-
-
-
-
-);
-
-
-# 62 "./src/main/drivers/pwm_output_dshot_shared.h" 3 4
-_Bool 
-# 62 "./src/main/drivers/pwm_output_dshot_shared.h"
-    pwmStartDshotMotorUpdate(void);
-# 53 "./src/main/drivers/pwm_output_dshot_shared.c" 2
-
- uint8_t dmaMotorTimerCount = 0;
-
-
-
-
-motorDmaTimer_t dmaMotorTimers[8];
-motorDmaOutput_t dmaMotors[8];
-
-
-
- uint32_t inputStampUs;
-
- dshotDMAHandlerCycleCounters_t dshotDMAHandlerCycleCounters;
-
-
-motorDmaOutput_t *getMotorDmaOutput(uint8_t index)
-{
-    return &dmaMotors[index];
-}
-
-uint8_t getTimerIndex(TIM_TypeDef *timer)
-{
-    for (int i = 0; i < dmaMotorTimerCount; i++) {
-        if (dmaMotorTimers[i].timer == timer) {
-            return i;
-        }
-    }
-    dmaMotorTimers[dmaMotorTimerCount++].timer = timer;
-    return dmaMotorTimerCount - 1;
-}
-
-
- void pwmWriteDshotInt(uint8_t index, uint16_t value)
-{
-    motorDmaOutput_t *const motor = &dmaMotors[index];
-
-    if (!motor->configured) {
-        return;
-    }
-
-
-    if (dshotCommandIsProcessing()) {
-        value = dshotCommandGetCurrent(index);
-        if (value) {
-            motor->protocolControl.requestTelemetry = 
-# 98 "./src/main/drivers/pwm_output_dshot_shared.c" 3 4
-                                                     1
-# 98 "./src/main/drivers/pwm_output_dshot_shared.c"
-                                                         ;
-        }
-    }
-
-    motor->protocolControl.value = value;
-
-    uint16_t packet = prepareDshotPacket(&motor->protocolControl);
-    uint8_t bufferSize;
-
-
-    if (useBurstDshot) {
-        bufferSize = loadDmaBuffer(&motor->timer->dmaBurstBuffer[timerLookupChannelIndex(motor->timerHardware->channel)], 4, packet);
-        motor->timer->dmaBurstLength = bufferSize * 4;
-    } else
-
-    {
-        bufferSize = loadDmaBuffer(motor->dmaBuffer, 1, packet);
-        motor->timer->timerDmaSources |= motor->timerDmaSource;
-
-
-
-
-        DMA_SetCurrDataCounter((DMA_Stream_TypeDef *)(motor->dmaRef), bufferSize);
-        DMA_Cmd((DMA_Stream_TypeDef *)(motor->dmaRef), ENABLE);
-
-    }
-}
-
-
-
-
-void dshotEnableChannels(uint8_t motorCount);
-
-
-static uint32_t decodeTelemetryPacket(uint32_t buffer[], uint32_t count)
-{
-    uint32_t value = 0;
-    uint32_t oldValue = buffer[0];
-    int bits = 0;
-    int len;
-    for (uint32_t i = 1; i <= count; i++) {
-        if (i < count) {
-            int diff = buffer[i] - oldValue;
-            if (bits >= 21) {
-                break;
-            }
-            len = (diff + 8) / 16;
-        } else {
-            len = 21 - bits;
-        }
-
-        value <<= len;
-        value |= 1 << (len - 1);
-        oldValue = buffer[i];
-        bits += len;
-    }
-    if (bits != 21) {
-        return 0xffff;
-    }
-
-    static const uint32_t decode[32] = {
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 10, 11, 0, 13, 14, 15,
-        0, 0, 2, 3, 0, 5, 6, 7, 0, 0, 8, 1, 0, 4, 12, 0 };
-
-    uint32_t decodedValue = decode[value & 0x1f];
-    decodedValue |= decode[(value >> 5) & 0x1f] << 4;
-    decodedValue |= decode[(value >> 10) & 0x1f] << 8;
-    decodedValue |= decode[(value >> 15) & 0x1f] << 12;
-
-    uint32_t csum = decodedValue;
-    csum = csum ^ (csum >> 8);
-    csum = csum ^ (csum >> 4);
-
-    if ((csum & 0xf) != 0xf) {
-        return 0xffff;
-    }
-    decodedValue >>= 4;
-
-    if (decodedValue == 0x0fff) {
-        return 0;
-    }
-    decodedValue = (decodedValue & 0x000001ff) << ((decodedValue & 0xfffffe00) >> 9);
-    if (!decodedValue) {
-        return 0xffff;
-    }
-    uint32_t ret = (1000000 * 60 / 100 + decodedValue / 2) / decodedValue;
-    return ret;
-}
-
-
-
-
- 
-# 190 "./src/main/drivers/pwm_output_dshot_shared.c" 3 4
-                  _Bool 
-# 190 "./src/main/drivers/pwm_output_dshot_shared.c"
-                       pwmStartDshotMotorUpdate(void)
-{
-    if (!useDshotTelemetry) {
-        return 
-# 193 "./src/main/drivers/pwm_output_dshot_shared.c" 3 4
-              1
-# 193 "./src/main/drivers/pwm_output_dshot_shared.c"
-                  ;
-    }
-
-    const timeMs_t currentTimeMs = millis();
-
-    const timeUs_t currentUs = micros();
-    for (int i = 0; i < dshotPwmDevice.count; i++) {
-        timeDelta_t usSinceInput = cmpTimeUs(currentUs, inputStampUs);
-        if (usSinceInput >= 0 && usSinceInput < dmaMotors[i].dshotTelemetryDeadtimeUs) {
-            return 
-# 202 "./src/main/drivers/pwm_output_dshot_shared.c" 3 4
-                  0
-# 202 "./src/main/drivers/pwm_output_dshot_shared.c"
-                       ;
-        }
-        if (dmaMotors[i].isInput) {
-
-
-
-            uint32_t edges = 22 - DMA_GetCurrDataCounter((DMA_Stream_TypeDef *)(dmaMotors[i].dmaRef));
-
-
-
-
-
-            TIM_DMACmd(dmaMotors[i].timerHardware->tim, dmaMotors[i].timerDmaSource, DISABLE);
-
-
-            uint16_t value = 0xffff;
-
-            if (edges > 7) {
-                dshotTelemetryState.readCount++;
-                value = decodeTelemetryPacket(dmaMotors[i].dmaBuffer, edges);
-
-
-                
-# 224 "./src/main/drivers/pwm_output_dshot_shared.c" 3 4
-               _Bool 
-# 224 "./src/main/drivers/pwm_output_dshot_shared.c"
-                    validTelemetryPacket = 
-# 224 "./src/main/drivers/pwm_output_dshot_shared.c" 3 4
-                                           0
-# 224 "./src/main/drivers/pwm_output_dshot_shared.c"
-                                                ;
-
-                if (value != 0xffff) {
-                    dshotTelemetryState.motorState[i].telemetryValue = value;
-                    dshotTelemetryState.motorState[i].telemetryActive = 
-# 228 "./src/main/drivers/pwm_output_dshot_shared.c" 3 4
-                                                                       1
-# 228 "./src/main/drivers/pwm_output_dshot_shared.c"
-                                                                           ;
-                    if (i < 4) {
-                        {if (debugMode == (DEBUG_DSHOT_RPM_TELEMETRY)) {debug[(i)] = (value);}};
-                    }
-
-                    validTelemetryPacket = 
-# 233 "./src/main/drivers/pwm_output_dshot_shared.c" 3 4
-                                          1
-# 233 "./src/main/drivers/pwm_output_dshot_shared.c"
-                                              ;
-
-                } else {
-                    dshotTelemetryState.invalidPacketCount++;
-                    if (i == 0) {
-                        memcpy(dshotTelemetryState.inputBuffer, dmaMotors[i].dmaBuffer, sizeof(dshotTelemetryState.inputBuffer));
-                    }
-                }
-
-                updateDshotTelemetryQuality(&dshotTelemetryQuality[i], validTelemetryPacket, currentTimeMs);
-
-            }
-        }
-        pwmDshotSetDirectionOutput(&dmaMotors[i]);
-    }
-    inputStampUs = 0;
-    dshotEnableChannels(dshotPwmDevice.count);
-    return 
-# 250 "./src/main/drivers/pwm_output_dshot_shared.c" 3 4
-          1
-# 250 "./src/main/drivers/pwm_output_dshot_shared.c"
-              ;
-}
-
-
-# 253 "./src/main/drivers/pwm_output_dshot_shared.c" 3 4
-_Bool 
-# 253 "./src/main/drivers/pwm_output_dshot_shared.c"
-    isDshotMotorTelemetryActive(uint8_t motorIndex)
-{
-    return dshotTelemetryState.motorState[motorIndex].telemetryActive;
-}
-
-
-# 258 "./src/main/drivers/pwm_output_dshot_shared.c" 3 4
-_Bool 
-# 258 "./src/main/drivers/pwm_output_dshot_shared.c"
-    isDshotTelemetryActive(void)
-{
-    const unsigned motorCount = motorDeviceCount();
-    if (motorCount) {
-        for (unsigned i = 0; i < motorCount; i++) {
-            if (!isDshotMotorTelemetryActive(i)) {
-                return 
-# 264 "./src/main/drivers/pwm_output_dshot_shared.c" 3 4
-                      0
-# 264 "./src/main/drivers/pwm_output_dshot_shared.c"
-                           ;
-            }
-        }
-        return 
-# 267 "./src/main/drivers/pwm_output_dshot_shared.c" 3 4
-              1
-# 267 "./src/main/drivers/pwm_output_dshot_shared.c"
-                  ;
-    }
-    return 
-# 269 "./src/main/drivers/pwm_output_dshot_shared.c" 3 4
-          0
-# 269 "./src/main/drivers/pwm_output_dshot_shared.c"
-               ;
-}
-
-
-int16_t getDshotTelemetryMotorInvalidPercent(uint8_t motorIndex)
-{
-    int16_t invalidPercent = 0;
-
-    if (dshotTelemetryState.motorState[motorIndex].telemetryActive) {
-        const uint32_t totalCount = dshotTelemetryQuality[motorIndex].packetCountSum;
-        const uint32_t invalidCount = dshotTelemetryQuality[motorIndex].invalidCountSum;
-        if (totalCount > 0) {
-            invalidPercent = lrintf(invalidCount * 10000.0f / totalCount);
-        }
-    } else {
-        invalidPercent = 10000;
-    }
-    return invalidPercent;
-}

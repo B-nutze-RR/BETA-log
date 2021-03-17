@@ -2,11 +2,11 @@
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "./src/main/drivers/dshot_bitbang_decode.c"
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 1 3 4
-# 9 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 1 3 4
-# 12 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 1 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 1 3 4
+# 9 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 1 3 4
+# 12 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 1 3 4
 
 
 
@@ -14,46 +14,46 @@
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 1 3 4
-# 28 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_newlib_version.h" 1 3 4
-# 29 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 2 3 4
-# 9 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 2 3 4
-# 41 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 1 3 4
+# 28 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_newlib_version.h" 1 3 4
+# 29 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 2 3 4
+# 9 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 2 3 4
+# 41 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 
-# 41 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 41 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef signed char __int8_t;
 
 typedef unsigned char __uint8_t;
-# 55 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 55 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef short int __int16_t;
 
 typedef short unsigned int __uint16_t;
-# 77 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 77 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef long int __int32_t;
 
 typedef long unsigned int __uint32_t;
-# 103 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 103 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef long long int __int64_t;
 
 typedef long long unsigned int __uint64_t;
-# 134 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 134 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef signed char __int_least8_t;
 
 typedef unsigned char __uint_least8_t;
-# 160 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 160 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef short int __int_least16_t;
 
 typedef short unsigned int __uint_least16_t;
-# 182 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 182 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef long int __int_least32_t;
 
 typedef long unsigned int __uint_least32_t;
-# 200 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 200 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef long long int __int_least64_t;
 
 typedef long long unsigned int __uint_least64_t;
-# 214 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 214 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef long long int __intmax_t;
 
 
@@ -73,9 +73,9 @@ typedef long long unsigned int __uintmax_t;
 typedef int __intptr_t;
 
 typedef unsigned int __uintptr_t;
-# 13 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 1 3 4
-# 35 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
+# 13 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 1 3 4
+# 35 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
        
        
        
@@ -84,7 +84,7 @@ typedef unsigned int __uintptr_t;
        
        
        
-# 190 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
+# 190 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
        
        
        
@@ -93,9 +93,9 @@ typedef unsigned int __uintptr_t;
        
        
        
-# 14 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 1 3 4
-# 20 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 3 4
+# 14 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 1 3 4
+# 20 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 3 4
 typedef __int8_t int8_t ;
 
 
@@ -159,7 +159,7 @@ typedef __intptr_t intptr_t;
 
 
 typedef __uintptr_t uintptr_t;
-# 15 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
+# 15 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
 
 
 
@@ -186,62 +186,62 @@ typedef __uint_least32_t uint_least32_t;
 
 typedef __int_least64_t int_least64_t;
 typedef __uint_least64_t uint_least64_t;
-# 51 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 51 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef int int_fast8_t;
   typedef unsigned int uint_fast8_t;
-# 61 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 61 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef int int_fast16_t;
   typedef unsigned int uint_fast16_t;
-# 71 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 71 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef int int_fast32_t;
   typedef unsigned int uint_fast32_t;
-# 81 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 81 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef long long int int_fast64_t;
   typedef long long unsigned int uint_fast64_t;
-# 10 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 2 3 4
+# 10 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 2 3 4
 # 2 "./src/main/drivers/dshot_bitbang_decode.c" 2
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 1 3
-# 10 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
-# 10 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\newlib.h" 1 3
-# 11 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 1 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 1 3
+# 10 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
+# 10 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\newlib.h" 1 3
+# 11 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 1 3
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\ieeefp.h" 1 3
-# 5 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 2 3
-# 12 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
-# 11 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 1 3
-# 13 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
-# 14 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 143 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\ieeefp.h" 1 3
+# 5 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 2 3
+# 12 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
+# 11 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 1 3
+# 13 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
+# 14 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 143 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef int ptrdiff_t;
-# 209 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 209 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef unsigned int size_t;
-# 321 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 321 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef unsigned int wchar_t;
-# 415 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 415 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef struct {
   long long __max_align_ll __attribute__((__aligned__(__alignof__(long long))));
   long double __max_align_ld __attribute__((__aligned__(__alignof__(long double))));
-# 426 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 426 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 } max_align_t;
-# 15 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 1 3
-# 24 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 350 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 15 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 1 3
+# 24 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 350 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef unsigned int wint_t;
-# 25 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
+# 25 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_types.h" 1 3
-# 28 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_types.h" 1 3
+# 28 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
 
 
 typedef long __blkcnt_t;
@@ -290,7 +290,7 @@ typedef __uint32_t __id_t;
 
 
 typedef unsigned short __ino_t;
-# 90 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 90 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef __uint32_t __mode_t;
 
 
@@ -318,11 +318,11 @@ typedef long __key_t;
 
 
 typedef long _fpos_t;
-# 131 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 131 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef unsigned int __size_t;
-# 147 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 147 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef signed int _ssize_t;
-# 158 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 158 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef _ssize_t __ssize_t;
 
 
@@ -385,7 +385,7 @@ typedef unsigned long __useconds_t;
 
 
 typedef __builtin_va_list __va_list;
-# 16 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 16 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
 
 
 
@@ -393,9 +393,9 @@ typedef __builtin_va_list __va_list;
 
 
 typedef unsigned long __ULong;
-# 34 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 1 3
-# 33 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 3
+# 34 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 1 3
+# 33 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 3
 struct __lock;
 typedef struct __lock * _LOCK_T;
 
@@ -424,7 +424,7 @@ extern int __retarget_lock_try_acquire_recursive(_LOCK_T lock);
 extern void __retarget_lock_release(_LOCK_T lock);
 
 extern void __retarget_lock_release_recursive(_LOCK_T lock);
-# 35 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 35 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
 typedef _LOCK_T _flock_t;
 
 
@@ -478,7 +478,7 @@ struct _on_exit_args {
 
  __ULong _is_cxa;
 };
-# 98 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 98 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct _atexit {
  struct _atexit *_next;
  int _ind;
@@ -486,12 +486,12 @@ struct _atexit {
  void (*_fns[32])(void);
         struct _on_exit_args _on_exit_args;
 };
-# 122 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 122 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct __sbuf {
  unsigned char *_base;
  int _size;
 };
-# 186 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 186 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct __sFILE {
   unsigned char *_p;
   int _r;
@@ -542,7 +542,7 @@ struct __sFILE {
   _mbstate_t _mbstate;
   int _flags2;
 };
-# 292 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 292 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 typedef struct __sFILE __FILE;
 
 
@@ -553,7 +553,7 @@ struct _glue
   int _niobs;
   __FILE *_iobs;
 };
-# 324 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 324 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct _rand48 {
   unsigned short _seed[3];
   unsigned short _mult[3];
@@ -563,7 +563,7 @@ struct _rand48 {
 
 
 };
-# 613 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 613 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct _reent
 {
   int _errno;
@@ -646,35 +646,35 @@ struct _reent
   __FILE __sf[3];
 
 };
-# 819 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 819 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 extern struct _reent *_impure_ptr ;
 extern struct _reent *const _global_impure_ptr ;
 
 void _reclaim_reent (struct _reent *);
-# 12 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 1 3
-# 47 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 48 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 2 3
-# 13 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 12 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 1 3
+# 47 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 48 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 2 3
+# 13 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 18 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 18 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 1 3
-# 9 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 1 3
+# 9 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 3
 struct __locale_t;
 typedef struct __locale_t *locale_t;
-# 21 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 21 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 1 3
-# 44 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 1 3
+# 44 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 3
 
 
 int bcmp(const void *, const void *, size_t) __attribute__((__pure__));
@@ -706,7 +706,7 @@ int strcasecmp_l (const char *, const char *, locale_t);
 int strncasecmp_l (const char *, const char *, size_t, locale_t);
 
 
-# 25 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 25 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 
@@ -780,7 +780,7 @@ char *_strndup_r (struct _reent *, const char *, size_t);
 
 
 char *strerror_r (int, char *, size_t);
-# 112 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
+# 112 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
 char * _strerror_r (struct _reent *, int, int, int *);
 
 
@@ -812,35 +812,35 @@ char *strsignal (int __signo);
 
 
 int strverscmp (const char *, const char *);
-# 172 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
+# 172 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
 char *__attribute__((__nonnull__ (1))) basename (const char *) __asm__("" "__gnu_basename");
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\string.h" 1 3
-# 176 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\string.h" 1 3
+# 176 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 # 3 "./src/main/drivers/dshot_bitbang_decode.c" 2
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 1 3
-# 36 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 37 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 1 3
+# 36 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 37 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 2 3
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdarg.h" 1 3 4
-# 40 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdarg.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdarg.h" 1 3 4
+# 40 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdarg.h" 3 4
 typedef __builtin_va_list __gnuc_va_list;
-# 41 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 2 3
+# 41 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 2 3
 
 
 
 
 
 typedef __gnuc_va_list va_list;
-# 61 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\types.h" 1 3
-# 28 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\types.h" 3
+# 61 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\types.h" 1 3
+# 28 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\types.h" 3
 typedef __uint8_t u_int8_t;
 
 
@@ -853,56 +853,56 @@ typedef __uint32_t u_int32_t;
 typedef __uint64_t u_int64_t;
 
 typedef __intptr_t register_t;
-# 49 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\types.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\endian.h" 1 3
+# 49 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\types.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\endian.h" 1 3
 
 
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_endian.h" 1 3
-# 7 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\endian.h" 2 3
-# 50 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\types.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\select.h" 1 3
-# 14 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\select.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_sigset.h" 1 3
-# 41 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_sigset.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_endian.h" 1 3
+# 7 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\endian.h" 2 3
+# 50 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\types.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\select.h" 1 3
+# 14 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\select.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_sigset.h" 1 3
+# 41 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_sigset.h" 3
 typedef unsigned long __sigset_t;
-# 15 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\select.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_timeval.h" 1 3
-# 37 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_timeval.h" 3
+# 15 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\select.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_timeval.h" 1 3
+# 37 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_timeval.h" 3
 typedef __suseconds_t suseconds_t;
 
 
 
 
 typedef __int_least64_t time_t;
-# 54 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_timeval.h" 3
+# 54 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_timeval.h" 3
 struct timeval {
  time_t tv_sec;
  suseconds_t tv_usec;
 };
-# 16 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\select.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\timespec.h" 1 3
-# 38 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\timespec.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_timespec.h" 1 3
-# 47 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_timespec.h" 3
+# 16 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\select.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\timespec.h" 1 3
+# 38 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\timespec.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_timespec.h" 1 3
+# 47 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_timespec.h" 3
 struct timespec {
  time_t tv_sec;
  long tv_nsec;
 };
-# 39 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\timespec.h" 2 3
-# 58 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\timespec.h" 3
+# 39 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\timespec.h" 2 3
+# 58 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\timespec.h" 3
 struct itimerspec {
  struct timespec it_interval;
  struct timespec it_value;
 };
-# 17 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\select.h" 2 3
+# 17 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\select.h" 2 3
 
 
 
 typedef __sigset_t sigset_t;
-# 34 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\select.h" 3
+# 34 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\select.h" 3
 typedef unsigned long fd_mask;
 
 
@@ -914,7 +914,7 @@ typedef unsigned long fd_mask;
 typedef struct _types_fd_set {
  fd_mask fds_bits[(((64)+(((sizeof (fd_mask) * 8))-1))/((sizeof (fd_mask) * 8)))];
 } _types_fd_set;
-# 60 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\select.h" 3
+# 60 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\select.h" 3
 
 
 int select (int __n, _types_fd_set *__readfds, _types_fd_set *__writefds, _types_fd_set *__exceptfds, struct timeval *__timeout)
@@ -926,7 +926,7 @@ int pselect (int __n, _types_fd_set *__readfds, _types_fd_set *__writefds, _type
 
 
 
-# 51 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\types.h" 2 3
+# 51 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\types.h" 2 3
 
 
 
@@ -984,7 +984,7 @@ typedef __blksize_t blksize_t;
 
 
 typedef unsigned long clock_t;
-# 119 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\types.h" 3
+# 119 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\types.h" 3
 typedef long daddr_t;
 
 
@@ -1006,7 +1006,7 @@ typedef __id_t id_t;
 
 
 typedef __ino_t ino_t;
-# 157 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\types.h" 3
+# 157 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\types.h" 3
 typedef __off_t off_t;
 
 
@@ -1062,22 +1062,22 @@ typedef __timer_t timer_t;
 
 
 typedef __useconds_t useconds_t;
-# 220 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\types.h" 3
+# 220 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\types.h" 3
 typedef __int64_t sbintime_t;
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_pthreadtypes.h" 1 3
-# 23 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_pthreadtypes.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\sched.h" 1 3
-# 48 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\sched.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_pthreadtypes.h" 1 3
+# 23 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_pthreadtypes.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\sched.h" 1 3
+# 48 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\sched.h" 3
 struct sched_param {
   int sched_priority;
-# 61 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\sched.h" 3
+# 61 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\sched.h" 3
 };
-# 24 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_pthreadtypes.h" 2 3
-# 32 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_pthreadtypes.h" 3
+# 24 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_pthreadtypes.h" 2 3
+# 32 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_pthreadtypes.h" 3
 typedef __uint32_t pthread_t;
-# 61 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_pthreadtypes.h" 3
+# 61 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_pthreadtypes.h" 3
 typedef struct {
   int is_initialized;
   void *stackaddr;
@@ -1093,12 +1093,12 @@ typedef struct {
 
   int detachstate;
 } pthread_attr_t;
-# 154 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_pthreadtypes.h" 3
+# 154 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_pthreadtypes.h" 3
 typedef __uint32_t pthread_mutex_t;
 
 typedef struct {
   int is_initialized;
-# 168 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_pthreadtypes.h" 3
+# 168 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_pthreadtypes.h" 3
   int recursive;
 } pthread_mutexattr_t;
 
@@ -1127,10 +1127,10 @@ typedef struct {
   int is_initialized;
   int init_executed;
 } pthread_once_t;
-# 224 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\types.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\types.h" 1 3
-# 225 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\types.h" 2 3
-# 62 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 2 3
+# 224 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\types.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\types.h" 1 3
+# 225 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\types.h" 2 3
+# 62 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 2 3
 
 
 
@@ -1148,9 +1148,9 @@ typedef _fpos_t fpos_t;
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\stdio.h" 1 3
-# 80 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 2 3
-# 181 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\stdio.h" 1 3
+# 80 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 2 3
+# 181 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
 char * ctermid (char *);
 
 
@@ -1218,7 +1218,7 @@ int sprintf (char *restrict, const char *restrict, ...)
                __attribute__ ((__format__ (__printf__, 2, 3)));
 int remove (const char *);
 int rename (const char *, const char *);
-# 257 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
+# 257 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
 int fseeko (FILE *, off_t, int);
 off_t ftello (FILE *);
 
@@ -1292,7 +1292,7 @@ int vsiscanf (const char *, const char *, __gnuc_va_list)
                __attribute__ ((__format__ (__scanf__, 2, 0)));
 int vsniprintf (char *, size_t, const char *, __gnuc_va_list)
                __attribute__ ((__format__ (__printf__, 3, 0)));
-# 339 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
+# 339 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
 FILE * fdopen (int, const char *);
 
 int fileno (FILE *);
@@ -1319,7 +1319,7 @@ int ftrylockfile (FILE *);
 void funlockfile (FILE *);
 int putc_unlocked (int, FILE *);
 int putchar_unlocked (int);
-# 374 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
+# 374 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
 int dprintf (int, const char *restrict, ...)
                __attribute__ ((__format__ (__printf__, 2, 3)));
 
@@ -1333,7 +1333,7 @@ int vdprintf (int, const char *restrict, __gnuc_va_list)
 
 
 int renameat (int, const char *, int, const char *);
-# 396 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
+# 396 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
 int _asiprintf_r (struct _reent *, char **, const char *, ...)
                __attribute__ ((__format__ (__printf__, 3, 4)));
 char * _asniprintf_r (struct _reent *, char *, size_t *, const char *, ...)
@@ -1487,10 +1487,10 @@ size_t fwrite_unlocked (const void *restrict , size_t _size, size_t _n, FILE *);
 
 char * fgets_unlocked (char *restrict, int, FILE *restrict);
 int fputs_unlocked (const char *restrict, FILE *restrict);
-# 577 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
+# 577 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
 int __srget_r (struct _reent *, FILE *);
 int __swbuf_r (struct _reent *, int, FILE *);
-# 601 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
+# 601 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
 FILE *funopen (const void *__cookie,
   int (*__readfn)(void *__cookie, char *__buf,
     int __n),
@@ -1505,7 +1505,7 @@ FILE *_funopen_r (struct _reent *, const void *__cookie,
      int __n),
   fpos_t (*__seekfn)(void *__cookie, fpos_t __off, int __whence),
   int (*__closefn)(void *__cookie));
-# 624 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
+# 624 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
 typedef ssize_t cookie_read_function_t(void *__cookie, char *__buf, size_t __n);
 typedef ssize_t cookie_write_function_t(void *__cookie, const char *__buf,
      size_t __n);
@@ -1529,7 +1529,7 @@ FILE *fopencookie (void *__cookie,
   const char *__mode, cookie_io_functions_t __functions);
 FILE *_fopencookie_r (struct _reent *, void *__cookie,
   const char *__mode, cookie_io_functions_t __functions);
-# 687 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
+# 687 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
 static __inline__ int __sputc_r(struct _reent *_ptr, int _c, FILE *_p) {
 
 
@@ -1540,7 +1540,7 @@ static __inline__ int __sputc_r(struct _reent *_ptr, int _c, FILE *_p) {
  else
   return (__swbuf_r(_ptr, _c, _p));
 }
-# 741 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
+# 741 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
 static __inline int
 _getchar_unlocked(void)
 {
@@ -1558,7 +1558,7 @@ _putchar_unlocked(int _c)
  _ptr = _impure_ptr;
  return (__sputc_r(_ptr, _c, ((_ptr)->_stdout)));
 }
-# 797 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
+# 797 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdio.h" 3
 
 # 4 "./src/main/drivers/dshot_bitbang_decode.c" 2
 
@@ -5510,7 +5510,7 @@ void __attribute__((section(".RamFunc"))) FLASH_FlashSleepModeCmd(FunctionalStat
 # 21 "./src/main/common/utils.h"
        
 
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
 # 24 "./src/main/common/utils.h" 2
 # 100 "./src/main/common/utils.h"
 static inline int16_t cmp16(uint16_t a, uint16_t b) { return (int16_t)(a-b); }
@@ -5537,1273 +5537,3 @@ extern uint8_t __config_end;
 # 1 "./src/main/target/common_defaults_post.h" 1
 # 153 "./src/main/platform.h" 2
 # 6 "./src/main/drivers/dshot_bitbang_decode.c" 2
-
-
-
-# 1 "./src/main/common/maths.h" 1
-# 21 "./src/main/common/maths.h"
-       
-# 63 "./src/main/common/maths.h"
-typedef int32_t fix12_t;
-
-typedef struct stdev_s
-{
-    float m_oldM, m_newM, m_oldS, m_newS;
-    int m_n;
-} stdev_t;
-
-
-typedef struct fp_vector {
-    float X;
-    float Y;
-    float Z;
-} t_fp_vector_def;
-
-typedef union u_fp_vector {
-    float A[3];
-    t_fp_vector_def V;
-} t_fp_vector;
-
-
-
-typedef struct fp_angles {
-    float roll;
-    float pitch;
-    float yaw;
-} fp_angles_def;
-
-typedef union {
-    float raw[3];
-    fp_angles_def angles;
-} fp_angles_t;
-
-typedef struct fp_rotationMatrix_s {
-    float m[3][3];
-} fp_rotationMatrix_t;
-
-int gcd(int num, int denom);
-float powerf(float base, int exp);
-int32_t applyDeadband(int32_t value, int32_t deadband);
-float fapplyDeadband(float value, float deadband);
-
-void devClear(stdev_t *dev);
-void devPush(stdev_t *dev, float x);
-float devVariance(stdev_t *dev);
-float devStandardDeviation(stdev_t *dev);
-float degreesToRadians(int16_t degrees);
-
-int scaleRange(int x, int srcFrom, int srcTo, int destFrom, int destTo);
-float scaleRangef(float x, float srcFrom, float srcTo, float destFrom, float destTo);
-
-void normalizeV(struct fp_vector *src, struct fp_vector *dest);
-
-void rotateV(struct fp_vector *v, fp_angles_t *delta);
-void buildRotationMatrix(fp_angles_t *delta, fp_rotationMatrix_t *rotation);
-void applyRotation(float *v, fp_rotationMatrix_t *rotationMatrix);
-
-int32_t quickMedianFilter3(int32_t * v);
-int32_t quickMedianFilter5(int32_t * v);
-int32_t quickMedianFilter7(int32_t * v);
-int32_t quickMedianFilter9(int32_t * v);
-
-float quickMedianFilter3f(float * v);
-float quickMedianFilter5f(float * v);
-float quickMedianFilter7f(float * v);
-float quickMedianFilter9f(float * v);
-
-
-float sin_approx(float x);
-float cos_approx(float x);
-float atan2_approx(float y, float x);
-float acos_approx(float x);
-
-float exp_approx(float val);
-float log_approx(float val);
-float pow_approx(float a, float b);
-# 150 "./src/main/common/maths.h"
-void arraySubInt32(int32_t *dest, int32_t *array1, int32_t *array2, int count);
-
-int16_t qPercent(fix12_t q);
-int16_t qMultiply(fix12_t q, int16_t input);
-fix12_t qConstruct(int16_t num, int16_t den);
-
-static inline int constrain(int amt, int low, int high)
-{
-    if (amt < low)
-        return low;
-    else if (amt > high)
-        return high;
-    else
-        return amt;
-}
-
-static inline float constrainf(float amt, float low, float high)
-{
-    if (amt < low)
-        return low;
-    else if (amt > high)
-        return high;
-    else
-        return amt;
-}
-# 10 "./src/main/drivers/dshot_bitbang_decode.c" 2
-
-# 1 "./src/main/drivers/dshot.h" 1
-# 21 "./src/main/drivers/dshot.h"
-       
-
-# 1 "./src/main/common/time.h" 1
-# 21 "./src/main/common/time.h"
-       
-
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdbool.h" 1 3 4
-# 24 "./src/main/common/time.h" 2
-
-
-
-
-# 1 "./src/main/pg/pg.h" 1
-# 21 "./src/main/pg/pg.h"
-       
-
-
-
-
-# 1 "./src/main/build/build_config.h" 1
-# 21 "./src/main/build/build_config.h"
-       
-# 44 "./src/main/build/build_config.h"
-typedef enum {
-    MCU_TYPE_SIMULATOR = 0,
-    MCU_TYPE_F103,
-    MCU_TYPE_F303,
-    MCU_TYPE_F40X,
-    MCU_TYPE_F411,
-    MCU_TYPE_F446,
-    MCU_TYPE_F722,
-    MCU_TYPE_F745,
-    MCU_TYPE_F746,
-    MCU_TYPE_F765,
-    MCU_TYPE_H750,
-    MCU_TYPE_H743_REV_UNKNOWN,
-    MCU_TYPE_H743_REV_Y,
-    MCU_TYPE_H743_REV_X,
-    MCU_TYPE_H743_REV_V,
-    MCU_TYPE_H7A3,
-    MCU_TYPE_H723_725,
-    MCU_TYPE_UNKNOWN = 255,
-} mcuTypeId_e;
-
-mcuTypeId_e getMcuTypeId(void);
-# 27 "./src/main/pg/pg.h" 2
-
-typedef uint16_t pgn_t;
-
-
-typedef enum {
-    PGRF_NONE = 0,
-    PGRF_CLASSIFICATON_BIT = (1 << 0)
-} pgRegistryFlags_e;
-
-typedef enum {
-    PGR_PGN_MASK = 0x0fff,
-    PGR_PGN_VERSION_MASK = 0xf000,
-    PGR_SIZE_MASK = 0x0fff,
-    PGR_SIZE_SYSTEM_FLAG = 0x0000
-} pgRegistryInternal_e;
-
-
-typedef void (pgResetFunc)(void * );
-
-typedef struct pgRegistry_s {
-    pgn_t pgn;
-    uint8_t length;
-    uint16_t size;
-    uint8_t *address;
-    uint8_t *copy;
-    uint8_t **ptr;
-    union {
-        void *ptr;
-        pgResetFunc *fn;
-    } reset;
-} pgRegistry_t;
-
-static inline uint16_t pgN(const pgRegistry_t* reg) {return reg->pgn & PGR_PGN_MASK;}
-static inline uint8_t pgVersion(const pgRegistry_t* reg) {return (uint8_t)(reg->pgn >> 12);}
-static inline uint16_t pgSize(const pgRegistry_t* reg) {return reg->size & PGR_SIZE_MASK;}
-static inline uint16_t pgElementSize(const pgRegistry_t* reg) {return (reg->size & PGR_SIZE_MASK) / reg->length;}
-# 75 "./src/main/pg/pg.h"
-extern const pgRegistry_t __pg_registry_start[];
-extern const pgRegistry_t __pg_registry_end[];
-
-
-extern const uint8_t __pg_resetdata_start[];
-extern const uint8_t __pg_resetdata_end[];
-# 194 "./src/main/pg/pg.h"
-const pgRegistry_t* pgFind(pgn_t pgn);
-
-
-# 196 "./src/main/pg/pg.h" 3 4
-_Bool 
-# 196 "./src/main/pg/pg.h"
-    pgLoad(const pgRegistry_t* reg, const void *from, int size, int version);
-int pgStore(const pgRegistry_t* reg, void *to, int size);
-void pgResetAll(void);
-void pgResetInstance(const pgRegistry_t *reg, uint8_t *base);
-
-# 200 "./src/main/pg/pg.h" 3 4
-_Bool 
-# 200 "./src/main/pg/pg.h"
-    pgResetCopy(void *copy, pgn_t pgn);
-void pgReset(const pgRegistry_t* reg);
-# 29 "./src/main/common/time.h" 2
-
-
-typedef int32_t timeDelta_t;
-
-typedef uint32_t timeMs_t ;
-
-
-
-
-
-typedef uint32_t timeUs_t;
-
-
-
-
-
-
-static inline timeDelta_t cmpTimeUs(timeUs_t a, timeUs_t b) { return (timeDelta_t)(a - b); }
-
-
-
-
-
-typedef struct timeConfig_s {
-    int16_t tz_offsetMinutes;
-} timeConfig_t;
-
-extern timeConfig_t timeConfig_System; extern timeConfig_t timeConfig_Copy; static inline const timeConfig_t* timeConfig(void) { return &timeConfig_System; } static inline timeConfig_t* timeConfigMutable(void) { return &timeConfig_System; } struct _dummy;
-
-
-typedef int64_t rtcTime_t;
-
-rtcTime_t rtcTimeMake(int32_t secs, uint16_t millis);
-int32_t rtcTimeGetSeconds(rtcTime_t *t);
-uint16_t rtcTimeGetMillis(rtcTime_t *t);
-
-typedef struct _dateTime_s {
-
-    uint16_t year;
-
-    uint8_t month;
-
-    uint8_t day;
-
-    uint8_t hours;
-
-    uint8_t minutes;
-
-    uint8_t seconds;
-
-    uint16_t millis;
-} dateTime_t;
-
-
-
-# 83 "./src/main/common/time.h" 3 4
-_Bool 
-# 83 "./src/main/common/time.h"
-    dateTimeFormatUTC(char *buf, dateTime_t *dt);
-
-# 84 "./src/main/common/time.h" 3 4
-_Bool 
-# 84 "./src/main/common/time.h"
-    dateTimeFormatLocal(char *buf, dateTime_t *dt);
-
-# 85 "./src/main/common/time.h" 3 4
-_Bool 
-# 85 "./src/main/common/time.h"
-    dateTimeFormatLocalShort(char *buf, dateTime_t *dt);
-
-void dateTimeUTCToLocal(dateTime_t *utcDateTime, dateTime_t *localDateTime);
-
-
-
-
-# 91 "./src/main/common/time.h" 3 4
-_Bool 
-# 91 "./src/main/common/time.h"
-    dateTimeSplitFormatted(char *formatted, char **date, char **time);
-
-
-# 93 "./src/main/common/time.h" 3 4
-_Bool 
-# 93 "./src/main/common/time.h"
-    rtcHasTime(void);
-
-
-# 95 "./src/main/common/time.h" 3 4
-_Bool 
-# 95 "./src/main/common/time.h"
-    rtcGet(rtcTime_t *t);
-
-# 96 "./src/main/common/time.h" 3 4
-_Bool 
-# 96 "./src/main/common/time.h"
-    rtcSet(rtcTime_t *t);
-
-
-# 98 "./src/main/common/time.h" 3 4
-_Bool 
-# 98 "./src/main/common/time.h"
-    rtcGetDateTime(dateTime_t *dt);
-
-# 99 "./src/main/common/time.h" 3 4
-_Bool 
-# 99 "./src/main/common/time.h"
-    rtcSetDateTime(dateTime_t *dt);
-
-void rtcPersistWrite(int16_t offsetMinutes);
-
-# 102 "./src/main/common/time.h" 3 4
-_Bool 
-# 102 "./src/main/common/time.h"
-    rtcPersistRead(rtcTime_t *t);
-# 24 "./src/main/drivers/dshot.h" 2
-
-# 1 "./src/main/pg/motor.h" 1
-# 21 "./src/main/pg/motor.h"
-       
-
-
-
-# 1 "./src/main/drivers/io.h" 1
-# 21 "./src/main/drivers/io.h"
-       
-
-
-
-
-
-
-# 1 "./src/main/drivers/resource.h" 1
-# 21 "./src/main/drivers/resource.h"
-       
-
-typedef enum {
-    OWNER_FREE = 0,
-    OWNER_PWMINPUT,
-    OWNER_PPMINPUT,
-    OWNER_MOTOR,
-    OWNER_SERVO,
-    OWNER_LED,
-    OWNER_ADC,
-    OWNER_ADC_BATT,
-    OWNER_ADC_CURR,
-    OWNER_ADC_EXT,
-    OWNER_ADC_RSSI,
-    OWNER_SERIAL_TX,
-    OWNER_SERIAL_RX,
-    OWNER_PINDEBUG,
-    OWNER_TIMER,
-    OWNER_SONAR_TRIGGER,
-    OWNER_SONAR_ECHO,
-    OWNER_SYSTEM,
-    OWNER_SPI_SCK,
-    OWNER_SPI_MISO,
-    OWNER_SPI_MOSI,
-    OWNER_I2C_SCL,
-    OWNER_I2C_SDA,
-    OWNER_SDCARD,
-    OWNER_SDIO_CK,
-    OWNER_SDIO_CMD,
-    OWNER_SDIO_D0,
-    OWNER_SDIO_D1,
-    OWNER_SDIO_D2,
-    OWNER_SDIO_D3,
-    OWNER_SDCARD_CS,
-    OWNER_SDCARD_DETECT,
-    OWNER_FLASH_CS,
-    OWNER_BARO_CS,
-    OWNER_GYRO_CS,
-    OWNER_OSD_CS,
-    OWNER_RX_SPI_CS,
-    OWNER_SPI_CS,
-    OWNER_GYRO_EXTI,
-    OWNER_BARO_EOC,
-    OWNER_COMPASS_EXTI,
-    OWNER_USB,
-    OWNER_USB_DETECT,
-    OWNER_BEEPER,
-    OWNER_OSD,
-    OWNER_RX_BIND,
-    OWNER_INVERTER,
-    OWNER_LED_STRIP,
-    OWNER_TRANSPONDER,
-    OWNER_VTX_POWER,
-    OWNER_VTX_CS,
-    OWNER_VTX_DATA,
-    OWNER_VTX_CLK,
-    OWNER_COMPASS_CS,
-    OWNER_RX_BIND_PLUG,
-    OWNER_ESCSERIAL,
-    OWNER_CAMERA_CONTROL,
-    OWNER_TIMUP,
-    OWNER_RANGEFINDER,
-    OWNER_RX_SPI,
-    OWNER_PINIO,
-    OWNER_USB_MSC_PIN,
-    OWNER_MCO,
-    OWNER_RX_SPI_BIND,
-    OWNER_RX_SPI_LED,
-    OWNER_PREINIT,
-    OWNER_RX_SPI_EXTI,
-    OWNER_RX_SPI_CC2500_TX_EN,
-    OWNER_RX_SPI_CC2500_LNA_EN,
-    OWNER_RX_SPI_CC2500_ANT_SEL,
-    OWNER_QUADSPI_CLK,
-    OWNER_QUADSPI_BK1IO0,
-    OWNER_QUADSPI_BK1IO1,
-    OWNER_QUADSPI_BK1IO2,
-    OWNER_QUADSPI_BK1IO3,
-    OWNER_QUADSPI_BK1CS,
-    OWNER_QUADSPI_BK2IO0,
-    OWNER_QUADSPI_BK2IO1,
-    OWNER_QUADSPI_BK2IO2,
-    OWNER_QUADSPI_BK2IO3,
-    OWNER_QUADSPI_BK2CS,
-    OWNER_BARO_XCLR,
-    OWNER_PULLUP,
-    OWNER_PULLDOWN,
-    OWNER_DSHOT_BITBANG,
-    OWNER_SWD,
-    OWNER_TOTAL_COUNT
-} resourceOwner_e;
-
-typedef struct resourceOwner_s {
-    resourceOwner_e owner;
-    uint8_t resourceIndex;
-} resourceOwner_t;
-
-extern const char * const ownerNames[OWNER_TOTAL_COUNT];
-# 29 "./src/main/drivers/io.h" 2
-
-# 1 "./src/main/drivers/io_types.h" 1
-# 21 "./src/main/drivers/io_types.h"
-       
-
-
-
-
-
-typedef uint8_t ioTag_t;
-typedef void* IO_t;
-# 48 "./src/main/drivers/io_types.h"
-typedef uint8_t ioConfig_t;
-# 31 "./src/main/drivers/io.h" 2
-# 110 "./src/main/drivers/io.h"
-# 1 "./src/main/drivers/io_def.h" 1
-# 21 "./src/main/drivers/io_def.h"
-       
-# 54 "./src/main/drivers/io_def.h"
-# 1 "./src/main/drivers/io_def_generated.h" 1
-# 21 "./src/main/drivers/io_def_generated.h"
-       
-# 54 "./src/main/drivers/io_def.h" 2
-# 111 "./src/main/drivers/io.h" 2
-
-
-# 112 "./src/main/drivers/io.h" 3 4
-_Bool 
-# 112 "./src/main/drivers/io.h"
-    IORead(IO_t io);
-void IOWrite(IO_t io, 
-# 113 "./src/main/drivers/io.h" 3 4
-                     _Bool 
-# 113 "./src/main/drivers/io.h"
-                          value);
-void IOHi(IO_t io);
-void IOLo(IO_t io);
-void IOToggle(IO_t io);
-
-void IOInit(IO_t io, resourceOwner_e owner, uint8_t index);
-void IORelease(IO_t io);
-resourceOwner_e IOGetOwner(IO_t io);
-
-# 121 "./src/main/drivers/io.h" 3 4
-_Bool 
-# 121 "./src/main/drivers/io.h"
-    IOIsFreeOrPreinit(IO_t io);
-IO_t IOGetByTag(ioTag_t tag);
-
-void IOConfigGPIO(IO_t io, ioConfig_t cfg);
-
-void IOConfigGPIOAF(IO_t io, ioConfig_t cfg, uint8_t af);
-
-
-void IOInitGlobal(void);
-
-typedef void (*IOTraverseFuncPtr_t)(IO_t io);
-
-void IOTraversePins(IOTraverseFuncPtr_t func);
-
-GPIO_TypeDef* IO_GPIO(IO_t io);
-uint16_t IO_Pin(IO_t io);
-# 26 "./src/main/pg/motor.h" 2
-# 1 "./src/main/drivers/dshot_bitbang.h" 1
-# 21 "./src/main/drivers/dshot_bitbang.h"
-       
-
-# 1 "./src/main/drivers/timer.h" 1
-# 21 "./src/main/drivers/timer.h"
-       
-
-
-
-
-# 1 "./src/main/drivers/dma.h" 1
-# 21 "./src/main/drivers/dma.h"
-       
-# 32 "./src/main/drivers/dma.h"
-typedef struct dmaResource_s dmaResource_t;
-# 43 "./src/main/drivers/dma.h"
-struct dmaChannelDescriptor_s;
-typedef void (*dmaCallbackHandlerFuncPtr)(struct dmaChannelDescriptor_s *channelDescriptor);
-
-typedef struct dmaChannelDescriptor_s {
-    DMA_TypeDef* dma;
-    dmaResource_t *ref;
-
-    uint8_t stream;
-
-    dmaCallbackHandlerFuncPtr irqHandlerCallback;
-    uint8_t flagsShift;
-    IRQn_Type irqN;
-    uint32_t userParam;
-    resourceOwner_t owner;
-    uint8_t resourceIndex;
-    uint32_t completeFlag;
-} dmaChannelDescriptor_t;
-# 71 "./src/main/drivers/dma.h"
-typedef enum {
-    DMA_NONE = 0,
-    DMA1_ST0_HANDLER = 1,
-    DMA1_ST1_HANDLER,
-    DMA1_ST2_HANDLER,
-    DMA1_ST3_HANDLER,
-    DMA1_ST4_HANDLER,
-    DMA1_ST5_HANDLER,
-    DMA1_ST6_HANDLER,
-    DMA1_ST7_HANDLER,
-    DMA2_ST0_HANDLER,
-    DMA2_ST1_HANDLER,
-    DMA2_ST2_HANDLER,
-    DMA2_ST3_HANDLER,
-    DMA2_ST4_HANDLER,
-    DMA2_ST5_HANDLER,
-    DMA2_ST6_HANDLER,
-    DMA2_ST7_HANDLER,
-    DMA_LAST_HANDLER = DMA2_ST7_HANDLER
-} dmaIdentifier_e;
-# 127 "./src/main/drivers/dma.h"
-dmaIdentifier_e dmaGetIdentifier(const dmaResource_t *stream);
-dmaChannelDescriptor_t* dmaGetDmaDescriptor(const dmaResource_t *stream);
-dmaResource_t *dmaGetRefByIdentifier(const dmaIdentifier_e identifier);
-uint32_t dmaGetChannel(const uint8_t channel);
-# 265 "./src/main/drivers/dma.h"
-void dmaInit(dmaIdentifier_e identifier, resourceOwner_e owner, uint8_t resourceIndex);
-void dmaSetHandler(dmaIdentifier_e identifier, dmaCallbackHandlerFuncPtr callback, uint32_t priority, uint32_t userParam);
-
-const resourceOwner_t *dmaGetOwner(dmaIdentifier_e identifier);
-dmaChannelDescriptor_t* dmaGetDescriptorByIdentifier(const dmaIdentifier_e identifier);
-# 27 "./src/main/drivers/timer.h" 2
-
-# 1 "./src/main/drivers/rcc_types.h" 1
-# 21 "./src/main/drivers/rcc_types.h"
-       
-
-
-
-
-typedef uint8_t rccPeriphTag_t;
-# 29 "./src/main/drivers/timer.h" 2
-
-# 1 "./src/main/drivers/timer_def.h" 1
-# 21 "./src/main/drivers/timer_def.h"
-       
-# 31 "./src/main/drivers/timer.h" 2
-
-# 1 "./src/main/pg/timerio.h" 1
-# 21 "./src/main/pg/timerio.h"
-       
-
-
-# 1 "./src/main/pg/pg_ids.h" 1
-# 21 "./src/main/pg/pg_ids.h"
-       
-# 25 "./src/main/pg/timerio.h" 2
-
-# 1 "./src/main/drivers/dma_reqmap.h" 1
-# 21 "./src/main/drivers/dma_reqmap.h"
-       
-
-
-
-
-
-
-typedef uint16_t dmaCode_t;
-
-typedef struct dmaChannelSpec_s {
-    dmaCode_t code;
-    dmaResource_t *ref;
-
-    uint32_t channel;
-
-} dmaChannelSpec_t;
-
-
-
-
-
-
-
-typedef enum {
-    DMA_PERIPH_SPI_TX,
-    DMA_PERIPH_SPI_RX,
-    DMA_PERIPH_ADC,
-    DMA_PERIPH_SDIO,
-    DMA_PERIPH_UART_TX,
-    DMA_PERIPH_UART_RX,
-    DMA_PERIPH_TIMUP,
-} dmaPeripheral_e;
-
-typedef int8_t dmaoptValue_t;
-# 66 "./src/main/drivers/dma_reqmap.h"
-struct timerHardware_s;
-
-dmaoptValue_t dmaoptByTag(ioTag_t ioTag);
-const dmaChannelSpec_t *dmaGetChannelSpecByPeripheral(dmaPeripheral_e device, uint8_t index, int8_t opt);
-const dmaChannelSpec_t *dmaGetChannelSpecByTimerValue(TIM_TypeDef *tim, uint8_t channel, dmaoptValue_t dmaopt);
-const dmaChannelSpec_t *dmaGetChannelSpecByTimer(const struct timerHardware_s *timer);
-dmaoptValue_t dmaGetOptionByTimer(const struct timerHardware_s *timer);
-dmaoptValue_t dmaGetUpOptionByTimer(const struct timerHardware_s *timer);
-# 27 "./src/main/pg/timerio.h" 2
-
-
-
-
-typedef struct timerIOConfig_s {
-    ioTag_t ioTag;
-    uint8_t index;
-    int8_t dmaopt;
-} timerIOConfig_t;
-
-extern timerIOConfig_t timerIOConfig_SystemArray[21]; extern timerIOConfig_t timerIOConfig_CopyArray[21]; static inline const timerIOConfig_t* timerIOConfig(int _index) { return &timerIOConfig_SystemArray[_index]; } static inline timerIOConfig_t* timerIOConfigMutable(int _index) { return &timerIOConfig_SystemArray[_index]; } static inline timerIOConfig_t (* timerIOConfig_array(void))[21] { return &timerIOConfig_SystemArray; } struct _dummy;
-# 33 "./src/main/drivers/timer.h" 2
-
-
-
-
-
-typedef uint16_t captureCompare_t;
-
-
-typedef uint32_t timCCR_t;
-typedef uint32_t timCCER_t;
-typedef uint32_t timSR_t;
-typedef uint32_t timCNT_t;
-# 54 "./src/main/drivers/timer.h"
-typedef enum {
-    TIM_USE_ANY = 0x0,
-    TIM_USE_NONE = 0x0,
-    TIM_USE_PPM = 0x1,
-    TIM_USE_PWM = 0x2,
-    TIM_USE_MOTOR = 0x4,
-    TIM_USE_SERVO = 0x8,
-    TIM_USE_LED = 0x10,
-    TIM_USE_TRANSPONDER = 0x20,
-    TIM_USE_BEEPER = 0x40,
-    TIM_USE_CAMERA_CONTROL = 0x80,
-} timerUsageFlag_e;
-
-
-struct timerCCHandlerRec_s;
-struct timerOvrHandlerRec_s;
-typedef void timerCCHandlerCallback(struct timerCCHandlerRec_s* self, uint16_t capture);
-typedef void timerOvrHandlerCallback(struct timerOvrHandlerRec_s* self, uint16_t capture);
-
-typedef struct timerCCHandlerRec_s {
-    timerCCHandlerCallback* fn;
-} timerCCHandlerRec_t;
-
-typedef struct timerOvrHandlerRec_s {
-    timerOvrHandlerCallback* fn;
-    struct timerOvrHandlerRec_s* next;
-} timerOvrHandlerRec_t;
-
-typedef struct timerDef_s {
-    TIM_TypeDef *TIMx;
-    rccPeriphTag_t rcc;
-    uint8_t inputIrq;
-} timerDef_t;
-
-typedef struct timerHardware_s {
-    TIM_TypeDef *tim;
-    ioTag_t tag;
-    uint8_t channel;
-    timerUsageFlag_e usageFlags;
-    uint8_t output;
-
-    uint8_t alternateFunction;
-
-
-
-
-
-
-    dmaResource_t *dmaRefConfigured;
-    uint32_t dmaChannelConfigured;
-
-
-
-
-
-
-
-    dmaResource_t *dmaTimUPRef;
-
-    uint32_t dmaTimUPChannel;
-
-    uint8_t dmaTimUPIrqHandler;
-
-} timerHardware_t;
-
-typedef enum {
-    TIMER_OUTPUT_NONE = 0,
-    TIMER_OUTPUT_INVERTED = (1 << 0),
-    TIMER_OUTPUT_N_CHANNEL = (1 << 1),
-} timerFlag_e;
-# 152 "./src/main/drivers/timer.h"
-extern const timerHardware_t timerHardware[];
-# 183 "./src/main/drivers/timer.h"
-extern const timerHardware_t fullTimerHardware[];
-# 223 "./src/main/drivers/timer.h"
-extern const timerDef_t timerDefinitions[];
-
-typedef enum {
-    TYPE_FREE,
-    TYPE_PWMINPUT,
-    TYPE_PPMINPUT,
-    TYPE_PWMOUTPUT_MOTOR,
-    TYPE_PWMOUTPUT_FAST,
-    TYPE_PWMOUTPUT_SERVO,
-    TYPE_SOFTSERIAL_RX,
-    TYPE_SOFTSERIAL_TX,
-    TYPE_SOFTSERIAL_RXTX,
-    TYPE_SOFTSERIAL_AUXTIMER,
-    TYPE_ADC,
-    TYPE_SERIAL_RX,
-    TYPE_SERIAL_TX,
-    TYPE_SERIAL_RXTX,
-    TYPE_TIMER
-} channelType_t;
-
-void timerConfigure(const timerHardware_t *timHw, uint16_t period, uint32_t hz);
-
-void timerChConfigIC(const timerHardware_t *timHw, 
-# 245 "./src/main/drivers/timer.h" 3 4
-                                                  _Bool 
-# 245 "./src/main/drivers/timer.h"
-                                                       polarityRising, unsigned inputFilterSamples);
-void timerChConfigICDual(const timerHardware_t* timHw, 
-# 246 "./src/main/drivers/timer.h" 3 4
-                                                      _Bool 
-# 246 "./src/main/drivers/timer.h"
-                                                           polarityRising, unsigned inputFilterSamples);
-void timerChICPolarity(const timerHardware_t *timHw, 
-# 247 "./src/main/drivers/timer.h" 3 4
-                                                    _Bool 
-# 247 "./src/main/drivers/timer.h"
-                                                         polarityRising);
-volatile timCCR_t* timerChCCR(const timerHardware_t* timHw);
-volatile timCCR_t* timerChCCRLo(const timerHardware_t* timHw);
-volatile timCCR_t* timerChCCRHi(const timerHardware_t* timHw);
-void timerChConfigOC(const timerHardware_t* timHw, 
-# 251 "./src/main/drivers/timer.h" 3 4
-                                                  _Bool 
-# 251 "./src/main/drivers/timer.h"
-                                                       outEnable, 
-# 251 "./src/main/drivers/timer.h" 3 4
-                                                                  _Bool 
-# 251 "./src/main/drivers/timer.h"
-                                                                       stateHigh);
-void timerChConfigGPIO(const timerHardware_t* timHw, ioConfig_t mode);
-
-void timerChCCHandlerInit(timerCCHandlerRec_t *self, timerCCHandlerCallback *fn);
-void timerChOvrHandlerInit(timerOvrHandlerRec_t *self, timerOvrHandlerCallback *fn);
-void timerChConfigCallbacks(const timerHardware_t *channel, timerCCHandlerRec_t *edgeCallback, timerOvrHandlerRec_t *overflowCallback);
-void timerChConfigCallbacksDual(const timerHardware_t *channel, timerCCHandlerRec_t *edgeCallbackLo, timerCCHandlerRec_t *edgeCallbackHi, timerOvrHandlerRec_t *overflowCallback);
-void timerChITConfigDualLo(const timerHardware_t* timHw, FunctionalState newState);
-void timerChITConfig(const timerHardware_t* timHw, FunctionalState newState);
-void timerChClearCCFlag(const timerHardware_t* timHw);
-
-void timerChInit(const timerHardware_t *timHw, channelType_t type, int irqPriority, uint8_t irq);
-
-void timerInit(void);
-void timerStart(void);
-void timerForceOverflow(TIM_TypeDef *tim);
-
-uint32_t timerClock(TIM_TypeDef *tim);
-
-void configTimeBase(TIM_TypeDef *tim, uint16_t period, uint32_t hz);
-
-rccPeriphTag_t timerRCC(TIM_TypeDef *tim);
-uint8_t timerInputIrq(TIM_TypeDef *tim);
-
-
-extern const resourceOwner_t freeOwner;
-
-struct timerIOConfig_s;
-
-struct timerIOConfig_s *timerIoConfigByTag(ioTag_t ioTag);
-const resourceOwner_t *timerGetOwner(int8_t timerNumber, uint16_t timerChannel);
-
-const timerHardware_t *timerGetByTag(ioTag_t ioTag);
-const timerHardware_t *timerAllocate(ioTag_t ioTag, resourceOwner_e owner, uint8_t resourceIndex);
-const timerHardware_t *timerGetByTagAndIndex(ioTag_t ioTag, unsigned timerIndex);
-ioTag_t timerioTagGetByUsage(timerUsageFlag_e usageFlag, uint8_t index);
-
-
-
-
-
-
-
-void timerOCInit(TIM_TypeDef *tim, uint8_t channel, TIM_OCInitTypeDef *init);
-void timerOCPreloadConfig(TIM_TypeDef *tim, uint8_t channel, uint16_t preload);
-
-
-volatile timCCR_t *timerCCR(TIM_TypeDef *tim, uint8_t channel);
-uint16_t timerDmaSource(uint8_t channel);
-
-uint16_t timerGetPrescalerByDesiredHertz(TIM_TypeDef *tim, uint32_t hz);
-uint16_t timerGetPrescalerByDesiredMhz(TIM_TypeDef *tim, uint16_t mhz);
-uint16_t timerGetPeriodByPrescaler(TIM_TypeDef *tim, uint16_t prescaler, uint32_t hz);
-
-int8_t timerGetNumberByIndex(uint8_t index);
-int8_t timerGetTIMNumber(const TIM_TypeDef *tim);
-uint8_t timerLookupChannelIndex(const uint16_t channel);
-# 24 "./src/main/drivers/dshot_bitbang.h" 2
-
-typedef enum {
-    DSHOT_BITBANG_OFF,
-    DSHOT_BITBANG_ON,
-    DSHOT_BITBANG_AUTO,
-} dshotBitbangMode_e;
-
-typedef enum {
-    DSHOT_BITBANG_STATUS_OK,
-    DSHOT_BITBANG_STATUS_MOTOR_PIN_CONFLICT,
-    DSHOT_BITBANG_STATUS_NO_PACER,
-    DSHOT_BITBANG_STATUS_TOO_MANY_PORTS,
-} dshotBitbangStatus_e;
-
-struct motorDevConfig_s;
-struct motorDevice_s;
-struct motorDevice_s *dshotBitbangDevInit(const struct motorDevConfig_s *motorConfig, uint8_t motorCount);
-dshotBitbangStatus_e dshotBitbangGetStatus();
-const resourceOwner_t *dshotBitbangTimerGetOwner(int8_t timerNumber, uint16_t timerChannel);
-# 27 "./src/main/pg/motor.h" 2
-
-typedef enum {
-    DSHOT_BITBANGED_TIMER_AUTO = 0,
-    DSHOT_BITBANGED_TIMER_TIM1,
-    DSHOT_BITBANGED_TIMER_TIM8,
-} dshotBitbangedTimer_e;
-
-typedef enum {
-    DSHOT_DMAR_OFF,
-    DSHOT_DMAR_ON,
-    DSHOT_DMAR_AUTO
-} dshotDmar_e;
-
-typedef struct motorDevConfig_s {
-    uint16_t motorPwmRate;
-    uint8_t motorPwmProtocol;
-    uint8_t motorPwmInversion;
-    uint8_t useUnsyncedPwm;
-    uint8_t useBurstDshot;
-    uint8_t useDshotTelemetry;
-    ioTag_t ioTags[8];
-    uint8_t motorTransportProtocol;
-    uint8_t useDshotBitbang;
-    uint8_t useDshotBitbangedTimer;
-    uint8_t motorOutputReordering[8];
-} motorDevConfig_t;
-
-typedef struct motorConfig_s {
-    motorDevConfig_t dev;
-    uint16_t digitalIdleOffsetValue;
-    uint16_t minthrottle;
-    uint16_t maxthrottle;
-    uint16_t mincommand;
-    uint8_t motorPoleCount;
-} motorConfig_t;
-
-extern motorConfig_t motorConfig_System; extern motorConfig_t motorConfig_Copy; static inline const motorConfig_t* motorConfig(void) { return &motorConfig_System; } static inline motorConfig_t* motorConfigMutable(void) { return &motorConfig_System; } struct _dummy;
-# 26 "./src/main/drivers/dshot.h" 2
-# 43 "./src/main/drivers/dshot.h"
-typedef struct dshotTelemetryQuality_s {
-    uint32_t packetCountSum;
-    uint32_t invalidCountSum;
-    uint32_t packetCountArray[(1 * 1000 / 100)];
-    uint32_t invalidCountArray[(1 * 1000 / 100)];
-    uint8_t lastBucketIndex;
-} dshotTelemetryQuality_t;
-
-extern dshotTelemetryQuality_t dshotTelemetryQuality[8];
-
-
-typedef struct dshotProtocolControl_s {
-    uint16_t value;
-    
-# 56 "./src/main/drivers/dshot.h" 3 4
-   _Bool 
-# 56 "./src/main/drivers/dshot.h"
-        requestTelemetry;
-} dshotProtocolControl_t;
-
-void dshotInitEndpoints(const motorConfig_t *motorConfig, float outputLimit, float *outputLow, float *outputHigh, float *disarm, float *deadbandMotor3dHigh, float *deadbandMotor3dLow);
-float dshotConvertFromExternal(uint16_t externalValue);
-uint16_t dshotConvertToExternal(float motorValue);
-
-uint16_t prepareDshotPacket(dshotProtocolControl_t *pcb);
-
-
-extern 
-# 66 "./src/main/drivers/dshot.h" 3 4
-      _Bool 
-# 66 "./src/main/drivers/dshot.h"
-           useDshotTelemetry;
-
-typedef struct dshotTelemetryMotorState_s {
-    uint16_t telemetryValue;
-    
-# 70 "./src/main/drivers/dshot.h" 3 4
-   _Bool 
-# 70 "./src/main/drivers/dshot.h"
-        telemetryActive;
-} dshotTelemetryMotorState_t;
-
-
-typedef struct dshotTelemetryState_s {
-    
-# 75 "./src/main/drivers/dshot.h" 3 4
-   _Bool 
-# 75 "./src/main/drivers/dshot.h"
-        useDshotTelemetry;
-    uint32_t invalidPacketCount;
-    uint32_t readCount;
-    dshotTelemetryMotorState_t motorState[8];
-    uint32_t inputBuffer[22];
-} dshotTelemetryState_t;
-
-extern dshotTelemetryState_t dshotTelemetryState;
-
-
-void updateDshotTelemetryQuality(dshotTelemetryQuality_t *qualityStats, 
-# 85 "./src/main/drivers/dshot.h" 3 4
-                                                                       _Bool 
-# 85 "./src/main/drivers/dshot.h"
-                                                                            packetValid, timeMs_t currentTimeMs);
-
-
-
-uint16_t getDshotTelemetry(uint8_t index);
-
-# 90 "./src/main/drivers/dshot.h" 3 4
-_Bool 
-# 90 "./src/main/drivers/dshot.h"
-    isDshotMotorTelemetryActive(uint8_t motorIndex);
-
-# 91 "./src/main/drivers/dshot.h" 3 4
-_Bool 
-# 91 "./src/main/drivers/dshot.h"
-    isDshotTelemetryActive(void);
-
-int16_t getDshotTelemetryMotorInvalidPercent(uint8_t motorIndex);
-
-void validateAndfixMotorOutputReordering(uint8_t *array, const unsigned size);
-# 12 "./src/main/drivers/dshot_bitbang_decode.c" 2
-# 1 "./src/main/drivers/dshot_bitbang_decode.h" 1
-# 26 "./src/main/drivers/dshot_bitbang_decode.h"
-uint32_t decode_bb(uint16_t buffer[], uint32_t count, uint32_t mask);
-uint32_t decode_bb_bitband( uint16_t buffer[], uint32_t count, uint32_t bit);
-# 13 "./src/main/drivers/dshot_bitbang_decode.c" 2
-# 31 "./src/main/drivers/dshot_bitbang_decode.c"
-typedef struct bitBandWord_s {
-    uint32_t value;
-    uint32_t junk[15];
-} bitBandWord_t;
-
-
-
-
-
-
-
-static uint32_t decode_bb_value(uint32_t value, uint16_t buffer[], uint32_t count, uint32_t bit)
-{
-
-    (void)(buffer);
-    (void)(count);
-    (void)(bit);
-
-
-
-    value &= 0xfffff;
-    static const uint32_t decode[32] = {
-        0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 9, 10, 11, 0xffffffff, 13, 14, 15,
-        0xffffffff, 0xffffffff, 2, 3, 0xffffffff, 5, 6, 7, 0xffffffff, 0, 8, 1, 0xffffffff, 4, 12, 0xffffffff };
-
-    uint32_t decodedValue = decode[value & 0x1f];
-    decodedValue |= decode[(value >> 5) & 0x1f] << 4;
-    decodedValue |= decode[(value >> 10) & 0x1f] << 8;
-    decodedValue |= decode[(value >> 15) & 0x1f] << 12;
-
-    uint32_t csum = decodedValue;
-    csum = csum ^ (csum >> 8);
-    csum = csum ^ (csum >> 4);
-
-    if ((csum & 0xf) != 0xf || decodedValue > 0xffff) {
-
-
-
-
-
-
-        value = 0xffff;
-    } else {
-        value = decodedValue >> 4;
-
-        if (value == 0x0fff) {
-            return 0;
-        }
-
-        value = (value & 0x000001ff) << ((value & 0xfffffe00) >> 9);
-        if (!value) {
-            return 0xffff;
-        }
-
-        value = (1000000 * 60 / 100 + value / 2) / value;
-    }
-    return value;
-}
-
-
-uint32_t decode_bb_bitband( uint16_t buffer[], uint32_t count, uint32_t bit)
-{
-
-
-
-
-    uint32_t value = 0;
-
-    bitBandWord_t* p = (bitBandWord_t*)((0x22000000 + ((((uint32_t)buffer)-0x20000000)<<5) + ((bit)<<2)));
-    bitBandWord_t* b = p;
-    bitBandWord_t* endP = p + (count - ((21 - 2) * 3));
-
-
-
-    while (p < endP) {
-        if (__builtin_expect((!(p++)->value), 0) ||
-            __builtin_expect((!(p++)->value), 0) ||
-            __builtin_expect((!(p++)->value), 0) ||
-            __builtin_expect((!(p++)->value), 0)) {
-            break;
-        }
-    }
-
-    if (p >= endP) {
-
-
-
-        return 0xfffe;
-    }
-
-    int remaining = __extension__ ({ __typeof__ (count - (p - b)) _a = (count - (p - b)); __typeof__ ((unsigned int)((21 + 2) * 3)) _b = ((unsigned int)((21 + 2) * 3)); _a < _b ? _a : _b; });
-
-    bitBandWord_t* oldP = p;
-    uint32_t bits = 0;
-    endP = p + remaining;
-
-
-
-
-
-    while (endP > p) {
-        do {
-
-            if(__builtin_expect((p++)->value, 0) ||
-               __builtin_expect((p++)->value, 0) ||
-               __builtin_expect((p++)->value, 0) ||
-               __builtin_expect((p++)->value, 0)) {
-                break;
-            }
-        } while (endP > p);
-
-        if (endP > p) {
-
-
-
-
-
-
-
-            const int len = __extension__ ({ __typeof__ ((p - oldP + 1) / 3) _a = ((p - oldP + 1) / 3); __typeof__ (1) _b = (1); _a > _b ? _a : _b; });
-            bits += len;
-            value <<= len;
-            value |= 1 << (len - 1);
-            oldP = p;
-
-
-            do {
-                if (__builtin_expect(!(p++)->value, 0) ||
-                    __builtin_expect(!(p++)->value, 0) ||
-                    __builtin_expect(!(p++)->value, 0) ||
-                    __builtin_expect(!(p++)->value, 0)) {
-                    break;
-                }
-            } while (endP > p);
-
-            if (endP > p) {
-
-
-
-
-
-
-
-                const int len = __extension__ ({ __typeof__ ((p - oldP + 1) / 3) _a = ((p - oldP + 1) / 3); __typeof__ (1) _b = (1); _a > _b ? _a : _b; });
-                bits += len;
-                value <<= len;
-                value |= 1 << (len - 1);
-                oldP = p;
-            }
-        }
-    }
-
-    if (bits < 18) {
-        return 0xfffe;
-    }
-
-
-    const int nlen = 21 - bits;
-    if (nlen < 0) {
-        value = 0xffff;
-    }
-
-
-
-
-
-    if (nlen > 0) {
-        value <<= nlen;
-        value |= 1 << (nlen - 1);
-    }
-    return decode_bb_value(value, buffer, count, bit);
-}
-
- uint32_t decode_bb( uint16_t buffer[], uint32_t count, uint32_t bit)
-{
-
-
-
-
-    uint32_t mask = 1 << bit;
-
-
-
-
-
-
-
-    uint16_t lastValue = 0;
-    uint32_t value = 0;
-
-    uint16_t* p = buffer;
-    uint16_t* endP = p + count - ((21 - 2) * 3);
-
-
-    while (p < endP) {
-        if (__builtin_expect(!(*p++ & mask), 0) ||
-            __builtin_expect(!(*p++ & mask), 0) ||
-            __builtin_expect(!(*p++ & mask), 0) ||
-            __builtin_expect(!(*p++ & mask), 0)) {
-            break;
-        }
-    }
-
-    if(*p & mask) {
-
-
-
-        return 0xfffe;
-    }
-
-    int remaining = __extension__ ({ __typeof__ (count - (p - buffer)) _a = (count - (p - buffer)); __typeof__ ((unsigned int)((21 + 2) * 3)) _b = ((unsigned int)((21 + 2) * 3)); _a < _b ? _a : _b; });
-
-    uint16_t* oldP = p;
-    uint32_t bits = 0;
-    endP = p + remaining;
-
-
-
-
-
-    while (endP > p ) {
-
-        if (__builtin_expect((*p++ & mask) != lastValue, 0) ||
-            __builtin_expect((*p++ & mask) != lastValue, 0) ||
-            __builtin_expect((*p++ & mask) != lastValue, 0) ||
-            __builtin_expect((*p++ & mask) != lastValue, 0)) {
-            if (endP > p) {
-
-
-
-
-
-
-                const int len = __extension__ ({ __typeof__ ((p - oldP + 1) / 3) _a = ((p - oldP + 1) / 3); __typeof__ (1) _b = (1); _a > _b ? _a : _b; });
-                bits += len;
-                value <<= len;
-                value |= 1 << (len - 1);
-                oldP = p;
-                lastValue = *(p-1) & mask;
-            }
-        }
-    }
-
-
-    if (bits < 18) {
-        return 0xfffe;
-    }
-
-    const int nlen = 21 - bits;
-
-
-
-
-
-    if (nlen < 0) {
-        value = 0xffff;
-    }
-    if (nlen > 0) {
-        value <<= nlen;
-        value |= 1 << (nlen - 1);
-    }
-    return decode_bb_value(value, buffer, count, bit);
-}

@@ -61,19 +61,17 @@ BETA-log_FIRMWARE/main/FLOWBOX_04/config/config.o: \
  src/main/pg/beeper.h src/main/pg/beeper_dev.h \
  src/main/pg/displayport_profiles.h src/main/pg/gyrodev.h \
  src/main/pg/rx.h src/main/pg/rx_spi.h src/main/pg/sdcard.h \
- src/main/pg/vtx_table.h src/main/drivers/vtx_table.h \
- src/main/drivers/vtx_common.h src/main/common/streambuf.h \
- src/main/rx/rx.h src/main/rx/rx_spi.h src/main/drivers/exti.h \
- src/main/scheduler/scheduler.h src/main/config/config.h \
- src/main/sensors/acceleration.h src/main/drivers/accgyro/accgyro.h \
- src/main/drivers/bus.h src/main/drivers/bus_i2c.h \
- src/main/drivers/sensor.h src/main/drivers/accgyro/accgyro_mpu.h \
- src/main/sensors/sensors.h src/main/sensors/battery.h \
- src/main/sensors/current.h src/main/sensors/current_ids.h \
- src/main/sensors/voltage.h src/main/sensors/voltage_ids.h \
- src/main/sensors/compass.h src/main/sensors/gyro.h \
- src/main/flight/gyroanalyse.h lib/main/CMSIS/DSP/Include/arm_math.h \
- src/main/drivers/dshot.h
+ src/main/pg/vtx_table.h src/main/rx/rx.h src/main/rx/rx_spi.h \
+ src/main/drivers/exti.h src/main/scheduler/scheduler.h \
+ src/main/config/config.h src/main/sensors/acceleration.h \
+ src/main/drivers/accgyro/accgyro.h src/main/drivers/bus.h \
+ src/main/drivers/bus_i2c.h src/main/drivers/sensor.h \
+ src/main/drivers/accgyro/accgyro_mpu.h src/main/sensors/sensors.h \
+ src/main/sensors/battery.h src/main/sensors/current.h \
+ src/main/sensors/current_ids.h src/main/sensors/voltage.h \
+ src/main/sensors/voltage_ids.h src/main/sensors/compass.h \
+ src/main/sensors/gyro.h src/main/flight/gyroanalyse.h \
+ lib/main/CMSIS/DSP/Include/arm_math.h src/main/drivers/dshot.h
 
 src/main/platform.h:
 
@@ -284,12 +282,6 @@ src/main/pg/rx_spi.h:
 src/main/pg/sdcard.h:
 
 src/main/pg/vtx_table.h:
-
-src/main/drivers/vtx_table.h:
-
-src/main/drivers/vtx_common.h:
-
-src/main/common/streambuf.h:
 
 src/main/rx/rx.h:
 

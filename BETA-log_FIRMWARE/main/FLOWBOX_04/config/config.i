@@ -3,13 +3,13 @@
 # 1 "<command-line>"
 # 1 "./src/main/config/config.c"
 # 21 "./src/main/config/config.c"
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdbool.h" 1 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdbool.h" 1 3 4
 # 22 "./src/main/config/config.c" 2
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 1 3 4
-# 9 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 1 3 4
-# 12 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 1 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 1 3 4
+# 9 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 1 3 4
+# 12 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 1 3 4
 
 
 
@@ -17,46 +17,46 @@
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 1 3 4
-# 28 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_newlib_version.h" 1 3 4
-# 29 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 2 3 4
-# 9 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 2 3 4
-# 41 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 1 3 4
+# 28 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_newlib_version.h" 1 3 4
+# 29 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 2 3 4
+# 9 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 2 3 4
+# 41 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 
-# 41 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 41 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef signed char __int8_t;
 
 typedef unsigned char __uint8_t;
-# 55 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 55 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef short int __int16_t;
 
 typedef short unsigned int __uint16_t;
-# 77 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 77 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef long int __int32_t;
 
 typedef long unsigned int __uint32_t;
-# 103 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 103 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef long long int __int64_t;
 
 typedef long long unsigned int __uint64_t;
-# 134 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 134 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef signed char __int_least8_t;
 
 typedef unsigned char __uint_least8_t;
-# 160 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 160 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef short int __int_least16_t;
 
 typedef short unsigned int __uint_least16_t;
-# 182 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 182 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef long int __int_least32_t;
 
 typedef long unsigned int __uint_least32_t;
-# 200 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 200 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef long long int __int_least64_t;
 
 typedef long long unsigned int __uint_least64_t;
-# 214 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 214 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef long long int __intmax_t;
 
 
@@ -76,9 +76,9 @@ typedef long long unsigned int __uintmax_t;
 typedef int __intptr_t;
 
 typedef unsigned int __uintptr_t;
-# 13 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 1 3 4
-# 35 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
+# 13 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 1 3 4
+# 35 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
        
        
        
@@ -87,7 +87,7 @@ typedef unsigned int __uintptr_t;
        
        
        
-# 190 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
+# 190 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
        
        
        
@@ -96,9 +96,9 @@ typedef unsigned int __uintptr_t;
        
        
        
-# 14 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 1 3 4
-# 20 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 3 4
+# 14 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 1 3 4
+# 20 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 3 4
 typedef __int8_t int8_t ;
 
 
@@ -162,7 +162,7 @@ typedef __intptr_t intptr_t;
 
 
 typedef __uintptr_t uintptr_t;
-# 15 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
+# 15 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
 
 
 
@@ -189,62 +189,62 @@ typedef __uint_least32_t uint_least32_t;
 
 typedef __int_least64_t int_least64_t;
 typedef __uint_least64_t uint_least64_t;
-# 51 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 51 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef int int_fast8_t;
   typedef unsigned int uint_fast8_t;
-# 61 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 61 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef int int_fast16_t;
   typedef unsigned int uint_fast16_t;
-# 71 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 71 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef int int_fast32_t;
   typedef unsigned int uint_fast32_t;
-# 81 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 81 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef long long int int_fast64_t;
   typedef long long unsigned int uint_fast64_t;
-# 10 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 2 3 4
+# 10 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 2 3 4
 # 23 "./src/main/config/config.c" 2
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 1 3
-# 10 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
-# 10 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\newlib.h" 1 3
-# 11 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 1 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 1 3
+# 10 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
+# 10 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\newlib.h" 1 3
+# 11 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 1 3
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\ieeefp.h" 1 3
-# 5 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 2 3
-# 12 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
-# 11 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 1 3
-# 13 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
-# 14 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 143 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\ieeefp.h" 1 3
+# 5 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 2 3
+# 12 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
+# 11 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 1 3
+# 13 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
+# 14 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 143 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef int ptrdiff_t;
-# 209 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 209 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef unsigned int size_t;
-# 321 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 321 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef unsigned int wchar_t;
-# 415 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 415 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef struct {
   long long __max_align_ll __attribute__((__aligned__(__alignof__(long long))));
   long double __max_align_ld __attribute__((__aligned__(__alignof__(long double))));
-# 426 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 426 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 } max_align_t;
-# 15 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 1 3
-# 24 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 350 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 15 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 1 3
+# 24 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 350 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef unsigned int wint_t;
-# 25 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
+# 25 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_types.h" 1 3
-# 28 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_types.h" 1 3
+# 28 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
 
 
 typedef long __blkcnt_t;
@@ -293,7 +293,7 @@ typedef __uint32_t __id_t;
 
 
 typedef unsigned short __ino_t;
-# 90 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 90 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef __uint32_t __mode_t;
 
 
@@ -321,11 +321,11 @@ typedef long __key_t;
 
 
 typedef long _fpos_t;
-# 131 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 131 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef unsigned int __size_t;
-# 147 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 147 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef signed int _ssize_t;
-# 158 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 158 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef _ssize_t __ssize_t;
 
 
@@ -388,7 +388,7 @@ typedef unsigned long __useconds_t;
 
 
 typedef __builtin_va_list __va_list;
-# 16 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 16 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
 
 
 
@@ -396,9 +396,9 @@ typedef __builtin_va_list __va_list;
 
 
 typedef unsigned long __ULong;
-# 34 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 1 3
-# 33 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 3
+# 34 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 1 3
+# 33 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 3
 struct __lock;
 typedef struct __lock * _LOCK_T;
 
@@ -427,7 +427,7 @@ extern int __retarget_lock_try_acquire_recursive(_LOCK_T lock);
 extern void __retarget_lock_release(_LOCK_T lock);
 
 extern void __retarget_lock_release_recursive(_LOCK_T lock);
-# 35 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 35 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
 typedef _LOCK_T _flock_t;
 
 
@@ -481,7 +481,7 @@ struct _on_exit_args {
 
  __ULong _is_cxa;
 };
-# 98 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 98 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct _atexit {
  struct _atexit *_next;
  int _ind;
@@ -489,12 +489,12 @@ struct _atexit {
  void (*_fns[32])(void);
         struct _on_exit_args _on_exit_args;
 };
-# 122 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 122 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct __sbuf {
  unsigned char *_base;
  int _size;
 };
-# 186 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 186 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct __sFILE {
   unsigned char *_p;
   int _r;
@@ -545,7 +545,7 @@ struct __sFILE {
   _mbstate_t _mbstate;
   int _flags2;
 };
-# 292 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 292 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 typedef struct __sFILE __FILE;
 
 
@@ -556,7 +556,7 @@ struct _glue
   int _niobs;
   __FILE *_iobs;
 };
-# 324 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 324 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct _rand48 {
   unsigned short _seed[3];
   unsigned short _mult[3];
@@ -566,7 +566,7 @@ struct _rand48 {
 
 
 };
-# 613 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 613 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct _reent
 {
   int _errno;
@@ -649,35 +649,35 @@ struct _reent
   __FILE __sf[3];
 
 };
-# 819 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 819 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 extern struct _reent *_impure_ptr ;
 extern struct _reent *const _global_impure_ptr ;
 
 void _reclaim_reent (struct _reent *);
-# 12 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 1 3
-# 47 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 48 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 2 3
-# 13 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 12 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 1 3
+# 47 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 48 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 2 3
+# 13 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 18 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 18 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 1 3
-# 9 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 1 3
+# 9 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 3
 struct __locale_t;
 typedef struct __locale_t *locale_t;
-# 21 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 21 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 1 3
-# 44 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 1 3
+# 44 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 3
 
 
 int bcmp(const void *, const void *, size_t) __attribute__((__pure__));
@@ -709,7 +709,7 @@ int strcasecmp_l (const char *, const char *, locale_t);
 int strncasecmp_l (const char *, const char *, size_t, locale_t);
 
 
-# 25 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 25 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 
@@ -783,7 +783,7 @@ char *_strndup_r (struct _reent *, const char *, size_t);
 
 
 char *strerror_r (int, char *, size_t);
-# 112 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
+# 112 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
 char * _strerror_r (struct _reent *, int, int, int *);
 
 
@@ -815,28 +815,28 @@ char *strsignal (int __signo);
 
 
 int strverscmp (const char *, const char *);
-# 172 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
+# 172 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
 char *__attribute__((__nonnull__ (1))) basename (const char *) __asm__("" "__gnu_basename");
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\string.h" 1 3
-# 176 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\string.h" 1 3
+# 176 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 # 24 "./src/main/config/config.c" 2
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 1 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 1 3
 
 
 
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\ieeefp.h" 1 3
-# 8 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\ieeefp.h" 1 3
+# 8 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 2 3
 
 
 
-# 86 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 86 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
 extern double atan (double);
 extern double cos (double);
 extern double sin (double);
@@ -885,10 +885,10 @@ extern int isinf (double);
 
 
 extern int isnan (double);
-# 150 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 150 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
     typedef float float_t;
     typedef double double_t;
-# 194 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 194 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
 extern int __isinff (float x);
 extern int __isinfd (double x);
 extern int __isnanf (float x);
@@ -897,7 +897,7 @@ extern int __fpclassifyf (float x);
 extern int __fpclassifyd (double x);
 extern int __signbitf (float x);
 extern int __signbitd (double x);
-# 290 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 290 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
 extern double infinity (void);
 extern double nan (const char *);
 extern double copysign (double, double);
@@ -1020,7 +1020,7 @@ extern float erff (float);
 extern float erfcf (float);
 extern float log2f (float);
 extern float hypotf (float, float);
-# 422 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 422 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
 extern long double atanl (long double);
 extern long double cosl (long double);
 extern long double sinl (long double);
@@ -1087,7 +1087,7 @@ extern long double remainderl (long double, long double);
 extern long double lgammal (long double);
 extern long double erfl (long double);
 extern long double erfcl (long double);
-# 503 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 503 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
 extern double drem (double, double);
 extern float dremf (float, float);
 
@@ -1135,9 +1135,9 @@ extern float exp10f (float);
 
 
 extern float pow10f (float);
-# 565 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 565 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
 extern int *__signgam (void);
-# 607 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 607 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
 enum __fdlibm_version
 {
   __fdlibm_ieee = -1,
@@ -1157,8 +1157,8 @@ extern enum __fdlibm_version __fdlib_version;
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\fastmath.h" 1 3
-# 627 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\fastmath.h" 1 3
+# 627 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 2 3
 # 25 "./src/main/config/config.c" 2
 
 # 1 "./src/main/platform.h" 1
@@ -5109,7 +5109,7 @@ void __attribute__((section(".RamFunc"))) FLASH_FlashSleepModeCmd(FunctionalStat
 # 21 "./src/main/common/utils.h"
        
 
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
 # 24 "./src/main/common/utils.h" 2
 # 100 "./src/main/common/utils.h"
 static inline int16_t cmp16(uint16_t a, uint16_t b) { return (int16_t)(a-b); }
@@ -6567,13 +6567,9 @@ timeMs_t motorGetMotorEnableTimeMs(void);
 void motorShutdown(void);
 
 
-struct motorDevConfig_s;
-typedef struct motorDevConfig_s motorDevConfig_t;
 
-# 102 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 102 "./src/main/drivers/motor.h"
-    isDshotBitbangActive(const motorDevConfig_t *motorConfig);
+
+
 
 
 float getDigitalIdleOffset(const motorConfig_t *motorConfig);
@@ -6719,14 +6715,7 @@ void copyControlRateProfile(const uint8_t dstControlRateProfileIndex, const uint
 # 1 "./src/main/fc/core.h" 1
 # 21 "./src/main/fc/core.h"
        
-
-
-
-
-
-extern int16_t magHold;
-
-
+# 30 "./src/main/fc/core.h"
 typedef struct throttleCorrectionConfig_s {
     uint16_t throttle_correction_angle;
     uint8_t throttle_correction_value;
@@ -6762,7 +6751,7 @@ typedef enum {
 
 
 
-extern const char * const osdLaunchControlModeNames[LAUNCH_CONTROL_MODE_COUNT];
+
 
 
 extern throttleCorrectionConfig_t throttleCorrectionConfig_System; extern throttleCorrectionConfig_t throttleCorrectionConfig_Copy; static inline const throttleCorrectionConfig_t* throttleCorrectionConfig(void) { return &throttleCorrectionConfig_System; } static inline throttleCorrectionConfig_t* throttleCorrectionConfigMutable(void) { return &throttleCorrectionConfig_System; } struct _dummy;
@@ -7514,7 +7503,7 @@ typedef enum {
     FAILSAFE_PROCEDURE_AUTO_LANDING = 0,
     FAILSAFE_PROCEDURE_DROP_IT,
 
-    FAILSAFE_PROCEDURE_GPS_RESCUE,
+
 
     FAILSAFE_PROCEDURE_COUNT
 } failsafeProcedure_e;
@@ -8116,37 +8105,7 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-
-
-    pt1Filter_t windupLpf[3];
-    uint8_t itermRelax;
-    uint8_t itermRelaxType;
-    uint8_t itermRelaxCutoff;
-
-
-
-    float acCutoff;
-    float acGain;
-    float acLimit;
-    float acErrorLimit;
-    pt1Filter_t acLpf[3];
-    float oldSetpointCorrection[3];
-
-
-
-    biquadFilter_t dMinRange[3];
-    pt1Filter_t dMinLowpass[3];
-    float dMinPercent[3];
-    float dMinGyroGain;
-    float dMinSetpointGain;
-
-
-
-    pt1Filter_t airmodeThrottleLpf1;
-    pt1Filter_t airmodeThrottleLpf2;
-
-
-
+# 343 "./src/main/flight/pid.h"
     pt1Filter_t setpointDerivativePt1[3];
     biquadFilter_t setpointDerivativeBiquad[3];
     
@@ -8176,33 +8135,7 @@ typedef struct pidRuntime_s {
     uint16_t dynLpfMin;
     uint16_t dynLpfMax;
     uint8_t dynLpfCurveExpo;
-
-
-
-    uint8_t launchControlMode;
-    uint8_t launchControlAngleLimit;
-    float launchControlKi;
-
-
-
-    
-# 373 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 373 "./src/main/flight/pid.h"
-        useIntegratedYaw;
-    uint8_t integratedYawRelax;
-
-
-
-    float thrustLinearization;
-    float throttleCompensateAmount;
-
-
-
-    float airmodeThrottleOffsetLimit;
-
-
-
+# 387 "./src/main/flight/pid.h"
     ffInterpolationType_t ffFromInterpolatedSetpoint;
     float ffSmoothFactor;
 
@@ -8254,15 +8187,6 @@ void pidSetAntiGravityState(
 _Bool 
 # 413 "./src/main/flight/pid.h"
     pidAntiGravityEnabled(void);
-
-
-float pidApplyThrustLinearization(float motorValue);
-float pidCompensateThrustLinearization(float throttle);
-
-
-
-void pidUpdateAirmodeLpf(float currentOffset);
-float pidGetAirmodeThrottleOffset();
 # 436 "./src/main/flight/pid.h"
 void dynLpfDTermUpdate(float throttle);
 void pidSetItermReset(
@@ -9768,7 +9692,7 @@ typedef struct osdConfig_s {
     uint8_t ahInvert;
     uint8_t osdProfileIndex;
     uint8_t overlay_radio_mode;
-    char profile[3][16 + 1];
+    char profile[1][16 + 1];
     uint16_t link_quality_alarm;
     int16_t rssi_dbm_alarm;
     uint8_t gps_sats_show_hdop;
@@ -9814,7 +9738,7 @@ extern timeUs_t osdFlyTime;
 extern float osdGForce;
 
 
-extern escSensorData_t *osdEscDataCombined;
+
 
 
 void osdInit(displayPort_t *osdDisplayPort, osdDisplayPortDevice_e displayPortDevice);
@@ -10173,232 +10097,6 @@ extern sdcardConfig_t sdcardConfig_System; extern sdcardConfig_t sdcardConfig_Co
 # 1 "./src/main/pg/vtx_table.h" 1
 # 21 "./src/main/pg/vtx_table.h"
        
-
-
-
-
-
-
-
-# 1 "./src/main/drivers/vtx_table.h" 1
-# 27 "./src/main/drivers/vtx_table.h"
-# 1 "./src/main/drivers/vtx_common.h" 1
-# 23 "./src/main/drivers/vtx_common.h"
-       
-
-
-
-
-
-# 1 "./src/main/common/streambuf.h" 1
-# 21 "./src/main/common/streambuf.h"
-       
-
-
-
-
-
-typedef struct sbuf_s {
-    uint8_t *ptr;
-    uint8_t *end;
-} sbuf_t;
-
-sbuf_t *sbufInit(sbuf_t *sbuf, uint8_t *ptr, uint8_t *end);
-
-void sbufWriteU8(sbuf_t *dst, uint8_t val);
-void sbufWriteU16(sbuf_t *dst, uint16_t val);
-void sbufWriteU32(sbuf_t *dst, uint32_t val);
-void sbufWriteU16BigEndian(sbuf_t *dst, uint16_t val);
-void sbufWriteU32BigEndian(sbuf_t *dst, uint32_t val);
-void sbufFill(sbuf_t *dst, uint8_t data, int len);
-void sbufWriteData(sbuf_t *dst, const void *data, int len);
-void sbufWriteString(sbuf_t *dst, const char *string);
-void sbufWriteStringWithZeroTerminator(sbuf_t *dst, const char *string);
-
-uint8_t sbufReadU8(sbuf_t *src);
-uint16_t sbufReadU16(sbuf_t *src);
-uint32_t sbufReadU32(sbuf_t *src);
-void sbufReadData(sbuf_t *dst, void *data, int len);
-
-int sbufBytesRemaining(sbuf_t *buf);
-uint8_t* sbufPtr(sbuf_t *buf);
-const uint8_t* sbufConstPtr(const sbuf_t *buf);
-void sbufAdvance(sbuf_t *buf, int size);
-
-void sbufSwitchToReader(sbuf_t *buf, uint8_t * base);
-# 30 "./src/main/drivers/vtx_common.h" 2
-# 49 "./src/main/drivers/vtx_common.h"
-typedef enum {
-    VTXDEV_UNSUPPORTED = 0,
-    VTXDEV_RTC6705 = 1,
-
-    VTXDEV_SMARTAUDIO = 3,
-    VTXDEV_TRAMP = 4,
-    VTXDEV_UNKNOWN = 0xFF,
-} vtxDevType_e;
-# 86 "./src/main/drivers/vtx_common.h"
-enum {
-    VTX_STATUS_PIT_MODE = 1 << 0,
-    VTX_STATUS_LOCKED = 1 << 1,
-};
-
-struct vtxVTable_s;
-typedef struct vtxDevice_s {
-    const struct vtxVTable_s *const vTable;
-} vtxDevice_t;
-
-
-
-
-
-
-typedef struct vtxVTable_s {
-    void (*process)(vtxDevice_t *vtxDevice, timeUs_t currentTimeUs);
-    vtxDevType_e (*getDeviceType)(const vtxDevice_t *vtxDevice);
-    
-# 104 "./src/main/drivers/vtx_common.h" 3 4
-   _Bool 
-# 104 "./src/main/drivers/vtx_common.h"
-        (*isReady)(const vtxDevice_t *vtxDevice);
-
-    void (*setBandAndChannel)(vtxDevice_t *vtxDevice, uint8_t band, uint8_t channel);
-    void (*setPowerByIndex)(vtxDevice_t *vtxDevice, uint8_t level);
-    void (*setPitMode)(vtxDevice_t *vtxDevice, uint8_t onoff);
-    void (*setFrequency)(vtxDevice_t *vtxDevice, uint16_t freq);
-
-    
-# 111 "./src/main/drivers/vtx_common.h" 3 4
-   _Bool 
-# 111 "./src/main/drivers/vtx_common.h"
-        (*getBandAndChannel)(const vtxDevice_t *vtxDevice, uint8_t *pBand, uint8_t *pChannel);
-    
-# 112 "./src/main/drivers/vtx_common.h" 3 4
-   _Bool 
-# 112 "./src/main/drivers/vtx_common.h"
-        (*getPowerIndex)(const vtxDevice_t *vtxDevice, uint8_t *pIndex);
-    
-# 113 "./src/main/drivers/vtx_common.h" 3 4
-   _Bool 
-# 113 "./src/main/drivers/vtx_common.h"
-        (*getFrequency)(const vtxDevice_t *vtxDevice, uint16_t *pFreq);
-    
-# 114 "./src/main/drivers/vtx_common.h" 3 4
-   _Bool 
-# 114 "./src/main/drivers/vtx_common.h"
-        (*getStatus)(const vtxDevice_t *vtxDevice, unsigned *status);
-    uint8_t (*getPowerLevels)(const vtxDevice_t *vtxDevice, uint16_t *levels, uint16_t *powers);
-
-    void (*serializeCustomDeviceStatus)(const vtxDevice_t *vtxDevice, sbuf_t *dst);
-} vtxVTable_t;
-
-
-
-
-
-
-void vtxCommonInit(void);
-void vtxCommonSetDevice(vtxDevice_t *vtxDevice);
-vtxDevice_t *vtxCommonDevice(void);
-
-
-void vtxCommonProcess(vtxDevice_t *vtxDevice, timeUs_t currentTimeUs);
-vtxDevType_e vtxCommonGetDeviceType(const vtxDevice_t *vtxDevice);
-
-# 132 "./src/main/drivers/vtx_common.h" 3 4
-_Bool 
-# 132 "./src/main/drivers/vtx_common.h"
-    vtxCommonDeviceIsReady(const vtxDevice_t *vtxDevice);
-
-void vtxCommonSetBandAndChannel(vtxDevice_t *vtxDevice, uint8_t band, uint8_t channel);
-void vtxCommonSetPowerByIndex(vtxDevice_t *vtxDevice, uint8_t level);
-void vtxCommonSetPitMode(vtxDevice_t *vtxDevice, uint8_t onoff);
-void vtxCommonSetFrequency(vtxDevice_t *vtxDevice, uint16_t freq);
-
-
-# 139 "./src/main/drivers/vtx_common.h" 3 4
-_Bool 
-# 139 "./src/main/drivers/vtx_common.h"
-    vtxCommonGetBandAndChannel(const vtxDevice_t *vtxDevice, uint8_t *pBand, uint8_t *pChannel);
-
-# 140 "./src/main/drivers/vtx_common.h" 3 4
-_Bool 
-# 140 "./src/main/drivers/vtx_common.h"
-    vtxCommonGetPowerIndex(const vtxDevice_t *vtxDevice, uint8_t *pIndex);
-
-# 141 "./src/main/drivers/vtx_common.h" 3 4
-_Bool 
-# 141 "./src/main/drivers/vtx_common.h"
-    vtxCommonGetFrequency(const vtxDevice_t *vtxDevice, uint16_t *pFreq);
-
-# 142 "./src/main/drivers/vtx_common.h" 3 4
-_Bool 
-# 142 "./src/main/drivers/vtx_common.h"
-    vtxCommonGetStatus(const vtxDevice_t *vtxDevice, unsigned *status);
-uint8_t vtxCommonGetVTXPowerLevels(const vtxDevice_t *vtxDevice, uint16_t *levels, uint16_t *powers);
-
-
-const char *vtxCommonLookupBandName(const vtxDevice_t *vtxDevice, int band);
-char vtxCommonLookupBandLetter(const vtxDevice_t *vtxDevice, int band);
-char vtxCommonGetBandLetter(const vtxDevice_t *vtxDevice, int band);
-const char *vtxCommonLookupChannelName(const vtxDevice_t *vtxDevice, int channel);
-uint16_t vtxCommonLookupFrequency(const vtxDevice_t *vtxDevice, int band, int channel);
-void vtxCommonLookupBandChan(const vtxDevice_t *vtxDevice, uint16_t freq, uint8_t *pBand, uint8_t *pChannel);
-const char *vtxCommonLookupPowerName(const vtxDevice_t *vtxDevice, int index);
-
-# 153 "./src/main/drivers/vtx_common.h" 3 4
-_Bool 
-# 153 "./src/main/drivers/vtx_common.h"
-    vtxCommonLookupPowerValue(const vtxDevice_t *vtxDevice, int index, uint16_t *pPowerValue);
-void vtxCommonSerializeDeviceStatus(const vtxDevice_t *vtxDevice, sbuf_t *dst);
-# 28 "./src/main/drivers/vtx_table.h" 2
-# 54 "./src/main/drivers/vtx_table.h"
-struct vtxTableConfig_s;
-void vtxTableInit(void);
-void vtxTableStrncpyWithPad(char *dst, const char *src, int length);
-void vtxTableConfigClearBand(struct vtxTableConfig_s *config, int band);
-void vtxTableConfigClearPowerValues(struct vtxTableConfig_s *config, int start);
-void vtxTableConfigClearPowerLabels(struct vtxTableConfig_s *config, int start);
-void vtxTableConfigClearChannels(struct vtxTableConfig_s *config, int band, int channels);
-
-
-
-
-extern int vtxTableBandCount;
-extern int vtxTableChannelCount;
-extern uint16_t vtxTableFrequency[8][8];
-extern const char *vtxTableBandNames[8 + 1];
-extern char vtxTableBandLetters[8 + 1];
-extern const char *vtxTableChannelNames[8 + 1];
-extern 
-# 71 "./src/main/drivers/vtx_table.h" 3 4
-      _Bool 
-# 71 "./src/main/drivers/vtx_table.h"
-                     vtxTableIsFactoryBand[8];
-extern int vtxTablePowerLevels;
-extern uint16_t vtxTablePowerValues[8];
-extern const char *vtxTablePowerLabels[8 + 1];
-# 30 "./src/main/pg/vtx_table.h" 2
-
-typedef struct vtxTableConfig_s {
-    uint8_t bands;
-    uint8_t channels;
-    uint16_t frequency[8][8];
-    char bandNames[8][8 + 1];
-    char bandLetters[8];
-    char channelNames[8][1 + 1];
-    
-# 38 "./src/main/pg/vtx_table.h" 3 4
-   _Bool 
-# 38 "./src/main/pg/vtx_table.h"
-            isFactoryBand[8];
-
-    uint8_t powerLevels;
-    uint16_t powerValues[8];
-    char powerLabels[8][3 + 1];
-} vtxTableConfig_t;
-
-struct vtxTableConfig_s;
-extern struct vtxTableConfig_s vtxTableConfig_System; extern struct vtxTableConfig_s vtxTableConfig_Copy; static inline const struct vtxTableConfig_s* vtxTableConfig(void) { return &vtxTableConfig_System; } static inline struct vtxTableConfig_s* vtxTableConfigMutable(void) { return &vtxTableConfig_System; } struct _dummy;
 # 80 "./src/main/config/config.c" 2
 
 # 1 "./src/main/rx/rx.h" 1
@@ -10856,40 +10554,11 @@ typedef enum {
     TASK_BATTERY_ALERTS,
 
     TASK_BEEPER,
-
-
-    TASK_GPS,
-# 100 "./src/main/scheduler/scheduler.h"
-    TASK_ALTITUDE,
-
-
-
-
-
-    TASK_TELEMETRY,
-
-
+# 109 "./src/main/scheduler/scheduler.h"
     TASK_LEDSTRIP,
-# 118 "./src/main/scheduler/scheduler.h"
-    TASK_OSD,
-
-
-
-
-
-    TASK_ESC_SENSOR,
-
-
+# 127 "./src/main/scheduler/scheduler.h"
     TASK_CMS,
-
-
-    TASK_VTXCTRL,
-
-
-    TASK_CAMCTRL,
-
-
-
+# 137 "./src/main/scheduler/scheduler.h"
     TASK_RCDEVICE,
 
 
@@ -11850,7 +11519,7 @@ typedef struct voltageMeter_s {
     uint16_t displayFiltered;
     uint16_t unfiltered;
 
-    uint16_t sagFiltered;
+
 
     
 # 49 "./src/main/sensors/voltage.h" 3 4
@@ -15986,18 +15655,7 @@ _Bool
 # 1 "./src/main/drivers/dshot.h" 1
 # 21 "./src/main/drivers/dshot.h"
        
-# 43 "./src/main/drivers/dshot.h"
-typedef struct dshotTelemetryQuality_s {
-    uint32_t packetCountSum;
-    uint32_t invalidCountSum;
-    uint32_t packetCountArray[(1 * 1000 / 100)];
-    uint32_t invalidCountArray[(1 * 1000 / 100)];
-    uint8_t lastBucketIndex;
-} dshotTelemetryQuality_t;
-
-extern dshotTelemetryQuality_t dshotTelemetryQuality[8];
-
-
+# 54 "./src/main/drivers/dshot.h"
 typedef struct dshotProtocolControl_s {
     uint16_t value;
     
@@ -16012,47 +15670,7 @@ float dshotConvertFromExternal(uint16_t externalValue);
 uint16_t dshotConvertToExternal(float motorValue);
 
 uint16_t prepareDshotPacket(dshotProtocolControl_t *pcb);
-
-
-extern 
-# 66 "./src/main/drivers/dshot.h" 3 4
-      _Bool 
-# 66 "./src/main/drivers/dshot.h"
-           useDshotTelemetry;
-
-typedef struct dshotTelemetryMotorState_s {
-    uint16_t telemetryValue;
-    
-# 70 "./src/main/drivers/dshot.h" 3 4
-   _Bool 
-# 70 "./src/main/drivers/dshot.h"
-        telemetryActive;
-} dshotTelemetryMotorState_t;
-
-
-typedef struct dshotTelemetryState_s {
-    
-# 75 "./src/main/drivers/dshot.h" 3 4
-   _Bool 
-# 75 "./src/main/drivers/dshot.h"
-        useDshotTelemetry;
-    uint32_t invalidPacketCount;
-    uint32_t readCount;
-    dshotTelemetryMotorState_t motorState[8];
-    uint32_t inputBuffer[22];
-} dshotTelemetryState_t;
-
-extern dshotTelemetryState_t dshotTelemetryState;
-
-
-void updateDshotTelemetryQuality(dshotTelemetryQuality_t *qualityStats, 
-# 85 "./src/main/drivers/dshot.h" 3 4
-                                                                       _Bool 
-# 85 "./src/main/drivers/dshot.h"
-                                                                            packetValid, timeMs_t currentTimeMs);
-
-
-
+# 89 "./src/main/drivers/dshot.h"
 uint16_t getDshotTelemetry(uint8_t index);
 
 # 90 "./src/main/drivers/dshot.h" 3 4
@@ -16224,14 +15842,14 @@ static void validateAndFixConfig(void)
     }
 
 
-    const serialPortConfig_t *gpsSerial = findSerialPortConfig(FUNCTION_GPS);
-    if (gpsConfig()->provider == GPS_MSP && gpsSerial) {
-        serialRemovePort(gpsSerial->identifier);
-    }
+
+
+
+
 
     if (
 
-        gpsConfig()->provider != GPS_MSP && !gpsSerial &&
+
 
         
 # 241 "./src/main/config/config.c" 3 4
@@ -16277,9 +15895,9 @@ static void validateAndFixConfig(void)
         }
 
 
-        if (batteryConfig()->voltageMeterSource != VOLTAGE_METER_ADC) {
-            pidProfilesMutable(i)->vbat_sag_compensation = 0;
-        }
+
+
+
 
     }
 
@@ -16376,29 +15994,22 @@ static void validateAndFixConfig(void)
             pidProfilesMutable(i)->pid[PID_YAW].F = 0;
         }
     }
-
-
-    if (!rcSmoothingIsEnabled() ||
-        !(rxConfig()->rcInterpolationChannels == INTERPOLATION_CHANNELS_RPYT
-        || rxConfig()->rcInterpolationChannels == INTERPOLATION_CHANNELS_T
-        || rxConfig()->rcInterpolationChannels == INTERPOLATION_CHANNELS_RPT)) {
-        for (unsigned i = 0; i < 3; i++) {
-            pidProfilesMutable(i)->throttle_boost = 0;
-        }
-    }
-
-
+# 384 "./src/main/config/config.c"
     if (
         featureIsConfigured(FEATURE_3D) || !featureIsConfigured(FEATURE_GPS) || mixerModeIsFixedWing(mixerConfig()->mixerMode)
 
+        || 
+# 387 "./src/main/config/config.c" 3 4
+          1
+
+        
+# 389 "./src/main/config/config.c"
+       ) {
 
 
-        ) {
 
 
-        if (failsafeConfig()->failsafe_procedure == FAILSAFE_PROCEDURE_GPS_RESCUE) {
-            failsafeConfigMutable()->failsafe_procedure = FAILSAFE_PROCEDURE_DROP_IT;
-        }
+
 
 
         if (isModeActivationConditionPresent(BOXGPSRESCUE)) {
@@ -16407,9 +16018,9 @@ static void validateAndFixConfig(void)
     }
 
 
-    if (!findSerialPortConfig(FUNCTION_ESC_SENSOR)) {
-        featureDisableImmediate(FEATURE_ESC_SENSOR);
-    }
+
+
+
 
 
     for (int i = 0; i < 20; i++) {
@@ -16421,15 +16032,7 @@ static void validateAndFixConfig(void)
             }
         }
     }
-
-
-    if (motorConfig()->dev.motorPwmProtocol == PWM_TYPE_PROSHOT1000 && motorConfig()->dev.useDshotTelemetry &&
-        motorConfig()->dev.useDshotBitbang == DSHOT_BITBANG_ON) {
-        motorConfigMutable()->dev.useDshotBitbang = DSHOT_BITBANG_AUTO;
-    }
-
-
-
+# 426 "./src/main/config/config.c"
     adcConfigMutable()->vbat.enabled = (batteryConfig()->voltageMeterSource == VOLTAGE_METER_ADC);
     adcConfigMutable()->current.enabled = (batteryConfig()->currentMeterSource == CURRENT_METER_ADC);
 
@@ -16441,14 +16044,32 @@ static void validateAndFixConfig(void)
 
 
     featureDisableImmediate(FEATURE_RANGEFINDER);
+
+
+
+    featureDisableImmediate(FEATURE_TELEMETRY);
 # 473 "./src/main/config/config.c"
     featureDisableImmediate(FEATURE_DASHBOARD);
-# 485 "./src/main/config/config.c"
+
+
+
+    featureDisableImmediate(FEATURE_OSD);
+
+
+
+
+
+
+
     featureDisableImmediate(FEATURE_TRANSPONDER);
 
 
 
     featureDisableImmediate(FEATURE_RX_SPI);
+
+
+
+    featureDisableImmediate(FEATURE_ESC_SENSOR);
 # 506 "./src/main/config/config.c"
     if (beeperDevConfig()->frequency && !timerGetByTag(beeperDevConfig()->ioTag)) {
         beeperDevConfigMutable()->frequency = 0;
@@ -16458,19 +16079,7 @@ static void validateAndFixConfig(void)
     if (beeperConfig()->beeper_off_flags & ~( (1 << (BEEPER_GYRO_CALIBRATED - 1)) | (1 << (BEEPER_RX_LOST - 1)) | (1 << (BEEPER_RX_LOST_LANDING - 1)) | (1 << (BEEPER_DISARMING - 1)) | (1 << (BEEPER_ARMING - 1)) | (1 << (BEEPER_ARMING_GPS_FIX - 1)) | (1 << (BEEPER_BAT_CRIT_LOW - 1)) | (1 << (BEEPER_BAT_LOW - 1)) | (1 << (BEEPER_GPS_STATUS - 1)) | (1 << (BEEPER_RX_SET - 1)) | (1 << (BEEPER_ACC_CALIBRATION - 1)) | (1 << (BEEPER_ACC_CALIBRATION_FAIL - 1)) | (1 << (BEEPER_READY_BEEP - 1)) | (1 << (BEEPER_MULTI_BEEPS - 1)) | (1 << (BEEPER_DISARM_REPEAT - 1)) | (1 << (BEEPER_ARMED - 1)) | (1 << (BEEPER_SYSTEM_INIT - 1)) | (1 << (BEEPER_USB - 1)) | (1 << (BEEPER_BLACKBOX_ERASE - 1)) | (1 << (BEEPER_CRASH_FLIP_MODE - 1)) | (1 << (BEEPER_CAM_CONNECTION_OPEN - 1)) | (1 << (BEEPER_CAM_CONNECTION_CLOSE - 1)) | (1 << (BEEPER_RC_SMOOTHING_INIT_FAIL - 1)) | (1 << (BEEPER_ARMING_GPS_NO_FIX - 1)) )) {
         beeperConfigMutable()->beeper_off_flags = 0;
     }
-
-
-    if (beeperConfig()->dshotBeaconOffFlags & ~( (1 << (BEEPER_RX_LOST - 1)) | (1 << (BEEPER_RX_SET - 1)) )) {
-        beeperConfigMutable()->dshotBeaconOffFlags = 0;
-    }
-
-    if (beeperConfig()->dshotBeaconTone < DSHOT_CMD_BEACON1
-        || beeperConfig()->dshotBeaconTone > DSHOT_CMD_BEACON5) {
-        beeperConfigMutable()->dshotBeaconTone = DSHOT_CMD_BEACON1;
-    }
-
-
-
+# 527 "./src/main/config/config.c"
     
 # 527 "./src/main/config/config.c" 3 4
    _Bool 
@@ -16481,63 +16090,7 @@ static void validateAndFixConfig(void)
 # 527 "./src/main/config/config.c"
                                             ;
     checkMotorProtocolEnabled(&motorConfig()->dev, &configuredMotorProtocolDshot);
-
-
-    if (configuredMotorProtocolDshot) {
-        motorConfigMutable()->dev.useUnsyncedPwm = 
-# 532 "./src/main/config/config.c" 3 4
-                                                  0
-# 532 "./src/main/config/config.c"
-                                                       ;
-    }
-
-
-    if ((!configuredMotorProtocolDshot || (motorConfig()->dev.useDshotBitbang == DSHOT_BITBANG_OFF && motorConfig()->dev.useBurstDshot == DSHOT_DMAR_ON) || systemConfig()->schedulerOptimizeRate == SCHEDULER_OPTIMIZE_RATE_OFF)
-        && motorConfig()->dev.useDshotTelemetry) {
-        motorConfigMutable()->dev.useDshotTelemetry = 
-# 538 "./src/main/config/config.c" 3 4
-                                                     0
-# 538 "./src/main/config/config.c"
-                                                          ;
-    }
-
-
-    if (!isRpmFilterEnabled()) {
-        for (unsigned i = 0; i < 3; i++) {
-            pidProfilesMutable(i)->dyn_idle_min_rpm = 0;
-        }
-    }
-
-
-
-
-
-    for (int i = 0; i < OSD_TIMER_COUNT; i++) {
-         const uint16_t t = osdConfig()->timers[i];
-         if ((t & 0x0F) >= OSD_TIMER_SRC_COUNT ||
-                 ((t >> 4) & 0x0F) >= OSD_TIMER_PREC_COUNT) {
-             osdConfigMutable()->timers[i] = osdTimerDefault[i];
-         }
-     }
-
-
-
-
-    if (vtxSettingsConfig()->channel > vtxTableConfig()->channels) {
-        vtxSettingsConfigMutable()->channel = 0;
-        if (vtxSettingsConfig()->band > 0) {
-            vtxSettingsConfigMutable()->freq = 0;
-        }
-    }
-    if (vtxSettingsConfig()->band > vtxTableConfig()->bands) {
-        vtxSettingsConfigMutable()->band = 0;
-        vtxSettingsConfigMutable()->freq = 0;
-    }
-    if (vtxSettingsConfig()->power > vtxTableConfig()->powerLevels) {
-        vtxSettingsConfigMutable()->power = 0;
-    }
-
-
+# 578 "./src/main/config/config.c"
     validateAndFixRatesSettings();
 
 
@@ -16620,14 +16173,7 @@ void validateAndFixGyroConfig(void)
         case PWM_TYPE_ONESHOT42:
                 motorUpdateRestriction = 0.0001f;
                 break;
-
-        case PWM_TYPE_DSHOT150:
-                motorUpdateRestriction = 0.000250f;
-                break;
-        case PWM_TYPE_DSHOT300:
-                motorUpdateRestriction = 0.0001f;
-                break;
-
+# 668 "./src/main/config/config.c"
         default:
             motorUpdateRestriction = 0.00003125f;
             break;

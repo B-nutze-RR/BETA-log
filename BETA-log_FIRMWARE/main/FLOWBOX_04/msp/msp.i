@@ -3,13 +3,13 @@
 # 1 "<command-line>"
 # 1 "./src/main/msp/msp.c"
 # 21 "./src/main/msp/msp.c"
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdbool.h" 1 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdbool.h" 1 3 4
 # 22 "./src/main/msp/msp.c" 2
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 1 3 4
-# 9 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 1 3 4
-# 12 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 1 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 1 3 4
+# 9 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 1 3 4
+# 12 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 1 3 4
 
 
 
@@ -17,46 +17,46 @@
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 1 3 4
-# 28 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_newlib_version.h" 1 3 4
-# 29 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 2 3 4
-# 9 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 2 3 4
-# 41 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 1 3 4
+# 28 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_newlib_version.h" 1 3 4
+# 29 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 2 3 4
+# 9 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 2 3 4
+# 41 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 
-# 41 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 41 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef signed char __int8_t;
 
 typedef unsigned char __uint8_t;
-# 55 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 55 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef short int __int16_t;
 
 typedef short unsigned int __uint16_t;
-# 77 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 77 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef long int __int32_t;
 
 typedef long unsigned int __uint32_t;
-# 103 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 103 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef long long int __int64_t;
 
 typedef long long unsigned int __uint64_t;
-# 134 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 134 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef signed char __int_least8_t;
 
 typedef unsigned char __uint_least8_t;
-# 160 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 160 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef short int __int_least16_t;
 
 typedef short unsigned int __uint_least16_t;
-# 182 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 182 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef long int __int_least32_t;
 
 typedef long unsigned int __uint_least32_t;
-# 200 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 200 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef long long int __int_least64_t;
 
 typedef long long unsigned int __uint_least64_t;
-# 214 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 214 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef long long int __intmax_t;
 
 
@@ -76,9 +76,9 @@ typedef long long unsigned int __uintmax_t;
 typedef int __intptr_t;
 
 typedef unsigned int __uintptr_t;
-# 13 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 1 3 4
-# 35 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
+# 13 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 1 3 4
+# 35 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
        
        
        
@@ -87,7 +87,7 @@ typedef unsigned int __uintptr_t;
        
        
        
-# 190 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
+# 190 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
        
        
        
@@ -96,9 +96,9 @@ typedef unsigned int __uintptr_t;
        
        
        
-# 14 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 1 3 4
-# 20 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 3 4
+# 14 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 1 3 4
+# 20 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 3 4
 typedef __int8_t int8_t ;
 
 
@@ -162,7 +162,7 @@ typedef __intptr_t intptr_t;
 
 
 typedef __uintptr_t uintptr_t;
-# 15 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
+# 15 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
 
 
 
@@ -189,62 +189,62 @@ typedef __uint_least32_t uint_least32_t;
 
 typedef __int_least64_t int_least64_t;
 typedef __uint_least64_t uint_least64_t;
-# 51 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 51 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef int int_fast8_t;
   typedef unsigned int uint_fast8_t;
-# 61 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 61 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef int int_fast16_t;
   typedef unsigned int uint_fast16_t;
-# 71 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 71 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef int int_fast32_t;
   typedef unsigned int uint_fast32_t;
-# 81 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 81 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef long long int int_fast64_t;
   typedef long long unsigned int uint_fast64_t;
-# 10 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 2 3 4
+# 10 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 2 3 4
 # 23 "./src/main/msp/msp.c" 2
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 1 3
-# 10 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
-# 10 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\newlib.h" 1 3
-# 11 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 1 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 1 3
+# 10 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
+# 10 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\newlib.h" 1 3
+# 11 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 1 3
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\ieeefp.h" 1 3
-# 5 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 2 3
-# 12 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
-# 11 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 1 3
-# 13 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
-# 14 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 143 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\ieeefp.h" 1 3
+# 5 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 2 3
+# 12 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
+# 11 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 1 3
+# 13 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
+# 14 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 143 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef int ptrdiff_t;
-# 209 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 209 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef unsigned int size_t;
-# 321 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 321 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef unsigned int wchar_t;
-# 415 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 415 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef struct {
   long long __max_align_ll __attribute__((__aligned__(__alignof__(long long))));
   long double __max_align_ld __attribute__((__aligned__(__alignof__(long double))));
-# 426 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 426 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 } max_align_t;
-# 15 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 1 3
-# 24 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 350 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 15 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 1 3
+# 24 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 350 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef unsigned int wint_t;
-# 25 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
+# 25 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_types.h" 1 3
-# 28 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_types.h" 1 3
+# 28 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
 
 
 typedef long __blkcnt_t;
@@ -293,7 +293,7 @@ typedef __uint32_t __id_t;
 
 
 typedef unsigned short __ino_t;
-# 90 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 90 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef __uint32_t __mode_t;
 
 
@@ -321,11 +321,11 @@ typedef long __key_t;
 
 
 typedef long _fpos_t;
-# 131 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 131 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef unsigned int __size_t;
-# 147 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 147 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef signed int _ssize_t;
-# 158 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 158 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef _ssize_t __ssize_t;
 
 
@@ -388,7 +388,7 @@ typedef unsigned long __useconds_t;
 
 
 typedef __builtin_va_list __va_list;
-# 16 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 16 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
 
 
 
@@ -396,9 +396,9 @@ typedef __builtin_va_list __va_list;
 
 
 typedef unsigned long __ULong;
-# 34 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 1 3
-# 33 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 3
+# 34 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 1 3
+# 33 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 3
 struct __lock;
 typedef struct __lock * _LOCK_T;
 
@@ -427,7 +427,7 @@ extern int __retarget_lock_try_acquire_recursive(_LOCK_T lock);
 extern void __retarget_lock_release(_LOCK_T lock);
 
 extern void __retarget_lock_release_recursive(_LOCK_T lock);
-# 35 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 35 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
 typedef _LOCK_T _flock_t;
 
 
@@ -481,7 +481,7 @@ struct _on_exit_args {
 
  __ULong _is_cxa;
 };
-# 98 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 98 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct _atexit {
  struct _atexit *_next;
  int _ind;
@@ -489,12 +489,12 @@ struct _atexit {
  void (*_fns[32])(void);
         struct _on_exit_args _on_exit_args;
 };
-# 122 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 122 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct __sbuf {
  unsigned char *_base;
  int _size;
 };
-# 186 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 186 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct __sFILE {
   unsigned char *_p;
   int _r;
@@ -545,7 +545,7 @@ struct __sFILE {
   _mbstate_t _mbstate;
   int _flags2;
 };
-# 292 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 292 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 typedef struct __sFILE __FILE;
 
 
@@ -556,7 +556,7 @@ struct _glue
   int _niobs;
   __FILE *_iobs;
 };
-# 324 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 324 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct _rand48 {
   unsigned short _seed[3];
   unsigned short _mult[3];
@@ -566,7 +566,7 @@ struct _rand48 {
 
 
 };
-# 613 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 613 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct _reent
 {
   int _errno;
@@ -649,35 +649,35 @@ struct _reent
   __FILE __sf[3];
 
 };
-# 819 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 819 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 extern struct _reent *_impure_ptr ;
 extern struct _reent *const _global_impure_ptr ;
 
 void _reclaim_reent (struct _reent *);
-# 12 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 1 3
-# 47 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 48 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 2 3
-# 13 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 12 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 1 3
+# 47 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 48 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 2 3
+# 13 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 18 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 18 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 1 3
-# 9 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 1 3
+# 9 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 3
 struct __locale_t;
 typedef struct __locale_t *locale_t;
-# 21 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 21 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 1 3
-# 44 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 1 3
+# 44 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 3
 
 
 int bcmp(const void *, const void *, size_t) __attribute__((__pure__));
@@ -709,7 +709,7 @@ int strcasecmp_l (const char *, const char *, locale_t);
 int strncasecmp_l (const char *, const char *, size_t, locale_t);
 
 
-# 25 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 25 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 
@@ -783,7 +783,7 @@ char *_strndup_r (struct _reent *, const char *, size_t);
 
 
 char *strerror_r (int, char *, size_t);
-# 112 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
+# 112 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
 char * _strerror_r (struct _reent *, int, int, int *);
 
 
@@ -815,28 +815,28 @@ char *strsignal (int __signo);
 
 
 int strverscmp (const char *, const char *);
-# 172 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
+# 172 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
 char *__attribute__((__nonnull__ (1))) basename (const char *) __asm__("" "__gnu_basename");
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\string.h" 1 3
-# 176 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\string.h" 1 3
+# 176 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 # 24 "./src/main/msp/msp.c" 2
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 1 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 1 3
 
 
 
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\ieeefp.h" 1 3
-# 8 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\ieeefp.h" 1 3
+# 8 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 2 3
 
 
 
-# 86 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 86 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
 extern double atan (double);
 extern double cos (double);
 extern double sin (double);
@@ -885,10 +885,10 @@ extern int isinf (double);
 
 
 extern int isnan (double);
-# 150 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 150 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
     typedef float float_t;
     typedef double double_t;
-# 194 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 194 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
 extern int __isinff (float x);
 extern int __isinfd (double x);
 extern int __isnanf (float x);
@@ -897,7 +897,7 @@ extern int __fpclassifyf (float x);
 extern int __fpclassifyd (double x);
 extern int __signbitf (float x);
 extern int __signbitd (double x);
-# 290 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 290 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
 extern double infinity (void);
 extern double nan (const char *);
 extern double copysign (double, double);
@@ -1020,7 +1020,7 @@ extern float erff (float);
 extern float erfcf (float);
 extern float log2f (float);
 extern float hypotf (float, float);
-# 422 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 422 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
 extern long double atanl (long double);
 extern long double cosl (long double);
 extern long double sinl (long double);
@@ -1087,7 +1087,7 @@ extern long double remainderl (long double, long double);
 extern long double lgammal (long double);
 extern long double erfl (long double);
 extern long double erfcl (long double);
-# 503 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 503 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
 extern double drem (double, double);
 extern float dremf (float, float);
 
@@ -1135,9 +1135,9 @@ extern float exp10f (float);
 
 
 extern float pow10f (float);
-# 565 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 565 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
 extern int *__signgam (void);
-# 607 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
+# 607 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 3
 enum __fdlibm_version
 {
   __fdlibm_ieee = -1,
@@ -1157,29 +1157,29 @@ extern enum __fdlibm_version __fdlib_version;
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\fastmath.h" 1 3
-# 627 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\fastmath.h" 1 3
+# 627 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\math.h" 2 3
 # 25 "./src/main/msp/msp.c" 2
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdlib.h" 1 3
-# 10 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdlib.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\ieeefp.h" 1 3
-# 11 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdlib.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdlib.h" 1 3
+# 10 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdlib.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\ieeefp.h" 1 3
+# 11 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdlib.h" 2 3
 
 
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 17 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdlib.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 17 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdlib.h" 2 3
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\stdlib.h" 1 3
-# 21 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdlib.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\stdlib.h" 1 3
+# 21 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdlib.h" 2 3
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\alloca.h" 1 3
-# 23 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdlib.h" 2 3
-# 33 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdlib.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\alloca.h" 1 3
+# 23 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdlib.h" 2 3
+# 33 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdlib.h" 3
 
 
 typedef struct
@@ -1360,7 +1360,7 @@ void * _reallocf_r (struct _reent *, void *, size_t);
 int setenv (const char *__string, const char *__value, int __overwrite);
 
 int _setenv_r (struct _reent *, const char *__string, const char *__value, int __overwrite);
-# 224 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdlib.h" 3
+# 224 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdlib.h" 3
 char * __itoa (int, char *, int);
 char * __utoa (unsigned, char *, int);
 
@@ -1447,7 +1447,7 @@ void __eprintf (const char *, const char *, unsigned int, const char *);
 
 
 void qsort_r (void *__base, size_t __nmemb, size_t __size, int (*_compar)(const void *, const void *, void *), void *__thunk);
-# 322 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdlib.h" 3
+# 322 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdlib.h" 3
 extern long double _strtold_r (struct _reent *, const char *restrict, char **restrict);
 
 extern long double strtold (const char *restrict, char **restrict);
@@ -1467,28 +1467,28 @@ _Noreturn void
 
 
 # 26 "./src/main/msp/msp.c" 2
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include-fixed\\limits.h" 1 3 4
-# 34 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include-fixed\\limits.h" 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include-fixed\\syslimits.h" 1 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include-fixed\\limits.h" 1 3 4
+# 34 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include-fixed\\limits.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include-fixed\\syslimits.h" 1 3 4
 
 
 
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include-fixed\\limits.h" 1 3 4
-# 194 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include-fixed\\limits.h" 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\limits.h" 1 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include-fixed\\limits.h" 1 3 4
+# 194 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include-fixed\\limits.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\limits.h" 1 3 4
 
 
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\syslimits.h" 1 3 4
-# 7 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\limits.h" 2 3 4
-# 195 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include-fixed\\limits.h" 2 3 4
-# 8 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include-fixed\\syslimits.h" 2 3 4
-# 35 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include-fixed\\limits.h" 2 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\syslimits.h" 1 3 4
+# 7 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\limits.h" 2 3 4
+# 195 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include-fixed\\limits.h" 2 3 4
+# 8 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include-fixed\\syslimits.h" 2 3 4
+# 35 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include-fixed\\limits.h" 2 3 4
 # 27 "./src/main/msp/msp.c" 2
 # 1 "./src/main/ctype.h" 1
 # 38 "./src/main/ctype.h"
@@ -5456,7 +5456,7 @@ void __attribute__((section(".RamFunc"))) FLASH_FlashSleepModeCmd(FunctionalStat
 # 21 "./src/main/common/utils.h"
        
 
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
 # 24 "./src/main/common/utils.h" 2
 # 100 "./src/main/common/utils.h"
 static inline int16_t cmp16(uint16_t a, uint16_t b) { return (int16_t)(a-b); }
@@ -6684,49 +6684,7 @@ typedef struct pidRuntime_s {
    _Bool 
 # 311 "./src/main/flight/pid.h"
         levelRaceMode;
-
-
-    pt1Filter_t windupLpf[3];
-    uint8_t itermRelax;
-    uint8_t itermRelaxType;
-    uint8_t itermRelaxCutoff;
-
-
-
-    float acCutoff;
-    float acGain;
-    float acLimit;
-    float acErrorLimit;
-    pt1Filter_t acLpf[3];
-    float oldSetpointCorrection[3];
-
-
-
-    biquadFilter_t dMinRange[3];
-    pt1Filter_t dMinLowpass[3];
-    float dMinPercent[3];
-    float dMinGyroGain;
-    float dMinSetpointGain;
-
-
-
-    pt1Filter_t airmodeThrottleLpf1;
-    pt1Filter_t airmodeThrottleLpf2;
-
-
-
-    pt1Filter_t setpointDerivativePt1[3];
-    biquadFilter_t setpointDerivativeBiquad[3];
-    
-# 345 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 345 "./src/main/flight/pid.h"
-        setpointDerivativeLpfInitialized;
-    uint8_t rcSmoothingDebugAxis;
-    uint8_t rcSmoothingFilterType;
-
-
-
+# 351 "./src/main/flight/pid.h"
     float acroTrainerAngleLimit;
     float acroTrainerLookaheadTime;
     uint8_t acroTrainerDebugAxis;
@@ -6744,33 +6702,7 @@ typedef struct pidRuntime_s {
     uint16_t dynLpfMin;
     uint16_t dynLpfMax;
     uint8_t dynLpfCurveExpo;
-
-
-
-    uint8_t launchControlMode;
-    uint8_t launchControlAngleLimit;
-    float launchControlKi;
-
-
-
-    
-# 373 "./src/main/flight/pid.h" 3 4
-   _Bool 
-# 373 "./src/main/flight/pid.h"
-        useIntegratedYaw;
-    uint8_t integratedYawRelax;
-
-
-
-    float thrustLinearization;
-    float throttleCompensateAmount;
-
-
-
-    float airmodeThrottleOffsetLimit;
-
-
-
+# 387 "./src/main/flight/pid.h"
     ffInterpolationType_t ffFromInterpolatedSetpoint;
     float ffSmoothFactor;
 
@@ -6822,15 +6754,6 @@ void pidSetAntiGravityState(
 _Bool 
 # 413 "./src/main/flight/pid.h"
     pidAntiGravityEnabled(void);
-
-
-float pidApplyThrustLinearization(float motorValue);
-float pidCompensateThrustLinearization(float throttle);
-
-
-
-void pidUpdateAirmodeLpf(float currentOffset);
-float pidGetAirmodeThrottleOffset();
 # 436 "./src/main/flight/pid.h"
 void dynLpfDTermUpdate(float throttle);
 void pidSetItermReset(
@@ -8404,18 +8327,7 @@ typedef struct motorConfig_s {
 
 extern motorConfig_t motorConfig_System; extern motorConfig_t motorConfig_Copy; static inline const motorConfig_t* motorConfig(void) { return &motorConfig_System; } static inline motorConfig_t* motorConfigMutable(void) { return &motorConfig_System; } struct _dummy;
 # 26 "./src/main/drivers/dshot.h" 2
-# 43 "./src/main/drivers/dshot.h"
-typedef struct dshotTelemetryQuality_s {
-    uint32_t packetCountSum;
-    uint32_t invalidCountSum;
-    uint32_t packetCountArray[(1 * 1000 / 100)];
-    uint32_t invalidCountArray[(1 * 1000 / 100)];
-    uint8_t lastBucketIndex;
-} dshotTelemetryQuality_t;
-
-extern dshotTelemetryQuality_t dshotTelemetryQuality[8];
-
-
+# 54 "./src/main/drivers/dshot.h"
 typedef struct dshotProtocolControl_s {
     uint16_t value;
     
@@ -8430,47 +8342,7 @@ float dshotConvertFromExternal(uint16_t externalValue);
 uint16_t dshotConvertToExternal(float motorValue);
 
 uint16_t prepareDshotPacket(dshotProtocolControl_t *pcb);
-
-
-extern 
-# 66 "./src/main/drivers/dshot.h" 3 4
-      _Bool 
-# 66 "./src/main/drivers/dshot.h"
-           useDshotTelemetry;
-
-typedef struct dshotTelemetryMotorState_s {
-    uint16_t telemetryValue;
-    
-# 70 "./src/main/drivers/dshot.h" 3 4
-   _Bool 
-# 70 "./src/main/drivers/dshot.h"
-        telemetryActive;
-} dshotTelemetryMotorState_t;
-
-
-typedef struct dshotTelemetryState_s {
-    
-# 75 "./src/main/drivers/dshot.h" 3 4
-   _Bool 
-# 75 "./src/main/drivers/dshot.h"
-        useDshotTelemetry;
-    uint32_t invalidPacketCount;
-    uint32_t readCount;
-    dshotTelemetryMotorState_t motorState[8];
-    uint32_t inputBuffer[22];
-} dshotTelemetryState_t;
-
-extern dshotTelemetryState_t dshotTelemetryState;
-
-
-void updateDshotTelemetryQuality(dshotTelemetryQuality_t *qualityStats, 
-# 85 "./src/main/drivers/dshot.h" 3 4
-                                                                       _Bool 
-# 85 "./src/main/drivers/dshot.h"
-                                                                            packetValid, timeMs_t currentTimeMs);
-
-
-
+# 89 "./src/main/drivers/dshot.h"
 uint16_t getDshotTelemetry(uint8_t index);
 
 # 90 "./src/main/drivers/dshot.h" 3 4
@@ -8779,13 +8651,9 @@ timeMs_t motorGetMotorEnableTimeMs(void);
 void motorShutdown(void);
 
 
-struct motorDevConfig_s;
-typedef struct motorDevConfig_s motorDevConfig_t;
 
-# 102 "./src/main/drivers/motor.h" 3 4
-_Bool 
-# 102 "./src/main/drivers/motor.h"
-    isDshotBitbangActive(const motorDevConfig_t *motorConfig);
+
+
 
 
 float getDigitalIdleOffset(const motorConfig_t *motorConfig);
@@ -9426,23 +9294,27 @@ void vtxTableConfigClearPowerValues(struct vtxTableConfig_s *config, int start);
 void vtxTableConfigClearPowerLabels(struct vtxTableConfig_s *config, int start);
 void vtxTableConfigClearChannels(struct vtxTableConfig_s *config, int band, int channels);
 
-
+void vtxTableSetFactoryBands(
+# 62 "./src/main/drivers/vtx_table.h" 3 4
+                            _Bool 
+# 62 "./src/main/drivers/vtx_table.h"
+                                 isFactory);
 
 
 extern int vtxTableBandCount;
 extern int vtxTableChannelCount;
-extern uint16_t vtxTableFrequency[8][8];
-extern const char *vtxTableBandNames[8 + 1];
-extern char vtxTableBandLetters[8 + 1];
+extern uint16_t vtxTableFrequency[5][8];
+extern const char *vtxTableBandNames[5 + 1];
+extern char vtxTableBandLetters[5 + 1];
 extern const char *vtxTableChannelNames[8 + 1];
 extern 
 # 71 "./src/main/drivers/vtx_table.h" 3 4
       _Bool 
 # 71 "./src/main/drivers/vtx_table.h"
-                     vtxTableIsFactoryBand[8];
+                     vtxTableIsFactoryBand[5];
 extern int vtxTablePowerLevels;
-extern uint16_t vtxTablePowerValues[8];
-extern const char *vtxTablePowerLabels[8 + 1];
+extern uint16_t vtxTablePowerValues[5];
+extern const char *vtxTablePowerLabels[5 + 1];
 # 73 "./src/main/msp/msp.c" 2
 
 # 1 "./src/main/fc/board_info.h" 1
@@ -9561,14 +9433,7 @@ void copyControlRateProfile(const uint8_t dstControlRateProfileIndex, const uint
 # 1 "./src/main/fc/core.h" 1
 # 21 "./src/main/fc/core.h"
        
-
-
-
-
-
-extern int16_t magHold;
-
-
+# 30 "./src/main/fc/core.h"
 typedef struct throttleCorrectionConfig_s {
     uint16_t throttle_correction_angle;
     uint8_t throttle_correction_value;
@@ -9604,7 +9469,7 @@ typedef enum {
 
 
 
-extern const char * const osdLaunchControlModeNames[LAUNCH_CONTROL_MODE_COUNT];
+
 
 
 extern throttleCorrectionConfig_t throttleCorrectionConfig_System; extern throttleCorrectionConfig_t throttleCorrectionConfig_Copy; static inline const throttleCorrectionConfig_t* throttleCorrectionConfig(void) { return &throttleCorrectionConfig_System; } static inline throttleCorrectionConfig_t* throttleCorrectionConfigMutable(void) { return &throttleCorrectionConfig_System; } struct _dummy;
@@ -10286,7 +10151,7 @@ typedef enum {
     FAILSAFE_PROCEDURE_AUTO_LANDING = 0,
     FAILSAFE_PROCEDURE_DROP_IT,
 
-    FAILSAFE_PROCEDURE_GPS_RESCUE,
+
 
     FAILSAFE_PROCEDURE_COUNT
 } failsafeProcedure_e;
@@ -12398,7 +12263,7 @@ typedef struct osdConfig_s {
     uint8_t ahInvert;
     uint8_t osdProfileIndex;
     uint8_t overlay_radio_mode;
-    char profile[3][16 + 1];
+    char profile[1][16 + 1];
     uint16_t link_quality_alarm;
     int16_t rssi_dbm_alarm;
     uint8_t gps_sats_show_hdop;
@@ -12444,7 +12309,7 @@ extern timeUs_t osdFlyTime;
 extern float osdGForce;
 
 
-extern escSensorData_t *osdEscDataCombined;
+
 
 
 void osdInit(displayPort_t *osdDisplayPort, osdDisplayPortDevice_e displayPortDevice);
@@ -12754,62 +12619,6 @@ extern vcdProfile_t vcdProfile_System; extern vcdProfile_t vcdProfile_Copy; stat
 # 1 "./src/main/pg/vtx_table.h" 1
 # 21 "./src/main/pg/vtx_table.h"
        
-
-
-
-
-
-
-
-# 1 "./src/main/drivers/vtx_table.h" 1
-# 54 "./src/main/drivers/vtx_table.h"
-struct vtxTableConfig_s;
-void vtxTableInit(void);
-void vtxTableStrncpyWithPad(char *dst, const char *src, int length);
-void vtxTableConfigClearBand(struct vtxTableConfig_s *config, int band);
-void vtxTableConfigClearPowerValues(struct vtxTableConfig_s *config, int start);
-void vtxTableConfigClearPowerLabels(struct vtxTableConfig_s *config, int start);
-void vtxTableConfigClearChannels(struct vtxTableConfig_s *config, int band, int channels);
-
-
-
-
-extern int vtxTableBandCount;
-extern int vtxTableChannelCount;
-extern uint16_t vtxTableFrequency[8][8];
-extern const char *vtxTableBandNames[8 + 1];
-extern char vtxTableBandLetters[8 + 1];
-extern const char *vtxTableChannelNames[8 + 1];
-extern 
-# 71 "./src/main/drivers/vtx_table.h" 3 4
-      _Bool 
-# 71 "./src/main/drivers/vtx_table.h"
-                     vtxTableIsFactoryBand[8];
-extern int vtxTablePowerLevels;
-extern uint16_t vtxTablePowerValues[8];
-extern const char *vtxTablePowerLabels[8 + 1];
-# 30 "./src/main/pg/vtx_table.h" 2
-
-typedef struct vtxTableConfig_s {
-    uint8_t bands;
-    uint8_t channels;
-    uint16_t frequency[8][8];
-    char bandNames[8][8 + 1];
-    char bandLetters[8];
-    char channelNames[8][1 + 1];
-    
-# 38 "./src/main/pg/vtx_table.h" 3 4
-   _Bool 
-# 38 "./src/main/pg/vtx_table.h"
-            isFactoryBand[8];
-
-    uint8_t powerLevels;
-    uint16_t powerValues[8];
-    char powerLabels[8][3 + 1];
-} vtxTableConfig_t;
-
-struct vtxTableConfig_s;
-extern struct vtxTableConfig_s vtxTableConfig_System; extern struct vtxTableConfig_s vtxTableConfig_Copy; static inline const struct vtxTableConfig_s* vtxTableConfig(void) { return &vtxTableConfig_System; } static inline struct vtxTableConfig_s* vtxTableConfigMutable(void) { return &vtxTableConfig_System; } struct _dummy;
 # 126 "./src/main/msp/msp.c" 2
 
 # 1 "./src/main/rx/rx.h" 1
@@ -13079,45 +12888,16 @@ typedef enum {
     TASK_BATTERY_ALERTS,
 
     TASK_BEEPER,
-
-
-    TASK_GPS,
-# 100 "./src/main/scheduler/scheduler.h"
-    TASK_ALTITUDE,
-
-
-
-
-
-    TASK_TELEMETRY,
-
-
+# 109 "./src/main/scheduler/scheduler.h"
     TASK_LEDSTRIP,
-# 118 "./src/main/scheduler/scheduler.h"
-    TASK_OSD,
-
-
-
-
-
-    TASK_ESC_SENSOR,
-
-
+# 127 "./src/main/scheduler/scheduler.h"
     TASK_CMS,
-
-
-    TASK_VTXCTRL,
-
-
-    TASK_CAMCTRL,
-
-
-
+# 137 "./src/main/scheduler/scheduler.h"
     TASK_RCDEVICE,
 
 
 
-    TASK_ADC_INTERNAL,
+
 
 
 
@@ -13717,7 +13497,7 @@ typedef struct voltageMeter_s {
     uint16_t displayFiltered;
     uint16_t unfiltered;
 
-    uint16_t sagFiltered;
+
 
     
 # 49 "./src/main/sensors/voltage.h" 3 4
@@ -18037,21 +17817,13 @@ typedef enum {
 
     IBUS_SENSOR_TYPE_ALT_FLYSKY = 0xf9,
 
-    IBUS_SENSOR_TYPE_GPS_FULL = 0xfd,
-    IBUS_SENSOR_TYPE_VOLT_FULL = 0xf0,
-    IBUS_SENSOR_TYPE_ACC_FULL = 0xef,
+
+
+
 
     IBUS_SENSOR_TYPE_UNKNOWN = 0xff
 } ibusSensorType_e;
-
-
-
-uint8_t respondToIbusRequest(uint8_t const * const ibusPacket);
-void initSharedIbusTelemetry(serialPort_t * port);
-
-
-
-
+# 89 "./src/main/telemetry/ibus_shared.h"
 
 # 89 "./src/main/telemetry/ibus_shared.h" 3 4
 _Bool 
@@ -18189,15 +17961,7 @@ typedef enum {
 } defaultsType_e;
 
 
-static 
-# 205 "./src/main/msp/msp.c" 3 4
-      _Bool 
-# 205 "./src/main/msp/msp.c"
-           vtxTableNeedsInit = 
-# 205 "./src/main/msp/msp.c" 3 4
-                               0
-# 205 "./src/main/msp/msp.c"
-                                    ;
+
 
 
 static int mspDescriptor = 0;
@@ -18708,7 +18472,7 @@ static
 
         uint8_t count = supportedVoltageMeterCount;
 
-        count -= 12 - getMotorCount();
+
 
 
         for (int i = 0; i < count; i++) {
@@ -18727,7 +18491,7 @@ static
 
         uint8_t count = supportedCurrentMeterCount;
 
-        count -= 12 - getMotorCount();
+
 
         for (int i = 0; i < count; i++) {
 
@@ -18772,7 +18536,7 @@ static
         int currentMeterCount = 1;
 
 
-        currentMeterCount++;
+
 
         sbufWriteU8(dst, currentMeterCount);
 
@@ -18782,17 +18546,7 @@ static
         sbufWriteU8(dst, CURRENT_SENSOR_ADC);
         sbufWriteU16(dst, currentSensorADCConfig()->scale);
         sbufWriteU16(dst, currentSensorADCConfig()->offset);
-
-
-        const int8_t virtualSensorSubframeLength = 1 + 1 + 2 + 2;
-        sbufWriteU8(dst, virtualSensorSubframeLength);
-        sbufWriteU8(dst, CURRENT_METER_ID_VIRTUAL_1);
-        sbufWriteU8(dst, CURRENT_SENSOR_VIRTUAL);
-        sbufWriteU16(dst, currentSensorVirtualConfig()->scale);
-        sbufWriteU16(dst, currentSensorVirtualConfig()->offset);
-
-
-
+# 852 "./src/main/msp/msp.c"
         break;
     }
 
@@ -18824,39 +18578,7 @@ static
 
 
         uint8_t osdFlags = 0;
-
-        osdFlags |= (1 << 0);
-
-        osdDisplayPortDevice_e deviceType;
-        displayPort_t *osdDisplayPort = osdGetDisplayPort(&deviceType);
-        
-# 907 "./src/main/msp/msp.c" 3 4
-       _Bool 
-# 907 "./src/main/msp/msp.c"
-            displayIsReady = osdDisplayPort && displayCheckReady(osdDisplayPort, 
-# 907 "./src/main/msp/msp.c" 3 4
-                                                                                 1
-# 907 "./src/main/msp/msp.c"
-                                                                                     );
-        switch (deviceType) {
-        case OSD_DISPLAYPORT_DEVICE_MAX7456:
-            osdFlags |= (1 << 4);
-            if (displayIsReady) {
-                osdFlags |= (1 << 5);
-            }
-
-            break;
-        case OSD_DISPLAYPORT_DEVICE_FRSKYOSD:
-            osdFlags |= (1 << 3);
-            if (displayIsReady) {
-                osdFlags |= (1 << 5);
-            }
-
-            break;
-        default:
-            break;
-        }
-
+# 927 "./src/main/msp/msp.c"
         sbufWriteU8(dst, osdFlags);
 
 
@@ -18864,72 +18586,7 @@ static
 
 
         sbufWriteU8(dst, 0);
-
-
-
-
-
-
-        sbufWriteU8(dst, osdConfig()->units);
-
-
-        sbufWriteU8(dst, osdConfig()->rssi_alarm);
-        sbufWriteU16(dst, osdConfig()->cap_alarm);
-
-
-        sbufWriteU8(dst, 0);
-        sbufWriteU8(dst, OSD_ITEM_COUNT);
-
-        sbufWriteU16(dst, osdConfig()->alt_alarm);
-
-
-        for (int i = 0; i < OSD_ITEM_COUNT; i++) {
-            sbufWriteU16(dst, osdElementConfig()->item_pos[i]);
-        }
-
-
-        sbufWriteU8(dst, OSD_STAT_COUNT);
-        for (int i = 0; i < OSD_STAT_COUNT; i++ ) {
-            sbufWriteU8(dst, osdStatGetState(i));
-        }
-
-
-        sbufWriteU8(dst, OSD_TIMER_COUNT);
-        for (int i = 0; i < OSD_TIMER_COUNT; i++) {
-            sbufWriteU16(dst, osdConfig()->timers[i]);
-        }
-
-
-
-        sbufWriteU16(dst, (uint16_t)(osdConfig()->enabledWarnings & 0xFFFF));
-
-
-
-
-        sbufWriteU8(dst, OSD_WARNING_COUNT);
-        sbufWriteU32(dst, osdConfig()->enabledWarnings);
-
-
-        sbufWriteU8(dst, 3);
-        sbufWriteU8(dst, osdConfig()->osdProfileIndex);
-
-
-
-
-
-
-
-        sbufWriteU8(dst, osdConfig()->overlay_radio_mode);
-
-
-
-
-
-
-        sbufWriteU8(dst, osdConfig()->camera_frame_width);
-        sbufWriteU8(dst, osdConfig()->camera_frame_height);
-
-
+# 1000 "./src/main/msp/msp.c"
         break;
     }
 
@@ -19117,42 +18774,7 @@ static
                                    0
 # 1158 "./src/main/msp/msp.c"
                                         ;
-
-
-            if (motorConfig()->dev.useDshotTelemetry) {
-                rpm = (int)getDshotTelemetry(i) * 100 * 2 / motorConfig()->motorPoleCount;
-                rpmDataAvailable = 
-# 1163 "./src/main/msp/msp.c" 3 4
-                                  1
-# 1163 "./src/main/msp/msp.c"
-                                      ;
-                invalidPct = 10000;
-
-                if (isDshotMotorTelemetryActive(i)) {
-                    invalidPct = getDshotTelemetryMotorInvalidPercent(i);
-                }
-
-            }
-
-
-
-            if (featureIsEnabled(FEATURE_ESC_SENSOR)) {
-                escSensorData_t *escData = getEscSensorData(i);
-                if (!rpmDataAvailable) {
-                    rpm = calcEscRpm(escData->rpm);
-                    rpmDataAvailable = 
-# 1178 "./src/main/msp/msp.c" 3 4
-                                      1
-# 1178 "./src/main/msp/msp.c"
-                                          ;
-                }
-                escTemperature = escData->temperature;
-                escVoltage = escData->voltage;
-                escCurrent = escData->current;
-                escConsumption = escData->consumption;
-            }
-
-
+# 1187 "./src/main/msp/msp.c"
             sbufWriteU32(dst, (rpmDataAvailable ? rpm : 0));
             sbufWriteU16(dst, invalidPct);
             sbufWriteU8(dst, escTemperature);
@@ -19171,42 +18793,7 @@ static
             }
         }
         break;
-
-
-    case 0x3004:
-        {
-            const vtxDevice_t *vtxDevice = vtxCommonDevice();
-            vtxCommonSerializeDeviceStatus(vtxDevice, dst);
-        }
-        break;
-
-
-
-    case 0x3005:
-        {
-            
-# 1218 "./src/main/msp/msp.c" 3 4
-           _Bool 
-# 1218 "./src/main/msp/msp.c"
-                isBlinking;
-            uint8_t displayAttr;
-            char warningsBuffer[(12 + 1)];
-
-            renderOsdWarning(warningsBuffer, &isBlinking, &displayAttr);
-            const uint8_t warningsLen = strlen(warningsBuffer);
-
-            if (isBlinking) {
-                displayAttr |= 0x80;
-            }
-            sbufWriteU8(dst, displayAttr);
-            sbufWriteU8(dst, warningsLen);
-            for (unsigned i = 0; i < warningsLen; i++) {
-                sbufWriteU8(dst, warningsBuffer[i]);
-            }
-            break;
-        }
-
-
+# 1237 "./src/main/msp/msp.c"
     case 105:
         for (int i = 0; i < rxRuntimeState.channelCount; i++) {
             sbufWriteU16(dst, rcData[i]);
@@ -19222,9 +18809,9 @@ static
     case 109:
         sbufWriteU32(dst, getEstimatedAltitudeCm());
 
-        sbufWriteU16(dst, getEstimatedVario());
 
 
+        sbufWriteU16(dst, 0);
 
         break;
 
@@ -19340,113 +18927,18 @@ static
         sbufWriteU8(dst, getMotorCount());
         sbufWriteU8(dst, motorConfig()->motorPoleCount);
 
-        sbufWriteU8(dst, motorConfig()->dev.useDshotTelemetry);
+
+
+        sbufWriteU8(dst, 0);
 
 
 
 
 
-        sbufWriteU8(dst, featureIsEnabled(FEATURE_ESC_SENSOR));
-
-
-
-        break;
-
-
-
-    case 134:
-        if (featureIsEnabled(FEATURE_ESC_SENSOR)) {
-            sbufWriteU8(dst, getMotorCount());
-            for (int i = 0; i < getMotorCount(); i++) {
-                const escSensorData_t *escData = getEscSensorData(i);
-                sbufWriteU8(dst, escData->temperature);
-                sbufWriteU16(dst, escData->rpm);
-            }
-        } else {
-            unsupportedCommand = 
-# 1393 "./src/main/msp/msp.c" 3 4
-                                1
-# 1393 "./src/main/msp/msp.c"
-                                    ;
-        }
+        sbufWriteU8(dst, 0);
 
         break;
-
-
-
-    case 132:
-        sbufWriteU8(dst, gpsConfig()->provider);
-        sbufWriteU8(dst, gpsConfig()->sbasMode);
-        sbufWriteU8(dst, gpsConfig()->autoConfig);
-        sbufWriteU8(dst, gpsConfig()->autoBaud);
-
-        sbufWriteU8(dst, gpsConfig()->gps_set_home_point_once);
-        sbufWriteU8(dst, gpsConfig()->gps_ublox_use_galileo);
-        break;
-
-    case 106:
-        sbufWriteU8(dst, (stateFlags & (GPS_FIX)));
-        sbufWriteU8(dst, gpsSol.numSat);
-        sbufWriteU32(dst, gpsSol.llh.lat);
-        sbufWriteU32(dst, gpsSol.llh.lon);
-        sbufWriteU16(dst, (uint16_t)constrain(gpsSol.llh.altCm / 100, 0, 
-# 1415 "./src/main/msp/msp.c" 3 4
-                                                                        (0xffff)
-# 1415 "./src/main/msp/msp.c"
-                                                                                  ));
-        sbufWriteU16(dst, gpsSol.groundSpeed);
-        sbufWriteU16(dst, gpsSol.groundCourse);
-
-        sbufWriteU16(dst, gpsSol.hdop);
-        break;
-
-    case 107:
-        sbufWriteU16(dst, GPS_distanceToHome);
-        sbufWriteU16(dst, GPS_directionToHome);
-        sbufWriteU8(dst, GPS_update & 1);
-        break;
-
-    case 164:
-        sbufWriteU8(dst, GPS_numCh);
-       for (int i = 0; i < GPS_numCh; i++) {
-           sbufWriteU8(dst, GPS_svinfo_chn[i]);
-           sbufWriteU8(dst, GPS_svinfo_svid[i]);
-           sbufWriteU8(dst, GPS_svinfo_quality[i]);
-           sbufWriteU8(dst, GPS_svinfo_cno[i]);
-       }
-        break;
-
-
-    case 135:
-        sbufWriteU16(dst, gpsRescueConfig()->angle);
-        sbufWriteU16(dst, gpsRescueConfig()->initialAltitudeM);
-        sbufWriteU16(dst, gpsRescueConfig()->descentDistanceM);
-        sbufWriteU16(dst, gpsRescueConfig()->rescueGroundspeed);
-        sbufWriteU16(dst, gpsRescueConfig()->throttleMin);
-        sbufWriteU16(dst, gpsRescueConfig()->throttleMax);
-        sbufWriteU16(dst, gpsRescueConfig()->throttleHover);
-        sbufWriteU8(dst, gpsRescueConfig()->sanityChecks);
-        sbufWriteU8(dst, gpsRescueConfig()->minSats);
-
-        sbufWriteU16(dst, gpsRescueConfig()->ascendRate);
-        sbufWriteU16(dst, gpsRescueConfig()->descendRate);
-        sbufWriteU8(dst, gpsRescueConfig()->allowArmingWithoutFix);
-        sbufWriteU8(dst, gpsRescueConfig()->altitudeMode);
-        break;
-
-    case 136:
-        sbufWriteU16(dst, gpsRescueConfig()->throttleP);
-        sbufWriteU16(dst, gpsRescueConfig()->throttleI);
-        sbufWriteU16(dst, gpsRescueConfig()->throttleD);
-        sbufWriteU16(dst, gpsRescueConfig()->velP);
-        sbufWriteU16(dst, gpsRescueConfig()->velI);
-        sbufWriteU16(dst, gpsRescueConfig()->velD);
-        sbufWriteU16(dst, gpsRescueConfig()->yawP);
-        break;
-
-
-
-
+# 1469 "./src/main/msp/msp.c"
     case 240:
         sbufWriteU16(dst, accelerometerConfig()->accelerometerTrims.values.pitch);
         sbufWriteU16(dst, accelerometerConfig()->accelerometerTrims.values.roll);
@@ -19481,21 +18973,28 @@ static
         sbufWriteU8(dst, rxConfig()->fpvCamAngleDegrees);
         sbufWriteU8(dst, rxConfig()->rcInterpolationChannels);
 
-        sbufWriteU8(dst, rxConfig()->rc_smoothing_type);
-        sbufWriteU8(dst, rxConfig()->rc_smoothing_input_cutoff);
-        sbufWriteU8(dst, rxConfig()->rc_smoothing_derivative_cutoff);
-        sbufWriteU8(dst, rxConfig()->rc_smoothing_input_type);
-        sbufWriteU8(dst, rxConfig()->rc_smoothing_derivative_type);
-# 1516 "./src/main/msp/msp.c"
+
+
+
+
+
+
+        sbufWriteU8(dst, 0);
+        sbufWriteU8(dst, 0);
+        sbufWriteU8(dst, 0);
+        sbufWriteU8(dst, 0);
+        sbufWriteU8(dst, 0);
+
+
         sbufWriteU8(dst, usbDevConfig()->type);
 
 
 
 
 
-        sbufWriteU8(dst, rxConfig()->rc_smoothing_auto_factor);
 
 
+        sbufWriteU8(dst, 0);
 
         break;
     case 75:
@@ -19734,18 +19233,9 @@ static
         sbufWriteU8(dst, gyroConfig()->dyn_notch_width_percent);
         sbufWriteU16(dst, gyroConfig()->dyn_notch_q);
         sbufWriteU16(dst, gyroConfig()->dyn_notch_min_hz);
-
-
-
-
-
-
-
-        sbufWriteU8(dst, rpmFilterConfig()->gyro_rpm_notch_harmonics);
-        sbufWriteU8(dst, rpmFilterConfig()->gyro_rpm_notch_min);
-
-
-
+# 1787 "./src/main/msp/msp.c"
+        sbufWriteU8(dst, 0);
+        sbufWriteU8(dst, 0);
 
 
 
@@ -19782,21 +19272,21 @@ static
         sbufWriteU8(dst, currentPidProfile->iterm_rotation);
         sbufWriteU8(dst, 0);
 
-        sbufWriteU8(dst, currentPidProfile->iterm_relax);
-        sbufWriteU8(dst, currentPidProfile->iterm_relax_type);
+
+
+
+        sbufWriteU8(dst, 0);
+        sbufWriteU8(dst, 0);
 
 
 
 
-
-        sbufWriteU8(dst, currentPidProfile->abs_control_gain);
-
+        sbufWriteU8(dst, 0);
 
 
 
-        sbufWriteU8(dst, currentPidProfile->throttle_boost);
 
-
+        sbufWriteU8(dst, 0);
 
 
         sbufWriteU8(dst, currentPidProfile->acro_trainer_angle_limit);
@@ -19809,31 +19299,38 @@ static
 
         sbufWriteU8(dst, currentPidProfile->antiGravityMode);
 
-        sbufWriteU8(dst, currentPidProfile->d_min[PID_ROLL]);
-        sbufWriteU8(dst, currentPidProfile->d_min[PID_PITCH]);
-        sbufWriteU8(dst, currentPidProfile->d_min[PID_YAW]);
-        sbufWriteU8(dst, currentPidProfile->d_min_gain);
-        sbufWriteU8(dst, currentPidProfile->d_min_advance);
-# 1865 "./src/main/msp/msp.c"
-        sbufWriteU8(dst, currentPidProfile->use_integrated_yaw);
-        sbufWriteU8(dst, currentPidProfile->integrated_yaw_relax);
 
 
 
 
 
 
-        sbufWriteU8(dst, currentPidProfile->iterm_relax_cutoff);
+        sbufWriteU8(dst, 0);
+        sbufWriteU8(dst, 0);
+        sbufWriteU8(dst, 0);
+        sbufWriteU8(dst, 0);
+        sbufWriteU8(dst, 0);
 
 
+
+
+
+        sbufWriteU8(dst, 0);
+        sbufWriteU8(dst, 0);
+
+
+
+
+
+        sbufWriteU8(dst, 0);
 
 
         sbufWriteU8(dst, currentPidProfile->motor_output_limit);
         sbufWriteU8(dst, currentPidProfile->auto_profile_cell_count);
 
-        sbufWriteU8(dst, currentPidProfile->dyn_idle_min_rpm);
 
 
+        sbufWriteU8(dst, 0);
 
 
 
@@ -19845,14 +19342,14 @@ static
 
         sbufWriteU8(dst, currentPidProfile->ff_boost);
 
-        sbufWriteU8(dst, currentPidProfile->vbat_sag_compensation);
+
+
+        sbufWriteU8(dst, 0);
 
 
 
 
-        sbufWriteU8(dst, currentPidProfile->thrustLinearization);
-
-
+        sbufWriteU8(dst, 0);
 
         break;
     case 96:
@@ -19872,46 +19369,7 @@ static
         sbufWriteU8(dst, MAG_NONE);
 
         break;
-
-
-    case 88:
-        {
-            const vtxDevice_t *vtxDevice = vtxCommonDevice();
-            unsigned vtxStatus = 0;
-            vtxDevType_e vtxType = VTXDEV_UNKNOWN;
-            uint8_t deviceIsReady = 0;
-            if (vtxDevice) {
-                vtxCommonGetStatus(vtxDevice, &vtxStatus);
-                vtxType = vtxCommonGetDeviceType(vtxDevice);
-                deviceIsReady = vtxCommonDeviceIsReady(vtxDevice) ? 1 : 0;
-            }
-            sbufWriteU8(dst, vtxType);
-            sbufWriteU8(dst, vtxSettingsConfig()->band);
-            sbufWriteU8(dst, vtxSettingsConfig()->channel);
-            sbufWriteU8(dst, vtxSettingsConfig()->power);
-            sbufWriteU8(dst, (vtxStatus & VTX_STATUS_PIT_MODE) ? 1 : 0);
-            sbufWriteU16(dst, vtxSettingsConfig()->freq);
-            sbufWriteU8(dst, deviceIsReady);
-            sbufWriteU8(dst, vtxSettingsConfig()->lowPowerDisarm);
-
-
-            sbufWriteU16(dst, vtxSettingsConfig()->pitModeFreq);
-
-            sbufWriteU8(dst, 1);
-            sbufWriteU8(dst, vtxTableConfig()->bands);
-            sbufWriteU8(dst, vtxTableConfig()->channels);
-            sbufWriteU8(dst, vtxTableConfig()->powerLevels);
-
-
-
-
-
-
-
-        }
-        break;
-
-
+# 1962 "./src/main/msp/msp.c"
     case 187:
         sbufWriteU8(dst, rssiSource);
         uint8_t rtcDateTimeIsSet = 0;
@@ -20045,68 +19503,7 @@ static mspResult_e mspFcProcessOutCommandWithArg(mspDescriptor_t srcDesc, int16_
             dst->ptr = packetOut.buf.ptr;
         }
         break;
-
-
-    case 137:
-        {
-            const uint8_t band = sbufBytesRemaining(src) ? sbufReadU8(src) : 0;
-            if (band > 0 && band <= 8) {
-                sbufWriteU8(dst, band);
-                sbufWriteU8(dst, 8);
-                for (int i = 0; i < 8; i++) {
-                    sbufWriteU8(dst, vtxTableConfig()->bandNames[band - 1][i]);
-                }
-                sbufWriteU8(dst, vtxTableConfig()->bandLetters[band - 1]);
-                sbufWriteU8(dst, vtxTableConfig()->isFactoryBand[band - 1]);
-                sbufWriteU8(dst, vtxTableConfig()->channels);
-                for (int i = 0; i < vtxTableConfig()->channels; i++) {
-                    sbufWriteU16(dst, vtxTableConfig()->frequency[band - 1][i]);
-                }
-            } else {
-                return MSP_RESULT_ERROR;
-            }
-        }
-        break;
-
-    case 138:
-        {
-            const uint8_t powerLevel = sbufBytesRemaining(src) ? sbufReadU8(src) : 0;
-            if (powerLevel > 0 && powerLevel <= 8) {
-                sbufWriteU8(dst, powerLevel);
-                sbufWriteU16(dst, vtxTableConfig()->powerValues[powerLevel - 1]);
-                sbufWriteU8(dst, 3);
-                for (int i = 0; i < 3; i++) {
-                    sbufWriteU8(dst, vtxTableConfig()->powerLabels[powerLevel - 1][i]);
-                }
-            } else {
-                return MSP_RESULT_ERROR;
-            }
-        }
-        break;
-
-
-
-
-    case 140:
-        {
-            sbufWriteU8(dst, currentPidProfile->simplified_pids_mode);
-            sbufWriteU8(dst, currentPidProfile->simplified_master_multiplier);
-            sbufWriteU8(dst, currentPidProfile->simplified_roll_pitch_ratio);
-            sbufWriteU8(dst, currentPidProfile->simplified_i_gain);
-            sbufWriteU8(dst, currentPidProfile->simplified_pd_ratio);
-            sbufWriteU8(dst, currentPidProfile->simplified_pd_gain);
-            sbufWriteU8(dst, currentPidProfile->simplified_dmin_ratio);
-            sbufWriteU8(dst, currentPidProfile->simplified_ff_gain);
-
-            sbufWriteU8(dst, currentPidProfile->simplified_dterm_filter);
-            sbufWriteU8(dst, currentPidProfile->simplified_dterm_filter_multiplier);
-
-            sbufWriteU8(dst, gyroConfig()->simplified_gyro_filter);
-            sbufWriteU8(dst, gyroConfig()->simplified_gyro_filter_multiplier);
-        }
-        break;
-
-
+# 2145 "./src/main/msp/msp.c"
     case 208:
         {
 
@@ -20239,9 +19636,9 @@ static mspResult_e mspProcessInCommand(mspDescriptor_t srcDesc, int16_t cmdMSP, 
         break;
 
 
-    case 211:
-        magHold = sbufReadU16(src);
-        break;
+
+
+
 
 
     case 200:
@@ -20403,58 +19800,13 @@ static mspResult_e mspProcessInCommand(mspDescriptor_t srcDesc, int16_t cmdMSP, 
         if (sbufBytesRemaining(src) >= 2) {
             motorConfigMutable()->motorPoleCount = sbufReadU8(src);
 
-            motorConfigMutable()->dev.useDshotTelemetry = sbufReadU8(src);
 
 
+            sbufReadU8(src);
 
         }
         break;
-
-
-    case 223:
-        gpsConfigMutable()->provider = sbufReadU8(src);
-        gpsConfigMutable()->sbasMode = sbufReadU8(src);
-        gpsConfigMutable()->autoConfig = sbufReadU8(src);
-        gpsConfigMutable()->autoBaud = sbufReadU8(src);
-        if (sbufBytesRemaining(src) >= 2) {
-
-            gpsConfigMutable()->gps_set_home_point_once = sbufReadU8(src);
-            gpsConfigMutable()->gps_ublox_use_galileo = sbufReadU8(src);
-        }
-        break;
-
-
-        case 225:
-        gpsRescueConfigMutable()->angle = sbufReadU16(src);
-        gpsRescueConfigMutable()->initialAltitudeM = sbufReadU16(src);
-        gpsRescueConfigMutable()->descentDistanceM = sbufReadU16(src);
-        gpsRescueConfigMutable()->rescueGroundspeed = sbufReadU16(src);
-        gpsRescueConfigMutable()->throttleMin = sbufReadU16(src);
-        gpsRescueConfigMutable()->throttleMax = sbufReadU16(src);
-        gpsRescueConfigMutable()->throttleHover = sbufReadU16(src);
-        gpsRescueConfigMutable()->sanityChecks = sbufReadU8(src);
-        gpsRescueConfigMutable()->minSats = sbufReadU8(src);
-        if (sbufBytesRemaining(src) >= 6) {
-
-            gpsRescueConfigMutable()->ascendRate = sbufReadU16(src);
-            gpsRescueConfigMutable()->descendRate = sbufReadU16(src);
-            gpsRescueConfigMutable()->allowArmingWithoutFix = sbufReadU8(src);
-            gpsRescueConfigMutable()->altitudeMode = sbufReadU8(src);
-        }
-        break;
-
-    case 226:
-        gpsRescueConfigMutable()->throttleP = sbufReadU16(src);
-        gpsRescueConfigMutable()->throttleI = sbufReadU16(src);
-        gpsRescueConfigMutable()->throttleD = sbufReadU16(src);
-        gpsRescueConfigMutable()->velP = sbufReadU16(src);
-        gpsRescueConfigMutable()->velI = sbufReadU16(src);
-        gpsRescueConfigMutable()->velD = sbufReadU16(src);
-        gpsRescueConfigMutable()->yawP = sbufReadU16(src);
-        break;
-
-
-
+# 2461 "./src/main/msp/msp.c"
     case 214:
         for (int i = 0; i < getMotorCount(); i++) {
             motor_disarmed[i] = motorConvertFromExternal(sbufReadU16(src));
@@ -20636,18 +19988,9 @@ static mspResult_e mspProcessInCommand(mspDescriptor_t srcDesc, int16_t cmdMSP, 
             gyroConfigMutable()->dyn_notch_width_percent = sbufReadU8(src);
             gyroConfigMutable()->dyn_notch_q = sbufReadU16(src);
             gyroConfigMutable()->dyn_notch_min_hz = sbufReadU16(src);
-
-
-
-
-
-
-
-            rpmFilterConfigMutable()->gyro_rpm_notch_harmonics = sbufReadU8(src);
-            rpmFilterConfigMutable()->gyro_rpm_notch_min = sbufReadU8(src);
-
-
-
+# 2652 "./src/main/msp/msp.c"
+            sbufReadU8(src);
+            sbufReadU8(src);
 
         }
         if (sbufBytesRemaining(src) >= 1) {
@@ -20703,21 +20046,21 @@ static mspResult_e mspProcessInCommand(mspDescriptor_t srcDesc, int16_t cmdMSP, 
             currentPidProfile->iterm_rotation = sbufReadU8(src);
             sbufReadU8(src);
 
-            currentPidProfile->iterm_relax = sbufReadU8(src);
-            currentPidProfile->iterm_relax_type = sbufReadU8(src);
+
+
+
+            sbufReadU8(src);
+            sbufReadU8(src);
 
 
 
 
-
-            currentPidProfile->abs_control_gain = sbufReadU8(src);
-
+            sbufReadU8(src);
 
 
 
-            currentPidProfile->throttle_boost = sbufReadU8(src);
 
-
+            sbufReadU8(src);
 
 
             currentPidProfile->acro_trainer_angle_limit = sbufReadU8(src);
@@ -20732,27 +20075,27 @@ static mspResult_e mspProcessInCommand(mspDescriptor_t srcDesc, int16_t cmdMSP, 
             currentPidProfile->antiGravityMode = sbufReadU8(src);
         }
         if (sbufBytesRemaining(src) >= 7) {
-
-
-            currentPidProfile->d_min[PID_ROLL] = sbufReadU8(src);
-            currentPidProfile->d_min[PID_PITCH] = sbufReadU8(src);
-            currentPidProfile->d_min[PID_YAW] = sbufReadU8(src);
-            currentPidProfile->d_min_gain = sbufReadU8(src);
-            currentPidProfile->d_min_advance = sbufReadU8(src);
-# 2753 "./src/main/msp/msp.c"
-            currentPidProfile->use_integrated_yaw = sbufReadU8(src);
-            currentPidProfile->integrated_yaw_relax = sbufReadU8(src);
+# 2746 "./src/main/msp/msp.c"
+            sbufReadU8(src);
+            sbufReadU8(src);
+            sbufReadU8(src);
+            sbufReadU8(src);
+            sbufReadU8(src);
 
 
 
+
+
+            sbufReadU8(src);
+            sbufReadU8(src);
 
         }
         if(sbufBytesRemaining(src) >= 1) {
 
 
-            currentPidProfile->iterm_relax_cutoff = sbufReadU8(src);
 
 
+            sbufReadU8(src);
 
         }
         if (sbufBytesRemaining(src) >= 3) {
@@ -20760,9 +20103,9 @@ static mspResult_e mspProcessInCommand(mspDescriptor_t srcDesc, int16_t cmdMSP, 
             currentPidProfile->motor_output_limit = sbufReadU8(src);
             currentPidProfile->auto_profile_cell_count = sbufReadU8(src);
 
-            currentPidProfile->dyn_idle_min_rpm = sbufReadU8(src);
 
 
+            sbufReadU8(src);
 
         }
         if (sbufBytesRemaining(src) >= 5) {
@@ -20776,14 +20119,14 @@ static mspResult_e mspProcessInCommand(mspDescriptor_t srcDesc, int16_t cmdMSP, 
 
             currentPidProfile->ff_boost = sbufReadU8(src);
 
-            currentPidProfile->vbat_sag_compensation = sbufReadU8(src);
+
+
+            sbufReadU8(src);
 
 
 
 
-            currentPidProfile->thrustLinearization = sbufReadU8(src);
-
-
+            sbufReadU8(src);
 
         }
         pidInitConfig(currentPidProfile);
@@ -20821,18 +20164,7 @@ static mspResult_e mspProcessInCommand(mspDescriptor_t srcDesc, int16_t cmdMSP, 
 
         writeEEPROM();
         readEEPROM();
-
-
-        if (vtxTableNeedsInit) {
-            vtxTableNeedsInit = 
-# 2845 "./src/main/msp/msp.c" 3 4
-                               0
-# 2845 "./src/main/msp/msp.c"
-                                    ;
-            vtxTableInit();
-        }
-
-
+# 2850 "./src/main/msp/msp.c"
         break;
 
 
@@ -20860,198 +20192,7 @@ static mspResult_e mspProcessInCommand(mspDescriptor_t srcDesc, int16_t cmdMSP, 
             }
         }
         break;
-
-
-
-    case 89:
-        {
-            vtxDevice_t *vtxDevice = vtxCommonDevice();
-            vtxDevType_e vtxType = VTXDEV_UNKNOWN;
-            if (vtxDevice) {
-                vtxType = vtxCommonGetDeviceType(vtxDevice);
-            }
-            uint16_t newFrequency = sbufReadU16(src);
-            if (newFrequency <= ((uint16_t)((7 << 3) + 7))) {
-                const uint8_t newBand = (newFrequency / 8) + 1;
-                const uint8_t newChannel = (newFrequency % 8) + 1;
-                vtxSettingsConfigMutable()->band = newBand;
-                vtxSettingsConfigMutable()->channel = newChannel;
-                vtxSettingsConfigMutable()->freq = vtxCommonLookupFrequency(vtxDevice, newBand, newChannel);
-            } else if (newFrequency <= 5999) {
-                vtxSettingsConfigMutable()->band = 0;
-                vtxSettingsConfigMutable()->freq = newFrequency;
-            }
-
-            if (sbufBytesRemaining(src) >= 2) {
-                vtxSettingsConfigMutable()->power = sbufReadU8(src);
-                const uint8_t newPitmode = sbufReadU8(src);
-                if (vtxType != VTXDEV_UNKNOWN) {
-
-                    unsigned vtxCurrentStatus;
-                    vtxCommonGetStatus(vtxDevice, &vtxCurrentStatus);
-                    if ((
-# 2906 "./src/main/msp/msp.c" 3 4
-                        _Bool
-# 2906 "./src/main/msp/msp.c"
-                            )(vtxCurrentStatus & VTX_STATUS_PIT_MODE) != (
-# 2906 "./src/main/msp/msp.c" 3 4
-                                                                          _Bool
-# 2906 "./src/main/msp/msp.c"
-                                                                              )newPitmode) {
-                        vtxCommonSetPitMode(vtxDevice, newPitmode);
-                    }
-                }
-            }
-
-            if (sbufBytesRemaining(src)) {
-                    vtxSettingsConfigMutable()->lowPowerDisarm = sbufReadU8(src);
-            }
-
-
-            if (sbufBytesRemaining(src) >= 2) {
-                vtxSettingsConfigMutable()->pitModeFreq = sbufReadU16(src);
-            }
-
-
-            if (sbufBytesRemaining(src) >= 4) {
-
-
-                uint8_t newBand = sbufReadU8(src);
-                const uint8_t newChannel = sbufReadU8(src);
-                uint16_t newFreq = sbufReadU16(src);
-                if (newBand) {
-                    newFreq = vtxCommonLookupFrequency(vtxDevice, newBand, newChannel);
-                }
-                vtxSettingsConfigMutable()->band = newBand;
-                vtxSettingsConfigMutable()->channel = newChannel;
-                vtxSettingsConfigMutable()->freq = newFreq;
-            }
-
-
-            if (sbufBytesRemaining(src) >= 4) {
-
-                const uint8_t newBandCount = sbufReadU8(src);
-                const uint8_t newChannelCount = sbufReadU8(src);
-                const uint8_t newPowerCount = sbufReadU8(src);
-
-                if ((newBandCount > 8) ||
-                    (newChannelCount > 8) ||
-                    (newPowerCount > 8)) {
-                    return MSP_RESULT_ERROR;
-                }
-                vtxTableConfigMutable()->bands = newBandCount;
-                vtxTableConfigMutable()->channels = newChannelCount;
-                vtxTableConfigMutable()->powerLevels = newPowerCount;
-
-
-
-
-                if (sbufReadU8(src)) {
-                    for (int i = 0; i < 8; i++) {
-                        vtxTableConfigClearBand(vtxTableConfigMutable(), i);
-                        vtxTableConfigClearChannels(vtxTableConfigMutable(), i, 0);
-                    }
-                    vtxTableConfigClearPowerLabels(vtxTableConfigMutable(), 0);
-                    vtxTableConfigClearPowerValues(vtxTableConfigMutable(), 0);
-                }
-
-
-
-
-
-
-            }
-        }
-        break;
-
-
-
-    case 227:
-        {
-            char bandName[8 + 1];
-            memset(bandName, 0, 8 + 1);
-            uint16_t frequencies[8];
-            const uint8_t band = sbufReadU8(src);
-            const uint8_t bandNameLength = sbufReadU8(src);
-            for (int i = 0; i < bandNameLength; i++) {
-                const char nameChar = sbufReadU8(src);
-                if (i < 8) {
-                    bandName[i] = toupper(nameChar);
-                }
-            }
-            const char bandLetter = toupper(sbufReadU8(src));
-            const 
-# 2989 "./src/main/msp/msp.c" 3 4
-                 _Bool 
-# 2989 "./src/main/msp/msp.c"
-                      isFactoryBand = (
-# 2989 "./src/main/msp/msp.c" 3 4
-                                       _Bool
-# 2989 "./src/main/msp/msp.c"
-                                           )sbufReadU8(src);
-            const uint8_t channelCount = sbufReadU8(src);
-            for (int i = 0; i < channelCount; i++) {
-                const uint16_t frequency = sbufReadU16(src);
-                if (i < vtxTableConfig()->channels) {
-                    frequencies[i] = frequency;
-                }
-            }
-
-            if (band > 0 && band <= vtxTableConfig()->bands) {
-                vtxTableStrncpyWithPad(vtxTableConfigMutable()->bandNames[band - 1], bandName, 8);
-                vtxTableConfigMutable()->bandLetters[band - 1] = bandLetter;
-                vtxTableConfigMutable()->isFactoryBand[band - 1] = isFactoryBand;
-                for (int i = 0; i < vtxTableConfig()->channels; i++) {
-                    vtxTableConfigMutable()->frequency[band - 1][i] = frequencies[i];
-                }
-
-                if (band == vtxSettingsConfig()->band) {
-                    uint16_t newFreq = 0;
-                    if (vtxSettingsConfig()->channel > 0 && vtxSettingsConfig()->channel <= vtxTableConfig()->channels) {
-                        newFreq = frequencies[vtxSettingsConfig()->channel - 1];
-                    }
-                    vtxSettingsConfigMutable()->freq = newFreq;
-                }
-                vtxTableNeedsInit = 
-# 3013 "./src/main/msp/msp.c" 3 4
-                                   1
-# 3013 "./src/main/msp/msp.c"
-                                       ;
-            } else {
-                return MSP_RESULT_ERROR;
-            }
-        }
-        break;
-
-    case 228:
-        {
-            char powerLevelLabel[3 + 1];
-            memset(powerLevelLabel, 0, 3 + 1);
-            const uint8_t powerLevel = sbufReadU8(src);
-            const uint16_t powerValue = sbufReadU16(src);
-            const uint8_t powerLevelLabelLength = sbufReadU8(src);
-            for (int i = 0; i < powerLevelLabelLength; i++) {
-                const char labelChar = sbufReadU8(src);
-                if (i < 3) {
-                    powerLevelLabel[i] = toupper(labelChar);
-                }
-            }
-
-            if (powerLevel > 0 && powerLevel <= vtxTableConfig()->powerLevels) {
-                vtxTableConfigMutable()->powerValues[powerLevel - 1] = powerValue;
-                vtxTableStrncpyWithPad(vtxTableConfigMutable()->powerLabels[powerLevel - 1], powerLevelLabel, 3);
-                vtxTableNeedsInit = 
-# 3037 "./src/main/msp/msp.c" 3 4
-                                   1
-# 3037 "./src/main/msp/msp.c"
-                                       ;
-            } else {
-                return MSP_RESULT_ERROR;
-            }
-        }
-        break;
-
-
+# 3045 "./src/main/msp/msp.c"
     case 0x3002:
         {
             const uint8_t arraySize = sbufReadU8(src);
@@ -21067,80 +20208,13 @@ static mspResult_e mspProcessInCommand(mspDescriptor_t srcDesc, int16_t cmdMSP, 
             }
         }
         break;
-
-
-    case 0x3003:
-        {
-            const 
-# 3064 "./src/main/msp/msp.c" 3 4
-                 _Bool 
-# 3064 "./src/main/msp/msp.c"
-                      armed = (armingFlags & (ARMED));
-
-            if (!armed) {
-                const uint8_t commandType = sbufReadU8(src);
-                const uint8_t motorIndex = sbufReadU8(src);
-                const uint8_t commandCount = sbufReadU8(src);
-
-                if (DSHOT_CMD_TYPE_BLOCKING == commandType) {
-                    motorDisable();
-                }
-
-                for (uint8_t i = 0; i < commandCount; i++) {
-                    const uint8_t commandIndex = sbufReadU8(src);
-                    dshotCommandWrite(motorIndex, getMotorCount(), commandIndex, commandType);
-                }
-
-                if (DSHOT_CMD_TYPE_BLOCKING == commandType) {
-                    motorEnable();
-                }
-            }
-        }
-        break;
-
-
-
-
-    case 141:
-        currentPidProfile->simplified_pids_mode = sbufReadU8(src);
-        currentPidProfile->simplified_master_multiplier = sbufReadU8(src);
-        currentPidProfile->simplified_roll_pitch_ratio = sbufReadU8(src);
-        currentPidProfile->simplified_i_gain = sbufReadU8(src);
-        currentPidProfile->simplified_pd_ratio = sbufReadU8(src);
-        currentPidProfile->simplified_pd_gain = sbufReadU8(src);
-        currentPidProfile->simplified_dmin_ratio = sbufReadU8(src);
-        currentPidProfile->simplified_ff_gain = sbufReadU8(src);
-
-        currentPidProfile->simplified_dterm_filter = sbufReadU8(src);
-        currentPidProfile->simplified_dterm_filter_multiplier = sbufReadU8(src);
-
-        gyroConfigMutable()->simplified_gyro_filter = sbufReadU8(src);
-        gyroConfigMutable()->simplified_gyro_filter_multiplier = sbufReadU8(src);
-
-        applySimplifiedTuning(currentPidProfile);
-
-        break;
-
-
-
-    case 98:
-        {
-            if ((armingFlags & (ARMED))) {
-                return MSP_RESULT_ERROR;
-            }
-
-            const uint8_t key = sbufReadU8(src);
-            cameraControlKeyPress(key, 0);
-        }
-        break;
-
-
+# 3124 "./src/main/msp/msp.c"
     case 99:
         {
             const uint8_t command = sbufReadU8(src);
             uint8_t disableRunawayTakeoff = 0;
 
-
+            (void)(disableRunawayTakeoff);
 
             if (sbufBytesRemaining(src)) {
                 disableRunawayTakeoff = sbufReadU8(src);
@@ -21152,18 +20226,14 @@ static mspResult_e mspProcessInCommand(mspDescriptor_t srcDesc, int16_t cmdMSP, 
                     disarm(DISARM_REASON_ARMING_DISABLED);
                 }
 
-                runawayTakeoffTemporaryDisable(
-# 3141 "./src/main/msp/msp.c" 3 4
-                                              0
-# 3141 "./src/main/msp/msp.c"
-                                                   );
+
 
             } else {
                 mspArmingEnableByDescriptor(srcDesc);
                 if (mspIsMspArmingEnabled()) {
                     unsetArmingDisabled(ARMING_DISABLED_MSP);
 
-                    runawayTakeoffTemporaryDisable(disableRunawayTakeoff);
+
 
                 }
             }
@@ -21175,23 +20245,7 @@ static mspResult_e mspProcessInCommand(mspDescriptor_t srcDesc, int16_t cmdMSP, 
         flashfsEraseCompletely();
 
         break;
-
-
-
-    case 201:
-        if (sbufReadU8(src)) {
-            (stateFlags |= (GPS_FIX));
-        } else {
-            (stateFlags &= ~(GPS_FIX));
-        }
-        gpsSol.numSat = sbufReadU8(src);
-        gpsSol.llh.lat = sbufReadU32(src);
-        gpsSol.llh.lon = sbufReadU32(src);
-        gpsSol.llh.altCm = sbufReadU16(src) * 100;
-        gpsSol.groundSpeed = sbufReadU16(src);
-        GPS_update |= GPS_MSP_UPDATE;
-        break;
-
+# 3177 "./src/main/msp/msp.c"
     case 37:
         featureConfigReplace(sbufReadU32(src));
         break;
@@ -21258,17 +20312,17 @@ static mspResult_e mspProcessInCommand(mspDescriptor_t srcDesc, int16_t cmdMSP, 
 
             rxConfigMutable()->rcInterpolationChannels = sbufReadU8(src);
 
-            configRebootUpdateCheckU8(&rxConfigMutable()->rc_smoothing_type, sbufReadU8(src));
-            configRebootUpdateCheckU8(&rxConfigMutable()->rc_smoothing_input_cutoff, sbufReadU8(src));
-            configRebootUpdateCheckU8(&rxConfigMutable()->rc_smoothing_derivative_cutoff, sbufReadU8(src));
-            configRebootUpdateCheckU8(&rxConfigMutable()->rc_smoothing_input_type, sbufReadU8(src));
-            configRebootUpdateCheckU8(&rxConfigMutable()->rc_smoothing_derivative_type, sbufReadU8(src));
 
 
 
 
 
 
+            sbufReadU8(src);
+            sbufReadU8(src);
+            sbufReadU8(src);
+            sbufReadU8(src);
+            sbufReadU8(src);
 
         }
         if (sbufBytesRemaining(src) >= 1) {
@@ -21281,15 +20335,8 @@ static mspResult_e mspProcessInCommand(mspDescriptor_t srcDesc, int16_t cmdMSP, 
 
         }
         if (sbufBytesRemaining(src) >= 1) {
-
-
-
-
-
-
-            configRebootUpdateCheckU8(&rxConfigMutable()->rc_smoothing_auto_factor, constrain(sbufReadU8(src), 0, 50));
-
-
+# 3274 "./src/main/msp/msp.c"
+            sbufReadU8(src);
 
         }
 
@@ -21437,7 +20484,7 @@ static mspResult_e mspProcessInCommand(mspDescriptor_t srcDesc, int16_t cmdMSP, 
             pilotConfigMutable()->name[i] = sbufReadU8(src);
         }
 
-        osdAnalyzeActiveElements();
+
 
         break;
 
@@ -21559,10 +20606,10 @@ static mspResult_e mspCommonProcessInCommand(mspDescriptor_t srcDesc, int16_t cm
                 currentSensorADCConfigMutable()->offset = sbufReadU16(src);
                 break;
 
-            case CURRENT_METER_ID_VIRTUAL_1:
-                currentSensorVirtualConfigMutable()->scale = sbufReadU16(src);
-                currentSensorVirtualConfigMutable()->offset = sbufReadU16(src);
-                break;
+
+
+
+
 
             default:
                 sbufReadU16(src);
@@ -21585,145 +20632,7 @@ static mspResult_e mspCommonProcessInCommand(mspDescriptor_t srcDesc, int16_t cm
             batteryConfigMutable()->vbatwarningcellvoltage = sbufReadU16(src);
         }
         break;
-
-
-    case 85:
-        {
-            const uint8_t addr = sbufReadU8(src);
-
-            if ((int8_t)addr == -1) {
-
-
-
-
-                sbufReadU8(src);
-
-
-                osdConfigMutable()->units = sbufReadU8(src);
-
-
-                osdConfigMutable()->rssi_alarm = sbufReadU8(src);
-                osdConfigMutable()->cap_alarm = sbufReadU16(src);
-                sbufReadU16(src);
-                osdConfigMutable()->alt_alarm = sbufReadU16(src);
-
-                if (sbufBytesRemaining(src) >= 2) {
-
-
-                    osdConfigMutable()->enabledWarnings = sbufReadU16(src);
-                }
-
-                if (sbufBytesRemaining(src) >= 4) {
-
-                    osdConfigMutable()->enabledWarnings = sbufReadU32(src);
-                }
-
-                if (sbufBytesRemaining(src) >= 1) {
-
-
-
-                    changeOsdProfileIndex(sbufReadU8(src));
-
-
-
-                }
-
-                if (sbufBytesRemaining(src) >= 1) {
-
-
-
-
-                    osdConfigMutable()->overlay_radio_mode = sbufReadU8(src);
-
-
-
-
-                }
-
-                if (sbufBytesRemaining(src) >= 2) {
-
-
-                    osdConfigMutable()->camera_frame_width = sbufReadU8(src);
-                    osdConfigMutable()->camera_frame_height = sbufReadU8(src);
-                }
-
-            } else if ((int8_t)addr == -2) {
-
-
-                uint8_t index = sbufReadU8(src);
-                if (index > OSD_TIMER_COUNT) {
-                  return MSP_RESULT_ERROR;
-                }
-                osdConfigMutable()->timers[index] = sbufReadU16(src);
-
-                return MSP_RESULT_ERROR;
-            } else {
-
-                const uint16_t value = sbufReadU16(src);
-
-
-                const uint8_t screen = (sbufBytesRemaining(src) >= 1) ? sbufReadU8(src) : 1;
-
-                if (screen == 0 && addr < OSD_STAT_COUNT) {
-
-                    osdStatSetState(addr, (value != 0));
-                } else if (addr < OSD_ITEM_COUNT) {
-
-                    osdElementConfigMutable()->item_pos[addr] = value;
-                    osdAnalyzeActiveElements();
-                } else {
-                  return MSP_RESULT_ERROR;
-                }
-
-
-
-            }
-        }
-        break;
-
-    case 87:
-        {
-            osdCharacter_t chr;
-            size_t osdCharacterBytes;
-            uint16_t addr;
-            if (dataSize >= (12 * 18 * 2 / 8) + 2) {
-                if (dataSize >= 64 + 2) {
-
-                    addr = sbufReadU16(src);
-                    osdCharacterBytes = 64;
-                } else if (dataSize >= 64 + 1) {
-
-                    addr = sbufReadU8(src);
-                    osdCharacterBytes = 64;
-                } else {
-
-                    addr = sbufReadU16(src);
-                    osdCharacterBytes = (12 * 18 * 2 / 8);
-                }
-            } else {
-
-                addr = sbufReadU8(src);
-                osdCharacterBytes = (12 * 18 * 2 / 8);
-            }
-            for (unsigned ii = 0; ii < __extension__ ({ __typeof__ (osdCharacterBytes) _a = (osdCharacterBytes); __typeof__ (sizeof(chr.data)) _b = (sizeof(chr.data)); _a < _b ? _a : _b; }); ii++) {
-                chr.data[ii] = sbufReadU8(src);
-            }
-            displayPort_t *osdDisplayPort = osdGetDisplayPort(
-# 3730 "./src/main/msp/msp.c" 3 4
-                                                             ((void *)0)
-# 3730 "./src/main/msp/msp.c"
-                                                                 );
-            if (!osdDisplayPort) {
-                return MSP_RESULT_ERROR;
-            }
-
-            if (!displayWriteFontCharacter(osdDisplayPort, addr, &chr)) {
-                return MSP_RESULT_ERROR;
-            }
-        }
-        break;
-
-
+# 3742 "./src/main/msp/msp.c"
     default:
         return mspProcessInCommand(srcDesc, cmdMSP, src);
     }

@@ -9,23 +9,23 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"huffman_table.c"
-	.section	.gnu.lto_.profile.36d64789,"e",%progbits
+	.section	.gnu.lto_.profile.41243c97,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.36d64789,"e",%progbits
+	.section	.gnu.lto_.icf.41243c97,"e",%progbits
 	.ascii	"x\234\343``d\340`@\000F\2065\323\256u22\000\000\015"
 	.ascii	"\201\002\265"
 	.text
-	.section	.gnu.lto_.jmpfuncs.36d64789,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41243c97,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.inline.36d64789,"e",%progbits
+	.section	.gnu.lto_.inline.41243c97,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.pureconst.36d64789,"e",%progbits
+	.section	.gnu.lto_.pureconst.41243c97,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_huffmanTable.36d64789,"e",%progbits
+	.section	.gnu.lto_huffmanTable.41243c97,"e",%progbits
 	.ascii	"x\234u\233Gp\253\313\227\320\237\256nx\371\015\023H"
 	.ascii	"w\030f`\030\006\006\006&0\314\345\017CQ\305\002\366"
 	.ascii	"\263\030V,\330\261a\003TMQT\311I\016r\016\262-'\311"
@@ -468,14 +468,14 @@
 	.ascii	"\216\000]@'p\0208\240\371\362\225\306\363\351\313W\377"
 	.ascii	"\017\254\033\326?"
 	.text
-	.section	.gnu.lto_.symbol_nodes.36d64789,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41243c97,"e",%progbits
 	.ascii	"x\234\343``d\340f\000\002\3266F\206F%\020\013\000\012"
 	.ascii	"\001\001D"
 	.text
-	.section	.gnu.lto_.refs.36d64789,"e",%progbits
+	.section	.gnu.lto_.refs.41243c97,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.36d64789,"e",%progbits
+	.section	.gnu.lto_.decls.41243c97,"e",%progbits
 	.ascii	"x\234\215SKLSA\024\235\373\006\350\363A\251iY\230\224"
 	.ascii	"\005\232B\\\361hL\014qet\2411F7\032\343\206\246\026"
 	.ascii	"\010$\266$R\366\217\322\020\014\021\2121\302B\005l$"
@@ -516,7 +516,7 @@
 	.ascii	"\035\336\364?\352f\027\221\255L\357\236\177\366@~\002"
 	.ascii	"\235\033?\204"
 	.text
-	.section	.gnu.lto_.symtab.36d64789,"e",%progbits
+	.section	.gnu.lto_.symtab.41243c97,"e",%progbits
 	.ascii	"huffmanTable\000"
 	.ascii	"\000"
 	.ascii	"\000"

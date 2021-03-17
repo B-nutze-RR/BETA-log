@@ -3,13 +3,13 @@
 # 1 "<command-line>"
 # 1 "./src/main/io/serial.c"
 # 21 "./src/main/io/serial.c"
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdbool.h" 1 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdbool.h" 1 3 4
 # 22 "./src/main/io/serial.c" 2
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 1 3 4
-# 9 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 1 3 4
-# 12 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 1 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 1 3 4
+# 9 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 1 3 4
+# 12 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 1 3 4
 
 
 
@@ -17,46 +17,46 @@
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 1 3 4
-# 28 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_newlib_version.h" 1 3 4
-# 29 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 2 3 4
-# 9 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 2 3 4
-# 41 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 1 3 4
+# 28 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_newlib_version.h" 1 3 4
+# 29 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\features.h" 2 3 4
+# 9 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 2 3 4
+# 41 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 
-# 41 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 41 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef signed char __int8_t;
 
 typedef unsigned char __uint8_t;
-# 55 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 55 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef short int __int16_t;
 
 typedef short unsigned int __uint16_t;
-# 77 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 77 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef long int __int32_t;
 
 typedef long unsigned int __uint32_t;
-# 103 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 103 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef long long int __int64_t;
 
 typedef long long unsigned int __uint64_t;
-# 134 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 134 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef signed char __int_least8_t;
 
 typedef unsigned char __uint_least8_t;
-# 160 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 160 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef short int __int_least16_t;
 
 typedef short unsigned int __uint_least16_t;
-# 182 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 182 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef long int __int_least32_t;
 
 typedef long unsigned int __uint_least32_t;
-# 200 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 200 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef long long int __int_least64_t;
 
 typedef long long unsigned int __uint_least64_t;
-# 214 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
+# 214 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_default_types.h" 3 4
 typedef long long int __intmax_t;
 
 
@@ -76,9 +76,9 @@ typedef long long unsigned int __uintmax_t;
 typedef int __intptr_t;
 
 typedef unsigned int __uintptr_t;
-# 13 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 1 3 4
-# 35 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
+# 13 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 1 3 4
+# 35 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
        
        
        
@@ -87,7 +87,7 @@ typedef unsigned int __uintptr_t;
        
        
        
-# 190 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
+# 190 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_intsup.h" 3 4
        
        
        
@@ -96,9 +96,9 @@ typedef unsigned int __uintptr_t;
        
        
        
-# 14 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 1 3 4
-# 20 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 3 4
+# 14 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 1 3 4
+# 20 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_stdint.h" 3 4
 typedef __int8_t int8_t ;
 
 
@@ -162,7 +162,7 @@ typedef __intptr_t intptr_t;
 
 
 typedef __uintptr_t uintptr_t;
-# 15 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
+# 15 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 2 3 4
 
 
 
@@ -189,62 +189,62 @@ typedef __uint_least32_t uint_least32_t;
 
 typedef __int_least64_t int_least64_t;
 typedef __uint_least64_t uint_least64_t;
-# 51 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 51 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef int int_fast8_t;
   typedef unsigned int uint_fast8_t;
-# 61 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 61 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef int int_fast16_t;
   typedef unsigned int uint_fast16_t;
-# 71 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 71 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef int int_fast32_t;
   typedef unsigned int uint_fast32_t;
-# 81 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
+# 81 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\stdint.h" 3 4
   typedef long long int int_fast64_t;
   typedef long long unsigned int uint_fast64_t;
-# 10 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 2 3 4
+# 10 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stdint.h" 2 3 4
 # 23 "./src/main/io/serial.c" 2
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 1 3
-# 10 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
-# 10 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\newlib.h" 1 3
-# 11 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 1 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 1 3
+# 10 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
+# 10 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\newlib.h" 1 3
+# 11 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 1 3
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\ieeefp.h" 1 3
-# 5 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 2 3
-# 12 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
-# 11 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 1 3
-# 13 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
-# 14 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 143 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\ieeefp.h" 1 3
+# 5 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\config.h" 2 3
+# 12 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 2 3
+# 11 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 1 3
+# 13 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\_ansi.h" 1 3
+# 14 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 143 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef int ptrdiff_t;
-# 209 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 209 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef unsigned int size_t;
-# 321 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 321 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef unsigned int wchar_t;
-# 415 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 415 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef struct {
   long long __max_align_ll __attribute__((__aligned__(__alignof__(long long))));
   long double __max_align_ld __attribute__((__aligned__(__alignof__(long double))));
-# 426 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 426 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 } max_align_t;
-# 15 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 1 3
-# 24 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 350 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
+# 15 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 1 3
+# 24 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 350 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 3 4
 typedef unsigned int wint_t;
-# 25 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
+# 25 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_types.h" 1 3
-# 28 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\machine\\_types.h" 1 3
+# 28 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 2 3
 
 
 typedef long __blkcnt_t;
@@ -293,7 +293,7 @@ typedef __uint32_t __id_t;
 
 
 typedef unsigned short __ino_t;
-# 90 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 90 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef __uint32_t __mode_t;
 
 
@@ -321,11 +321,11 @@ typedef long __key_t;
 
 
 typedef long _fpos_t;
-# 131 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 131 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef unsigned int __size_t;
-# 147 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 147 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef signed int _ssize_t;
-# 158 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
+# 158 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_types.h" 3
 typedef _ssize_t __ssize_t;
 
 
@@ -388,7 +388,7 @@ typedef unsigned long __useconds_t;
 
 
 typedef __builtin_va_list __va_list;
-# 16 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 16 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
 
 
 
@@ -396,9 +396,9 @@ typedef __builtin_va_list __va_list;
 
 
 typedef unsigned long __ULong;
-# 34 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 1 3
-# 33 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 3
+# 34 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 1 3
+# 33 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\lock.h" 3
 struct __lock;
 typedef struct __lock * _LOCK_T;
 
@@ -427,7 +427,7 @@ extern int __retarget_lock_try_acquire_recursive(_LOCK_T lock);
 extern void __retarget_lock_release(_LOCK_T lock);
 
 extern void __retarget_lock_release_recursive(_LOCK_T lock);
-# 35 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
+# 35 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 2 3
 typedef _LOCK_T _flock_t;
 
 
@@ -481,7 +481,7 @@ struct _on_exit_args {
 
  __ULong _is_cxa;
 };
-# 98 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 98 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct _atexit {
  struct _atexit *_next;
  int _ind;
@@ -489,12 +489,12 @@ struct _atexit {
  void (*_fns[32])(void);
         struct _on_exit_args _on_exit_args;
 };
-# 122 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 122 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct __sbuf {
  unsigned char *_base;
  int _size;
 };
-# 186 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 186 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct __sFILE {
   unsigned char *_p;
   int _r;
@@ -545,7 +545,7 @@ struct __sFILE {
   _mbstate_t _mbstate;
   int _flags2;
 };
-# 292 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 292 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 typedef struct __sFILE __FILE;
 
 
@@ -556,7 +556,7 @@ struct _glue
   int _niobs;
   __FILE *_iobs;
 };
-# 324 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 324 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct _rand48 {
   unsigned short _seed[3];
   unsigned short _mult[3];
@@ -566,7 +566,7 @@ struct _rand48 {
 
 
 };
-# 613 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 613 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 struct _reent
 {
   int _errno;
@@ -649,35 +649,35 @@ struct _reent
   __FILE __sf[3];
 
 };
-# 819 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
+# 819 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\reent.h" 3
 extern struct _reent *_impure_ptr ;
 extern struct _reent *const _global_impure_ptr ;
 
 void _reclaim_reent (struct _reent *);
-# 12 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 1 3
-# 47 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 3
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 48 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 2 3
-# 13 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 12 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 1 3
+# 47 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 48 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\cdefs.h" 2 3
+# 13 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
-# 18 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 18 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 1 3
-# 9 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 1 3
+# 9 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\_locale.h" 3
 struct __locale_t;
 typedef struct __locale_t *locale_t;
-# 21 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 21 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 1 3
-# 44 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 1 3
+# 44 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\strings.h" 3
 
 
 int bcmp(const void *, const void *, size_t) __attribute__((__pure__));
@@ -709,7 +709,7 @@ int strcasecmp_l (const char *, const char *, locale_t);
 int strncasecmp_l (const char *, const char *, size_t, locale_t);
 
 
-# 25 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 25 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 
@@ -783,7 +783,7 @@ char *_strndup_r (struct _reent *, const char *, size_t);
 
 
 char *strerror_r (int, char *, size_t);
-# 112 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
+# 112 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
 char * _strerror_r (struct _reent *, int, int, int *);
 
 
@@ -815,12 +815,12 @@ char *strsignal (int __signo);
 
 
 int strverscmp (const char *, const char *);
-# 172 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
+# 172 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 3
 char *__attribute__((__nonnull__ (1))) basename (const char *) __asm__("" "__gnu_basename");
 
 
-# 1 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\string.h" 1 3
-# 176 "e:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
+# 1 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\sys\\string.h" 1 3
+# 176 "c:\\dev\\9 2020-q2-update\\arm-none-eabi\\include\\string.h" 2 3
 
 
 # 24 "./src/main/io/serial.c" 2
@@ -4773,7 +4773,7 @@ void __attribute__((section(".RamFunc"))) FLASH_FlashSleepModeCmd(FunctionalStat
 # 21 "./src/main/common/utils.h"
        
 
-# 1 "e:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
+# 1 "c:\\dev\\9 2020-q2-update\\lib\\gcc\\arm-none-eabi\\9.3.1\\include\\stddef.h" 1 3 4
 # 24 "./src/main/common/utils.h" 2
 # 100 "./src/main/common/utils.h"
 static inline int16_t cmp16(uint16_t a, uint16_t b) { return (int16_t)(a-b); }
@@ -6078,409 +6078,7 @@ uint32_t mspSerialTxBytesFree(void);
 # 59 "./src/main/io/serial.c" 2
 
 
-# 1 "./src/main/telemetry/telemetry.h" 1
-# 28 "./src/main/telemetry/telemetry.h"
-       
 
-# 1 "./src/main/common/unit.h" 1
-# 21 "./src/main/common/unit.h"
-       
-
-typedef enum {
-    UNIT_IMPERIAL = 0,
-    UNIT_METRIC,
-    UNIT_BRITISH
-} unit_e;
-# 31 "./src/main/telemetry/telemetry.h" 2
-
-
-
-
-
-# 1 "./src/main/rx/rx.h" 1
-# 21 "./src/main/rx/rx.h"
-       
-
-
-
-
-# 1 "./src/main/pg/rx.h" 1
-# 21 "./src/main/pg/rx.h"
-       
-# 30 "./src/main/pg/rx.h"
-typedef struct rxConfig_s {
-    uint8_t rcmap[8];
-    uint8_t serialrx_provider;
-    uint8_t serialrx_inverted;
-    uint8_t halfDuplex;
-    ioTag_t spektrum_bind_pin_override_ioTag;
-    ioTag_t spektrum_bind_plug_ioTag;
-    uint8_t spektrum_sat_bind;
-    uint8_t spektrum_sat_bind_autoreset;
-    uint8_t rssi_channel;
-    uint8_t rssi_scale;
-    uint8_t rssi_invert;
-    uint16_t midrc;
-    uint16_t mincheck;
-    uint16_t maxcheck;
-    uint8_t rcInterpolation;
-    uint8_t rcInterpolationChannels;
-    uint8_t rcInterpolationInterval;
-    uint8_t fpvCamAngleDegrees;
-    uint8_t airModeActivateThreshold;
-
-    uint16_t rx_min_usec;
-    uint16_t rx_max_usec;
-    uint8_t max_aux_channel;
-    uint8_t rssi_src_frame_errors;
-    int8_t rssi_offset;
-    uint8_t rc_smoothing_type;
-    uint8_t rc_smoothing_input_cutoff;
-    uint8_t rc_smoothing_derivative_cutoff;
-    uint8_t rc_smoothing_debug_axis;
-    uint8_t rc_smoothing_input_type;
-    uint8_t rc_smoothing_derivative_type;
-    uint8_t rc_smoothing_auto_factor;
-    uint8_t rssi_src_frame_lpf_period;
-
-    uint8_t srxl2_unit_id;
-    uint8_t srxl2_baud_fast;
-    uint8_t sbus_baud_fast;
-    uint8_t crsf_use_rx_snr;
-
-    uint32_t msp_override_channels_mask;
-} rxConfig_t;
-
-extern rxConfig_t rxConfig_System; extern rxConfig_t rxConfig_Copy; static inline const rxConfig_t* rxConfig(void) { return &rxConfig_System; } static inline rxConfig_t* rxConfigMutable(void) { return &rxConfig_System; } struct _dummy;
-# 27 "./src/main/rx/rx.h" 2
-# 48 "./src/main/rx/rx.h"
-typedef enum {
-    RX_FRAME_PENDING = 0,
-    RX_FRAME_COMPLETE = (1 << 0),
-    RX_FRAME_FAILSAFE = (1 << 1),
-    RX_FRAME_PROCESSING_REQUIRED = (1 << 2),
-    RX_FRAME_DROPPED = (1 << 3)
-} rxFrameState_e;
-
-typedef enum {
-    SERIALRX_SPEKTRUM1024 = 0,
-    SERIALRX_SPEKTRUM2048 = 1,
-    SERIALRX_SBUS = 2,
-    SERIALRX_SUMD = 3,
-    SERIALRX_SUMH = 4,
-    SERIALRX_XBUS_MODE_B = 5,
-    SERIALRX_XBUS_MODE_B_RJ01 = 6,
-    SERIALRX_IBUS = 7,
-    SERIALRX_JETIEXBUS = 8,
-    SERIALRX_CRSF = 9,
-    SERIALRX_SRXL = 10,
-    SERIALRX_TARGET_CUSTOM = 11,
-    SERIALRX_FPORT = 12,
-    SERIALRX_SRXL2 = 13,
-    SERIALRX_GHST = 14
-} SerialRXType;
-# 87 "./src/main/rx/rx.h"
-extern const char rcChannelLetters[];
-
-extern int16_t rcData[18];
-
-
-
-
-
-
-typedef enum {
-    RX_FAILSAFE_MODE_AUTO = 0,
-    RX_FAILSAFE_MODE_HOLD,
-    RX_FAILSAFE_MODE_SET,
-    RX_FAILSAFE_MODE_INVALID
-} rxFailsafeChannelMode_e;
-
-
-
-typedef enum {
-    RX_FAILSAFE_TYPE_FLIGHT = 0,
-    RX_FAILSAFE_TYPE_AUX
-} rxFailsafeChannelType_e;
-
-
-
-typedef struct rxFailsafeChannelConfig_s {
-    uint8_t mode;
-    uint8_t step;
-} rxFailsafeChannelConfig_t;
-
-extern rxFailsafeChannelConfig_t rxFailsafeChannelConfigs_SystemArray[18]; extern rxFailsafeChannelConfig_t rxFailsafeChannelConfigs_CopyArray[18]; static inline const rxFailsafeChannelConfig_t* rxFailsafeChannelConfigs(int _index) { return &rxFailsafeChannelConfigs_SystemArray[_index]; } static inline rxFailsafeChannelConfig_t* rxFailsafeChannelConfigsMutable(int _index) { return &rxFailsafeChannelConfigs_SystemArray[_index]; } static inline rxFailsafeChannelConfig_t (* rxFailsafeChannelConfigs_array(void))[18] { return &rxFailsafeChannelConfigs_SystemArray; } struct _dummy;
-
-typedef struct rxChannelRangeConfig_s {
-    uint16_t min;
-    uint16_t max;
-} rxChannelRangeConfig_t;
-
-extern rxChannelRangeConfig_t rxChannelRangeConfigs_SystemArray[4]; extern rxChannelRangeConfig_t rxChannelRangeConfigs_CopyArray[4]; static inline const rxChannelRangeConfig_t* rxChannelRangeConfigs(int _index) { return &rxChannelRangeConfigs_SystemArray[_index]; } static inline rxChannelRangeConfig_t* rxChannelRangeConfigsMutable(int _index) { return &rxChannelRangeConfigs_SystemArray[_index]; } static inline rxChannelRangeConfig_t (* rxChannelRangeConfigs_array(void))[4] { return &rxChannelRangeConfigs_SystemArray; } struct _dummy;
-
-struct rxRuntimeState_s;
-typedef uint16_t (*rcReadRawDataFnPtr)(const struct rxRuntimeState_s *rxRuntimeState, uint8_t chan);
-typedef uint8_t (*rcFrameStatusFnPtr)(struct rxRuntimeState_s *rxRuntimeState);
-typedef 
-# 129 "./src/main/rx/rx.h" 3 4
-       _Bool 
-# 129 "./src/main/rx/rx.h"
-            (*rcProcessFrameFnPtr)(const struct rxRuntimeState_s *rxRuntimeState);
-typedef timeUs_t rcGetFrameTimeUsFn(void);
-
-typedef enum {
-    RX_PROVIDER_NONE = 0,
-    RX_PROVIDER_PARALLEL_PWM,
-    RX_PROVIDER_PPM,
-    RX_PROVIDER_SERIAL,
-    RX_PROVIDER_MSP,
-    RX_PROVIDER_SPI,
-} rxProvider_t;
-
-typedef struct rxRuntimeState_s {
-    rxProvider_t rxProvider;
-    SerialRXType serialrxProvider;
-    uint8_t channelCount;
-    uint16_t rxRefreshRate;
-    rcReadRawDataFnPtr rcReadRawFn;
-    rcFrameStatusFnPtr rcFrameStatusFn;
-    rcProcessFrameFnPtr rcProcessFrameFn;
-    rcGetFrameTimeUsFn *rcFrameTimeUsFn;
-    uint16_t *channelData;
-    void *frameData;
-} rxRuntimeState_t;
-
-typedef enum {
-    RSSI_SOURCE_NONE = 0,
-    RSSI_SOURCE_ADC,
-    RSSI_SOURCE_RX_CHANNEL,
-    RSSI_SOURCE_RX_PROTOCOL,
-    RSSI_SOURCE_MSP,
-    RSSI_SOURCE_FRAME_ERRORS,
-    RSSI_SOURCE_RX_PROTOCOL_CRSF,
-} rssiSource_e;
-
-extern rssiSource_e rssiSource;
-
-typedef enum {
-    LQ_SOURCE_NONE = 0,
-    LQ_SOURCE_RX_PROTOCOL_CRSF,
-    LQ_SOURCE_RX_PROTOCOL_GHST,
-} linkQualitySource_e;
-
-extern linkQualitySource_e linkQualitySource;
-
-extern rxRuntimeState_t rxRuntimeState;
-
-void rxInit(void);
-
-# 177 "./src/main/rx/rx.h" 3 4
-_Bool 
-# 177 "./src/main/rx/rx.h"
-    rxUpdateCheck(timeUs_t currentTimeUs, timeDelta_t currentDeltaTimeUs);
-
-# 178 "./src/main/rx/rx.h" 3 4
-_Bool 
-# 178 "./src/main/rx/rx.h"
-    rxIsReceivingSignal(void);
-
-# 179 "./src/main/rx/rx.h" 3 4
-_Bool 
-# 179 "./src/main/rx/rx.h"
-    rxAreFlightChannelsValid(void);
-
-# 180 "./src/main/rx/rx.h" 3 4
-_Bool 
-# 180 "./src/main/rx/rx.h"
-    calculateRxChannelsAndUpdateFailsafe(timeUs_t currentTimeUs);
-
-struct rxConfig_s;
-
-void parseRcChannels(const char *input, struct rxConfig_s *rxConfig);
-
-
-
-void setRssiDirect(uint16_t newRssi, rssiSource_e source);
-void setRssi(uint16_t rssiValue, rssiSource_e source);
-void setRssiMsp(uint8_t newMspRssi);
-void updateRSSI(timeUs_t currentTimeUs);
-uint16_t getRssi(void);
-uint8_t getRssiPercent(void);
-
-# 194 "./src/main/rx/rx.h" 3 4
-_Bool 
-# 194 "./src/main/rx/rx.h"
-    isRssiConfigured(void);
-
-
-
-uint16_t rxGetLinkQuality(void);
-void setLinkQualityDirect(uint16_t linkqualityValue);
-uint16_t rxGetLinkQualityPercent(void);
-
-int16_t getRssiDbm(void);
-void setRssiDbm(int16_t newRssiDbm, rssiSource_e source);
-void setRssiDbmDirect(int16_t newRssiDbm, rssiSource_e source);
-
-void rxSetRfMode(uint8_t rfModeValue);
-uint8_t rxGetRfMode(void);
-
-void resetAllRxChannelRangeConfigurations(rxChannelRangeConfig_t *rxChannelRangeConfig);
-
-void suspendRxPwmPpmSignal(void);
-void resumeRxPwmPpmSignal(void);
-
-uint16_t rxGetRefreshRate(void);
-
-timeDelta_t rxGetFrameDelta(timeDelta_t *frameAgeUs);
-# 37 "./src/main/telemetry/telemetry.h" 2
-
-# 1 "./src/main/telemetry/ibus_shared.h" 1
-# 29 "./src/main/telemetry/ibus_shared.h"
-       
-
-
-
-
-
-
-
-typedef enum {
-    IBUS_SENSOR_TYPE_NONE = 0x00,
-    IBUS_SENSOR_TYPE_TEMPERATURE = 0x01,
-    IBUS_SENSOR_TYPE_RPM_FLYSKY = 0x02,
-    IBUS_SENSOR_TYPE_EXTERNAL_VOLTAGE = 0x03,
-    IBUS_SENSOR_TYPE_CELL = 0x04,
-    IBUS_SENSOR_TYPE_BAT_CURR = 0x05,
-    IBUS_SENSOR_TYPE_FUEL = 0x06,
-    IBUS_SENSOR_TYPE_RPM = 0x07,
-    IBUS_SENSOR_TYPE_CMP_HEAD = 0x08,
-    IBUS_SENSOR_TYPE_CLIMB_RATE = 0x09,
-    IBUS_SENSOR_TYPE_COG = 0x0a,
-    IBUS_SENSOR_TYPE_GPS_STATUS = 0x0b,
-    IBUS_SENSOR_TYPE_ACC_X = 0x0c,
-    IBUS_SENSOR_TYPE_ACC_Y = 0x0d,
-    IBUS_SENSOR_TYPE_ACC_Z = 0x0e,
-    IBUS_SENSOR_TYPE_ROLL = 0x0f,
-    IBUS_SENSOR_TYPE_PITCH = 0x10,
-    IBUS_SENSOR_TYPE_YAW = 0x11,
-    IBUS_SENSOR_TYPE_VERTICAL_SPEED = 0x12,
-    IBUS_SENSOR_TYPE_GROUND_SPEED = 0x13,
-    IBUS_SENSOR_TYPE_GPS_DIST = 0x14,
-    IBUS_SENSOR_TYPE_ARMED = 0x15,
-    IBUS_SENSOR_TYPE_FLIGHT_MODE = 0x16,
-    IBUS_SENSOR_TYPE_PRES = 0x41,
-    IBUS_SENSOR_TYPE_ODO1 = 0x7c,
-    IBUS_SENSOR_TYPE_ODO2 = 0x7d,
-    IBUS_SENSOR_TYPE_SPE = 0x7e,
-
-    IBUS_SENSOR_TYPE_GPS_LAT = 0x80,
-    IBUS_SENSOR_TYPE_GPS_LON = 0x81,
-    IBUS_SENSOR_TYPE_GPS_ALT = 0x82,
-    IBUS_SENSOR_TYPE_ALT = 0x83,
-    IBUS_SENSOR_TYPE_ALT_MAX = 0x84,
-
-    IBUS_SENSOR_TYPE_ALT_FLYSKY = 0xf9,
-
-    IBUS_SENSOR_TYPE_GPS_FULL = 0xfd,
-    IBUS_SENSOR_TYPE_VOLT_FULL = 0xf0,
-    IBUS_SENSOR_TYPE_ACC_FULL = 0xef,
-
-    IBUS_SENSOR_TYPE_UNKNOWN = 0xff
-} ibusSensorType_e;
-
-
-
-uint8_t respondToIbusRequest(uint8_t const * const ibusPacket);
-void initSharedIbusTelemetry(serialPort_t * port);
-
-
-
-
-
-# 89 "./src/main/telemetry/ibus_shared.h" 3 4
-_Bool 
-# 89 "./src/main/telemetry/ibus_shared.h"
-    isChecksumOkIa6b(const uint8_t *ibusPacket, const uint8_t length);
-# 39 "./src/main/telemetry/telemetry.h" 2
-
-typedef enum {
-    FRSKY_FORMAT_DMS = 0,
-    FRSKY_FORMAT_NMEA
-} frskyGpsCoordFormat_e;
-
-typedef enum {
-    SENSOR_VOLTAGE = 1 << 0,
-    SENSOR_CURRENT = 1 << 1,
-    SENSOR_FUEL = 1 << 2,
-    SENSOR_MODE = 1 << 3,
-    SENSOR_ACC_X = 1 << 4,
-    SENSOR_ACC_Y = 1 << 5,
-    SENSOR_ACC_Z = 1 << 6,
-    SENSOR_PITCH = 1 << 7,
-    SENSOR_ROLL = 1 << 8,
-    SENSOR_HEADING = 1 << 9,
-    SENSOR_ALTITUDE = 1 << 10,
-    SENSOR_VARIO = 1 << 11,
-    SENSOR_LAT_LONG = 1 << 12,
-    SENSOR_GROUND_SPEED = 1 << 13,
-    SENSOR_DISTANCE = 1 << 14,
-    ESC_SENSOR_CURRENT = 1 << 15,
-    ESC_SENSOR_VOLTAGE = 1 << 16,
-    ESC_SENSOR_RPM = 1 << 17,
-    ESC_SENSOR_TEMPERATURE = 1 << 18,
-    ESC_SENSOR_ALL = ESC_SENSOR_CURRENT
-                            | ESC_SENSOR_VOLTAGE
-                            | ESC_SENSOR_RPM
-                            | ESC_SENSOR_TEMPERATURE,
-    SENSOR_TEMPERATURE = 1 << 19,
-    SENSOR_CAP_USED = 1 << 20,
-    SENSOR_ALL = (1 << 21) - 1,
-} sensor_e;
-
-typedef struct telemetryConfig_s {
-    int16_t gpsNoFixLatitude;
-    int16_t gpsNoFixLongitude;
-    uint8_t telemetry_inverted;
-    uint8_t halfDuplex;
-    uint8_t frsky_coordinate_format;
-    uint8_t frsky_unit;
-    uint8_t frsky_vfas_precision;
-    uint8_t hottAlarmSoundInterval;
-    uint8_t pidValuesAsTelemetry;
-    uint8_t report_cell_voltage;
-    uint8_t flysky_sensors[15];
-    uint16_t mavlink_mah_as_heading_divisor;
-    uint32_t disabledSensors;
-} telemetryConfig_t;
-
-extern telemetryConfig_t telemetryConfig_System; extern telemetryConfig_t telemetryConfig_Copy; static inline const telemetryConfig_t* telemetryConfig(void) { return &telemetryConfig_System; } static inline telemetryConfig_t* telemetryConfigMutable(void) { return &telemetryConfig_System; } struct _dummy;
-
-extern serialPort_t *telemetrySharedPort;
-
-void telemetryInit(void);
-
-# 95 "./src/main/telemetry/telemetry.h" 3 4
-_Bool 
-# 95 "./src/main/telemetry/telemetry.h"
-    telemetryCheckRxPortShared(const serialPortConfig_t *portConfig, const SerialRXType serialrxProvider);
-
-void telemetryCheckState(void);
-void telemetryProcess(uint32_t currentTime);
-
-
-# 100 "./src/main/telemetry/telemetry.h" 3 4
-_Bool 
-# 100 "./src/main/telemetry/telemetry.h"
-    telemetryDetermineEnabledState(portSharing_e portSharing);
-
-
-# 102 "./src/main/telemetry/telemetry.h" 3 4
-_Bool 
-# 102 "./src/main/telemetry/telemetry.h"
-    telemetryIsSensorEnabled(sensor_e sensor);
-# 62 "./src/main/io/serial.c" 2
 
 
 # 1 "./src/main/pg/pinio.h" 1
@@ -6733,10 +6331,10 @@ _Bool
                            ;
             }
 
-            if ((portConfig->functionMask & FUNCTION_MSP) && (portConfig->functionMask & (FUNCTION_BLACKBOX | ((FUNCTION_TELEMETRY_FRSKY_HUB | FUNCTION_TELEMETRY_LTM | FUNCTION_TELEMETRY_MAVLINK) | FUNCTION_TELEMETRY_HOTT | FUNCTION_TELEMETRY_SMARTPORT)))) {
+            if ((portConfig->functionMask & FUNCTION_MSP) && (portConfig->functionMask & (FUNCTION_BLACKBOX))) {
 
 
-            } else if (telemetryCheckRxPortShared(portConfig, rxConfig()->serialrx_provider)) {
+
 
 
             } else {

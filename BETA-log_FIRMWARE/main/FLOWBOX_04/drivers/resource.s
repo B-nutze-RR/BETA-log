@@ -9,23 +9,23 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"resource.c"
-	.section	.gnu.lto_.profile.36d677d4,"e",%progbits
+	.section	.gnu.lto_.profile.41244b48,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.36d677d4,"e",%progbits
+	.section	.gnu.lto_.icf.41244b48,"e",%progbits
 	.ascii	"x\234\343``d`g@\000F\206\343\035'\315\030\000\012:\002"
 	.ascii	"`"
 	.text
-	.section	.gnu.lto_.jmpfuncs.36d677d4,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.41244b48,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.inline.36d677d4,"e",%progbits
+	.section	.gnu.lto_.inline.41244b48,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.pureconst.36d677d4,"e",%progbits
+	.section	.gnu.lto_.pureconst.41244b48,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_ownerNames.36d677d4,"e",%progbits
+	.section	.gnu.lto_ownerNames.41244b48,"e",%progbits
 	.ascii	"x\234U\227iTTI\226\200\337\313\227$$$\320]]Kw\333]\335"
 	.ascii	"1K\317L\367LYXS=S\263T\037L\262,N\001\311d\246U\326"
 	.ascii	"\237\316\323\247\246~\324\231\3233\347X\247\373\314"
@@ -232,14 +232,14 @@
 	.ascii	"\243\001\367s\243\240\0116Z\214&A\035\032\032\014\177"
 	.ascii	"\276\010\026\334>1\031\014\302\377\003\320\205\363\036"
 	.text
-	.section	.gnu.lto_.symbol_nodes.36d677d4,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.41244b48,"e",%progbits
 	.ascii	"x\234\343``d\340f\000\002\3266F\206F%\020\013\000\012"
 	.ascii	"\001\001D"
 	.text
-	.section	.gnu.lto_.refs.36d677d4,"e",%progbits
+	.section	.gnu.lto_.refs.41244b48,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.36d677d4,"e",%progbits
+	.section	.gnu.lto_.decls.41244b48,"e",%progbits
 	.ascii	"x\234}\326_LSW\030\000\360{\356m\201\026(\011\376\331"
 	.ascii	"\022\262\305\027\223=\211n{\330\343\222=\314'\337\226"
 	.ascii	"=,Yb\030\311|P\223\222m\217+\377\212 B\005[\007\214"
@@ -326,7 +326,7 @@
 	.ascii	"\037\2149\271\207rR\276<\366\325\201/\216\034\02149"
 	.ascii	"\337\0377~\370\316\266\302\277dd\220\244"
 	.text
-	.section	.gnu.lto_.symtab.36d677d4,"e",%progbits
+	.section	.gnu.lto_.symtab.41244b48,"e",%progbits
 	.ascii	"ownerNames\000"
 	.ascii	"\000"
 	.ascii	"\000"

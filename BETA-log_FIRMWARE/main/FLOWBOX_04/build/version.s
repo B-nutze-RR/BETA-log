@@ -9,42 +9,40 @@
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
 	.file	"version.c"
-	.section	.gnu.lto_.profile.36d625b3,"e",%progbits
+	.section	.gnu.lto_.profile.4123c079,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.icf.36d625b3,"e",%progbits
-	.ascii	"x\234\343``d\220b@\000\026\206I\373\216\265\3623\356"
-	.ascii	";\332\372\216\213\351\356\352\245\267\271\231\337~<"
-	.ascii	"w\224\227\001\000\243X\014i"
+	.section	.gnu.lto_.icf.4123c079,"e",%progbits
+	.ascii	"x\234\343``d\220b@\000\026\206C[g\036dgl\234\373m-?"
+	.ascii	"\323\335\325Kos3\277\375x\356(/\003\000\244\014\014"
+	.ascii	"g"
 	.text
-	.section	.gnu.lto_.jmpfuncs.36d625b3,"e",%progbits
+	.section	.gnu.lto_.jmpfuncs.4123c079,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.inline.36d625b3,"e",%progbits
+	.section	.gnu.lto_.inline.4123c079,"e",%progbits
 	.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
 	.text
-	.section	.gnu.lto_.pureconst.36d625b3,"e",%progbits
+	.section	.gnu.lto_.pureconst.4123c079,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_buildTime.36d625b3,"e",%progbits
-	.ascii	"x\234\343``d0a``Pg\200\200\351\314\214\023'_\230\303"
-	.ascii	"\242\3104\277a\206\302|f\260\310\215\365'\247\362\267"
-	.ascii	"065\316hhx\360\371\000\273\307|fF\306]\214\212\014\014"
-	.ascii	"\214\273\031[\030\0318\015-\254\014\214\254\014\214"
-	.ascii	"\031\244\365\364\213\213\222\365s\0233\363\364\223J"
-	.ascii	"3sR\364\313R\213\2123\363\363\364\222\031\000\2517\035"
-	.ascii	"\307"
+	.section	.gnu.lto_buildTime.4123c079,"e",%progbits
+	.ascii	"x\234\343``d0a``Pg\200\200\351\314\214=\237\027\277"
+	.ascii	"\346Td\232\3370Ca>3Xd\331\306]{\230[\030\233\032g44"
+	.ascii	"<\370|\200\335c>3#\343.FE\006\006\306\335\214-\214\014"
+	.ascii	"\234\206\026V\006FV\246\026\014\322z\372\305E\311\372"
+	.ascii	"\271\211\231y\372I\245\2319)\372e\251E\305\231\371y"
+	.ascii	"z\311\014\000\314\020\036/"
 	.text
-	.section	.gnu.lto_buildDate.36d625b3,"e",%progbits
-	.ascii	"x\234\343``d0f``\320b\200\200\351\314\214M/\267\374"
-	.ascii	"fRd\232\3370Ca>3X\344\313\376U\025-\214M\2153\032\032"
-	.ascii	"\036\374\337\300\3561\237\231\221q\027\243\"\003\003"
-	.ascii	"\343n\306\026F\006\036\337\304\"\005CS\005#\003#C\006"
-	.ascii	"i=\375\342\242d\375\334\304\314<\375\244\322\314\234"
-	.ascii	"\024\375\262\324\242\342\314\374<\275d\006\000\"o\037"
-	.ascii	"\032"
+	.section	.gnu.lto_buildDate.4123c079,"e",%progbits
+	.ascii	"x\234\343``d0f``\320b\200\200\351\314\214\377:{#\025"
+	.ascii	"\231\3467\314P\230\317\014\026X\334\367k#K\013cS\343"
+	.ascii	"\214\206\206\007\3777\260{\314gfd\334\305\250\310\300"
+	.ascii	"\300\270\233\261\205\221\201\3077\261H\301\320\\\301"
+	.ascii	"\310\300\310\220AZO\277\270(Y?713O?\25143'E\277,\265"
+	.ascii	"\25083?O/\231\001\000\357\301\036x"
 	.text
-	.section	.gnu.lto_shortGitRevision.36d625b3,"e",%progbits
+	.section	.gnu.lto_shortGitRevision.4123c079,"e",%progbits
 	.ascii	"x\234\343``d0a``0`\200\200\351\314\214\377\276=^\317"
 	.ascii	"\247\3104\277a\206\302|f\260\310\366\366?\035\254-\214"
 	.ascii	"M\2153\032\032\036l_\310\356?\237\231\221q\027\243\""
@@ -53,7 +51,7 @@
 	.ascii	"\334\304\314<\375\244\322\314\234\024\375\262\324\242"
 	.ascii	"\342\314\374<\275d\006\0005A\"m"
 	.text
-	.section	.gnu.lto_targetName.36d625b3,"e",%progbits
+	.section	.gnu.lto_targetName.4123c079,"e",%progbits
 	.ascii	"x\234\343``d0a``\320d\200\200\351\314\214W\357\037\233"
 	.ascii	"\316\250\3104\277a\206\302|f\260H\337\352\035]L-\214"
 	.ascii	"M\2153\032\032\036\374\236\300\3569\237\231\221q\027"
@@ -62,14 +60,14 @@
 	.ascii	"\322\314\234\024\375\262\324\242\342\314\374<\275d\006"
 	.ascii	"\000\377I\036\355"
 	.text
-	.section	.gnu.lto_.symbol_nodes.36d625b3,"e",%progbits
+	.section	.gnu.lto_.symbol_nodes.4123c079,"e",%progbits
 	.ascii	"x\234\343``dPc\000\002\326NF\206F%\020\243\203\221\021"
 	.ascii	"\302hgd\2020\332\030\231\301\014\006\000kr\004\370"
 	.text
-	.section	.gnu.lto_.refs.36d625b3,"e",%progbits
+	.section	.gnu.lto_.refs.4123c079,"e",%progbits
 	.ascii	"x\234\343``\004B \000\000\000]\000\013"
 	.text
-	.section	.gnu.lto_.decls.36d625b3,"e",%progbits
+	.section	.gnu.lto_.decls.4123c079,"e",%progbits
 	.ascii	"x\234}\222ILSA\030\307\347c(\224\327\002J<\030{\341"
 	.ascii	" W\012\361nL4\201\023F\243'\023\223\212\2154aIJ\345"
 	.ascii	"\352c\011 *\002Q\024\210Z!\306\005D\022\300\005,\273"
@@ -116,7 +114,7 @@
 	.ascii	"7f\231\330\254d1\230\257\031-I\2064\343?\262\224\247"
 	.ascii	"\310"
 	.text
-	.section	.gnu.lto_.symtab.36d625b3,"e",%progbits
+	.section	.gnu.lto_.symtab.4123c079,"e",%progbits
 	.ascii	"buildTime\000"
 	.ascii	"\000"
 	.ascii	"\000"
